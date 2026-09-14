@@ -1,8 +1,10 @@
 # Third-party notices
 
-This repository contains original project source code and configuration. It does not vendor Python packages, model weights, Qdrant binaries, or source PDF documents. Those components are downloaded separately and remain governed by their respective licenses.
+This repository contains original project source code and configuration. It does not vendor Python packages, model weights, or Qdrant binaries. It does bundle 27 third-party PDF files under `data/raw/`: 23 original corpus candidates and 4 official-verification copies, representing 22 unique byte contents and 5 exact duplicate copies. Bundling a PDF does not mean it has passed formal-corpus admission.
 
 The project itself is distributed under GNU Affero General Public License version 3 only (`AGPL-3.0-only`) because its PDF ingestion path directly uses PyMuPDF under PyMuPDF's open-source AGPL option. A commercial PyMuPDF license is not included.
+
+The project AGPL applies only to project-authored code and documentation. It does not license, sublicense, or change the rights status of third-party PDFs. Public availability of a source is not a claim of redistribution authorization, and the project's learning, research, engineering-validation, and non-commercial-demo purpose is not a substitute for permission. The project does not sell the PDFs or grant commercial-use rights. See `DATA_NOTICE.md` for the data boundary, SHA-256 limitation, correction and takedown process, and contribution restrictions.
 
 ## Direct Python dependencies
 

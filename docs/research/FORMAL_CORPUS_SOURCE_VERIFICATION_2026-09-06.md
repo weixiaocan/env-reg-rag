@@ -1,5 +1,7 @@
 # 正式语料来源核验记录（2026-09-06）
 
+> 历史快照：本文末尾关于 `_official_verification/` 被忽略、不进入公开提交的描述只反映核验当时的策略。当前 4 份官方核验副本随仓库公开携带，但公开携带仍不等于文档准入或正式回答语料发布；现行边界见 `DATA_NOTICE.md`。
+
 ## 结论
 
 本轮对四份文档完成了官方 PDF 下载和 SHA-256 比对。四份官方文件都与本地 PDF 字节级一致，因此其 `source_review` 可更新为 `official_fulltext_verified`，`local_file_match` 可更新为 `sha256_match`。

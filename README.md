@@ -1,6 +1,6 @@
-# 排水规范证据助手
+# 环保法规规范证据助手
 
-面向排水监测、咨询和分析人员的开源 RAG 项目。系统从标准、政策和技术文件中检索可回查证据，并在证据充分时生成带引用回答；它不替代工程师或法务作合规判断。
+面向环保领域法律、法规、标准和技术规范的开源证据型 RAG 项目。系统从持续扩展的资料库中检索可定位、可回查的证据，并在证据充分时生成带引用回答；它不替代工程师、审查人员或法务作出专业判断。
 
 项目已完成 M1–M6，包括数据登记、PDF 解析/OCR、检索基线、RAG 问答核心、网页工作台、分层评估、单机部署/恢复和 MCP 联调。首版正式语料包含 3 份官方文档、29 个检索块；当前进入 P7 开源与面试交付。M6 只在“可演示、可复现、可进入开源准备的单机 POC”范围内通过，不把已知回答波动或单机部署冒充为生产准确率和高可用能力。
 
@@ -12,6 +12,7 @@
 - [领域术语](docs/DOMAIN_LANGUAGE.md)
 - [AI 协作开发流程](docs/AI_COLLAB_WORKFLOW.md)
 - [开源发布边界与复现说明](docs/OPEN_SOURCE_RELEASE.md)
+- [数据资料声明与下架机制](DATA_NOTICE.md)
 - [M6 总评估报告](docs/evaluation/M6_FINAL_EVALUATION_REPORT.md)
 - [M2 PDF 解析评价计划](docs/evaluation/M2_PARSING_EVAL_PLAN.md)
 - [E-01A PyMuPDF 原生解析基线报告](docs/evaluation/E01_PYMUPDF_NATIVE_BASELINE.md)
@@ -42,6 +43,8 @@
 5. M3“证据单元与检索基线”、M4“RAG 问答核心”、M5“网页工作台”和 M6“评估、部署与 MCP”均已完成；当前进入 P7 开源与面试交付。
 
 M1 数据登记产物集中在 `data/registry/`：
+
+当前公开仓库在 `data/raw/` 携带 27 个 PDF 文件、共 1252 页：23 份原候选语料和 4 份官方核验副本。按 SHA-256 去重后是 22 个独立文件内容，5 个完全重复副本为保留来源与核验关系而继续保留。公开携带不代表全部文件已通过文档准入或进入正式回答语料；正式语料仍以版本化发布清单为准。
 
 - `inventory.csv`：可重新生成的机器盘点结果，包括 SHA-256、页数、文字层覆盖率和文件关系。
 - `document_reviews.csv`：人工维护的官方来源、日期、效力和本地文件核验记录。
@@ -88,9 +91,9 @@ python scripts/register_experiment_corpus.py
 
 该命令会校验清单、盘点表、来源复核表和本地 PDF 的 SHA-256，再把文档登记为“仅限实验”。默认数据库为 `data/registry/corpus_registry.sqlite3`，它是本地运行产物，不提交 Git；重复执行不会重复登记或重复写入准入事件。
 
-> 开源发布门控：`data/raw/` 中现有 PDF 仅供本地实验。逐份确认再分发权利并清理 Git 历史前，不得把含原始 PDF 的仓库直接公开；正式开源包优先保留来源清单、校验值和下载或自备语料流程。
+> 数据资料边界：这些 PDF 来自公开网络渠道，用于学习、研究、工程验证和非商业演示；公开可取得不等于已经取得再分发授权，非商业用途声明也不能替代授权。第三方 PDF 不受项目 AGPL 许可覆盖，权利、使用限制和下架流程见[数据资料声明](DATA_NOTICE.md)。
 
-公开仓库还会排除从 PDF 派生的全文、证据块、检索块、OCR 页面结果和原页截图。克隆仓库后需要按[开源发布边界与复现说明](docs/OPEN_SOURCE_RELEASE.md)自行准备语料并重建这些产物。
+公开仓库排除从 PDF 派生的全文、证据块、检索块、OCR 页面结果、原页截图和运行数据。克隆仓库后无需另行下载当前 27 个 PDF，但仍需按[开源发布边界与复现说明](docs/OPEN_SOURCE_RELEASE.md)重建派生产物。
 
 运行 M1 测试：
 
@@ -182,4 +185,4 @@ uv --cache-dir .uv-cache pip install --python .venv\Scripts\python.exe -r requir
 
 ## License
 
-项目代码按 GNU Affero General Public License v3.0 only（`AGPL-3.0-only`）发布，以匹配当前 PyMuPDF 开源许可路线。原始 PDF、派生全文、模型权重和第三方运行组件不属于项目代码许可授权范围；详见 [LICENSE](LICENSE)、[第三方许可清单](THIRD_PARTY_NOTICES.md)和[开源发布边界](docs/OPEN_SOURCE_RELEASE.md)。
+项目自行编写的代码和文档按 GNU Affero General Public License v3.0 only（`AGPL-3.0-only`）发布，以匹配当前 PyMuPDF 开源许可路线。第三方 PDF、模型权重和第三方运行组件不属于该许可授权范围；详见 [LICENSE](LICENSE)、[数据资料声明](DATA_NOTICE.md)、[第三方许可清单](THIRD_PARTY_NOTICES.md)和[开源发布边界](docs/OPEN_SOURCE_RELEASE.md)。

@@ -11,19 +11,33 @@ data/*.pkl
 data/*.bin
 _archive/
 data/registry/*.sqlite3
+*.sqlite
+*.sqlite3
+*.db
 data/observability/*.jsonl
 data/backups/
 tmp/
 
-# Source documents are locally acquired inputs, not redistributable project assets.
-data/raw/
+# The public repository intentionally bundles source PDFs. The global PDF rule
+# still protects PDFs created elsewhere; only data/raw is explicitly included.
 *.pdf
+!data/raw/
+!data/raw/**/
+!data/raw/**/*.pdf
 *.docx
 
-# These folders are rebuilt from locally acquired source documents. They can
+# These folders are rebuilt from bundled source documents. They can
 # contain substantial extracted text or rendered source pages and therefore do
 # not belong in the public repository.
 data/canonical/
 data/evidence/
 data/retrieval/
 data/eval_results/
+
+# Local databases, vector stores, logs, model caches and other runtime state.
+data/qdrant/
+data/model_runtime/
+logs/
+*.log
+models/
+.cache/
