@@ -1,4 +1,0 @@
-# Retrieval baseline dependencies. M2 parsing dependencies remain isolated in requirements-m2.txt.
-qdrant-client==1.19.0
-torch==2.14.0
-transformers==5.16.1

@@ -1,5 +1,0 @@
-# M4 answer-generation dependencies. Retrieval dependencies remain in requirements-m3.txt.
-langchain-core==1.6.2
-langchain-openai==1.6.0
-pydantic==2.13.5
-python-dotenv==1.2.3

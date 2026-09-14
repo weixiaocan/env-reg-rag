@@ -1,0 +1,24 @@
+{
+  "artifact_id": "m3-retrieval-chunks-v1",
+  "generated_at": "2026-09-05T06:10:00.773941+00:00",
+  "schema_version": "1",
+  "scope": "approved_evidence_plus_quarantined_source_locators",
+  "context_profile": "evidence-context-v1",
+  "mapping": "one_retrieval_chunk_to_one_evidence_unit",
+  "evidence_source": "data/evidence/m3-evidence-units-v1.jsonl",
+  "evidence_sha256": "9b36f3c71ff94f534621724f787c8a0ba74175230ebc0075338b7301eabc2231",
+  "summary": {
+    "source_evidence_count": 58,
+    "chunk_count": 58,
+    "evidence_type_counts": {
+      "clause": 18,
+      "paragraph": 29,
+      "source_locator": 1,
+      "table": 10
+    },
+    "usage_policy_counts": {
+      "answer_and_citation": 57,
+      "source_locator_only": 1
+    }
+  }
+}

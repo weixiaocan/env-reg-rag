@@ -29,8 +29,6 @@ IGNORED_PROBES = (
     "data/observability/release-check.jsonl",
     "data/backups/release-check.snapshot",
     "data/canonical/release-check.json",
-    "data/evidence/release-check.json",
-    "data/retrieval/release-check.json",
     "data/eval_results/release-check.json",
     "logs/release-check.log",
     "models/release-check.bin",
@@ -185,6 +183,12 @@ def check_candidate_tree(root: Path, errors: list[str]) -> None:
         return
     if ".env" in candidates:
         errors.append(".env 将进入公开提交")
+    for required_runtime_asset in (
+        "data/evidence/m3-evidence-units-v1.jsonl",
+        "data/retrieval/formal-corpus-v1-chunks.jsonl",
+    ):
+        if required_runtime_asset not in candidates:
+            errors.append(f"缺少公开运行所需语料: {required_runtime_asset}")
 
     pdf_paths = {
         path.relative_to(root).as_posix()

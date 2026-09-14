@@ -1,0 +1,7 @@
+-r requirements.txt
+
+# Optional heavy dependencies for scanned documents, tables and layout recovery.
+paddlepaddle==3.3.1
+paddleocr==3.7.0
+paddlex[ocr]==3.7.2
+docling==2.126.0

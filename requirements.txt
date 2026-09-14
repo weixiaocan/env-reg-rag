@@ -1,6 +1,7 @@
-# Query-service runtime only. OCR and document-conversion dependencies stay in M2.
-# Torch is installed separately from the official CPU wheel index in Dockerfile.
+PyMuPDF==1.28.2
+pypdf==6.16.2
 qdrant-client==1.19.0
+torch==2.14.0
 transformers==5.16.1
 langchain-core==1.6.2
 langchain-openai==1.6.0

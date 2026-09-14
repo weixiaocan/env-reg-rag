@@ -10,12 +10,12 @@ ENV PYTHONDONTWRITEBYTECODE=1 \
 
 WORKDIR /app
 
-COPY requirements-m3.txt requirements-m4.txt requirements-m5.txt requirements-m6.txt requirements-runtime.txt ./
+COPY requirements.txt ./
 RUN python -m pip install --upgrade pip \
     && python -m pip install \
         --index-url https://download.pytorch.org/whl/cpu \
         torch==2.14.0 \
-    && python -m pip install -r requirements-runtime.txt
+    && python -m pip install -r requirements.txt
 
 # Pin the embedding artifact in the image so runtime readiness never depends on
 # Hugging Face availability or an unversioned model update.

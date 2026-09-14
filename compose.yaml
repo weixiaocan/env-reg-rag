@@ -1,7 +1,7 @@
 services:
   qdrant:
     image: qdrant/qdrant:v1.19.1
-    container_name: ${QDRANT_CONTAINER_NAME:-drainage-rag-qdrant}
+    container_name: ${QDRANT_CONTAINER_NAME:-env-reg-rag-qdrant}
     restart: unless-stopped
     environment:
       QDRANT__TELEMETRY_DISABLED: "true"
@@ -9,7 +9,7 @@ services:
       - "127.0.0.1:${QDRANT_HTTP_HOST_PORT:-6333}:6333"
       - "127.0.0.1:${QDRANT_GRPC_HOST_PORT:-6334}:6334"
     volumes:
-      - drainage_rag_qdrant_storage:/qdrant/storage
+      - env_reg_rag_qdrant_storage:/qdrant/storage
     healthcheck:
       test: ["CMD-SHELL", "bash -c ': > /dev/tcp/127.0.0.1/6333'"]
       interval: 5s
@@ -18,7 +18,7 @@ services:
       start_period: 5s
 
   qdrant-init:
-    image: drainage-rag-app:local
+    image: env-reg-rag-app:local
     build:
       context: .
       dockerfile: Dockerfile
@@ -31,7 +31,7 @@ services:
     restart: "no"
 
   app:
-    image: drainage-rag-app:local
+    image: env-reg-rag-app:local
     env_file:
       - .env
     environment:
@@ -53,5 +53,5 @@ services:
     restart: unless-stopped
 
 volumes:
-  drainage_rag_qdrant_storage:
-    name: ${QDRANT_VOLUME_NAME:-drainage-rag-qdrant-storage}
+  env_reg_rag_qdrant_storage:
+    name: ${QDRANT_VOLUME_NAME:-env-reg-rag-qdrant-storage}

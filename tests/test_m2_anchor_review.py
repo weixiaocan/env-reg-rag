@@ -7,7 +7,6 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 ANCHOR_FILE = ROOT / "data" / "registry" / "m2-anchor-review-v0.json"
 SAMPLE_FILE = ROOT / "data" / "registry" / "m2-page-sample-v0.csv"
-REVIEW_FILE = ROOT / "docs" / "evaluation" / "M2_ANCHOR_REVIEW.md"
 
 
 class M2AnchorReviewTest(unittest.TestCase):
@@ -71,12 +70,6 @@ class M2AnchorReviewTest(unittest.TestCase):
             self.assertTrue(required.issubset(anchor), anchor["anchor_id"])
             self.assertGreater(anchor["pdf_page"], 0)
             self.assertTrue(anchor["proposed_truth"].strip())
-
-    def test_human_review_sheet_lists_every_anchor_once(self):
-        review_text = REVIEW_FILE.read_text(encoding="utf-8")
-        for anchor in self.anchors:
-            marker = f"| {anchor['anchor_id']} |"
-            self.assertEqual(review_text.count(marker), 1, anchor["anchor_id"])
 
 
 if __name__ == "__main__":

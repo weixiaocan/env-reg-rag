@@ -1,7 +1,6 @@
 {
   "artifact_id": "m2-route-overrides-v1",
   "status": "approved_from_e01e_comparison",
-  "source_report": "docs/evaluation/E01E_DOCLING_STRUCTURE_COMPARISON.md",
   "overrides": [
     {
       "sample_id": "M2-P015",

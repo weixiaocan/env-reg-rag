@@ -1,2 +1,0 @@
-# MCP adapter. Keep this isolated from the ingestion dependency set.
-mcp==2.2.0

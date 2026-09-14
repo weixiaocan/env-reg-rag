@@ -26,12 +26,8 @@ tmp/
 !data/raw/**/*.pdf
 *.docx
 
-# These folders are rebuilt from bundled source documents. They can
-# contain substantial extracted text or rendered source pages and therefore do
-# not belong in the public repository.
+# Large, rebuildable parsing outputs and local evaluation runs.
 data/canonical/
-data/evidence/
-data/retrieval/
 data/eval_results/
 
 # Local databases, vector stores, logs, model caches and other runtime state.
