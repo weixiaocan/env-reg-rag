@@ -1,0 +1,98 @@
+{
+  "assertion_set_id": "m2-table-anchor-assertions-v1",
+  "source_file": "data/registry/m2-anchor-review-v0.json",
+  "source_status": "human_approved",
+  "derivation": "Only decomposes approved truth into required fragments; adds no new domain facts.",
+  "anchors": [
+    {
+      "anchor_id": "TAB-01",
+      "sample_id": "M2-P001",
+      "checks": [
+        {"check_id": "TAB-01-C01", "required_fragments": ["12 h", "5.0～14.9", "mm"]},
+        {"check_id": "TAB-01-C02", "required_fragments": ["24 h", "10.0～24.9", "mm"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-02",
+      "sample_id": "M2-P002",
+      "checks": [
+        {"check_id": "TAB-02-C01", "required_fragments": ["12 h", "1.0～2.9", "mm"]},
+        {"check_id": "TAB-02-C02", "required_fragments": ["24 h", "2.5～4.9", "mm"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-03",
+      "sample_id": "M2-P006",
+      "checks": [
+        {"check_id": "TAB-03-C01", "required_fragments": ["中雨", "10.0～24.9", "mm"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-04",
+      "sample_id": "M2-P007",
+      "checks": [
+        {"check_id": "TAB-04-C01", "required_fragments": ["区域内", "5%以上", "大暴雨"]},
+        {"check_id": "TAB-04-C02", "required_fragments": ["2%以上", "特大暴雨"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-05",
+      "sample_id": "M2-P009",
+      "checks": [
+        {"check_id": "TAB-05-C01", "required_fragments": ["接入管管径", "d≥600", "mm"]},
+        {"check_id": "TAB-05-C02", "required_fragments": ["出流流量", "q>600", "m³/d"]},
+        {"check_id": "TAB-05-C03", "required_fragments": ["氨氮>30", "mg/L"]},
+        {"check_id": "TAB-05-C04", "required_fragments": ["COD>200", "mg/L"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-06",
+      "sample_id": "M2-P013",
+      "checks": [
+        {"check_id": "TAB-06-C01", "required_fragments": ["上海", "浅层地下水硬度", "457", "mg/L"]},
+        {"check_id": "TAB-06-C02", "required_fragments": ["生活污水硬度", "162", "mg/L"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-07",
+      "sample_id": "M2-P016",
+      "checks": [
+        {"check_id": "TAB-07-C01", "required_fragments": ["中心城区重要地区", "0.5 h～2.0 h"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-08",
+      "sample_id": "M2-P026",
+      "checks": [
+        {"check_id": "TAB-08-C01", "required_fragments": ["排水区域7", "面积", "2.53", "km²"]},
+        {"check_id": "TAB-08-C02", "required_fragments": ["上游管网长度", "31", "km"]},
+        {"check_id": "TAB-08-C03", "required_fragments": ["降雨入流入渗量", "70.55", "m³/(km·mm)"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-09",
+      "sample_id": "M2-P031",
+      "checks": [
+        {"check_id": "TAB-09-C01", "required_fragments": ["混错接密度M>10%以上"]},
+        {"check_id": "TAB-09-C02", "required_fragments": ["混错接水量比C污>30%以上"]}
+      ]
+    },
+    {
+      "anchor_id": "TAB-10",
+      "sample_id": "M2-P036",
+      "table_selector_fragments": ["地块项目"],
+      "checks": [
+        {"check_id": "TAB-10-C01", "required_fragments": ["评价对象", "一级指标", "二级指标", "分值", "总分"]},
+        {"check_id": "TAB-10-C02", "required_fragments": ["评价对象", "地块项目"]},
+        {"check_id": "TAB-10-C03", "required_fragments": ["评分项", "I基础工作", "建设方案", "10分", "工作记录", "管网竣工数据资料"]},
+        {"check_id": "TAB-10-C04", "required_fragments": ["评分项", "II建设效果", "排水系统接出口接驳", "10分"]},
+        {"check_id": "TAB-10-C05", "required_fragments": ["地块雨水接出口晴天出流", "20分"]},
+        {"check_id": "TAB-10-C06", "required_fragments": ["地块污水接出口晴雨天水质变化", "20分"]},
+        {"check_id": "TAB-10-C07", "required_fragments": ["地块污水接出口晴天COD浓度", "20分"]},
+        {"check_id": "TAB-10-C08", "required_fragments": ["评分项", "总分", "100分"]},
+        {"check_id": "TAB-10-C09", "required_fragments": ["加分项", "地块改造前后水质浓度提升率", "5分", "排水设施运行维护管理"]},
+        {"check_id": "TAB-10-C10", "required_fragments": ["加分项", "总分", "10分"]}
+      ]
+    }
+  ]
+}

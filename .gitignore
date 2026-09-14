@@ -1,0 +1,29 @@
+__pycache__/
+*.pyc
+.pytest_cache/
+.venv/
+.uv-cache/
+.env
+.env.*
+!.env.example
+data/chroma/
+data/*.pkl
+data/*.bin
+_archive/
+data/registry/*.sqlite3
+data/observability/*.jsonl
+data/backups/
+tmp/
+
+# Source documents are locally acquired inputs, not redistributable project assets.
+data/raw/
+*.pdf
+*.docx
+
+# These folders are rebuilt from locally acquired source documents. They can
+# contain substantial extracted text or rendered source pages and therefore do
+# not belong in the public repository.
+data/canonical/
+data/evidence/
+data/retrieval/
+data/eval_results/

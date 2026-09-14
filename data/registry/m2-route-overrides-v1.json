@@ -1,0 +1,43 @@
+{
+  "artifact_id": "m2-route-overrides-v1",
+  "status": "approved_from_e01e_comparison",
+  "source_report": "docs/evaluation/E01E_DOCLING_STRUCTURE_COMPARISON.md",
+  "overrides": [
+    {
+      "sample_id": "M2-P015",
+      "selected_route": "docling_recovery",
+      "selected_parser": "docling-rapidocr-pypdfium",
+      "selected_profile": "full_page_ocr_tableformer_accurate",
+      "selected_artifact": "data/eval_results/m2-docling-2.126.0-v1-pages.jsonl",
+      "decision_status": "needs_manual_review",
+      "decision_reasons": [
+        "docling_recovers_missing_clause_words",
+        "watermark_and_header_noise_remain"
+      ]
+    },
+    {
+      "sample_id": "M2-P026",
+      "selected_route": "docling_recovery",
+      "selected_parser": "docling-rapidocr-pypdfium",
+      "selected_profile": "full_page_ocr_tableformer_accurate",
+      "selected_artifact": "data/eval_results/m2-docling-2.126.0-v1-pages.jsonl",
+      "decision_status": "needs_manual_review",
+      "decision_reasons": [
+        "docling_recovers_two_tables_and_units",
+        "orphan_cell_row_fallback_requires_review"
+      ]
+    },
+    {
+      "sample_id": "M2-P036",
+      "selected_route": "docling_recovery",
+      "selected_parser": "docling-rapidocr-pypdfium",
+      "selected_profile": "full_page_ocr_tableformer_accurate",
+      "selected_artifact": "data/eval_results/m2-docling-2.126.0-v1-pages.jsonl",
+      "decision_status": "approved",
+      "decision_reasons": [
+        "target_table_selected_by_land_parcel_prefix",
+        "table_assertions_10_of_10_passed"
+      ]
+    }
+  ]
+}

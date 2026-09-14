@@ -1,0 +1,49 @@
+{
+  "probe_version": "1",
+  "manifest_id": "experiment-sample-v0",
+  "manifest_sha256": "06cdbf566b677405ba2aa03ec09c75da23bf52b7d41c7812fc9162f9fdcf0d00",
+  "script_sha256": "73222776eb57f8d1c737850e112dc03c5fbefde139cf3d4da924cbd8689f25cb",
+  "python_version": "3.12.14",
+  "pypdf_version": "6.10.0",
+  "document_count": 8,
+  "page_count": 235,
+  "failed_page_count": 0,
+  "warning_count": 39,
+  "warning_patterns": {
+    "Ignoring wrong pointing object <n> <n> (offset <n>)": 39
+  },
+  "inputs": [
+    {
+      "file_name": "GBT 28592-2012降水量等级.pdf",
+      "sha256": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81"
+    },
+    {
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004"
+    },
+    {
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941"
+    },
+    {
+      "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f"
+    },
+    {
+      "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+      "sha256": "76b7035435a3dd5d51104c77a5996e47a4deabe9fbfe0d8b6b504fbd4844cada"
+    },
+    {
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f"
+    },
+    {
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16"
+    },
+    {
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed"
+    }
+  ]
+}

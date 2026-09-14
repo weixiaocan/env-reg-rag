@@ -1,0 +1,41 @@
+sample_id,manifest_order,file_name,pdf_page,content_type,text_layer_signal,route_hypothesis,selection_reason,eligible_for_human_anchor
+M2-P001,1,GBT 28592-2012降水量等级.pdf,4,clause_and_table,absent,full_ocr_candidate,正文与降水等级表且有大面积红色水印,yes
+M2-P002,1,GBT 28592-2012降水量等级.pdf,5,table,absent,full_ocr_candidate,不同降水量等级划分数值表,yes
+M2-P003,1,GBT 28592-2012降水量等级.pdf,6,references,absent,full_ocr_candidate,稀疏参考文献与小字号文字,yes
+M2-P004,2,QXT 489－2019 降雨过程等级.pdf,2,blank,absent,blank_skip_candidate,视觉空白页用于防止无意义OCR,no
+M2-P005,2,QXT 489－2019 降雨过程等级.pdf,3,toc,garbled,hybrid_candidate,视觉文字清楚但提取为字符编码标记,yes
+M2-P006,2,QXT 489－2019 降雨过程等级.pdf,9,clause_and_table,garbled,hybrid_candidate,术语层级与单站降雨等级表,yes
+M2-P007,2,QXT 489－2019 降雨过程等级.pdf,10,clause_and_table,garbled,hybrid_candidate,区域降雨等级表与数值条件,yes
+M2-P008,3,T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf,10,clauses,readable,native_candidate,总则与连续条款编号,yes
+M2-P009,3,T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf,28,clause_and_table,readable,native_candidate,评估条款与带单位表格,yes
+M2-P010,3,T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf,35,rotated_table,readable,native_candidate,横向旋转附录调查表,yes
+M2-P011,3,T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf,44,form_table,readable,native_candidate,跨行跨列的调查表单,yes
+M2-P012,3,T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf,63,clause_and_figure,readable,native_candidate,正文与流程示意图混排,yes
+M2-P013,3,T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf,67,clause_and_table,readable,native_candidate,续表与正文跨页上下文,yes
+M2-P014,4,《城乡排水工程项目规范》 (GB 55027-2022).pdf,4,clauses,garbled,hybrid_candidate,视觉条款清楚但文字层乱码且带斜向水印,yes
+M2-P015,4,《城乡排水工程项目规范》 (GB 55027-2022).pdf,9,sparse_clause,garbled,hybrid_candidate,稀疏条款与大面积斜向水印,yes
+M2-P016,4,《城乡排水工程项目规范》 (GB 55027-2022).pdf,13,clause_and_table,garbled,hybrid_candidate,双表格与条款且文字层乱码,yes
+M2-P017,4,《城乡排水工程项目规范》 (GB 55027-2022).pdf,20,clauses,garbled,hybrid_candidate,连续强制性条款与斜向水印,yes
+M2-P018,5,住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf,1,policy_header,readable,native_candidate,政策标题发文字号和正文起始,yes
+M2-P019,5,住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf,4,policy_body,readable,native_candidate,编号政策措施与跨页正文,yes
+M2-P020,5,住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf,5,policy_metadata,readable,native_candidate,发文机关日期与网页元数据表,yes
+M2-P021,6,城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf,7,toc,absent,full_ocr_candidate,扫描目录与层级页码,yes
+M2-P022,6,城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf,12,flowchart,absent,full_ocr_candidate,扫描流程图与图注,yes
+M2-P023,6,城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf,14,clause_and_table,absent,full_ocr_candidate,条款列表与方法比较表,yes
+M2-P024,6,城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf,19,formula,absent,full_ocr_candidate,多行公式符号单位与编号,yes
+M2-P025,6,城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf,39,clause_and_tables,absent,full_ocr_candidate,正文与多个数值表格,yes
+M2-P026,6,城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf,43,tables,absent,full_ocr_candidate,连续数值表与单位上下文,yes
+M2-P027,6,城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf,44,clause_and_table,absent,full_ocr_candidate,方法对比表与后续说明,yes
+M2-P028,7,武汉市排水管道混错接改造技术规程.pdf,2,blank,absent,blank_skip_candidate,视觉空白页用于防止无意义OCR,no
+M2-P029,7,武汉市排水管道混错接改造技术规程.pdf,7,clause_and_flowchart,readable,native_candidate,地方标准条款与复杂技术路线图,yes
+M2-P030,7,武汉市排水管道混错接改造技术规程.pdf,10,clause_and_flowchart,readable,native_candidate,流程图与正文阅读顺序,yes
+M2-P031,7,武汉市排水管道混错接改造技术规程.pdf,13,clause_and_tables,readable,native_candidate,分级评价双表格,yes
+M2-P032,7,武汉市排水管道混错接改造技术规程.pdf,18,dense_clauses,readable,native_candidate,密集款项与列表层级,yes
+M2-P033,7,武汉市排水管道混错接改造技术规程.pdf,23,form_table,readable,native_candidate,附录空白调查表,yes
+M2-P034,8,附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf,6,toc,absent,full_ocr_candidate,扫描目录与水印,yes
+M2-P035,8,附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf,10,clauses,absent,full_ocr_candidate,扫描总则条款与水印,yes
+M2-P036,8,附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf,15,tables,absent,full_ocr_candidate,多级指标表与合并单元格,yes
+M2-P037,8,附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf,16,tables,absent,full_ocr_candidate,跨页指标表和评价结果表,yes
+M2-P038,8,附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf,19,clauses_and_values,absent,full_ocr_candidate,数值阈值和多级编号,yes
+M2-P039,8,附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf,34,clause_and_figure,absent,full_ocr_candidate,术语解释与集合示意图,yes
+M2-P040,8,附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf,38,dense_clauses,absent,full_ocr_candidate,密集评价条款与水印,yes

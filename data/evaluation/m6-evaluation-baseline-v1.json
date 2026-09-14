@@ -1,0 +1,157 @@
+{
+  "baseline_id": "m6-evaluation-baseline-v1",
+  "status": "approved_from_observed_m1_m5_results",
+  "layers": {
+    "data_and_parsing": {
+      "inventory_documents": 23,
+      "reviewed_documents": 8,
+      "formal_documents": 3,
+      "experiment_only_documents": 5,
+      "representative_pages": 40,
+      "human_approved_anchors": 30,
+      "hard_gates": {
+        "formal_source_and_version_approval_rate": 1.0,
+        "unapproved_pages_used_for_answers": 0,
+        "published_evidence_with_document_and_page_locator_rate": 1.0
+      }
+    },
+    "retrieval": {
+      "golden_set_cases": 12,
+      "positive_cases": 11,
+      "corpus_gap_cases": 1,
+      "profile": "qdrant_bge_small_zh_bm25_rrf",
+      "regression_floor": {
+        "recall_at_1": 0.5454545454545454,
+        "recall_at_3": 0.8181818181818182,
+        "recall_at_5": 0.8181818181818182,
+        "mrr": 0.6515151515151515,
+        "corpus_gap_empty_rate": 1.0
+      }
+    },
+    "answer_and_citation": {
+      "full_run_passed_cases": 11,
+      "full_run_total_cases": 12,
+      "targeted_retry_passed_cases": 1,
+      "targeted_retry_total_cases": 1,
+      "required_next_full_run_pass_rate": 1.0,
+      "hard_gates": {
+        "claims_with_citable_evidence_rate": 1.0,
+        "source_locator_only_answers": 0
+      }
+    },
+    "clarification_and_refusal": {
+      "answer_cases": 6,
+      "refusal_cases": 4,
+      "clarification_cases": 1,
+      "search_only_cases": 1,
+      "required_status_accuracy": 1.0
+    },
+    "system_and_operations": {
+      "regression_tests_passed": 123,
+      "model_case_latency_ms": {
+        "sample_count": 12,
+        "p50": 3369.53,
+        "max": 49850.07
+      },
+      "http_followup_second_turn_ms": 19516.64,
+      "query_observability": {
+        "real_http_smoke_status": "passed",
+        "sample_count": 1,
+        "total_elapsed_ms": 5766.047,
+        "input_tokens": 1958,
+        "output_tokens": 207,
+        "total_tokens": 2165,
+        "cost_status": "not_configured"
+      },
+      "stability_and_performance": {
+        "requests": 36,
+        "passed_requests": 34,
+        "request_pass_rate": 0.944444,
+        "stable_cases": 11,
+        "total_cases": 12,
+        "stable_case_rate": 0.916667,
+        "system_errors": 0,
+        "request_latency_ms": {
+          "p50": 4590.096,
+          "p95": 12726.337,
+          "max": 16678.232
+        },
+        "retrieval_latency_ms": {
+          "sample_count": 33,
+          "p50": 25.9,
+          "p95": 45.101,
+          "max": 58.621
+        },
+        "generation_latency_ms": {
+          "sample_count": 30,
+          "p50": 5202.667,
+          "p95": 12702.43,
+          "max": 16639.645
+        },
+        "model_calls": 30,
+        "input_tokens": 65599,
+        "output_tokens": 9339,
+        "total_tokens": 74938,
+        "cost_status": "not_configured",
+        "known_unstable_case": "AI-009"
+      },
+      "performance_gate_status": "observed_baseline_36_requests",
+      "compose_deployment": {
+        "image_size_bytes": 449871832,
+        "image_platform": "linux/amd64",
+        "warm_restart_persistence": "passed",
+        "isolated_cold_start": "passed",
+        "cold_start_seconds": 24.489,
+        "formal_points_after_restart": 29,
+        "experiment_points_after_restart": 58
+      },
+      "formal_corpus_recovery_status": "passed",
+      "formal_corpus_recovery": {
+        "source_collection": "corpus_formal_v1",
+        "point_count": 29,
+        "external_backup_bytes": 481792,
+        "external_backup_sha256": "b8cc181f877abfdc677e5f5a8b84d58bbf5fc32b44cc230f15bd47314210ca09",
+        "restored_fingerprint_match": true,
+        "restored_publish_smoke": "passed",
+        "candidate_withdrawal_and_rollback": "passed",
+        "final_alias_target": "corpus_formal_v1",
+        "temporary_collection_removed": true
+      },
+      "mcp_agent_integration": {
+        "sdk": "mcp==2.2.0",
+        "transport": "stdio",
+        "tools": [
+          "answer_with_evidence",
+          "get_document_evidence",
+          "search_evidence"
+        ],
+        "all_tools_read_only": true,
+        "direct_http_mcp_structured_result_match": true,
+        "resource_link_readable": true,
+        "real_agent_host": "OpenAI Codex 0.152.1",
+        "agent_selected_tool": "search_evidence",
+        "agent_host_smoke": "passed"
+      },
+      "experiment_qdrant_recovery_status": "passed"
+    }
+  },
+  "source_artifacts": [
+    "data/registry/inventory.csv",
+    "data/registry/document_reviews.csv",
+    "data/registry/m2-page-route-ledger-v1.csv",
+    "data/registry/m2-anchor-review-v0.json",
+    "data/eval_results/m3-qdrant-bge-bm25-rrf-v1.json",
+    "data/eval_results/m4-answer-regression-v1.json",
+    "data/eval_results/m4-answer-regression-ai-008-retry-v1.json",
+    "data/eval_results/m5-http-followup-smoke-v1.json",
+    "data/eval_results/m5-evidence-navigation-v1.json",
+    "data/eval_results/m5-error-contract-v1.json",
+    "data/eval_results/m6-query-trace-smoke-v1.json",
+    "data/eval_results/m6-stability-benchmark-v1.json",
+    "data/eval_results/m6-compose-persistence-v1.json",
+    "data/eval_results/m6-compose-cold-start-v1.json",
+    "data/eval_results/m6-formal-recovery-v1.json",
+    "data/eval_results/m6-mcp-consistency-v1.json",
+    "data/eval_results/m6-codex-agent-host-v1.json"
+  ]
+}

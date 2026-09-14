@@ -1,0 +1,98 @@
+{
+  "artifact_id": "m2-ocr-failure-attribution-v1",
+  "status": "ai_attributed",
+  "generated_at": "2026-09-05",
+  "scope": "unmatched text anchors and failed table assertions from routed OCR",
+  "source_sha256": {
+    "m2-ocr-routed-light-v1-pages.jsonl": "3045d6d201ff4fc64d23950a4ea2ced13d77724dc122ebc4f118d38b408c6470",
+    "m2-ocr-routed-heavy-v1-pages.jsonl": "4d747940f745975629b49aebe473b23e2e58e6faf5f32d06c9ebf11a0f9cd6cf",
+    "m2-anchor-review-v0.json": "58f74c9e609afc353bf1f0dcf2b1d288c0ef50dae769110323a8ed274f0c49ef",
+    "m2-table-anchor-assertions-v1.json": "a5b96ad14c1aca99d1dcddc378cb7df668bdb1ed4913223145a80b5e333a5286"
+  },
+  "summary": {
+    "attribution_count": 9,
+    "evaluation_false_negative_count": 3,
+    "ocr_content_error_count": 6
+  },
+  "items": [
+    {
+      "anchor_id": "TXT-08",
+      "sample_id": "M2-P014",
+      "classification": "evaluation_false_negative",
+      "expected": "城乡排水工程必须执行本规范。",
+      "observed": "城乡排水工程必须执行本规范",
+      "reason": "OCR 正文完整，仅缺句末标点。",
+      "manual_review_required": false
+    },
+    {
+      "anchor_id": "TXT-09",
+      "sample_id": "M2-P015",
+      "classification": "ocr_content_error",
+      "expected_fragments": ["职业卫生", "自然灾害", "进行演练"],
+      "observed_fragments": ["职业卫", "然灾害", "进演练"],
+      "reason": "正文出现多处实际漏字，且页首存在重复字。",
+      "manual_review_required": true
+    },
+    {
+      "anchor_id": "TXT-15",
+      "sample_id": "M2-P024",
+      "classification": "ocr_content_error",
+      "expected_fragments": ["旱天入流入渗量", "KQ_g"],
+      "observed_fragments": ["旱天人流入渗量", "KQg"],
+      "reason": "专业词发生替换，公式下标和二维结构丢失。",
+      "manual_review_required": true
+    },
+    {
+      "anchor_id": "TXT-20",
+      "sample_id": "M2-P040",
+      "classification": "evaluation_false_negative",
+      "expected": "依托水质或水量监测设备，采取人工、在线监测等手段进行常态化监测。",
+      "observed": "依托水质或水量监测设备，采取人工、在线监测等手段进行常态化监测，可完成排水管网的关键点位排查摸底和数据更新",
+      "reason": "目标内容完整嵌入更长原句，人工锚点以句号结束而原文此处为逗号。",
+      "manual_review_required": false
+    },
+    {
+      "anchor_id": "TXT-14",
+      "sample_id": "M2-P023",
+      "classification": "evaluation_false_negative",
+      "expected": "城镇污水管网制定入流入渗监测方案前应收集下列基本资料。",
+      "observed": "城镇污水管网制定入流入渗监测方案前应收集下列基本资料：",
+      "reason": "正文完整，人工锚点以句号结束而原文此处为冒号。",
+      "manual_review_required": false
+    },
+    {
+      "anchor_id": "TXT-16",
+      "sample_id": "M2-P027",
+      "classification": "ocr_content_error",
+      "expected_fragments": ["旱天入流入渗监测", "连续7个旱天"],
+      "observed_fragments": ["旱天人流人渗监测", "连续7个旱天"],
+      "reason": "适用条件和数字 7 已恢复，但核心专业词出现多次入到人的替换。",
+      "manual_review_required": true
+    },
+    {
+      "anchor_id": "TAB-07",
+      "sample_id": "M2-P016",
+      "classification": "ocr_content_error",
+      "missing_fragments": ["0.5 h～2.0 h"],
+      "reason": "未恢复关键时间范围。",
+      "manual_review_required": true
+    },
+    {
+      "anchor_id": "TAB-08",
+      "sample_id": "M2-P026",
+      "classification": "ocr_content_error",
+      "missing_fragments": ["排水区域7", "km²"],
+      "reason": "三组字段断言中两组通过，一组缺少区域名和面积单位。",
+      "manual_review_required": true
+    },
+    {
+      "anchor_id": "TAB-10",
+      "sample_id": "M2-P036",
+      "classification": "ocr_content_error",
+      "missing_fragments": ["管网竣工数据资料"],
+      "observed_fragments": ["管网峻工数据资料"],
+      "reason": "目标表 10 组断言通过 9 组，剩余字段存在真实替换错误。",
+      "manual_review_required": true
+    }
+  ]
+}

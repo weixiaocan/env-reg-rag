@@ -1,0 +1,57 @@
+services:
+  qdrant:
+    image: qdrant/qdrant:v1.19.1
+    container_name: ${QDRANT_CONTAINER_NAME:-drainage-rag-qdrant}
+    restart: unless-stopped
+    environment:
+      QDRANT__TELEMETRY_DISABLED: "true"
+    ports:
+      - "127.0.0.1:${QDRANT_HTTP_HOST_PORT:-6333}:6333"
+      - "127.0.0.1:${QDRANT_GRPC_HOST_PORT:-6334}:6334"
+    volumes:
+      - drainage_rag_qdrant_storage:/qdrant/storage
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c ': > /dev/tcp/127.0.0.1/6333'"]
+      interval: 5s
+      timeout: 3s
+      retries: 12
+      start_period: 5s
+
+  qdrant-init:
+    image: drainage-rag-app:local
+    build:
+      context: .
+      dockerfile: Dockerfile
+    command: ["python", "scripts/ensure_qdrant_indexes.py"]
+    environment:
+      QDRANT_URL: http://qdrant:6333
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    restart: "no"
+
+  app:
+    image: drainage-rag-app:local
+    env_file:
+      - .env
+    environment:
+      QDRANT_URL: http://qdrant:6333
+    ports:
+      - "127.0.0.1:${APP_HOST_PORT:-8000}:8000"
+    volumes:
+      - ./data/observability:/app/data/observability
+      - ./data/raw:/app/data/raw:ro
+    depends_on:
+      qdrant-init:
+        condition: service_completed_successfully
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=3)"]
+      interval: 10s
+      timeout: 5s
+      retries: 12
+      start_period: 45s
+    restart: unless-stopped
+
+volumes:
+  drainage_rag_qdrant_storage:
+    name: ${QDRANT_VOLUME_NAME:-drainage-rag-qdrant-storage}

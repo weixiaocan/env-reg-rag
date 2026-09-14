@@ -1,0 +1,62 @@
+{
+  "audit_id": "p7-open-source-audit-v1",
+  "audited_on": "2026-09-08",
+  "reviewed_on": "2026-09-14",
+  "release_status": "blocked",
+  "legal_advice": false,
+  "project_license": {
+    "license_file_present": false,
+    "notice_file_present": false,
+    "decision_status": "required"
+  },
+  "dependency_audit": {
+    "direct_dependencies_reviewed": 18,
+    "copyleft_direct_dependencies": [
+      {
+        "name": "PyMuPDF",
+        "version": "1.28.2",
+        "declared_license": "Dual Licensed - GNU AFFERO GPL 3.0 or Artifex Commercial License"
+      }
+    ],
+    "runtime_server_license": {
+      "name": "Qdrant",
+      "version": "1.19.1",
+      "declared_license": "Apache-2.0"
+    },
+    "bundled_model_license": {
+      "name": "BAAI/bge-small-zh-v1.5",
+      "revision": "7999e1d3359715c523056ef9478215996d62a620",
+      "declared_license": "MIT"
+    },
+    "transitive_and_base_image_notice_audit": "pending"
+  },
+  "corpus_redistribution": {
+    "inventory_documents": 23,
+    "explicit_open_redistribution_permissions_confirmed": 0,
+    "default_publication_policy": "exclude_all_raw_pdfs_and_publish_official_source_manifest_only"
+  },
+  "git_history_scan": {
+    "commits_scanned": 5,
+    "historical_pdf_paths": 46,
+    "historical_dotenv_files": 0,
+    "env_example_commits_with_suspicious_non_placeholder_openai_key": 5,
+    "suspicious_key_unique_value_groups": 1,
+    "personal_identifier_commits": 3,
+    "personal_identifier_unique_files": 2,
+    "current_env_example_values": "placeholders_only"
+  },
+  "blocking_findings": [
+    "OSR-001",
+    "OSR-002",
+    "OSR-003",
+    "OSR-004",
+    "OSR-005",
+    "OSR-006"
+  ],
+  "destructive_actions_performed": false,
+  "next_decisions": [
+    "choose_project_license_path_for_pymupdf",
+    "approve_clean_public_history_or_history_rewrite"
+  ],
+  "report": "docs/research/P7_OPEN_SOURCE_AUDIT_2026-09-08.md"
+}

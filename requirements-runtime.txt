@@ -1,0 +1,13 @@
+# Query-service runtime only. OCR and document-conversion dependencies stay in M2.
+# Torch is installed separately from the official CPU wheel index in Dockerfile.
+qdrant-client==1.19.0
+transformers==5.16.1
+langchain-core==1.6.2
+langchain-openai==1.6.0
+pydantic==2.13.5
+python-dotenv==1.2.3
+fastapi==0.141.1
+starlette==1.6.0
+uvicorn==0.52.4
+httpx==0.28.1
+mcp==2.2.0

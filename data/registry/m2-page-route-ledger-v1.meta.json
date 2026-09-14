@@ -1,0 +1,30 @@
+{
+  "artifact_id": "m2-page-route-ledger-v1",
+  "generated_at": "2026-09-05T04:22:55.482476+00:00",
+  "input_sha256": {
+    "sample_set": "9aecfb0e5239498b0927e1071f2c98875ec328e705fe11fc00aeb7383287c3f4",
+    "ocr_route_plan": "d376c00487583322e898ae222cbe1f9f97a9c77d1a15c833fde7b4b84d8ec24a",
+    "failure_attribution": "dd7c299172dac31d30469a074e46bb75e3f6419f89fda115a2cd4f00236b6e57",
+    "route_overrides": "1932cbf1912bfe52b789d3aa224d36f7f535f86c6a4ab9aa2638e8089e785e64",
+    "native_pages": "213526e86ef83faab8b5cb743e622a4da10eda0f2ac4a3eed782aba13bbbd8b8",
+    "ocr_light_pages": "3045d6d201ff4fc64d23950a4ea2ced13d77724dc122ebc4f118d38b408c6470",
+    "ocr_heavy_pages": "4d747940f745975629b49aebe473b23e2e58e6faf5f32d06c9ebf11a0f9cd6cf",
+    "docling_pages": "faffee8b2eca34176bb015d0bd3efc6235f6123f23c74af0ee16640ff8fe1a81"
+  },
+  "summary": {
+    "sample_count": 40,
+    "decision_status_counts": {
+      "approved": 20,
+      "needs_manual_review": 17,
+      "quarantine": 1,
+      "skip_blank": 2
+    },
+    "selected_route_counts": {
+      "docling_recovery": 3,
+      "full_ocr": 15,
+      "hybrid_ocr": 6,
+      "native": 14,
+      "skip_blank": 2
+    }
+  }
+}

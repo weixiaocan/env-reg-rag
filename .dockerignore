@@ -1,0 +1,16 @@
+.git
+.codex
+.venv
+.uv-cache
+__pycache__
+*.pyc
+.env
+_archive
+data/raw
+data/canonical
+data/eval_results
+data/evaluation
+data/observability
+data/backups
+docs
+tests

@@ -1,0 +1,50 @@
+{
+  "decision_id": "m6-final-decision-v1",
+  "evaluated_on": "2026-09-08",
+  "milestone": "M6",
+  "overall_decision": "passed_for_single_machine_poc_and_p7_entry",
+  "production_readiness": "not_approved",
+  "next_stage": "P7",
+  "layer_decisions": {
+    "data_and_parsing": "passed",
+    "retrieval": "passed_current_baseline_small_sample",
+    "answer_and_citation": "hard_gates_passed_with_known_stability_risk",
+    "clarification_and_refusal": "passed",
+    "system_and_operations": "passed_single_machine_poc"
+  },
+  "observed_results": {
+    "regression_tests_passed": 123,
+    "golden_set_cases": 12,
+    "retrieval_recall_at_3": 0.8181818181818182,
+    "retrieval_recall_at_5": 0.8181818181818182,
+    "retrieval_mrr": 0.6515151515151515,
+    "stability_requests": 36,
+    "stability_passed_requests": 34,
+    "stability_system_errors": 0,
+    "stable_cases": 11,
+    "total_cases": 12,
+    "known_unstable_case": "AI-009",
+    "compose_cold_start": "passed",
+    "compose_warm_restart_persistence": "passed",
+    "formal_corpus_recovery": "passed",
+    "direct_http_mcp_consistency": "passed",
+    "real_agent_host": "passed"
+  },
+  "production_gaps": [
+    "concurrency_not_tested",
+    "remote_authenticated_mcp_not_implemented",
+    "offsite_disaster_recovery_not_tested",
+    "availability_slo_not_defined_or_tested",
+    "verified_model_cost_rates_not_configured"
+  ],
+  "source_artifacts": [
+    "data/evaluation/m6-evaluation-baseline-v1.json",
+    "data/eval_results/m6-stability-benchmark-v1.json",
+    "data/eval_results/m6-compose-persistence-v1.json",
+    "data/eval_results/m6-compose-cold-start-v1.json",
+    "data/eval_results/m6-formal-recovery-v1.json",
+    "data/eval_results/m6-mcp-consistency-v1.json",
+    "data/eval_results/m6-codex-agent-host-v1.json",
+    "docs/evaluation/M6_FINAL_EVALUATION_REPORT.md"
+  ]
+}
