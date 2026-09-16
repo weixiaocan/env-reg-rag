@@ -85,6 +85,44 @@ class FakePageExtractor:
 
 
 class CorpusUpdateTest(unittest.TestCase):
+    def test_update_plan_exposes_legacy_and_completeness_uncertainty(self):
+        from scripts.update_corpus import plan
+
+        row = self.row(name="甲.pdf", rel="data/raw/资料/甲.pdf", data=b"pdf-a")
+        self.write_inventory([row])
+        result = plan(self.root)
+        self.assertEqual(result["source_evidence_status_counts"], {"legacy_unverified": 1})
+        self.assertEqual(result["completeness_status_counts"], {"unverified": 1})
+
+    def test_hash_bound_source_evidence_is_used_without_repromoting_legacy_flags(self):
+        row = self.row(name="甲.pdf", rel="data/raw/资料/甲.pdf", data=b"pdf-a")
+        self.write_inventory([row])
+        record = {
+            "schema_version": "1", "file_sha256": row["sha256"],
+            "aliases": [{"file_name": "old-name.pdf", "rel_path": "data/raw/old-name.pdf"}],
+            "observations": [{
+                "field": "source_authority", "value": "核验机关",
+                "origin_kind": "external_verified", "status": "verified",
+                "evidence_ref": {"kind": "url", "url": "https://example.org/notice"},
+                "checked_at": "2026-09-16T00:00:00+00:00",
+                "verification_method": "manual_field_comparison",
+            }],
+        }
+        registry = self.root / "data/registry/source_evidence.jsonl"
+        registry.write_text(json.dumps(record, ensure_ascii=False) + "\n", encoding="utf-8")
+        catalog = build_source_catalog(self.root)
+        self.assertEqual(catalog.assets[0].metadata["source_authority"], "核验机关")
+        self.assertEqual(catalog.assets[0].metadata["source_evidence_status"], "has_verified_fields")
+        before = catalog.fingerprint_payload()
+        record["observations"][0]["value"] = "另一个核验机关"
+        registry.write_text(json.dumps(record, ensure_ascii=False) + "\n", encoding="utf-8")
+        self.assertNotEqual(before, build_source_catalog(self.root).fingerprint_payload())
+        changed = self.row(name="甲.pdf", rel="data/raw/资料/甲.pdf", data=b"changed", source_review="official_fulltext_verified")
+        self.write_inventory([changed])
+        asset = build_source_catalog(self.root).assets[0]
+        self.assertEqual(asset.metadata["source_review"], "needs_review")
+        self.assertEqual(asset.metadata["source_evidence_status"], "unverified")
+
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
         self.root = Path(self.temp.name)

@@ -19,6 +19,13 @@ from src.evaluation.evidence_builder import build_evidence_units
 from src.evaluation.retrieval_chunk_builder import build_retrieval_chunks
 from src.ingestion.native_pdf import NativePdfParser
 from src.ingestion.ocr_pdf import OcrPdfParser, PaddleTextOcrEngine
+from src.application.pdf_source_audit import (
+    REGISTRY as SOURCE_EVIDENCE_REGISTRY,
+    load_source_records,
+    source_metadata,
+    completeness_metadata,
+    registered_pdf_path,
+)
 
 
 SOURCE_REVIEW_RANK = {
@@ -124,11 +131,14 @@ def build_source_catalog(
     """Collapse physical duplicates while retaining every source-file record."""
 
     root = Path(project_root).resolve()
+    source_records = load_source_records(root)
+    has_source_registry = (root / SOURCE_EVIDENCE_REGISTRY).is_file()
     inventory_rows = _read_csv(
         inventory_path or root / "data" / "registry" / "inventory.csv"
     )
     if not inventory_rows:
         raise ValueError("inventory contains no PDF records")
+    completeness_records = completeness_metadata(root, inventory_rows=inventory_rows) if has_source_registry else {}
     reviews = _read_csv(
         reviews_path or root / "data" / "registry" / "document_reviews.csv"
     )
@@ -138,7 +148,7 @@ def build_source_catalog(
         digest = row.get("sha256", "").lower()
         if not re.fullmatch(r"[0-9a-f]{64}", digest):
             raise ValueError(f"invalid inventory SHA-256: {row.get('rel_path', '')}")
-        path = root / row["rel_path"]
+        path = registered_pdf_path(root, row["rel_path"].replace("\\", "/"))
         if not path.is_file():
             raise FileNotFoundError(path)
         if _sha256(path) != digest:
@@ -177,6 +187,18 @@ def build_source_catalog(
             "local_file_match": review.get("local_file_match", ""),
             "selection_status": review.get("selection_status", ""),
         }
+        if has_source_registry:
+            record = source_records.get(digest, {
+                "schema_version": "1", "file_sha256": digest,
+                "aliases": [], "observations": [],
+            })
+            metadata.update(source_metadata(record))
+            metadata.update(completeness_records.get(digest, {
+                "completeness_status": "unverified", "source_audit_status": "missing_or_stale",
+            }))
+        else:
+            # Compatibility values remain historical assertions, not new checks.
+            metadata["source_evidence_status"] = "legacy_unverified"
         assets.append(
             ContentAsset(
                 sha256=digest,

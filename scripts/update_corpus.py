@@ -1,7 +1,8 @@
 """Refresh the PDF inventory and build or publish the complete corpus.
 
 The command does not discover official sources on the web.  It consumes the
-audited source state recorded in ``data/registry/document_reviews.csv``.
+hash-bound provenance in ``data/registry/source_evidence.jsonl`` when present,
+with the old review CSV retained for compatibility.
 """
 
 from __future__ import annotations
@@ -57,9 +58,16 @@ def plan(project_root: Path) -> dict[str, object]:
         "duplicate_copy_count": catalog.duplicate_copy_count,
         "unique_page_count": sum(asset.page_count for asset in catalog.assets),
         "source_review_counts": dict(sorted(source_states.items())),
+        "source_evidence_status_counts": dict(Counter(
+            asset.metadata.get("source_evidence_status", "legacy_unverified") for asset in catalog.assets
+        )),
+        "completeness_status_counts": dict(Counter(
+            asset.metadata.get("completeness_status", "unverified") for asset in catalog.assets
+        )),
         "note": (
-            "Official-source discovery is not automated; recorded review states "
-            "are consumed from data/registry/document_reviews.csv."
+            "Official-source discovery is not automated. Hash-bound source evidence "
+            "and matching offline audit diagnostics are used when available; legacy "
+            "CSV assertions are not new verifications. Unknown completeness does not block parsing."
         ),
     }
 

@@ -71,6 +71,15 @@ docker compose up -d qdrant
 .venv\Scripts\python.exe scripts\update_corpus.py --plan-only
 ```
 
+可以先离线审计来源依据和完整性疑点，再保存按文件哈希关联的记录：
+
+```powershell
+.venv\Scripts\python.exe scripts\audit_pdf_sources.py
+.venv\Scripts\python.exe scripts\audit_pdf_sources.py --write
+```
+
+审计不自动下载官方资料，也不发布索引。旧记录保留为历史声明，缺少依据不会冒充新核验；“未发现疑点”不等于版本完整。记录格式和适用边界见 [PDF 数据处理说明](docs/PDF_PROCESSING.md)。
+
 构建完整候选语料；命令会刷新清单、按 SHA-256 去重、复用未变化内容的逐页缓存，并只解析新增或变更内容：
 
 ```powershell
@@ -83,7 +92,7 @@ docker compose up -d qdrant
 .venv\Scripts\python.exe scripts\update_corpus.py --publish
 ```
 
-默认 OCR 使用适合日常增量更新的文字识别模式；低置信页面进入隔离定位，不参与正式回答。需要高成本版面或表格恢复时，分别增加 `--ocr-layout` 或 `--ocr-tables`。官方来源发现不是自动化步骤，核验结果维护在 `data/registry/document_reviews.csv`。
+默认 OCR 使用适合日常增量更新的文字识别模式；低置信页面进入隔离定位，不参与正式回答。需要高成本版面或表格恢复时，分别增加 `--ocr-layout` 或 `--ocr-tables`。官方来源发现不是自动化步骤；旧审核表保留，新字段依据维护在 `data/registry/source_evidence.jsonl`，后续建库按哈希读取。
 
 ## 测试
 
