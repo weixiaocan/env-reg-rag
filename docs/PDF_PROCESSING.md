@@ -1,6 +1,6 @@
 # PDF 数据处理修正方案
 
-方案已批准；2026-09-16。来源证据与完整性记录已实现，其余修正仍为设计，不代表已通过测试或已经生产就绪。
+方案已批准；2026-09-16。来源证据与完整性记录、文档版本与主文本选择已实现，其余修正仍为设计，不代表已通过测试或已经生产就绪。
 
 ## 当前可用：离线来源审计
 
@@ -32,6 +32,30 @@
 需求依据：本轮讨论确定的四个修正方向。现状见 [架构说明](ARCHITECTURE.md)。基础实现采用 PyMuPDF、PaddleOCR、逐页缓存和不可变语料发布；未证明能在上万份资料规模满足容量要求。
 
 ## 1. 范围与约束
+
+### 当前可用：文档版本与主文本选择（PDF-01）
+
+`scripts/review_document_relations.py` 只读输出精确重复组、同版本候选和已登记关系；`--compare SHA256_A SHA256_B` 比较两份已登记文件的原生文字，保存逐页文字摘要并输出有限字符范围的5字符片段相似度。比较不联网、不OCR、不写文件；扫描页或截断时相似度与文字等价为未知。即使全部原生文字一致，也不能据此证明图像、表格和公式等价。
+
+`data/registry/document_relations.json` 格式为 `schema_version: "1"` 和 `relations` 数组。状态支持 candidate、conflicting、confirmed；前两种只报告，不影响入库。完全相同的文件仍由 inventory 按SHA-256去重，无需另登记逻辑版本关系。
+
+确认一组不同文件需提供：
+
+- document_id、document_version_id：稳定的英文字母/数字/连字符/下划线身份，不改变现有哈希文档ID。
+- identity：document_kind、source_authority、revision；标准另外需要含年份的standard_number，其他资料需要title、publication_date。
+- member_sha256：所有被全文比对的完整文件哈希；primary_sha256必须在其中。
+- checked_at：实际复核时间，ISO格式并包含时区。
+- comparison：method固定为manual_full_document_comparison，result只能为layout_only或identical_body，compared_sha256必须覆盖全部成员，note说明实际比对依据和差异。字段合法性检查不能替代真正的全文复核。
+
+已核验的source_review=official_fulltext_verified且official_source_uri已核验的成员优先成为主文本；文件名含official、文件夹位置或旧核验标记不能使不同哈希的内容自动获得优先权。多个官方成员时保留已指定官方主文本，否则按哈希稳定选择。主文本的来源与质量批准不会从另一份副本继承，主文本选择也不授予正式回答权限。
+
+确认记录引用缺失/变更的哈希、关系重叠、版本编号不一致、身份核验证据冲突或实质正文差异时，构建失败而不是静默排除资料。更正后可重新构建候选；不修改已发布指针。新文件哈希必须重新确认，不能按旧文件名继承关系。
+
+候选清单和manifest区分source_file_count（物理文件）、unique_content_count（独立字节内容）、duplicate_copy_count（精确副本）、selected_content_count（待解析主文本）、same_version_copy_count（确认后省去的不同字节副本）。关系及文件映射参与语料版本指纹；manifest保留旧哈希文档ID、逻辑身份、原始副本路径及主文本哈希。副本到新主文本的页码映射标记not_established，旧引用仍需其原版本语料，不能自动重定向到新排版的同页。
+
+实际快照仍为27份文件、22个独立内容、22份待处理主文本，没有删除或合并未经确认的原件。T/CECS 758-2020的一组71/75页文件已登记候选：71页均无原生文字，需全文复核，不能把文字层缺失判作正文不同。本能力没有重建或发布当前问答库，也不提供管理页面。
+
+复现验证：`.venv\Scripts\python.exe -m unittest tests.test_document_relations tests.test_pdf_source_audit tests.test_corpus_update tests.test_corpus_publish tests.test_corpus_artifacts tests.test_repository_layout tests.test_document_http_api tests.test_evidence_source tests.test_answer_corpus_policy tests.test_formal_corpus_manifest tests.test_query_application_service -q`，2026-09-16实际72项通过。`scripts/check_public_release.py`通过。覆盖未确认/冲突不合并、修订版不合并、失效哈希与重叠确认拒绝、官方优先、主文本切换、旧ID映射与缓存幂等；这些测试不是扫描副本全文比对的替代品。
 
 - PDF-01：完全重复文件复用解析；同一文档、同一版本的不同文件，经确认后只选择一份主文本，优先经过核验的官方版本。
 - PDF-02：来源、版本与完整性信息有可回查依据；不强制每次联网搜索或下载。
@@ -129,6 +153,6 @@
 
 ## 8. 后续验收事项
 
-已确认：同版本近似副本由明确复核确认；官网核验按需触发；公式解释覆盖未登记公式但计算初期只开放已验证白名单。来源记录已交付，其余能力逐项实现和验证。
+已确认：同版本近似副本由明确复核确认；官网核验按需触发；公式解释覆盖未登记公式但计算初期只开放已验证白名单。来源记录和主文本选择已交付，其余能力逐项实现和验证。
 
 初始表格/公式页面集和优先支持的公式，由当前资料盘点后提出；识别阈值、资源预算在基线评测后确定。尚未确定的模型效果不能隐藏成已有能力。

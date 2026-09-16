@@ -80,7 +80,15 @@ docker compose up -d qdrant
 
 审计不自动下载官方资料，也不发布索引。旧记录保留为历史声明，缺少依据不会冒充新核验；“未发现疑点”不等于版本完整。记录格式和适用边界见 [PDF 数据处理说明](docs/PDF_PROCESSING.md)。
 
-构建完整候选语料；命令会刷新清单、按 SHA-256 去重、复用未变化内容的逐页缓存，并只解析新增或变更内容：
+查看完全重复组及同版本候选：
+
+```powershell
+.venv\Scripts\python.exe scripts\review_document_relations.py
+```
+
+不同哈希的文件只有在 `data/registry/document_relations.json` 中登记全文比对确认后才合并处理，优先选择已核验官方主文本。候选不会减少入库范围，旧文件与引用身份保留映射；不同排版的页码不自动互换。登记格式见 [PDF 数据处理说明](docs/PDF_PROCESSING.md)。
+
+构建完整候选语料；命令会刷新清单、按 SHA-256 和已确认版本关系去重、复用未变化内容的逐页缓存，并只解析新增或变更内容：
 
 ```powershell
 .venv\Scripts\python.exe scripts\update_corpus.py

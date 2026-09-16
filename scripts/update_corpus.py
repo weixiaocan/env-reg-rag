@@ -56,7 +56,13 @@ def plan(project_root: Path) -> dict[str, object]:
         "source_file_count": catalog.source_file_count,
         "unique_content_count": catalog.unique_content_count,
         "duplicate_copy_count": catalog.duplicate_copy_count,
-        "unique_page_count": sum(asset.page_count for asset in catalog.assets),
+        "selected_content_count": len(catalog.assets),
+        "same_version_copy_count": catalog.unique_content_count - len(catalog.assets),
+        "unique_page_count": catalog.unique_page_count,
+        "selected_page_count": sum(asset.page_count for asset in catalog.assets),
+        "document_relation_state_counts": dict(Counter(
+            r['status'] for r in catalog.document_relations.get('decisions', [])
+        )),
         "source_review_counts": dict(sorted(source_states.items())),
         "source_evidence_status_counts": dict(Counter(
             asset.metadata.get("source_evidence_status", "legacy_unverified") for asset in catalog.assets
@@ -193,6 +199,8 @@ def main() -> None:
         "source_file_count",
         "unique_content_count",
         "duplicate_copy_count",
+        "selected_content_count",
+        "same_version_copy_count",
         "page_count",
         "page_status_counts",
         "evidence_unit_count",

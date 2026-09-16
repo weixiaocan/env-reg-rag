@@ -1,0 +1,14 @@
+{
+  "schema_version": "1",
+  "relations": [
+    {
+      "status": "candidate",
+      "member_sha256": [
+        "468227cff7b0c938d526c89f73a077c49d272e56aca936ef710c32571ede1163",
+        "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941"
+      ],
+      "reason": "same_standard_number_with_year",
+      "note": "T/CECS 758-2020：71页文件无可用原生文字，另一份75页；页数差异和编号一致均不能证明正文等价，需逐页全文复核。"
+    }
+  ]
+}

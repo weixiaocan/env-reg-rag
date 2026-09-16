@@ -19,6 +19,7 @@ from src.evaluation.evidence_builder import build_evidence_units
 from src.evaluation.retrieval_chunk_builder import build_retrieval_chunks
 from src.ingestion.native_pdf import NativePdfParser
 from src.ingestion.ocr_pdf import OcrPdfParser, PaddleTextOcrEngine
+from src.application.document_relations import apply_relations
 from src.application.pdf_source_audit import (
     REGISTRY as SOURCE_EVIDENCE_REGISTRY,
     load_source_records,
@@ -101,6 +102,8 @@ class SourceCatalog:
     unique_content_count: int
     duplicate_copy_count: int
     assets: tuple[ContentAsset, ...]
+    document_relations: dict[str, Any]
+    unique_page_count: int
 
     def fingerprint_payload(self) -> dict[str, Any]:
         return {
@@ -108,6 +111,8 @@ class SourceCatalog:
             "source_file_count": self.source_file_count,
             "unique_content_count": self.unique_content_count,
             "duplicate_copy_count": self.duplicate_copy_count,
+            "document_relations": self.document_relations,
+            "unique_page_count": self.unique_page_count,
             "assets": [
                 {
                     "sha256": asset.sha256,
@@ -127,6 +132,7 @@ def build_source_catalog(
     *,
     inventory_path: Path | None = None,
     reviews_path: Path | None = None,
+    apply_document_relations: bool = True,
 ) -> SourceCatalog:
     """Collapse physical duplicates while retaining every source-file record."""
 
@@ -209,11 +215,14 @@ def build_source_catalog(
                 metadata=metadata,
             )
         )
+    selected, relations = apply_relations(root, tuple(assets)) if apply_document_relations else (tuple(assets), {})
     return SourceCatalog(
         source_file_count=len(inventory_rows),
         unique_content_count=len(assets),
         duplicate_copy_count=len(inventory_rows) - len(assets),
-        assets=tuple(assets),
+        assets=selected,
+        document_relations=relations,
+        unique_page_count=sum(asset.page_count for asset in assets),
     )
 
 
@@ -651,6 +660,10 @@ class CorpusUpdateService:
             "source_file_count": catalog.source_file_count,
             "unique_content_count": catalog.unique_content_count,
             "duplicate_copy_count": catalog.duplicate_copy_count,
+            "selected_content_count": len(catalog.assets),
+            "same_version_copy_count": catalog.unique_content_count - len(catalog.assets),
+            "source_unique_page_count": catalog.unique_page_count,
+            "document_relations": catalog.document_relations,
             "page_count": sum(asset.page_count for asset in catalog.assets),
             "page_status_counts": dict(sorted(statuses.items())),
             "evidence_unit_count": evidence_result["summary"]["evidence_unit_count"],
@@ -696,7 +709,7 @@ class CorpusUpdateService:
         )
         return {
             **stored_manifest,
-            "processed_content_count": catalog.unique_content_count - reused,
+            "processed_content_count": len(catalog.assets) - reused,
             "reused_content_count": reused,
         }
 
