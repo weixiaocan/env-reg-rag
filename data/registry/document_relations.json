@@ -2,13 +2,54 @@
   "schema_version": "1",
   "relations": [
     {
-      "status": "candidate",
+      "status": "confirmed",
+      "document_id": "t-cecs-758",
+      "document_version_id": "t-cecs-758-2020-original",
+      "identity": {
+        "document_kind": "standard",
+        "standard_number": "T/CECS 758-2020",
+        "source_authority": "中国工程建设标准化协会",
+        "revision": "original"
+      },
+      "primary_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "checked_at": "2026-09-16T21:22:16+08:00",
       "member_sha256": [
         "468227cff7b0c938d526c89f73a077c49d272e56aca936ef710c32571ede1163",
         "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941"
       ],
       "reason": "same_standard_number_with_year",
-      "note": "T/CECS 758-2020：71页文件无可用原生文字，另一份75页；页数差异和编号一致均不能证明正文等价，需逐页全文复核。"
+      "note": "逐页原图对照确认同版正文，保留原件；选择前置材料较完整的75页副本，不升级为官方来源核验通过。",
+      "comparison": {
+        "method": "manual_full_document_comparison",
+        "result": "identical_body",
+        "compared_sha256": [
+          "468227cff7b0c938d526c89f73a077c49d272e56aca936ef710c32571ede1163",
+          "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941"
+        ],
+        "note": "核验SHA-256后，以Poppler 100dpi渲染逐页视觉对照70组对应页面，覆盖中英文目录、全部正文、附录A-H及J、用词说明、引用标准名录及完整条文说明；未发现实质内容差异。封面不同，75页副本额外保留内封、公告第708号及两页前言；内封/公告记载T/CECS 758-2020、中国工程建设标准化协会、2021-03-01施行日期。身份依据为文件原页，不是官网新核验。两份均为扫描图像，75页副本带OCR文字层；本结论不证明OCR逐字准确、官方获取渠道、现行效力、版权或正式回答准入。物理页偏移仅是对照依据，旧引用不自动重定向。",
+        "visual_coverage": {
+          "left_sha256": "468227cff7b0c938d526c89f73a077c49d272e56aca936ef710c32571ede1163",
+          "right_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+          "left_total_pages": 71,
+          "right_total_pages": 75,
+          "paired_page_count": 70,
+          "left_physical_pages": [2, 71],
+          "right_physical_pages": [6, 75],
+          "right_page_offset": 4,
+          "separately_reviewed_covers": [1, 1],
+          "right_additional_front_pages": [2, 3, 4, 5],
+          "render_engine": "Poppler pdftoppm",
+          "render_dpi": 100,
+          "inspection": "ink-area cropped paired images; landscape pages rotated; critical tables enlarged"
+        },
+        "ocr_quality_followups": [
+          {"left_physical_page": 19, "right_physical_page": 23, "issue": "求和上下限、分数、时间单位需独立结构复核"},
+          {"left_physical_page": 20, "right_physical_page": 24, "issue": "流量公式及k=0.8-0.9系数需保留上下文与单位"},
+          {"left_physical_page": 61, "right_physical_page": 65, "issue": "表1的范围、小数点、单位及多级表头需单元格复核"},
+          {"left_physical_page": 63, "right_physical_page": 67, "issue": "续表2原页磷酸盐为>=8.0mg/L、氟化物为>=1.0mg/L；文字层可能丢失小数点，不可未经复核用于数值回答"},
+          {"left_physical_page": 64, "right_physical_page": 68, "issue": "圆形断面面积公式的正负号、分数及变量需专项复核"}
+        ]
+      }
     }
   ]
 }

@@ -53,7 +53,13 @@
 
 候选清单和manifest区分source_file_count（物理文件）、unique_content_count（独立字节内容）、duplicate_copy_count（精确副本）、selected_content_count（待解析主文本）、same_version_copy_count（确认后省去的不同字节副本）。关系及文件映射参与语料版本指纹；manifest保留旧哈希文档ID、逻辑身份、原始副本路径及主文本哈希。副本到新主文本的页码映射标记not_established，旧引用仍需其原版本语料，不能自动重定向到新排版的同页。
 
-实际快照仍为27份文件、22个独立内容、22份待处理主文本，没有删除或合并未经确认的原件。T/CECS 758-2020的一组71/75页文件已登记候选：71页均无原生文字，需全文复核，不能把文字层缺失判作正文不同。本能力没有重建或发布当前问答库，也不提供管理页面。
+T/CECS 758-2020 的71/75页扫描副本已完成逐页原图对照，并在 `data/registry/document_relations.json` 登记为confirmed/identical_body。先核对文件SHA-256，再用Poppler pdftoppm以100dpi渲染；裁剪空白、旋转横排页后逐组阅读，关键数字表格另放大复查。71页版第2–71物理页与75页版第6–75物理页共70组，覆盖中英文目录、全部正文、附录、引用标准和完整条文说明，未发现实质内容差异。两份封面分别检查；75页版另外有内封、公告第708号及两页前言。内封/公告中的身份信息是文件原页依据，不代表本轮进行了官网来源核验。
+
+选择前置材料较完整的75页版作为下一次构建主文本。它是带OCR文字层的扫描副本，不是保证准确的原生排版文本；71页版缺少文字层不能判为不同正文。原始清单仍为27份文件、22个独立字节内容、5份精确重复副本和1252物理页；只读构建计划为21份主文本、1份已确认同版不同字节副本、1078主文本页。22个独立内容共1149页与物理文件1252页不是同一统计口径。原件没有删除，正式回答准入没有提升，也没有重建或切换当前已发布问答库。
+
+本次复核不等于OCR全文质量批准。表1的多级表头/单位、续表2的小数点，以及求和、分数、上下标、正负号仍需专项处理。例如71页版第63页/75页版第67页的磷酸盐原值为>=8.0mg/L、氟化物为>=1.0mg/L，文字层可能丢失小数点；未经数值复核不得把这些转写直接用于计算回答。待处理定位已登记在comparison.ocr_quality_followups中。
+
+2026-09-16复核交付验证：下面既有回归命令增加 `tests.test_reviewed_corpus_snapshot` 后实际75项通过；发布检查和 `git diff --check` 通过。新增3项真实语料验收先出现2失败/1错误，登记实际复核结果后全部通过。只读数量复现：`.venv\Scripts\python.exe scripts\update_corpus.py --plan-only --skip-inventory-refresh`。页面复现可按登记SHA-256在inventory.csv定位原件，分别执行 `pdftoppm -r 100 -png <PDF> <临时目录前缀>`，按comparison.visual_coverage的物理页映射对照；渲染图和OCR全文属于可重建临时制品，不加入公开仓库。独立自查确认没有继承来源批准或自动重定向旧页码；来源核验与公式/表格解析质量仍是独立未完成事项。
 
 复现验证：`.venv\Scripts\python.exe -m unittest tests.test_document_relations tests.test_pdf_source_audit tests.test_corpus_update tests.test_corpus_publish tests.test_corpus_artifacts tests.test_repository_layout tests.test_document_http_api tests.test_evidence_source tests.test_answer_corpus_policy tests.test_formal_corpus_manifest tests.test_query_application_service -q`，2026-09-16实际72项通过。`scripts/check_public_release.py`通过。覆盖未确认/冲突不合并、修订版不合并、失效哈希与重叠确认拒绝、官方优先、主文本切换、旧ID映射与缓存幂等；这些测试不是扫描副本全文比对的替代品。
 
