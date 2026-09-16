@@ -15,7 +15,15 @@ class BgeSmallZhEmbedder:
     dimension = 512
     max_length = 512
 
-    def __init__(self, *, local_files_only: bool = False, device: str = "cpu") -> None:
+    def __init__(
+        self,
+        *,
+        local_files_only: bool = False,
+        device: str = "cpu",
+        batch_size: int = 64,
+    ) -> None:
+        if batch_size < 1:
+            raise ValueError("batch_size must be positive")
         self._tokenizer = AutoTokenizer.from_pretrained(
             self.model_id,
             revision=self.model_revision,
@@ -28,6 +36,7 @@ class BgeSmallZhEmbedder:
         ).to(device)
         self._model.eval()
         self._device = device
+        self._batch_size = batch_size
 
     def embed_query(self, text: str) -> list[float]:
         return self._encode([self.query_instruction + text])[0]
@@ -35,7 +44,11 @@ class BgeSmallZhEmbedder:
     def embed_documents(self, texts: Sequence[str]) -> list[list[float]]:
         if not texts:
             return []
-        return self._encode(list(texts))
+        values = list(texts)
+        vectors = []
+        for start in range(0, len(values), self._batch_size):
+            vectors.extend(self._encode(values[start : start + self._batch_size]))
+        return vectors
 
     def inspect_documents(self, texts: Sequence[str]) -> dict[str, int]:
         token_counts = [

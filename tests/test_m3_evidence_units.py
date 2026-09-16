@@ -11,6 +11,68 @@ CANONICAL = ROOT / "data" / "canonical" / "m2-canonical-sample-v1-documents.json
 
 
 class M3EvidenceUnitContractTest(unittest.TestCase):
+    def test_ocr_numeric_ranges_remain_with_their_table_context(self):
+        document = {
+            "schema_version": "1",
+            "asset_id": "asset_ocr_rainfall",
+            "document_version_id": "doc_ocr_rainfall",
+            "file_name": "GBT 28592-2012降水量等级.pdf",
+            "source_uri": "https://example.org/rainfall.pdf",
+            "processing_run_id": "run-test",
+            "metadata": {},
+            "pages": [
+                {
+                    "sample_id": "P-ocr-rainfall-0004",
+                    "physical_page": 4,
+                    "page_index": 3,
+                    "publishable": True,
+                    "decision_status": "approved",
+                    "text": "表1 不同时段的降雨量等级划分表",
+                    "tables": [],
+                    "elements": [
+                        {
+                            "element_id": f"e{index}",
+                            "reading_order": index,
+                            "type": "text",
+                            "text": text,
+                            "bbox": [0, index, 10, index + 1],
+                        }
+                        for index, text in enumerate(
+                            [
+                                "表1 不同时段的降雨量等级划分表",
+                                "12h降雨量",
+                                "24h降雨量",
+                                "中雨",
+                                "5.0~14.9",
+                                "10.0~24.9",
+                                "大雨",
+                                "15.0~29.9",
+                                "25.0~49.9",
+                            ]
+                        )
+                    ],
+                }
+            ],
+        }
+        with tempfile.TemporaryDirectory(dir=ROOT / "tmp") as canonical_dir, tempfile.TemporaryDirectory(dir=ROOT / "tmp") as output_dir:
+            canonical_path = Path(canonical_dir) / "canonical.jsonl"
+            canonical_path.write_text(
+                json.dumps(document, ensure_ascii=False) + "\n",
+                encoding="utf-8",
+            )
+
+            result = build_evidence_units(ROOT, canonical_path, Path(output_dir))
+
+        matching = [
+            unit
+            for unit in result["evidence_units"]
+            if "10.0~24.9" in unit["normalized_text"]
+        ]
+        self.assertEqual(len(matching), 1)
+        self.assertIn("24h降雨量", matching[0]["normalized_text"])
+        self.assertIn("中雨", matching[0]["normalized_text"])
+        self.assertIn("25.0~49.9", matching[0]["normalized_text"])
+
     def test_approved_pages_become_stable_citable_units(self):
         with tempfile.TemporaryDirectory() as first_dir, tempfile.TemporaryDirectory() as second_dir:
             first = build_evidence_units(ROOT, CANONICAL, Path(first_dir))

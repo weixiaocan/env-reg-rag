@@ -18,7 +18,7 @@ _HEADING_TYPES = {"paragraph_title", "section_header"}
 _TABLE_TITLE_TYPES = {"figure_title", "caption", "section_header"}
 _IGNORED_TYPES = {"header", "page_header", "page_footer", "number", "table"}
 _CLAUSE_START = re.compile(
-    r"^\s*(?:第[一二三四五六七八九十百千0-9]+[章节条款项]|[0-9]+(?:\s*\.\s*[0-9A-Za-z]+){1,4})(?:\s|[^0-9])"
+    r"^\s*(?:第[一二三四五六七八九十百千0-9]+[章节条款项]|[0-9]+(?:\s*\.\s*[0-9A-Za-z]+){1,4})(?!\s*[~～—-]\s*\d)(?:\s|[^0-9])"
 )
 _SHORT_NUMBERED_HEADING = re.compile(r"^\s*[0-9]+\s+[\u4e00-\u9fffA-Za-z]{1,12}\s*$")
 _MAX_EVIDENCE_CHARS = 600
@@ -48,11 +48,8 @@ def _normalize(text: str) -> str:
 
 
 def _read_jsonl(path: Path) -> list[dict[str, Any]]:
-    return [
-        json.loads(line)
-        for line in path.read_text(encoding="utf-8").splitlines()
-        if line.strip()
-    ]
+    with path.open(encoding="utf-8") as handle:
+        return [json.loads(line) for line in handle if line.strip()]
 
 
 def _inventory(project_root: Path) -> dict[str, dict[str, str]]:
@@ -118,10 +115,18 @@ def _make_unit(
         context_scope="page_local_inferred",
         locator=locator,
         document_metadata={
-            "standard_number": metadata.get("std_no", ""),
+            "standard_number": metadata.get("standard_number")
+            or metadata.get("std_no", ""),
             "document_kind": metadata.get("document_kind", ""),
             "jurisdiction": metadata.get("jurisdiction", ""),
             "effective_status": metadata.get("effective_status", ""),
+            "official_source_uri": metadata.get("official_source_uri", ""),
+            "source_authority": metadata.get("source_authority", ""),
+            "source_review": metadata.get("source_review", "needs_review"),
+            "publication_date": metadata.get("publication_date", ""),
+            "effective_from": metadata.get("effective_from", ""),
+            "local_file_match": metadata.get("local_file_match", ""),
+            "selection_status": metadata.get("selection_status", ""),
         },
         table=table,
     )
@@ -283,7 +288,10 @@ def build_evidence_units(
     source_pages = 0
     locator_source_pages = 0
     for document in documents:
-        metadata = inventory[document["file_name"]]
+        metadata = {
+            **inventory.get(document["file_name"], {}),
+            **document.get("metadata", {}),
+        }
         for page in document["pages"]:
             if page["publishable"]:
                 source_pages += 1

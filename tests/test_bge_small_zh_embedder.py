@@ -1,7 +1,23 @@
 import math
 import unittest
+from unittest.mock import Mock
 
 from src.retrieval.bge_small_zh import BgeSmallZhEmbedder
+
+
+class BgeSmallZhEmbedderBatchingTest(unittest.TestCase):
+    def test_document_embedding_uses_bounded_batches(self):
+        embedder = object.__new__(BgeSmallZhEmbedder)
+        embedder._batch_size = 2
+        embedder._encode = Mock(side_effect=lambda texts: [[float(len(text))] for text in texts])
+
+        vectors = embedder.embed_documents(["a", "bb", "ccc", "dddd", "eeeee"])
+
+        self.assertEqual(vectors, [[1.0], [2.0], [3.0], [4.0], [5.0]])
+        self.assertEqual(
+            [call.args[0] for call in embedder._encode.call_args_list],
+            [["a", "bb"], ["ccc", "dddd"], ["eeeee"]],
+        )
 
 
 class BgeSmallZhEmbedderIntegrationTest(unittest.TestCase):

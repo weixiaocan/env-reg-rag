@@ -77,12 +77,13 @@ def create_mcp_server(
     query_service: QueryApplicationService,
     source_locator_service: QueryApplicationService,
     evidence_catalog: EvidenceSourceService,
+    answer_corpus_version: str = "formal-corpus-v1",
 ) -> MCPServer:
     """Create a stateless MCP server that delegates all policy to application services."""
     server = MCPServer(
         name="drainage-regulation-rag",
-        title="排水规范证据助手",
-        description="只读检索环保法律法规、政策、标准和手册，并返回可核验依据。",
+        title="排水法规标准智能问答系统",
+        description="只读检索排水领域法律法规、政策、标准和技术资料，并返回可核验依据。",
         version="0.1.0",
     )
 
@@ -118,7 +119,7 @@ def create_mcp_server(
                 request_id=request_id or str(uuid4()),
                 question=question,
                 conversation_context=dict(conversation_context or {}),
-                corpus_version="formal-corpus-v1",
+                corpus_version=answer_corpus_version,
                 caller_type="mcp",
             )
         )

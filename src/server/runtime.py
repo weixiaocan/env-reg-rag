@@ -14,6 +14,7 @@ from src.adapters.jsonl_query_trace_recorder import JsonlQueryTraceRecorder
 from src.adapters.qdrant_evidence_catalog import QdrantEvidenceCatalog
 from src.adapters.qdrant_evidence_retriever import QdrantEvidenceRetriever
 from src.application.query_service import QueryApplicationService
+from src.application.corpus_artifacts import resolve_current_corpus
 from src.application.evidence_source import EvidenceSourceService
 from src.application.scope_resolution import RuleBasedScopeResolver
 from src.retrieval.bge_small_zh import BgeSmallZhEmbedder
@@ -29,6 +30,7 @@ class QueryServices:
     documents: InventoryDocumentCatalog
     evidence: EvidenceSourceService
     readiness: ReadinessProbe
+    corpus_version: str
 
 
 def build_query_services(
@@ -36,6 +38,7 @@ def build_query_services(
 ) -> QueryServices:
     """Wire both safe query profiles without leaking them into HTTP code."""
     settings = LlmProviderSettings.from_env()
+    current_corpus = resolve_current_corpus(project_root)
     embedder = BgeSmallZhEmbedder(local_files_only=True, device="cpu")
     client = QdrantClient(
         url=os.getenv("QDRANT_URL", "http://127.0.0.1:6333"), timeout=30
@@ -43,17 +46,13 @@ def build_query_services(
     answer_generator = build_answer_generator(settings)
     formal_index = QdrantRetrievalIndex(
         client=client,
-        collection_name="corpus_current",
+        collection_name=current_corpus.query_alias,
         vector_size=embedder.dimension,
         enable_bm25=True,
     )
     numeric_index = NumericRangeIndex.from_artifacts(
-        evidence_units_path=(
-            project_root / "data" / "evidence" / "m3-evidence-units-v1.jsonl"
-        ),
-        corpus_manifest_path=(
-            project_root / "data" / "registry" / "formal-corpus-v1.json"
-        ),
+        evidence_units_path=current_corpus.evidence_units_path,
+        corpus_manifest_path=current_corpus.manifest_path,
     )
     source_locator_index = QdrantRetrievalIndex(
         client=client,
@@ -76,6 +75,7 @@ def build_query_services(
             index=formal_index,
             embedder=embedder,
             numeric_range_index=numeric_index,
+            fixed_filters={"usage_policy": "answer_and_citation"},
             limit=5,
         ),
         answer_generator=answer_generator,
@@ -84,7 +84,7 @@ def build_query_services(
             "provider": settings.provider,
             "model": settings.model,
             "retrieval_profile": "qdrant-bge-small-zh-bm25-rrf+numeric",
-            "collection_alias": "corpus_current",
+            "collection_alias": current_corpus.query_alias,
             "embedding_model": "BAAI/bge-small-zh-v1.5",
             "prompt_version": "m4-evidence-answer-v1",
         },
@@ -123,8 +123,9 @@ def build_query_services(
         ),
         readiness=QdrantReadinessProbe(
             client=client,
-            required_collections=["corpus_current", "m3_experiment_current"],
+            required_collections=[current_corpus.query_alias, "m3_experiment_current"],
         ),
+        corpus_version=current_corpus.corpus_version,
     )
 
 

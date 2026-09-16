@@ -18,4 +18,5 @@ app = create_app(
     document_catalog=services.documents,
     evidence_catalog=services.evidence,
     readiness_probe=services.readiness,
+    answer_corpus_version=services.corpus_version,
 )

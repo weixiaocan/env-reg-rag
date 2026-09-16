@@ -68,7 +68,11 @@ def _ocr_quality(text: str, result: dict[str, Any]) -> dict[str, Any]:
     scores = [float(score) for score in ocr.get("rec_scores", [])]
     compact = re.sub(r"\s", "", text)
     reasons = [] if compact else ["empty_ocr_text"]
-    if scores and min(scores) < 0.80:
+    mean_confidence = sum(scores) / len(scores) if scores else None
+    low_confidence_ratio = (
+        sum(score < 0.80 for score in scores) / len(scores) if scores else None
+    )
+    if scores and (mean_confidence < 0.80 or low_confidence_ratio > 0.20):
         reasons.append("low_confidence_text")
     if not compact:
         status = "fail"
@@ -82,11 +86,84 @@ def _ocr_quality(text: str, result: dict[str, Any]) -> dict[str, Any]:
         "metrics": {
             "non_whitespace_characters": len(compact),
             "recognized_line_count": len(ocr.get("rec_texts", [])),
-            "mean_confidence": round(sum(scores) / len(scores), 6) if scores else None,
+            "mean_confidence": round(mean_confidence, 6) if scores else None,
             "minimum_confidence": round(min(scores), 6) if scores else None,
-            "review_confidence_threshold": 0.8,
+            "low_confidence_ratio": (
+                round(low_confidence_ratio, 6) if scores else None
+            ),
+            "review_mean_confidence_threshold": 0.8,
+            "review_low_confidence_ratio_threshold": 0.2,
         },
     }
+
+
+class PaddleTextOcrEngine:
+    """Fast text-only PaddleOCR adapter for routine full-corpus updates."""
+
+    name = "paddleocr-text"
+
+    def __init__(self, *, pipeline: Any | None = None, version: str | None = None) -> None:
+        self._pipeline = pipeline
+        self.version = version or importlib.metadata.version("paddleocr")
+
+    @staticmethod
+    def _create_pipeline() -> Any:
+        from paddleocr import PaddleOCR
+
+        return PaddleOCR(
+            device="cpu",
+            text_detection_model_name="PP-OCRv5_mobile_det",
+            text_recognition_model_name="PP-OCRv5_mobile_rec",
+            enable_mkldnn=False,
+            use_doc_orientation_classify=False,
+            use_doc_unwarping=False,
+            use_textline_orientation=False,
+        )
+
+    @staticmethod
+    def _list(value: Any) -> list[Any]:
+        if value is None:
+            return []
+        if hasattr(value, "tolist"):
+            return value.tolist()
+        return list(value)
+
+    def predict(self, image: np.ndarray) -> dict[str, Any]:
+        if self._pipeline is None:
+            self._pipeline = self._create_pipeline()
+        results = self._pipeline.predict(input=image)
+        if len(results) != 1:
+            raise RuntimeError(f"expected one OCR page result, got {len(results)}")
+        payload = results[0].json["res"]
+        texts = self._list(payload.get("rec_texts"))
+        scores = self._list(payload.get("rec_scores"))
+        boxes = self._list(payload.get("rec_boxes"))
+        blocks = [
+            {
+                "block_id": index,
+                "block_order": index,
+                "block_label": "text",
+                "block_content": str(value),
+                "block_bbox": self._list(boxes[index]),
+            }
+            for index, value in enumerate(texts)
+            if index < len(boxes)
+        ]
+        overall = {
+            "rec_texts": texts,
+            "rec_scores": scores,
+            "rec_boxes": boxes,
+            "rec_polys": self._list(payload.get("rec_polys")),
+            "rec_labels": self._list(payload.get("rec_labels")),
+        }
+        return {
+            "width": image.shape[1],
+            "height": image.shape[0],
+            "parsing_res_list": blocks,
+            "overall_ocr_res": overall,
+            "table_res_list": [],
+            "model_settings": {"profile": "text_only"},
+        }
 
 
 class PaddleStructureV3Engine:
@@ -237,6 +314,9 @@ class OcrPdfParser:
             )
 
         text = "\n".join(text_parts)
+        non_white_pixel_ratio = float(
+            np.mean(np.min(image, axis=2) < 250)
+        )
         return {
             "physical_page": physical_page,
             "page_index": page_index,
@@ -256,6 +336,7 @@ class OcrPdfParser:
                 "render_dpi": self.dpi,
                 "render_width": image.shape[1],
                 "render_height": image.shape[0],
+                "non_white_pixel_ratio": round(non_white_pixel_ratio, 8),
                 "engine_result": result,
             },
         }

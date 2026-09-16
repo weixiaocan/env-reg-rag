@@ -1,6 +1,6 @@
-# 环保法规规范证据助手
+# 排水法规标准智能问答系统
 
-面向环保法律、法规、标准和技术规范的开源证据型 RAG。系统不仅返回答案，还提供文档、条款、页码和原文定位；当条件不完整或证据不足时，会追问或拒绝生成结论。
+面向排水领域法律法规、政策、标准和技术资料的开源 RAG 系统。系统不仅返回答案，还提供文档、条款、页码和原文定位；当条件不完整或证据不足时，会追问或拒绝生成结论。
 
 ## 核心能力
 
@@ -63,6 +63,28 @@ docker compose up -d qdrant
 .venv\Scripts\python.exe -m pip install -r requirements-ocr.txt
 ```
 
+## 更新资料库
+
+把新 PDF 放入 `data/raw/` 后，先查看本次更新计划：
+
+```powershell
+.venv\Scripts\python.exe scripts\update_corpus.py --plan-only
+```
+
+构建完整候选语料；命令会刷新清单、按 SHA-256 去重、复用未变化内容的逐页缓存，并只解析新增或变更内容：
+
+```powershell
+.venv\Scripts\python.exe scripts\update_corpus.py
+```
+
+候选库没有失败页时，可以构建不可变 Qdrant collection 并原子切换 `corpus_current`：
+
+```powershell
+.venv\Scripts\python.exe scripts\update_corpus.py --publish
+```
+
+默认 OCR 使用适合日常增量更新的文字识别模式；低置信页面进入隔离定位，不参与正式回答。需要高成本版面或表格恢复时，分别增加 `--ocr-layout` 或 `--ocr-tables`。官方来源发现不是自动化步骤，核验结果维护在 `data/registry/document_reviews.csv`。
+
 ## 测试
 
 ```powershell
@@ -83,7 +105,9 @@ Agent host 可以通过 stdio 启动只读 MCP：
 
 ## 数据资料
 
-`data/raw/` 保存随仓库发布的环保法规规范资料，`data/registry/inventory.csv` 记录文件哈希、页数和重复关系。资料可以按相同的准入、解析、评估和发布机制持续扩展。
+`data/raw/` 保存随仓库发布的排水领域法规、政策、标准和技术资料，`data/registry/inventory.csv` 记录文件哈希、页数和重复关系。资料可以按相同的准入、解析、评估和发布机制持续扩展。
+
+当前数据快照包含 27 个 PDF 文件，其中 23 份为原候选资料、4 份为官方核验副本；按 SHA-256 合并后是 22 个独立内容、5 个完全重复副本。物理文件合计 1252 页，去重后的处理范围为 1149 页。当前发布版本 `corpus-319d0ff4b926` 中，1094 页通过自动质量门控，55 页进入隔离区，形成 4200 个可检索证据块；隔离内容不会进入正式回答。
 
 公开渠道可取得不等于已经取得再分发授权。第三方资料及其派生摘录不受项目 AGPL 许可覆盖；权利边界、更正和下架流程见 [数据资料声明](DATA_NOTICE.md)。
 

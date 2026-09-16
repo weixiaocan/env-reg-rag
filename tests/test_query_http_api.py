@@ -146,7 +146,9 @@ class QueryHttpApiTest(unittest.TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertIn("text/html", response.headers["content-type"])
-        self.assertIn("排水规范证据助手", response.text)
+        self.assertIn("排水法规标准智能问答系统", response.text)
+        self.assertIn("当前发布语料", response.text)
+        self.assertNotIn("正式语料 formal-corpus-v1", response.text)
         self.assertIn('aria-label="提交问题"', response.text)
 
     def test_health_check_is_available_without_running_a_query(self):

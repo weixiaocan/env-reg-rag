@@ -16,6 +16,7 @@ mcp = create_mcp_server(
     query_service=services.answer,
     source_locator_service=services.source_lookup,
     evidence_catalog=services.evidence,
+    answer_corpus_version=services.corpus_version,
 )
 
 

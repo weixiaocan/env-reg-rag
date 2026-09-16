@@ -1,0 +1,26 @@
+{
+  "artifact_id": "corpus-319d0ff4b926-evidence",
+  "generated_at": "2026-09-15T14:45:43.077682+00:00",
+  "schema_version": "1",
+  "scope": "approved_evidence_plus_quarantined_source_locators",
+  "segmentation": {
+    "boundary": "canonical_element",
+    "max_evidence_chars": 600,
+    "context_scope": "page_local_inferred"
+  },
+  "canonical_source": "data/canonical/corpus-319d0ff4b926-documents.jsonl",
+  "canonical_sha256": "f08e6eb9c01bbb3a17e1d860b77b26883724c4bda9d3d536eb5b83cd18e49fa9",
+  "summary": {
+    "source_document_count": 22,
+    "source_page_count": 1094,
+    "locator_source_page_count": 39,
+    "evidence_unit_count": 4200,
+    "answer_evidence_unit_count": 4161,
+    "source_locator_unit_count": 39,
+    "evidence_type_counts": {
+      "clause": 3009,
+      "paragraph": 1152,
+      "source_locator": 39
+    }
+  }
+}

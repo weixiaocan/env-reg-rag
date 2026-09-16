@@ -1,1 +1,5 @@
 *.pdf binary
+*.jsonl text eol=lf
+data/evidence/corpus-*.json text eol=lf
+data/registry/corpus-*.json text eol=lf
+data/retrieval/corpus-*.json text eol=lf

@@ -45,9 +45,10 @@ def create_app(
     document_catalog: InventoryDocumentCatalog | None = None,
     evidence_catalog: EvidenceSourceService | None = None,
     readiness_probe: ReadinessProbe | None = None,
+    answer_corpus_version: str = "formal-corpus-v1",
 ) -> FastAPI:
     """Create the HTTP adapter with its application dependency injected."""
-    app = FastAPI(title="排水规范证据助手", version="0.1.0")
+    app = FastAPI(title="排水法规标准智能问答系统", version="0.1.0")
     install_error_handlers(app)
     workbench_path = Path(__file__).parent / "static" / "index.html"
 
@@ -151,7 +152,7 @@ def create_app(
     @app.post("/api/v1/queries", response_model=AnswerResultDto)
     async def submit_query(payload: QueryHttpRequest) -> AnswerResultDto:
         selected_service = query_service
-        corpus_version = "formal-corpus-v1"
+        corpus_version = answer_corpus_version
         if payload.mode == "source_lookup":
             if source_locator_service is None:
                 raise HTTPException(

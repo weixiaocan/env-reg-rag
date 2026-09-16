@@ -118,6 +118,11 @@ class QdrantEvidenceRetriever:
                     continue
                 seen_evidence_ids.add(hit.primary_evidence_id)
                 hits.append(hit)
+        fixed_usage_policy = self._fixed_filters.get("usage_policy")
+        if fixed_usage_policy:
+            hits = [
+                hit for hit in hits if hit.usage_policy == fixed_usage_policy
+            ]
         hits = hits[: self._limit]
         return EvidencePack(
             corpus_version=corpus_version,

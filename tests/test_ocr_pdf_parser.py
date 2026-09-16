@@ -64,6 +64,14 @@ class LowConfidenceFixtureEngine(FixtureStructureEngine):
         return result
 
 
+class MostlyHighConfidenceFixtureEngine(FixtureStructureEngine):
+    def predict(self, image):
+        result = super().predict(image)
+        result["overall_ocr_res"]["rec_texts"] = [f"第{i}行" for i in range(10)]
+        result["overall_ocr_res"]["rec_scores"] = [0.95] * 9 + [0.60]
+        return result
+
+
 class OcrPdfParserContractTest(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -99,6 +107,14 @@ class OcrPdfParserContractTest(unittest.TestCase):
             parser.parse_page(SCANNED_PDF, physical_page=0)
         with self.assertRaisesRegex(ValueError, "physical_page"):
             parser.parse_page(SCANNED_PDF, physical_page=10_000)
+
+    def test_one_noisy_line_does_not_quarantine_an_otherwise_clear_page(self):
+        page = OcrPdfParser(engine=MostlyHighConfidenceFixtureEngine()).parse_page(
+            SCANNED_PDF, physical_page=4
+        )
+
+        self.assertEqual(page["quality"]["status"], "pass")
+        self.assertEqual(page["quality"]["metrics"]["low_confidence_ratio"], 0.1)
 
     def test_low_confidence_text_is_sent_to_review_instead_of_auto_passed(self):
         page = OcrPdfParser(engine=LowConfidenceFixtureEngine()).parse_page(

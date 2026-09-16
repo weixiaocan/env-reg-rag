@@ -50,12 +50,16 @@ class QdrantRetrievalIndex:
         vector_size: int,
         enable_bm25: bool = False,
         hybrid_prefetch_limit: int = 20,
+        upsert_batch_size: int = 128,
     ) -> None:
+        if upsert_batch_size < 1:
+            raise ValueError("upsert_batch_size must be positive")
         self._client = client
         self._collection_name = collection_name
         self._vector_size = vector_size
         self._enable_bm25 = enable_bm25
         self._hybrid_prefetch_limit = hybrid_prefetch_limit
+        self._upsert_batch_size = upsert_batch_size
 
     def build(
         self,
@@ -84,23 +88,25 @@ class QdrantRetrievalIndex:
             },
             sparse_vectors_config=sparse_vectors_config,
         )
-        points = []
-        for chunk, vector in zip(chunks, vectors, strict=True):
-            named_vectors: dict[str, Any] = {"dense": list(vector)}
-            if self._enable_bm25:
-                named_vectors["bm25"] = models.Document(
-                    text=chunk["text"],
-                    model="qdrant/bm25",
-                    options=self._bm25_options(),
+        for start in range(0, len(chunks), self._upsert_batch_size):
+            points = []
+            chunk_batch = chunks[start : start + self._upsert_batch_size]
+            vector_batch = vectors[start : start + self._upsert_batch_size]
+            for chunk, vector in zip(chunk_batch, vector_batch, strict=True):
+                named_vectors: dict[str, Any] = {"dense": list(vector)}
+                if self._enable_bm25:
+                    named_vectors["bm25"] = models.Document(
+                        text=chunk["text"],
+                        model="qdrant/bm25",
+                        options=self._bm25_options(),
+                    )
+                points.append(
+                    models.PointStruct(
+                        id=str(uuid5(NAMESPACE_URL, chunk["chunk_id"])),
+                        vector=named_vectors,
+                        payload={**chunk, **chunk.get("metadata", {})},
+                    )
                 )
-            points.append(
-                models.PointStruct(
-                    id=str(uuid5(NAMESPACE_URL, chunk["chunk_id"])),
-                    vector=named_vectors,
-                    payload={**chunk, **chunk.get("metadata", {})},
-                )
-            )
-        if points:
             self._client.upsert(
                 collection_name=self._collection_name,
                 points=points,

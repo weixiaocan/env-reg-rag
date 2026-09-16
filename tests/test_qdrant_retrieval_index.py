@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import Mock
 
 from qdrant_client import QdrantClient
 
@@ -6,6 +7,35 @@ from src.retrieval.qdrant_index import QdrantRetrievalIndex
 
 
 class QdrantRetrievalIndexContractTest(unittest.TestCase):
+    def test_build_upserts_large_indexes_in_bounded_batches(self):
+        client = QdrantClient(":memory:")
+        original_upsert = client.upsert
+        client.upsert = Mock(wraps=original_upsert)
+        index = QdrantRetrievalIndex(
+            client=client,
+            collection_name="test_batched_build",
+            vector_size=2,
+            upsert_batch_size=2,
+        )
+        chunks = [
+            {
+                "chunk_id": f"chunk_{number:032d}",
+                "text": f"chunk {number}",
+                "evidence_ids": [f"ev_{number:032d}"],
+                "primary_evidence_id": f"ev_{number:032d}",
+                "document_version_id": "doc_batch",
+                "evidence_type": "paragraph",
+                "physical_pages": [number + 1],
+                "metadata": {"usage_policy": "answer_and_citation"},
+            }
+            for number in range(5)
+        ]
+
+        index.build(chunks, [[1.0, 0.0]] * len(chunks))
+
+        self.assertEqual(client.upsert.call_count, 3)
+        self.assertEqual(client.count("test_batched_build", exact=True).count, 5)
+
     def test_exact_dense_returns_the_best_chunk_with_evidence_metadata(self):
         index = QdrantRetrievalIndex(
             client=QdrantClient(":memory:"),

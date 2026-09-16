@@ -177,7 +177,7 @@ class QueryApplicationService:
                 resolved_scope=scope.resolved_scope,
                 missing_conditions=[],
                 answer=None,
-                evidence=evidence_pack.evidence,
+                evidence=[],
                 corpus_version=evidence_pack.corpus_version,
                 warnings=["retrieved evidence does not support an answer"],
                 continuation_context={

@@ -57,11 +57,8 @@ class NumericRangeIndex:
         corpus_manifest_path: Path,
     ) -> "NumericRangeIndex":
         manifest = json.loads(corpus_manifest_path.read_text(encoding="utf-8"))
-        units = [
-            json.loads(line)
-            for line in evidence_units_path.read_text(encoding="utf-8").splitlines()
-            if line.strip()
-        ]
+        with evidence_units_path.open(encoding="utf-8") as handle:
+            units = [json.loads(line) for line in handle if line.strip()]
         return cls.from_evidence_units(
             units,
             allowed_document_version_ids=set(manifest["document_version_ids"]),

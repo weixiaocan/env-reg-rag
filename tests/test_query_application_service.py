@@ -292,7 +292,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(result.status, QueryStatus.REFUSED)
         self.assertIsNone(result.answer)
-        self.assertEqual(result.evidence, [evidence])
+        self.assertEqual(result.evidence, [])
         self.assertIn("retrieved evidence does not support an answer", result.warnings)
 
     async def test_claim_cannot_cite_locator_only_evidence(self):

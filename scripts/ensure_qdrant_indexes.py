@@ -15,13 +15,12 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
+from src.application.corpus_artifacts import resolve_current_corpus
 from src.retrieval.bge_small_zh import BgeSmallZhEmbedder
 from src.retrieval.qdrant_index import QdrantRetrievalIndex
 from src.retrieval.qdrant_release import QdrantCorpusReleaseManager
 
 
-FORMAL_CHUNKS = ROOT / "data" / "retrieval" / "formal-corpus-v1-chunks.jsonl"
-FORMAL_MANIFEST = ROOT / "data" / "registry" / "formal-corpus-v1.json"
 EXPERIMENT_CHUNKS = ROOT / "data" / "retrieval" / "m3-retrieval-chunks-v1.jsonl"
 EXPERIMENT_MANIFEST = (
     ROOT / "data" / "retrieval" / "m3-retrieval-chunks-v1.manifest.json"
@@ -33,11 +32,8 @@ def sha256(path: Path) -> str:
 
 
 def load_chunks(path: Path) -> list[dict]:
-    return [
-        json.loads(line)
-        for line in path.read_text(encoding="utf-8").splitlines()
-        if line.strip()
-    ]
+    with path.open(encoding="utf-8") as handle:
+        return [json.loads(line) for line in handle if line.strip()]
 
 
 def alias_target(client: QdrantClient, alias_name: str) -> str | None:
@@ -89,21 +85,27 @@ def ensure_projection(
 
 
 def main() -> None:
-    formal_manifest = json.loads(FORMAL_MANIFEST.read_text(encoding="utf-8"))
+    current = resolve_current_corpus(ROOT)
+    formal_manifest = json.loads(current.manifest_path.read_text(encoding="utf-8"))
     if formal_manifest["status"] != "ready":
-        raise RuntimeError("formal corpus manifest has not passed its source gate")
-    if sha256(FORMAL_CHUNKS) != formal_manifest["inputs"][
-        "formal_retrieval_chunks_sha256"
-    ]:
-        raise RuntimeError("formal chunks do not match their approved manifest")
+        raise RuntimeError("current corpus manifest has not passed its build gate")
+    expected_sha = (
+        formal_manifest.get("retrieval_chunks_sha256")
+        or formal_manifest.get("inputs", {}).get("formal_retrieval_chunks_sha256")
+    )
+    if not expected_sha or sha256(current.retrieval_chunks_path) != expected_sha:
+        raise RuntimeError("current corpus chunks do not match their manifest")
 
     experiment_manifest = json.loads(
         EXPERIMENT_MANIFEST.read_text(encoding="utf-8")
     )
-    formal_chunks = load_chunks(FORMAL_CHUNKS)
+    formal_chunks = load_chunks(current.retrieval_chunks_path)
     experiment_chunks = load_chunks(EXPERIMENT_CHUNKS)
-    if len(formal_chunks) != formal_manifest["included_chunk_count"]:
-        raise RuntimeError("formal chunk count does not match its manifest")
+    expected_count = formal_manifest.get(
+        "chunk_count", formal_manifest.get("included_chunk_count")
+    )
+    if len(formal_chunks) != expected_count:
+        raise RuntimeError("current corpus chunk count does not match its manifest")
     if len(experiment_chunks) != experiment_manifest["summary"]["chunk_count"]:
         raise RuntimeError("experiment chunk count does not match its manifest")
 
@@ -116,7 +118,7 @@ def main() -> None:
             client=client,
             embedder=embedder,
             chunks=formal_chunks,
-            collection_name="corpus_formal_v1",
+            collection_name=current.collection_name,
             alias_name="corpus_current",
         ),
         "experiment": ensure_projection(
