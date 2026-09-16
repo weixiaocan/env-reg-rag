@@ -1,0 +1,23 @@
+{
+  "artifact_id": "corpus-5e4aae29c683-chunks",
+  "generated_at": "2026-09-16T13:45:18.383391+00:00",
+  "schema_version": "1",
+  "scope": "approved_evidence_plus_quarantined_source_locators",
+  "context_profile": "evidence-context-v1",
+  "mapping": "one_retrieval_chunk_to_one_evidence_unit",
+  "evidence_source": "data/evidence/corpus-5e4aae29c683-evidence.jsonl",
+  "evidence_sha256": "ab57a9ad15d6ec335a3cf05053cb19f38617adfef6c1d4995f84feb4001e8fda",
+  "summary": {
+    "source_evidence_count": 3937,
+    "chunk_count": 3937,
+    "evidence_type_counts": {
+      "clause": 2818,
+      "paragraph": 1096,
+      "source_locator": 23
+    },
+    "usage_policy_counts": {
+      "answer_and_citation": 3914,
+      "source_locator_only": 23
+    }
+  }
+}

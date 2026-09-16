@@ -1,11 +1,11 @@
 {
   "schema_version": "1",
   "status": "published",
-  "published_at": "2026-09-15T14:46:23.772074+00:00",
-  "corpus_version": "corpus-319d0ff4b926",
-  "manifest": "data/registry/corpus-319d0ff4b926.json",
-  "collection_name": "corpus_319d0ff4b926",
+  "published_at": "2026-09-16T13:47:24.820211+00:00",
+  "corpus_version": "corpus-5e4aae29c683",
+  "manifest": "data/registry/corpus-5e4aae29c683.json",
+  "collection_name": "corpus_5e4aae29c683",
   "query_alias": "corpus_current",
-  "chunk_count": 4200,
+  "chunk_count": 3937,
   "action": "built"
 }
