@@ -20,6 +20,7 @@ from src.evaluation.retrieval_chunk_builder import build_retrieval_chunks
 from src.ingestion.native_pdf import NativePdfParser
 from src.ingestion.ocr_pdf import OcrPdfParser, PaddleTextOcrEngine
 from src.application.document_relations import apply_relations
+from src.application.formula_region_gate import load_formula_region_gate
 from src.application.pdf_source_audit import (
     REGISTRY as SOURCE_EVIDENCE_REGISTRY,
     load_source_records,
@@ -36,7 +37,7 @@ SOURCE_REVIEW_RANK = {
     "needs_review": 1,
     "": 0,
 }
-_CORPUS_ARTIFACT_PROFILE = "corpus-artifacts-v2"
+_CORPUS_ARTIFACT_PROFILE = "corpus-artifacts-v6-unified-original-cross-page-relations"
 
 
 def _sha256(path: Path) -> str:
@@ -360,7 +361,7 @@ class AutomaticPageExtractor:
             "elements": source.get("elements") or [],
             "tables": AutomaticPageExtractor._canonical_tables(source.get("tables") or []),
             "raw_artifact_ref": "",
-            "coordinate_normalizations": [],
+            "coordinate_normalizations": source.get('coordinate_normalizations') or [],
         }
 
     def extract(self, asset: ContentAsset, *, physical_page: int) -> dict[str, Any]:
@@ -409,6 +410,8 @@ class CorpusUpdateService:
         progress: Callable[[dict[str, Any]], None] | None = None,
         worker_count: int = 1,
         page_extractor_factory: Callable[[], PageExtractor] | None = None,
+        formula_run_id: str | None = None,
+        attempted_contents: set[str] | None = None,
     ):
         if worker_count < 1:
             raise ValueError("worker_count must be positive")
@@ -419,6 +422,8 @@ class CorpusUpdateService:
         self.progress = progress or (lambda event: None)
         self.worker_count = worker_count
         self.page_extractor_factory = page_extractor_factory
+        self.formula_run_id = formula_run_id
+        self.attempted_contents = attempted_contents or set()
 
     def _cache_path(self, asset: ContentAsset, config_hash: str) -> Path:
         return (
@@ -451,6 +456,19 @@ class CorpusUpdateService:
         )
         temporary.replace(path)
 
+    def _write_checkpoint(self, path: Path, payload: Any) -> None:
+        self._write_json(path, {**payload, 'checkpoint_sha256': _stable_json_sha(payload)})
+
+    def _read_checkpoint(self, path: Path):
+        try:
+            payload = json.loads(path.read_text(encoding='utf-8'))
+        except (ValueError, UnicodeError):
+            return {}, False
+        if not isinstance(payload, dict):
+            return {}, False
+        digest = payload.pop('checkpoint_sha256', None)
+        return payload, digest == _stable_json_sha(payload)
+
     def _write_text(self, path: Path, content: str) -> None:
         """Publish a generated text artifact only after it is fully written."""
         path.parent.mkdir(parents=True, exist_ok=True)
@@ -467,10 +485,14 @@ class CorpusUpdateService:
     ) -> tuple[dict[str, Any], bool]:
         page_cache = self._page_cache_path(asset, config_hash, physical_page)
         if page_cache.is_file():
-            page = json.loads(page_cache.read_text(encoding="utf-8"))
-            if page.get("physical_page") != physical_page:
+            page, integrity = self._read_checkpoint(page_cache)
+            if integrity and page.get("physical_page") != physical_page:
                 raise ValueError(f"page cache mismatch: {page_cache}")
-            return page, True
+            if (integrity or not getattr(extractor, 'requires_structure', False)) and page.get('decision_status') != 'failed' and (
+                not getattr(extractor, 'requires_structure', False)
+                or page.get('structure_execution_complete') is True
+            ):
+                return page, True
         try:
             page = extractor.extract(asset, physical_page=physical_page)
         except Exception as exc:  # keep the public cache free of sensitive details
@@ -497,7 +519,7 @@ class CorpusUpdateService:
         page["raw_artifact_ref"] = self._cache_path(
             asset, config_hash
         ).relative_to(self.root).as_posix()
-        self._write_json(page_cache, page)
+        self._write_checkpoint(page_cache, page)
         return page, False
 
     def _document(
@@ -506,12 +528,17 @@ class CorpusUpdateService:
         cache_path = self._cache_path(asset, config_hash)
         payload: dict[str, Any]
         if cache_path.is_file():
-            payload = json.loads(cache_path.read_text(encoding="utf-8"))
+            payload, integrity = self._read_checkpoint(cache_path)
             if (
                 payload.get("sha256") == asset.sha256
                 and payload.get("config_hash") == config_hash
                 and payload.get("status") == "complete"
                 and len(payload.get("pages", [])) == asset.page_count
+                and (integrity or not getattr(extractor, 'requires_structure', False))
+                and (asset.sha256 in self.attempted_contents or all(p.get('decision_status') != 'failed' and (
+                    not getattr(extractor, 'requires_structure', False)
+                    or p.get('structure_execution_complete') is True
+                ) for p in payload.get('pages', [])))
             ):
                 completed_pages = list(payload["pages"])
                 was_reused = True
@@ -528,6 +555,7 @@ class CorpusUpdateService:
             and payload.get("sha256") == asset.sha256
             and payload.get("config_hash") == config_hash
             and payload.get("status") == "processing"
+            and not getattr(extractor, 'requires_structure', False)
         ):
             completed_pages = list(payload.get("pages", []))
         all_pages_reused = True
@@ -547,7 +575,7 @@ class CorpusUpdateService:
                     "decision_status": page["decision_status"],
                 }
             )
-            self._write_json(
+            self._write_checkpoint(
                 cache_path,
                 {
                     "status": "processing",
@@ -572,7 +600,7 @@ class CorpusUpdateService:
             "canonical_rel_path": asset.canonical_rel_path,
             "pages": completed_pages,
         }
-        self._write_json(
+        self._write_checkpoint(
             cache_path,
             {
                 "status": "complete",
@@ -587,6 +615,7 @@ class CorpusUpdateService:
 
     def build(self) -> dict[str, Any]:
         catalog = build_source_catalog(self.root)
+        formula_gate = load_formula_region_gate(self.root, self.formula_run_id, catalog) if self.formula_run_id else None
         config_hash = _stable_json_sha(
             {"schema_version": "1", "page_extractor": self.page_extractor.config_id}
         )
@@ -595,13 +624,23 @@ class CorpusUpdateService:
                 "catalog": catalog.fingerprint_payload(),
                 "config_hash": config_hash,
                 "artifact_profile": _CORPUS_ARTIFACT_PROFILE,
+                "formula_region_gate": formula_gate['provenance'] if formula_gate else None,
+                "formula_region_registry_sha256": _sha256(self.root / 'data/registry/formula-gold.json')
+                    if (self.root / 'data/registry/formula-gold.json').is_file() else None,
             }
         )
         corpus_version = f"corpus-{corpus_fingerprint[:12]}"
+        priority_shas = set()
+        if getattr(self.page_extractor, 'requires_structure', False):
+            for name in ('formula-gold.json', 'table-cell-gold.json'):
+                path = self.root / 'data/registry' / name
+                if path.is_file():
+                    priority_shas.update(a['file_sha256'] for a in json.loads(path.read_text(encoding='utf-8'))['anchors'])
+        processing_assets = sorted(catalog.assets, key=lambda a: (a.sha256 not in priority_shas, a.sha256))
         if self.worker_count == 1:
             document_results = [
                 self._document(asset, config_hash, self.page_extractor)
-                for asset in catalog.assets
+                for asset in processing_assets
             ]
         else:
             local_state = threading.local()
@@ -615,8 +654,22 @@ class CorpusUpdateService:
                 return self._document(asset, config_hash, extractor)
 
             with ThreadPoolExecutor(max_workers=self.worker_count) as executor:
-                document_results = list(executor.map(build_asset, catalog.assets))
+                document_results = list(executor.map(build_asset, processing_assets))
+        document_results.sort(key=lambda result: result[0]['sha256'])
         documents = [document for document, _ in document_results]
+        structure_audit = None
+        if getattr(self.page_extractor, 'requires_structure', False):
+            from src.application.unified_pdf import enrich_original_relations
+            from src.evaluation.unified_pdf_audit import audit_documents
+            enrich_original_relations(documents)
+            structure_audit = audit_documents(self.root, catalog, documents)
+        # Failed and recovered outputs must have different immutable versions.
+        # Input-only fingerprints otherwise overwrite artifacts before rejecting
+        # the old needs_attention manifest during a retry.
+        corpus_version = 'corpus-' + _stable_json_sha({
+            'input_fingerprint': corpus_fingerprint, 'documents': documents,
+            'structure_audit': structure_audit,
+        })[:12]
         reused = sum(int(was_reused) for _, was_reused in document_results)
 
         canonical_path = (
@@ -633,6 +686,7 @@ class CorpusUpdateService:
             self.root / "data" / "evidence",
             artifact_prefix=evidence_prefix,
             overwrite=True,
+            detected_formula_regions=formula_gate['regions'] if formula_gate else None,
         )
         retrieval_prefix = f"{corpus_version}-chunks"
         retrieval_result = build_retrieval_chunks(
@@ -648,6 +702,17 @@ class CorpusUpdateService:
         retrieval_path = (
             self.root / "data" / "retrieval" / f"{retrieval_prefix}.jsonl"
         )
+        structure_required = getattr(self.page_extractor, 'requires_structure', False)
+        structure_failures = [
+            {'file_sha256': d['sha256'], 'file_name': d['file_name'],
+             'physical_page': p['physical_page'], 'layout_status': p.get('layout_status'),
+             'layout_failure': p.get('layout_failure'),
+             'regions': [{'region_id': r['region_id'], 'bbox': r.get('bbox'),
+                          'kind': r['kind'], 'execution_status': r['execution_status'],
+                          'issues': r['issues']} for r in p.get('regions', [])
+                         if r['execution_status'] != 'completed']}
+            for d in documents for p in d['pages']
+            if structure_required and p.get('structure_execution_complete') is not True]
         with retrieval_path.open(encoding="utf-8") as handle:
             chunk_ids = [
                 json.loads(line)["chunk_id"] for line in handle if line.strip()
@@ -655,7 +720,18 @@ class CorpusUpdateService:
         manifest = {
             "schema_version": "1",
             "corpus_version": corpus_version,
-            "status": "ready" if statuses.get("failed", 0) == 0 else "needs_attention",
+            "status": "ready" if statuses.get("failed", 0) == 0 and not structure_failures
+                and (structure_audit is None or structure_audit['artifact_integrity_passed']) else "needs_attention",
+            "structure_processing": {
+                'required': structure_required,
+                'complete_page_count': sum(p.get('structure_execution_complete') is True
+                                           for d in documents for p in d['pages']),
+                'execution_failures': structure_failures,
+                'region_count': sum(len(p.get('regions', [])) for d in documents for p in d['pages']),
+                'quality_status_counts': dict(Counter(r['quality_status'] for d in documents
+                                                      for p in d['pages'] for r in p.get('regions', []))),
+                'layout_omission_quality': 'not_independently_verified' if structure_required else 'not_evaluated',
+            },
             "generated_at": _utc_now(),
             "source_file_count": catalog.source_file_count,
             "unique_content_count": catalog.unique_content_count,
@@ -684,8 +760,14 @@ class CorpusUpdateService:
             ),
             "config_hash": config_hash,
             "artifact_profile": _CORPUS_ARTIFACT_PROFILE,
+            "formula_region_gate": formula_gate['provenance'] if formula_gate else None,
             "assets": [asdict(asset) for asset in catalog.assets],
         }
+        if structure_audit is not None:
+            audit_path = self.root / 'data/canonical' / f'{corpus_version}-structure-audit.json'
+            self._write_json(audit_path, structure_audit)
+            manifest['structure_audit'] = audit_path.relative_to(self.root).as_posix()
+            manifest['structure_audit_sha256'] = _sha256(audit_path)
         manifest_path = self.root / "data" / "registry" / f"{corpus_version}.json"
         if manifest_path.is_file():
             stored_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))

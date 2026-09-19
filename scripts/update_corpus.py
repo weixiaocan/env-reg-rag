@@ -23,6 +23,7 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from src.application.corpus_publish import publish_corpus_candidate
+from src.application.unified_pdf import UnifiedPageExtractor, warm_unified_asset, warm_unified_preparation
 from src.application.corpus_update import (
     AutomaticPageExtractor,
     CorpusUpdateService,
@@ -97,11 +98,14 @@ def main() -> None:
         help="OCR pages without a sufficient text layer (default: enabled)",
     )
     parser.add_argument("--minimum-native-characters", type=int, default=20)
+    parser.add_argument('--formula-run-id', help='fixed completed formula run; all detected regions remain source locators, never approved calculation')
+    parser.add_argument('--text-only', action='store_true',
+                        help='diagnostic legacy text build; does not constitute complete PDF processing')
     parser.add_argument(
         "--workers",
         type=int,
-        default=min(4, os.cpu_count() or 1),
-        help="independent PDF workers (default: up to 4)",
+        default=1,
+        help="independent PDF workers (default: 1, local structure models can use substantial memory)",
     )
     parser.add_argument(
         "--ocr-layout",
@@ -144,14 +148,34 @@ def main() -> None:
             layout_recognition=args.ocr_layout,
         )
 
-    extractor = make_extractor()
+    extractor = make_extractor() if args.text_only else UnifiedPageExtractor(ROOT, make_extractor())
+    attempted_contents = set()
+    if not args.text_only:
+        catalog = build_source_catalog(ROOT)
+        options = {'enable_ocr': args.ocr, 'minimum_native_characters': args.minimum_native_characters,
+                   'table_recognition': args.ocr_tables, 'layout_recognition': args.ocr_layout}
+        with ProcessPoolExecutor(max_workers=args.workers) as executor:
+            prepared = 0
+            jobs = [executor.submit(warm_unified_preparation, ROOT, a, n, options)
+                    for a in catalog.assets for n in range(1, a.page_count+1)]
+            for future in as_completed(jobs):
+                result = future.result()
+                prepared += 1
+                if prepared % 50 == 0 or prepared == len(jobs):
+                    print(json.dumps({'stage': 'layout_text_prepared', 'pages': prepared,
+                        'total': len(jobs), 'last_result': result}, ensure_ascii=False), flush=True)
+            futures = [executor.submit(warm_unified_asset, ROOT, a, options) for a in catalog.assets]
+            for future in as_completed(futures):
+                result = future.result()
+                attempted_contents.add(result['file_sha256'])
+                print(json.dumps({'stage': 'structured_asset_cached', **result}, ensure_ascii=False), flush=True)
     def report_progress(event: dict[str, object]) -> None:
         page = int(event["physical_page"])
         page_count = int(event["page_count"])
         if page == 1 or page == page_count or page % 10 == 0:
             print(json.dumps({"stage": "parse", **event}, ensure_ascii=False), flush=True)
 
-    if args.workers > 1:
+    if args.workers > 1 and args.text_only:
         catalog = build_source_catalog(ROOT)
         pending = pending_content_pages(ROOT, catalog, extractor)
         completed = 0
@@ -192,6 +216,8 @@ def main() -> None:
         ROOT,
         page_extractor=extractor,
         progress=report_progress,
+        formula_run_id=args.formula_run_id,
+        attempted_contents=attempted_contents,
     ).build()
     summary_keys = (
         "corpus_version",

@@ -51,6 +51,7 @@ def evidence_item_from_hit(hit: Any) -> EvidenceItem:
         publication_date=hit.publication_date,
         effective_from=hit.effective_from,
         effective_to=hit.effective_to,
+        source_regions=getattr(hit, 'source_regions', []),
     )
 
 

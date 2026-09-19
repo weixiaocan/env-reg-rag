@@ -1,0 +1,715 @@
+{
+  "schema_version": "1",
+  "run_id": "5d3264515515e228",
+  "triage_sha256": "7b284031dad5d688ec247fbcd85251339ed436b922b3aaa2bf1f29354ee84a63",
+  "basis": "assistant_visual_source_page_check_not_expert_certification",
+  "records": [
+    {
+      "candidate_id": "layout-c3c3df5ae9ca5bb7-61-0",
+      "file_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "physical_page": 61,
+      "bbox": [
+        150.76012390244637,
+        328.0151479237895,
+        253.75634667984704,
+        351.69600943994567
+      ],
+      "transcription_sha256": "6478599b46418682ed7cb9ef9281c7089eaab9292cb2f556895cbbe7ec4179cf",
+      "status": "source_visual_checked",
+      "title": "污泥龄法生物反应池容积",
+      "formula_number": "7.6.10-2",
+      "required_symbols": [
+        "V",
+        "Q",
+        "S_o",
+        "S_e",
+        "Y",
+        "theta_c",
+        "X_V",
+        "K_d"
+      ],
+      "variables": [
+        {
+          "symbol": "V",
+          "definition": "生物反应池的容积",
+          "unit": "m³",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "V——生物反应池的容积（m³）"
+        },
+        {
+          "symbol": "Q",
+          "definition": "生物反应池的设计流量",
+          "unit": "m³/d",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "Q——生物反应池的设计流量（m³/d）"
+        },
+        {
+          "symbol": "S_o",
+          "definition": "生物反应池进水五日生化需氧量浓度",
+          "unit": "mg/L",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "Sₒ——生物反应池进水五日生化需氧量浓度（mg/L）"
+        },
+        {
+          "symbol": "S_e",
+          "definition": "生物反应池出水五日生化需氧量浓度",
+          "unit": "mg/L",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "Sₑ——生物反应池出水五日生化需氧量浓度（mg/L）（当去除率大于90%时可不计入）"
+        },
+        {
+          "symbol": "Y",
+          "definition": "污泥产率系数",
+          "unit": "kgVSS/kgBOD₅",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "Y——污泥产率系数（kgVSS/kgBOD₅），宜根据试验资料确定，无试验资料时，可取0.4～0.8"
+        },
+        {
+          "symbol": "theta_c",
+          "definition": "设计污泥龄",
+          "unit": "d",
+          "physical_page": 62,
+          "bbox": [
+            40,
+            45,
+            360,
+            125
+          ],
+          "source_text": "θc——设计污泥龄（d），其数值为3～15"
+        },
+        {
+          "symbol": "X_V",
+          "definition": "生物反应池内混合液挥发性悬浮固体平均浓度",
+          "unit": "gMLVSS/L",
+          "physical_page": 62,
+          "bbox": [
+            40,
+            45,
+            360,
+            125
+          ],
+          "source_text": "Xᵥ——生物反应池内混合液挥发性悬浮固体平均浓度（gMLVSS/L）"
+        },
+        {
+          "symbol": "K_d",
+          "definition": "衰减系数",
+          "unit": "d⁻¹",
+          "physical_page": 62,
+          "bbox": [
+            40,
+            45,
+            360,
+            125
+          ],
+          "source_text": "Kd——衰减系数（d⁻¹），20℃的数值为0.040～0.075"
+        }
+      ],
+      "conditions": [
+        {
+          "text": "设计污泥龄（d），其数值为3～15",
+          "source_text": "设计污泥龄（d），其数值为3～15",
+          "physical_page": 62,
+          "bbox": [
+            40,
+            45,
+            360,
+            125
+          ]
+        },
+        {
+          "text": "衰减系数（d⁻¹），20℃的数值为0.040～0.075",
+          "source_text": "衰减系数（d⁻¹），20℃的数值为0.040～0.075",
+          "physical_page": 62,
+          "bbox": [
+            40,
+            45,
+            360,
+            125
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "layout-c3c3df5ae9ca5bb7-61-1",
+      "file_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "physical_page": 61,
+      "bbox": [
+        167.73418333710111,
+        284.21587801644995,
+        236.90162873853674,
+        306.15071681270456
+      ],
+      "transcription_sha256": "8a4804898adbc3fb29bb6dfc38321c2af677a79e6e03c289df218d9674bb7002",
+      "status": "source_visual_checked",
+      "title": "污泥负荷法生物反应池容积",
+      "formula_number": "7.6.10-1",
+      "required_symbols": [
+        "V",
+        "Q",
+        "S_o",
+        "S_e",
+        "L_s",
+        "X"
+      ],
+      "variables": [
+        {
+          "symbol": "V",
+          "definition": "生物反应池的容积",
+          "unit": "m³",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "V——生物反应池的容积（m³）"
+        },
+        {
+          "symbol": "Q",
+          "definition": "生物反应池的设计流量",
+          "unit": "m³/d",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "Q——生物反应池的设计流量（m³/d）"
+        },
+        {
+          "symbol": "S_o",
+          "definition": "生物反应池进水五日生化需氧量浓度",
+          "unit": "mg/L",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "Sₒ——生物反应池进水五日生化需氧量浓度（mg/L）"
+        },
+        {
+          "symbol": "S_e",
+          "definition": "生物反应池出水五日生化需氧量浓度",
+          "unit": "mg/L",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "Sₑ——生物反应池出水五日生化需氧量浓度（mg/L）（当去除率大于90%时可不计入）"
+        },
+        {
+          "symbol": "L_s",
+          "definition": "生物反应池的五日生化需氧量污泥负荷",
+          "unit": "kgBOD₅/(kgMLSS·d)",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "Lₛ——生物反应池的五日生化需氧量污泥负荷[kgBOD₅/(kgMLSS·d)]"
+        },
+        {
+          "symbol": "X",
+          "definition": "生物反应池内混合液悬浮固体平均浓度",
+          "unit": "gMLSS/L",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ],
+          "source_text": "X——生物反应池内混合液悬浮固体平均浓度（gMLSS/L）"
+        }
+      ],
+      "conditions": [
+        {
+          "text": "当去除率大于90%时可不计入",
+          "source_text": "当去除率大于90%时可不计入",
+          "physical_page": 61,
+          "bbox": [
+            45,
+            350,
+            360,
+            520
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "layout-c3c3df5ae9ca5bb7-63-0",
+      "file_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "physical_page": 63,
+      "bbox": [
+        122.36168101518865,
+        333.6864704881481,
+        282.21715115363247,
+        359.21533053530015
+      ],
+      "transcription_sha256": "1d2b7c832a94d333259e818e68196279b3ae6c30f21c26c592474aff9847a53b",
+      "status": "source_visual_checked",
+      "title": "缺氧区容积",
+      "formula_number": "7.6.17-1",
+      "required_symbols": [
+        "V_n",
+        "Q",
+        "N_k",
+        "N_te",
+        "Delta_X_V",
+        "K_de",
+        "X"
+      ],
+      "variables": [
+        {
+          "symbol": "V_n",
+          "definition": "缺氧区（池）容积",
+          "unit": "m³",
+          "physical_page": 63,
+          "bbox": [
+            45,
+            400,
+            360,
+            530
+          ],
+          "source_text": "Vn——缺氧区（池）容积（m³）"
+        },
+        {
+          "symbol": "Q",
+          "definition": "生物反应池的设计流量",
+          "unit": "m³/d",
+          "physical_page": 63,
+          "bbox": [
+            45,
+            400,
+            360,
+            530
+          ],
+          "source_text": "Q——生物反应池的设计流量（m³/d）"
+        },
+        {
+          "symbol": "N_k",
+          "definition": "生物反应池进水总凯氏氮浓度",
+          "unit": "mg/L",
+          "physical_page": 63,
+          "bbox": [
+            45,
+            400,
+            360,
+            530
+          ],
+          "source_text": "Nk——生物反应池进水总凯氏氮浓度（mg/L）"
+        },
+        {
+          "symbol": "N_te",
+          "definition": "生物反应池出水总氮浓度",
+          "unit": "mg/L",
+          "physical_page": 63,
+          "bbox": [
+            45,
+            400,
+            360,
+            530
+          ],
+          "source_text": "Nte——生物反应池出水总氮浓度（mg/L）"
+        },
+        {
+          "symbol": "Delta_X_V",
+          "definition": "排出生物反应池系统的微生物量",
+          "unit": "kgMLVSS/d",
+          "physical_page": 63,
+          "bbox": [
+            45,
+            400,
+            360,
+            530
+          ],
+          "source_text": "ΔXᵥ——排出生物反应池系统的微生物量（kgMLVSS/d）"
+        },
+        {
+          "symbol": "K_de",
+          "definition": "脱氮速率",
+          "unit": "kgNO₃-N/(kgMLSS·d)",
+          "physical_page": 63,
+          "bbox": [
+            45,
+            400,
+            360,
+            530
+          ],
+          "source_text": "Kde——脱氮速率[kgNO₃-N/(kgMLSS·d)]，宜根据试验资料确定"
+        },
+        {
+          "symbol": "X",
+          "definition": "生物反应池内混合液悬浮固体平均浓度",
+          "unit": "gMLSS/L",
+          "physical_page": 64,
+          "bbox": [
+            45,
+            45,
+            360,
+            235
+          ],
+          "source_text": "X——生物反应池内混合液悬浮固体平均浓度（gMLSS/L）"
+        }
+      ],
+      "conditions": [
+        {
+          "text": "无试验资料时，20℃的Kde值可采用（0.03～0.06）[kgNO₃-N/(kgMLSS·d)]，并按本标准公式（7.6.17-2）进行温度修正",
+          "source_text": "无试验资料时，20℃的Kde值可采用（0.03～0.06）[kgNO₃-N/(kgMLSS·d)]，并按本标准公式（7.6.17-2）进行温度修正",
+          "physical_page": 64,
+          "bbox": [
+            45,
+            45,
+            360,
+            235
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "layout-c3c3df5ae9ca5bb7-63-1",
+      "file_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "physical_page": 63,
+      "bbox": [
+        157.66569761313286,
+        379.14545054283644,
+        247.7246479240146,
+        399.98959630914146
+      ],
+      "transcription_sha256": "2f966fa258113ce4564e117d27fdd0913133849e2a95eeec2a66ef04a327516b",
+      "status": "source_visual_checked",
+      "title": "排出微生物量",
+      "formula_number": "7.6.17-3",
+      "required_symbols": [
+        "Delta_X_V",
+        "Y",
+        "Q",
+        "S_o",
+        "S_e"
+      ],
+      "variables": [
+        {
+          "symbol": "Q",
+          "definition": "生物反应池的设计流量",
+          "unit": "m³/d",
+          "physical_page": 63,
+          "bbox": [
+            45,
+            400,
+            360,
+            530
+          ],
+          "source_text": "Q——生物反应池的设计流量（m³/d）"
+        },
+        {
+          "symbol": "Delta_X_V",
+          "definition": "排出生物反应池系统的微生物量",
+          "unit": "kgMLVSS/d",
+          "physical_page": 63,
+          "bbox": [
+            45,
+            400,
+            360,
+            530
+          ],
+          "source_text": "ΔXᵥ——排出生物反应池系统的微生物量（kgMLVSS/d）"
+        },
+        {
+          "symbol": "Y",
+          "definition": "污泥产率系数",
+          "unit": "kgVSS/kgBOD₅",
+          "physical_page": 64,
+          "bbox": [
+            45,
+            45,
+            360,
+            235
+          ],
+          "source_text": "Y——污泥产率系数（kgVSS/kgBOD₅），宜根据试验资料确定。无试验资料时，可取0.3～0.6"
+        },
+        {
+          "symbol": "S_o",
+          "definition": "生物反应池进水五日生化需氧量浓度",
+          "unit": "mg/L",
+          "physical_page": 64,
+          "bbox": [
+            45,
+            45,
+            360,
+            235
+          ],
+          "source_text": "Sₒ——生物反应池进水五日生化需氧量浓度（mg/L）"
+        },
+        {
+          "symbol": "S_e",
+          "definition": "生物反应池出水五日生化需氧量浓度",
+          "unit": "mg/L",
+          "physical_page": 64,
+          "bbox": [
+            45,
+            45,
+            360,
+            235
+          ],
+          "source_text": "Sₑ——生物反应池出水五日生化需氧量浓度（mg/L）"
+        }
+      ],
+      "conditions": [
+        {
+          "text": "宜根据试验资料确定。无试验资料时，可取0.3～0.6",
+          "source_text": "宜根据试验资料确定。无试验资料时，可取0.3～0.6",
+          "physical_page": 64,
+          "bbox": [
+            45,
+            45,
+            360,
+            235
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "layout-f3b23a4668270f16-24-0",
+      "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "physical_page": 24,
+      "bbox": [
+        107.4050794682843,
+        65.94626840946131,
+        287.4149205706548,
+        91.28256821327538
+      ],
+      "transcription_sha256": "db76248f22b84ec122df12b7562b1229a012fea3e13d17317336ecd81804b2c7",
+      "status": "source_visual_checked",
+      "title": "浮标法流量",
+      "formula_number": "5.4.2-2",
+      "required_symbols": [
+        "Q",
+        "n",
+        "A",
+        "L_i",
+        "Delta_t_i",
+        "k"
+      ],
+      "variables": [
+        {
+          "symbol": "Q",
+          "definition": "流量",
+          "unit": "m³/d",
+          "physical_page": 24,
+          "bbox": [
+            50,
+            95,
+            350,
+            220
+          ],
+          "source_text": "Q——流量（m³/d）"
+        },
+        {
+          "symbol": "n",
+          "definition": "每日测定次数",
+          "unit": "次/d",
+          "physical_page": 24,
+          "bbox": [
+            50,
+            95,
+            350,
+            220
+          ],
+          "source_text": "n——测定次数（次/d），每日测量6次～8次，对应的时间间隔为3h～4h"
+        },
+        {
+          "symbol": "A",
+          "definition": "管渠过流面积",
+          "unit": "m²",
+          "physical_page": 24,
+          "bbox": [
+            50,
+            95,
+            350,
+            220
+          ],
+          "source_text": "A——管渠过流面积（m²）"
+        },
+        {
+          "symbol": "L_i",
+          "definition": "第i次测定浮标流动的起止点距离",
+          "unit": "m",
+          "physical_page": 24,
+          "bbox": [
+            50,
+            95,
+            350,
+            220
+          ],
+          "source_text": "Lᵢ——第i次测定浮标流动的起止点距离（m）"
+        },
+        {
+          "symbol": "Delta_t_i",
+          "definition": "第i次测定所用时间",
+          "unit": "s",
+          "physical_page": 24,
+          "bbox": [
+            50,
+            95,
+            350,
+            220
+          ],
+          "source_text": "Δtᵢ——第i次测定所用的时间（s）"
+        },
+        {
+          "symbol": "k",
+          "definition": "浮标法测定的表面流速与断面平均流速之间的修正系数",
+          "unit": null,
+          "physical_page": 24,
+          "bbox": [
+            50,
+            95,
+            350,
+            220
+          ],
+          "source_text": "k——浮标法测定的表面流速与断面平均流速之间的修正系数，取0.8～0.9"
+        }
+      ],
+      "conditions": [
+        {
+          "text": "每日测量6次～8次，对应的时间间隔为3h～4h",
+          "source_text": "每日测量6次～8次，对应的时间间隔为3h～4h",
+          "physical_page": 24,
+          "bbox": [
+            50,
+            95,
+            350,
+            220
+          ]
+        },
+        {
+          "text": "修正系数取0.8～0.9",
+          "source_text": "修正系数取0.8～0.9",
+          "physical_page": 24,
+          "bbox": [
+            50,
+            95,
+            350,
+            220
+          ]
+        }
+      ]
+    },
+    {
+      "candidate_id": "layout-f3b23a4668270f16-68-0",
+      "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "physical_page": 68,
+      "bbox": [
+        151.88315176897777,
+        266.5873938505656,
+        260.71175433329205,
+        287.913272092468
+      ],
+      "transcription_sha256": "bbe07296cd696b10af4deb34b79997bf1afa754c81d8a8c45d92da3c7c787cb5",
+      "status": "source_visual_checked",
+      "title": "圆形管渠过流面积",
+      "formula_number": "条文说明(2)",
+      "required_symbols": [
+        "A",
+        "l",
+        "R",
+        "d",
+        "h"
+      ],
+      "variables": [
+        {
+          "symbol": "l",
+          "definition": "AB的弧长，关联图3",
+          "unit": "m",
+          "physical_page": 68,
+          "bbox": [
+            50,
+            290,
+            355,
+            355
+          ],
+          "source_text": "l——AB的弧长（m）（图3）"
+        },
+        {
+          "symbol": "R",
+          "definition": "管道断面的半径",
+          "unit": "m",
+          "physical_page": 68,
+          "bbox": [
+            50,
+            290,
+            355,
+            355
+          ],
+          "source_text": "R——管道断面的半径（m）"
+        },
+        {
+          "symbol": "d",
+          "definition": "水面位置的弦长，即图3中的AB",
+          "unit": "m",
+          "physical_page": 68,
+          "bbox": [
+            50,
+            290,
+            355,
+            355
+          ],
+          "source_text": "d——水面位置的弦长，即图3中的AB（m）"
+        },
+        {
+          "symbol": "h",
+          "definition": "三角形AOC的高，即图3中的OC",
+          "unit": "m",
+          "physical_page": 68,
+          "bbox": [
+            50,
+            290,
+            355,
+            355
+          ],
+          "source_text": "h——三角形AOC的高，即图3中的OC（m）"
+        }
+      ],
+      "conditions": []
+    }
+  ]
+}

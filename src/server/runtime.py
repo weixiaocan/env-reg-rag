@@ -54,9 +54,11 @@ def build_query_services(
         evidence_units_path=current_corpus.evidence_units_path,
         corpus_manifest_path=current_corpus.manifest_path,
     )
+    locator_alias = (current_corpus.query_alias if current_corpus.corpus_version != 'formal-corpus-v1'
+                     else 'm3_experiment_current')
     source_locator_index = QdrantRetrievalIndex(
         client=client,
-        collection_name="m3_experiment_current",
+        collection_name=locator_alias,
         vector_size=embedder.dimension,
         enable_bm25=True,
     )
@@ -103,7 +105,7 @@ def build_query_services(
             "provider": settings.provider,
             "model": settings.model,
             "retrieval_profile": "qdrant-source-locator-only",
-            "collection_alias": "m3_experiment_current",
+            "collection_alias": locator_alias,
             "embedding_model": "BAAI/bge-small-zh-v1.5",
             "prompt_version": "not_used_for_source_lookup",
         },
@@ -123,7 +125,7 @@ def build_query_services(
         ),
         readiness=QdrantReadinessProbe(
             client=client,
-            required_collections=[current_corpus.query_alias, "m3_experiment_current"],
+            required_collections=list(dict.fromkeys([current_corpus.query_alias, locator_alias])),
         ),
         corpus_version=current_corpus.corpus_version,
     )

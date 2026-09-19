@@ -40,6 +40,7 @@ class EvidenceDto(BaseModel):
     publication_date: str
     effective_from: str
     effective_to: str
+    source_regions: list[dict] = Field(default_factory=list)
 
 
 class AnswerResultDto(BaseModel):

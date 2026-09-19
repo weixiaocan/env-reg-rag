@@ -6,6 +6,7 @@ import csv
 import hashlib
 import json
 import re
+import math
 from collections import Counter
 from datetime import datetime, timezone
 from pathlib import Path
@@ -186,11 +187,13 @@ def _text_units(
 
 
 def _source_locator_unit(
-    document: dict[str, Any], page: dict[str, Any], metadata: dict[str, str]
+    document: dict[str, Any], page: dict[str, Any], metadata: dict[str, str], registered_regions=None,
 ) -> dict[str, Any]:
     elements = [
         element for element in page["elements"] if str(element.get("text") or "").strip()
     ]
+    elements.extend({'element_id': r['element_id'], 'bbox': r['bbox'], 'text': ''}
+                    for r in registered_regions or [])
     if not str(page.get("text") or "").strip() or not elements:
         raise ValueError("source locator page must preserve searchable text and elements")
     return _make_unit(
@@ -263,6 +266,58 @@ def _table_units(
     return units
 
 
+def gated_page_units(document, page, metadata, *, registered_regions=None):
+    """Protect identified regions only; legacy unmarked structures are unchanged."""
+    marked_tables = [t for t in page.get('tables', []) if 'review_status' in t or 'region_quality' in t]
+    typed = [e for e in page['elements'] if e.get('type') in {'formula', 'equation'}]
+    regions = list(registered_regions or []) + list(page.get('structured_regions', [])) + typed + marked_tables
+    if not regions:
+        return _text_units(document, page, metadata) + _table_units(document, page, metadata)
+
+    def box(value):
+        return (isinstance(value, (list, tuple)) and len(value) == 4
+                and all(type(v) in (int, float) and math.isfinite(v) for v in value)
+                and 0 <= value[0] < value[2] <= page.get('width', math.inf)
+                and 0 <= value[1] < value[3] <= page.get('height', math.inf))
+
+    for table in page.get('tables', []):
+        if table in marked_tables:
+            continue
+        b = table.get('bbox')
+        if (not box(b) or any(not box(r.get('bbox')) for r in regions)
+                or any(min(b[2], r['bbox'][2]) > max(b[0], r['bbox'][0])
+                       and min(b[3], r['bbox'][3]) > max(b[1], r['bbox'][1]) for r in regions)):
+            marked_tables.append(table)
+            regions.append(table)
+    unknown = any(not box(r.get('bbox')) for r in regions)
+    safe, denied = [], []
+    for element in page['elements']:
+        b = element.get('bbox')
+        protected = unknown or not box(b) or element in typed
+        if not protected:
+            protected = any(min(b[2], r['bbox'][2]) > max(b[0], r['bbox'][0])
+                            and min(b[3], r['bbox'][3]) > max(b[1], r['bbox'][1]) for r in regions)
+        (denied if protected else safe).append(element)
+    seen = {e['element_id'] for e in denied}
+    for index, region in enumerate(regions):
+        eid = region.get('element_id') or f'region-{index}'
+        if eid in seen:
+            continue
+        seen.add(eid)
+        text = region.get('text') or region.get('raw_latex') or '\n'.join(
+            str(c.get('text') or '') for c in region.get('cells', [])) or '结构转写未批准，请查看原页。'
+        denied.append({'element_id': eid, 'text': text,
+                       'bbox': region.get('bbox') if box(region.get('bbox')) else None})
+    safe_page = {**page, 'elements': safe, 'tables': [t for t in page.get('tables', []) if t not in marked_tables]}
+    units = _text_units(document, safe_page, metadata) + _table_units(document, safe_page, metadata)
+    text = '\n'.join(str(e.get('text') or '') for e in denied).strip()
+    if text:
+        units.append(_make_unit(document, page, metadata, evidence_type='source_locator',
+            text=text, elements=denied, heading_path=[], title='结构区域原文定位（未批准转写）',
+            usage_policy='source_locator_only', text_reliability='unverified_structured_region'))
+    return units
+
+
 def build_evidence_units(
     project_root: Path,
     canonical_path: Path,
@@ -270,6 +325,7 @@ def build_evidence_units(
     *,
     artifact_prefix: str = "m3-evidence-units-v1",
     overwrite: bool = False,
+    detected_formula_regions: list[dict[str, Any]] | None = None,
 ) -> dict[str, Any]:
     """Build citable units plus searchable source locators from canonical pages."""
 
@@ -284,6 +340,11 @@ def build_evidence_units(
 
     documents = _read_jsonl(canonical_path)
     inventory = _inventory(root)
+    formula_path = root / 'data/registry/formula-gold.json'
+    formula_regions = json.loads(formula_path.read_text(encoding='utf-8'))['anchors'] if formula_path.is_file() else []
+    detected_by_page = {}
+    for region in detected_formula_regions or []:
+        detected_by_page.setdefault((region['file_sha256'], region['physical_page']), []).append(region)
     evidence_units: list[dict[str, Any]] = []
     source_pages = 0
     locator_source_pages = 0
@@ -292,16 +353,44 @@ def build_evidence_units(
             **inventory.get(document["file_name"], {}),
             **document.get("metadata", {}),
         }
+        document_sha = (document.get('sha256')
+                        or inventory.get(document['file_name'], {}).get('sha256') or '')
         for page in document["pages"]:
+            structural = [r for r in page.get('regions', []) if r['kind'] != 'text' and r.get('bbox')]
+            detected_by_page.setdefault((document_sha, page['physical_page']), []).extend(
+                {'element_id': r['region_id'], 'bbox': r['bbox']} for r in structural)
+            for region in structural:
+                text = str(region.get('text') or '').strip()
+                if region['kind'] == 'table':
+                    text = '\n'.join(_table_text(t) for t in region.get('tables', [])) or text
+                if region['kind'] == 'formula':
+                    text = '\n'.join(c['text'] for c in region.get('context', [])) or text
+                # A region without reliable searchable text still has a source locator.
+                if not text:
+                    text = f"{document['file_name']} 物理页{page['physical_page']} {region['kind']}原图（无可靠关联原文）"
+                unit = _make_unit(document, page, metadata, evidence_type='source_locator',
+                    text=text, elements=[{'element_id': region['region_id'], 'bbox': region['bbox']}],
+                    heading_path=[], title='结构区域原图及原文定位', usage_policy='source_locator_only',
+                    text_reliability='unverified_structured_region')
+                unit['source_regions'] = [{k: region.get(k) for k in
+                    ('region_id', 'file_sha256', 'physical_page', 'kind', 'bbox', 'crop_bbox',
+                     'image_ref', 'image_sha256', 'relations', 'execution_status', 'quality_status', 'issues', 'math_category')}]
+                evidence_units.append(unit)
             if page["publishable"]:
                 source_pages += 1
-                evidence_units.extend(_text_units(document, page, metadata))
-                evidence_units.extend(_table_units(document, page, metadata))
+                source_sha = document_sha
+                registered = [{'element_id': 'protected-' + a['anchor_id'], 'bbox': a['bbox']}
+                              for a in formula_regions if a['file_sha256'] == source_sha
+                              and a['physical_page'] == page['physical_page']]
+                registered.extend(detected_by_page.get((source_sha, page['physical_page']), []))
+                evidence_units.extend(gated_page_units(document, page, metadata, registered_regions=registered))
             elif page["decision_status"] == "quarantine" and str(
                 page.get("text") or ""
             ).strip():
                 locator_source_pages += 1
-                evidence_units.append(_source_locator_unit(document, page, metadata))
+                source_sha = document_sha
+                evidence_units.append(_source_locator_unit(document, page, metadata,
+                    registered_regions=detected_by_page.get((source_sha,page['physical_page']), [])))
 
     evidence_ids = [unit["evidence_id"] for unit in evidence_units]
     if len(evidence_ids) != len(set(evidence_ids)):
@@ -330,7 +419,8 @@ def build_evidence_units(
         "artifact_id": artifact_prefix,
         "generated_at": datetime.now(timezone.utc).isoformat(),
         "schema_version": "1",
-        "scope": "approved_evidence_plus_quarantined_source_locators",
+        "scope": "approved_evidence_plus_source_locators",
+        "region_gate": "identified-structures-locator-only-v1",
         "segmentation": {
             "boundary": "canonical_element",
             "max_evidence_chars": _MAX_EVIDENCE_CHARS,

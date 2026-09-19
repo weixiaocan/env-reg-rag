@@ -1,0 +1,19 @@
+{
+  "target_corpus_version": "corpus-37456321a968",
+  "previous_current_pointer": {
+    "schema_version": "1",
+    "status": "published",
+    "published_at": "2026-09-18T00:45:04.702118+00:00",
+    "corpus_version": "corpus-919a55883a6a",
+    "manifest": "data/registry/corpus-919a55883a6a.json",
+    "collection_name": "corpus_919a55883a6a",
+    "query_alias": "corpus_current",
+    "chunk_count": 4017,
+    "action": "built"
+  },
+  "previous_alias_targets": [
+    "corpus_919a55883a6a"
+  ],
+  "alias_name": "corpus_current",
+  "note": "Restore the alias to the preserved previous collection, then atomically restore the pointer and restart the local app."
+}

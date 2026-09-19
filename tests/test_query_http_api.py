@@ -115,6 +115,7 @@ class QueryHttpApiTest(unittest.TestCase):
             create_app(
                 query_service=answer_service,
                 source_locator_service=locator_service,
+                source_lookup_corpus_version="corpus-current-test",
             )
         )
 
@@ -129,6 +130,7 @@ class QueryHttpApiTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         body = response.json()
         self.assertEqual(body["status"], "search_only")
+        self.assertEqual(body["corpus_version"], "corpus-current-test")
         self.assertIsNone(body["answer"])
         self.assertEqual(body["evidence"][0]["evidence_id"], "ev_formula_locator")
         self.assertEqual(body["evidence"][0]["physical_pages"], [19])

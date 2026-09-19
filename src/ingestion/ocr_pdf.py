@@ -109,11 +109,17 @@ class PaddleTextOcrEngine:
     @staticmethod
     def _create_pipeline() -> Any:
         from paddleocr import PaddleOCR
-
+        models = Path.home() / '.paddlex/official_models'
+        for name in ('PP-OCRv5_mobile_det', 'PP-OCRv5_mobile_rec'):
+            if not all((models / name / f).is_file() for f in ('inference.json', 'inference.pdiparams', 'inference.yml')):
+                raise FileNotFoundError('required local text OCR model unavailable')
         return PaddleOCR(
             device="cpu",
+            cpu_threads=2,
             text_detection_model_name="PP-OCRv5_mobile_det",
+            text_detection_model_dir=str(models / 'PP-OCRv5_mobile_det'),
             text_recognition_model_name="PP-OCRv5_mobile_rec",
+            text_recognition_model_dir=str(models / 'PP-OCRv5_mobile_rec'),
             enable_mkldnn=False,
             use_doc_orientation_classify=False,
             use_doc_unwarping=False,
@@ -178,6 +184,7 @@ class PaddleStructureV3Engine:
         self.table_recognition = table_recognition
         self._pipeline = PPStructureV3(
             device=device,
+            cpu_threads=2,
             enable_mkldnn=False,
             lang="ch",
             ocr_version="PP-OCRv5",
@@ -211,6 +218,48 @@ class PaddleStructureV3Engine:
         }
 
 
+class PaddleTableRegionEngine:
+    """Consume a known table crop without repeating page layout detection."""
+    name = 'paddleocr-table-v2-known-region-mobile'
+
+    def __init__(self, *, pipeline=None):
+        self._pipeline = pipeline
+        self.version = importlib.metadata.version('paddleocr')
+
+    @staticmethod
+    def _create_pipeline():
+        from paddleocr import TableRecognitionPipelineV2
+        models = Path.home() / '.paddlex/official_models'
+        choices = {
+            'table_classification': 'PP-LCNet_x1_0_table_cls',
+            'wired_table_structure_recognition': 'SLANeXt_wired',
+            'wireless_table_structure_recognition': 'SLANet_plus',
+            'wired_table_cells_detection': 'RT-DETR-L_wired_table_cell_det',
+            'wireless_table_cells_detection': 'RT-DETR-L_wireless_table_cell_det',
+            'text_detection': 'PP-OCRv5_mobile_det', 'text_recognition': 'PP-OCRv5_mobile_rec',
+        }
+        options = {}
+        for key, name in choices.items():
+            directory = models / name
+            if not all((directory / f).is_file() for f in ('inference.json', 'inference.pdiparams', 'inference.yml')):
+                raise FileNotFoundError('required local table model unavailable')
+            options[key + '_model_name'] = name
+            options[key + '_model_dir'] = str(directory)
+        return TableRecognitionPipelineV2(device='cpu', cpu_threads=2, enable_mkldnn=False,
+            use_layout_detection=False, use_doc_orientation_classify=False,
+            use_doc_unwarping=False, **options)
+
+    def predict(self, image):
+        if self._pipeline is None:
+            self._pipeline = self._create_pipeline()
+        results = self._pipeline.predict(input=image, use_table_orientation_classify=False,
+                                         use_e2e_wireless_table_rec_model=True)
+        if len(results) != 1:
+            raise ValueError('expected one known table result')
+        result = results[0].json['res']
+        return {**result, 'width': image.shape[1], 'height': image.shape[0], 'parsing_res_list': []}
+
+
 class OcrPdfParser:
     """Render one PDF page and map PP-StructureV3 output to canonical page data."""
 
@@ -229,7 +278,8 @@ class OcrPdfParser:
         self.dpi = dpi
         self.table_recognition = table_recognition
 
-    def parse_page(self, pdf_path: Path | str, *, physical_page: int) -> dict[str, Any]:
+    def parse_page(self, pdf_path: Path | str, *, physical_page: int,
+                   clip_bbox: list[float] | None = None) -> dict[str, Any]:
         source = Path(pdf_path)
         if physical_page < 1:
             raise ValueError("physical_page must be a positive 1-based page number")
@@ -244,7 +294,16 @@ class OcrPdfParser:
             page = document.load_page(page_index)
             rectangle = page.rect
             rotation = page.rotation
-            pixmap = page.get_pixmap(dpi=self.dpi, alpha=False, colorspace=pymupdf.csRGB)
+            render_rectangle = rectangle
+            if clip_bbox is not None:
+                import math
+                if (not isinstance(clip_bbox, list) or len(clip_bbox) != 4
+                        or not all(type(v) in (int, float) and math.isfinite(v) for v in clip_bbox)
+                        or not 0 <= clip_bbox[0] < clip_bbox[2] <= rectangle.width
+                        or not 0 <= clip_bbox[1] < clip_bbox[3] <= rectangle.height):
+                    raise ValueError('invalid local OCR region')
+                render_rectangle = pymupdf.Rect(clip_bbox)
+            pixmap = page.get_pixmap(dpi=self.dpi, clip=render_rectangle, alpha=False, colorspace=pymupdf.csRGB)
             image = np.frombuffer(pixmap.samples, dtype=np.uint8).reshape(
                 pixmap.height, pixmap.width, pixmap.n
             )
@@ -286,8 +345,8 @@ class OcrPdfParser:
                         block.get("block_bbox"),
                         image_width=image_width,
                         image_height=image_height,
-                        page_width=float(rectangle.width),
-                        page_height=float(rectangle.height),
+                        page_width=float(render_rectangle.width),
+                        page_height=float(render_rectangle.height),
                     ),
                     "coordinate_origin": "top_left",
                     "reading_order": reading_order,
@@ -301,6 +360,12 @@ class OcrPdfParser:
             )
 
         tables = []
+        if clip_bbox is not None:
+            for element in elements:
+                element['bbox'] = [element['bbox'][0] + render_rectangle.x0,
+                                   element['bbox'][1] + render_rectangle.y0,
+                                   element['bbox'][2] + render_rectangle.x0,
+                                   element['bbox'][3] + render_rectangle.y0]
         for table_index, raw_table in enumerate(result.get("table_res_list", [])):
             html = raw_table.get("pred_html", "")
             tables.append(
@@ -336,6 +401,9 @@ class OcrPdfParser:
                 "render_dpi": self.dpi,
                 "render_width": image.shape[1],
                 "render_height": image.shape[0],
+                "render_origin": [render_rectangle.x0, render_rectangle.y0],
+                "render_page_width": render_rectangle.width,
+                "render_page_height": render_rectangle.height,
                 "non_white_pixel_ratio": round(non_white_pixel_ratio, 8),
                 "engine_result": result,
             },

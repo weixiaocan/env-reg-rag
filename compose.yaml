@@ -41,6 +41,12 @@ services:
     volumes:
       - ./data/observability:/app/data/observability
       - ./data/raw:/app/data/raw:ro
+      - ./data/canonical:/app/data/canonical:ro
+      - ./data/registry:/app/data/registry:ro
+      - ./data/evidence:/app/data/evidence:ro
+      - ./data/retrieval:/app/data/retrieval:ro
+      - ./data/model_runtime/formula_regions:/app/data/model_runtime/formula_regions:ro
+      - ./data/model_runtime/corpus_formulas:/app/data/model_runtime/corpus_formulas:ro
     depends_on:
       qdrant-init:
         condition: service_completed_successfully

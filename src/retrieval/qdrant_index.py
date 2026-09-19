@@ -29,6 +29,7 @@ class RetrievalHit:
     publication_date: str = ""
     effective_from: str = ""
     effective_to: str = ""
+    source_regions: list[dict[str, Any]] = field(default_factory=list)
 
 
 @dataclass(frozen=True)
@@ -247,6 +248,9 @@ class QdrantRetrievalIndex:
             publication_date=str(payload.get("publication_date", "")),
             effective_from=str(payload.get("effective_from", "")),
             effective_to=str(payload.get("effective_to", "")),
+            source_regions=[{k: r.get(k) for k in ('region_id', 'file_sha256', 'physical_page', 'kind',
+                            'bbox', 'relations', 'quality_status', 'execution_status', 'issues', 'math_category')}
+                            for r in payload.get('source_regions', []) if isinstance(r, dict)],
         )
 
     @staticmethod

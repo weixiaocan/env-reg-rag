@@ -1,0 +1,58 @@
+{
+  "schema_version": "1",
+  "basis": "manual_visual_source_page_review",
+  "anchors": [
+    {
+      "anchor_id": "cecs758-flow-5.4.2-2",
+      "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "physical_page": 24,
+      "printed_page": "15",
+      "bbox": [104, 62, 292, 94],
+      "context_bbox": [50, 95, 350, 220],
+      "coordinate_system": "page_points_top_left",
+      "formula_number": "5.4.2-2",
+      "expected_latex": "Q=\\frac{1}{n}\\sum_{i=1}^{n}A\\times L_i/\\Delta t_i\\times k\\times3600\\times24",
+      "expected_variables": {
+        "Q": "流量，m³/d",
+        "n": "每日测定次数，次/d，每日6次～8次，间隔3h～4h",
+        "A": "管渠过流面积，m²",
+        "L_i": "第i次测定浮标流动的起止点距离，m",
+        "Delta_t_i": "第i次测定所用时间，s",
+        "k": "表面流速与断面平均流速之间的修正系数，取0.8～0.9"
+      },
+      "approved_for_calculation": false
+    },
+    {
+      "anchor_id": "cecs758-area-rectangular-1",
+      "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "physical_page": 68,
+      "printed_page": "62",
+      "bbox": [140, 247, 275, 266],
+      "context_bbox": [60, 218, 355, 247],
+      "coordinate_system": "page_points_top_left",
+      "formula_number": "条文说明局部公式(1)",
+      "expected_latex": "A(\\text{矩形})=\\text{管沟宽}\\times\\text{水位高}",
+      "expected_variables": {},
+      "approved_for_calculation": false
+    },
+    {
+      "anchor_id": "cecs758-area-circular-2",
+      "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "physical_page": 68,
+      "printed_page": "62",
+      "bbox": [150, 264, 268, 291],
+      "context_bbox": [60, 295, 300, 455],
+      "coordinate_system": "page_points_top_left",
+      "formula_number": "条文说明局部公式(2)",
+      "expected_latex": "A(\\text{圆形})=\\frac{1}{2}lR\\pm\\frac{1}{2}dh",
+      "expected_variables": {
+        "l": "AB的弧长，m，关联图3",
+        "R": "管道断面的半径，m",
+        "d": "水面位置的弦长，即图3中的AB，m",
+        "h": "三角形AOC的高，即图3中的OC，m"
+      },
+      "unresolved_conditions": ["正负号选择须结合图3水位位置核验，尚未授权自动计算"],
+      "approved_for_calculation": false
+    }
+  ]
+}

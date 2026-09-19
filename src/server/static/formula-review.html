@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>全量公式复核 · 排水法规标准智能问答系统</title>
+<style>body{font:16px/1.7 system-ui;margin:24px;background:#f4f6f2;color:#18231e}main{max-width:1200px;margin:auto}button,select{padding:8px;margin:4px}#layout{display:grid;grid-template-columns:320px 1fr;gap:20px}article,aside{background:white;padding:20px;border-radius:12px}#list button{display:block;width:100%;text-align:left}pre{white-space:pre-wrap;overflow-wrap:anywhere;background:#eef3ee;padding:16px}iframe{width:100%;height:650px;border:1px solid #ddd}a{color:#116447}@media(max-width:700px){#layout{grid-template-columns:1fr}iframe{height:450px}}</style></head>
+<body><main><a href="/">← 返回问答</a> · <a href="/formulas">开发核验样例</a><h1>公式原文与参数说明</h1><p>按用途、标准名称或参数关键词查找公式，查看原图、参数说明和出处。文字提取可能有误，请结合原图阅读。</p>
+<label for="search">公式关键词</label><input id="search" maxlength="200" placeholder="例如：缺氧 容积、污泥龄、流量"><button id="searchButton">搜索</button>
+<select id="category" aria-label="候选类型"><option value="relation_candidate">关系式候选</option><option value="expression_candidate">表达式候选</option><option value="fragment_candidate">变量/单位等片段候选</option><option value="needs_review">基础异常</option><option value="all">全部区域</option></select><button id="reload">刷新</button><p id="message" role="status"></p>
+<div id="layout"><aside><div id="list"></div><button id="prev">上一页</button><button id="next">下一页</button></aside><article id="detail">选择候选，查看转写及原页。</article></div></main>
+<script>
+const make=(tag,text)=>{const n=document.createElement(tag);if(text!==undefined)n.textContent=text;return n};let offset=0,total=0,generation=0,selection=0;const limit=20;
+function originalImage(url,alt){if(!/^\/api\/v1\/formula-review\/layout-[0-9a-f]{16}-[1-9][0-9]*-[0-9]+\/image(?:\?context=true)?$/.test(url??''))return make('p','原文截图暂不可用，请打开PDF核对。');const img=make('img');img.src=url;img.alt=alt;img.style.maxWidth='100%';img.style.height='auto';img.addEventListener('error',()=>img.replaceWith(make('p','原文截图加载失败，请打开PDF核对。')));return img}
+async function detail(id){
+ const token=++selection,root=document.querySelector('#detail');root.replaceChildren(make('p','读取原文…'));
+ try{
+  const response=await fetch('/api/v1/formula-review/'+encodeURIComponent(id));if(!response.ok)throw Error();const r=await response.json();if(token!==selection)return;
+  root.replaceChildren(make('h2',r.formula_title??r.file_name),make('p',r.file_name+(r.formula_number?' · '+r.formula_number:'')),make('p',`物理页 ${r.physical_page}`),make('h3','原文公式'),originalImage(r.image_url,'原PDF中的公式，未经重写'));
+  root.append(make('p','以上是原PDF的裁剪截图，不是模型重新写出的公式。自动定位可能不完整，请结合原页核对。'));
+  if(r.visual_screening){root.append(make('h3','原图检查'),make('p',({suspected_transcription_or_crop_issue:'发现疑似错识或裁剪问题',context_or_fragment_only:'变量、单位或局部片段',no_obvious_issue_in_crop:'裁剪图未见明显问题'}[r.visual_screening.finding]??'待复核')+'：'+r.visual_screening.notes))}
+  if(r.corrected_reading){root.append(make('p','此处识别文字已按原图修正；请以原图为准。'))}
+  if(r.review_disposition){root.append(make('p',r.review_disposition.status==='classification_rule_issue'?'原文关系式可读，自动分类有误。':'这是表格、变量说明或文字片段，并非独立公式。'))}
+  root.append(make('h3','参数含义与单位'));
+  if(r.reviewed_parameters.length){const table=make('table');table.style.width='100%';const head=make('tr');['符号','含义','原文单位','说明所在页'].forEach(x=>head.append(make('th',x)));table.append(head);for(const v of r.reviewed_parameters){const row=make('tr');[({Delta_t_i:'Δtᵢ',L_i:'Lᵢ',S_o:'Sₒ',S_e:'Sₑ',L_s:'Lₛ',theta_c:'θc',X_V:'Xᵥ',K_d:'Kd',V_n:'Vn',N_k:'Nk',N_te:'Nte',Delta_X_V:'ΔXᵥ',K_de:'Kde'}[v.symbol]??v.symbol),v.definition,v.unit??'原文未列明，暂不推断',v.physical_page?('物理页 '+v.physical_page):'见原页'].forEach(x=>{const cell=make('td',x);cell.style.padding='8px';row.append(cell)});table.append(row)}root.append(table,make('p','这些解释来自已有原图核验记录；更多适用条件请查阅原文。'))}
+  else root.append(make('p','尚无逐项核对的参数表；以下保留原文说明，不猜测缺失的定义或单位。'));
+  if(r.parameter_reading?.excerpts?.length){root.append(make('h3','原文“式中”说明'));for(const e of r.parameter_reading.excerpts)root.append(make('pre',e.text));root.append(make('p','按当前页位置与“式中”标记提取，文字及对应关系待核对；跨页说明请查看下方原页。'))}
+  if(r.parameter_missing_symbols?.length)root.append(make('p','仍缺少核对的符号说明：'+r.parameter_missing_symbols.join('、')+'。请结合完整原页阅读。'));
+  if(r.reviewed_conditions.length){root.append(make('h3','已核验的局部取值说明'));const list=make('ul');r.reviewed_conditions.forEach(c=>list.append(make('li',c.text+(c.physical_page?'（物理页 '+c.physical_page+'）':''))));root.append(list)}
+  root.append(make('h3','邻近原文说明'),make('p','包含公式上方说明和下方文字。以下文字来自原生提取或已有OCR，未经人工核验，可能错字或缺符号；不自动认定属于当前公式，请对照原图。'),originalImage(r.context_image_url,'公式及邻近原文参数说明'));
+  for(const context of (r.source_context??[])){
+   const section=make('details');section.open=context.relation==='current';section.append(make('summary',`${({current:'当前页',previous:'前一页',next:'后一页'}[context.relation]??'原页')} · 物理页 ${context.physical_page} · 原文阅读线索（未核验）`));
+   if(context.page_quality)section.append(make('p',`文字处理路线：${({full_ocr:'扫描页OCR',native:'原生文字',native_text:'原生文字',mixed:'混合提取'}[context.extraction_route]??'未知')}；基础页面质量：${({approved:'基础检查通过',quarantine:'质量隔离',quarantined:'质量隔离',failed:'处理失败'}[context.page_quality]??'未知')}（不代表公式正确）。`));
+   if(context.excerpts.length)for(const excerpt of context.excerpts)section.append(make('pre',excerpt.text));else section.append(make('p','此范围未提取到文字，不代表原文没有参数说明；请查看完整原图。'));
+   const image=make('img');image.alt=`原PDF完整第${context.physical_page}页`;image.style.maxWidth='100%';image.style.height='auto';image.loading='lazy';
+   const pageOffset=context.physical_page-r.physical_page;if([-1,0,1].includes(pageOffset)&&r.image_url){image.src=r.image_url+`?full_page=true&page_offset=${pageOffset}`;section.append(image)}
+   root.append(section);
+  }
+  const debug=make('details');debug.append(make('summary','查看识别转写与定位信息（开发核查用）'),make('h4','模型原始转写'),make('pre',r.raw_latex??'暂无有效转写'));if(r.corrected_reading)debug.append(make('h4','按原图修正的转写（待专业复核）'),make('pre',r.corrected_reading.latex));debug.append(make('p','检测框point：'+(r.bbox?r.bbox.map(x=>x.toFixed(2)).join(', '):'未知')));if(r.flags.length)debug.append(make('p','检查标记：'+r.flags.join(', ')));root.append(debug);
+  if(r.source_url&&/^\/api\/v1\/documents\/doc_[0-9a-f]{16}\/content#page=[1-9][0-9]*$/.test(r.source_url)){const a=make('a','打开完整PDF原页');a.href=r.source_url;a.target='_blank';a.rel='noopener';root.append(make('p',''),a)}
+ }catch(e){if(token===selection)root.replaceChildren(make('p','原文对照暂不可用；正式问答不受影响。'))}
+}
+async function load(){const token=++generation;++selection;document.querySelector('#detail').replaceChildren(make('p','选择候选，查看原页。'));const message=document.querySelector('#message'),list=document.querySelector('#list');list.replaceChildren();message.textContent='读取中…';try{const response=await fetch(`/api/v1/formula-review?category=${encodeURIComponent(document.querySelector('#category').value)}&offset=${offset}&limit=${limit}&query=${encodeURIComponent(document.querySelector('#search').value)}`);if(!response.ok)throw Error();const data=await response.json();if(token!==generation)return;total=data.total;for(const item of data.items){const b=make('button',`${item.file_name} · 第${item.physical_page}页`);b.addEventListener('click',()=>detail(item.candidate_id));list.append(b)}message.textContent=`当前类别 ${total} 个候选，显示 ${total?offset+1:0}–${Math.min(offset+limit,total)}；分类不等于审核。`;document.querySelector('#prev').disabled=offset===0;document.querySelector('#next').disabled=offset+limit>=total}catch(e){if(token===generation)message.textContent='全量报告暂不可用，可能尚未生成或未挂载；不会自动运行OCR。'}}
+const search=()=>{offset=0;document.querySelector('#category').value='all';load()};document.querySelector('#searchButton').onclick=search;document.querySelector('#search').addEventListener('keydown',e=>{if(e.key==='Enter')search()});document.querySelector('#category').onchange=()=>{offset=0;load()};document.querySelector('#reload').onclick=()=>load();document.querySelector('#prev').onclick=()=>{offset=Math.max(0,offset-limit);load()};document.querySelector('#next').onclick=()=>{if(offset+limit<total){offset+=limit;load()}};load();
+</script></body></html>

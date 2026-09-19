@@ -4,6 +4,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass, field
 from enum import StrEnum
+from typing import Any
 
 
 class QueryStatus(StrEnum):
@@ -48,6 +49,7 @@ class EvidenceItem:
     publication_date: str = ""
     effective_from: str = ""
     effective_to: str = ""
+    source_regions: list[dict[str, Any]] = field(default_factory=list)
 
 
 @dataclass(frozen=True)

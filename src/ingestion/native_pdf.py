@@ -60,11 +60,15 @@ class NativePdfParser:
             raw_dict = page.get_text("rawdict", flags=raw_flags)
             rectangle = page.rect
             rotation = page.rotation
+            rotation_matrix = page.rotation_matrix
 
         raw_blocks = []
         elements = []
         for block in native_blocks:
             x0, y0, x1, y1, block_text, block_no, block_type = block[:7]
+            if rotation:
+                transformed = pymupdf.Rect(x0, y0, x1, y1) * rotation_matrix
+                x0, y0, x1, y1 = transformed
             raw_block = {
                 "bbox": [float(x0), float(y0), float(x1), float(y1)],
                 "text": block_text,
@@ -102,6 +106,8 @@ class NativePdfParser:
             "rotation": int(rotation),
             "extraction_route": "native",
             "coordinate_origin": "top_left",
+            "coordinate_normalizations": ([{'kind': 'pdf_rotation_matrix', 'rotation': int(rotation),
+                                             'matrix': list(rotation_matrix)}] if rotation else []),
             "text": text,
             "quality": _native_text_quality(text),
             "elements": elements,

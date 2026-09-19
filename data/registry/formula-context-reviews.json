@@ -1,0 +1,43 @@
+{
+  "schema_version": "1",
+  "records": [{
+    "anchor_id": "cecs758-flow-5.4.2-2",
+    "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "physical_page": 24,
+    "formula_number": "5.4.2-2",
+    "processing_profile": "targeted-formula-crop-v1:200dpi",
+    "transcription_sha256": "db76248f22b84ec122df12b7562b1229a012fea3e13d17317336ecd81804b2c7",
+    "review_status": "manual_visual_confirmed",
+    "source_bbox": [50, 95, 350, 220],
+    "required_symbols": ["Q", "n", "A", "L_i", "Delta_t_i", "k"],
+    "variables": [
+      {"symbol": "Q", "definition": "流量", "unit": "m³/d", "source_text": "Q——流量（m³/d）"},
+      {"symbol": "n", "definition": "每日测定次数", "unit": "次/d", "source_text": "n——测定次数（次/d），每日测量6次～8次，对应的时间间隔为3h～4h"},
+      {"symbol": "A", "definition": "管渠过流面积", "unit": "m²", "source_text": "A——管渠过流面积（m²）"},
+      {"symbol": "L_i", "definition": "第i次测定浮标流动的起止点距离", "unit": "m", "source_text": "L_i——第i次测定浮标流动的起止点距离（m）"},
+      {"symbol": "Delta_t_i", "definition": "第i次测定所用时间", "unit": "s", "source_text": "Δt_i——第i次测定所用的时间（s）"},
+      {"symbol": "k", "definition": "表面流速与断面平均流速之间的修正系数", "unit": null, "unit_status": "not_stated", "source_text": "k——浮标法测定的表面流速与断面平均流速之间的修正系数，取0.8～0.9"}
+    ],
+    "conditions": [
+      {"text": "每日测量6次～8次，对应时间间隔3h～4h", "source_text": "每日测量6次～8次，对应的时间间隔为3h～4h"},
+      {"text": "修正系数k取0.8～0.9", "source_text": "修正系数，取0.8～0.9"}
+    ]
+  }, {
+    "anchor_id": "cecs758-area-circular-2",
+    "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "physical_page": 68,
+    "formula_number": "条文说明局部公式(2)",
+    "processing_profile": "targeted-formula-crop-v1:200dpi",
+    "transcription_sha256": "bbe07296cd696b10af4deb34b79997bf1afa754c81d8a8c45d92da3c7c787cb5",
+    "review_status": "manual_visual_confirmed",
+    "source_bbox": [60, 295, 300, 365],
+    "required_symbols": ["A", "l", "R", "d", "h"],
+    "variables": [
+      {"symbol": "l", "definition": "AB的弧长，关联图3", "unit": "m", "source_text": "l——AB的弧长（m）（图3）"},
+      {"symbol": "R", "definition": "管道断面的半径", "unit": "m", "source_text": "R——管道断面的半径（m）"},
+      {"symbol": "d", "definition": "水面位置的弦长，即图3中的AB", "unit": "m", "source_text": "d——水面位置的弦长，即图3中的AB（m）"},
+      {"symbol": "h", "definition": "三角形AOC的高，即图3中的OC", "unit": "m", "source_text": "h——三角形AOC的高，即图3中的OC（m）"}
+    ],
+    "conditions": []
+  }]
+}

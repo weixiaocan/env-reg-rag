@@ -8,12 +8,15 @@ from typing import Literal
 from uuid import uuid4
 
 from fastapi import FastAPI, HTTPException
-from fastapi.responses import FileResponse, JSONResponse
+from fastapi.responses import FileResponse, JSONResponse, Response
 from pydantic import BaseModel, Field
 
 from src.application.query_service import QueryApplicationService
 from src.adapters.inventory_document_catalog import InventoryDocumentCatalog
 from src.application.evidence_source import EvidenceSourceService
+from src.application.formula_preview import FormulaPreviewService
+from src.application.formula_review import FormulaReviewService
+from src.application.published_regions import PublishedRegionService
 from src.domain.query import QueryRequest
 from src.server.http_errors import install_error_handlers
 from src.server.query_dto import AnswerResultDto, EvidenceDto
@@ -46,10 +49,31 @@ def create_app(
     evidence_catalog: EvidenceSourceService | None = None,
     readiness_probe: ReadinessProbe | None = None,
     answer_corpus_version: str = "formal-corpus-v1",
+    source_lookup_corpus_version: str = "m3-experiment-v1",
+    formula_preview: FormulaPreviewService | None = None,
+    formula_review: FormulaReviewService | None = None,
+    published_regions: PublishedRegionService | None = None,
 ) -> FastAPI:
     """Create the HTTP adapter with its application dependency injected."""
     app = FastAPI(title="排水法规标准智能问答系统", version="0.1.0")
     install_error_handlers(app)
+    @app.get('/api/v1/regions/{region_id}')
+    def region_detail(region_id: str):
+        if published_regions is None:
+            raise HTTPException(status_code=503, detail={'code': 'published_regions_unavailable'})
+        item = published_regions.get(region_id)
+        if item is None:
+            raise HTTPException(status_code=404, detail={'code': 'published_region_not_found'})
+        return item
+
+    @app.get('/api/v1/regions/{region_id}/image')
+    def region_image(region_id: str):
+        if published_regions is None:
+            raise HTTPException(status_code=503, detail={'code': 'published_regions_unavailable'})
+        png = published_regions.image(region_id)
+        if png is None:
+            raise HTTPException(status_code=404, detail={'code': 'published_region_image_unavailable'})
+        return Response(content=png, media_type='image/png', headers={'Cache-Control': 'no-store'})
     workbench_path = Path(__file__).parent / "static" / "index.html"
 
     @app.get("/", response_class=FileResponse)
@@ -59,6 +83,67 @@ def create_app(
     @app.get("/api/v1/health")
     async def health() -> dict[str, str]:
         return {"status": "ok"}
+
+    @app.get("/formulas", response_class=FileResponse)
+    async def formula_page():
+        return FileResponse(Path(__file__).parent / "static" / "formulas.html")
+
+    def preview_service():
+        if formula_preview is None:
+            raise HTTPException(status_code=503, detail={"code": "formula_preview_unavailable", "message": "formula preview is not configured"})
+        return formula_preview
+
+    @app.get("/api/v1/formulas")
+    def list_formulas():
+        return {"items": preview_service().list(), "diagnostic_only": True}
+
+    @app.get("/api/v1/formulas/{anchor_id}")
+    def get_formula(anchor_id: str):
+        item = preview_service().get(anchor_id)
+        if item is None:
+            raise HTTPException(status_code=404, detail={"code": "formula_not_found", "message": "formula is not registered"})
+        return item
+
+    @app.get("/formula-review", response_class=FileResponse)
+    def formula_review_page():
+        return FileResponse(Path(__file__).parent / "static" / "formula-review.html")
+
+    def review_service():
+        if formula_review is None:
+            raise HTTPException(status_code=503, detail={"code": "formula_review_unavailable"})
+        return formula_review
+
+    @app.get("/api/v1/formula-review")
+    def review_list(category: str = "all", offset: int = 0, limit: int = 20, query: str = ""):
+        service = review_service()
+        if category not in {"all", "relation_candidate", "expression_candidate", "fragment_candidate", "needs_review"} or offset < 0 or not 1 <= limit <= 50 or len(query) > 200:
+            raise HTTPException(status_code=400, detail={"code": "invalid_review_filter"})
+        try:
+            return service.list(category, offset, limit, query=query)
+        except (OSError, ValueError, KeyError, TypeError):
+            raise HTTPException(status_code=503, detail={"code": "formula_review_unavailable"})
+
+    @app.get("/api/v1/formula-review/{candidate_id}")
+    def review_detail(candidate_id: str):
+        try:
+            item = review_service().get(candidate_id)
+        except (OSError, ValueError, KeyError, TypeError):
+            raise HTTPException(status_code=503, detail={"code": "formula_review_unavailable"})
+        if item is None:
+            raise HTTPException(status_code=404, detail={"code": "formula_review_not_found"})
+        return item
+
+    @app.get("/api/v1/formula-review/{candidate_id}/image")
+    def review_image(candidate_id: str, context: bool = False, full_page: bool = False, page_offset: int = 0):
+        if page_offset not in (-1, 0, 1) or (page_offset and not full_page):
+            raise HTTPException(status_code=400, detail={"code": "invalid_source_page_offset"})
+        try:
+            image = review_service().image(candidate_id, context, full_page, page_offset)
+        except (OSError, ValueError, KeyError, TypeError, RuntimeError):
+            raise HTTPException(status_code=503, detail={"code": "formula_image_unavailable"})
+        if image is None:
+            raise HTTPException(status_code=404, detail={"code": "formula_image_unavailable"})
+        return Response(content=image, media_type="image/png", headers={"Cache-Control": "no-store"})
 
     @app.get("/api/v1/ready")
     async def ready() -> JSONResponse:
@@ -163,7 +248,7 @@ def create_app(
                     },
                 )
             selected_service = source_locator_service
-            corpus_version = "m3-experiment-v1"
+            corpus_version = source_lookup_corpus_version
         result = await selected_service.execute(
             QueryRequest(
                 request_id=payload.request_id,

@@ -1,0 +1,126 @@
+{
+  "schema_version": "1",
+  "run_id": "5d3264515515e228",
+  "basis": "fixed_source_page_visual_samples_not_full_corpus_accuracy",
+  "cases": [
+    {
+      "candidate_id": "layout-c3c3df5ae9ca5bb7-61-0",
+      "query": "污泥龄 容积",
+      "file_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "physical_page": 61,
+      "formula_number": "7.6.10-2",
+      "expected_symbols": [
+        "V",
+        "Q",
+        "S_o",
+        "S_e",
+        "Y",
+        "theta_c",
+        "X_V",
+        "K_d"
+      ],
+      "expected_missing_symbols": [],
+      "expected_parameter_pages": [
+        61,
+        62
+      ]
+    },
+    {
+      "candidate_id": "layout-c3c3df5ae9ca5bb7-61-1",
+      "query": "污泥负荷 容积",
+      "file_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "physical_page": 61,
+      "formula_number": "7.6.10-1",
+      "expected_symbols": [
+        "V",
+        "Q",
+        "S_o",
+        "S_e",
+        "L_s",
+        "X"
+      ],
+      "expected_missing_symbols": [],
+      "expected_parameter_pages": [
+        61
+      ]
+    },
+    {
+      "candidate_id": "layout-c3c3df5ae9ca5bb7-63-0",
+      "query": "缺氧 容积",
+      "file_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "physical_page": 63,
+      "formula_number": "7.6.17-1",
+      "expected_symbols": [
+        "V_n",
+        "Q",
+        "N_k",
+        "N_te",
+        "Delta_X_V",
+        "K_de",
+        "X"
+      ],
+      "expected_missing_symbols": [],
+      "expected_parameter_pages": [
+        63,
+        64
+      ]
+    },
+    {
+      "candidate_id": "layout-c3c3df5ae9ca5bb7-63-1",
+      "query": "微生物量",
+      "file_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "physical_page": 63,
+      "formula_number": "7.6.17-3",
+      "expected_symbols": [
+        "Q",
+        "Delta_X_V",
+        "Y",
+        "S_o",
+        "S_e"
+      ],
+      "expected_missing_symbols": [],
+      "expected_parameter_pages": [
+        63,
+        64
+      ]
+    },
+    {
+      "candidate_id": "layout-f3b23a4668270f16-24-0",
+      "query": "浮标",
+      "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "physical_page": 24,
+      "formula_number": "5.4.2-2",
+      "expected_symbols": [
+        "Q",
+        "n",
+        "A",
+        "L_i",
+        "Delta_t_i",
+        "k"
+      ],
+      "expected_missing_symbols": [],
+      "expected_parameter_pages": [
+        24
+      ]
+    },
+    {
+      "candidate_id": "layout-f3b23a4668270f16-68-0",
+      "query": "圆形",
+      "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "physical_page": 68,
+      "formula_number": "条文说明(2)",
+      "expected_symbols": [
+        "l",
+        "R",
+        "d",
+        "h"
+      ],
+      "expected_missing_symbols": [
+        "A"
+      ],
+      "expected_parameter_pages": [
+        68
+      ]
+    }
+  ]
+}

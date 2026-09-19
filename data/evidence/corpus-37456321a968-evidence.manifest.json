@@ -1,0 +1,27 @@
+{
+  "artifact_id": "corpus-37456321a968-evidence",
+  "generated_at": "2026-09-19T04:22:47.638625+00:00",
+  "schema_version": "1",
+  "scope": "approved_evidence_plus_source_locators",
+  "region_gate": "identified-structures-locator-only-v1",
+  "segmentation": {
+    "boundary": "canonical_element",
+    "max_evidence_chars": 600,
+    "context_scope": "page_local_inferred"
+  },
+  "canonical_source": "data/canonical/corpus-37456321a968-documents.jsonl",
+  "canonical_sha256": "91c8c8551feba748ac2a2cd8f1d38ab5a597aaab0c4e35a68633431331224517",
+  "summary": {
+    "source_document_count": 21,
+    "source_page_count": 1039,
+    "locator_source_page_count": 23,
+    "evidence_unit_count": 5116,
+    "answer_evidence_unit_count": 3822,
+    "source_locator_unit_count": 1294,
+    "evidence_type_counts": {
+      "clause": 2764,
+      "paragraph": 1058,
+      "source_locator": 1294
+    }
+  }
+}

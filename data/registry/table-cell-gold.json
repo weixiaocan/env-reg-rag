@@ -1,0 +1,31 @@
+{
+  "schema_version": "1",
+  "source_basis": "manual_visual_source_page_review",
+  "checked_at": "2026-09-16T21:59:16+08:00",
+  "scope": "critical cell subset; not full-table approval or formula approval",
+  "anchors": [
+    {
+      "anchor_id": "cecs758-industrial-reference-continuation",
+      "file_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "physical_page": 67,
+      "table_index": 0,
+      "caption": "续表2 判断工业废水接入的参照值",
+      "expected_cells": [
+        {"row": 0, "col": 0, "text": "指标参数"},
+        {"row": 0, "col": 1, "text": "参照值"},
+        {"row": 1, "col": 0, "text": "总氮"},
+        {"row": 1, "col": 1, "text": ">=100mg/L"},
+        {"row": 2, "col": 0, "text": "磷酸盐"},
+        {"row": 2, "col": 1, "text": ">=8.0mg/L"},
+        {"row": 3, "col": 0, "text": "钾"},
+        {"row": 3, "col": 1, "text": ">=40mg/L"},
+        {"row": 4, "col": 0, "text": "钠"},
+        {"row": 4, "col": 1, "text": ">=60mg/L"},
+        {"row": 5, "col": 0, "text": "氯化物"},
+        {"row": 5, "col": 1, "text": ">=160mg/L"},
+        {"row": 6, "col": 0, "text": "氟化物"},
+        {"row": 6, "col": 1, "text": ">=1.0mg/L"}
+      ]
+    }
+  ]
+}

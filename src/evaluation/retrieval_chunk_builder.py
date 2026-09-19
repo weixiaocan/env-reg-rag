@@ -102,6 +102,7 @@ def build_retrieval_chunks(
                 "quality_status": unit["quality_status"],
                 "usage_policy": unit["usage_policy"],
                 "text_reliability": unit["text_reliability"],
+                **({'source_regions': unit['source_regions']} if unit.get('source_regions') else {}),
             },
         )
         chunks.append(chunk.to_dict())

@@ -102,6 +102,17 @@ def publish_corpus_candidate(
         raise ValueError("corpus candidate is not ready for publication")
     if candidate["corpus_version"] != manifest["corpus_version"]:
         raise ValueError("candidate pointer and manifest versions do not match")
+    if manifest.get('structure_processing', {}).get('required'):
+        for path_key, digest_key in (
+            ('canonical_documents', 'canonical_documents_sha256'),
+            ('evidence_units', 'evidence_units_sha256'), ('structure_audit', 'structure_audit_sha256')):
+            artifact = (root / manifest[path_key]).resolve()
+            if not artifact.is_relative_to(root / 'data') or hashlib.sha256(artifact.read_bytes()).hexdigest() != manifest[digest_key]:
+                raise ValueError('structured candidate artifact identity mismatch')
+        audit = _read_json(root / manifest['structure_audit'])
+        if (audit.get('artifact_integrity_passed') is not True or audit.get('integrity_issues')
+                or audit.get('layout_completed_page_count') != manifest['page_count']):
+            raise ValueError('structured candidate full-page integrity audit has not passed')
     chunks_path = root / manifest["retrieval_chunks"]
     actual_chunks_sha = hashlib.sha256(chunks_path.read_bytes()).hexdigest()
     if actual_chunks_sha != manifest.get("retrieval_chunks_sha256"):
@@ -124,6 +135,11 @@ def publish_corpus_candidate(
         current.get("corpus_version") == manifest["corpus_version"]
         or collection_name in alias_targets
     )
+    for rollback in (root / 'data/registry').glob('*-rollback.json'):
+        record = _read_json(rollback)
+        if (collection_name in record.get('previous_alias_targets', []) or
+                record.get('previous_current_pointer', {}).get('collection_name') == collection_name):
+            collection_is_published = True
     needs_build = True
     if client.collection_exists(collection_name):
         count = client.count(collection_name, exact=True).count
@@ -152,6 +168,15 @@ def publish_corpus_candidate(
         if count != len(chunks):
             raise RuntimeError("published collection failed point-count verification")
 
+    rollback_path = root / 'data/registry' / f"{manifest['corpus_version']}-rollback.json"
+    if current and current.get('corpus_version') != manifest['corpus_version'] and not rollback_path.is_file():
+        _write_json_atomic(rollback_path, {
+            'target_corpus_version': manifest['corpus_version'],
+            'previous_current_pointer': current,
+            'previous_alias_targets': sorted(alias_targets),
+            'alias_name': alias_name,
+            'note': 'Restore the alias to the preserved previous collection, then atomically restore the pointer and restart the local app.',
+        })
     QdrantCorpusReleaseManager(client=client).publish(
         collection_name=collection_name,
         alias_name=alias_name,
@@ -166,6 +191,7 @@ def publish_corpus_candidate(
         "query_alias": alias_name,
         "chunk_count": len(chunks),
         "action": action,
+        "rollback_record": rollback_path.relative_to(root).as_posix() if rollback_path.is_file() else None,
     }
     _write_json_atomic(current_path, result)
     return result
