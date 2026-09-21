@@ -241,11 +241,23 @@ def _doc_level_metadata(canonical: dict[str, Any]) -> dict[str, Any]:
         if ident.get("scheme") == "standard_number":
             standard_number = ident.get("value") or ""
             break
+    authorities = md.get("issuing_authorities") or []
+    source = canonical.get("source") or {}
     return {
         "standard_number": standard_number,
         "document_kind": md.get("document_kind", "unknown"),
         "jurisdictions": list(md.get("jurisdictions") or []),
         "effective_status": md.get("effective_status", "unknown"),
+        # Evidence/document fields consumed by the retrieval + UI layer.
+        # primary_evidence_id and source_regions are set per-chunk in _emit_chunk
+        # (they depend on chunk_id / are empty by default).
+        "document_version_id": (source.get("sha256") or "").lower(),
+        "usage_policy": "answer_and_citation",
+        "source_authority": authorities[0] if authorities else "",
+        "source_uri": source.get("source_uri") or "",
+        "publication_date": md.get("publication_date") or "",
+        "effective_from": md.get("effective_from") or "",
+        "effective_to": md.get("effective_to") or "",
     }
 
 
@@ -456,6 +468,11 @@ class _ChunkBuilder:
         metadata["section_path"] = [dict(e) for e in section_path]
         metadata["file_name"] = self._file_name
         metadata["source_sha256"] = self._source_sha
+        # primary_evidence_id = chunk_id (1:1 chunk=evidence); set here because
+        # it depends on chunk_id which was just computed. source_regions empty
+        # in Phase 1 (region image rendering is deferred).
+        metadata["primary_evidence_id"] = chunk_id
+        metadata["source_regions"] = []
         chunk = V2Chunk(
             schema_version="v2.chunk/1.0",
             chunk_id=chunk_id,

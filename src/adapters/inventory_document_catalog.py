@@ -5,6 +5,7 @@ from __future__ import annotations
 import csv
 from dataclasses import dataclass
 from pathlib import Path
+from typing import Protocol
 
 
 @dataclass(frozen=True)
@@ -16,6 +17,12 @@ class DocumentSource:
     jurisdiction: str
     source_uri: str
     local_path: Path | None
+
+
+class DocumentCatalog(Protocol):
+    """Structural interface for document-version -> local-PDF resolution."""
+
+    def get(self, document_version_id: str) -> DocumentSource | None: ...
 
 
 class InventoryDocumentCatalog:
