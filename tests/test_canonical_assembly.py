@@ -19,7 +19,7 @@ from src.application.canonical_validation import compute_ids, validate_document
 from src.domain.canonical_document import SchemaError
 
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-_V1_DOCUMENTS = os.path.join(
+_PAGE_DOCUMENTS = os.path.join(
     _REPO_ROOT, "data", "canonical", "corpus-37456321a968-documents.jsonl"
 )
 _FORMULA_CACHE_DIR = os.path.join(
@@ -36,8 +36,8 @@ _OUTPUT_JSON = os.path.join(
 )
 
 
-def _stream_find_v1_document(sha: str) -> dict:
-    with open(_V1_DOCUMENTS, "r", encoding="utf-8") as fh:
+def _stream_find_page_document(sha: str) -> dict:
+    with open(_PAGE_DOCUMENTS, "r", encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if not line:
@@ -45,7 +45,7 @@ def _stream_find_v1_document(sha: str) -> dict:
             obj = json.loads(line)
             if obj.get("sha256") == sha:
                 return obj
-    raise FileNotFoundError(f"sha {sha} not found in V1 documents")
+    raise FileNotFoundError(f"sha {sha} not found in page-intermediate documents")
 
 
 def _load_cecs758_cases() -> list[dict]:
@@ -63,12 +63,12 @@ def _load_cecs758_cases() -> list[dict]:
 
 def _build_cecs758_v2() -> dict:
     """Assemble + compute_ids + validate the CECS758 V2 document (in-memory)."""
-    v1_doc = _stream_find_v1_document(CECS758_SHA)
-    page_count = len(v1_doc.get("pages") or [])
+    page_doc = _stream_find_page_document(CECS758_SHA)
+    page_count = len(page_doc.get("pages") or [])
     formula_pages = load_formula_pages(
         CECS758_SHA, range(1, page_count + 1), cache_dir=_FORMULA_CACHE_DIR
     )
-    doc = assemble_document(v1_doc, formula_pages=formula_pages)
+    doc = assemble_document(page_doc, formula_pages=formula_pages)
     ids = compute_ids(doc)
     doc["canonical_id"] = ids["canonical_id"]
     doc["canonical_content_id"] = ids["canonical_content_id"]
@@ -383,12 +383,12 @@ class TestNoOcrReRun(unittest.TestCase):
 
     def test_assemble_only_reads_json(self):
         # Smoke: assemble runs against an in-memory dict + dict formula cache.
-        v1_doc = _stream_find_v1_document(CECS758_SHA)
-        page_count = len(v1_doc.get("pages") or [])
+        page_doc = _stream_find_page_document(CECS758_SHA)
+        page_count = len(page_doc.get("pages") or [])
         formula_pages = load_formula_pages(
             CECS758_SHA, range(1, page_count + 1), cache_dir=_FORMULA_CACHE_DIR
         )
-        doc = assemble_document(v1_doc, formula_pages=formula_pages)
+        doc = assemble_document(page_doc, formula_pages=formula_pages)
         self.assertEqual(doc["schema_version"], "v2.canonical/1.0")
 
 

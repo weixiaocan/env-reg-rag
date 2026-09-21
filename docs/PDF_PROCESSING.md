@@ -2,13 +2,13 @@
 
 方案已批准；2026-09-16，统一四类处理方案于2026-09-18确认。下文保留阶段性历史证据；基础文字建库、旧公式批次或固定样例通过均不代表完整PDF处理完成。本轮存量全量处理及增量验收结果另行记录，不声称生产就绪。
 
-统一入口为 `scripts/update_corpus.py`，默认启用逐页本地版面分析及正文、表格、公式、图片分派。`--text-only` 仅供旧文字流程诊断，默认结构并发为1。匹配配置的正文、版面和公式结果可复用，但旧基础approved状态不能用于跳过版面分析。阶段缓存含模型文件校验和、软件版本、DPI及规则；失败阶段可重试，处理执行状态与质量状态独立。
+统一 PDF 处理管线由 `src/application/unified_pdf.py` 与 `src/ingestion/` 提供，默认启用逐页本地版面分析及正文、表格、公式、图片分派。匹配配置的正文、版面和公式结果可复用，但旧基础approved状态不能用于跳过版面分析。阶段缓存含模型文件校验和、软件版本、DPI及规则；失败阶段可重试，处理执行状态与质量状态独立。处理结果写入 page-intermediate OCR 缓存，再由 `scripts/assemble_corpus_v2.py` 装配为 V2 Canonical，最后经 `scripts/ingest_corpus_v2.py` 分块入库 Qdrant。
 
 图片只使用原图、原文图号/图注及明确引用图号的正文构建本地检索表示。无图注、歧义关联、未找到脚注或参数说明均逐文件/物理页/区域记录；不调用外部视觉模型，不生成AI图片描述。公式优先原图、原文说明和出处。表格保留行列、合并单元格及模型恢复的表头角色；未可靠恢复的结构不能升级成正式回答依据。
 
 检查点在 `data/model_runtime/unified_pdf/`，候选全量完整性报告在 `data/canonical/<版本>-structure-audit.json`。运行 `python scripts/audit_unified_pdf.py` 可核对所有主文本页，缺页也逐页列出；`--canonical` 可核对指定候选制品。核对包含来源SHA、区域账本、原PDF重渲染裁剪图及独立原页公式锚点漏检检查。固定锚点不代表全库漏检率或内容准确率。未处理锚点页单列，不冒充已评测漏检。
 
-未核验结构仅生成source_locator_only，保留区域、关系及原图身份，检索命中后通过 `/api/v1/regions/<区域ID>` 和 `/image` 阅读原图及原文。新候选版本绑定实际输出和完整性报告；失败重试产生不同不可变版本。发布前验证完整性报告和制品摘要，并保存旧指针及别名目标到版本rollback记录；旧集合保留。全量候选尚未通过时不得切换正式库。
+未核验结构在 V2 Canonical 中保留区域、关系及原图身份，标记为未核验；检索命中后经 `element_ids` 追溯到原文元素，还原文档、条款路径、物理页码与 bbox 定位。新候选版本绑定实际输出和完整性报告；失败重试产生不同不可变版本。入库前验证完整性报告和制品摘要。全量候选尚未通过时不得入库正式库。
 
 ### 2026-09-18 本轮已取得的验证证据
 
@@ -22,7 +22,7 @@
 
 ## 当前可用：离线来源审计
 
-先通过 `scripts/update_corpus.py --plan-only` 刷新文件清单，再运行：
+先刷新文件清单（`scripts/data_inventory.py`），再运行：
 
 ```powershell
 .venv\Scripts\python.exe scripts\audit_pdf_sources.py
@@ -408,7 +408,7 @@ PDF-04的人可读展示统一覆盖当前638个候选，而非逐条添加截�
 更新候选库可显式使用完整公式门控：
 
 ```bash
-python scripts/update_corpus.py --workers 1 --skip-inventory-refresh --formula-run-id 5d3264515515e228
+PYTHONPATH=src python scripts/assemble_corpus_v2.py --formula-run-id 5d3264515515e228
 ```
 
 门控重审全部1078个检查点的来源、配置、完成状态和汇总指纹，拒绝正在运行、缺页、过期或来源不匹配的批次。638个检测框只用于把重叠证据降级为source_locator_only，不把LaTeX或诊断中的审批字段写入正式回答证据；独立正文仍按原有页面质量规则处理。39个质量隔离页仍保留原文定位，其44个检测区域也保留精确身份。门控配置与报告指纹参与候选版本计算，解析缓存可复用。
@@ -453,7 +453,7 @@ python scripts/update_corpus.py --workers 1 --skip-inventory-refresh --formula-r
 
 ### 统一四类全量处理与正式发布（2026-09-19）
 
-当前入口为 `.venv\Scripts\python.exe -X utf8 scripts\update_corpus.py`。它对每页先运行版面分析，再分派正文、表格、公式和图片；新增PDF、内容变更、处理配置改变及失败重试使用同一入口。阶段检查点分别绑定文件SHA-256、模型/规则配置和结果哈希；未变化阶段复用，失败阶段会重试。图片检索文字只来自原文图注和明确图号引用，不使用外部视觉模型或AI描述。
+当前 PDF 处理由 `src/application/unified_pdf.py` + `src/ingestion/` 提供。它对每页先运行版面分析，再分派正文、表格、公式和图片；新增PDF、内容变更、处理配置改变及失败重试使用同一管线。阶段检查点分别绑定文件SHA-256、模型/规则配置和结果哈希；未变化阶段复用，失败阶段会重试。图片检索文字只来自原文图注和明确图号引用，不使用外部视觉模型或AI描述。处理结果写入 page-intermediate OCR 缓存，再由 `scripts/assemble_corpus_v2.py` 装配为 V2 Canonical，最后经 `scripts/ingest_corpus_v2.py` 分块入库 Qdrant collection `corpus_v2`。
 
 全量实际运行范围是 27 个物理PDF、22个不同SHA-256内容、5个字节级重复副本；确认一组同版本关系后选取 21 份主文本、1078 页。版面完成 1078/1078 页。区域账本共 11977 项：正文 11022、公式 638、表格 239、图片 78；执行状态全部 completed，完整性问题 0。质量状态独立统计为 passed 10788、quarantined 234、needs_review 955，不将执行成功写成内容正确。
 
@@ -463,7 +463,7 @@ python scripts/update_corpus.py --workers 1 --skip-inventory-refresh --formula-r
 
 原PDF漏检审计检查 1078 页，列出 4445 个未分配原始信号：448 个文字块、3179 个矢量图形候选、159 个内嵌图片候选、632 个扫描整页图像语义待核验、26 个数学运算符候选、1 个图题候选。这些是线索级实例，不能直接解释为 4445 个真漏检区域；全量内容质量和 full recall 仍为false。检测的 78 个图片区域中，61 个无可靠图注或明确正文引用，例如《城镇内涝防治技术规范》第27页 `up-f3457591b0a55fc194c9d691`和第32页 `up-407d993f640903d2c5bf6f49`；系统只保留原图定位，没有生成图片描述。所有具体文件、页码、坐标、区域和原因保存于 `data/canonical/corpus-37456321a968-structure-audit.json`。
 
-候选 `corpus-37456321a968` 通过制品哈希、数量、页面覆盖及区域执行完整性门控后显式发布。Qdrant 集合 `corpus_37456321a968` 精确计数 5116 点，其中 3822 个 answer_and_citation、1294 个 source_locator_only；`corpus_current` 已原子切换。前一正式集合 `corpus_919a55883a6a` 4017 点、更旧集合 `corpus_5e4aae29c683` 3937 点仍保留，回退记录为 `data/registry/corpus-37456321a968-rollback.json`。本地应用重建后 ready、区域详情及原图HTTP均为200；区域 `up-f25686f455c72a5225155059` 返回新版本、第34页及 needs_review，原图 520049 字节，SHA-256与检索块中记录一致。
+候选 `corpus-37456321a968` 通过制品哈希、数量、页面覆盖及区域执行完整性门控后装配为 V2 Canonical。21 份主文本共 23095 个元素（文本 22568 / 表格 239 / 公式 210 / 图片 78）；隔离页与未核验结构区域在 V2 Canonical 中标记为未核验，保留原文定位但不升级为正式回答准入。`scripts/ingest_corpus_v2.py` 将全语料分块、向量化并写入持久 Qdrant collection `corpus_v2`（512 维 dense + BM25 sparse）。前一正式集合 `corpus_919a55883a6a`、更旧集合 `corpus_5e4aae29c683` 的 V1 检索数据已清除。所有具体文件、页码、坐标、区域和原因保存于 `data/canonical/corpus-37456321a968-structure-audit.json`。
 
 工程回归覆盖聚焦表格回退 23 项，修正最小旧夹具的来源SHA兼容后相关测试 5 项通过，广泛受影响回归 44 个模块、290 项通过。实际浏览器连接在 Windows sandbox 初始化阶段仍因 `setup refresh had errors` 退出，未完成真实点击和移动视口截图；HTTP、HTML viewport 与静态脚本检查不冒充浏览器交互验收。
 

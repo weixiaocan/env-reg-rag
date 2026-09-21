@@ -1,16 +1,24 @@
 """V2 Canonical Assembly (plan 1.5).
 
-Assembles a V2 CanonicalDocument dict from V1 page-owned artifacts:
-``data/canonical/corpus-*-documents.jsonl`` (per-document) plus the optional
-per-page formula cache ``data/model_runtime/corpus_formulas/<config>/<sha>-<page>.json``
-and a registry metadata override.
+Assembles a V2 CanonicalDocument dict from a page-intermediate OCR cache row:
+``data/canonical/corpus-*-documents.jsonl`` (one dict per document, produced by
+the PDF processing pipeline) plus the optional per-page formula cache
+``data/model_runtime/corpus_formulas/<config>/<sha>-<page>.json`` and a registry
+metadata override.
 
 The assembly is a pure re-organisation layer: it never invokes OCR / PDF engines.
-It sequences V1 page elements into a single logical ``elements[]`` stream using
-:mod:`src.ingestion.column_detection` (within-page reading order) and
-:mod:`src.ingestion.heading_hierarchy` (section_path), then wraps each item in the
-unified V2 Element envelope with a typed ``content`` union, ``source_spans``,
-``provenance`` and ``links``.
+It sequences the page-intermediate elements into a single logical ``elements[]``
+stream using :mod:`src.ingestion.column_detection` (within-page reading order)
+and :mod:`src.ingestion.heading_hierarchy` (section_path), then wraps each item
+in the unified V2 Element envelope with a typed ``content`` union,
+``source_spans``, ``provenance`` and ``links``.
+
+The page-intermediate jsonl is a read-only OCR-output cache, reused once so the
+expensive OCR / layout / formula recognition runs are not repeated. Future PDFs
+will produce the same page-intermediate shape directly via
+:mod:`src.ingestion` + :mod:`src.application.unified_pdf`, without any legacy
+intermediate -- the ``page_document`` dict shape accepted here is the stable seam
+between PDF processing and V2 Canonical.
 
 The returned dict is structurally valid but carries placeholder IDs
 (``canonical_id`` / ``canonical_content_id`` / ``metadata_fingerprint``); the
@@ -82,7 +90,7 @@ class _PageItem:
 
 
 def assemble_document(
-    v1_document: dict[str, Any],
+    page_document: dict[str, Any],
     *,
     formula_pages: dict[int, list[dict[str, Any]]] | None = None,
     metadata: dict[str, Any] | None = None,
@@ -90,7 +98,7 @@ def assemble_document(
     """Assemble a V2 CanonicalDocument dict from a V1 document.
 
     Args:
-        v1_document: a single V1 document dict (one ``corpus-*-documents.jsonl``
+        page_document: a single V1 document dict (one ``corpus-*-documents.jsonl``
             row). Only ``sha256`` / ``file_name`` / ``pages`` / ``metadata`` /
             ``processing_run_id`` / ``config_hash`` are consumed.
         formula_pages: optional mapping ``physical_page -> list[formula region]``
@@ -105,26 +113,26 @@ def assemble_document(
         emitting the artifact.
     """
     formula_pages = formula_pages or {}
-    v1_pages = v1_document.get("pages") or []
-    sha = (v1_document.get("sha256") or "").lower()
-    page_count = len(v1_pages)
+    page_rows = page_document.get("pages") or []
+    sha = (page_document.get("sha256") or "").lower()
+    page_count = len(page_rows)
 
     # 1. Build per-page ordered item lists + global reading-order slots. -------
     global_slots: list[_PageItem] = []
     pages_meta: list[dict[str, Any]] = []
     page_by_number: dict[int, dict[str, Any]] = {}
-    for idx, v1_page in enumerate(v1_pages):
-        pno = int(v1_page.get("physical_page") or (idx + 1))
-        page_by_number[pno] = v1_page
-        width = float(v1_page.get("width") or 0.0)
-        height = float(v1_page.get("height") or 0.0)
-        rotation = int(v1_page.get("rotation") or 0) % 360
+    for idx, page_row in enumerate(page_rows):
+        pno = int(page_row.get("physical_page") or (idx + 1))
+        page_by_number[pno] = page_row
+        width = float(page_row.get("width") or 0.0)
+        height = float(page_row.get("height") or 0.0)
+        rotation = int(page_row.get("rotation") or 0) % 360
         if rotation not in (0, 90, 180, 270):
             rotation = 0
-        parse_status, parse_error = _parse_status(v1_page)
+        parse_status, parse_error = _parse_status(page_row)
         pages_meta.append({
             "physical_page": pno,
-            "printed_label": v1_page.get("display_page_label"),
+            "printed_label": page_row.get("display_page_label"),
             "width": width,
             "height": height,
             "unit": "pt",
@@ -134,7 +142,7 @@ def assemble_document(
         })
         if parse_status != "parsed":
             continue  # blank/failed pages contribute no slots
-        items = _collect_page_items(v1_page, pno, width, height, formula_pages.get(pno))
+        items = _collect_page_items(page_row, pno, width, height, formula_pages.get(pno))
         layout = detect_columns(
             [it.bbox for it in items], page_width=width, page_height=height
         )
@@ -219,9 +227,9 @@ def assemble_document(
                 elements.append(el)
 
     # 4. Source / metadata / generation. --------------------------------------
-    source = _build_source(v1_document, page_count)
-    doc_metadata = _build_metadata(v1_document, metadata)
-    generation = _build_generation(v1_document, formula_pages)
+    source = _build_source(page_document, page_count)
+    doc_metadata = _build_metadata(page_document, metadata)
+    generation = _build_generation(page_document, formula_pages)
 
     return {
         "schema_version": "v2.canonical/1.0",
@@ -274,7 +282,7 @@ def load_formula_pages(
 
 
 def _collect_page_items(
-    v1_page: dict[str, Any],
+    page_row: dict[str, Any],
     pno: int,
     width: float,
     height: float,
@@ -283,7 +291,7 @@ def _collect_page_items(
     """Gather text / formula / table / figure items for a single page."""
     items: list[_PageItem] = []
 
-    for elem in v1_page.get("elements") or []:
+    for elem in page_row.get("elements") or []:
         bbox = _coerce_bbox(elem.get("bbox"))
         if bbox is None:
             continue
@@ -318,7 +326,7 @@ def _collect_page_items(
         )
 
     # Table / figure regions from the V1 page `regions` list (page-points bbox).
-    for region in v1_page.get("regions") or []:
+    for region in page_row.get("regions") or []:
         kind = region.get("kind")
         if kind not in ("table", "image"):
             continue
@@ -776,10 +784,10 @@ def _placeholder_asset(page: int, bbox: list[float]) -> dict[str, Any]:
 # --------------------------------------------------------------------------- #
 
 
-def _build_source(v1_document: dict[str, Any], page_count: int) -> dict[str, Any]:
-    sha = (v1_document.get("sha256") or "").lower()
-    file_name = v1_document.get("file_name") or ""
-    source_uri = v1_document.get("source_uri") or None
+def _build_source(page_document: dict[str, Any], page_count: int) -> dict[str, Any]:
+    sha = (page_document.get("sha256") or "").lower()
+    file_name = page_document.get("file_name") or ""
+    source_uri = page_document.get("source_uri") or None
     if not source_uri:
         source_uri = None
     return {
@@ -792,15 +800,15 @@ def _build_source(v1_document: dict[str, Any], page_count: int) -> dict[str, Any
 
 
 def _build_metadata(
-    v1_document: dict[str, Any], override: dict[str, Any] | None
+    page_document: dict[str, Any], override: dict[str, Any] | None
 ) -> dict[str, Any]:
-    v1_meta = v1_document.get("metadata") or {}
-    merged = dict(v1_meta)
+    source_meta = page_document.get("metadata") or {}
+    merged = dict(source_meta)
     if override:
         merged.update(override)
 
     std_no = (merged.get("standard_number") or "").strip() or None
-    file_name = v1_document.get("file_name") or "unknown.pdf"
+    file_name = page_document.get("file_name") or "unknown.pdf"
     title = std_no or file_name
     if std_no:
         title = f"{std_no} {file_name}".rstrip(".pdf")
@@ -853,15 +861,15 @@ def _build_metadata(
 
 
 def _build_generation(
-    v1_document: dict[str, Any], formula_pages: dict[int, list[dict[str, Any]]]
+    page_document: dict[str, Any], formula_pages: dict[int, list[dict[str, Any]]]
 ) -> dict[str, Any]:
-    config_hash = (v1_document.get("config_hash") or "").lower()
+    config_hash = (page_document.get("config_hash") or "").lower()
     if not config_hash or len(config_hash) != 64:
         # Fall back to a deterministic hash of the file name if config_hash missing.
         config_hash = hashlib.sha256(
-            (v1_document.get("file_name") or "unknown").encode("utf-8")
+            (page_document.get("file_name") or "unknown").encode("utf-8")
         ).hexdigest()
-    run_id = v1_document.get("processing_run_id") or "v2-assembly-run"
+    run_id = page_document.get("processing_run_id") or "v2-assembly-run"
     engines = [
         {"engine_id": "native-1", "name": "pymupdf", "version": "1.24"},
         {"engine_id": "layout-1", "name": "PP-DocLayout_plus-L", "version": "paddleocr-3.7.0"},
@@ -944,13 +952,13 @@ def _provenance(
     }
 
 
-def _parse_status(v1_page: dict[str, Any]) -> tuple[str, dict[str, Any] | None]:
-    route = (v1_page.get("extraction_route") or "").strip()
-    status = (v1_page.get("decision_status") or "").strip()
+def _parse_status(page_row: dict[str, Any]) -> tuple[str, dict[str, Any] | None]:
+    route = (page_row.get("extraction_route") or "").strip()
+    status = (page_row.get("decision_status") or "").strip()
     if route == "failed" or status == "failed":
         return "failed", {"code": "extraction_failed", "message": "V1 extraction route failed"}
-    text = (v1_page.get("text") or "").strip()
-    has_elements = bool(v1_page.get("elements"))
+    text = (page_row.get("text") or "").strip()
+    has_elements = bool(page_row.get("elements"))
     if not text and not has_elements:
         return "blank", None
     return "parsed", None

@@ -1,4 +1,12 @@
-"""Resolve the immutable corpus currently published for query traffic."""
+"""Resolve the current corpus manifest for OCR / processing tooling.
+
+Returns the corpus version + manifest path + canonical documents jsonl path.
+Formerly also resolved V1 evidence-unit / retrieval-chunk artifacts and a
+``formal-corpus-v1`` bootstrap fallback; those V1 retrieval concerns were
+removed when the V1 retrieval chain was deleted. The manifest written by
+:mod:`src.application.corpus_update` now carries only the canonical documents
+(page-intermediate OCR cache) plus page/structure status.
+"""
 
 from __future__ import annotations
 
@@ -11,28 +19,23 @@ from pathlib import Path
 class CurrentCorpusArtifacts:
     corpus_version: str
     manifest_path: Path
-    evidence_units_path: Path
-    retrieval_chunks_path: Path
-    collection_name: str
-    query_alias: str = "corpus_current"
+    canonical_documents_path: Path
 
 
 def resolve_current_corpus(project_root: Path) -> CurrentCorpusArtifacts:
-    """Use the published pointer, with the original formal corpus as bootstrap."""
+    """Resolve the current corpus from the published pointer.
+
+    Reads ``data/registry/corpus-current.json`` -> manifest, and returns the
+    canonical documents jsonl path (the page-intermediate OCR cache consumed
+    by V2 assembly). Raises ``ValueError`` if the pointer or manifest is
+    missing or inconsistent -- there is no longer a V1 bootstrap fallback.
+    """
 
     root = Path(project_root).resolve()
     pointer_path = root / "data" / "registry" / "corpus-current.json"
     if not pointer_path.is_file():
-        return CurrentCorpusArtifacts(
-            corpus_version="formal-corpus-v1",
-            manifest_path=root / "data" / "registry" / "formal-corpus-v1.json",
-            evidence_units_path=(
-                root / "data" / "evidence" / "m3-evidence-units-v1.jsonl"
-            ),
-            retrieval_chunks_path=(
-                root / "data" / "retrieval" / "formal-corpus-v1-chunks.jsonl"
-            ),
-            collection_name="corpus_formal_v1",
+        raise ValueError(
+            "data/registry/corpus-current.json not found; publish a corpus first"
         )
 
     pointer = json.loads(pointer_path.read_text(encoding="utf-8"))
@@ -44,11 +47,9 @@ def resolve_current_corpus(project_root: Path) -> CurrentCorpusArtifacts:
         raise ValueError("current corpus manifest is not ready")
     if manifest.get("corpus_version") != pointer.get("corpus_version"):
         raise ValueError("current corpus pointer and manifest versions do not match")
+    canonical_documents_path = root / manifest["canonical_documents"]
     return CurrentCorpusArtifacts(
         corpus_version=pointer["corpus_version"],
         manifest_path=manifest_path,
-        evidence_units_path=root / manifest["evidence_units"],
-        retrieval_chunks_path=root / manifest["retrieval_chunks"],
-        collection_name=pointer["collection_name"],
-        query_alias=pointer.get("query_alias", "corpus_current"),
+        canonical_documents_path=canonical_documents_path,
     )

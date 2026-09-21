@@ -15,8 +15,6 @@ from html.parser import HTMLParser
 from pathlib import Path
 from typing import Any, Callable, Protocol
 
-from src.evaluation.evidence_builder import build_evidence_units
-from src.evaluation.retrieval_chunk_builder import build_retrieval_chunks
 from src.ingestion.native_pdf import NativePdfParser
 from src.ingestion.ocr_pdf import OcrPdfParser, PaddleTextOcrEngine
 from src.application.document_relations import apply_relations
@@ -679,28 +677,8 @@ class CorpusUpdateService:
             canonical_path,
             "".join(json.dumps(document, ensure_ascii=False) + "\n" for document in documents),
         )
-        evidence_prefix = f"{corpus_version}-evidence"
-        evidence_result = build_evidence_units(
-            self.root,
-            canonical_path,
-            self.root / "data" / "evidence",
-            artifact_prefix=evidence_prefix,
-            overwrite=True,
-            detected_formula_regions=formula_gate['regions'] if formula_gate else None,
-        )
-        retrieval_prefix = f"{corpus_version}-chunks"
-        retrieval_result = build_retrieval_chunks(
-            self.root,
-            self.root / "data" / "evidence" / f"{evidence_prefix}.jsonl",
-            self.root / "data" / "retrieval",
-            artifact_prefix=retrieval_prefix,
-            overwrite=True,
-        )
         statuses = Counter(
             page["decision_status"] for document in documents for page in document["pages"]
-        )
-        retrieval_path = (
-            self.root / "data" / "retrieval" / f"{retrieval_prefix}.jsonl"
         )
         structure_required = getattr(self.page_extractor, 'requires_structure', False)
         structure_failures = [
@@ -713,10 +691,6 @@ class CorpusUpdateService:
                          if r['execution_status'] != 'completed']}
             for d in documents for p in d['pages']
             if structure_required and p.get('structure_execution_complete') is not True]
-        with retrieval_path.open(encoding="utf-8") as handle:
-            chunk_ids = [
-                json.loads(line)["chunk_id"] for line in handle if line.strip()
-            ]
         manifest = {
             "schema_version": "1",
             "corpus_version": corpus_version,
@@ -742,22 +716,11 @@ class CorpusUpdateService:
             "document_relations": catalog.document_relations,
             "page_count": sum(asset.page_count for asset in catalog.assets),
             "page_status_counts": dict(sorted(statuses.items())),
-            "evidence_unit_count": evidence_result["summary"]["evidence_unit_count"],
-            "chunk_count": retrieval_result["summary"]["chunk_count"],
             "document_version_ids": [
                 document["document_version_id"] for document in documents
             ],
-            "chunk_ids": chunk_ids,
             "canonical_documents": canonical_path.relative_to(self.root).as_posix(),
-            "evidence_units": f"data/evidence/{evidence_prefix}.jsonl",
-            "retrieval_chunks": f"data/retrieval/{retrieval_prefix}.jsonl",
             "canonical_documents_sha256": _sha256(canonical_path),
-            "evidence_units_sha256": _sha256(
-                self.root / "data" / "evidence" / f"{evidence_prefix}.jsonl"
-            ),
-            "retrieval_chunks_sha256": _sha256(
-                retrieval_path
-            ),
             "config_hash": config_hash,
             "artifact_profile": _CORPUS_ARTIFACT_PROFILE,
             "formula_region_gate": formula_gate['provenance'] if formula_gate else None,

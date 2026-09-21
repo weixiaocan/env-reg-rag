@@ -211,41 +211,16 @@ def _build_and_query_qdrant(chunks: list[V2Chunk]) -> dict[str, Any]:
         return report
     report["vector_count"] = len(vectors)
 
-    # qdrant-client 1.19.0 local-mode cannot unpack V1's ``Bm25Config`` options
+    # qdrant-client 1.19.0 local-mode cannot unpack ``Bm25Config`` options
     # (``get_or_init_sparse_model`` expects a mapping). A thin subclass that
-    # returns ``None`` for bm25 options restores local hybrid (RRF) retrieval
-    # without touching ``src/retrieval/qdrant_index.py``. ``build``/``search``
-    # are fully reused; ``_to_hit`` is overridden because V2 chunks carry no
-    # ``primary_evidence_id`` (they trace via ``element_ids`` instead).
-    from src.retrieval.qdrant_index import RetrievalHit  # noqa: E402
-
+    # returns ``None`` for bm25 options restores local hybrid (RRF) retrieval.
+    # ``_to_hit`` needs no override: the base class now tolerates V2 payloads
+    # (``primary_evidence_id``/``usage_policy`` default; ``section_path`` and
+    # ``jurisdictions`` are accepted as fallbacks for heading_path/jurisdiction).
     class _LocalQdrantIndex(QdrantRetrievalIndex):
         @staticmethod
         def _bm25_options():  # type: ignore[override]
             return None
-
-        @staticmethod
-        def _to_hit(point: Any, *, score: float) -> "RetrievalHit":  # type: ignore[override]
-            payload = point.payload or {}
-            section_path = payload.get("section_path") or []
-            heading_path = [
-                f"{e.get('label','')} {e.get('title') or ''}".strip()
-                for e in section_path
-            ]
-            jurisdictions = payload.get("jurisdictions") or []
-            return RetrievalHit(
-                chunk_id=str(payload.get("chunk_id", "")),
-                text=str(payload.get("text", "")),
-                primary_evidence_id="",  # V2 traces via element_ids, not evidence_id
-                physical_pages=list(payload.get("physical_pages", [])),
-                usage_policy="answer_and_citation",
-                score=score,
-                file_name=str(payload.get("file_name", "")),
-                heading_path=heading_path,
-                document_kind=str(payload.get("document_kind", "unknown")),
-                jurisdiction=jurisdictions[0] if jurisdictions else "unknown",
-                effective_status=str(payload.get("effective_status", "unknown")),
-            )
 
     try:
         client = QdrantClient(":memory:")

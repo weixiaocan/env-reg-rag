@@ -22,10 +22,8 @@ RUN python -m pip install --upgrade pip \
 RUN python -c "from transformers import AutoModel, AutoTokenizer; model='BAAI/bge-small-zh-v1.5'; revision='${BGE_MODEL_REVISION}'; AutoTokenizer.from_pretrained(model, revision=revision); AutoModel.from_pretrained(model, revision=revision)"
 
 COPY src ./src
-COPY scripts/ensure_qdrant_indexes.py ./scripts/ensure_qdrant_indexes.py
-COPY data/evidence ./data/evidence
 COPY data/registry ./data/registry
-COPY data/retrieval ./data/retrieval
+COPY data/canonical ./data/canonical
 
 RUN mkdir -p /app/data/observability \
     && useradd --create-home --uid 10001 appuser \
@@ -35,6 +33,8 @@ ENV TRANSFORMERS_OFFLINE=1
 
 USER appuser
 
-EXPOSE 8000
-
-CMD ["python", "-m", "uvicorn", "src.server.main:app", "--host", "0.0.0.0", "--port", "8000"]
+# No V2 retrieval HTTP service is served from this image yet. The image is kept
+# as a base with the bge embedding artifact pinned and the V2 src/ + canonical
+# corpus available, so a future V2 retrieval service can build on it. Run V2
+# ingestion via: python scripts/ingest_corpus_v2.py
+CMD ["python", "-c", "print('env-reg-rag base image; no V2 retrieval service yet')"]

@@ -228,20 +228,34 @@ class QdrantRetrievalIndex:
     @staticmethod
     def _to_hit(point: Any, *, score: float) -> RetrievalHit:
         payload = point.payload or {}
+        # heading_path: V2 chunks carry ``section_path`` (list of {label,title});
+        # V1 chunks carry ``heading_path`` (list of str). Accept either.
+        heading_path = list(payload.get("heading_path", []))
+        if not heading_path:
+            heading_path = [
+                f"{e.get('label','')} {e.get('title') or ''}".strip()
+                for e in payload.get("section_path") or []
+                if isinstance(e, dict)
+            ]
+        # jurisdiction: V2 carries ``jurisdictions`` (list); V1 carries ``jurisdiction``.
+        jurisdiction = payload.get("jurisdiction")
+        if jurisdiction is None:
+            jurisdictions = payload.get("jurisdictions") or []
+            jurisdiction = jurisdictions[0] if jurisdictions else "unknown"
         return RetrievalHit(
-            chunk_id=str(payload["chunk_id"]),
-            text=str(payload["text"]),
-            primary_evidence_id=str(payload["primary_evidence_id"]),
-            physical_pages=list(payload["physical_pages"]),
-            usage_policy=str(payload["usage_policy"]),
+            chunk_id=str(payload.get("chunk_id", "")),
+            text=str(payload.get("text", "")),
+            primary_evidence_id=str(payload.get("primary_evidence_id", "")),
+            physical_pages=list(payload.get("physical_pages", [])),
+            usage_policy=str(payload.get("usage_policy", "answer_and_citation")),
             score=score,
             document_version_id=str(payload.get("document_version_id", "")),
             file_name=str(payload.get("file_name", "")),
-            heading_path=list(payload.get("heading_path", [])),
+            heading_path=heading_path,
             source_uri=str(
                 payload.get("source_uri") or payload.get("official_source_uri") or ""
             ),
-            jurisdiction=str(payload.get("jurisdiction", "unknown")),
+            jurisdiction=str(jurisdiction),
             document_kind=str(payload.get("document_kind", "unknown")),
             effective_status=str(payload.get("effective_status", "unknown")),
             source_authority=str(payload.get("source_authority", "")),

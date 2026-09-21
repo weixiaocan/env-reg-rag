@@ -1,30 +1,28 @@
 # 架构说明
 
-排水法规标准智能问答系统采用分层结构，把资料治理、证据检索和答案生成分开。系统的事实依据是可回查的证据单元，而不是模型生成文本。
+排水法规标准智能问答系统采用分层结构，把资料治理、PDF 处理、Canonical 装配和检索分开。系统的事实依据是可回查的 V2 Canonical 元素（带页码与坐标），而不是模型生成文本。
 
 ```mermaid
 flowchart LR
     PDF[法规、标准和技术资料] --> REG[来源登记与准入]
-    REG --> PARSE[原生解析 / OCR]
-    PARSE --> DOC[Canonical Document]
-    DOC --> EV[Evidence Unit]
-    EV --> CHUNK[Retrieval Chunk]
-    CHUNK --> QD[Qdrant Dense + BM25 + RRF]
-    QD --> PACK[Evidence Pack]
-    PACK --> QA[回答、追问或拒答]
-    QA --> API[Web / HTTP API / MCP]
+    REG --> PARSE[原生解析 / OCR 四类处理]
+    PARSE --> PAGE[page-intermediate OCR 缓存]
+    PAGE --> DOC[V2 Canonical Document]
+    DOC --> CHUNK[结构感知分块]
+    CHUNK --> VEC[bge-small-zh 向量化]
+    VEC --> QD[Qdrant Dense + BM25 + RRF]
+    QD --> RET[检索 + 原文定位]
 ```
 
 ## 核心分层
 
 | 层 | 目录 | 职责 |
 | --- | --- | --- |
-| 领域模型 | `src/domain/` | 文档、证据、查询状态和不可变业务规则 |
-| 应用服务 | `src/application/` | 资料生命周期、范围解析、检索、回答与可观测性编排 |
-| 基础设施适配 | `src/adapters/` | SQLite、Qdrant、模型供应商、清单和 trace 实现 |
-| 文档处理 | `src/ingestion/` | PDF 原生解析、OCR 路由、坐标与表格保留 |
-| 检索 | `src/retrieval/` | 中文向量、数值区间、索引与语料版本发布 |
-| 接口 | `src/server/`、`src/mcp_adapter/` | 网页、HTTP API 和只读 MCP |
+| 领域模型 | `src/domain/` | V2 Canonical 文档、chunk 与来源证据领域模型 |
+| 应用服务 | `src/application/` | Canonical 装配、校验、分块、PDF 处理、来源审计与公式复核 |
+| 基础设施适配 | `src/adapters/` | 清单与文档目录适配 |
+| 文档处理 | `src/ingestion/` | PDF 原生解析、OCR 路由、坐标、表格、公式与图片保留 |
+| 检索 | `src/retrieval/` | 中文向量（bge-small-zh）、Qdrant 索引与 RRF 混合检索 |
 
 ## 资料与语料状态
 
@@ -32,40 +30,43 @@ flowchart LR
 
 1. 文档准入：来源、版本、效力和使用边界是否经过核验。
 2. 处理状态：页面解析质量是否通过，或需要 OCR、人工复核和隔离。
-3. 语料发布：哪些证据单元进入当前正式检索版本。
+3. 语料发布：哪些内容进入当前正式检索版本。
 
-这三类状态相互独立。新增环保领域资料时沿用相同的登记、处理、评估和发布机制。
+这三类状态相互独立。新增环保领域资料时沿用相同的登记、处理、装配和入库机制。
 
-## 全量建库与增量更新
+## V2 Canonical 装配
 
-`update_corpus.py` 每次先扫描 `data/raw/` 并刷新文件清单，再按 SHA-256 合并字节完全相同的副本。官方核验副本存在时优先作为解析输入，但保留全部物理文件记录和更易读的文档身份；来源状态来自独立审核表，脚本不自动声称完成官方核验。
+`scripts/assemble_corpus_v2.py` 读取 page-intermediate OCR 缓存（`data/canonical/corpus-37456321a968-documents.jsonl`，由 PDF 处理管线产出），逐文档装配为 V2 Canonical：把每页元素按列检测与标题层级排成单一逻辑 `elements[]` 流，每个元素带类型化 `content` 联合（text / table / formula / figure）、`source_spans`（物理页码与 bbox）、`provenance` 与 `links`。装配是纯重组层，不调用任何 OCR / PDF 引擎；page-intermediate 缓存只读复用一次，避免重复跑昂贵的 OCR / 版面 / 公式识别。
 
-每个独立内容使用“文件 SHA-256 + 解析配置”作为缓存键并逐页检查点写入。未变化内容直接复用页面缓存；新增内容、内容变更或解析配置变更才重新处理。所有页面必须落入 `approved`、`quarantine` 或 `failed`；隔离页若存在可定位文本，只能生成 `source_locator_only` 证据，空白页和纯视觉页不生成回答证据。
+装配后由 `canonical_validation.compute_ids` 填充 `canonical_id` / `canonical_content_id` / `metadata_fingerprint`，并由 `validate_document` 校验 17 条不变量（含 bbox 不越页面边界等）。未来新 PDF 经 `src/ingestion/` + `unified_pdf` 直接产出同结构 page-intermediate，无需任何遗留中间态——`assemble_document` 接受的 `page_document` 字典形状是 PDF 处理与 V2 Canonical 之间的稳定 seam。
 
-构建先生成不可变候选 manifest、证据单元和检索块，并记录制品 SHA-256。只有没有失败页、数量和哈希一致的候选库才能建立 Qdrant collection；验证点数后原子切换 `corpus_current`，最后写入 `corpus-current.json`。应用启动时通过该指针读取当前语料版本，首次发布前兼容原有正式语料。
+## 分块与入库
+
+`src/application/v2_chunker.py` 按 heading / clause / 结构化单元边界做结构感知分块（token budget 480、overlap 64、bge tokenizer），块内剩余正文用 langchain `RecursiveCharacterTextSplitter` 兜底切分。每个 `V2Chunk` 的 `chunk_id` 由 `canonical_content_id + element_ids + projection_version + text_sha256` 派生，`to_qdrant_payload()` 把元数据 flatten 到顶层，保留 element_ids 到原文页码与坐标的回查链路。
+
+`scripts/ingest_corpus_v2.py` 遍历 `data/canonical/v2/corpus-37456321a968/*.canonical.json`（21 文档），分块后用 `BgeSmallZhEmbedder` 编码，写入持久化 Qdrant collection `corpus_v2`（512 维 dense + BM25 sparse）。collection 存在则 drop 重建（全量）；canonical_content_id 不变的块可跳过向量重算。
 
 ## 证据约束
 
 来源记录和离线完整性检查见 [PDF 数据处理说明](PDF_PROCESSING.md)。新登记按完整文件哈希关联字段依据，区分声明与核验；旧值不自动继承为新批准。审计报告与来源登记和文件清单一致时才参与后续建库，字段冲突与完整性未知有显式状态，不自动阻断解析。来源/完整性元数据变化产生新的候选库版本，现有发布版本不会被审计命令切换。
 
-- `EvidenceUnit` 保存原文、文档版本、条款路径、物理页码和定位信息。
-- `RetrievalChunk` 可以增加标题、表头和父级语境以改善召回，但不能替代可引用原文。
-- 检索结果先组成 `EvidencePack`，答案中的每个 claim 必须引用允许使用的 Evidence ID。
-- 条件不完整时返回追问；证据不足时拒答；仅允许定位的资料不会生成结论。
+- V2 Canonical 元素保存原文、文档版本、条款路径、物理页码和 bbox 定位。
+- 检索块可增加标题、表头和父级语境以改善召回，但不能替代可引用原文。
+- 隔离页内容进入语料但标记未核验；仅允许定位的资料不生成结论性回答准入。
+- 条件不完整时应追问；证据不足时应拒答。
 
-## 检索与接口
+## 检索
 
-Qdrant 同时保存 dense 与中文词法表示，并通过 RRF 合并结果。数值区间查询会保留时间尺度、单位和边界条件。相同的查询应用服务被网页、HTTP API 和 MCP 复用，避免不同入口产生不同业务规则。
-
-全量发布后，正文问答与公式来源查询共用 `corpus_current` 别名及发布版本，但分别过滤 `answer_and_citation` 和 `source_locator_only`。来源查询只返回原文位置，不调用模型生成答案；首次全量发布前保留旧样例来源集合的兼容入口。更新后需重新启动应用，使版本指针和内存检索内容同步。
+Qdrant 同时保存 dense（bge-small-zh 512 维）与 BM25 稀疏表示，并通过 RRF 合并结果。检索命中经 `element_ids` 追溯到 V2 Canonical 元素，还原文档、条款路径、物理页码与坐标，支持原文定位与跳转。V2 检索 HTTP API / MCP 接口为后续工作，当前通过脚本与 Qdrant 直接检索。
 
 ## 运行数据
 
 - `data/raw/`：仓库携带的原始资料。
-- `data/registry/`：文件清单、来源状态和版本 manifest。
-- `data/evidence/`：运行所需的可引用证据单元。
-- `data/retrieval/`：运行所需的检索块。
-- SQLite、Qdrant 存储、日志、模型缓存和可重建的解析中间产物不进入 Git。
+- `data/registry/`：文件清单、来源状态、文档关系和版本 manifest。
+- `data/canonical/corpus-37456321a968-documents.jsonl`：page-intermediate OCR 缓存（V2 输入，只读复用）。
+- `data/canonical/v2/`：V2 Canonical 文档（可由装配脚本重建）。
+- `data/model_runtime/`：版面、表格、公式模型缓存与裁剪图。
+- SQLite、Qdrant 存储、日志和模型权重不进入 Git。
 
 ## 统一PDF区域处理方案（已确认，实施证据另行记录）
 
@@ -79,7 +80,7 @@ Qdrant 同时保存 dense 与中文词法表示，并通过 RRF 合并结果。�
 
 ### 数据、模块与状态
 
-统一入口负责扫描登记、去重、按页检查点、区域分派、汇总及候选制品，不自动搜索官网或推送Git。解析层返回页级版面和处理区域；证据层区分原文和自动结构转写；发布层验证候选完整性和质量边界，不承担模型识别规则。
+统一入口负责扫描登记、去重、按页检查点、区域分派、汇总及候选制品，不自动搜索官网或推送Git。解析层返回页级版面和处理区域；装配层把区域组装为 V2 Canonical 元素；入库层验证候选完整性和质量边界，不承担模型识别规则。
 
 区域保存PDF SHA-256、物理页码、种类、检测框、处理配置、原图位置、阅读顺序、父页、图注、原始输出、规范化输出、模型版本、质量问题及关联依据。来源区域身份与处理版本分别保留。跨页关系保存双方区域ID、关系种类和依据，不凭页码相邻自动确认。重叠区域及文字去重不丢失原文身份。
 
@@ -87,7 +88,7 @@ Qdrant 同时保存 dense 与中文词法表示，并通过 RRF 合并结果。�
 
 ### 索引与引用边界
 
-正文、表格、公式和图片均生成带区域关联的检索表示。表格保留多层表头、单位和脚注；公式保存用途、编号及参数原文；图片仅以原文图注及明确正文引用供召回，保留源区域和原图入口。没有可靠关联文字时保留文件、页码、区域定位并记录缺口。未经核对的数字和结构只用于原文定位，独立可靠正文沿用正式回答门控。
+正文、表格、公式和图片均生成带区域关联的 V2 Canonical 元素与检索块。表格保留多层表头、单位和脚注；公式保存用途、编号及参数原文；图片仅以原文图注及明确正文引用供召回，保留源区域和原图入口。没有可靠关联文字时保留文件、页码、区域定位并记录缺口。未经核对的数字和结构只用于原文定位，独立可靠正文沿用正式回答门控。
 
 ### 失败、缓存、安全与运行
 
@@ -95,7 +96,7 @@ Qdrant 同时保存 dense 与中文词法表示，并通过 RRF 合并结果。�
 
 PDF处理全部在本地执行，不上传图片或PDF。处理结果不写供应商异常原文、密钥或个人身份字段。第三方PDF权利单独声明，公开取得和非商业用途不等于再分发许可；权利状态不直接排除PDF解析。
 
-旧解析缓存、当前正式集合和指针保留。新处理配置生成新候选；完整性校验、区域账本与制品检查通过后才允许显式发布。新区域入口接通前不覆盖当前正式库，不执行全量高成本重跑。下架仍按文件及关联区域、派生证据和版本处理，不能只删除原图而保留可用派生入口。
+旧解析缓存、当前正式集合和指针保留。新处理配置生成新候选；完整性校验、区域账本与制品检查通过后才允许显式发布。新区域入口接通前不覆盖当前正式库，不执行全量高成本重跑。下架仍按文件及关联区域、派生元素和版本处理，不能只删除原图而保留可用派生入口。
 
 ### 交付与验收
 
@@ -113,6 +114,6 @@ PDF处理全部在本地执行，不上传图片或PDF。处理结果不写供�
 
 ### 实施状态（2026-09-19）
 
-统一入口已完成当前 21 份主文本、1078 页的全量运行，并发布 `corpus-37456321a968`。版面完成 1078/1078 页；11977 个区域执行状态均为 completed，分类为正文 11022、公式 638、表格 239、图片 78。质量状态为 passed 10788、quarantined 234、needs_review 955，因此只能声明处理覆盖完整，不能声明全库内容正确性已核验。
+统一入口已完成当前 21 份主文本、1078 页的全量运行，并发布 `corpus-37456321a968`。版面完成 1078/1078 页；V2 Canonical 共 23095 个元素（文本 22568、表格 239、公式 210、图片 78）。质量状态为 passed 10788、quarantined 234、needs_review 955，因此只能声明处理覆盖完整，不能声明全库内容正确性已核验。
 
-表格模型在 GB 50268-2008 第 34、117、127、165、182 物理页重复超时时，改用原页本地 OCR 文字框建立保守行序与原图定位；表头、列、合并单元格及转录准确性仍待复核，对应检索块仅为 source_locator_only。该回退与稳定的 v4 表格阶段结果迁移纳入同一增量入口，不需要维护者另外运行表格脚本。详细区域、固定原 PDF 样例和漏检信号见候选版本的 structure audit。
+表格模型在 GB 50268-2008 第 34、117、127、165、182 物理页重复超时时，改用原页本地 OCR 文字框建立保守行序与原图定位；表头、列、合并单元格及转录准确性仍待复核，对应元素仅用于原文定位。该回退与稳定的 v4 表格阶段结果迁移纳入同一增量入口，不需要维护者另外运行表格脚本。详细区域、固定原 PDF 样例和漏检信号见候选版本的 structure audit。

@@ -1,12 +1,13 @@
 #!/usr/bin/env python
 """Entrypoint: assemble the CECS758 V2 Canonical Document (plan 1.5).
 
-Reads the V1 ``corpus-37456321a968-documents.jsonl`` row for CECS758, loads the
-per-page formula cache, runs :func:`assemble_document` + :func:`compute_ids` +
-:func:`validate_document`, and writes the V2 JSON artifact to
-``data/canonical/v2/corpus-37456321a968/<sha>.canonical.json``.
+Reads the page-intermediate ``corpus-37456321a968-documents.jsonl`` row for
+CECS758, loads the per-page formula cache, runs :func:`assemble_document` +
+:func:`compute_ids` + :func:`validate_document`, and writes the V2 JSON artifact
+to ``data/canonical/v2/corpus-37456321a968/<sha>.canonical.json``.
 
-Does NOT invoke any OCR / PDF engine; it only reads existing V1 JSON artifacts.
+Does NOT invoke any OCR / PDF engine; it only reads the page-intermediate OCR
+cache produced by the PDF processing pipeline.
 
 Usage (from repo root, venv active)::
 
@@ -34,7 +35,7 @@ from src.application.canonical_validation import (  # noqa: E402
 )
 
 CORPUS_VERSION = "corpus-37456321a968"
-V1_DOCUMENTS = os.path.join(
+PAGE_DOCUMENTS = os.path.join(
     _REPO_ROOT, "data", "canonical", f"{CORPUS_VERSION}-documents.jsonl"
 )
 FORMULA_CACHE_DIR = os.path.join(
@@ -45,8 +46,8 @@ OUTPUT_DIR = os.path.join(
 )
 
 
-def _stream_find_v1_document(sha: str) -> dict:
-    with open(V1_DOCUMENTS, "r", encoding="utf-8") as fh:
+def _stream_find_page_document(sha: str) -> dict:
+    with open(PAGE_DOCUMENTS, "r", encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if not line:
@@ -54,14 +55,14 @@ def _stream_find_v1_document(sha: str) -> dict:
             obj = json.loads(line)
             if obj.get("sha256") == sha:
                 return obj
-    raise FileNotFoundError(f"CECS758 row not found in {V1_DOCUMENTS}")
+    raise FileNotFoundError(f"CECS758 row not found in {PAGE_DOCUMENTS}")
 
 
 def main() -> int:
-    print(f"[assemble] loading V1 document {CECS758_SHA[:16]}...")
-    v1_doc = _stream_find_v1_document(CECS758_SHA)
-    page_count = len(v1_doc.get("pages") or [])
-    print(f"[assemble] V1 pages: {page_count}")
+    print(f"[assemble] loading page-intermediate document {CECS758_SHA[:16]}...")
+    page_doc = _stream_find_page_document(CECS758_SHA)
+    page_count = len(page_doc.get("pages") or [])
+    print(f"[assemble] pages: {page_count}")
 
     print("[assemble] loading per-page formula cache...")
     formula_pages = load_formula_pages(
@@ -74,7 +75,7 @@ def main() -> int:
     )
 
     print("[assemble] assembling V2 document...")
-    doc = assemble_document(v1_doc, formula_pages=formula_pages)
+    doc = assemble_document(page_doc, formula_pages=formula_pages)
 
     print("[assemble] computing canonical IDs...")
     ids = compute_ids(doc)

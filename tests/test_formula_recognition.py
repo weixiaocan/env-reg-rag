@@ -1,7 +1,7 @@
 import json
 import unittest
 from unittest.mock import patch
-from tests import test_corpus_update as corpus_fixture
+from tests import _pdf_fixture as corpus_fixture
 from scripts.recognize_pdf_formula import recognize
 from src.ingestion.formula_ocr import CachedFormulaEngine
 

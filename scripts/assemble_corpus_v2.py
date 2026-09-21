@@ -2,16 +2,16 @@
 """Batch: assemble ALL 21 documents in the corpus into V2 Canonical (plan 2→3).
 
 Reads every row of ``data/canonical/corpus-37456321a968-documents.jsonl`` (the
-V1 intermediate with complete ``regions`` for tables/figures — ``corpus-919`` is
-NOT used because its ``regions`` were stripped), loads each document's per-page
-formula cache, runs ``assemble_document`` + ``compute_ids`` +
-``validate_document``, and writes the V2 JSON artifact to
+page-intermediate OCR cache with complete ``regions`` for tables/figures —
+``corpus-919`` is NOT used because its ``regions`` were stripped), loads each
+document's per-page formula cache, runs ``assemble_document`` + ``compute_ids``
++ ``validate_document``, and writes the V2 JSON artifact to
 ``data/canonical/v2/corpus-37456321a968/<sha>.canonical.json``.
 
 This is the same pipeline as ``assemble_cecs758_v2.py`` but applied to the whole
-corpus. It does NOT invoke any OCR / PDF engine; it only re-organises existing
-V1 JSON artifacts (text + table regions + figure regions + formula cache) into
-the V2 Element-owned structure.
+corpus. It does NOT invoke any OCR / PDF engine; it only re-organises the
+page-intermediate OCR cache (text + table regions + figure regions + formula
+cache) into the V2 Element-owned structure.
 
 quarantine pages: the V2 assembly already routes quarantine pages to
 ``parse_status=parsed`` when they still carry text/elements (their content enters
@@ -47,7 +47,7 @@ from src.application.canonical_validation import (  # noqa: E402
 from src.domain.canonical_document import SchemaError  # noqa: E402
 
 CORPUS_VERSION = "corpus-37456321a968"
-V1_DOCUMENTS = os.path.join(
+PAGE_DOCUMENTS = os.path.join(
     _REPO_ROOT, "data", "canonical", f"{CORPUS_VERSION}-documents.jsonl"
 )
 FORMULA_CACHE_DIR = os.path.join(
@@ -56,9 +56,9 @@ FORMULA_CACHE_DIR = os.path.join(
 OUTPUT_DIR = os.path.join(_REPO_ROOT, "data", "canonical", "v2", CORPUS_VERSION)
 
 
-def _iter_v1_documents() -> list[dict[str, Any]]:
+def _iter_page_documents() -> list[dict[str, Any]]:
     docs: list[dict[str, Any]] = []
-    with open(V1_DOCUMENTS, "r", encoding="utf-8") as fh:
+    with open(PAGE_DOCUMENTS, "r", encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if not line:
@@ -67,13 +67,13 @@ def _iter_v1_documents() -> list[dict[str, Any]]:
     return docs
 
 
-def _assemble_one(v1_doc: dict[str, Any]) -> dict[str, Any]:
-    sha = v1_doc["sha256"]
-    page_count = len(v1_doc.get("pages") or [])
+def _assemble_one(page_doc: dict[str, Any]) -> dict[str, Any]:
+    sha = page_doc["sha256"]
+    page_count = len(page_doc.get("pages") or [])
     formula_pages = load_formula_pages(
         sha, range(1, page_count + 1), cache_dir=FORMULA_CACHE_DIR
     )
-    doc = assemble_document(v1_doc, formula_pages=formula_pages)
+    doc = assemble_document(page_doc, formula_pages=formula_pages)
     ids = compute_ids(doc)
     doc["canonical_id"] = ids["canonical_id"]
     doc["canonical_content_id"] = ids["canonical_content_id"]
@@ -91,16 +91,16 @@ def _write(doc: dict[str, Any]) -> str:
     return out_path
 
 
-def _quarantine_count(v1_doc: dict[str, Any]) -> int:
+def _quarantine_count(page_doc: dict[str, Any]) -> int:
     return sum(
-        1 for p in v1_doc.get("pages") or [] if p.get("decision_status") == "quarantine"
+        1 for p in page_doc.get("pages") or [] if p.get("decision_status") == "quarantine"
     )
 
 
-def _print_row(idx: int, total: int, v1_doc: dict[str, Any], doc: dict[str, Any],
+def _print_row(idx: int, total: int, page_doc: dict[str, Any], doc: dict[str, Any],
                out_path: str, quar: int) -> None:
-    sha = v1_doc["sha256"]
-    fn = (v1_doc.get("file_name") or "")[:42]
+    sha = page_doc["sha256"]
+    fn = (page_doc.get("file_name") or "")[:42]
     elements = doc.get("elements") or []
     tc = Counter(e["type"] for e in elements)
     size_kb = os.path.getsize(out_path) / 1024.0
@@ -121,7 +121,7 @@ def main(argv: list[str] | None = None) -> int:
     )
     args = parser.parse_args(argv)
 
-    all_docs = _iter_v1_documents()
+    all_docs = _iter_page_documents()
     if args.only:
         wanted = {p.lower() for p in args.only}
         all_docs = [d for d in all_docs if d["sha256"].lower().startswith(tuple(wanted))]
@@ -136,14 +136,14 @@ def main(argv: list[str] | None = None) -> int:
 
     ok = 0
     failed: list[tuple[str, str]] = []
-    for idx, v1_doc in enumerate(all_docs, 1):
-        sha = v1_doc["sha256"]
-        fn = v1_doc.get("file_name") or ""
+    for idx, page_doc in enumerate(all_docs, 1):
+        sha = page_doc["sha256"]
+        fn = page_doc.get("file_name") or ""
         try:
-            doc = _assemble_one(v1_doc)
+            doc = _assemble_one(page_doc)
             out_path = _write(doc)
-            quar = _quarantine_count(v1_doc)
-            _print_row(idx, total, v1_doc, doc, out_path, quar)
+            quar = _quarantine_count(page_doc)
+            _print_row(idx, total, page_doc, doc, out_path, quar)
             ok += 1
         except (SchemaError, Exception) as exc:
             failed.append((sha, f"{type(exc).__name__}: {exc}"))

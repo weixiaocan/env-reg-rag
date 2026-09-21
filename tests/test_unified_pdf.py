@@ -230,10 +230,6 @@ class UnifiedPdfTests(unittest.TestCase):
         first = CorpusUpdateService(self.root, page_extractor=self.extractor()).build()
         self.assertEqual(first['structure_processing']['complete_page_count'], 1)
         self.assertEqual(first['status'], 'ready')
-        chunks = [__import__('json').loads(line) for line in (self.root / first['retrieval_chunks']).read_text(encoding='utf-8').splitlines()]
-        structural = [c for c in chunks if c['metadata'].get('source_regions')]
-        self.assertEqual(len(structural), 3)
-        self.assertTrue(all(c['metadata']['usage_policy'] == 'source_locator_only' for c in structural))
         again = CorpusUpdateService(self.root, page_extractor=self.extractor()).build()
         self.assertEqual(first['corpus_version'], again['corpus_version'])
         self.assertEqual(again['reused_content_count'], 1)

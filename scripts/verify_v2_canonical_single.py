@@ -66,7 +66,7 @@ from src.domain.canonical_document import SchemaError  # noqa: E402
 DEFAULT_CORPUS_VERSION = "corpus-37456321a968"
 DEFAULT_SHA = CECS758_SHA
 
-_V1_DOCUMENTS = os.path.join(
+_PAGE_DOCUMENTS = os.path.join(
     _REPO_ROOT, "data", "canonical", f"{DEFAULT_CORPUS_VERSION}-documents.jsonl"
 )
 _FORMULA_CACHE_DIR = os.path.join(
@@ -92,8 +92,8 @@ _FORMULA_BBOX_TOL = 8.0
 # ---------------------------------------------------------------------------
 
 
-def _stream_find_v1_document(sha: str) -> dict[str, Any]:
-    with open(_V1_DOCUMENTS, "r", encoding="utf-8") as fh:
+def _stream_find_page_document(sha: str) -> dict[str, Any]:
+    with open(_PAGE_DOCUMENTS, "r", encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if not line:
@@ -101,7 +101,7 @@ def _stream_find_v1_document(sha: str) -> dict[str, Any]:
             obj = json.loads(line)
             if obj.get("sha256") == sha:
                 return obj
-    raise FileNotFoundError(f"sha {sha} not found in {_V1_DOCUMENTS}")
+    raise FileNotFoundError(f"sha {sha} not found in {_PAGE_DOCUMENTS}")
 
 
 def _artifact_path(corpus_version: str, sha: str) -> str:
@@ -116,13 +116,13 @@ def _load_or_assemble_v2(sha: str, corpus_version: str) -> dict[str, Any]:
     if os.path.isfile(path):
         with open(path, "r", encoding="utf-8") as fh:
             return json.load(fh)
-    # Assemble from V1 (mirrors scripts/assemble_cecs758_v2.py).
-    v1_doc = _stream_find_v1_document(sha)
-    page_count = len(v1_doc.get("pages") or [])
+    # Assemble from the page-intermediate OCR cache (mirrors scripts/assemble_cecs758_v2.py).
+    page_doc = _stream_find_page_document(sha)
+    page_count = len(page_doc.get("pages") or [])
     formula_pages = load_formula_pages(
         sha, range(1, page_count + 1), cache_dir=_FORMULA_CACHE_DIR
     )
-    doc = assemble_document(v1_doc, formula_pages=formula_pages)
+    doc = assemble_document(page_doc, formula_pages=formula_pages)
     ids = compute_ids(doc)
     doc["canonical_id"] = ids["canonical_id"]
     doc["canonical_content_id"] = ids["canonical_content_id"]

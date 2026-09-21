@@ -17,46 +17,10 @@ services:
       retries: 12
       start_period: 5s
 
-  qdrant-init:
-    image: env-reg-rag-app:local
-    build:
-      context: .
-      dockerfile: Dockerfile
-    command: ["python", "scripts/ensure_qdrant_indexes.py"]
-    environment:
-      QDRANT_URL: http://qdrant:6333
-    depends_on:
-      qdrant:
-        condition: service_healthy
-    restart: "no"
-
-  app:
-    image: env-reg-rag-app:local
-    env_file:
-      - .env
-    environment:
-      QDRANT_URL: http://qdrant:6333
-    ports:
-      - "127.0.0.1:${APP_HOST_PORT:-8000}:8000"
-    volumes:
-      - ./data/observability:/app/data/observability
-      - ./data/raw:/app/data/raw:ro
-      - ./data/canonical:/app/data/canonical:ro
-      - ./data/registry:/app/data/registry:ro
-      - ./data/evidence:/app/data/evidence:ro
-      - ./data/retrieval:/app/data/retrieval:ro
-      - ./data/model_runtime/formula_regions:/app/data/model_runtime/formula_regions:ro
-      - ./data/model_runtime/corpus_formulas:/app/data/model_runtime/corpus_formulas:ro
-    depends_on:
-      qdrant-init:
-        condition: service_completed_successfully
-    healthcheck:
-      test: ["CMD", "python", "-c", "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/api/v1/ready', timeout=3)"]
-      interval: 10s
-      timeout: 5s
-      retries: 12
-      start_period: 45s
-    restart: unless-stopped
+  # V2 retrieval HTTP API / app service is not yet provided. The Qdrant service
+  # above is the only runtime dependency; V2 ingestion and retrieval run via
+  # scripts/ingest_corpus_v2.py against this Qdrant instance. Add an `app`
+  # service here once the V2 retrieval service is built.
 
 volumes:
   env_reg_rag_qdrant_storage:

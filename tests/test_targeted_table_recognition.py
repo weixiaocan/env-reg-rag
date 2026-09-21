@@ -1,6 +1,6 @@
 import unittest
 from scripts.recognize_pdf_tables import recognize
-from tests import test_corpus_update as corpus_fixture
+from tests import _pdf_fixture as corpus_fixture
 
 
 class Parser:

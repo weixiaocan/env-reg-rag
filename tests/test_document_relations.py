@@ -4,7 +4,7 @@ import json
 import unittest
 from dataclasses import replace
 
-from tests import test_corpus_update as corpus_fixture
+from tests import _pdf_fixture as corpus_fixture
 from src.application.corpus_update import build_source_catalog, CorpusUpdateService
 from src.application.document_relations import candidates
 
@@ -47,9 +47,6 @@ class DocumentRelationsTests(unittest.TestCase):
         self.assertEqual(len(catalog.assets), 1)
         self.assertEqual(catalog.duplicate_copy_count, 0)
         self.assertEqual(catalog.unique_page_count, 2)
-        from scripts.update_corpus import plan
-        self.assertEqual(plan(self.root)['selected_page_count'], 1)
-        self.assertEqual(plan(self.root)['unique_page_count'], 2)
         self.assertEqual(len(catalog.assets[0].source_files), 1)
         mapping = catalog.fingerprint_payload()['document_relations']
         self.assertEqual(len(mapping['file_mappings']), 2)
