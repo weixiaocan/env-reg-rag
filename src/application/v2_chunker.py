@@ -365,18 +365,40 @@ class _ChunkBuilder:
         return subs or [body]
 
     def emit_structured(self, element: dict[str, Any], text: str) -> None:
-        """Emit a table/formula/figure as one atomic chunk."""
+        """Emit a table/formula/figure as one chunk, respecting the hard cap.
+
+        Structured units are atomic by default, but a large table's projected
+        text (caption + rows + notes) can exceed the 512-token bge-small-zh
+        max_length -- an overlong atomic chunk would be silently truncated at
+        embedding time, corrupting its vector. When ``prefix + text`` breaches
+        ``_HARD_CAP_TOKENS``, split by line (``_split_body`` uses the recursive
+        splitter with ``\\n`` separators) so each sub-chunk stays under the cap.
+        Every sub-chunk binds the same ``element_id`` -- the trace chain stays
+        intact, and ``compute_chunk_id`` derives distinct ids from the distinct
+        sub-chunk texts. This mirrors ``emit_intra_clause_split``.
+        """
         self.flush()
         section_path = element.get("section_path") or []
         prefix = self._prefix_for(section_path)
         full = prefix + text
-        self._emit_chunk(
-            element_ids=[element["element_id"]],
-            text=full,
-            section_path=section_path,
-            elements=[element],
-            element_types=[element["type"]],
-        )
+        if self._count(full) <= _HARD_CAP_TOKENS:
+            self._emit_chunk(
+                element_ids=[element["element_id"]],
+                text=full,
+                section_path=section_path,
+                elements=[element],
+                element_types=[element["type"]],
+            )
+            return
+        # Overlong structured unit: split by line so each sub-chunk <= hard cap.
+        for sub in self._split_body(prefix, text):
+            self._emit_chunk(
+                element_ids=[element["element_id"]],
+                text=prefix + sub,
+                section_path=section_path,
+                elements=[element],
+                element_types=[element["type"]],
+            )
 
     def emit_intra_clause_split(self, element: dict[str, Any], text: str) -> None:
         """Split a single overlong clause into sub-chunks (each carries prefix)."""

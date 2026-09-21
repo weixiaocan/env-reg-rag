@@ -404,5 +404,90 @@ class TestOutputArtifact(unittest.TestCase):
         self.assertEqual(len(doc["pages"]), 75)
 
 
+def _page_doc_with_recurring_header_footer(*, pages=7, header_text="GB 50268-2008",
+                                            footer_text="中国工程建设标准化协会"):
+    """Build a synthetic page-intermediate document dict.
+
+    Each page carries: a short text in the top band (header), a short text in
+    the bottom band (footer), and a body clause in the middle. Page height
+    600pt; header band y0<48 (8%), footer band y1>552 (92%).
+    """
+    page_rows = []
+    for pno in range(1, pages + 1):
+        page_rows.append({
+            "physical_page": pno,
+            "width": 400.0,
+            "height": 600.0,
+            "rotation": 0,
+            "extraction_route": "native",
+            "decision_status": "approved",
+            "elements": [
+                # top-band recurring header
+                {"element_id": f"p{pno}-hdr", "text": header_text,
+                 "bbox": [100.0, 20.0, 300.0, 40.0]},
+                # body clause
+                {"element_id": f"p{pno}-body", "text": f"第{pno}条 本条为第{pno}页正文条款内容说明文字。",
+                 "bbox": [100.0, 300.0, 300.0, 320.0]},
+                # bottom-band recurring footer
+                {"element_id": f"p{pno}-ftr", "text": footer_text,
+                 "bbox": [100.0, 570.0, 300.0, 590.0]},
+            ],
+            "regions": [],
+        })
+    return {
+        "sha256": "a" * 64,
+        "file_name": "synthetic-recurring.pdf",
+        "pages": page_rows,
+    }
+
+
+class HeaderFooterRecurringDetectionTest(unittest.TestCase):
+    """Running headers/footers (short text recurring in the same page band
+    across >=5 pages) must be tagged role=header/footer and dropped from the
+    chunker's retrieval projection via _IGNORED_ROLES."""
+
+    def test_recurring_top_bottom_marked_and_dropped(self):
+        page_doc = _page_doc_with_recurring_header_footer()
+        doc = assemble_document(page_doc, formula_pages={})
+        roles = {e["content"]["text"]: e["role"]
+                 for e in doc["elements"] if e["type"] == "text"}
+        # recurring header/footer texts get the right role
+        self.assertEqual(roles["GB 50268-2008"], "header")
+        self.assertEqual(roles["中国工程建设标准化协会"], "footer")
+        # body text is not mis-flagged as header/footer
+        body_roles = [r for t, r in roles.items() if t.startswith("第")]
+        self.assertTrue(body_roles, "expected body elements")
+        for r in body_roles:
+            self.assertNotIn(r, ("header", "footer", "page_number"))
+
+        # chunker drops header/footer (they never appear in any chunk text)
+        from src.application.v2_chunker import chunk_document
+        chunks = chunk_document(doc, tokenizer=_CharCountTokenizer(), token_budget=80)
+        joined = "\n".join(c.text for c in chunks)
+        self.assertNotIn("GB 50268-2008", joined)
+        self.assertNotIn("中国工程建设标准化协会", joined)
+        # body content is still present
+        self.assertIn("正文条款内容", joined)
+
+    def test_single_page_short_title_not_misflagged(self):
+        # A short title appearing on only 1 page must NOT become header/footer.
+        page_doc = _page_doc_with_recurring_header_footer(
+            pages=2, header_text="一次性封面标题文字", footer_text="仅此一页的脚注")
+        doc = assemble_document(page_doc, formula_pages={})
+        roles = {e["content"]["text"]: e["role"]
+                 for e in doc["elements"] if e["type"] == "text"}
+        # only 2 pages -> below _RECURRING_MIN_PAGES(5) -> not header/footer
+        self.assertNotEqual(roles.get("一次性封面标题文字"), "header")
+        self.assertNotEqual(roles.get("仅此一页的脚注"), "footer")
+
+
+class _CharCountTokenizer:
+    def count(self, text: str) -> int:
+        return len(text)
+
+    def encode(self, text: str, **_kwargs):
+        return list(text)
+
+
 if __name__ == "__main__":
     unittest.main()

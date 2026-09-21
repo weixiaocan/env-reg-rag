@@ -209,6 +209,59 @@ class IntraClauseSplitTest(unittest.TestCase):
             self.assertLessEqual(len(c.text), 512)  # char tokenizer == tokens
 
 
+class StructuredOverlongSplitTest(unittest.TestCase):
+    """A large table whose projected text exceeds the 512 hard cap must be
+    split into multiple sub-chunks (each <= cap), all bound to the same
+    element_id, with distinct chunk_ids. Regression for the emit_structured
+    cap check (bge-small-zh max_length=512)."""
+
+    def _big_table(self, eid="et", *, rows=60, section_path=None):
+        cells = []
+        for r in range(rows):
+            cells.append({"row": r, "column": 0, "row_span": 1, "column_span": 1,
+                          "role": "data", "text": f"指标参数第{r}项", "source_span_ids": []})
+            cells.append({"row": r, "column": 1, "row_span": 1, "column_span": 1,
+                          "role": "data", "text": f"数值范围说明{r}补充文字", "source_span_ids": []})
+        return {
+            "element_id": eid, "type": "table", "role": "table", "label": "表1",
+            "section_path": section_path or [],
+            "content": {"row_count": rows, "column_count": 2, "caption": "表1 示例大表",
+                        "cells": cells, "notes": []},
+            "source_spans": [{"span_id": f"s{eid}", "role": "primary", "physical_page": 1,
+                              "bbox": [10.0, 60.0, 200.0, 200.0], "orientation_degrees": 0}],
+            "provenance": [{"operation": "recognize", "method": "table_recognition",
+                            "engine_id": "native-1", "confidence": 0.8}],
+            "links": [],
+        }
+
+    def test_overlong_table_splits_under_cap_same_element_id(self):
+        doc = _canonical([self._big_table()])
+        # sanity: projected text is genuinely over the 512 hard cap
+        from src.application.v2_chunker import _project_table
+        proj = _project_table(doc["elements"][0]["content"])
+        self.assertGreater(len(proj), 512)  # char tokenizer == tokens
+        chunks = _chunk(doc)
+        self.assertGreater(len(chunks), 1)
+        # every sub-chunk respects the hard cap
+        for c in chunks:
+            self.assertLessEqual(len(c.text), 512)
+        # all bind the same element_id (trace chain intact)
+        for c in chunks:
+            self.assertEqual(c.element_ids, ["et"])
+        # chunk_ids are distinct (text differs -> compute_chunk_id differs)
+        self.assertEqual(len({c.chunk_id for c in chunks}), len(chunks))
+        # all are typed table
+        for c in chunks:
+            self.assertEqual(c.metadata["element_types"], ["table"])
+
+    def test_table_under_cap_stays_atomic(self):
+        # a normal 2-row table fits the cap -> single atomic chunk (no split)
+        doc = _canonical([_table_element("e2")])
+        chunks = _chunk(doc)
+        self.assertEqual(len(chunks), 1)
+        self.assertEqual(chunks[0].element_ids, ["e2"])
+
+
 class SectionPathPrefixTest(unittest.TestCase):
     def test_prefix_built_from_element_section_path(self):
         sp = [{"label": "5", "title": "调查"}, {"label": "5.4", "title": "流量"}, {"label": "5.4.2", "title": None}]

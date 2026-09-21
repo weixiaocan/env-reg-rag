@@ -52,6 +52,17 @@ _FORMULA_MIN_AREA = 500.0  # page-points^2; excludes tiny inline symbol fragment
 # Page-points window below a formula within which "式中" context is gathered.
 _CONTEXT_MAX_GAP = 180.0
 
+# Header / footer recurring-text detection. A short text that recurs in the
+# same top/bottom page band across >= _RECURRING_MIN_PAGES pages is almost
+# certainly a running header / footer (standard name, chapter title, page
+# footer line), not body content. Such elements are marked role="header"/
+# "footer" so the V2 chunker drops them from the retrieval projection
+# (``_IGNORED_ROLES``). Page numbers are caught earlier by ``_PAGE_NUM_RE``.
+_HEADER_BAND_RATIO = 0.08   # top 8% of page height
+_FOOTER_BAND_RATIO = 0.08   # bottom 8% of page height
+_RECURRING_MIN_PAGES = 5    # same short text in >=5 pages of one band
+_HEADER_FOOTER_MAX_LEN = 60  # only short texts (<=60 chars post-strip)
+
 # Regex helpers
 _BARE_NUM_RE = re.compile(r"^(\d+)(?:\s|$)")
 _DOTTED_NUM_RE = re.compile(r"^(\d+(?:\.\d+)+)")
@@ -152,6 +163,12 @@ def assemble_document(
     # Assign global source_index (= position in logical reading order).
     for i, slot in enumerate(global_slots):
         slot.source_index = i
+
+    # 1b. Header / footer recurring-text detection. ---------------------------
+    # A short text recurring in the same top/bottom band across many pages is
+    # a running header/footer; mark it so _infer_text_role returns the right
+    # role and the chunker drops it via _IGNORED_ROLES.
+    _mark_recurring_header_footer(global_slots, page_by_number)
 
     # 2. Heading detection over the global text stream. -----------------------
     heading_inputs: list[HeadingInput] = []
@@ -379,10 +396,66 @@ def _build_text_element(
     }
 
 
+def _mark_recurring_header_footer(
+    slots: list[_PageItem],
+    page_by_number: dict[int, dict[str, Any]],
+) -> None:
+    """Mark running header/footer text via cross-page recurrence.
+
+    For each text slot sitting in the top or bottom band of its page, group by
+    normalized text + band. If the same short text recurs in the same band on
+    >= ``_RECURRING_MIN_PAGES`` pages, every matching slot is tagged with
+    ``extra["recurring_role"]`` = "header" (top band) / "footer" (bottom band);
+    ``_infer_text_role`` then returns that role so the chunker drops it.
+    """
+    # band -> normalized_text -> set of pages
+    top_pages: dict[str, set[int]] = {}
+    bottom_pages: dict[str, set[int]] = {}
+    # track which slots belong to each (band, normalized_text)
+    tagged_slots: dict[tuple[str, str], list[_PageItem]] = {}
+
+    for slot in slots:
+        if slot.kind != "text":
+            continue
+        raw = (slot.text or "").strip()
+        if not raw or len(raw) > _HEADER_FOOTER_MAX_LEN:
+            continue
+        norm = re.sub(r"\s+", "", raw)
+        if not norm:
+            continue
+        page_row = page_by_number.get(slot.page)
+        if not page_row:
+            continue
+        height = float(page_row.get("height") or 0.0)
+        if height <= 0:
+            continue
+        y0, y1 = slot.bbox[1], slot.bbox[3]
+        band = None
+        if y0 < height * _HEADER_BAND_RATIO:
+            band = "header"
+        elif y1 > height * (1 - _FOOTER_BAND_RATIO):
+            band = "footer"
+        if band is None:
+            continue
+        key = (band, norm)
+        tagged_slots.setdefault(key, []).append(slot)
+        pages_map = top_pages if band == "header" else bottom_pages
+        pages_map.setdefault(norm, set()).add(slot.page)
+
+    for (band, _norm), group in tagged_slots.items():
+        pages_map = top_pages if band == "header" else bottom_pages
+        if len(pages_map.get(_norm, set())) >= _RECURRING_MIN_PAGES:
+            for slot in group:
+                slot.extra["recurring_role"] = band
+
+
 def _infer_text_role(slot: _PageItem, heading: HeadingNode | None) -> str:
     raw = (slot.text or "").strip()
     if _PAGE_NUM_RE.match(raw):
         return "page_number"
+    recurring = slot.extra.get("recurring_role")
+    if recurring in ("header", "footer"):
+        return recurring
     if heading is not None:
         # Short title -> heading; long body -> clause (条文 that anchors a path).
         title = heading.title or ""
