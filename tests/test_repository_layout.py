@@ -20,7 +20,8 @@ class PublicRepositoryLayoutTests(unittest.TestCase):
     def test_only_product_facing_documents_remain(self):
         self.assertEqual(
             {path.name for path in (ROOT / "docs").iterdir()},
-            {"ARCHITECTURE.md", "EVALUATION.md", "PDF_PROCESSING.md"},
+            {"ARCHITECTURE.md", "EVALUATION.md", "PDF_PROCESSING.md",
+             "v2-canonical-schema-design.md"},
         )
 
     def test_readme_is_product_facing(self):

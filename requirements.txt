@@ -5,6 +5,7 @@ torch==2.14.0
 transformers==5.16.1
 langchain-core==1.6.2
 langchain-openai==1.6.0
+langchain-text-splitters==1.1.2
 pydantic==2.13.5
 python-dotenv==1.2.3
 fastapi==0.141.1
