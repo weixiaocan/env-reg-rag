@@ -32,7 +32,7 @@ DocumentKind = Literal[
 ]
 EffectiveStatus = Literal[
     "current", "not_yet_effective", "expired",
-    "repealed", "superseded", "unknown",
+    "repealed", "superseded", "draft", "unknown",
 ]
 ParseStatus = Literal["parsed", "blank", "failed"]
 CellRole = Literal["header", "stub", "data", "unknown"]

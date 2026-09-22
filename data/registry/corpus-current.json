@@ -7,6 +7,5 @@
   "collection_name": "corpus_v2",
   "query_alias": "corpus_current",
   "chunk_count": 3855,
-  "action": "built",
-  "rollback_record": "data/registry/corpus-37456321a968-rollback.json"
+  "action": "built"
 }

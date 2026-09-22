@@ -36,7 +36,7 @@ BATCH_SIZE = 128
 
 
 def _load_canonical_metadata() -> dict[str, dict]:
-    """sha256 -> {document_kind, jurisdictions, effective_status, issuing_authorities, ...}."""
+    """sha256 -> {file_name, standard_number, effective_status, source_authority, ...}."""
     out: dict[str, dict] = {}
     if not CANONICAL_DIR.is_dir():
         return out
@@ -48,11 +48,25 @@ def _load_canonical_metadata() -> dict[str, dict]:
             continue
         md = doc.get("metadata") or {}
         authorities = md.get("issuing_authorities") or []
+        std_no = next(
+            (
+                item.get("value", "")
+                for item in (md.get("identifiers") or [])
+                if item.get("scheme") == "standard_number"
+            ),
+            "",
+        )
         out[sha] = {
+            "file_name": (doc.get("source") or {}).get("file_name", ""),
+            "document_kind": md.get("document_kind") or "",
+            "jurisdictions": md.get("jurisdictions") or [],
+            "standard_number": std_no,
             "source_authority": authorities[0] if authorities else "",
             "publication_date": md.get("publication_date") or "",
             "effective_from": md.get("effective_from") or "",
             "effective_to": md.get("effective_to") or "",
+            "effective_status": md.get("effective_status") or "unknown",
+            "effective_status_as_of": md.get("effective_status_as_of") or "",
         }
     return out
 
@@ -124,11 +138,17 @@ def main() -> int:
                 "primary_evidence_id": chunk_id,
                 "document_version_id": sha,
                 "usage_policy": "answer_and_citation",
+                "file_name": md.get("file_name", ""),
+                "document_kind": md.get("document_kind", ""),
+                "jurisdictions": md.get("jurisdictions", []),
+                "standard_number": md.get("standard_number", ""),
                 "source_authority": md.get("source_authority", ""),
                 "source_uri": source_uris.get(sha, ""),
                 "publication_date": md.get("publication_date", ""),
                 "effective_from": md.get("effective_from", ""),
                 "effective_to": md.get("effective_to", ""),
+                "effective_status": md.get("effective_status", "unknown"),
+                "effective_status_as_of": md.get("effective_status_as_of", ""),
                 "source_regions": [],
             }
             client.set_payload(

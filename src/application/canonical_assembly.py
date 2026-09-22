@@ -30,6 +30,7 @@ from __future__ import annotations
 import hashlib
 import re
 from dataclasses import dataclass, field
+from datetime import datetime, timezone
 from typing import Any, Iterable
 
 from src.ingestion.column_detection import detect_columns
@@ -901,7 +902,8 @@ def _build_metadata(
 
     effective_status = (merged.get("effective_status") or "unknown").strip()
     if effective_status not in {
-        "current", "not_yet_effective", "expired", "repealed", "superseded", "unknown"
+        "current", "not_yet_effective", "expired",
+        "repealed", "superseded", "draft", "unknown"
     }:
         effective_status = "unknown"
 
@@ -928,7 +930,13 @@ def _build_metadata(
         "effective_from": effective_from,
         "effective_to": effective_to,
         "effective_status": effective_status,
-        "effective_status_as_of": None,  # status is unknown -> no as_of
+        # An explicit status needs the date it was determined: a PDF-body
+        # declaration is as-of the assembly run (extraction time); there is no
+        # external verification event to cite.
+        "effective_status_as_of": (
+            datetime.now(timezone.utc).date().isoformat()
+            if effective_status != "unknown" else None
+        ),
         "registry_snapshot_id": registry_snapshot_id,
     }
 
