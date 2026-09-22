@@ -19,8 +19,8 @@ class PublicRepositoryLayoutTests(unittest.TestCase):
 
     def test_only_product_facing_documents_remain(self):
         self.assertEqual(
-            {path.name for path in (ROOT / "docs").iterdir()},
-            {"ARCHITECTURE.md", "EVALUATION.md", "PDF_PROCESSING.md",
+            {path.name for path in (ROOT / "docs").iterdir() if path.is_file()},
+            {"ARCHITECTURE.md", "CLEANUP_PLAN.md", "SCOPE_AND_DEFERRED.md",
              "v2-canonical-schema-design.md"},
         )
 

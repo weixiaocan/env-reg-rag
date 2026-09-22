@@ -397,7 +397,7 @@ class TestOutputArtifact(unittest.TestCase):
 
     def test_output_file_exists_and_validates(self):
         if not os.path.isfile(_OUTPUT_JSON):
-            self.skipTest("output artifact not generated yet; run scripts/assemble_cecs758_v2.py")
+            self.skipTest("output artifact not generated yet; run scripts/assemble_corpus_v2.py")
         with open(_OUTPUT_JSON, "r", encoding="utf-8") as fh:
             doc = json.load(fh)
         validate_document(doc)

@@ -67,9 +67,6 @@ def create_app(
     async def health() -> dict[str, str]:
         return {"status": "ok"}
 
-    @app.get("/formulas", response_class=FileResponse)
-    async def formula_page():
-        return FileResponse(Path(__file__).parent / "static" / "formulas.html")
 
     def preview_service():
         if formula_preview is None:
@@ -87,9 +84,6 @@ def create_app(
             raise HTTPException(status_code=404, detail={"code": "formula_not_found", "message": "formula is not registered"})
         return item
 
-    @app.get("/formula-review", response_class=FileResponse)
-    def formula_review_page():
-        return FileResponse(Path(__file__).parent / "static" / "formula-review.html")
 
     def review_service():
         if formula_review is None:

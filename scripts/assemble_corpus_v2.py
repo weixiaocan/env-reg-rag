@@ -7,7 +7,7 @@ loads each document's per-page formula cache, runs ``assemble_document`` +
 ``compute_ids`` + ``validate_document``, and writes the V2 JSON artifact to
 ``data/canonical/v2/<corpus_version>/<sha>.canonical.json``.
 
-This is the same pipeline as ``assemble_cecs758_v2.py`` but applied to the whole
+This is the same pipeline as ``assemble_corpus_v2.py`` but applied to the whole
 corpus. It does NOT invoke any OCR / PDF engine; it only re-organises the
 page-intermediate OCR cache (text + table regions + figure regions + formula
 cache) into the V2 Element-owned structure.
