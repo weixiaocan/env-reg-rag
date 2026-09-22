@@ -2,13 +2,20 @@
 """V2 full-corpus ingestion into the persistent Qdrant collection (plan B8).
 
 Iterates every V2 Canonical artifact in
-``data/canonical/v2/corpus-37456321a968/*.canonical.json`` (21 documents),
+``data/canonical/v2/<corpus_version>/*.canonical.json``,
 runs the V2 structure-aware chunker, embeds each chunk with the local
 bge-small-zh model, and builds the persistent Qdrant collection ``corpus_v2``
 (dense 512-dim + BM25 sparse, RRF fusion) against the Docker Qdrant instance
 at ``http://127.0.0.1:6333``.
 
-Idempotency: the collection is dropped and rebuilt full-c corpus on each run
+The corpus version defaults to the one published in ``corpus-current.json``
+(via ``resolve_current_corpus``); override with ``--corpus-version`` to
+ingest a freshly assembled candidate. Pass ``--publish`` to switch the
+``corpus-current.json`` pointer to the newly ingested version on success —
+this is the seam that makes downstream assemble/enrich/serve pick up the new
+corpus automatically.
+
+Idempotency: the collection is dropped and rebuilt full-corpus on each run
 (``QdrantRetrievalIndex.build`` recreates the collection). Re-running therefore
 reflects the latest V2 Canonical artifacts. Incremental upsert-by-chunk_id is
 future work (plan B8 范围外).
@@ -16,7 +23,7 @@ future work (plan B8 范围外).
 Usage (from repo root, venv active, Qdrant container up)::
 
     PYTHONPATH=src python scripts/ingest_corpus_v2.py
-    PYTHONPATH=src python scripts/ingest_corpus_v2.py --qdrant-url http://127.0.0.1:6333
+    PYTHONPATH=src python scripts/ingest_corpus_v2.py --corpus-version corpus-<new> --publish
 
 Exit code 0 iff the collection point count equals the total chunk count and
 the sample cross-document queries return hits.
@@ -28,19 +35,16 @@ import json
 import os
 import sys
 import time
-from collections import Counter
+from datetime import datetime, timezone
 from typing import Any
 
 _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, _REPO_ROOT)
 
+from src.application.corpus_artifacts import resolve_current_corpus  # noqa: E402
 from src.application.v2_chunker import chunk_document  # noqa: E402
 from src.domain.v2_chunk import V2Chunk  # noqa: E402
 
-CORPUS_VERSION = "corpus-37456321a968"
-CANONICAL_DIR = os.path.join(
-    _REPO_ROOT, "data", "canonical", "v2", CORPUS_VERSION
-)
 COLLECTION = "corpus_v2"
 DEFAULT_QDRANT_URL = "http://127.0.0.1:6333"
 
@@ -52,16 +56,19 @@ _SAMPLE_QUERIES = [
 ]
 
 
-def _iter_canonical_paths() -> list[str]:
-    if not os.path.isdir(CANONICAL_DIR):
-        raise FileNotFoundError(f"canonical dir not found: {CANONICAL_DIR}")
+def _iter_canonical_paths(corpus_version: str) -> list[str]:
+    canonical_dir = os.path.join(
+        _REPO_ROOT, "data", "canonical", "v2", corpus_version
+    )
+    if not os.path.isdir(canonical_dir):
+        raise FileNotFoundError(f"canonical dir not found: {canonical_dir}")
     paths = sorted(
-        os.path.join(CANONICAL_DIR, name)
-        for name in os.listdir(CANONICAL_DIR)
+        os.path.join(canonical_dir, name)
+        for name in os.listdir(canonical_dir)
         if name.endswith(".canonical.json")
     )
     if not paths:
-        raise FileNotFoundError(f"no .canonical.json artifacts in {CANONICAL_DIR}")
+        raise FileNotFoundError(f"no .canonical.json artifacts in {canonical_dir}")
     return paths
 
 
@@ -163,9 +170,9 @@ def _smoke_queries(
     return out
 
 
-def _write_report(report: dict[str, Any]) -> str:
+def _write_report(report: dict[str, Any], corpus_version: str) -> str:
     out_path = os.path.join(
-        _REPO_ROOT, "data", "canonical", "v2", CORPUS_VERSION, "ingest_report.json"
+        _REPO_ROOT, "data", "canonical", "v2", corpus_version, "ingest_report.json"
     )
     os.makedirs(os.path.dirname(out_path), exist_ok=True)
     with open(out_path, "w", encoding="utf-8") as fh:
@@ -173,16 +180,47 @@ def _write_report(report: dict[str, Any]) -> str:
     return out_path
 
 
-def ingest(qdrant_url: str = DEFAULT_QDRANT_URL) -> dict[str, Any]:
-    paths = _iter_canonical_paths()
-    print(f"[ingest] {len(paths)} canonical documents in {CANONICAL_DIR}")
+def _publish_pointer(corpus_version: str, chunk_count: int) -> None:
+    """Switch corpus-current.json to the newly ingested version.
+
+    Only called on a successful ingest (status == ok) so the serving layer
+    never points at a half-built collection.
+    """
+    pointer_path = os.path.join(_REPO_ROOT, "data", "registry", "corpus-current.json")
+    pointer = {
+        "schema_version": "1",
+        "status": "published",
+        "published_at": datetime.now(timezone.utc).isoformat(),
+        "corpus_version": corpus_version,
+        "manifest": f"data/registry/{corpus_version}.json",
+        "collection_name": COLLECTION,
+        "query_alias": "corpus_current",
+        "chunk_count": chunk_count,
+        "action": "built",
+    }
+    with open(pointer_path, "w", encoding="utf-8") as fh:
+        json.dump(pointer, fh, ensure_ascii=False, indent=2)
+    print(f"[ingest] corpus-current pointer switched to {corpus_version}")
+
+
+def ingest(
+    qdrant_url: str = DEFAULT_QDRANT_URL,
+    corpus_version: str | None = None,
+    publish: bool = False,
+) -> dict[str, Any]:
+    corpus_version = corpus_version or resolve_current_corpus(_REPO_ROOT).corpus_version
+    canonical_dir = os.path.join(
+        _REPO_ROOT, "data", "canonical", "v2", corpus_version
+    )
+    paths = _iter_canonical_paths(corpus_version)
+    print(f"[ingest] {len(paths)} canonical documents in {canonical_dir}")
     chunks, chunk_report = _collect_chunks(paths)
     total = len(chunks)
     print(f"[ingest] chunked {total} chunks across {chunk_report['documents']} docs")
 
     build_report = _build_collection(chunks, qdrant_url)
     report = {
-        "corpus_version": CORPUS_VERSION,
+        "corpus_version": corpus_version,
         "collection": COLLECTION,
         "total_chunks": total,
         "chunk_report": chunk_report,
@@ -195,8 +233,12 @@ def ingest(qdrant_url: str = DEFAULT_QDRANT_URL) -> dict[str, Any]:
         and all(q["hit_count"] > 0 for q in build_report.get("search_smoke", []))
     )
     report["status"] = "ok" if ok else "incomplete"
-    out_path = _write_report(report)
+    out_path = _write_report(report, corpus_version)
     print(f"[ingest] report written to {out_path}")
+    if ok and publish:
+        _publish_pointer(corpus_version, total)
+    elif publish:
+        print("[ingest] --publish skipped: ingest was not ok")
     return report
 
 
@@ -228,8 +270,16 @@ def _print_report(report: dict[str, Any]) -> None:
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument("--qdrant-url", default=DEFAULT_QDRANT_URL)
+    parser.add_argument(
+        "--corpus-version", default=None,
+        help="corpus version to ingest (defaults to the published corpus-current pointer)",
+    )
+    parser.add_argument(
+        "--publish", action="store_true",
+        help="on successful ingest, switch corpus-current.json to this version",
+    )
     args = parser.parse_args(argv)
-    report = ingest(args.qdrant_url)
+    report = ingest(args.qdrant_url, args.corpus_version, args.publish)
     _print_report(report)
     return 0 if report["status"] == "ok" else 1
 

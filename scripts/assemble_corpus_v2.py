@@ -1,17 +1,21 @@
 #!/usr/bin/env python
-"""Batch: assemble ALL 21 documents in the corpus into V2 Canonical (plan 2→3).
+"""Assemble V2 Canonical documents from the page-intermediate OCR cache (plan 2→3).
 
-Reads every row of ``data/canonical/corpus-37456321a968-documents.jsonl`` (the
-page-intermediate OCR cache with complete ``regions`` for tables/figures —
-``corpus-919`` is NOT used because its ``regions`` were stripped), loads each
-document's per-page formula cache, runs ``assemble_document`` + ``compute_ids``
-+ ``validate_document``, and writes the V2 JSON artifact to
-``data/canonical/v2/corpus-37456321a968/<sha>.canonical.json``.
+Reads every row of ``data/canonical/<corpus_version>-documents.jsonl`` (the
+page-intermediate OCR cache with complete ``regions`` for tables/figures),
+loads each document's per-page formula cache, runs ``assemble_document`` +
+``compute_ids`` + ``validate_document``, and writes the V2 JSON artifact to
+``data/canonical/v2/<corpus_version>/<sha>.canonical.json``.
 
 This is the same pipeline as ``assemble_cecs758_v2.py`` but applied to the whole
 corpus. It does NOT invoke any OCR / PDF engine; it only re-organises the
 page-intermediate OCR cache (text + table regions + figure regions + formula
 cache) into the V2 Element-owned structure.
+
+The corpus version defaults to the one published in ``corpus-current.json``
+(via ``resolve_current_corpus``); override with ``--corpus-version`` to
+assemble a freshly built candidate before it is published. The formula cache
+run-id defaults to the V2 baseline; override with ``--formula-run-id``.
 
 quarantine pages: the V2 assembly already routes quarantine pages to
 ``parse_status=parsed`` when they still carry text/elements (their content enters
@@ -23,6 +27,7 @@ Usage (from repo root, venv active)::
 
     PYTHONPATH=src python scripts/assemble_corpus_v2.py
     PYTHONPATH=src python scripts/assemble_corpus_v2.py --only <sha1> <sha2> ...
+    PYTHONPATH=src python scripts/assemble_corpus_v2.py --corpus-version corpus-<new> --formula-run-id <run>
 """
 from __future__ import annotations
 
@@ -44,21 +49,18 @@ from src.application.canonical_validation import (  # noqa: E402
     compute_ids,
     validate_document,
 )
+from src.application.corpus_artifacts import resolve_current_corpus  # noqa: E402
 from src.domain.canonical_document import SchemaError  # noqa: E402
 
-CORPUS_VERSION = "corpus-37456321a968"
-PAGE_DOCUMENTS = os.path.join(
-    _REPO_ROOT, "data", "canonical", f"{CORPUS_VERSION}-documents.jsonl"
-)
-FORMULA_CACHE_DIR = os.path.join(
-    _REPO_ROOT, "data", "model_runtime", "corpus_formulas", "5d3264515515e228"
-)
-OUTPUT_DIR = os.path.join(_REPO_ROOT, "data", "canonical", "v2", CORPUS_VERSION)
+_DEFAULT_FORMULA_RUN_ID = "5d3264515515e228"
 
 
-def _iter_page_documents() -> list[dict[str, Any]]:
+def _iter_page_documents(corpus_version: str) -> list[dict[str, Any]]:
+    page_documents = os.path.join(
+        _REPO_ROOT, "data", "canonical", f"{corpus_version}-documents.jsonl"
+    )
     docs: list[dict[str, Any]] = []
-    with open(PAGE_DOCUMENTS, "r", encoding="utf-8") as fh:
+    with open(page_documents, "r", encoding="utf-8") as fh:
         for line in fh:
             line = line.strip()
             if not line:
@@ -67,25 +69,83 @@ def _iter_page_documents() -> list[dict[str, Any]]:
     return docs
 
 
-def _assemble_one(page_doc: dict[str, Any]) -> dict[str, Any]:
+def _assert_formula_cache(
+    page_doc: dict[str, Any], formula_run_id: str, cache_dir: str
+) -> None:
+    """Forbid silent 0-formula: fail if the formula cache directory is missing.
+
+    ``assemble_corpus_v2`` reads formula elements ONLY from
+    ``corpus_formulas/<run-id>/`` (``canonical_assembly._collect_page_items``
+    skips formula in ``page["regions"]``). A missing cache dir means
+    ``recognize_corpus_formulas`` was never run for this run-id — assembly would
+    silently produce 0 formula elements. Fail loudly instead.
+    """
+    if not os.path.isdir(cache_dir):
+        raise FileNotFoundError(
+            f"formula cache directory not found: {cache_dir}\n"
+            f"  document={page_doc.get('file_name', '')} sha={page_doc['sha256'][:12]}\n"
+            f"  recognize_corpus_formulas was not run for run-id "
+            f"{formula_run_id!r}; run build_corpus.py (which orchestrates it) "
+            f"or scripts/recognize_corpus_formulas.py first."
+        )
+
+
+def _assert_formula_coverage(
+    page_doc: dict[str, Any],
+    formula_pages: dict[int, list[dict[str, Any]]],
+    formula_run_id: str,
+    cache_dir: str,
+) -> None:
+    """Forbid silent 0-formula: fail if the PDF has formulas but the cache is empty.
+
+    The page-intermediate cache carries formula regions (written by
+    ``UnifiedPageExtractor``'s own live recognition), so they are ground truth
+    for "this PDF contains formulas". If the page-intermediate has formula
+    regions but ``load_formula_pages`` loaded none, the recognize cache is
+    incomplete for this document → assembly would drop every formula. Fail.
+    """
+    page_formula_regions = sum(
+        1
+        for p in page_doc.get("pages") or []
+        for r in p.get("regions") or []
+        if r.get("kind") == "formula"
+    )
+    loaded = sum(len(v) for v in formula_pages.values())
+    if page_formula_regions > 0 and loaded == 0:
+        raise RuntimeError(
+            f"formula cache empty for {page_doc.get('file_name', '')} "
+            f"(sha={page_doc['sha256'][:12]}): page-intermediate carries "
+            f"{page_formula_regions} formula region(s) but run-id "
+            f"{formula_run_id!r} loaded 0 from {cache_dir}. "
+            f"Re-run scripts/recognize_corpus_formulas.py for this run-id."
+        )
+
+
+def _assemble_one(page_doc: dict[str, Any], formula_run_id: str) -> dict[str, Any]:
     sha = page_doc["sha256"]
     page_count = len(page_doc.get("pages") or [])
-    formula_pages = load_formula_pages(
-        sha, range(1, page_count + 1), cache_dir=FORMULA_CACHE_DIR
+    formula_cache_dir = os.path.join(
+        _REPO_ROOT, "data", "model_runtime", "corpus_formulas", formula_run_id
     )
+    _assert_formula_cache(page_doc, formula_run_id, formula_cache_dir)
+    formula_pages = load_formula_pages(
+        sha, range(1, page_count + 1), cache_dir=formula_cache_dir
+    )
+    _assert_formula_coverage(page_doc, formula_pages, formula_run_id, formula_cache_dir)
     doc = assemble_document(page_doc, formula_pages=formula_pages)
     ids = compute_ids(doc)
     doc["canonical_id"] = ids["canonical_id"]
-    doc["canonical_content_id"] = ids["canonical_content_id"]
+    doc["canonical_content_id"] = ids["metadata_fingerprint"]
     doc["metadata_fingerprint"] = ids["metadata_fingerprint"]
     validate_document(doc)
     return doc
 
 
-def _write(doc: dict[str, Any]) -> str:
+def _write(doc: dict[str, Any], corpus_version: str) -> str:
     sha = doc["source"]["sha256"]
-    os.makedirs(OUTPUT_DIR, exist_ok=True)
-    out_path = os.path.join(OUTPUT_DIR, f"{sha}.canonical.json")
+    output_dir = os.path.join(_REPO_ROOT, "data", "canonical", "v2", corpus_version)
+    os.makedirs(output_dir, exist_ok=True)
+    out_path = os.path.join(output_dir, f"{sha}.canonical.json")
     with open(out_path, "w", encoding="utf-8") as fh:
         json.dump(doc, fh, ensure_ascii=False, indent=2)
     return out_path
@@ -116,12 +176,24 @@ def _print_row(idx: int, total: int, page_doc: dict[str, Any], doc: dict[str, An
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     parser.add_argument(
+        "--corpus-version", default=None,
+        help="corpus version to assemble (defaults to the published corpus-current pointer)",
+    )
+    parser.add_argument(
+        "--formula-run-id", default=_DEFAULT_FORMULA_RUN_ID,
+        help=f"formula cache run-id (defaults to {_DEFAULT_FORMULA_RUN_ID!r})",
+    )
+    parser.add_argument(
         "--only", nargs="*", default=None,
         help="only assemble these sha256 prefixes (space-separated)",
     )
     args = parser.parse_args(argv)
 
-    all_docs = _iter_page_documents()
+    corpus_version = args.corpus_version or resolve_current_corpus(
+        _REPO_ROOT).corpus_version
+    output_dir = os.path.join(_REPO_ROOT, "data", "canonical", "v2", corpus_version)
+
+    all_docs = _iter_page_documents(corpus_version)
     if args.only:
         wanted = {p.lower() for p in args.only}
         all_docs = [d for d in all_docs if d["sha256"].lower().startswith(tuple(wanted))]
@@ -130,8 +202,9 @@ def main(argv: list[str] | None = None) -> int:
             return 1
 
     total = len(all_docs)
-    print(f"[assemble] {total} documents to assemble from {CORPUS_VERSION}")
-    print(f"[assemble] output dir: {OUTPUT_DIR}")
+    print(f"[assemble] {total} documents to assemble from {corpus_version}")
+    print(f"[assemble] formula run-id: {args.formula_run_id}")
+    print(f"[assemble] output dir: {output_dir}")
     print()
 
     ok = 0
@@ -140,8 +213,8 @@ def main(argv: list[str] | None = None) -> int:
         sha = page_doc["sha256"]
         fn = page_doc.get("file_name") or ""
         try:
-            doc = _assemble_one(page_doc)
-            out_path = _write(doc)
+            doc = _assemble_one(page_doc, args.formula_run_id)
+            out_path = _write(doc, corpus_version)
             quar = _quarantine_count(page_doc)
             _print_row(idx, total, page_doc, doc, out_path, quar)
             ok += 1
@@ -158,18 +231,18 @@ def main(argv: list[str] | None = None) -> int:
         return 1
 
     # Aggregate summary across the whole corpus.
-    _print_corpus_summary()
+    _print_corpus_summary(output_dir)
     return 0
 
 
-def _print_corpus_summary() -> None:
+def _print_corpus_summary(output_dir: str) -> None:
     """Re-scan the output dir and print aggregate element-type counts."""
     totals: Counter[str] = Counter()
     doc_count = 0
-    for name in sorted(os.listdir(OUTPUT_DIR)):
+    for name in sorted(os.listdir(output_dir)):
         if not name.endswith(".canonical.json"):
             continue
-        with open(os.path.join(OUTPUT_DIR, name), "r", encoding="utf-8") as fh:
+        with open(os.path.join(output_dir, name), "r", encoding="utf-8") as fh:
             doc = json.load(fh)
         doc_count += 1
         for e in doc.get("elements") or []:

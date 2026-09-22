@@ -1,4 +1,10 @@
-"""Recognize an explicitly registered formula crop; never publish or execute."""
+"""Recognize an explicitly registered formula crop; never publish or execute.
+
+Diagnostic tool only — not part of the corpus build path. The corpus-wide
+formula cache that ``assemble_corpus_v2`` reads is produced by
+``recognize_corpus_formulas.py`` (orchestrated by ``build_corpus.py``). This
+single-PDF entry point is retained for ad-hoc per-file inspection.
+"""
 import argparse
 import json
 import math

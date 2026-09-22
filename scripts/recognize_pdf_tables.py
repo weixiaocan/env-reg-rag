@@ -1,4 +1,10 @@
-"""Targeted local table recognition; writes only ignored model-runtime diagnostics."""
+"""Targeted local table recognition; writes only ignored model-runtime diagnostics.
+
+Diagnostic tool only — not part of the corpus build path. Corpus table regions
+are extracted inline by ``UnifiedPageExtractor`` during ``build_corpus.py`` and
+flow through the page-intermediate cache; this single-PDF entry point is
+retained for ad-hoc per-file inspection.
+"""
 import argparse
 import json
 from pathlib import Path

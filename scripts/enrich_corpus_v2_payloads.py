@@ -25,22 +25,28 @@ import sys
 from pathlib import Path
 
 _REPO_ROOT = Path(__file__).resolve().parents[1]
+sys.path.insert(0, str(_REPO_ROOT))
 sys.path.insert(0, str(_REPO_ROOT / "src"))
 
-CORPUS_VERSION = "corpus-37456321a968"
-CANONICAL_DIR = _REPO_ROOT / "data" / "canonical" / "v2" / CORPUS_VERSION
+from src.application.corpus_artifacts import resolve_current_corpus  # noqa: E402
+
 SOURCE_EVIDENCE_PATH = _REPO_ROOT / "data" / "registry" / "source_evidence.jsonl"
 COLLECTION = os.getenv("QDRANT_COLLECTION", "corpus_v2")
 QDRANT_URL = os.getenv("QDRANT_URL", "http://127.0.0.1:6333")
 BATCH_SIZE = 128
 
 
-def _load_canonical_metadata() -> dict[str, dict]:
+def _canonical_dir(corpus_version: str) -> Path:
+    return _REPO_ROOT / "data" / "canonical" / "v2" / corpus_version
+
+
+def _load_canonical_metadata(corpus_version: str) -> dict[str, dict]:
     """sha256 -> {file_name, standard_number, effective_status, source_authority, ...}."""
     out: dict[str, dict] = {}
-    if not CANONICAL_DIR.is_dir():
+    canonical_dir = _canonical_dir(corpus_version)
+    if not canonical_dir.is_dir():
         return out
-    for path in sorted(CANONICAL_DIR.glob("*.canonical.json")):
+    for path in sorted(canonical_dir.glob("*.canonical.json")):
         with path.open(encoding="utf-8") as fh:
             doc = json.load(fh)
         sha = (doc.get("source") or {}).get("sha256", "").lower()
@@ -95,11 +101,22 @@ def _load_source_evidence_uris() -> dict[str, str]:
     return out
 
 
-def main() -> int:
+def main(argv: list[str] | None = None) -> int:
+    import argparse
     from qdrant_client import QdrantClient, models
 
-    canonical_md = _load_canonical_metadata()
+    parser = argparse.ArgumentParser(description=__doc__.splitlines()[0])
+    parser.add_argument(
+        "--corpus-version", default=None,
+        help="corpus version whose canonical metadata to read "
+             "(defaults to the published corpus-current pointer)",
+    )
+    args = parser.parse_args(argv)
+    corpus_version = args.corpus_version or resolve_current_corpus(_REPO_ROOT).corpus_version
+
+    canonical_md = _load_canonical_metadata(corpus_version)
     source_uris = _load_source_evidence_uris()
+    print(f"[enrich] corpus_version: {corpus_version}")
     print(f"[enrich] canonical metadata: {len(canonical_md)} docs")
     print(f"[enrich] source-evidence uris: {len(source_uris)} docs")
 
