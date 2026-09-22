@@ -20,6 +20,7 @@ from qdrant_client import QdrantClient
 
 from src.adapters.inventory_document_catalog import DocumentCatalog
 from src.adapters.jsonl_query_trace_recorder import JsonlQueryTraceRecorder
+from src.adapters.pdf_region_renderer import RegionImageService
 from src.adapters.llm_provider import (
     LlmConfigurationError,
     LlmProviderSettings,
@@ -49,6 +50,8 @@ class QueryServices:
     documents: DocumentCatalog
     evidence: EvidenceSourceService
     readiness: ReadinessProbe
+    region_image: RegionImageService
+    corpus_version: str
     corpus_version: str
 
 
@@ -128,18 +131,20 @@ def build_query_services(
             "generation": "skipped-source-lookup",
         },
     )
+    documents = SourceEvidenceDocumentCatalog(
+        project_root=project_root,
+        registry_path=project_root / "data" / "registry" / "source_evidence.jsonl",
+    )
     return QueryServices(
         answer=answer_service,
         source_lookup=source_lookup_service,
-        documents=SourceEvidenceDocumentCatalog(
-            project_root=project_root,
-            registry_path=project_root / "data" / "registry" / "source_evidence.jsonl",
-        ),
+        documents=documents,
         evidence=EvidenceSourceService(QdrantEvidenceCatalog(index=index)),
         readiness=QdrantReadinessProbe(
             client=client,
             required_collections=[collection],
         ),
+        region_image=RegionImageService(index=index, document_catalog=documents),
         corpus_version=current_corpus.corpus_version,
     )
 

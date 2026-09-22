@@ -13,6 +13,7 @@ from pydantic import BaseModel, Field
 
 from src.application.query_service import QueryApplicationService
 from src.adapters.inventory_document_catalog import DocumentCatalog
+from src.adapters.pdf_region_renderer import RegionImageService
 from src.application.evidence_source import EvidenceSourceService
 from src.application.formula_preview import FormulaPreviewService
 from src.application.formula_review import FormulaReviewService
@@ -51,6 +52,7 @@ def create_app(
     source_lookup_corpus_version: str = "m3-experiment-v1",
     formula_preview: FormulaPreviewService | None = None,
     formula_review: FormulaReviewService | None = None,
+    region_image_service: RegionImageService | None = None,
 ) -> FastAPI:
     """Create the HTTP adapter with its application dependency injected."""
     app = FastAPI(title="排水法规标准智能问答系统", version="0.1.0")
@@ -214,6 +216,31 @@ def create_app(
                 },
             )
         return EvidenceDto.model_validate(asdict(evidence))
+
+    @app.get("/api/v1/regions/{region_id}/image")
+    async def get_region_image(region_id: str) -> Response:
+        if region_image_service is None:
+            raise HTTPException(
+                status_code=503,
+                detail={
+                    "code": "region_image_unavailable",
+                    "message": "region image rendering is not configured",
+                },
+            )
+        png = region_image_service.image(region_id)
+        if png is None:
+            raise HTTPException(
+                status_code=404,
+                detail={
+                    "code": "region_image_not_found",
+                    "message": "source region image is not available",
+                },
+            )
+        return Response(
+            content=png,
+            media_type="image/png",
+            headers={"Cache-Control": "no-store"},
+        )
 
     @app.post("/api/v1/queries", response_model=AnswerResultDto)
     async def submit_query(payload: QueryHttpRequest) -> AnswerResultDto:

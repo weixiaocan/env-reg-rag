@@ -29,7 +29,57 @@ class RetrievalHit:
     publication_date: str = ""
     effective_from: str = ""
     effective_to: str = ""
+    source_spans: list[dict[str, Any]] = field(default_factory=list)
     source_regions: list[dict[str, Any]] = field(default_factory=list)
+
+
+def _derive_source_regions(
+    *, chunk_id: str, text: str, source_spans: list[dict[str, Any]]
+) -> list[dict[str, Any]]:
+    """Project V2 ``source_spans`` (page + bbox) into the ``source_regions``
+    shape the UI/EvidenceDto expects, one region per physical page.
+
+    Each region carries the union bbox of that page's spans so the region-image
+    endpoint can render one crop showing the whole chunk on that page. The
+    ``region_id`` encodes both chunk and page (``{chunk_id}__p{page}``) so the
+    image endpoint can re-fetch the chunk and locate the spans without a
+    separate published-region registry.
+    """
+    if not source_spans:
+        return []
+    by_page: dict[int, list[float]] = {}
+    for span in source_spans:
+        if not isinstance(span, dict):
+            continue
+        page = span.get("physical_page")
+        bbox = span.get("bbox")
+        if not isinstance(page, int) or page <= 0:
+            continue
+        if not isinstance(bbox, list) or len(bbox) != 4:
+            continue
+        x0, y0, x1, y1 = bbox
+        try:
+            x0, y0, x1, y1 = float(x0), float(y0), float(x1), float(y1)
+        except (TypeError, ValueError):
+            continue
+        if x0 > x1 or y0 > y1:
+            continue
+        acc = by_page.setdefault(page, [x0, y0, x1, y1])
+        acc[0] = min(acc[0], x0)
+        acc[1] = min(acc[1], y0)
+        acc[2] = max(acc[2], x1)
+        acc[3] = max(acc[3], y1)
+    kind = "formula" if text.lstrip().startswith("[公式") else "text"
+    return [
+        {
+            "region_id": f"{chunk_id}__p{page}",
+            "physical_page": page,
+            "kind": kind,
+            "bbox": bbox,
+            "quality_status": "passed",
+        }
+        for page, bbox in sorted(by_page.items())
+    ]
 
 
 @dataclass(frozen=True)
@@ -262,9 +312,18 @@ class QdrantRetrievalIndex:
             publication_date=str(payload.get("publication_date", "")),
             effective_from=str(payload.get("effective_from", "")),
             effective_to=str(payload.get("effective_to", "")),
-            source_regions=[{k: r.get(k) for k in ('region_id', 'file_sha256', 'physical_page', 'kind',
-                            'bbox', 'relations', 'quality_status', 'execution_status', 'issues', 'math_category')}
-                            for r in payload.get('source_regions', []) if isinstance(r, dict)],
+            source_spans=[
+                {k: s.get(k) for k in ("physical_page", "bbox")}
+                for s in payload.get("source_spans", [])
+                if isinstance(s, dict)
+            ],
+            source_regions=_derive_source_regions(
+                chunk_id=str(payload.get("chunk_id", "")),
+                text=str(payload.get("text", "")),
+                source_spans=[
+                    s for s in payload.get("source_spans", []) if isinstance(s, dict)
+                ],
+            ),
         )
 
     @staticmethod

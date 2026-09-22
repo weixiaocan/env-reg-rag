@@ -23,6 +23,7 @@ app = create_app(
     readiness_probe=services.readiness,
     answer_corpus_version=services.corpus_version,
     source_lookup_corpus_version=services.corpus_version,
+    region_image_service=services.region_image,
     formula_preview=FormulaPreviewService(PROJECT_ROOT),
     formula_review=FormulaReviewService(
         PROJECT_ROOT, os.getenv("FORMULA_REVIEW_RUN", "5d3264515515e228")
