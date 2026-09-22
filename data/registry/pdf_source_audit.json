@@ -1,8 +1,8 @@
 {
   "schema_version": "1",
   "audit_profile": "offline-source-audit-v1",
-  "inventory_content_sha256": "00a0b162632c50d9fa3bf35830d4155cf25796928b1c074718706377b288a658",
-  "generated_at": "2026-09-16T10:06:47.430313+00:00",
+  "inventory_content_sha256": "4f6939c3dfd89ffbcc6f7b4526d8d5398c995fb6508bb0726d450c162d7d59b0",
+  "generated_at": "2026-09-22T04:25:11.907911+00:00",
   "files": [
     {
       "file_name": "城镇内涝防治技术规范.pdf",
@@ -483,7 +483,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "全国",
+            "重庆"
+          ],
+          "suggested_value": "全国"
         },
         "legacy_review_note": {
           "value": "2026-09-07 已批准进入 formal corpus v1；渝建标〔2025〕48号官方附件与本地文件 SHA-256 完全一致；自2026-01-01起施行",
@@ -658,7 +663,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_fulltext_verified"
+          ],
+          "suggested_value": "needs_review"
         }
       },
       "completeness": {
@@ -819,7 +829,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "全国",
+            "重庆"
+          ],
+          "suggested_value": "全国"
         },
         "legacy_review_note": {
           "value": "2026-09-07 已批准进入 formal corpus v1；渝建标〔2025〕48号官方附件与本地文件 SHA-256 完全一致；自2026-01-01起施行",
@@ -994,7 +1009,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_fulltext_verified"
+          ],
+          "suggested_value": "needs_review"
         }
       },
       "completeness": {
@@ -1526,7 +1546,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "未知(地方标准)",
+            "武汉"
+          ],
+          "suggested_value": "未知(地方标准)"
         },
         "legacy_review_note": {
           "value": "2026-09-07 已批准进入 formal corpus v1；武汉市水务局官方 PDF 与本地文件 SHA-256 完全一致；现行状态沿用已核验标准平台记录",
@@ -1701,7 +1726,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_fulltext_verified"
+          ],
+          "suggested_value": "needs_review"
         },
         "standard_number": {
           "value": "DB4201/T 651-2021",
@@ -1918,7 +1948,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "未知(地方标准)",
+            "武汉"
+          ],
+          "suggested_value": "未知(地方标准)"
         },
         "legacy_review_note": {
           "value": "2026-09-07 已批准进入 formal corpus v1；武汉市水务局官方 PDF 与本地文件 SHA-256 完全一致；现行状态沿用已核验标准平台记录",
@@ -2093,7 +2128,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_fulltext_verified"
+          ],
+          "suggested_value": "needs_review"
         },
         "standard_number": {
           "value": "DB4201/T 651-2021",
@@ -2569,7 +2609,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_record_found"
+          ],
+          "suggested_value": "needs_review"
         },
         "standard_number": {
           "value": "GB 55027-2022",
@@ -2905,7 +2950,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_record_found"
+          ],
+          "suggested_value": "needs_review"
         },
         "standard_number": {
           "value": "GB 55027-2022",
@@ -2971,7 +3021,7 @@
           ]
         },
         "effective_status": {
-          "value": "unknown",
+          "value": "draft",
           "status": "unverified",
           "has_disagreement": false,
           "observations": [
@@ -2985,6 +3035,22 @@
                 "path": "data/registry/inventory.csv",
                 "row": 21,
                 "record_sha256": "0db7d8ea6d080fc9c7a8cceeccd87c0ce7e146c4e0604684909bfa3bfaa3b00a"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "effective_status",
+              "value": "draft",
+              "origin_kind": "document_extracted",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "file",
+                "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+                "physical_pages": [
+                  1
+                ],
+                "excerpt": "征求意见稿"
               },
               "checked_at": "",
               "verification_method": ""
@@ -3295,7 +3361,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_record_found"
+          ],
+          "suggested_value": "needs_review"
         }
       },
       "completeness": {
@@ -3631,7 +3702,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_fulltext_verified"
+          ],
+          "suggested_value": "needs_review"
         },
         "standard_number": {
           "value": "QX/T 489-2019",
@@ -3988,7 +4064,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_fulltext_verified"
+          ],
+          "suggested_value": "needs_review"
         },
         "standard_number": {
           "value": "QX/T 489-2019",
@@ -4373,7 +4454,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_primary_source",
+            "needs_review"
+          ],
+          "suggested_value": "needs_primary_source"
         },
         "standard_number": {
           "value": "T/CECS 1764-2024",
@@ -4502,10 +4588,42 @@
           ]
         },
         "standard_number": {
-          "value": "T/CMSA-2019",
-          "status": "unverified",
-          "has_disagreement": false,
+          "value": "T/CMSA 0013-2019",
+          "status": "verified",
+          "has_disagreement": true,
           "observations": [
+            {
+              "field": "standard_number",
+              "value": "T/CMSA 0013-2019",
+              "origin_kind": "document_extracted",
+              "status": "verified",
+              "evidence_ref": {
+                "kind": "file",
+                "sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+                "physical_pages": [
+                  3
+                ],
+                "excerpt": "T/CMSA 0013—2019"
+              },
+              "checked_at": "2026-09-22T04:25:11.907911+00:00",
+              "verification_method": "human_confirmed_pdf_cover_standard_number"
+            },
+            {
+              "field": "standard_number",
+              "value": "T/CMSA 0013-2019",
+              "origin_kind": "document_extracted",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "file",
+                "sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+                "physical_pages": [
+                  1
+                ],
+                "excerpt": "T/CMSA 0013—2019"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
             {
               "field": "standard_number",
               "value": "T/CMSA-2019",
@@ -4520,7 +4638,8 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "suggestion_applied": true
         }
       },
       "completeness": {
@@ -4665,8 +4784,8 @@
       }
     },
     {
-      "file_name": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
-      "rel_path": "data/raw/标准和规范&参考资料/《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+      "file_name": "城市排水工程规划规范.pdf",
+      "rel_path": "data/raw/标准和规范&参考资料/城市排水工程规划规范.pdf",
       "file_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
       "fields": {
         "document_kind": {
@@ -4683,7 +4802,7 @@
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
                 "row": 16,
-                "record_sha256": "5ccc3ab84e233964f45e829a0daa5474cf8736a85b18d19ce9c1ea958dcfac55"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4691,10 +4810,26 @@
           ]
         },
         "effective_status": {
-          "value": "unknown",
+          "value": "superseded",
           "status": "unverified",
           "has_disagreement": false,
           "observations": [
+            {
+              "field": "effective_status",
+              "value": "superseded",
+              "origin_kind": "document_extracted",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "file",
+                "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+                "physical_pages": [
+                  2
+                ],
+                "excerpt": "GB 50318 - 2000 同时废止"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
             {
               "field": "effective_status",
               "value": "unknown",
@@ -4704,7 +4839,7 @@
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
                 "row": 16,
-                "record_sha256": "5ccc3ab84e233964f45e829a0daa5474cf8736a85b18d19ce9c1ea958dcfac55"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4725,7 +4860,7 @@
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
                 "row": 16,
-                "record_sha256": "5ccc3ab84e233964f45e829a0daa5474cf8736a85b18d19ce9c1ea958dcfac55"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4746,7 +4881,7 @@
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
                 "row": 16,
-                "record_sha256": "5ccc3ab84e233964f45e829a0daa5474cf8736a85b18d19ce9c1ea958dcfac55"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4754,26 +4889,10 @@
           ]
         },
         "standard_number": {
-          "value": null,
-          "status": "conflicting",
+          "value": "GB 50318-2017",
+          "status": "verified",
           "has_disagreement": true,
           "observations": [
-            {
-              "field": "standard_number",
-              "value": "GB 50318-2000",
-              "origin_kind": "document_extracted",
-              "status": "unverified",
-              "evidence_ref": {
-                "kind": "file",
-                "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
-                "physical_pages": [
-                  2
-                ],
-                "excerpt": "GB 50318 - 2000"
-              },
-              "checked_at": "",
-              "verification_method": ""
-            },
             {
               "field": "standard_number",
               "value": "CJJ 61-2018",
@@ -4783,7 +4902,7 @@
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
                 "row": 16,
-                "record_sha256": "5ccc3ab84e233964f45e829a0daa5474cf8736a85b18d19ce9c1ea958dcfac55"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4792,7 +4911,7 @@
               "field": "standard_number",
               "value": "GB 50318-2017",
               "origin_kind": "document_extracted",
-              "status": "unverified",
+              "status": "verified",
               "evidence_ref": {
                 "kind": "file",
                 "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
@@ -4801,10 +4920,11 @@
                 ],
                 "excerpt": "GB 50318-2017"
               },
-              "checked_at": "",
-              "verification_method": ""
+              "checked_at": "2026-09-22T04:25:11.907911+00:00",
+              "verification_method": "human_confirmed_pdf_cover_standard_number"
             }
-          ]
+          ],
+          "suggestion_applied": true
         }
       },
       "completeness": {
@@ -5350,7 +5470,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_fulltext_verified"
+          ],
+          "suggested_value": "needs_review"
         },
         "standard_number": {
           "value": "GB/T 28592-2012",
@@ -5707,7 +5832,12 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_review",
+            "official_fulltext_verified"
+          ],
+          "suggested_value": "needs_review"
         },
         "standard_number": {
           "value": "GB/T 28592-2012",
@@ -5987,13 +6117,34 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ]
+          ],
+          "conflict_values": [
+            "needs_primary_source",
+            "needs_review"
+          ],
+          "suggested_value": "needs_primary_source"
         },
         "standard_number": {
           "value": "T/CECS 758-2020",
           "status": "unverified",
           "has_disagreement": false,
           "observations": [
+            {
+              "field": "standard_number",
+              "value": "T/CECS 758-2020",
+              "origin_kind": "document_extracted",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "file",
+                "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+                "physical_pages": [
+                  2
+                ],
+                "excerpt": "T/CECS 758-2020"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
             {
               "field": "standard_number",
               "value": "T/CECS 758-2020",
@@ -6259,5 +6410,5 @@
       "unverified": 27
     }
   },
-  "source_registry_sha256": "6f2bff19d8f7c3d0a420a6522bac7877e6219993be2d1b1df5b5a98a7352e903"
+  "source_registry_sha256": "8db801da5d97cd5ac5e31e21b804c4cbb1be492b2b7af96add439a21e423edda"
 }
