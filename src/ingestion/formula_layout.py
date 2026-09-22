@@ -22,7 +22,10 @@ def formula_regions(boxes, pixel_width, pixel_height, page_width, page_height):
         regions.append({'bbox': [x0 * page_width / pixel_width, y0 * page_height / pixel_height,
                                  x1 * page_width / pixel_width, y1 * page_height / pixel_height],
                         'pixel_bbox': [x0, y0, x1, y1], 'score': score, 'kind': 'formula',
-                        'review_status': 'pending_review', 'publishable': False,
+                        'review_status': 'pending_review',
+                        # publishable here is a review-subsystem status flag, NOT a V2
+                        # contract field; formula_regions feeds the review path.
+                        'publishable': False,
                         'can_use_for_calculation': False})
     return regions
 

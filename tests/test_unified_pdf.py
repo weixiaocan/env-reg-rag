@@ -71,7 +71,7 @@ class UnifiedPdfTests(unittest.TestCase):
         image = next(r for r in page['regions'] if r['kind'] == 'image')
         self.assertIn('caption_not_found', image['issues'])
         self.assertTrue((self.root / image['image_ref']).is_file())
-        self.assertFalse(image['publishable'])
+        self.assertNotIn('publishable', image)  # region-level publishable removed (not a V2 contract field)
         table = next(r for r in page['regions'] if r['kind'] == 'table')
         self.assertEqual(table['tables'][0]['cells'][0]['col_span'], 2)
 

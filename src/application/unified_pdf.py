@@ -404,7 +404,7 @@ class UnifiedPageExtractor:
                           'document_version_id': asset.document_version_id, 'physical_page': physical_page,
                           'kind': kind, 'model_label': raw.get('label'), 'reading_order': index,
                           'execution_status': 'completed', 'quality_status': 'needs_review',
-                          'issues': [], 'publishable': False, 'relations': []}
+                          'issues': [], 'relations': []}
                 region['processing_config_id'] = self.config_id
                 page['regions'].append(region)
                 if not isinstance(coords, (list, tuple)) or len(coords) != 4 or any(

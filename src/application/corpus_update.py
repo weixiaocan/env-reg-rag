@@ -702,8 +702,6 @@ class CorpusUpdateService:
                                            for d in documents for p in d['pages']),
                 'execution_failures': structure_failures,
                 'region_count': sum(len(p.get('regions', [])) for d in documents for p in d['pages']),
-                'quality_status_counts': dict(Counter(r['quality_status'] for d in documents
-                                                      for p in d['pages'] for r in p.get('regions', []))),
                 'layout_omission_quality': 'not_independently_verified' if structure_required else 'not_evaluated',
             },
             "generated_at": _utc_now(),

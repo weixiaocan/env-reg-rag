@@ -141,6 +141,8 @@ def normalize_tables(page):
                                           ([] if aligned else ['cell_coordinates']),
                        'review_status': 'pending_review' if cells else 'source_page_only',
                        'review_reasons': reasons + ['table_transcription_requires_review'],
+                       # publishable here is a review-subsystem status flag, NOT a V2
+                       # contract field; V2 table elements do not carry it.
                        'publishable': False})
     return enrich_table_context(page, tables)
 
@@ -199,7 +201,9 @@ def recover_tables_from_ocr_elements(page, regions, *, failure_reason='local_tab
             'unit_context': [], 'footnotes': [],
             'missing_context': ['caption', 'unit_context', 'footnotes', 'verified_columns',
                                 'verified_headers', 'verified_spans'],
-            'review_status': 'pending_review', 'publishable': False,
+            'review_status': 'pending_review',
+            # publishable here is a review-subsystem status flag, NOT a V2 contract field.
+            'publishable': False,
             'review_reasons': [failure_reason, 'ocr_geometry_fallback',
                                'row_column_structure_pending_review',
                                'merged_cells_not_established', 'header_rows_not_established',

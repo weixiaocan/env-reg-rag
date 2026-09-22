@@ -62,6 +62,8 @@ def discover_regions(documents):
                         'kind': candidate_kind, 'reasons': reasons, 'bbox': box,
                         'location_status': 'block_bbox' if box else 'unknown',
                         'text_preview': text[:400], 'review_status': 'pending_review',
+                        # publishable here is a discovery-candidate review flag, NOT a V2
+                        # contract field; region discovery is a diagnostic path.
                         'publishable': False, 'can_use_for_calculation': False,
                     })
     return {'schema_version': '1', 'profile': 'native-block-signals-v1',

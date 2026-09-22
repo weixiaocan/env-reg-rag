@@ -129,6 +129,14 @@ def assemble_document(
     sha = (page_document.get("sha256") or "").lower()
     page_count = len(page_rows)
 
+    # Strip the legacy region-level ``publishable`` flag. It was a review-subsystem
+    # status that unified_pdf no longer writes; older page-intermediate caches may
+    # still carry it. It is NOT a V2 contract field and assembly never gated on it,
+    # but we pop it here so it cannot leak into V2 artifacts via ``ref``.
+    for page_row in page_rows:
+        for region in page_row.get("regions") or []:
+            region.pop("publishable", None)
+
     # 1. Build per-page ordered item lists + global reading-order slots. -------
     global_slots: list[_PageItem] = []
     pages_meta: list[dict[str, Any]] = []

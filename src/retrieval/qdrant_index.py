@@ -70,13 +70,16 @@ def _derive_source_regions(
         acc[2] = max(acc[2], x1)
         acc[3] = max(acc[3], y1)
     kind = "formula" if text.lstrip().startswith("[公式") else "text"
+    # No quality_status is emitted here: this projection only carries the
+    # page + bbox so the region-image endpoint can render a crop. There is no
+    # quality gate on the V2 path, so writing "passed" would fabricate a
+    # quality conclusion that does not exist.
     return [
         {
             "region_id": f"{chunk_id}__p{page}",
             "physical_page": page,
             "kind": kind,
             "bbox": bbox,
-            "quality_status": "passed",
         }
         for page, bbox in sorted(by_page.items())
     ]

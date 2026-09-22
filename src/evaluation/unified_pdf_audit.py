@@ -107,7 +107,7 @@ def original_page_crop_hashes(source, physical_page, regions):
 def audit_documents(root, catalog, documents):
     root = Path(root).resolve()
     by_sha = {d['sha256']: d for d in documents}
-    issues, gaps, region_counts, execution, quality = [], [], Counter(), Counter(), Counter()
+    issues, gaps, region_counts, execution = [], [], Counter(), Counter()
     candidates = []
     cell_checks = []
     pages_analyzed = 0
@@ -154,7 +154,6 @@ def audit_documents(root, catalog, documents):
                 for r in regions:
                     region_counts[r['kind']] += 1
                     execution[r['execution_status']] += 1
-                    quality[r['quality_status']] += 1
                     identity = r.get('region_id')
                     if not identity or identity in region_ids:
                         issue(asset, number, 'duplicate_or_missing_region_id', r)
@@ -218,7 +217,7 @@ def audit_documents(root, catalog, documents):
             'expected_page_count': sum(a.page_count for a in catalog.assets),
             'layout_completed_page_count': pages_analyzed,
             'region_counts': dict(region_counts), 'execution_status_counts': dict(execution),
-            'quality_status_counts': dict(quality), 'integrity_issues': issues,
+            'integrity_issues': issues,
             'unresolved_items': gaps, 'fixed_formula_omission_check': omission,
             'fixed_table_cell_checks': fixed_table_checks(root, documents),
             'original_table_cell_text_checks': {'checks': cell_checks,

@@ -7,11 +7,6 @@
     "complete_page_count": 1078,
     "execution_failures": [],
     "region_count": 11977,
-    "quality_status_counts": {
-      "passed": 10788,
-      "quarantined": 234,
-      "needs_review": 955
-    },
     "layout_omission_quality": "not_independently_verified"
   },
   "generated_at": "2026-09-22T07:36:05.370597+00:00",
