@@ -1,11 +1,11 @@
 {
   "schema_version": "1",
   "status": "published",
-  "published_at": "2026-09-19T04:36:22.541316+00:00",
-  "corpus_version": "corpus-37456321a968",
-  "manifest": "data/registry/corpus-37456321a968.json",
+  "published_at": "2026-09-22T19:02:51.781168+00:00",
+  "corpus_version": "corpus-069284e6d60e",
+  "manifest": "data/registry/corpus-069284e6d60e.json",
   "collection_name": "corpus_v2",
   "query_alias": "corpus_current",
-  "chunk_count": 3855,
+  "chunk_count": 4176,
   "action": "built"
 }
