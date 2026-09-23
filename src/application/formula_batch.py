@@ -9,7 +9,13 @@ def _save(path, payload):
         raise ValueError('symlink checkpoint')
     temporary = path.with_suffix('.tmp')
     temporary.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding='utf-8')
-    os.replace(temporary, path)
+    # Windows may deny os.replace when the destination is briefly locked; unlink first.
+    try:
+        os.replace(temporary, path)
+    except PermissionError:
+        if path.exists():
+            path.unlink()
+        os.replace(temporary, path)
 
 
 def run_batch(directory, jobs, config_hash, worker):

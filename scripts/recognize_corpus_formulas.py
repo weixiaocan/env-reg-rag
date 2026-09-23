@@ -23,6 +23,7 @@ sys.path.insert(0, str(ROOT))
 from scripts.recognize_page_formulas import recognize_pages, model_provenance
 from src.application.corpus_update import build_source_catalog
 from src.application.formula_batch import run_batch
+from src.evaluation.formula_checkpoint_audit import refresh_triage_for_catalog
 from src.application.pdf_source_audit import file_digest, registered_pdf_path
 from src.ingestion.formula_layout import CachedLayoutEngine
 from src.ingestion.formula_ocr import CachedFormulaEngine
@@ -63,8 +64,18 @@ def run_corpus_formulas(project_root: Path, limit_pages: int | None = None) -> d
     for asset in assets.values():
         if file_digest(registered_pdf_path(project_root, asset.canonical_rel_path)) != asset.sha256:
             raise ValueError('source changed during batch')
+    # Full-catalog runs must rewrite triage so build's formula gate sees current
+    # document/page coverage (stale triage after adding PDFs used to fail closed).
+    triage = None
+    if not limit_pages:
+        triage = refresh_triage_for_catalog(project_root, config_hash[:16], catalog=catalog)
     return {'run_id': config_hash[:16], 'config_hash': config_hash,
-            'directory': str(directory), 'result': result}
+            'directory': str(directory), 'result': result,
+            'triage': None if triage is None else {
+                'document_count': triage['document_count'],
+                'page_count': triage['page_count'],
+                'region_count': triage['region_count'],
+            }}
 
 
 def main():

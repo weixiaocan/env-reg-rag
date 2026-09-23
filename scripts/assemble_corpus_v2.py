@@ -46,6 +46,7 @@ from src.application.canonical_assembly import (  # noqa: E402
     load_formula_pages,
 )
 from src.application.canonical_validation import (  # noqa: E402
+    apply_computed_ids,
     compute_ids,
     validate_document,
 )
@@ -134,9 +135,7 @@ def _assemble_one(page_doc: dict[str, Any], formula_run_id: str) -> dict[str, An
     _assert_formula_coverage(page_doc, formula_pages, formula_run_id, formula_cache_dir)
     doc = assemble_document(page_doc, formula_pages=formula_pages)
     ids = compute_ids(doc)
-    doc["canonical_id"] = ids["canonical_id"]
-    doc["canonical_content_id"] = ids["metadata_fingerprint"]
-    doc["metadata_fingerprint"] = ids["metadata_fingerprint"]
+    apply_computed_ids(doc, ids)
     validate_document(doc)
     return doc
 

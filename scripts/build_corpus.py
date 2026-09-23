@@ -64,26 +64,33 @@ from src.application.unified_pdf import (  # noqa: E402
 def _ensure_formula_cache(project_root: Path, explicit_run_id: str | None) -> str:
     """Ensure the formula recognition cache exists; return the run-id for assemble.
 
-    ``recognize_corpus_formulas`` is the sole producer of the cache that
-    ``assemble_corpus_v2`` reads. If ``--formula-run-id`` is explicitly given,
-    trust it (the caller owns cache existence; assembly will hard-fail if it is
-    wrong). Otherwise run ``recognize_corpus_formulas`` here — idempotent,
-    ``run_batch`` skips already-cached pages — and return the config-derived
-    ``run_id`` so assemble reads the same cache build just wrote.
+    `recognize_corpus_formulas` is the sole producer of the cache that
+    `assemble_corpus_v2` reads. If `--formula-run-id` is explicitly given,
+    refresh `triage.json` against the current catalog so adding PDFs cannot
+    leave stale document/page coverage in front of the formula gate. Otherwise
+    run recognition here (idempotent page cache), which also rewrites triage,
+    then return that `run_id`.
     """
+    from src.evaluation.formula_checkpoint_audit import refresh_triage_for_catalog
+
     if explicit_run_id is not None:
+        triage = refresh_triage_for_catalog(project_root, explicit_run_id)
         print(json.dumps(
-            {"stage": "formula_cache", "run_id": explicit_run_id, "source": "explicit"},
+            {"stage": "formula_cache", "run_id": explicit_run_id, "source": "explicit",
+             "triage": {
+                 "document_count": triage["document_count"],
+                 "page_count": triage["page_count"],
+                 "region_count": triage["region_count"],
+             }},
             ensure_ascii=False), flush=True)
         return explicit_run_id
     from scripts.recognize_corpus_formulas import run_corpus_formulas
     info = run_corpus_formulas(project_root)
     print(json.dumps(
         {"stage": "formula_cache", "run_id": info["run_id"], "source": "orchestrated",
-         "result": info["result"]},
+         "result": info["result"], "triage": info.get("triage")},
         ensure_ascii=False), flush=True)
     return info["run_id"]
-
 
 def _refresh_inventory(project_root: Path) -> None:
     import subprocess

@@ -12,7 +12,7 @@
 
 PDF → UnifiedPageExtractor / CorpusUpdateService → page-intermediate → assemble → V2 Canonical
 
-含：新 PDF 入口 uild_corpus、corpus 版本解析、公式缓存编排与 assemble 硬失败（避免静默 0 公式）、质量语义收口（检索不再伪造 quality_status: passed；region 级 publishable 退出 V2 契约；去掉误导性 quality_status_counts）。
+含：新 PDF 入口 uild_corpus、corpus 版本解析、公式缓存编排与 assemble 硬失败（避免静默 0 公式）、质量语义收口（检索不再伪造 quality_status: passed；region 级 publishable 退出 V2 契约；去掉误导性 quality_status_counts）。
 
 **不宣称：** 企业级全库质检已完成。
 
@@ -24,14 +24,21 @@ PDF → UnifiedPageExtractor / CorpusUpdateService → page-intermediate → ass
 
 **不要求、也未承诺：** 开箱即用的完整 SaaS（多租户、云部署、计费、权限体系等）。本项目是可演示的本地/自托管 RAG 流水线 + 工作台。
 
+### 新增 PDF 时的现状（务必说清楚）
+
+- uild_corpus 入口仍是**整库目录**（无 --only-new）；未变旧 PDF 靠页/内容缓存**复用**，新文件才实跑解析。  
+- ingest_corpus_v2（分块 + 嵌入 + 入库）目前是**整库重做**：对该版本全部 Canonical 再切块、再嵌入；QdrantRetrievalIndex.build **删除并重建**集合。按 chunk_id 增量 upsert **尚未实现**。  
+- 对当前体量（约一千页级）全量 ingest **可接受、求稳**；勿宣传成「已做成增量入库」。
+
 ---
 
-## 2. 明确先不做（已拍板）
+## 2. 明确先不做 / 下一阶段（已拍板延期）
 
 | 代号 | 含义 | 本轮态度 |
 |------|------|----------|
-| **P3** | 内容质量评估与放行（全库或规模化自动质检、低质拦截检索、人工审核流产品化等） | **延期**。当前只有少量黄金集 / 样本级诊断与 pytest，不是全库合格证明。 |
+| **P3** | 内容质量评估与放行（全库或规模化自动质检、低质拦截检索、人工审核流产品化等） | **延期**。当前以 pytest / 样本诊断为主，不是全库合格证明。 |
 | **P6** | 联网来源 / 效力核验 | **延期到下版**。 |
+| **P7** | 增量分块 / 嵌入 / Qdrant upsert | **下一阶段优化**。目标：文档级（或 chunk 级）只处理变更内容，避免每次加 PDF 都整库再切再嵌再重建集合；`build_corpus` 侧继续用页缓存。**本轮不做。** |
 
 后续若重启 P3，成熟方向倾向：金标准回归 + 自动坏例/置信度分层 + 人审高风险子集；**不是**全库人工逐条看完。
 
@@ -39,21 +46,11 @@ PDF → UnifiedPageExtractor / CorpusUpdateService → page-intermediate → ass
 
 ## 3. 名词白话（避免误会）
 
-这些是仓库里**曾经留下的辅助页面/API 名字**，**不是**本轮必须交付的产品清单。
+这些是仓库里**曾经留下的辅助页面/API 名字**，**不是**本轮必须交付的产品清单。仓库清理后，指向缺失 html 的死链已去掉；相关 API 若仍保留，也只是诊断能力，不是主交付。
 
-### 「公式对照页」
+### 「公式对照页」/「公式复核页」
 
-主工作台顶栏曾链到 /formulas。设计意图：把识别出的公式和原图/原文放一起对照看。  
-现状：后端有 FormulaPreviewService 与 /api/v1/formulas*，但静态文件 ormulas.html **缺失**，点进去会坏。  
-→ **诊断/对照用的半成品页面，不是主问答必经路径。**
-
-### 「公式复核页」/ 有人说的「复核台」
-
-对应 /formula-review 与 FormulaReviewService。设计意图：列出公式候选，看裁剪图、参数等，方便人工瞟一眼识别结果。  
-现状：API 在，ormula-review.html **缺失**；且标注偏 diagnostic_only，**不会**因为「没复核」就禁止入库或禁止检索。  
-→ **开发期看公式对不对的辅助台，不是完整审核后台**（没有完整工单流、批量通过/驳回写回全库放行、权限与发布闸门等）。
-
-主产品演示路径仍是：**主工作台问答 + 证据/原文页**，不依赖上述两个页面。
+原设计是开发期对照公式识别结果与原图。主问答不依赖它们；演示路径仍是**主工作台问答 + 证据/原文页**。
 
 ---
 
@@ -71,7 +68,7 @@ PDF → UnifiedPageExtractor / CorpusUpdateService → page-intermediate → ass
 
 ## 5. 一句话口径（简历 / 对内）
 
-**分块前流水线与分块后主问答演示链路可用；全库质量放行（P3）与联网效力核验（P6）明确延期；公式对照/复核是仓库里未收完的辅助页，不是当前主交付。**
+**分块前流水线与分块后主问答演示链路可用；全库质量放行（P3）、联网效力核验（P6）、增量分块嵌入入库（P7）明确延期；当前 ingest 为版本化整库重建，求稳不求增量。**
 
 ---
 
@@ -80,3 +77,4 @@ PDF → UnifiedPageExtractor / CorpusUpdateService → page-intermediate → ass
 | 日期 | 说明 |
 |------|------|
 | 2026-09-22 | 初稿：固化 P3/P6 延期、澄清公式对照/复核页与主路径边界、排除「完整 SaaS」误解。 |
+| 2026-09-22 | 增补：新增 PDF 时 build 缓存复用 vs ingest 整库重建；将增量分块/嵌入/Qdrant upsert 记为 **P7** 下一阶段优化。 |

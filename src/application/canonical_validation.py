@@ -49,6 +49,18 @@ def _compute_ids_from_model(model: CanonicalDocument) -> dict[str, str]:
     }
 
 
+def apply_computed_ids(doc: dict[str, Any], ids: dict[str, str]) -> None:
+    """Write the three V2 digest IDs into `doc` from `compute_ids` output.
+
+    Keep content and metadata fields distinct: assigning
+    `metadata_fingerprint` into `canonical_content_id` fails validation
+    (wrong prefix) and used to break whole-corpus assemble.
+    """
+    doc["canonical_id"] = ids["canonical_id"]
+    doc["canonical_content_id"] = ids["canonical_content_id"]
+    doc["metadata_fingerprint"] = ids["metadata_fingerprint"]
+
+
 def compute_ids(data: dict[str, Any]) -> dict[str, str]:
     """Recompute the three V2 IDs from a raw document dict.
 
