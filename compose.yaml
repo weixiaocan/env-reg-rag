@@ -17,10 +17,27 @@ services:
       retries: 12
       start_period: 5s
 
-  # V2 retrieval HTTP API / app service is not yet provided. The Qdrant service
-  # above is the only runtime dependency; V2 ingestion and retrieval run via
-  # scripts/ingest_corpus_v2.py against this Qdrant instance. Add an `app`
-  # service here once the V2 retrieval service is built.
+  app:
+    build: .
+    image: ${APP_IMAGE_NAME:-env-reg-rag-app:local}
+    container_name: ${APP_CONTAINER_NAME:-env-reg-rag-app}
+    restart: unless-stopped
+    depends_on:
+      qdrant:
+        condition: service_healthy
+    ports:
+      - "127.0.0.1:${APP_HTTP_HOST_PORT:-8000}:8000"
+    env_file:
+      - .env
+    environment:
+      QDRANT_URL: http://qdrant:6333
+      QDRANT_COLLECTION: ${QDRANT_COLLECTION:-corpus_v2}
+    volumes:
+      - ./data/registry:/app/data/registry:ro
+      - ./data/canonical:/app/data/canonical:ro
+      - ./data/raw:/app/data/raw:ro
+      - ./data/model_runtime:/app/data/model_runtime:ro
+      - ./data/observability:/app/data/observability
 
 volumes:
   env_reg_rag_qdrant_storage:

@@ -22,19 +22,23 @@ RUN python -m pip install --upgrade pip \
 RUN python -c "from transformers import AutoModel, AutoTokenizer; model='BAAI/bge-small-zh-v1.5'; revision='${BGE_MODEL_REVISION}'; AutoTokenizer.from_pretrained(model, revision=revision); AutoModel.from_pretrained(model, revision=revision)"
 
 COPY src ./src
-COPY data/registry ./data/registry
-COPY data/canonical ./data/canonical
 
-RUN mkdir -p /app/data/observability \
+# Runtime corpus / PDF / formula artifacts are bind-mounted by compose.
+RUN mkdir -p \
+        /app/data/registry \
+        /app/data/canonical \
+        /app/data/raw \
+        /app/data/model_runtime \
+        /app/data/observability \
     && useradd --create-home --uid 10001 appuser \
-    && chown -R appuser:appuser /app/data/observability
+    && chown -R appuser:appuser /app/data
 
-ENV TRANSFORMERS_OFFLINE=1
+ENV TRANSFORMERS_OFFLINE=1 \
+    QDRANT_URL=http://qdrant:6333 \
+    QDRANT_COLLECTION=corpus_v2
 
 USER appuser
 
-# No V2 retrieval HTTP service is served from this image yet. The image is kept
-# as a base with the bge embedding artifact pinned and the V2 src/ + canonical
-# corpus available, so a future V2 retrieval service can build on it. Run V2
-# ingestion via: python scripts/ingest_corpus_v2.py
-CMD ["python", "-c", "print('env-reg-rag base image; no V2 retrieval service yet')"]
+EXPOSE 8000
+
+CMD ["python", "-m", "uvicorn", "src.server.main:app", "--host", "0.0.0.0", "--port", "8000"]
