@@ -15,7 +15,7 @@ from src.application.query_observability import (
     QueryTraceRecorder,
 )
 from src.application.scope_resolution import ScopeResolver
-from src.domain.query import AnswerResult, QueryRequest, QueryStatus
+from src.domain.query import AnswerResult, EvidencePack, QueryRequest, QueryStatus
 
 
 logger = logging.getLogger(__name__)
@@ -35,6 +35,7 @@ class QueryApplicationService:
         trace_recorder: QueryTraceRecorder | None = None,
         runtime_metadata: dict[str, str] | None = None,
         skip_generation: bool = False,
+        generate_context_limit: int | None = None,
     ) -> None:
         self._scope_resolver = scope_resolver
         self._evidence_retriever = evidence_retriever
@@ -42,6 +43,9 @@ class QueryApplicationService:
         self._trace_recorder = trace_recorder or NullQueryTraceRecorder()
         self._runtime_metadata = dict(runtime_metadata or {})
         self._skip_generation = skip_generation
+        if generate_context_limit is not None and generate_context_limit < 1:
+            raise ValueError("generate_context_limit must be >= 1 when set")
+        self._generate_context_limit = generate_context_limit
 
     async def execute(self, request: QueryRequest) -> AnswerResult:
         query_started = perf_counter()
@@ -177,10 +181,18 @@ class QueryApplicationService:
                     **scope.resolved_scope,
                 },
             )
+        generation_pack = evidence_pack
+        if self._generate_context_limit is not None:
+            generation_pack = EvidencePack(
+                corpus_version=evidence_pack.corpus_version,
+                evidence=list(evidence_pack.evidence[: self._generate_context_limit]),
+            )
+        observation["generate_context_count"] = len(generation_pack.evidence)
+        observation["retrieve_count"] = len(evidence_pack.evidence)
         stage_started = perf_counter()
         generation = await self._answer_generator.generate(
             request=effective_request,
-            evidence_pack=evidence_pack,
+            evidence_pack=generation_pack,
         )
         observation["stages"]["generation"] = round(
             (perf_counter() - stage_started) * 1000, 3
@@ -205,7 +217,7 @@ class QueryApplicationService:
         stage_started = perf_counter()
         citable_ids = {
             item.evidence_id
-            for item in evidence_pack.evidence
+            for item in generation_pack.evidence
             if item.usage_policy == "answer_and_citation"
         }
         for claim in answer.claims:
@@ -220,7 +232,7 @@ class QueryApplicationService:
         }
         evidence_by_id = {
             item.evidence_id: item
-            for item in evidence_pack.evidence
+            for item in generation_pack.evidence
             if item.usage_policy == "answer_and_citation"
         }
         for conflict in answer.conflicts:

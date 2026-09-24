@@ -105,11 +105,14 @@ def build_query_services(
         ),
         answer_generator=answer_generator,
         trace_recorder=trace_recorder,
+        generate_context_limit=5,
         runtime_metadata={
             "retrieval_profile": "qdrant-bge-small-zh-bm25-rrf",
             "collection": collection,
             "embedding_model": "BAAI/bge-small-zh-v1.5",
             "generation": "langchain-zhipu-glm",
+            "retrieve_limit": "10",
+            "generate_context_limit": "5",
         },
     )
     source_lookup_service = QueryApplicationService(
@@ -128,6 +131,7 @@ def build_query_services(
             "collection": collection,
             "embedding_model": "BAAI/bge-small-zh-v1.5",
             "generation": "skipped-source-lookup",
+            "retrieve_limit": "10",
         },
     )
     documents = SourceEvidenceDocumentCatalog(
