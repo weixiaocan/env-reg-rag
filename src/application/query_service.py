@@ -90,6 +90,9 @@ class QueryApplicationService:
                 model_usage=observation["usage"],
                 runtime_metadata=self._runtime_metadata,
                 error_type=error_type,
+                generate_context_evidence_ids=list(
+                    observation.get("generate_context_evidence_ids") or []
+                ),
             )
             try:
                 self._trace_recorder.record(trace)
@@ -189,6 +192,9 @@ class QueryApplicationService:
             )
         observation["generate_context_count"] = len(generation_pack.evidence)
         observation["retrieve_count"] = len(evidence_pack.evidence)
+        observation["generate_context_evidence_ids"] = [
+            item.evidence_id for item in generation_pack.evidence
+        ]
         stage_started = perf_counter()
         generation = await self._answer_generator.generate(
             request=effective_request,

@@ -1,5 +1,6 @@
 import unittest
-from src.application.answer_generation import AnswerGenerationResult, InMemoryAnswerGenerator, ModelUsage
+from src.application.answer_generation import AnswerGenerationResult, ModelUsage
+from src.application.query_observability import InMemoryQueryTraceRecorder
 from src.application.query_service import QueryApplicationService
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.scope_resolution import RuleBasedScopeResolver
@@ -47,11 +48,13 @@ class GenerateContextLimitTest(unittest.IsolatedAsyncioTestCase):
             ]
         )
         generator = _RecordingGenerator(answer)
+        recorder = InMemoryQueryTraceRecorder()
         service = QueryApplicationService(
             scope_resolver=RuleBasedScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever(evidence),
             answer_generator=generator,
             generate_context_limit=5,
+            trace_recorder=recorder,
         )
         result = await service.execute(
             QueryRequest(
@@ -66,6 +69,13 @@ class GenerateContextLimitTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(len(result.evidence), 10)
         self.assertEqual(generator.last_count, 5)
         self.assertEqual(generator.last_evidence_ids, [f"ev_{i}" for i in range(1, 6)])
+        self.assertEqual(len(recorder.traces), 1)
+        trace = recorder.traces[0]
+        self.assertEqual(len(trace.evidence_ids), 10)
+        self.assertEqual(
+            trace.generate_context_evidence_ids,
+            [f"ev_{i}" for i in range(1, 6)],
+        )
 
 
 if __name__ == "__main__":

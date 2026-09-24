@@ -24,6 +24,7 @@ class QueryTrace:
     model_usage: ModelUsage
     runtime_metadata: dict[str, str] = field(default_factory=dict)
     error_type: str | None = None
+    generate_context_evidence_ids: list[str] = field(default_factory=list)
 
 
 class QueryTraceRecorder(Protocol):
