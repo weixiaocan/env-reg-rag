@@ -103,3 +103,39 @@
 
 - 坏页清单见 JSON；QXT 全页暂不可作 must_hit
 - 任一页修复后会通知：`文档名 + 页码`，请改回 must_hit
+
+
+## 6. QXT-489 根因（已核实）
+
+- PDF 内嵌字体为 `DLF-*` / `FzBookMaker*` 等，**ToUnicode / 编码映射损坏**：PyMuPDF 原生抽取得到 `!"#$%&'()*+` 一类符号，汉字数为 0。
+- 偶数页常为空白文字层（0 字符）；奇数页有「假文字层」。
+- 现网 `_native_text_quality` 只检查：空文本、`U+FFFD`、`/G\d+` glyph marker。**符号型乱码字符数 ≥ 20 会被判 pass**，于是 `corpus_update` 走 native 批准，**从不触发 OCR**。
+- inventory 备注写了「文字层覆盖不完整；需按页确认」，但 assemble/ingest 未把它变成硬门禁。
+- 验证：对渲染页跑项目内 `PaddleTextOcrEngine`，封面即可识别出真实标准元数据（如 `ICS 07.060`），说明**视觉层可读，应强制 OCR 恢复**，而不是降级了事。
+
+## 7. P3 提上日程：怎么做（可执行切片）
+
+目标：评估与问答建立在「可读且可引用」的文字上；坏页可修复回流，而不是永久隔离。
+
+### 阶段 P3-a（本周，最小可合并）— 可读性门禁 + QXT 恢复
+
+1. **加检测**：`non_whitespace` 之外增加汉字比 / 符号比 / mojibake 规则（与 `garble_scan` 对齐）；native `pass` 必须「像中文标准正文」。
+2. **改路由**：native 质检失败 → 强制 OCR（已有 `OcrPdfParser` / Paddle 路径）；OCR 仍失败 → 页级 `quarantine` + 进复核清单（临时）。
+3. **修 QXT-489**：对该 PDF 整份 `full_ocr` 重解析 → assemble → 重建 ingest；扫 `garble_scan` 至 bad_pages≈0。
+4. **验收**：QXT 抽样页可摘录条款；评估侧对应题改回 must_hit。
+
+### 阶段 P3-b（随后）— 发布门禁接线
+
+1. assemble/publish 前跑全库 `garble_scan`；`garbled_text` **硬失败**不得发布。
+2. answer 检索过滤不可答页块；source_lookup 可保留坐标便于人工对照。
+3. 产物：每版 corpus 附带 `garble_scan_*.json` 作为质量附件。
+
+### 阶段 P3-c（再后）— 复核队列产品化
+
+- 人工只审 mixed / OCR 低置信页；不做全库逐页。
+- 与公式 triage 类似：高风险子集人审，金标准回归守住主路径。
+
+### 明确不做（仍延期）
+
+- 全库人工逐条阅读
+- P6 效力核验、P7 增量 upsert（本轮不绑）
