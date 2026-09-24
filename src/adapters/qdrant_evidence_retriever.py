@@ -63,7 +63,7 @@ class QdrantEvidenceRetriever:
         index: QdrantRetrievalIndex,
         embedder: Any,
         fixed_filters: dict[str, Any] | None = None,
-        limit: int = 5,
+        limit: int = 10,
     ) -> None:
         self._index = index
         self._embedder = embedder

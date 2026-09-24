@@ -52,7 +52,6 @@ class QueryServices:
     readiness: ReadinessProbe
     region_image: RegionImageService
     corpus_version: str
-    corpus_version: str
 
 
 def _build_answer_generator() -> AnswerGenerator:
@@ -102,7 +101,7 @@ def build_query_services(
             index=index,
             embedder=embedder,
             fixed_filters={"usage_policy": "answer_and_citation"},
-            limit=5,
+            limit=10,
         ),
         answer_generator=answer_generator,
         trace_recorder=trace_recorder,
@@ -119,7 +118,7 @@ def build_query_services(
             index=index,
             embedder=embedder,
             fixed_filters={},
-            limit=5,
+            limit=10,
         ),
         answer_generator=answer_generator,
         trace_recorder=trace_recorder,

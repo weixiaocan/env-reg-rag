@@ -156,7 +156,7 @@ def _smoke_queries(
         hits = index.search(
             HybridQuery(text=query, dense_vector=dense),
             mode="rrf",
-            limit=5,
+            limit=10,
         )
         top = hits[0] if hits else None
         out.append({
@@ -194,7 +194,6 @@ def _publish_pointer(corpus_version: str, chunk_count: int) -> None:
         "corpus_version": corpus_version,
         "manifest": f"data/registry/{corpus_version}.json",
         "collection_name": COLLECTION,
-        "query_alias": "corpus_current",
         "chunk_count": chunk_count,
         "action": "built",
     }

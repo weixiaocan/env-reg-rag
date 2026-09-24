@@ -135,7 +135,7 @@ class QdrantServiceIntegrationTest(unittest.TestCase):
                     "effective_status": "current",
                     "as_of": "2025-06-01",
                 },
-                limit=5,
+                limit=10,
             )
 
             self.assertEqual([hit.chunk_id for hit in hits], [chunks[0]["chunk_id"]])
