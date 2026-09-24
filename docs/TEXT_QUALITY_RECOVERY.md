@@ -139,3 +139,16 @@
 
 - 全库人工逐条阅读
 - P6 效力核验、P7 增量 upsert（本轮不绑）
+
+## 8. 落地状态（2026-09-24）
+
+已实现（代码）：
+
+- 共享 `src/ingestion/text_quality.py`（汉字比/符号乱码/空页判定）
+- native 质检委托该模块；`AutomaticPageExtractor` config 升至 `auto-page-v7:...:native-quality=mojibake-v1`（文字阶段缓存失效后重抽）
+- OCR 通过后若仍乱码则 quarantine
+- `scripts/assemble_corpus_v2.py` 对 `garbled_text` **硬失败**（可用 `--allow-garbled` 仅诊断）
+- 分块：不可答文本 `usage_policy=source_locator_only`（answer 路径本就只取 `answer_and_citation`）
+- `scripts/scan_canonical_text_quality.py` 写出 `garble_scan_*.json` + mixed/garbled 复核清单
+
+验收中：用新 config 重建语料 → 重点看 QXT-489 是否不再 `garbled_text`。

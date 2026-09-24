@@ -9,7 +9,7 @@
     "region_count": 13162,
     "layout_omission_quality": "not_independently_verified"
   },
-  "generated_at": "2026-09-22T18:57:29.266841+00:00",
+  "generated_at": "2026-09-23T13:36:11.015583+00:00",
   "source_file_count": 29,
   "unique_content_count": 24,
   "duplicate_copy_count": 5,
@@ -363,7 +363,7 @@
     {
       "sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
       "canonical_rel_path": "data/raw/_official_verification/Chongqing-rain-sewage-guide-official.pdf",
-      "display_file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "display_file_name": "Chongqing-rain-sewage-guide-official.pdf",
       "page_count": 39,
       "source_files": [
         {
@@ -479,7 +479,7 @@
     {
       "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
       "canonical_rel_path": "data/raw/_official_verification/DB4201-T651-2021-official.pdf",
-      "display_file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "display_file_name": "DB4201-T651-2021-official.pdf",
       "page_count": 25,
       "source_files": [
         {
@@ -759,7 +759,7 @@
     {
       "sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
       "canonical_rel_path": "data/raw/_official_verification/QXT-489-2019-official.pdf",
-      "display_file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "display_file_name": "QXT-489-2019-official.pdf",
       "page_count": 12,
       "source_files": [
         {
@@ -1255,7 +1255,7 @@
     {
       "sha256": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
       "canonical_rel_path": "data/raw/_official_verification/GBT-28592-2012-official.pdf",
-      "display_file_name": "GBT 28592-2012降水量等级.pdf",
+      "display_file_name": "GBT-28592-2012-official.pdf",
       "page_count": 7,
       "source_files": [
         {
@@ -1422,5 +1422,10 @@
     }
   ],
   "structure_audit": "data/canonical/corpus-069284e6d60e-structure-audit.json",
-  "structure_audit_sha256": "04e8322912558bb027fb74e402fc258aacf9c705d8360a51dfe3896a36ad9d2d"
+  "structure_audit_sha256": "04e8322912558bb027fb74e402fc258aacf9c705d8360a51dfe3896a36ad9d2d",
+  "retrieval": {
+    "collection_name": "corpus_v2",
+    "chunk_count": 4176,
+    "ingest_report": "data/canonical/v2/corpus-069284e6d60e/ingest_report.json"
+  }
 }

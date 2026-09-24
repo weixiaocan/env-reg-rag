@@ -298,7 +298,7 @@ class AutomaticPageExtractor:
         else:
             self.ocr = OcrPdfParser(engine=PaddleTextOcrEngine(), dpi=150)
         self.config_id = (
-            f"auto-page-v6:native-min={minimum_native_characters}:ocr={enable_ocr}:"
+            f"auto-page-v7:native-min={minimum_native_characters}:ocr={enable_ocr}:native-quality=mojibake-v1:"
             f"layout={self.layout_recognition}:tables={table_recognition}"
         )
 
@@ -394,6 +394,16 @@ class AutomaticPageExtractor:
                 "review": "quarantine",
                 "fail": "failed",
             }[ocr_status]
+        # P3: OCR may still return symbol garbage on broken renders — do not approve it.
+        if status == "approved":
+            from src.ingestion.text_quality import score_text
+            post = score_text(ocr.get("text") or "")
+            if post["status"] == "fail" and any(
+                r in post["reasons"]
+                for r in ("mojibake_symbol_text", "low_han_ratio", "encoded_glyph_markers")
+            ):
+                status = "quarantine"
+                reasons = list(dict.fromkeys(reasons + post["reasons"] + ["ocr_text_unreadable"]))
         return self._page(ocr, status=status, reasons=reasons)
 
 

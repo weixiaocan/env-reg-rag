@@ -1,0 +1,100 @@
+{
+  "corpus_version": "corpus-069284e6d60e",
+  "count": 5,
+  "items": [
+    {
+      "display": "降雨过程强度等级标准.pdf",
+      "std": "",
+      "pages": 12,
+      "ok_pages": 10,
+      "bad_pages": 2,
+      "emptyish_pages": 2,
+      "bad_page_ratio": 0.1667,
+      "verdict": "mixed",
+      "bad_reasons": {
+        "blank_page": 2
+      },
+      "overall_han_ratio": 0.54146,
+      "sample_page": 2,
+      "sample_label": "blank_page",
+      "sample": "",
+      "sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b"
+    },
+    {
+      "display": "Chongqing-rain-sewage-guide-official.pdf",
+      "std": "",
+      "pages": 39,
+      "ok_pages": 32,
+      "bad_pages": 7,
+      "emptyish_pages": 6,
+      "bad_page_ratio": 0.1795,
+      "verdict": "mixed",
+      "bad_reasons": {
+        "too_short": 6,
+        "low_han": 1
+      },
+      "overall_han_ratio": 0.714647,
+      "sample_page": 3,
+      "sample_label": "too_short",
+      "sample": "重庆工程建设",
+      "sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed"
+    },
+    {
+      "display": "QXT-489-2019-official.pdf",
+      "std": "",
+      "pages": 12,
+      "ok_pages": 8,
+      "bad_pages": 4,
+      "emptyish_pages": 4,
+      "bad_page_ratio": 0.3333,
+      "verdict": "mixed",
+      "bad_reasons": {
+        "blank_page": 4
+      },
+      "overall_han_ratio": 0.636973,
+      "sample_page": 2,
+      "sample_label": "blank_page",
+      "sample": "",
+      "sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004"
+    },
+    {
+      "display": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "std": "",
+      "pages": 7,
+      "ok_pages": 5,
+      "bad_pages": 2,
+      "emptyish_pages": 1,
+      "bad_page_ratio": 0.2857,
+      "verdict": "mixed",
+      "bad_reasons": {
+        "blank_page": 1,
+        "mojibake_symbol": 1
+      },
+      "overall_han_ratio": 0.326953,
+      "sample_page": 2,
+      "sample_label": "blank_page",
+      "sample": "",
+      "sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966"
+    },
+    {
+      "display": "GBT+47884-2026.pdf",
+      "std": "",
+      "pages": 19,
+      "ok_pages": 12,
+      "bad_pages": 7,
+      "emptyish_pages": 6,
+      "bad_page_ratio": 0.3684,
+      "verdict": "mixed",
+      "bad_reasons": {
+        "blank_page": 6,
+        "low_han": 1
+      },
+      "overall_han_ratio": 0.667788,
+      "sample_page": 2,
+      "sample_label": "blank_page",
+      "sample": "",
+      "sha256": "d4fc5f9bbe645bc5dd3ef53aa14a3b8620b015123f214ab266608cd17b687766"
+    }
+  ],
+  "note": "P3-c minimal queue: mixed/garbled docs for human review; not a full UI."
+}

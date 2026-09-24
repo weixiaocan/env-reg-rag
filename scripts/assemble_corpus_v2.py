@@ -52,6 +52,7 @@ from src.application.canonical_validation import (  # noqa: E402
 )
 from src.application.corpus_artifacts import resolve_current_corpus  # noqa: E402
 from src.domain.canonical_document import SchemaError  # noqa: E402
+from src.ingestion.text_quality import document_text_quality  # noqa: E402
 
 _DEFAULT_FORMULA_RUN_ID = "5d3264515515e228"
 
@@ -150,6 +151,20 @@ def _write(doc: dict[str, Any], corpus_version: str) -> str:
     return out_path
 
 
+
+
+def _assert_text_quality(page_doc: dict[str, Any], *, allow_garbled: bool) -> dict[str, Any]:
+    """P3-b: refuse to assemble documents whose page text is wholesale unreadable."""
+    report = document_text_quality(page_doc)
+    if report["verdict"] == "garbled_text" and not allow_garbled:
+        raise RuntimeError(
+            f"garbled_text hard-fail: {report.get('display') or page_doc.get('file_name')} "
+            f"sha={page_doc['sha256'][:12]} bad_pages={report['bad_pages']}/"
+            f"{report['pages']} han_ratio={report['overall_han_ratio']} "
+            f"reasons={report['bad_reasons']}"
+        )
+    return report
+
 def _quarantine_count(page_doc: dict[str, Any]) -> int:
     return sum(
         1 for p in page_doc.get("pages") or [] if p.get("decision_status") == "quarantine"
@@ -186,6 +201,10 @@ def main(argv: list[str] | None = None) -> int:
         "--only", nargs="*", default=None,
         help="only assemble these sha256 prefixes (space-separated)",
     )
+    parser.add_argument(
+        "--allow-garbled", action="store_true",
+        help="diagnostic only: assemble even when document verdict is garbled_text",
+    )
     args = parser.parse_args(argv)
 
     corpus_version = args.corpus_version or resolve_current_corpus(
@@ -212,6 +231,7 @@ def main(argv: list[str] | None = None) -> int:
         sha = page_doc["sha256"]
         fn = page_doc.get("file_name") or ""
         try:
+            _assert_text_quality(page_doc, allow_garbled=args.allow_garbled)
             doc = _assemble_one(page_doc, args.formula_run_id)
             out_path = _write(doc, corpus_version)
             quar = _quarantine_count(page_doc)

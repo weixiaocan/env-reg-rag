@@ -26,6 +26,8 @@ Cutting strategy (plan §2.2 "切分格式 5 步"):
 
 from __future__ import annotations
 
+from src.ingestion.text_quality import is_answerable_text
+
 import re
 from typing import Any, Callable, Protocol
 
@@ -473,6 +475,8 @@ class _ChunkBuilder:
         # in Phase 1 (region image rendering is deferred).
         metadata["primary_evidence_id"] = chunk_id
         metadata["source_regions"] = []
+        if not is_answerable_text(text):
+            metadata["usage_policy"] = "source_locator_only"
         chunk = V2Chunk(
             schema_version="v2.chunk/1.0",
             chunk_id=chunk_id,

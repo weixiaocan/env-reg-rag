@@ -2,6 +2,8 @@
 
 from __future__ import annotations
 
+from src.ingestion.text_quality import score_text
+
 import re
 from pathlib import Path
 from typing import Any
@@ -10,48 +12,8 @@ import pymupdf
 
 
 def _native_text_quality(text: str) -> dict[str, Any]:
-    """Score native PDF text; symbol-only mojibake must fail so OCR can run.
-
-    Historical bug: pages with broken CID/ToUnicode fonts can yield dozens of
-    ASCII punctuation characters (e.g. QX/T 489-2019). Counting only
-    non-whitespace length treated them as ``pass`` and skipped OCR.
-    """
-    compact = re.sub(r"\s", "", text)
-    character_count = len(compact)
-    replacement_count = compact.count("\ufffd")
-    glyph_marker_count = len(re.findall(r"/G\d+", text))
-    han_count = len(re.findall(r"[\u4e00-\u9fff]", compact))
-    symbol_count = len(
-        re.findall(r"[!\"#$%&'()*+,\-./:;<=>?@\[\\\]^_`{|}~\xa1-\xff]", compact)
-    )
-    replacement_ratio = replacement_count / character_count if character_count else 0.0
-    han_ratio = han_count / character_count if character_count else 0.0
-    symbol_ratio = symbol_count / character_count if character_count else 0.0
-    reasons: list[str] = []
-    if not character_count:
-        reasons.append("empty_text")
-    if replacement_count:
-        reasons.append("replacement_character_ratio")
-    if glyph_marker_count:
-        reasons.append("encoded_glyph_markers")
-    if character_count >= 20 and han_ratio < 0.12 and symbol_ratio >= 0.25:
-        reasons.append("mojibake_symbol_text")
-    elif character_count >= 40 and han_ratio < 0.15:
-        reasons.append("low_han_ratio")
-    return {
-        "status": "fail" if reasons else "pass",
-        "reasons": reasons,
-        "metrics": {
-            "non_whitespace_characters": character_count,
-            "replacement_characters": replacement_count,
-            "replacement_character_ratio": round(replacement_ratio, 6),
-            "encoded_glyph_markers": glyph_marker_count,
-            "han_characters": han_count,
-            "han_ratio": round(han_ratio, 6),
-            "symbol_characters": symbol_count,
-            "symbol_ratio": round(symbol_ratio, 6),
-        },
-    }
+    """Score native PDF text; symbol-only mojibake must fail so OCR can run."""
+    return score_text(text)
 
 
 

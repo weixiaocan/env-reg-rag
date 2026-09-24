@@ -79,3 +79,4 @@ PDF → UnifiedPageExtractor / CorpusUpdateService → page-intermediate → ass
 | 2026-09-22 | 初稿：固化 P3/P6 延期、澄清公式对照/复核页与主路径边界、排除「完整 SaaS」误解。 |
 | 2026-09-22 | 增补：新增 PDF 时 build 缓存复用 vs ingest 整库重建；将增量分块/嵌入/Qdrant upsert 记为 **P7** 下一阶段优化。 |
 | 2026-09-24 | **P3 提上日程（进行中）**：全文乱码（QXT-489）证明「有字符≠可读」；原生质检未拦符号型乱码导致坏文入库。P3 不再延期：先修检测门槛 + 强制 OCR 恢复，再接线检索放行。隔离/降级只作修复前的临时态，不是终点。 |
+| 2026-09-24 | P3-a/b 代码落地：mojibake 门禁 + assemble 硬失败 + 分块滤不可答 + scan 脚本；整库文字阶段按 v7 重抽并以 QXT-489 验收。 |
