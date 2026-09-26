@@ -215,10 +215,11 @@ class TestAllowGarbledDiagnostic(unittest.TestCase):
 # Ingest: staging collection, offline-first gate, rollback (fakes injected)
 # --------------------------------------------------------------------------- #
 
-def _fake_builder(total: int, *, smoke_hits: int = 5):
-    """Deterministic staging build: records the target collection, returns
-    bytes-stable report data (no timings) so re-runs stay idempotent."""
-    def builder(chunks, qdrant_url, root, *, collection_name, corpus_version=""):
+def _fake_builder(*, smoke_hits: int = 5):
+    """Deterministic staging build: records nothing, returns bytes-stable
+    report data (no timings) so re-runs stay idempotent."""
+    def builder(chunks, qdrant_url, root, *, collection_name,
+                corpus_version="", build_identity="", expected_identity=None):
         return {
             "collection": collection_name, "qdrant_url": qdrant_url,
             "build_status": "ok",
@@ -247,6 +248,12 @@ class _FakeAliasAdmin:
         self.calls.append(("remove", alias))
         self.target = None
 
+    def verify_payload_identity(self, collection_name, *, expected,
+                                expected_vector_size, sparse_enabled):
+        # the real admin delegates to the full-scroll verification; the fake
+        # only records that the pre-switch re-verification ran
+        self.calls.append(("verify", collection_name))
+
 
 class TestIngestStateMachine(unittest.TestCase):
     def _ingest(self, env: _ScriptRoot, *, publish: bool, builder=None,
@@ -256,8 +263,7 @@ class TestIngestStateMachine(unittest.TestCase):
             qdrant_url="http://sentinel.invalid:6333",
             corpus_version=env.cv, publish=publish,
             root=env.root,
-            _builder=builder or _fake_builder(
-                len(getattr(env, "_chunks", [])) or 1),
+            _builder=builder or _fake_builder(),
             _alias_admin=admin,
             _admin_factory=admin_factory,
         )
@@ -271,18 +277,26 @@ class TestIngestStateMachine(unittest.TestCase):
             before = pointer.read_bytes()
             seen = {}
             def builder(chunks, qdrant_url, root, *, collection_name,
-                        corpus_version=""):
+                        corpus_version="", build_identity="",
+                        expected_identity=None):
                 seen["collection"] = collection_name
-                return _fake_builder(len(chunks))(chunks, qdrant_url, root,
-                                                  collection_name=collection_name)
+                seen["build_identity"] = build_identity
+                return _fake_builder()(
+                    chunks, qdrant_url, root, collection_name=collection_name)
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
             report = self._ingest(env, publish=False, builder=builder,
                                   admin=admin)
             self.assertEqual(report["status"], "ok")
-            # a versioned staging collection, never the live one
-            self.assertEqual(seen["collection"],
-                             f"corpus_v2__staging__{env.cv}")
+            # a STABLE build-identity staging collection, never the live one
+            self.assertTrue(seen["collection"].startswith(
+                f"corpus_v2__staging__{env.cv}__"))
             self.assertNotEqual(seen["collection"], "corpus_v2")
+            # the physical name is derived from the build identity
+            self.assertTrue(seen["build_identity"].startswith("bi-"))
+            self.assertEqual(seen["collection"],
+                             f"corpus_v2__staging__{env.cv}__"
+                             f"{seen['build_identity']}")
+            self.assertEqual(report["staging_collection"], seen["collection"])
             # live alias + pointer untouched
             self.assertEqual(admin.calls, [])
             self.assertEqual(pointer.read_bytes(), before)
@@ -316,25 +330,31 @@ class TestIngestStateMachine(unittest.TestCase):
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
             report = self._ingest(env, publish=True, admin=admin)
             self.assertEqual(report["status"], "ok", report.get("publish_gate"))
+            staged = report["staging_collection"]
             current = json.loads(pointer.read_text(encoding="utf-8"))
             self.assertEqual(current["corpus_version"], env.cv)
-            # the pointer now names the VERSIONED staging collection
-            self.assertEqual(current["collection_name"],
-                             f"corpus_v2__staging__{env.cv}")
-            # the alias was switched to the staged collection
-            self.assertEqual(admin.calls, [("switch", "corpus_v2_live",
-                                            f"corpus_v2__staging__{env.cv}")])
+            # the pointer now names the STABLE build-identity staging
+            # collection AND records its build identity
+            self.assertEqual(current["collection_name"], staged)
+            self.assertEqual(current["build_identity"],
+                             report["build_identity"])
+            # T06-R4: the collection identity is re-verified BEFORE the
+            # switch, then the alias is switched to the staged collection
+            self.assertEqual(admin.calls, [("verify", staged),
+                                           ("switch", "corpus_v2_live", staged)])
             records = list((env.root / "data" / "registry" / "rollback").glob("*.json"))
             self.assertEqual(len(records), 1)
             record = json.loads(records[0].read_text(encoding="utf-8"))
             self.assertEqual(record["previous_pointer"]["corpus_version"], "corpus-old")
             self.assertEqual(record["previous_collection"], "corpus_v2_old_target")
-            # the parent-hash chain binds the ingest report
+            # the parent-hash chain binds the ingest report + build identity
             cv_dir = env.root / "data" / "canonical" / "v2" / env.cv
             ingest_manifest = json.loads(
                 (cv_dir / "ingest_manifest.json").read_text(encoding="utf-8"))
             self.assertEqual(ingest_manifest["ingest_report_sha256"],
                              sha256_file(cv_dir / "ingest_report.json"))
+            self.assertEqual(ingest_manifest["build_identity"],
+                             report["build_identity"])
             self.assertIsNotNone(
                 json.loads((cv_dir / "publish_gate_record.json")
                            .read_text(encoding="utf-8"))["gate"] == "passed")
@@ -347,7 +367,8 @@ class TestIngestStateMachine(unittest.TestCase):
                                   "status": "published"})
             before = pointer.read_bytes()
             def builder(chunks, qdrant_url, root, *, collection_name,
-                        corpus_version=""):
+                        corpus_version="", build_identity="",
+                        expected_identity=None):
                 raise RuntimeError("staging upserts exploded")
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
             report = self._ingest(env, publish=True, builder=builder, admin=admin)
@@ -367,8 +388,9 @@ class TestIngestStateMachine(unittest.TestCase):
                                   "status": "published"})
             before = pointer.read_bytes()
             def builder(chunks, qdrant_url, root, *, collection_name,
-                        corpus_version=""):
-                return _fake_builder(len(chunks), smoke_hits=0)(
+                        corpus_version="", build_identity="",
+                        expected_identity=None):
+                return _fake_builder(smoke_hits=0)(
                     chunks, qdrant_url, root, collection_name=collection_name)
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
             report = self._ingest(env, publish=True, builder=builder, admin=admin)
@@ -381,6 +403,24 @@ class TestIngestStateMachine(unittest.TestCase):
             self.assertFalse(
                 (env.root / "data" / "canonical" / "v2" / env.cv
                  / "publish_gate_record.json").exists())
+
+    def test_publish_without_alias_admin_hard_fails_before_any_state_change(self):
+        # T06-R4: a pointer-only switch is a split state by definition --
+        # the missing admin is a HARD failure, before rollback record, alias
+        # or pointer change
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            pointer = env.root / "data" / "registry" / "corpus-current.json"
+            _write_json(pointer, {"corpus_version": "corpus-old",
+                                  "status": "published"})
+            before = pointer.read_bytes()
+            from src.application.publish_state import PublishStateError
+            with self.assertRaises(PublishStateError):
+                self._ingest(env, publish=True, admin=None,
+                             admin_factory=lambda url: None)
+            self.assertEqual(pointer.read_bytes(), before)
+            self.assertFalse(
+                (env.root / "data" / "registry" / "rollback").exists())
 
     def test_stage_artifact_conflict_hard_fails(self):
         with _ScriptRoot() as env:
@@ -412,11 +452,14 @@ class TestIngestStateMachine(unittest.TestCase):
 
 
 class _FakeQdrantState:
-    """Duck-typed collection registry backing resolve_staging_target."""
+    """Duck-typed collection registry backing resolve_staging_target +
+    the full-scroll payload identity verification."""
 
-    def __init__(self, collections=None, vector_size=512):
+    def __init__(self, collections=None, vector_size=512, sparse=("bm25",)):
         self.collections = dict(collections or {})
+        self.payloads: dict[str, list[dict]] = {}
         self.vector_size = vector_size
+        self.sparse = sparse
         self.ops: list[tuple] = []
 
     def collection_exists(self, name):
@@ -425,11 +468,25 @@ class _FakeQdrantState:
     def get_collection(self, name):
         info = type("Info", (), {})()
         info.points_count = self.collections[name]
-
-        class _Vectors:
-            dense = type("Dense", (), {"size": self.vector_size})()
-        info.config = type("Config", (), {"params": _Vectors()})()
+        params = type("Params", (), {})()
+        # real Qdrant: named-vector dict + sparse vector map
+        params.vectors = {
+            "dense": type("Dense", (), {"size": self.vector_size})()}
+        params.sparse_vectors = {n: None for n in self.sparse}
+        info.config = type("Config", (), {"params": params})()
         return info
+
+    def scroll(self, collection_name, limit=256, offset=None,
+               with_payload=True, with_vectors=False):
+        items = self.payloads.get(collection_name, [])
+        start = offset or 0
+        batch = items[start:start + limit]
+        next_offset = start + len(batch)
+        records = [type("Rec", (), {"payload": p})() for p in batch]
+        return records, (None if next_offset >= len(items) else next_offset)
+
+    def get_aliases(self):
+        return type("Aliases", (), {"aliases": []})()
 
     def delete_collection(self, name):
         self.ops.append(("delete", name))
@@ -444,16 +501,28 @@ class _FakeQdrantState:
 
 
 def _stateful_builder(state: _FakeQdrantState, ops: list):
-    """Builder emulating the real immutable staging contract."""
+    """Builder emulating the real R4 immutable staging contract: derive the
+    stable target, resolve (create | verified read-only reuse), store the
+    candidate payloads on create."""
+    import scripts.ingest_corpus_v2 as ing
     from src.application.publish_state import resolve_staging_target
 
-    def builder(chunks, qdrant_url, root, *, collection_name, corpus_version=""):
+    def builder(chunks, qdrant_url, root, *, collection_name,
+                corpus_version="", build_identity="", expected_identity=None):
+        if not build_identity or expected_identity is None:
+            raise ValueError(
+                "build_identity/expected_identity contract violated")
         ops.append(("resolve", collection_name))
         target, mode = resolve_staging_target(
-            state, corpus_version, chunk_count=len(chunks), vector_size=512)
+            state, target_name=collection_name, expected=expected_identity,
+            expected_vector_size=512, sparse_enabled=True,
+            guarded_collections=ing._guarded_collections(state, Path(root)))
         if mode == "create":
             state.create_collection(target)
-            state.collections[target] = len(chunks)
+            payloads = ing._build_payloads(
+                chunks, Path(root), corpus_version, build_identity)
+            state.payloads[target] = payloads
+            state.collections[target] = len(payloads)
             ops.append(("create", target))
         ops.append(("smoke", target))
         return {
@@ -469,6 +538,8 @@ def _stateful_builder(state: _FakeQdrantState, ops: list):
 
 
 class TestStagingImmutabilityE2E(unittest.TestCase):
+    """R4 acceptance scenarios end-to-end through the real ingest()."""
+
     _ingest = TestIngestStateMachine._ingest
 
     def test_republish_rerun_without_publish_never_mutates_staged_collection(self):
@@ -489,28 +560,139 @@ class TestStagingImmutabilityE2E(unittest.TestCase):
             report2 = self._ingest(env, publish=False, builder=_stateful_builder(state, ops2))
             # identity-verified read-only reuse -- zero destructive ops
             self.assertEqual(report2["build"]["mode"], "reuse")
+            self.assertEqual(report2["staging_collection"], staged)
             destructive = [op for op in ops2
                            if op[0] in ("delete", "create", "upsert")]
             self.assertEqual(destructive, [])
             # live state untouched by the re-run
-            self.assertEqual(admin.calls, [("switch", "corpus_v2_live", staged)])
+            self.assertEqual(admin.calls, [("verify", staged),
+                                           ("switch", "corpus_v2_live", staged)])
             self.assertEqual(
                 json.loads(pointer.read_text(encoding="utf-8"))["corpus_version"],
                 env.cv)
 
-    def test_existing_staging_is_never_overwritten(self):
+    def test_same_name_foreign_content_hard_fails_without_any_mutation(self):
+        # acceptance matrix: a collection at the DERIVED name holding foreign
+        # content must hard-fail -- never be deleted, recreated or upserted
+        import scripts.ingest_corpus_v2 as ing
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            # the chunk manifest does not exist yet (ingest writes it);
+            # derive the physical name from the immutable inputs directly
+            from src.application.publish_state import (
+                build_chunk_manifest,
+                write_chunk_manifest,
+            )
+            from src.application.v2_chunker import chunk_document
+            cv_dir = env.root / "data" / "canonical" / "v2" / env.cv
+            chunks = [chunk for path in sorted(cv_dir.glob("*.canonical.json"))
+                      for chunk in chunk_document(json.loads(
+                          path.read_text(encoding="utf-8")))]
+            write_chunk_manifest(env.root, env.cv, build_chunk_manifest(chunks))
+            state = _FakeQdrantState()
+            derived = ing.staging_build_collection_name(
+                env.cv, ing._build_identity(env.root, env.cv))
+            state.collections[derived] = 999
+            state.payloads[derived] = [
+                {"chunk_id": f"foreign_{n}", "text": "别的语料的内容",
+                 "usage_policy": "answer_and_citation",
+                 "source_sha256": "c" * 64, "file_name": "other.pdf",
+                 "build_identity": "bi-000000000000000000000000"}
+                for n in range(3)]
+            ops: list = []
+            report = self._ingest(env, publish=False,
+                                  builder=_stateful_builder(state, ops))
+            self.assertEqual(report["status"], "failed")
+            self.assertIn("CollectionIdentityError",
+                          report["build"]["error"])
+            # foreign content preserved byte-for-byte; zero mutations
+            self.assertEqual(len(state.payloads[derived]), 3)
+            self.assertNotIn("delete", [op[0] for op in ops])
+            self.assertNotIn("create", [op[0] for op in ops])
+            self.assertNotIn("upsert", [op[0] for op in ops])
+
+    def test_crash_before_manifest_rerun_does_not_create_second_collection(self):
+        # acceptance matrix (R4): build done but manifest never landed ->
+        # the rerun re-derives the SAME physical name and reuses read-only
         with _ScriptRoot() as env:
             self.assertEqual(_assemble(env.root, env.cv), 0)
             state = _FakeQdrantState()
-            staged = f"corpus_v2__staging__{env.cv}"
-            state.collections[staged] = 999  # foreign content
-            ops: list = []
-            report = self._ingest(env, publish=False, builder=_stateful_builder(state, ops))
-            # fresh immutable build identity, old collection untouched
-            self.assertNotEqual(report["build"]["collection"], staged)
-            self.assertIn(staged, state.collections)
-            self.assertNotIn("delete", [op[0] for op in ops])
-            self.assertEqual(ops.count(("create", staged)), 0)
+            self._ingest(env, publish=False, builder=_stateful_builder(state, []))
+            staged = next(
+                name for name in state.collections
+                if name.startswith(f"corpus_v2__staging__{env.cv}__"))
+            # simulate the crash: NOTHING of the stage chain survived
+            cv_dir = env.root / "data" / "canonical" / "v2" / env.cv
+            for name in ("chunk_manifest.json", "ingest_report.json",
+                         "ingest_manifest.json", "publish_gate_record.json"):
+                (cv_dir / name).unlink()
+            ops2: list = []
+            report2 = self._ingest(env, publish=False,
+                                   builder=_stateful_builder(state, ops2))
+            self.assertEqual(report2["status"], "ok")
+            # same derived name, reuse -- no second collection was created
+            self.assertEqual(report2["staging_collection"], staged)
+            self.assertEqual(report2["build"]["mode"], "reuse")
+            self.assertEqual(
+                [op for op in ops2 if op[0] in ("create", "delete", "upsert")],
+                [])
+            staging_names = [name for name in state.collections
+                             if name.startswith("corpus_v2__staging__")]
+            self.assertEqual(staging_names, [staged])
+
+    def test_embedding_profile_change_is_never_reused(self):
+        # acceptance matrix (R4): same chunks but a different embedding
+        # profile -> a different build identity -> the old collection must
+        # NOT be reused; the chain-bound target mismatches -> hard fail
+        import scripts.ingest_corpus_v2 as ing
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            state = _FakeQdrantState()
+            report1 = self._ingest(env, publish=False,
+                                   builder=_stateful_builder(state, []))
+            staged = report1["staging_collection"]
+            original = ing._embedding_profile
+            ing._embedding_profile = lambda: {
+                "model_id": "BAAI/bge-small-zh-v1.5",
+                "model_revision": "rev-tampered",
+                "dimension": 512}
+            try:
+                ops2: list = []
+                report2 = self._ingest(env, publish=False,
+                                       builder=_stateful_builder(state, ops2))
+            finally:
+                ing._embedding_profile = original
+            self.assertEqual(report2["status"], "failed")
+            self.assertIn("CollectionIdentityError",
+                          report2["build"]["error"])
+            # the old collection was never touched, no new collection created
+            self.assertEqual(list(state.collections), [staged])
+            self.assertEqual(
+                [op for op in ops2 if op[0] in ("create", "delete", "upsert")],
+                [])
+
+    def test_payload_tamper_is_never_reused(self):
+        # acceptance matrix (R4): stored text tampered -> the full-scroll
+        # payload digest no longer matches -> read-only reuse is refused
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            state = _FakeQdrantState()
+            report1 = self._ingest(env, publish=False,
+                                   builder=_stateful_builder(state, []))
+            staged = report1["staging_collection"]
+            state.payloads[staged][0]["text"] = "被篡改后的正文内容"
+            ops2: list = []
+            report2 = self._ingest(env, publish=False,
+                                   builder=_stateful_builder(state, ops2))
+            self.assertEqual(report2["status"], "failed")
+            self.assertIn("CollectionIdentityError",
+                          report2["build"]["error"])
+            # nothing was rewritten (the tampered point was NOT "repaired")
+            self.assertEqual(state.payloads[staged][0]["text"],
+                             "被篡改后的正文内容")
+            self.assertEqual(
+                [op for op in ops2 if op[0] in ("create", "delete", "upsert")],
+                [])
 
     def test_offline_failure_does_not_initialize_qdrant(self):
         with _ScriptRoot() as env:
@@ -558,20 +740,26 @@ class TestRuntimeQueryEntry(unittest.TestCase):
                     alias_map[alias] = collection
                 def remove_alias(self, alias):
                     alias_map.pop(alias, None)
+                def verify_payload_identity(self, collection_name, *, expected,
+                                            expected_vector_size, sparse_enabled):
+                    pass
 
             query_entry = resolve_query_collection(env.root)
             admin = AliasServerAdmin()
 
-            self._ingest(env, publish=True, admin=admin)
+            report = self._ingest(env, publish=True, admin=admin)
+            staged = report["staging_collection"]
+            self.assertTrue(staged.startswith(
+                f"corpus_v2__staging__{env.cv}__"))
             self.assertEqual(query_entry, "corpus_v2_live")
             current = json.loads(
                 pointer.read_text(encoding="utf-8"))
             self.assertEqual(current["alias"], "corpus_v2_live")
-            self.assertEqual(current["collection_name"],
-                             f"corpus_v2__staging__{env.cv}")
+            self.assertEqual(current["collection_name"], staged)
+            self.assertEqual(current["build_identity"],
+                             report["build_identity"])
             # the running service now sees the staged collection live
-            self.assertEqual(alias_map[query_entry],
-                             f"corpus_v2__staging__{env.cv}")
+            self.assertEqual(alias_map[query_entry], staged)
             # rollback flips the alias back -- same entry, old target
             rollback_pointer(env.root, alias_admin=admin)
             self.assertEqual(query_entry, "corpus_v2_live")

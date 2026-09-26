@@ -11,10 +11,15 @@ strict stages:
    ``offline_preflight`` validates schema, registry readiness, zero garbled,
    policy invariants and non-publishable markers (``--allow-garbled``
    diagnostics are refused);
-2. chunks are embedded into the VERSIONED STAGING collection
-   ``corpus_v2__staging__<corpus_version>`` -- the fixed live collection
-   ``corpus_v2``, any alias and the ``corpus-current`` pointer are NEVER
-   written before the gate passes AND ``--publish`` is requested;
+2. chunks are embedded into the STABLE BUILD-IDENTITY staging collection
+   ``corpus_v2__staging__<corpus_version>__bi-<hex>`` -- the physical name is
+   derived (T06-R4) from artifact/chunk manifests, the embedding profile,
+   vector/sparse config and the enrichment version, so a rerun (even after a
+   crash between Qdrant-create and manifest-write) addresses the SAME
+   collection; reuse is granted only after a full-scroll payload identity
+   check (fail-closed). The fixed live collection ``corpus_v2``, any alias
+   and the ``corpus-current`` pointer are NEVER written before the gate
+   passes AND ``--publish`` is requested;
 3. the CLOSED publish gate re-runs the full offline preflight, the exact
    canonical file set + aggregate hash, chunk-set identity, count equality
    and the COMPLETE fixed smoke query set;
@@ -50,23 +55,30 @@ _REPO_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, _REPO_ROOT)
 
 from src.application.corpus_artifacts import resolve_current_corpus  # noqa: E402
-from src.application.payload_enrichment import build_enrichment  # noqa: E402
+from src.application.payload_enrichment import (  # noqa: E402
+    ENRICHMENT_SCHEMA_VERSION,
+    build_enrichment,
+)
 from src.application.publish_state import (  # noqa: E402
     FIXED_SMOKE_QUERIES,
     LIVE_ALIAS,
     LIVE_COLLECTION,
     CandidateConflictError,
-    OfflineValidationError,
+    PublishStateError,
     build_chunk_manifest,
     build_ingest_manifest,
+    canonical_payload_identity,
     load_artifact_manifest,
     load_gate_record,
     load_ingest_manifest,
     offline_preflight,
     publish_gate,
+    resolve_staging_target,
     sha256_file,
-    staging_collection_name,
+    staging_build_collection_name,
+    staging_build_identity,
     switch_pointer,
+    verify_collection_payload_identity,
     write_candidate,
     write_chunk_manifest,
     write_gate_record,
@@ -76,6 +88,59 @@ from src.application.v2_chunker import chunk_document  # noqa: E402
 from src.domain.v2_chunk import V2Chunk  # noqa: E402
 
 DEFAULT_QDRANT_URL = "http://127.0.0.1:6333"
+
+# The sparse (BM25) collection configuration as consumed by the embedding
+# index -- part of the stable build identity. Mirrors
+# QdrantRetrievalIndex._bm25_options.
+_SPARSE_CONFIG: dict[str, Any] = {
+    "bm25": {"modifier": "idf", "tokenizer": "multilingual",
+             "stemmer": "none", "stopwords": "default"},
+}
+
+
+def _embedding_profile() -> dict[str, Any]:
+    """The pinned embedding model identity (lazy import: heavy torch load)."""
+    from src.retrieval.bge_small_zh import BgeSmallZhEmbedder  # noqa: E402
+
+    return {
+        "model_id": BgeSmallZhEmbedder.model_id,
+        "model_revision": BgeSmallZhEmbedder.model_revision,
+        "dimension": BgeSmallZhEmbedder.dimension,
+    }
+
+
+def _vector_size() -> int:
+    return int(_embedding_profile()["dimension"])
+
+
+def _build_identity(root_path: Path, corpus_version: str) -> str:
+    """Derive the STABLE physical build identity (T06-R4).
+
+    Pure function of the immutable input set: artifact + chunk manifest
+    hashes, embedding profile, vector/sparse config, enrichment version. A
+    rerun (even after a crash between Qdrant-create and manifest-write)
+    re-derives the same name.
+    """
+    art_dir = root_path / "data" / "canonical" / "v2" / corpus_version
+    return staging_build_identity(
+        corpus_version=corpus_version,
+        artifact_manifest_sha256=sha256_file(art_dir / "artifact_manifest.json"),
+        chunk_manifest_sha256=sha256_file(art_dir / "chunk_manifest.json"),
+        embedding_profile=_embedding_profile(),
+        vector_config={"distance": "cosine", "size": _vector_size()},
+        sparse_config=_SPARSE_CONFIG,
+        enrichment_version=ENRICHMENT_SCHEMA_VERSION,
+    )
+
+
+def _build_payloads(
+    chunks: list[V2Chunk], root: Path, corpus_version: str, build_identity: str
+) -> list[dict[str, Any]]:
+    """Enriched point payloads, each stamped with the build identity."""
+    return [
+        {**payload, "build_identity": build_identity}
+        for payload in _enrich_chunks(chunks, root, corpus_version)
+    ]
 
 
 class QdrantAliasAdmin:
@@ -121,6 +186,16 @@ class QdrantAliasAdmin:
         self._client.update_collection_aliases(change_aliases_operations=[
             models.DeleteAliasOperation(
                 delete_alias=models.DeleteAlias(alias_name=alias))])
+
+    def verify_payload_identity(
+        self, collection_name: str, *, expected: dict,
+        expected_vector_size: int, sparse_enabled: bool,
+    ) -> None:
+        """T06-R4: full-scroll payload identity check used at publish time."""
+        verify_collection_payload_identity(
+            self._client, collection_name, expected=expected,
+            expected_vector_size=expected_vector_size,
+            sparse_enabled=sparse_enabled)
 
 
 def _iter_canonical_paths(corpus_version: str, root: str | os.PathLike) -> list[str]:
@@ -264,17 +339,22 @@ def _build_collection(
     *,
     collection_name: str,
     corpus_version: str = "",
+    build_identity: str = "",
+    expected_identity: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
-    """Embed chunks into the VERSIONED STAGING collection (create-only).
+    """Embed chunks into the STABLE build-identity collection (T06-R4).
 
-    Called ONLY after offline validation has fully passed. The concrete
-    target is resolved via :func:`resolve_staging_target`: an existing
-    staging collection is reused READ-ONLY after identity verification
-    (no re-embed, no upsert); a foreign-content staging collection is never
-    touched -- the build proceeds under a fresh immutable identity. The
-    fixed live collection, the pointer's collection and the live alias's
-    target are guarded and can never be targeted. Promotion happens solely
-    through the gated alias/pointer switch.
+    Called ONLY after offline validation has fully passed. The target name
+    is derived from the immutable input set (manifest hashes + embedding /
+    vector / sparse / enrichment identity). An existing collection at that
+    name is reused READ-ONLY only after its FULL payload identity is proven
+    (full scroll; point count, complete vector schema, canonicalized payload
+    digest, global policy counts); ANY mismatch is a fail-closed
+    :class:`CollectionIdentityError` -- the collection is never deleted,
+    recreated or upserted, and no alternate name is minted. The fixed live
+    collection, the pointer's collection and the live alias's target are
+    guarded and can never be targeted. Promotion happens solely through the
+    gated alias/pointer switch.
     """
     from qdrant_client import QdrantClient  # noqa: E402
 
@@ -282,9 +362,12 @@ def _build_collection(
     from src.retrieval.qdrant_index import (  # noqa: E402
         QdrantRetrievalIndex,
     )
-    from src.application.publish_state import (  # noqa: E402
-        resolve_staging_target,
-    )
+
+    if not build_identity or expected_identity is None:
+        raise ValueError(
+            "build_identity + expected_identity are mandatory: the physical "
+            "collection identity is never judged from counts alone")
+    root_path = Path(root or _REPO_ROOT)
 
     report: dict[str, Any] = {
         "collection": collection_name,
@@ -294,14 +377,14 @@ def _build_collection(
         "point_count": 0,
     }
 
-    root_path = Path(root or _REPO_ROOT)
     embedder = BgeSmallZhEmbedder(local_files_only=True, device="cpu")
-
     client = QdrantClient(url=qdrant_url)
     target, mode = resolve_staging_target(
-        client, corpus_version,
-        chunk_count=len(chunks),
-        vector_size=BgeSmallZhEmbedder.dimension,
+        client,
+        target_name=collection_name,
+        expected=expected_identity,
+        expected_vector_size=BgeSmallZhEmbedder.dimension,
+        sparse_enabled=True,
         guarded_collections=_guarded_collections(client, root_path),
     )
     report["collection"] = target
@@ -315,14 +398,12 @@ def _build_collection(
     )
 
     if mode == "reuse":
-        # identity-verified READ-ONLY reuse: never re-embed, never upsert --
-        # an existing staging collection is immutable once built.
-        info = client.get_collection(target)
-        points = int(info.points_count or 0)
+        # full-payload identity verified READ-ONLY reuse: never re-embed,
+        # never upsert -- an existing staging collection is immutable.
         report.update({
             "build_status": "reused_readonly",
-            "vector_count": points,
-            "point_count": points,
+            "vector_count": expected_identity["chunk_count"],
+            "point_count": expected_identity["chunk_count"],
             "search_smoke": _smoke_queries(client, index, embedder),
         })
         return report
@@ -330,17 +411,23 @@ def _build_collection(
     vectors = embedder.embed_documents([c.text for c in chunks])
     report["vector_count"] = len(vectors)
 
-    payloads = _enrich_chunks(
-        chunks, Path(root or _REPO_ROOT), corpus_version)
+    payloads = _build_payloads(chunks, root_path, corpus_version, build_identity)
     if len(vectors) != len(payloads):
         raise RuntimeError(
             f"vector/payload count mismatch: {len(vectors)} vs {len(payloads)}")
 
     # create-only: a collection that already exists is NEVER deleted and
-    # recreated (resolve_staging_target already steered us to a fresh
-    # identity in that case -- this is the hard backstop).
+    # recreated (resolve_staging_target already verified/hard-failed on any
+    # existing collection -- this is the hard backstop).
     index.build(payloads, vectors, create_only=True)
     report["build_status"] = "ok"
+
+    # prove what we just wrote: same full payload identity as the candidate
+    verify_collection_payload_identity(
+        client, target,
+        expected=expected_identity,
+        expected_vector_size=BgeSmallZhEmbedder.dimension,
+        sparse_enabled=True)
 
     info = client.get_collection(target)
     report["point_count"] = info.points_count
@@ -420,23 +507,44 @@ def ingest(
     print(f"[ingest] offline preflight ok: {preflight['documents']} docs, "
           f"{preflight['total_chunks']} chunks")
 
-    staging = staging_collection_name(corpus_version)
+    # ---- Stage 1.5 (T06-R4): derive the STABLE build identity from the
+    # immutable input set and compute the expected payload identity offline.
+    # Both happen BEFORE any Qdrant touch; a crash later re-derives the same
+    # collection name.
+    build_id = _build_identity(root_path, corpus_version)
+    expected = canonical_payload_identity(
+        _build_payloads(chunks, root_path, corpus_version, build_id),
+        build_identity=build_id)
+    print(f"[ingest] build identity: {build_id}")
+
+    # An immutable stage chain already on disk is authoritative: prefer the
+    # concrete collection it binds (normally identical to the derivation;
+    # if inputs changed, verification against the chain-bound collection
+    # fails closed instead of orphaning it).
+    existing_chain = load_ingest_manifest(root_path, corpus_version, verify=True)
+    staging = staging_build_collection_name(corpus_version, build_id)
+    if existing_chain is not None and existing_chain.get("collection_name"):
+        staging = str(existing_chain["collection_name"])
+
     report: dict[str, Any] = {
         "corpus_version": corpus_version,
         "live_collection": LIVE_COLLECTION,
         "staging_collection": staging,
+        "build_identity": build_id,
         "total_chunks": total,
         "chunk_report": chunk_report,
     }
 
-    # ---- Stage 2: build the VERSIONED STAGING collection (only after all
-    # offline validation passed). A build failure is recorded in the final
-    # report; live state (collection/alias/pointer) stays untouched.
+    # ---- Stage 2: build/verify the STABLE build-identity collection (only
+    # after all offline validation passed). A build failure is recorded in
+    # the final report; live state (collection/alias/pointer) stays untouched.
     builder = _builder or _build_collection
     try:
         build_report = builder(chunks, qdrant_url, root_path,
                                collection_name=staging,
-                               corpus_version=corpus_version)
+                               corpus_version=corpus_version,
+                               build_identity=build_id,
+                               expected_identity=expected)
     except Exception as exc:  # noqa: BLE001 -- fail-closed on any build error
         build_report = {
             "collection": staging, "qdrant_url": qdrant_url,
@@ -446,7 +554,13 @@ def ingest(
         }
         report["build"] = build_report
         report["status"] = "failed"
-        _write_stage_reports(root_path, corpus_version, report)
+        try:
+            _write_stage_reports(root_path, corpus_version, report)
+        except CandidateConflictError:
+            # an earlier stage report is already on disk and immutable --
+            # keep it; this run's failure is reported in the return value
+            print("[ingest] an immutable stage report already exists -- "
+                  "failure recorded in this run's return value only")
         print(f"[ingest] staging build FAILED: {build_report['error']}")
         return report
 
@@ -457,6 +571,7 @@ def ingest(
         vector_count=build_report.get("vector_count", 0),
         smoke_results=build_report.get("search_smoke") or [],
         collection_name=build_report.get("collection") or staging,
+        build_identity=build_id,
     )
     ok = gate["gate"] == "passed"
     report["build"] = build_report
@@ -491,13 +606,38 @@ def ingest(
     if publish and ok:
         admin = _alias_admin or (
             _admin_factory(qdrant_url) if _admin_factory else None)
-        switch_pointer(root_path, corpus_version, alias_admin=admin)
+        if admin is None:
+            # T06-R4: a pointer-only switch is forbidden -- fail BEFORE the
+            # rollback record, the alias or the pointer change.
+            raise PublishStateError(
+                "publish refused: no Qdrant alias admin available -- refusing "
+                "to switch the pointer without the live alias")
+        verify_collection = _collection_verifier(
+            admin, expected, build_report.get("collection") or staging)
+        switch_pointer(root_path, corpus_version, alias_admin=admin,
+                       verify_collection=verify_collection)
         print(f"[ingest] published {corpus_version}: alias/pointer switched "
               "(rollback record written)")
     elif publish:
         print("[ingest] --publish refused: publish gate did not pass "
               f"({'; '.join(gate['failures'])})")
     return report
+
+
+def _collection_verifier(admin, expected: dict, collection_name: str):
+    """T06-R4: re-verify the CONCRETE collection identity immediately before
+    the alias/pointer switch (full scroll + schema + policy counts)."""
+
+    def _verify(target: str) -> None:
+        if target != collection_name:
+            raise PublishStateError(
+                f"publish refused: gate bound {collection_name!r} but the "
+                f"switch targets {target!r}")
+        admin.verify_payload_identity(
+            target, expected=expected,
+            expected_vector_size=_vector_size(), sparse_enabled=True)
+
+    return _verify
 
 
 def _write_stage_reports(
@@ -519,9 +659,10 @@ def _write_stage_reports(
         ingest_report_sha=sha256_file(
             root_path / "data" / "canonical" / "v2" / corpus_version
             / "ingest_report.json"),
-        # bind the CONCRETE build identity the gate verified (base staging
-        # name or a fresh immutable build identity)
+        # bind the CONCRETE build identity the gate verified, plus the
+        # stable build identity the collection was derived from
         collection_name=build.get("collection"),
+        build_identity=report.get("build_identity"),
     )
     write_ingest_manifest(root_path, corpus_version, ingest_manifest)
     if report.get("publish_gate", {}).get("gate") == "passed":
@@ -541,6 +682,7 @@ def _print_report(report: dict[str, Any]) -> None:
     print(f"  corpus_version    : {report['corpus_version']}")
     print(f"  live collection   : {report['live_collection']}")
     print(f"  staging collection: {report['staging_collection']}")
+    print(f"  build_identity    : {report.get('build_identity')}")
     print(f"  documents         : {report['chunk_report']['documents']}")
     print(f"  total_chunks      : {report['total_chunks']}")
     print(f"  vector_count      : {b['vector_count']}")

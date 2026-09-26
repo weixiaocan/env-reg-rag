@@ -20,6 +20,11 @@ from __future__ import annotations
 
 from typing import Any
 
+# T06-R4: version of the enrichment step. Part of the stable build identity:
+# changing the enrichment schema derives a NEW staging collection instead of
+# silently reusing a collection built under the old schema.
+ENRICHMENT_SCHEMA_VERSION = "t06.enrichment/1.0"
+
 
 def build_enrichment(
     payload: dict[str, Any],

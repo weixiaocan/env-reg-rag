@@ -36,14 +36,13 @@ from __future__ import annotations
 import hashlib
 import json
 import os
-import uuid
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
 
 from src.application.canonical_validation import validate_document
 
-SCHEMA_VERSION = "t06-2"
+SCHEMA_VERSION = "t06-3"
 
 # The fixed LIVE collection -- ingest NEVER writes it; a staged collection
 # is promoted only through the gated alias/pointer switch.
@@ -86,57 +85,218 @@ class PublishGateError(PublishStateError):
     """The publish gate failed; the pointer must not switch."""
 
 
+class CollectionIdentityError(PublishStateError):
+    """A physical collection's content identity does not match the derived
+    build identity; it is never deleted, recreated or upserted."""
+
+
 def staging_collection_name(corpus_version: str) -> str:
     """Versioned staging collection for one candidate corpus version."""
     return f"{LIVE_COLLECTION}__staging__{corpus_version}"
 
 
+def staging_build_identity(
+    *,
+    corpus_version: str,
+    artifact_manifest_sha256: str,
+    chunk_manifest_sha256: str,
+    embedding_profile: dict[str, Any],
+    vector_config: dict[str, Any],
+    sparse_config: dict[str, Any] | None,
+    enrichment_version: str,
+) -> str:
+    """Deterministic physical build identity (T06-R4).
+
+    Derived from the FULL input set: the artifact + chunk manifest hashes,
+    the embedding model id/revision/dimension, the dense + sparse collection
+    configuration and the payload/enrichment schema version. Because the
+    derivation is pure, a crash between "collection created on Qdrant" and
+    "manifest written" re-derives the SAME name -- a rerun finds the orphaned
+    collection instead of minting another one.
+    """
+    payload = json.dumps({
+        "corpus_version": corpus_version,
+        "artifact_manifest_sha256": artifact_manifest_sha256,
+        "chunk_manifest_sha256": chunk_manifest_sha256,
+        "embedding_profile": embedding_profile,
+        "vector_config": vector_config,
+        "sparse_config": sparse_config,
+        "enrichment_version": enrichment_version,
+    }, sort_keys=True, ensure_ascii=False)
+    return "bi-" + hashlib.sha256(payload.encode("utf-8")).hexdigest()[:24]
+
+
+def staging_build_collection_name(corpus_version: str, build_identity: str) -> str:
+    """The physical collection name for one build identity (stable)."""
+    return f"{staging_collection_name(corpus_version)}__{build_identity}"
+
+
+# Payload fields every stored point must carry for identity verification --
+# a missing or empty field is a fail-closed identity error, never a guess.
+_PAYLOAD_IDENTITY_FIELDS = (
+    "chunk_id", "text", "usage_policy", "source_sha256", "file_name",
+    "build_identity",
+)
+
+
+def canonical_payload_identity(
+    payloads: Any, *, build_identity: str
+) -> dict[str, Any]:
+    """Digest the canonicalized identity fields of the full payload stream.
+
+    Covers (at least) chunk_id, a text digest, usage_policy, the source
+    identity (source_sha256 + file_name) and the build_identity. Raises
+    :class:`CollectionIdentityError` on any missing/empty identity field or
+    a foreign build_identity.
+    """
+    lines: list[str] = []
+    policy_counts: dict[str, int] = {}
+    for payload in payloads:
+        missing = [key for key in _PAYLOAD_IDENTITY_FIELDS
+                   if not payload.get(key)]
+        if missing:
+            raise CollectionIdentityError(
+                f"payload is missing identity fields {missing}")
+        if payload["build_identity"] != build_identity:
+            raise CollectionIdentityError(
+                f"payload build_identity {payload['build_identity']!r} does "
+                f"not match this build {build_identity!r}")
+        text_digest = hashlib.sha256(
+            " ".join(str(payload["text"]).split()).encode("utf-8")).hexdigest()
+        source = f"{payload['source_sha256']}|{payload['file_name']}"
+        lines.append(
+            f"{payload['chunk_id']} {payload['usage_policy']} "
+            f"{text_digest} {source} {build_identity}")
+        policy_counts[payload["usage_policy"]] = \
+            policy_counts.get(payload["usage_policy"], 0) + 1
+    digest = hashlib.sha256("\n".join(sorted(lines)).encode("utf-8")).hexdigest()
+    return {
+        "build_identity": build_identity,
+        "chunk_count": len(lines),
+        "policy_counts": dict(sorted(policy_counts.items())),
+        "payload_digest": digest,
+    }
+
+
+def _scroll_all_payloads(client: Any, collection_name: str) -> list[dict[str, Any]]:
+    """Full scroll of every stored payload (the identity proof)."""
+    payloads: list[dict[str, Any]] = []
+    offset: Any = None
+    while True:
+        records, offset = client.scroll(
+            collection_name=collection_name,
+            limit=256,
+            offset=offset,
+            with_payload=True,
+            with_vectors=False,
+        )
+        for record in records or []:
+            payloads.append(dict(record.payload or {}))
+        if offset is None:
+            return payloads
+
+
+def _collection_dense_vector_size(info: Any) -> int:
+    try:
+        return int(info.config.params.vectors["dense"].size)
+    except Exception as exc:
+        raise CollectionIdentityError(
+            "dense vector schema unreadable; refusing to judge collection "
+            "identity (fail-closed)") from exc
+
+
+def _collection_sparse_names(info: Any) -> set[str]:
+    try:
+        return set((info.config.params.sparse_vectors or {}).keys())
+    except Exception as exc:
+        raise CollectionIdentityError(
+            "sparse vector schema unreadable; refusing to judge collection "
+            "identity (fail-closed)") from exc
+
+
+def verify_collection_payload_identity(
+    client: Any,
+    collection_name: str,
+    *,
+    expected: dict[str, Any],
+    expected_vector_size: int,
+    sparse_enabled: bool,
+) -> None:
+    """Prove a physical collection IS the candidate it claims to be.
+
+    Strict verification: complete vector schema (dense size + sparse
+    presence), exact point count, and a FULL payload scroll whose
+    canonicalized identity digest + global policy counts must match the
+    expected values. Any unreadable schema or missing payload field fails
+    closed.
+    """
+    info = client.get_collection(collection_name)
+    size = _collection_dense_vector_size(info)
+    if size != expected_vector_size:
+        raise CollectionIdentityError(
+            f"collection {collection_name!r} dense vector size {size} does "
+            f"not match the expected {expected_vector_size}")
+    sparse = _collection_sparse_names(info)
+    if sparse_enabled != ("bm25" in sparse):
+        raise CollectionIdentityError(
+            f"collection {collection_name!r} sparse schema {sorted(sparse)!r} "
+            f"does not match sparse_enabled={sparse_enabled}")
+    points = int(getattr(info, "points_count", 0) or 0)
+    if points != expected["chunk_count"]:
+        raise CollectionIdentityError(
+            f"collection {collection_name!r} holds {points} points, "
+            f"expected {expected['chunk_count']}")
+    actual = canonical_payload_identity(
+        _scroll_all_payloads(client, collection_name),
+        build_identity=expected["build_identity"])
+    if actual["payload_digest"] != expected["payload_digest"] \
+            or actual["policy_counts"] != expected["policy_counts"] \
+            or actual["chunk_count"] != expected["chunk_count"]:
+        raise CollectionIdentityError(
+            f"collection {collection_name!r} payload identity mismatch: "
+            f"digest/policy/counts do not match the candidate chunk stream")
+
+
 def resolve_staging_target(
     client: Any,
-    corpus_version: str,
     *,
-    chunk_count: int,
-    vector_size: int,
+    target_name: str,
+    expected: dict[str, Any],
+    expected_vector_size: int,
+    sparse_enabled: bool,
     guarded_collections: set[str] | None = None,
 ) -> tuple[str, str]:
     """Resolve the immutable staging target: create | reuse (read-only).
 
-    T06-R3 P1-1: staging is CREATE-ONLY/immutable. A collection referenced
-    by the current pointer or the live alias is NEVER deleted, recreated or
-    upserted; an existing collection is reused READ-ONLY only after its
-    identity (point count + vector size) matches the staged chunk stream;
-    otherwise the build proceeds under a NEW immutable build identity
-    (fresh unique suffix) -- the old collection stays untouched.
+    T06-R4: the target name is the STABLE build-identity name (no random
+    suffixes). An existing collection is reused READ-ONLY only after
+    :func:`verify_collection_payload_identity` proves its full payload
+    identity; any mismatch is a fail-closed
+    :class:`CollectionIdentityError` -- the collection is never deleted,
+    recreated or upserted. Guarded collections (live collection, the
+    pointer's collection, the live alias target) are never build targets.
 
-    Returns ``(collection_name, mode)`` with ``mode`` in
-    ``{"create", "reuse"}``. ``client`` is duck-typed (a real QdrantClient
-    or a test fake); this module still never imports qdrant.
+    ``client`` is duck-typed (a real QdrantClient or a test fake); this
+    module still never imports qdrant.
     """
-    base = staging_collection_name(corpus_version)
-    guarded = set(guarded_collections or ())
-    if not client.collection_exists(base):
-        return base, "create"
-    info = client.get_collection(base)
-    points = int(getattr(info, "points_count", 0) or 0)
-    existing_size = _collection_vector_size(info)
-    if points == chunk_count and (existing_size is None or existing_size == vector_size):
-        # identity verified -> read-only reuse (no delete / upsert)
-        return base, "reuse"
-    # identity mismatch -> fresh immutable build identity; never delete
-    # anything, whether or not the old collection is still referenced
-    build_id = uuid.uuid4().hex[:12]
-    fresh = f"{base}__{build_id}"
-    while fresh in guarded:  # paranoid safety net: never target a guarded name
-        build_id = uuid.uuid4().hex[:12]
-        fresh = f"{base}__{build_id}"
-    return fresh, "create"
-
-
-def _collection_vector_size(info: Any) -> int | None:
-    try:
-        return int(info.config.params.vectors["dense"].size)
-    except Exception:
-        return None
+    # T06-R4: the fixed live collection is guarded IMPLICITLY -- no caller
+    # contract can ever turn it into a build target.
+    guarded = target_name == LIVE_COLLECTION \
+        or target_name in set(guarded_collections or ())
+    if not client.collection_exists(target_name):
+        if guarded:
+            raise CollectionIdentityError(
+                f"refusing to build into guarded collection {target_name!r}")
+        return target_name, "create"
+    # read-only verification is allowed even for a guarded collection (a
+    # republish re-run must still re-verify the already-promoted staging
+    # collection); the guarded name can never be CREATED, deleted or upserted
+    verify_collection_payload_identity(
+        client, target_name,
+        expected=expected,
+        expected_vector_size=expected_vector_size,
+        sparse_enabled=sparse_enabled)
+    return target_name, "reuse"
 
 
 def _is_staging_collection_name(base: str, name: Any) -> bool:
@@ -296,6 +456,10 @@ def build_chunk_manifest(chunks: list[Any]) -> dict[str, Any]:
         entry = per_doc.setdefault(payload_sha, {"chunk_count": 0, "policy_counts": {}})
         entry["chunk_count"] += 1
         entry["policy_counts"][policy] = entry["policy_counts"].get(policy, 0) + 1
+        # T06-R4 fix: the GLOBAL policy counts must be populated too --
+        # the publish gate compares these against the re-chunked canonicals
+        # and against the Qdrant payload identity.
+        policy_counts[policy] = policy_counts.get(policy, 0) + 1
         lines.append(f"{chunk_id} {policy}")
     digest = hashlib.sha256("\n".join(sorted(lines)).encode("utf-8")).hexdigest()
     return {
@@ -431,13 +595,15 @@ def build_ingest_manifest(
     chunk_manifest_sha: str,
     ingest_report_sha: str,
     collection_name: str | None = None,
+    build_identity: str | None = None,
 ) -> dict[str, Any]:
     """Bind the ingest-stage inputs/outputs into the parent-hash chain.
 
     The ingest manifest pins: the assemble-stage manifest hash, the chunk
-    manifest hash and the ingest report hash, plus the concrete staging
-    collection identity (the base staging name, or the fresh build identity
-    the builder actually used; defaults to the base).
+    manifest hash and the ingest report hash, plus the CONCRETE staging
+    collection identity: the stable build identity derived from the full
+    input set (manifests + embedding/vector/sparse/enrichment versions) and
+    the physical collection name it names.
     """
     root = Path(root)
     artifact_manifest_sha = sha256_file(
@@ -447,6 +613,7 @@ def build_ingest_manifest(
         "kind": "ingest_manifest",
         "corpus_version": corpus_version,
         "collection_name": collection_name or staging_collection_name(corpus_version),
+        "build_identity": build_identity,
         "artifact_manifest_sha256": artifact_manifest_sha,
         "chunk_manifest_sha256": chunk_manifest_sha,
         "ingest_report_sha256": ingest_report_sha,
@@ -504,6 +671,7 @@ def write_gate_record(
         "kind": "publish_gate_record",
         "corpus_version": corpus_version,
         "collection_name": gate_report.get("collection_name"),
+        "build_identity": gate_report.get("build_identity"),
         "gate": gate_report.get("gate"),
         "checks": gate_report.get("checks"),
         "failures": gate_report.get("failures"),
@@ -647,13 +815,14 @@ def publish_gate(
     vector_count: int,
     smoke_results: list[dict[str, Any]],
     collection_name: str,
+    build_identity: str | None = None,
 ) -> dict[str, Any]:
     """The closed set of checks before the publish switch may run.
 
     1. re-runs the FULL :func:`offline_preflight`;
     2. re-verifies the artifact manifest hashes and the exact canonical file
        set (extra or missing files fail) plus the aggregate hash;
-    3. verifies the built collection is the versioned staging collection;
+    3. verifies the built collection is in the versioned staging family;
     4. requires chunks == vectors == points;
     5. requires the COMPLETE fixed smoke query set: empty, missing,
        duplicated or zero-hit queries all fail.
@@ -663,10 +832,18 @@ def publish_gate(
     expected_collection = staging_collection_name(corpus_version)
 
     checks["collection_name"] = collection_name
+    checks["build_identity"] = build_identity
     if not _is_staging_collection_name(expected_collection, collection_name):
         failures.append(
             f"built collection {collection_name!r} is not in the staging "
             f"family of {expected_collection!r}")
+    # T06-R4: when the build identity is known, the promoted collection must
+    # be EXACTLY the one derived from the immutable input set
+    if build_identity and collection_name != staging_build_collection_name(
+            corpus_version, build_identity):
+        failures.append(
+            f"collection {collection_name!r} does not match the derived "
+            f"build identity {build_identity!r}")
 
     # (1) full offline preflight re-run -- one call covers manifest hashes,
     # registry readiness, quality/garbled, schema and chunk-set identity.
@@ -739,6 +916,7 @@ def publish_gate(
     return {"gate": "failed" if failures else "passed",
             "corpus_version": corpus_version,
             "collection_name": collection_name,
+            "build_identity": build_identity,
             "checks": checks, "failures": failures}
 
 
@@ -789,10 +967,17 @@ def switch_pointer(
     root: Path | str,
     corpus_version: str,
     *,
-    alias_admin: Any = None,
+    alias_admin: Any,
+    verify_collection: Any,
 ) -> None:
-    """Promote the staged candidate: switch the live alias (when an admin is
-    given) and the ``corpus-current`` pointer.
+    """Promote the staged candidate: re-verify the concrete collection
+    identity, switch the live alias and the ``corpus-current`` pointer.
+
+    T06-R4: ``alias_admin`` and ``verify_collection`` are MANDATORY -- the
+    alias is the sole runtime query entry, so a pointer-only switch is a
+    split state by definition and is refused BEFORE any state changes. The
+    concrete collection identity is re-verified through ``verify_collection``
+    right before anything moves (closing the gate-to-switch gap).
 
     This function NEVER trusts an in-memory gate dict: it re-verifies the
     on-disk ``publish_gate_record.json`` (must say ``passed``), the ingest
@@ -803,6 +988,15 @@ def switch_pointer(
     root = Path(root)
     art = _artifact_dir(root, corpus_version)
     base = staging_collection_name(corpus_version)
+
+    if alias_admin is None:
+        raise PublishStateError(
+            "publish refused: no Qdrant alias admin -- the alias is the sole "
+            "runtime query entry and a pointer-only switch is forbidden")
+    if not callable(verify_collection):
+        raise PublishStateError(
+            "publish refused: no collection verifier -- the concrete "
+            "collection identity must be re-verified before the switch")
 
     record = load_gate_record(root, corpus_version)
     if record is None:
@@ -839,11 +1033,16 @@ def switch_pointer(
     except HashMismatchError as exc:
         raise PublishGateError(f"artifact hash mismatch: {exc}") from exc
 
+    # T06-R4: re-verify the CONCRETE collection identity right before
+    # anything moves -- closes the gate-to-switch gap. Must run BEFORE the
+    # rollback record, the alias switch or the pointer write.
+    verify_collection(target_collection)
+
     pointer_path = _pointer_path(root)
     previous = None
     if pointer_path.is_file():
         previous = json.loads(pointer_path.read_text(encoding="utf-8"))
-    previous_target = alias_admin.current_target(LIVE_ALIAS) if alias_admin else None
+    previous_target = alias_admin.current_target(LIVE_ALIAS)
     chunk_manifest = load_chunk_manifest(root, corpus_version)
     if chunk_manifest is None:
         raise PublishGateError(
@@ -859,6 +1058,8 @@ def switch_pointer(
         # concrete target -- never use the physical name as query entry.
         "alias": LIVE_ALIAS,
         "collection_name": target_collection,
+        # T06-R4: the stable build identity travels with the pointer
+        "build_identity": record.get("build_identity"),
         "chunk_count": chunk_manifest.get("total_chunks"),
         "action": "built",
     }
@@ -866,7 +1067,7 @@ def switch_pointer(
         "schema_version": SCHEMA_VERSION,
         "created_at": _utc_now(),
         "corpus_version": corpus_version,
-        "alias": LIVE_ALIAS if alias_admin else None,
+        "alias": LIVE_ALIAS,
         "previous_pointer": previous,
         "previous_collection": previous_target,
         "new_collection": target_collection,
@@ -877,18 +1078,13 @@ def switch_pointer(
     _write_json_atomic(_rollback_dir(root) / f"{stamp}-{corpus_version}.json", rollback)
 
     # Index target first: an alias failure must leave the OLD pointer live.
-    if alias_admin:
-        alias_admin.switch(LIVE_ALIAS, target_collection)
+    alias_admin.switch(LIVE_ALIAS, target_collection)
     # T06-R3 P1-3: a pointer-write failure after a successful alias switch
     # must be compensated -- restore the previous alias target so the state
     # is consistent (pre-publish) instead of split.
     try:
         _write_json_atomic(pointer_path, new_pointer)
     except Exception as exc:
-        if not alias_admin:
-            raise PublishStateError(
-                f"pointer write failed after the alias switch ({exc}); "
-                "restore the alias target manually") from exc
         try:
             if previous_target:
                 alias_admin.switch(LIVE_ALIAS, previous_target)
@@ -913,7 +1109,7 @@ def rollback_pointer(
     root: Path | str,
     record_path: Path | str | None = None,
     *,
-    alias_admin: Any = None,
+    alias_admin: Any,
 ) -> dict[str, Any]:
     """Restore the previous pointer AND the previous alias target.
 
@@ -921,8 +1117,16 @@ def rollback_pointer(
     previous state had NO pointer, the pointer file is removed (restoring
     "nothing is published"); when it had no alias target, the alias is
     removed. The old (pre-publish) collection is never deleted here.
+
+    T06-R4: ``alias_admin`` is MANDATORY -- a pointer-only rollback would
+    leave the running service on the new target (a split state), so a
+    missing admin is refused BEFORE anything moves.
     """
     root = Path(root)
+    if alias_admin is None:
+        raise PublishStateError(
+            "rollback refused: no Qdrant alias admin -- a pointer-only "
+            "rollback would leave the service on the new target")
     if record_path is None:
         records = sorted(_rollback_dir(root).glob("*.json"))
         if not records:
@@ -938,7 +1142,7 @@ def rollback_pointer(
     # compensation fails, reports loudly for manual reconciliation).
 
     # 1. alias restore -- the pointer stays PUBLISHED until this succeeds.
-    if alias_admin and record.get("alias"):
+    if record.get("alias"):
         previous_target = record.get("previous_collection")
         try:
             if previous_target:

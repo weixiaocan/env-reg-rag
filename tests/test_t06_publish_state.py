@@ -47,6 +47,7 @@ from src.application.publish_state import (
     LIVE_ALIAS,
     LIVE_COLLECTION,
     CandidateConflictError,
+    CollectionIdentityError,
     HashMismatchError,
     OfflineValidationError,
     PublishGateError,
@@ -54,6 +55,7 @@ from src.application.publish_state import (
     build_artifact_manifest,
     build_chunk_manifest,
     build_ingest_manifest,
+    canonical_payload_identity,
     load_artifact_manifest,
     load_gate_record,
     load_ingest_manifest,
@@ -62,8 +64,11 @@ from src.application.publish_state import (
     resolve_staging_target,
     rollback_pointer,
     sha256_file,
+    staging_build_collection_name,
+    staging_build_identity,
     staging_collection_name,
     switch_pointer,
+    verify_collection_payload_identity,
     write_artifact_manifest,
     write_candidate,
     write_canonical_candidate,
@@ -77,6 +82,37 @@ from src.application.v2_chunker import chunk_document
 
 _SHA = "a" * 64
 _CV = "corpus-t06test"
+
+# Fixed build-identity inputs for the staging-lifecycle tests.
+_PROFILE = {"model_id": "BAAI/bge-small-zh-v1.5", "model_revision": "rev-1",
+            "dimension": 512}
+_VECTOR_CONFIG = {"distance": "cosine", "size": 512}
+_SPARSE_CONFIG = {"bm25": {"modifier": "idf", "tokenizer": "multilingual"}}
+_BUILD_ID = staging_build_identity(
+    corpus_version=_CV, artifact_manifest_sha256="0" * 64,
+    chunk_manifest_sha256="1" * 64, embedding_profile=_PROFILE,
+    vector_config=_VECTOR_CONFIG, sparse_config=_SPARSE_CONFIG,
+    enrichment_version="t06.enrichment/1.0")
+_TARGET = staging_build_collection_name(_CV, _BUILD_ID)
+
+
+def _identity_payload(n: int, *, text: str | None = None,
+                      policy: str = "answer_and_citation",
+                      build_identity: str = _BUILD_ID,
+                      source: str = "b" * 64,
+                      file_name: str = "a.pdf") -> dict:
+    """One canonicalized identity payload (the fields the digest covers)."""
+    return {"chunk_id": f"chunk_{n:032d}", "text": text or f"chunk {n}",
+            "usage_policy": policy, "source_sha256": source,
+            "file_name": file_name, "build_identity": build_identity}
+
+
+def _expected_identity(payloads: list[dict]) -> dict:
+    return canonical_payload_identity(payloads, build_identity=_BUILD_ID)
+
+
+def _noop_verifier(collection_name: str) -> None:
+    return None
 
 
 def _canonical(root: Path, corpus_version: str, sha: str = _SHA) -> dict:
@@ -202,7 +238,7 @@ class TestArtifactManifestBinding(unittest.TestCase):
     def test_manifest_binds_all_assemble_stages(self):
         with self._prepared() as env:
             m = load_artifact_manifest(env.root, _CV)
-            self.assertEqual(m["schema_version"], "t06-2")
+            self.assertEqual(m["schema_version"], "t06-3")
             self.assertEqual(m["page_intermediate"]["sha256"],
                              sha256_file(env.root / "data" / "canonical" / f"{_CV}-documents.jsonl"))
             self.assertEqual(m["canonical"]["count"], 1)
@@ -417,22 +453,36 @@ class _FakeAliasAdmin:
 # --------------------------------------------------------------------------- #
 
 class _FakeCollectionInfo:
-    def __init__(self, points: int, vector_size: int):
+    def __init__(self, points: int, vector_size: int,
+                 sparse: tuple = ("bm25",), unreadable: bool = False):
         self.points_count = points
-
+        if unreadable:
+            # schema that cannot be read at all -> verification must fail closed
+            self.config = None
+            return
         class _Vectors:
+            # real Qdrant: named-vector dict {"dense": VectorParams}
             def __init__(self, size):
-                self.dense = type("Dense", (), {"size": size})()
-        self.config = type("Config", (), {"params": _Vectors(vector_size)})()
+                self.vectors = {"dense": type("Dense", (), {"size": size})()}
+        class _Params:
+            def __init__(self, size, sparse):
+                self.vectors = _Vectors(size).vectors
+                self.sparse_vectors = {name: None for name in sparse}
+        self.config = type("Config", (), {"params": _Params(vector_size, sparse)})()
 
 
 class _FakeQdrant:
-    """Records every destructive op; ``collections`` maps name -> points."""
+    """Records every destructive op; ``collections`` maps name -> points and
+    ``payloads`` maps name -> stored payload dicts (for identity scrolls)."""
 
     def __init__(self, collections: dict[str, int] | None = None,
-                 vector_size: int = 512):
+                 vector_size: int = 512, unreadable: bool = False,
+                 sparse: tuple = ("bm25",)):
         self.collections = dict(collections or {})
+        self.payloads: dict[str, list[dict]] = {}
         self.vector_size = vector_size
+        self.unreadable = unreadable
+        self.sparse = sparse
         self.ops: list[tuple] = []
 
     def collection_exists(self, name: str) -> bool:
@@ -441,7 +491,17 @@ class _FakeQdrant:
     def get_collection(self, name: str):
         if name not in self.collections:
             raise LookupError(name)
-        return _FakeCollectionInfo(self.collections[name], self.vector_size)
+        return _FakeCollectionInfo(self.collections[name], self.vector_size,
+                                   sparse=self.sparse, unreadable=self.unreadable)
+
+    def scroll(self, collection_name: str, limit: int = 256, offset=None,
+               with_payload: bool = True, with_vectors: bool = False):
+        items = self.payloads.get(collection_name, [])
+        start = offset or 0
+        batch = items[start:start + limit]
+        next_offset = start + len(batch)
+        records = [type("Rec", (), {"payload": p})() for p in batch]
+        return records, (None if next_offset >= len(items) else next_offset)
 
     def delete_collection(self, name: str) -> None:
         self.ops.append(("delete", name))
@@ -450,57 +510,138 @@ class _FakeQdrant:
     def create_collection(self, name: str) -> None:
         self.ops.append(("create", name))
         self.collections[name] = 0
+        self.payloads[name] = []
 
     def upsert(self, name: str, points) -> None:
         self.ops.append(("upsert", name))
         self.collections[name] = self.collections.get(name, 0) + len(points)
 
 
-class TestStagingImmutability(unittest.TestCase):
-    def test_absent_base_yields_plain_create(self):
+class TestStagingIdentityAndLifecycle(unittest.TestCase):
+    """T06-R4: physical collection identity is DERIVED (stable) and verified
+    against the real Qdrant payloads; any mismatch is fail-closed."""
+
+    def _resolve(self, client, payloads, *, target=_TARGET, size=512,
+                 sparse=True, guarded=None):
+        return resolve_staging_target(
+            client, target_name=target,
+            expected=_expected_identity(payloads),
+            expected_vector_size=size, sparse_enabled=sparse,
+            guarded_collections=guarded)
+
+    def test_absent_target_yields_plain_create(self):
         client = _FakeQdrant()
-        name, mode = resolve_staging_target(
-            client, _CV, chunk_count=42, vector_size=512)
-        self.assertEqual(name, staging_collection_name(_CV))
-        self.assertEqual(mode, "create")
+        payloads = [_identity_payload(n) for n in range(3)]
+        name, mode = self._resolve(client, payloads)
+        self.assertEqual((name, mode), (_TARGET, "create"))
 
-    def test_identity_verified_existing_is_reused_readonly(self):
-        base = staging_collection_name(_CV)
-        client = _FakeQdrant({base: 42})
-        name, mode = resolve_staging_target(
-            client, _CV, chunk_count=42, vector_size=512)
-        self.assertEqual((name, mode), (base, "reuse"))
-        self.assertEqual(client.ops, [])  # read-only reuse: no mutation
+    def test_full_payload_identity_match_reuses_readonly(self):
+        payloads = [_identity_payload(n) for n in range(3)]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = payloads
+        name, mode = self._resolve(client, payloads)
+        self.assertEqual((name, mode), (_TARGET, "reuse"))
+        self.assertEqual(client.ops, [])  # scroll is read-only: zero mutation
 
-    def test_identity_mismatch_gets_new_build_identity_never_delete(self):
-        base = staging_collection_name(_CV)
-        client = _FakeQdrant({base: 7})  # wrong point count -> foreign content
-        name, mode = resolve_staging_target(
-            client, _CV, chunk_count=42, vector_size=512)
-        self.assertEqual(mode, "create")
-        self.assertTrue(name.startswith(base))
-        self.assertNotEqual(name, base)  # fresh immutable build identity
-        self.assertIn(base, client.collections)  # old collection untouched
+    def test_same_count_same_dim_different_chunks_hard_fails(self):
+        # acceptance matrix: same point count + same vector size, but the
+        # stored chunks are a DIFFERENT stream -> must NOT be reused
+        stored = [_identity_payload(100 + n) for n in range(3)]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = stored
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, [_identity_payload(n) for n in range(3)])
+        self.assertIn(_TARGET, client.collections)  # never deleted
         self.assertNotIn("delete", [op[0] for op in client.ops])
 
-    def test_alias_referenced_collection_is_never_deleted_or_recreated(self):
-        base = staging_collection_name(_CV)
-        client = _FakeQdrant({base: 7})  # identity mismatch under the alias
-        name, mode = resolve_staging_target(
-            client, _CV, chunk_count=42, vector_size=512,
-            guarded_collections={base, LIVE_COLLECTION})
-        self.assertEqual(mode, "create")
-        self.assertNotEqual(name, base)
-        self.assertIn(base, client.collections)
-        self.assertEqual(client.ops, [])
+    def test_policy_skew_hard_fails(self):
+        stored = [_identity_payload(n) for n in range(3)]
+        skewed = [_identity_payload(n) for n in range(2)] + \
+            [_identity_payload(2, policy="excluded")]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = skewed
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+        self.assertIn(_TARGET, client.collections)
 
-    def test_live_collection_name_is_never_targeted(self):
+    def test_tampered_text_hard_fails(self):
+        stored = [_identity_payload(n) for n in range(3)]
+        tampered = list(stored)
+        tampered[1] = dict(tampered[1], text="chunk 1 TAMPERED")
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = tampered
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+
+    def test_tampered_source_identity_hard_fails(self):
+        stored = [_identity_payload(n) for n in range(3)]
+        tampered = [_identity_payload(n) for n in range(2)] + \
+            [_identity_payload(2, source="c" * 64)]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = tampered
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+
+    def test_point_count_mismatch_hard_fails(self):
+        payloads = [_identity_payload(n) for n in range(3)]
+        client = _FakeQdrant({_TARGET: 7})
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, payloads)
+
+    def test_unreadable_vector_schema_fails_closed(self):
+        payloads = [_identity_payload(n) for n in range(3)]
+        client = _FakeQdrant({_TARGET: 3}, unreadable=True)
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, payloads)
+        self.assertEqual(client.ops, [])  # refused BEFORE any build/mutation
+
+    def test_sparse_schema_missing_fails_closed(self):
+        payloads = [_identity_payload(n) for n in range(3)]
+        client = _FakeQdrant({_TARGET: 3}, sparse=())
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, payloads, sparse=True)
+
+    def test_missing_payload_field_fails_closed(self):
+        payloads = [_identity_payload(n) for n in range(2)]
+        broken = [dict(_identity_payload(2))]
+        del broken[0]["file_name"]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = payloads + broken
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, payloads + broken)
+
+    def test_foreign_build_identity_in_payload_fails_closed(self):
+        payloads = [_identity_payload(n) for n in range(3)]
+        stored = [_identity_payload(n, build_identity="bi-foreign") for n in range(3)]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = stored
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, payloads)
+
+    def test_live_collection_is_never_a_build_target(self):
+        payloads = [_identity_payload(n) for n in range(3)]
         client = _FakeQdrant()
-        for chunk_count in (0, 5, 42):
-            name, _ = resolve_staging_target(
-                client, _CV, chunk_count=chunk_count, vector_size=512,
-                guarded_collections={LIVE_COLLECTION})
-            self.assertNotEqual(name, LIVE_COLLECTION)
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, payloads, target=LIVE_COLLECTION)
+
+    def test_derived_identity_is_stable_and_profile_sensitive(self):
+        kwargs = dict(
+            corpus_version=_CV, artifact_manifest_sha256="0" * 64,
+            chunk_manifest_sha256="1" * 64, embedding_profile=_PROFILE,
+            vector_config=_VECTOR_CONFIG, sparse_config=_SPARSE_CONFIG,
+            enrichment_version="t06.enrichment/1.0")
+        again = staging_build_identity(**kwargs)
+        self.assertEqual(_BUILD_ID, again)  # deterministic across reruns
+        other_model = staging_build_identity(
+            **{**kwargs, "embedding_profile": {**_PROFILE,
+                                               "model_revision": "rev-2"}})
+        self.assertNotEqual(_BUILD_ID, other_model)  # profile change -> new name
+        other_manifest = staging_build_identity(
+            **{**kwargs, "chunk_manifest_sha256": "2" * 64})
+        self.assertNotEqual(_BUILD_ID, other_manifest)
+        name = staging_build_collection_name(_CV, _BUILD_ID)
+        self.assertTrue(name.startswith(staging_collection_name(_CV)))
+        self.assertNotEqual(name, LIVE_COLLECTION)
 
 
 class TestPublishGate(unittest.TestCase):
@@ -626,6 +767,20 @@ class TestStageChain(unittest.TestCase):
             self.assertEqual(m["artifact_manifest_sha256"],
                              sha256_file(env.cv_dir / "artifact_manifest.json"))
 
+    def test_chunk_manifest_global_policy_counts_are_populated(self):
+        # T06-R4: the TOP-LEVEL policy_counts must equal the per-document
+        # totals (previously never incremented -> the gate comparison was
+        # vacuously true)
+        with _Root() as env:
+            manifest = build_chunk_manifest(env.chunks)
+            per_doc = manifest["per_document"]
+            totals: dict[str, int] = {}
+            for entry in per_doc.values():
+                for policy, count in entry["policy_counts"].items():
+                    totals[policy] = totals.get(policy, 0) + count
+            self.assertEqual(manifest["policy_counts"], dict(sorted(totals.items())))
+            self.assertTrue(manifest["policy_counts"])
+
     def test_tampered_chunk_manifest_breaks_ingest_manifest_verify(self):
         with _Root() as env:
             _chain_ready(env)
@@ -677,7 +832,8 @@ class TestSwitchPointerAndRollback(unittest.TestCase):
             _write_json(pointer_path, {"corpus_version": "corpus-old",
                                        "status": "published"})
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
-            switch_pointer(env.root, _CV, alias_admin=admin)
+            switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             current = json.loads(pointer_path.read_text(encoding="utf-8"))
             self.assertEqual(current["corpus_version"], _CV)
             # the pointer records the alias (runtime entry) AND the target
@@ -701,7 +857,8 @@ class TestSwitchPointerAndRollback(unittest.TestCase):
             previous_bytes = _write_json(
                 pointer_path, {"corpus_version": "corpus-old", "status": "published"})
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
-            switch_pointer(env.root, _CV, alias_admin=admin)
+            switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             self.assertNotEqual(pointer_path.read_bytes(), previous_bytes)
             restored = rollback_pointer(env.root, alias_admin=admin)
             self.assertEqual(restored["corpus_version"], "corpus-old")
@@ -715,7 +872,8 @@ class TestSwitchPointerAndRollback(unittest.TestCase):
             previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
             with self.assertRaises(PublishGateError):
-                switch_pointer(env.root, _CV, alias_admin=admin)
+                switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             self.assertEqual(pointer_path.read_bytes(), previous)
             self.assertEqual(admin.calls, [])
             self.assertFalse((env.root / "data" / "registry" / "rollback").exists())
@@ -733,9 +891,12 @@ class TestSwitchPointerAndRollback(unittest.TestCase):
                                   env.cv_dir / "ingest_manifest.json"))
             pointer_path = env.root / "data" / "registry" / "corpus-current.json"
             previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
             with self.assertRaises(PublishGateError):
-                switch_pointer(env.root, _CV)
+                switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             self.assertEqual(pointer_path.read_bytes(), previous)
+            self.assertEqual(admin.calls, [])
 
     def test_switch_refused_when_chain_tampered_after_gate(self):
         with _Root() as env:
@@ -745,7 +906,8 @@ class TestSwitchPointerAndRollback(unittest.TestCase):
             previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
             with self.assertRaises((HashMismatchError, PublishGateError)):
-                switch_pointer(env.root, _CV, alias_admin=admin)
+                switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             self.assertEqual(pointer_path.read_bytes(), previous)
             self.assertEqual(admin.calls, [])
 
@@ -755,9 +917,12 @@ class TestSwitchPointerAndRollback(unittest.TestCase):
             env.tamper("data/canonical/v2/corpus-t06test/artifact_manifest.json")
             pointer_path = env.root / "data" / "registry" / "corpus-current.json"
             previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
             with self.assertRaises(PublishStateError):
-                switch_pointer(env.root, _CV)
+                switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             self.assertEqual(pointer_path.read_bytes(), previous)
+            self.assertEqual(admin.calls, [])
 
 
 class TestPublishCompensation(unittest.TestCase):
@@ -780,7 +945,8 @@ class TestPublishCompensation(unittest.TestCase):
             ps._write_json_atomic = exploding
             try:
                 with self.assertRaises(PublishStateError):
-                    switch_pointer(env.root, _CV, alias_admin=admin)
+                    switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             finally:
                 ps._write_json_atomic = original
             # compensation: alias restored to the previous target, pointer
@@ -788,7 +954,8 @@ class TestPublishCompensation(unittest.TestCase):
             self.assertEqual(admin.target, "corpus_v2_old_target")
             self.assertEqual(pointer_path.read_bytes(), previous)
             # and the switch is retryable after the fault clears
-            switch_pointer(env.root, _CV, alias_admin=admin)
+            switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             self.assertEqual(admin.target, staging_collection_name(_CV))
             self.assertEqual(
                 json.loads(pointer_path.read_text(encoding="utf-8"))["corpus_version"],
@@ -800,7 +967,8 @@ class TestPublishCompensation(unittest.TestCase):
             _chain_ready(env)
             pointer_path = env.root / "data" / "registry" / "corpus-current.json"
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
-            switch_pointer(env.root, _CV, alias_admin=admin)
+            switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             published_bytes = pointer_path.read_bytes()
 
             class DeadAliasAdmin(_FakeAliasAdmin):
@@ -819,7 +987,8 @@ class TestPublishCompensation(unittest.TestCase):
             _chain_ready(env)
             pointer_path = env.root / "data" / "registry" / "corpus-current.json"
             admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
-            switch_pointer(env.root, _CV, alias_admin=admin)
+            switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
             published_bytes = pointer_path.read_bytes()
 
             class DeadAliasAdmin(_FakeAliasAdmin):
@@ -842,6 +1011,69 @@ class TestPublishCompensation(unittest.TestCase):
             self.assertIn("manual reconciliation", str(ctx.exception))
             # nothing silently half-applied: pointer still published
             self.assertEqual(pointer_path.read_bytes(), published_bytes)
+
+
+class TestPublishAuthorization(unittest.TestCase):
+    """T06-R4: the alias admin + collection verifier are MANDATORY for
+    publish/rollback -- a pointer-only switch is a split state by definition.
+    Every refusal happens BEFORE the rollback record, the alias or the
+    pointer changes."""
+
+    def test_publish_refused_without_alias_admin(self):
+        with _Root() as env:
+            _chain_ready(env)
+            pointer_path = env.root / "data" / "registry" / "corpus-current.json"
+            previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
+            with self.assertRaises(PublishStateError):
+                switch_pointer(env.root, _CV, alias_admin=None,
+                               verify_collection=_noop_verifier)
+            self.assertEqual(pointer_path.read_bytes(), previous)
+            self.assertFalse((env.root / "data" / "registry" / "rollback").exists())
+
+    def test_publish_refused_without_collection_verifier(self):
+        with _Root() as env:
+            _chain_ready(env)
+            pointer_path = env.root / "data" / "registry" / "corpus-current.json"
+            previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
+            with self.assertRaises(PublishStateError):
+                switch_pointer(env.root, _CV, alias_admin=admin,
+                               verify_collection=None)
+            self.assertEqual(pointer_path.read_bytes(), previous)
+            self.assertEqual(admin.calls, [])
+            self.assertFalse((env.root / "data" / "registry" / "rollback").exists())
+
+    def test_verifier_failure_aborts_before_any_state_change(self):
+        with _Root() as env:
+            _chain_ready(env)
+            pointer_path = env.root / "data" / "registry" / "corpus-current.json"
+            previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
+
+            def failing_verifier(collection_name: str) -> None:
+                raise CollectionIdentityError(
+                    f"collection {collection_name!r} failed re-verification")
+
+            with self.assertRaises(CollectionIdentityError):
+                switch_pointer(env.root, _CV, alias_admin=admin,
+                               verify_collection=failing_verifier)
+            self.assertEqual(pointer_path.read_bytes(), previous)
+            self.assertEqual(admin.calls, [])  # alias untouched
+            self.assertFalse((env.root / "data" / "registry" / "rollback").exists())
+
+    def test_rollback_refused_without_alias_admin(self):
+        with _Root() as env:
+            _chain_ready(env)
+            pointer_path = env.root / "data" / "registry" / "corpus-current.json"
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
+            switch_pointer(env.root, _CV, alias_admin=admin,
+                           verify_collection=_noop_verifier)
+            published_bytes = pointer_path.read_bytes()
+            with self.assertRaises(PublishStateError):
+                rollback_pointer(env.root, alias_admin=None)
+            # refused BEFORE anything moved: pointer + alias still published
+            self.assertEqual(pointer_path.read_bytes(), published_bytes)
+            self.assertEqual(admin.target, staging_collection_name(_CV))
 
 
 class TestCreateOnlyBuild(unittest.TestCase):
@@ -877,13 +1109,17 @@ class TestCreateOnlyBuild(unittest.TestCase):
         from src.retrieval.qdrant_index import QdrantRetrievalIndex
         client = QdrantClient(":memory:")
         index = QdrantRetrievalIndex(
-            client=client, collection_name=staging_collection_name(_CV),
+            client=client, collection_name=_TARGET,
             vector_size=2)
-        index.build(self._CHUNKS, [[1.0, 0.0]] * 3, create_only=True)
+        payloads = [dict(_identity_payload(n), evidence_ids=[],
+                         primary_evidence_id=f"ev_{n}")
+                    for n in range(3)]
+        index.build(payloads, [[1.0, 0.0]] * 3, create_only=True)
         name, mode = resolve_staging_target(
-            client, _CV, chunk_count=3, vector_size=2)
-        self.assertEqual((name, mode),
-                         (staging_collection_name(_CV), "reuse"))
+            client, target_name=_TARGET,
+            expected=canonical_payload_identity(payloads, build_identity=_BUILD_ID),
+            expected_vector_size=2, sparse_enabled=False)
+        self.assertEqual((name, mode), (_TARGET, "reuse"))
 
 
 # --------------------------------------------------------------------------- #
