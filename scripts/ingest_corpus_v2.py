@@ -379,7 +379,7 @@ def _build_collection(
 
     embedder = BgeSmallZhEmbedder(local_files_only=True, device="cpu")
     client = QdrantClient(url=qdrant_url)
-    target, mode = resolve_staging_target(
+    target, mode, verified = resolve_staging_target(
         client,
         target_name=collection_name,
         expected=expected_identity,
@@ -399,11 +399,13 @@ def _build_collection(
 
     if mode == "reuse":
         # full-payload identity verified READ-ONLY reuse: never re-embed,
-        # never upsert -- an existing staging collection is immutable.
+        # never upsert -- an existing staging collection is immutable. The
+        # counts are the MEASURED ones from the verification scroll, never
+        # the expected values.
         report.update({
             "build_status": "reused_readonly",
-            "vector_count": expected_identity["chunk_count"],
-            "point_count": expected_identity["chunk_count"],
+            "vector_count": verified["vector_count"],
+            "point_count": verified["point_count"],
             "search_smoke": _smoke_queries(client, index, embedder),
         })
         return report
@@ -422,12 +424,14 @@ def _build_collection(
     index.build(payloads, vectors, create_only=True)
     report["build_status"] = "ok"
 
-    # prove what we just wrote: same full payload identity as the candidate
-    verify_collection_payload_identity(
+    # prove what we just wrote: same full payload identity as the candidate;
+    # the vector count is re-measured on the verification scroll
+    verified = verify_collection_payload_identity(
         client, target,
         expected=expected_identity,
         expected_vector_size=BgeSmallZhEmbedder.dimension,
         sparse_enabled=True)
+    report["vector_count"] = verified["vector_count"]
 
     info = client.get_collection(target)
     report["point_count"] = info.points_count

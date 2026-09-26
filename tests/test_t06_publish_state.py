@@ -100,11 +100,23 @@ def _identity_payload(n: int, *, text: str | None = None,
                       policy: str = "answer_and_citation",
                       build_identity: str = _BUILD_ID,
                       source: str = "b" * 64,
-                      file_name: str = "a.pdf") -> dict:
+                      file_name: str = "a.pdf",
+                      page: int = 1, bbox: list | None = None,
+                      element_ids: list | None = None,
+                      canonical_id: str = "canon-0001",
+                      content_id: str = "content-0001",
+                      projection_version: str = "v2-projection/1") -> dict:
     """One canonicalized identity payload (the fields the digest covers)."""
     return {"chunk_id": f"chunk_{n:032d}", "text": text or f"chunk {n}",
             "usage_policy": policy, "source_sha256": source,
-            "file_name": file_name, "build_identity": build_identity}
+            "file_name": file_name, "build_identity": build_identity,
+            "canonical_id": canonical_id,
+            "canonical_content_id": content_id,
+            "element_ids": element_ids if element_ids is not None
+            else [f"el_{n}_1"],
+            "source_spans": [{"physical_page": page, "bbox": bbox or
+                              [60.0, 300.0, 500.0, 330.0]}],
+            "projection_version": projection_version}
 
 
 def _expected_identity(payloads: list[dict]) -> dict:
@@ -406,6 +418,12 @@ def _full_smoke(hits: int = 3) -> list[dict]:
     return [{"query": q, "hit_count": hits} for q in FIXED_SMOKE_QUERIES]
 
 
+# Fixed build identity for the chain/gate fixtures (T06-R5: REQUIRED in the
+# gate, the ingest manifest, the gate record and every switch).
+_CHAIN_BI = "bi-" + "5" * 24
+_CHAIN_TARGET = staging_build_collection_name(_CV, _CHAIN_BI)
+
+
 def _chain_ready(env: _Root) -> dict:
     """Write the full immutable stage chain up to the gate record.
 
@@ -420,11 +438,13 @@ def _chain_ready(env: _Root) -> dict:
     ingest_manifest = build_ingest_manifest(
         env.root, _CV,
         chunk_manifest_sha=sha256_file(env.cv_dir / "chunk_manifest.json"),
-        ingest_report_sha=sha256_file(env.cv_dir / "ingest_report.json"))
+        ingest_report_sha=sha256_file(env.cv_dir / "ingest_report.json"),
+        collection_name=_CHAIN_TARGET, build_identity=_CHAIN_BI)
     write_ingest_manifest(env.root, _CV, ingest_manifest)
     gate = publish_gate(
         env.root, _CV, point_count=len(env.chunks), vector_count=len(env.chunks),
-        smoke_results=_full_smoke(), collection_name=staging_collection_name(_CV))
+        smoke_results=_full_smoke(), collection_name=_CHAIN_TARGET,
+        build_identity=_CHAIN_BI)
     write_gate_record(env.root, _CV, gate_report=gate,
                       ingest_manifest_sha=sha256_file(
                           env.cv_dir / "ingest_manifest.json"))
@@ -480,6 +500,9 @@ class _FakeQdrant:
                  sparse: tuple = ("bm25",)):
         self.collections = dict(collections or {})
         self.payloads: dict[str, list[dict]] = {}
+        # per-collection stored dense vectors; None entry = point lost its
+        # vector, a list entry = the literal named-vector dict to return
+        self.stored_vectors: dict[str, list] = {}
         self.vector_size = vector_size
         self.unreadable = unreadable
         self.sparse = sparse
@@ -497,10 +520,18 @@ class _FakeQdrant:
     def scroll(self, collection_name: str, limit: int = 256, offset=None,
                with_payload: bool = True, with_vectors: bool = False):
         items = self.payloads.get(collection_name, [])
+        vectors = self.stored_vectors.get(collection_name)
         start = offset or 0
         batch = items[start:start + limit]
         next_offset = start + len(batch)
-        records = [type("Rec", (), {"payload": p})() for p in batch]
+        records = []
+        for i, p in enumerate(batch):
+            if vectors is not None:
+                vec = vectors[start + i]
+            else:
+                # synthesized dense vector matching the collection schema
+                vec = {"dense": [0.0] * self.vector_size} if with_vectors else None
+            records.append(type("Rec", (), {"payload": p, "vector": vec})())
         return records, (None if next_offset >= len(items) else next_offset)
 
     def delete_collection(self, name: str) -> None:
@@ -532,14 +563,14 @@ class TestStagingIdentityAndLifecycle(unittest.TestCase):
     def test_absent_target_yields_plain_create(self):
         client = _FakeQdrant()
         payloads = [_identity_payload(n) for n in range(3)]
-        name, mode = self._resolve(client, payloads)
+        name, mode, _ = self._resolve(client, payloads)
         self.assertEqual((name, mode), (_TARGET, "create"))
 
     def test_full_payload_identity_match_reuses_readonly(self):
         payloads = [_identity_payload(n) for n in range(3)]
         client = _FakeQdrant({_TARGET: 3})
         client.payloads[_TARGET] = payloads
-        name, mode = self._resolve(client, payloads)
+        name, mode, _ = self._resolve(client, payloads)
         self.assertEqual((name, mode), (_TARGET, "reuse"))
         self.assertEqual(client.ops, [])  # scroll is read-only: zero mutation
 
@@ -618,6 +649,81 @@ class TestStagingIdentityAndLifecycle(unittest.TestCase):
         with self.assertRaises(CollectionIdentityError):
             self._resolve(client, payloads)
 
+    # ---- T06-R5: the digest covers the FULL evidence identity -- page,
+    # bbox, element membership, canonical identity and projection version ----
+
+    def _tamper_case(self, **overrides):
+        stored = [_identity_payload(n) for n in range(3)]
+        tampered = list(stored)
+        tampered[1] = _identity_payload(1, **overrides)
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = tampered
+        return client, stored
+
+    def test_tampered_physical_page_hard_fails(self):
+        client, stored = self._tamper_case(page=7)
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+        self.assertIn(_TARGET, client.collections)  # never mutated
+
+    def test_tampered_bbox_hard_fails(self):
+        client, stored = self._tamper_case(bbox=[60.0, 300.0, 500.0, 999.0])
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+
+    def test_tampered_element_membership_hard_fails(self):
+        client, stored = self._tamper_case(element_ids=["el_1_1", "el_1_2"])
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+
+    def test_tampered_canonical_id_hard_fails(self):
+        client, stored = self._tamper_case(canonical_id="canon-9999")
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+
+    def test_tampered_canonical_content_id_hard_fails(self):
+        client, stored = self._tamper_case(content_id="content-9999")
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+
+    def test_tampered_projection_version_hard_fails(self):
+        client, stored = self._tamper_case(projection_version="v2-projection/2")
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, stored)
+
+    # ---- T06-R5: every point's dense vector is verified on the scroll ----
+
+    def test_point_missing_dense_vector_fails_closed(self):
+        payloads = [_identity_payload(n) for n in range(3)]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = payloads
+        client.stored_vectors[_TARGET] = [
+            None, {"dense": [0.0] * 512}, {"dense": [0.0] * 512}]
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, payloads)
+        self.assertEqual(client.ops, [])  # refused before ANY mutation
+
+    def test_point_wrong_dense_dimension_fails_closed(self):
+        payloads = [_identity_payload(n) for n in range(3)]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = payloads
+        client.stored_vectors[_TARGET] = [
+            {"dense": [0.0] * 511}, {"dense": [0.0] * 512},
+            {"dense": [0.0] * 512}]
+        with self.assertRaises(CollectionIdentityError):
+            self._resolve(client, payloads)
+        self.assertEqual(client.ops, [])
+
+    def test_verified_counts_come_from_the_actual_scroll(self):
+        payloads = [_identity_payload(n) for n in range(3)]
+        client = _FakeQdrant({_TARGET: 3})
+        client.payloads[_TARGET] = payloads
+        verified = verify_collection_payload_identity(
+            client, _TARGET, expected=_expected_identity(payloads),
+            expected_vector_size=512, sparse_enabled=True)
+        self.assertEqual(verified["vector_count"], 3)  # measured, not assumed
+        self.assertEqual(verified["point_count"], 3)
+
     def test_live_collection_is_never_a_build_target(self):
         payloads = [_identity_payload(n) for n in range(3)]
         client = _FakeQdrant()
@@ -645,12 +751,13 @@ class TestStagingIdentityAndLifecycle(unittest.TestCase):
 
 
 class TestPublishGate(unittest.TestCase):
-    _STAGING = staging_collection_name("corpus-t06test")
+    _TARGET = staging_build_collection_name(_CV, _CHAIN_BI)
 
     def _gate(self, env, **overrides) -> dict:
         kwargs = dict(
             point_count=len(env.chunks), vector_count=len(env.chunks),
-            smoke_results=_full_smoke(), collection_name=self._STAGING)
+            smoke_results=_full_smoke(), collection_name=self._TARGET,
+            build_identity=_CHAIN_BI)
         kwargs.update(overrides)
         return publish_gate(env.root, _CV, **kwargs)
 
@@ -659,6 +766,36 @@ class TestPublishGate(unittest.TestCase):
             _gate_ready(env)
             gate = self._gate(env)
             self.assertEqual(gate["gate"], "passed", gate["failures"])
+
+    def test_gate_requires_build_identity(self):
+        # T06-R5: the build identity is a CLOSED-schema requirement -- a gate
+        # run without one must FAIL, never pass by omission
+        with _Root() as env:
+            _gate_ready(env)
+            with self.assertRaises(TypeError):
+                # build_identity is a mandatory keyword argument
+                publish_gate(  # type: ignore[call-arg]
+                    env.root, _CV, point_count=len(env.chunks),
+                    vector_count=len(env.chunks),
+                    smoke_results=_full_smoke(),
+                    collection_name=self._TARGET)
+
+    def test_gate_fails_on_empty_build_identity(self):
+        with _Root() as env:
+            _gate_ready(env)
+            gate = self._gate(env, build_identity="")
+            self.assertEqual(gate["gate"], "failed")
+            self.assertTrue(any("build identity" in f for f in gate["failures"]))
+
+    def test_gate_fails_when_collection_does_not_match_derivation(self):
+        with _Root() as env:
+            _gate_ready(env)
+            gate = self._gate(
+                env, collection_name=staging_collection_name(_CV),
+                build_identity=_CHAIN_BI)  # base staging name != derivation
+            self.assertEqual(gate["gate"], "failed")
+            self.assertTrue(any("derived build identity" in f
+                                for f in gate["failures"]))
 
     def test_gate_rejects_live_collection_name(self):
         with _Root() as env:
@@ -763,7 +900,8 @@ class TestStageChain(unittest.TestCase):
         with _Root() as env:
             _chain_ready(env)
             m = load_ingest_manifest(env.root, _CV, verify=True)
-            self.assertEqual(m["collection_name"], staging_collection_name(_CV))
+            self.assertEqual(m["collection_name"], _CHAIN_TARGET)
+            self.assertEqual(m["build_identity"], _CHAIN_BI)
             self.assertEqual(m["artifact_manifest_sha256"],
                              sha256_file(env.cv_dir / "artifact_manifest.json"))
 
@@ -800,8 +938,8 @@ class TestStageChain(unittest.TestCase):
             _chain_ready(env)
             record = load_gate_record(env.root, _CV, verify=True)
             self.assertEqual(record["gate"], "passed")
-            self.assertEqual(record["collection_name"],
-                             staging_collection_name(_CV))
+            self.assertEqual(record["collection_name"], _CHAIN_TARGET)
+            self.assertEqual(record["build_identity"], _CHAIN_BI)
 
     def test_tampered_ingest_manifest_breaks_gate_record_verify(self):
         with _Root() as env:
@@ -838,17 +976,17 @@ class TestSwitchPointerAndRollback(unittest.TestCase):
             self.assertEqual(current["corpus_version"], _CV)
             # the pointer records the alias (runtime entry) AND the target
             self.assertEqual(current["alias"], LIVE_ALIAS)
-            self.assertEqual(current["collection_name"],
-                             staging_collection_name(_CV))
+            self.assertEqual(current["collection_name"], _CHAIN_TARGET)
+            self.assertEqual(current["build_identity"], _CHAIN_BI)
             self.assertEqual(current["chunk_count"], len(env.chunks))
             self.assertEqual(admin.calls, [("switch", LIVE_ALIAS,
-                                            staging_collection_name(_CV))])
+                                            _CHAIN_TARGET)])
             records = list((env.root / "data" / "registry" / "rollback").glob("*.json"))
             self.assertEqual(len(records), 1)
             record = json.loads(records[0].read_text(encoding="utf-8"))
             self.assertEqual(record["previous_pointer"]["corpus_version"], "corpus-old")
             self.assertEqual(record["previous_collection"], "corpus_v2_old_target")
-            self.assertEqual(record["new_collection"], staging_collection_name(_CV))
+            self.assertEqual(record["new_collection"], _CHAIN_TARGET)
 
     def test_rollback_restores_pointer_and_alias_target(self):
         with _Root() as env:
@@ -884,7 +1022,8 @@ class TestSwitchPointerAndRollback(unittest.TestCase):
             # replace the passed record with a failed one (hand-forged bytes)
             failed = publish_gate(
                 env.root, _CV, point_count=0, vector_count=0,
-                smoke_results=[], collection_name=staging_collection_name(_CV))
+                smoke_results=[], collection_name=_CHAIN_TARGET,
+                build_identity=_CHAIN_BI)
             (env.cv_dir / "publish_gate_record.json").unlink()
             write_gate_record(env.root, _CV, gate_report=failed,
                               ingest_manifest_sha=sha256_file(
@@ -956,7 +1095,7 @@ class TestPublishCompensation(unittest.TestCase):
             # and the switch is retryable after the fault clears
             switch_pointer(env.root, _CV, alias_admin=admin,
                            verify_collection=_noop_verifier)
-            self.assertEqual(admin.target, staging_collection_name(_CV))
+            self.assertEqual(admin.target, _CHAIN_TARGET)
             self.assertEqual(
                 json.loads(pointer_path.read_text(encoding="utf-8"))["corpus_version"],
                 _CV)
@@ -1073,7 +1212,86 @@ class TestPublishAuthorization(unittest.TestCase):
                 rollback_pointer(env.root, alias_admin=None)
             # refused BEFORE anything moved: pointer + alias still published
             self.assertEqual(pointer_path.read_bytes(), published_bytes)
-            self.assertEqual(admin.target, staging_collection_name(_CV))
+            self.assertEqual(admin.target, _CHAIN_TARGET)
+
+
+class TestBuildIdentityClosure(unittest.TestCase):
+    """T06-R5: the build identity is a closed-schema requirement in EVERY
+    publish entry; legacy t06-2/base-staging chains can never be promoted."""
+
+    def test_ingest_manifest_requires_build_identity(self):
+        with _Root() as env:
+            _gate_ready(env)
+            # build_identity is a mandatory keyword: omission is a TypeError
+            with self.assertRaises(TypeError):
+                build_ingest_manifest(  # type: ignore[call-arg]
+                    env.root, _CV,
+                    chunk_manifest_sha="0" * 64,
+                    ingest_report_sha="1" * 64,
+                    collection_name=_CHAIN_TARGET)
+            # and an empty identity is refused as well
+            with self.assertRaises(ValueError):
+                build_ingest_manifest(
+                    env.root, _CV,
+                    chunk_manifest_sha="0" * 64,
+                    ingest_report_sha="1" * 64,
+                    collection_name=_CHAIN_TARGET,
+                    build_identity="")
+
+    def test_gate_record_without_identity_refused(self):
+        with _Root() as env:
+            _gate_ready(env)
+            write_chunk_manifest(env.root, _CV, build_chunk_manifest(env.chunks))
+            gate = publish_gate(
+                env.root, _CV, point_count=len(env.chunks),
+                vector_count=len(env.chunks), smoke_results=_full_smoke(),
+                collection_name=_CHAIN_TARGET, build_identity=_CHAIN_BI)
+            forged = dict(gate)
+            forged.pop("build_identity", None)
+            with self.assertRaises(PublishStateError):
+                write_gate_record(
+                    env.root, _CV, gate_report=forged,
+                    ingest_manifest_sha="0" * 64)
+
+    def test_switch_refuses_legacy_record_without_build_identity(self):
+        # a t06-2-era record: no build identity, base staging name -- must be
+        # refused even with a noop verifier
+        with _Root() as env:
+            _chain_ready(env)
+            record = json.loads(
+                (env.cv_dir / "publish_gate_record.json").read_text(encoding="utf-8"))
+            record["schema_version"] = "t06-2"
+            record.pop("build_identity", None)
+            record["collection_name"] = staging_collection_name(_CV)
+            (env.cv_dir / "publish_gate_record.json").write_bytes(
+                _write_json(env.cv_dir / "publish_gate_record.json", record))
+            pointer_path = env.root / "data" / "registry" / "corpus-current.json"
+            previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
+            with self.assertRaises(PublishGateError):
+                switch_pointer(env.root, _CV, alias_admin=admin,
+                               verify_collection=_noop_verifier)
+            self.assertEqual(pointer_path.read_bytes(), previous)
+            self.assertEqual(admin.calls, [])
+
+    def test_switch_refuses_manifest_record_identity_mismatch(self):
+        with _Root() as env:
+            _chain_ready(env)
+            # the manifest keeps its identity; forge the RECORD's identity so
+            # the two disagree (parent hashes stay consistent)
+            record = json.loads(
+                (env.cv_dir / "publish_gate_record.json").read_text(encoding="utf-8"))
+            record["build_identity"] = "bi-" + "f" * 24
+            (env.cv_dir / "publish_gate_record.json").write_bytes(
+                _write_json(env.cv_dir / "publish_gate_record.json", record))
+            pointer_path = env.root / "data" / "registry" / "corpus-current.json"
+            previous = _write_json(pointer_path, {"corpus_version": "corpus-old"})
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
+            with self.assertRaises(PublishGateError):
+                switch_pointer(env.root, _CV, alias_admin=admin,
+                               verify_collection=_noop_verifier)
+            self.assertEqual(pointer_path.read_bytes(), previous)
+            self.assertEqual(admin.calls, [])
 
 
 class TestCreateOnlyBuild(unittest.TestCase):
@@ -1115,11 +1333,13 @@ class TestCreateOnlyBuild(unittest.TestCase):
                          primary_evidence_id=f"ev_{n}")
                     for n in range(3)]
         index.build(payloads, [[1.0, 0.0]] * 3, create_only=True)
-        name, mode = resolve_staging_target(
+        name, mode, verified = resolve_staging_target(
             client, target_name=_TARGET,
             expected=canonical_payload_identity(payloads, build_identity=_BUILD_ID),
             expected_vector_size=2, sparse_enabled=False)
         self.assertEqual((name, mode), (_TARGET, "reuse"))
+        self.assertEqual(verified["vector_count"], 3)
+        self.assertEqual(verified["point_count"], 3)
 
 
 # --------------------------------------------------------------------------- #

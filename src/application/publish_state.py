@@ -135,8 +135,34 @@ def staging_build_collection_name(corpus_version: str, build_identity: str) -> s
 # a missing or empty field is a fail-closed identity error, never a guess.
 _PAYLOAD_IDENTITY_FIELDS = (
     "chunk_id", "text", "usage_policy", "source_sha256", "file_name",
-    "build_identity",
+    "build_identity", "canonical_id", "canonical_content_id",
+    "projection_version",
 )
+# structured (list) fields: must be present AND non-empty
+_PAYLOAD_IDENTITY_LIST_FIELDS = ("element_ids", "source_spans")
+
+
+def _normalized_spans(spans: Any) -> list[list]:
+    """Canonical form of source_spans: [(page, rounded bbox), ...] sorted."""
+    out: list[list] = []
+    for span in spans:
+        if not isinstance(span, dict):
+            raise CollectionIdentityError(
+                f"source_spans entry unreadable: {span!r}")
+        try:
+            page = int(span["physical_page"])
+            bbox = [round(float(v), 4) for v in span["bbox"]]
+        except Exception as exc:
+            raise CollectionIdentityError(
+                f"source_spans entry unreadable: {span!r}") from exc
+        out.append([page, bbox])
+    return sorted(out)
+
+
+def _digest_list(values: list) -> str:
+    return hashlib.sha256(
+        json.dumps(values, sort_keys=True, ensure_ascii=False,
+                   separators=(",", ":")).encode("utf-8")).hexdigest()
 
 
 def canonical_payload_identity(
@@ -144,8 +170,12 @@ def canonical_payload_identity(
 ) -> dict[str, Any]:
     """Digest the canonicalized identity fields of the full payload stream.
 
-    Covers (at least) chunk_id, a text digest, usage_policy, the source
-    identity (source_sha256 + file_name) and the build_identity. Raises
+    T06-R5: covers the FULL evidence identity -- chunk_id, text digest,
+    usage_policy, source identity, build_identity, canonical_id,
+    canonical_content_id, the SORTED element_ids, the NORMALIZED source_spans
+    (physical_page + bbox) and the projection_version. Any change of page,
+    bbox, element membership, canonical identity or projection version
+    changes the digest and refuses reuse. Raises
     :class:`CollectionIdentityError` on any missing/empty identity field or
     a foreign build_identity.
     """
@@ -154,6 +184,8 @@ def canonical_payload_identity(
     for payload in payloads:
         missing = [key for key in _PAYLOAD_IDENTITY_FIELDS
                    if not payload.get(key)]
+        missing += [key for key in _PAYLOAD_IDENTITY_LIST_FIELDS
+                    if not isinstance(payload.get(key), list) or not payload.get(key)]
         if missing:
             raise CollectionIdentityError(
                 f"payload is missing identity fields {missing}")
@@ -164,9 +196,20 @@ def canonical_payload_identity(
         text_digest = hashlib.sha256(
             " ".join(str(payload["text"]).split()).encode("utf-8")).hexdigest()
         source = f"{payload['source_sha256']}|{payload['file_name']}"
+        elem_digest = _digest_list(sorted(str(e) for e in payload["element_ids"]))
+        try:
+            spans_digest = _digest_list(_normalized_spans(payload["source_spans"]))
+        except CollectionIdentityError:
+            raise
+        except Exception as exc:
+            raise CollectionIdentityError(
+                "source_spans unreadable for identity verification") from exc
         lines.append(
             f"{payload['chunk_id']} {payload['usage_policy']} "
-            f"{text_digest} {source} {build_identity}")
+            f"{text_digest} {source} {build_identity} "
+            f"{payload['canonical_id']} {payload['canonical_content_id']} "
+            f"{payload['projection_version']} "
+            f"elems={elem_digest} spans={spans_digest}")
         policy_counts[payload["usage_policy"]] = \
             policy_counts.get(payload["usage_policy"], 0) + 1
     digest = hashlib.sha256("\n".join(sorted(lines)).encode("utf-8")).hexdigest()
@@ -178,9 +221,9 @@ def canonical_payload_identity(
     }
 
 
-def _scroll_all_payloads(client: Any, collection_name: str) -> list[dict[str, Any]]:
-    """Full scroll of every stored payload (the identity proof)."""
-    payloads: list[dict[str, Any]] = []
+def _scroll_all_points(client: Any, collection_name: str) -> list[tuple[dict[str, Any], Any]]:
+    """Full scroll of every stored point (payload + dense vector)."""
+    points: list[tuple[dict[str, Any], Any]] = []
     offset: Any = None
     while True:
         records, offset = client.scroll(
@@ -188,12 +231,27 @@ def _scroll_all_payloads(client: Any, collection_name: str) -> list[dict[str, An
             limit=256,
             offset=offset,
             with_payload=True,
-            with_vectors=False,
+            with_vectors=True,
         )
         for record in records or []:
-            payloads.append(dict(record.payload or {}))
+            points.append((dict(record.payload or {}),
+                           getattr(record, "vector", None)))
         if offset is None:
-            return payloads
+            return points
+
+
+def _point_dense_vector(vector: Any, expected_vector_size: int) -> list:
+    """Extract the named dense vector; fail-closed on absence/wrong size."""
+    dense = vector.get("dense") if isinstance(vector, dict) else vector
+    if dense is None or (isinstance(dense, (list, tuple)) and not len(dense)):
+        raise CollectionIdentityError(
+            "a stored point has NO dense vector -- collection identity "
+            "cannot be proven (fail-closed)")
+    if len(dense) != expected_vector_size:
+        raise CollectionIdentityError(
+            f"a stored point dense vector has dimension {len(dense)}, "
+            f"expected {expected_vector_size}")
+    return dense
 
 
 def _collection_dense_vector_size(info: Any) -> int:
@@ -221,14 +279,17 @@ def verify_collection_payload_identity(
     expected: dict[str, Any],
     expected_vector_size: int,
     sparse_enabled: bool,
-) -> None:
+) -> dict[str, Any]:
     """Prove a physical collection IS the candidate it claims to be.
 
     Strict verification: complete vector schema (dense size + sparse
-    presence), exact point count, and a FULL payload scroll whose
-    canonicalized identity digest + global policy counts must match the
-    expected values. Any unreadable schema or missing payload field fails
-    closed.
+    presence), exact point count, a FULL point scroll whose canonicalized
+    identity digest + global policy counts must match the expected values,
+    and a per-point dense-vector check (present + exact dimension) on the
+    SAME scroll. Any unreadable schema or missing payload field fails
+    closed. Returns the VERIFIED counts (measured on the scroll, never
+    assumed): ``{"point_count", "vector_count", "payload_digest",
+    "policy_counts"}``.
     """
     info = client.get_collection(collection_name)
     size = _collection_dense_vector_size(info)
@@ -246,15 +307,25 @@ def verify_collection_payload_identity(
         raise CollectionIdentityError(
             f"collection {collection_name!r} holds {points} points, "
             f"expected {expected['chunk_count']}")
+    scrolled = _scroll_all_points(client, collection_name)
+    payloads = [p for p, _ in scrolled]
+    # T06-R5: every point must carry a dense vector of the exact dimension
+    vector_count = 0
+    for _, vector in scrolled:
+        _point_dense_vector(vector, expected_vector_size)
+        vector_count += 1
     actual = canonical_payload_identity(
-        _scroll_all_payloads(client, collection_name),
-        build_identity=expected["build_identity"])
+        payloads, build_identity=expected["build_identity"])
     if actual["payload_digest"] != expected["payload_digest"] \
             or actual["policy_counts"] != expected["policy_counts"] \
             or actual["chunk_count"] != expected["chunk_count"]:
         raise CollectionIdentityError(
             f"collection {collection_name!r} payload identity mismatch: "
             f"digest/policy/counts do not match the candidate chunk stream")
+    return {"point_count": points,
+            "vector_count": vector_count,
+            "payload_digest": actual["payload_digest"],
+            "policy_counts": actual["policy_counts"]}
 
 
 def resolve_staging_target(
@@ -265,7 +336,7 @@ def resolve_staging_target(
     expected_vector_size: int,
     sparse_enabled: bool,
     guarded_collections: set[str] | None = None,
-) -> tuple[str, str]:
+) -> tuple[str, str, dict[str, Any] | None]:
     """Resolve the immutable staging target: create | reuse (read-only).
 
     T06-R4: the target name is the STABLE build-identity name (no random
@@ -275,6 +346,10 @@ def resolve_staging_target(
     :class:`CollectionIdentityError` -- the collection is never deleted,
     recreated or upserted. Guarded collections (live collection, the
     pointer's collection, the live alias target) are never build targets.
+
+    Returns ``(name, mode, verified)`` where ``verified`` is the measured
+    result of :func:`verify_collection_payload_identity` for a reuse (its
+    ``vector_count`` comes from the actual scroll) and ``None`` for a create.
 
     ``client`` is duck-typed (a real QdrantClient or a test fake); this
     module still never imports qdrant.
@@ -287,16 +362,16 @@ def resolve_staging_target(
         if guarded:
             raise CollectionIdentityError(
                 f"refusing to build into guarded collection {target_name!r}")
-        return target_name, "create"
+        return target_name, "create", None
     # read-only verification is allowed even for a guarded collection (a
     # republish re-run must still re-verify the already-promoted staging
     # collection); the guarded name can never be CREATED, deleted or upserted
-    verify_collection_payload_identity(
+    verified = verify_collection_payload_identity(
         client, target_name,
         expected=expected,
         expected_vector_size=expected_vector_size,
         sparse_enabled=sparse_enabled)
-    return target_name, "reuse"
+    return target_name, "reuse", verified
 
 
 def _is_staging_collection_name(base: str, name: Any) -> bool:
@@ -594,8 +669,8 @@ def build_ingest_manifest(
     *,
     chunk_manifest_sha: str,
     ingest_report_sha: str,
-    collection_name: str | None = None,
-    build_identity: str | None = None,
+    collection_name: str,
+    build_identity: str,
 ) -> dict[str, Any]:
     """Bind the ingest-stage inputs/outputs into the parent-hash chain.
 
@@ -604,7 +679,14 @@ def build_ingest_manifest(
     collection identity: the stable build identity derived from the full
     input set (manifests + embedding/vector/sparse/enrichment versions) and
     the physical collection name it names.
+
+    T06-R5: ``collection_name`` and ``build_identity`` are MANDATORY -- a
+    manifest without a closed collection identity is not writable.
     """
+    if not collection_name:
+        raise ValueError("ingest manifest requires a collection_name")
+    if not build_identity:
+        raise ValueError("ingest manifest requires a build_identity")
     root = Path(root)
     artifact_manifest_sha = sha256_file(
         _artifact_dir(root, corpus_version) / "artifact_manifest.json")
@@ -612,7 +694,7 @@ def build_ingest_manifest(
         "schema_version": SCHEMA_VERSION,
         "kind": "ingest_manifest",
         "corpus_version": corpus_version,
-        "collection_name": collection_name or staging_collection_name(corpus_version),
+        "collection_name": collection_name,
         "build_identity": build_identity,
         "artifact_manifest_sha256": artifact_manifest_sha,
         "chunk_manifest_sha256": chunk_manifest_sha,
@@ -661,8 +743,14 @@ def write_gate_record(
 ) -> str:
     """Persist the gate report immutably, bound to candidate + collection.
 
-    ``switch_pointer`` reads THIS file -- never an in-memory dict.
+    ``switch_pointer`` reads THIS file -- never an in-memory dict. T06-R5:
+    a gate report without a build identity is refused -- a record that could
+    promote an unidentifiable collection is never written.
     """
+    if not gate_report.get("build_identity"):
+        raise PublishStateError(
+            "refusing to write a gate record without a build identity "
+            "(legacy/pre-R4 gate reports are not publishable)")
     root = Path(root)
     artifact_manifest_sha = sha256_file(
         _artifact_dir(root, corpus_version) / "artifact_manifest.json")
@@ -815,9 +903,12 @@ def publish_gate(
     vector_count: int,
     smoke_results: list[dict[str, Any]],
     collection_name: str,
-    build_identity: str | None = None,
+    build_identity: str,
 ) -> dict[str, Any]:
     """The closed set of checks before the publish switch may run.
+
+    T06-R5: ``build_identity`` is MANDATORY (a gate without one can never
+    write a switchable record).
 
     1. re-runs the FULL :func:`offline_preflight`;
     2. re-verifies the artifact manifest hashes and the exact canonical file
@@ -833,6 +924,9 @@ def publish_gate(
 
     checks["collection_name"] = collection_name
     checks["build_identity"] = build_identity
+    if not build_identity:
+        failures.append("build identity missing: the gate refuses a build "
+                        "with no derived collection identity")
     if not _is_staging_collection_name(expected_collection, collection_name):
         failures.append(
             f"built collection {collection_name!r} is not in the staging "
@@ -1009,16 +1103,24 @@ def switch_pointer(
         raise PublishGateError(
             f"gate record is for {record.get('corpus_version')!r}, "
             f"not {corpus_version!r}")
-    # T06-R3 P1-1: the gate record binds the CONCRETE build identity (the
-    # base staging name, or a fresh ``base__<build_id>`` identity minted
-    # when the base held foreign content). Promote exactly that name --
-    # never the live collection, never anything outside this version's
-    # staging family.
+    # T06-R5: the build identity is a closed-schema requirement -- a record
+    # without one (legacy t06-2 chain) can never be promoted, and the record
+    # identity must match the ingest manifest's AND the exact derivation.
+    record_identity = record.get("build_identity")
+    if not record_identity:
+        raise PublishGateError(
+            "publish refused: gate record has no build identity (legacy "
+            "t06-2/base-staging chains are not publishable)")
     target_collection = str(record.get("collection_name") or "")
     if not _is_staging_collection_name(base, target_collection):
         raise PublishGateError(
             f"gate record is bound to collection {target_collection!r}, "
             f"which is not in the staging family of {base!r}")
+    if target_collection != staging_build_collection_name(
+            corpus_version, record_identity):
+        raise PublishGateError(
+            f"gate record collection {target_collection!r} is not the exact "
+            f"derivation of its build identity {record_identity!r}")
 
     # Re-verify the full on-disk hash chain before anything moves.
     load_gate_record(root, corpus_version, verify=True)          # HashMismatchError -> fail
@@ -1028,6 +1130,12 @@ def switch_pointer(
     if ingest_manifest.get("collection_name") != target_collection:
         raise PublishGateError(
             "ingest manifest is bound to a different staging collection")
+    # T06-R5: manifest <-> gate record build identity must agree
+    if ingest_manifest.get("build_identity") != record_identity:
+        raise PublishGateError(
+            "ingest manifest and gate record disagree on the build identity "
+            f"({ingest_manifest.get('build_identity')!r} vs "
+            f"{record_identity!r})")
     try:
         load_artifact_manifest(root, corpus_version, verify=True)
     except HashMismatchError as exc:

@@ -453,11 +453,14 @@ class TestIngestStateMachine(unittest.TestCase):
 
 class _FakeQdrantState:
     """Duck-typed collection registry backing resolve_staging_target +
-    the full-scroll payload identity verification."""
+    the full-scroll payload identity verification (payloads AND vectors)."""
 
     def __init__(self, collections=None, vector_size=512, sparse=("bm25",)):
         self.collections = dict(collections or {})
         self.payloads: dict[str, list[dict]] = {}
+        # per-collection list of per-point dense vectors; None entry = a
+        # point that lost its vector (fail-closed verification target)
+        self.vectors: dict[str, list] = {}
         self.vector_size = vector_size
         self.sparse = sparse
         self.ops: list[tuple] = []
@@ -479,10 +482,15 @@ class _FakeQdrantState:
     def scroll(self, collection_name, limit=256, offset=None,
                with_payload=True, with_vectors=False):
         items = self.payloads.get(collection_name, [])
+        vecs = self.vectors.get(collection_name)
         start = offset or 0
         batch = items[start:start + limit]
         next_offset = start + len(batch)
-        records = [type("Rec", (), {"payload": p})() for p in batch]
+        records = []
+        for i, p in enumerate(batch):
+            vec = vecs[start + i] if vecs is not None else \
+                {"dense": [0.0] * self.vector_size}
+            records.append(type("Rec", (), {"payload": p, "vector": vec})())
         return records, (None if next_offset >= len(items) else next_offset)
 
     def get_aliases(self):
@@ -503,7 +511,7 @@ class _FakeQdrantState:
 def _stateful_builder(state: _FakeQdrantState, ops: list):
     """Builder emulating the real R4 immutable staging contract: derive the
     stable target, resolve (create | verified read-only reuse), store the
-    candidate payloads on create."""
+    candidate payloads + dense vectors on create."""
     import scripts.ingest_corpus_v2 as ing
     from src.application.publish_state import resolve_staging_target
 
@@ -513,7 +521,7 @@ def _stateful_builder(state: _FakeQdrantState, ops: list):
             raise ValueError(
                 "build_identity/expected_identity contract violated")
         ops.append(("resolve", collection_name))
-        target, mode = resolve_staging_target(
+        target, mode, verified = resolve_staging_target(
             state, target_name=collection_name, expected=expected_identity,
             expected_vector_size=512, sparse_enabled=True,
             guarded_collections=ing._guarded_collections(state, Path(root)))
@@ -522,13 +530,19 @@ def _stateful_builder(state: _FakeQdrantState, ops: list):
             payloads = ing._build_payloads(
                 chunks, Path(root), corpus_version, build_identity)
             state.payloads[target] = payloads
+            state.vectors[target] = [
+                {"dense": [0.0] * 512} for _ in payloads]
             state.collections[target] = len(payloads)
             ops.append(("create", target))
         ops.append(("smoke", target))
+        # reuse: the counts are the MEASURED ones from the verification
+        # scroll, never the assumed expectation
+        vector_count = verified["vector_count"] if verified else len(chunks)
+        point_count = verified["point_count"] if verified else len(chunks)
         return {
             "collection": target, "mode": mode, "build_status": "ok",
             "qdrant_url": qdrant_url,
-            "vector_count": len(chunks), "point_count": len(chunks),
+            "vector_count": vector_count, "point_count": point_count,
             "search_smoke": [{"query": q, "hit_count": 5,
                               "top_chunk_id": None, "top_file_name": None,
                               "top_score": 1.0, "top_text_head": None}
@@ -693,6 +707,115 @@ class TestStagingImmutabilityE2E(unittest.TestCase):
             self.assertEqual(
                 [op for op in ops2 if op[0] in ("create", "delete", "upsert")],
                 [])
+
+    def test_evidence_identity_tamper_is_never_reused(self):
+        # T06-R5: page, bbox, element membership and canonical identity are
+        # part of the collection identity -- each tampering refuses reuse
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            state = _FakeQdrantState()
+            report1 = self._ingest(env, publish=False,
+                                   builder=_stateful_builder(state, []))
+            staged = report1["staging_collection"]
+            pristine = [dict(p, source_spans=[dict(s) for s in p["source_spans"]],
+                             element_ids=list(p["element_ids"]))
+                        for p in state.payloads[staged]]
+            mutations = [
+                {"field": "source_spans[0].physical_page",
+                 "apply": lambda p: p["source_spans"][0].__setitem__(
+                     "physical_page", 9)},
+                {"field": "source_spans[0].bbox",
+                 "apply": lambda p: p["source_spans"][0].__setitem__(
+                     "bbox", [60.0, 300.0, 500.0, 999.0])},
+                {"field": "element_ids",
+                 "apply": lambda p: p.__setitem__(
+                     "element_ids", p["element_ids"] + ["el_extra"])},
+                {"field": "canonical_id",
+                 "apply": lambda p: p.__setitem__("canonical_id", "canon-x")},
+                {"field": "canonical_content_id",
+                 "apply": lambda p: p.__setitem__(
+                     "canonical_content_id", "content-x")},
+                {"field": "projection_version",
+                 "apply": lambda p: p.__setitem__(
+                     "projection_version", "v2-projection/9")},
+            ]
+            ops_all: list = []
+            for mutation in mutations:
+                # restore the pristine stream, apply ONE tampering
+                state.payloads[staged] = [
+                    dict(p, source_spans=[dict(s) for s in p["source_spans"]],
+                         element_ids=list(p["element_ids"])) for p in pristine]
+                for p in state.payloads[staged]:
+                    mutation["apply"](p)
+                ops: list = []
+                ops_all.extend(ops)
+                report = self._ingest(env, publish=False,
+                                      builder=_stateful_builder(state, ops))
+                self.assertEqual(report["status"], "failed",
+                                 mutation["field"])
+                self.assertIn("CollectionIdentityError",
+                              report["build"]["error"], mutation["field"])
+            # nothing was ever deleted/created/upserted across ALL attempts
+            self.assertEqual(
+                [op for op in ops_all
+                 if op[0] in ("create", "delete", "upsert")], [])
+
+    def test_point_vector_anomalies_fail_closed(self):
+        # T06-R5: a stored point without its dense vector -- or with a wrong
+        # dimension -- must refuse reuse (fail-closed, zero mutation)
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            state = _FakeQdrantState()
+            report1 = self._ingest(env, publish=False,
+                                   builder=_stateful_builder(state, []))
+            staged = report1["staging_collection"]
+            ops: list = []
+            state.vectors[staged] = [None] + state.vectors[staged][1:]
+            report = self._ingest(env, publish=False,
+                                  builder=_stateful_builder(state, ops))
+            self.assertEqual(report["status"], "failed")
+            self.assertIn("CollectionIdentityError", report["build"]["error"])
+            self.assertEqual(
+                [op for op in ops if op[0] in ("create", "delete", "upsert")],
+                [])
+            # wrong dense dimension is equally refused
+            ops2: list = []
+            state.vectors[staged] = [{"dense": [0.0] * 511}]
+            report2 = self._ingest(env, publish=False,
+                                   builder=_stateful_builder(state, ops2))
+            self.assertEqual(report2["status"], "failed")
+            self.assertIn("CollectionIdentityError", report2["build"]["error"])
+            self.assertEqual(
+                [op for op in ops2 if op[0] in ("create", "delete", "upsert")],
+                [])
+
+    def test_legacy_base_staging_record_cannot_publish_with_noop_verifier(self):
+        # T06-R5: a t06-2-era record (no build identity, base staging name)
+        # must be refused -- even with a noop verifier
+        from src.application.publish_state import PublishGateError, switch_pointer
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            state = _FakeQdrantState()
+            report1 = self._ingest(env, publish=False,
+                                   builder=_stateful_builder(state, []))
+            cv_dir = env.root / "data" / "canonical" / "v2" / env.cv
+            record = json.loads(
+                (cv_dir / "publish_gate_record.json").read_text(encoding="utf-8"))
+            record["schema_version"] = "t06-2"
+            record.pop("build_identity", None)
+            record["collection_name"] = f"corpus_v2__staging__{env.cv}"
+            record_path = cv_dir / "publish_gate_record.json"
+            _write_json(record_path, record)
+            pointer = env.root / "data" / "registry" / "corpus-current.json"
+            _write_json(pointer, {"corpus_version": "corpus-old",
+                                  "status": "published"})
+            before = pointer.read_bytes()
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
+            with self.assertRaises(PublishGateError):
+                switch_pointer(env.root, env.cv, alias_admin=admin,
+                               verify_collection=lambda name: None)
+            self.assertEqual(pointer.read_bytes(), before)
+            self.assertEqual(admin.calls, [])
 
     def test_offline_failure_does_not_initialize_qdrant(self):
         with _ScriptRoot() as env:
