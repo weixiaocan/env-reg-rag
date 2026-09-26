@@ -20,6 +20,11 @@ class CurrentCorpusArtifacts:
     corpus_version: str
     manifest_path: Path
     canonical_documents_path: Path
+    # T06: the alias the runtime queries (None on pre-T06 pointers).
+    alias: str | None = None
+    # T06: the versioned collection the publish gate promoted. Recorded for
+    # traceability -- NEVER used as the runtime query entry.
+    collection_name: str | None = None
 
 
 def resolve_current_corpus(project_root: Path) -> CurrentCorpusArtifacts:
@@ -52,4 +57,33 @@ def resolve_current_corpus(project_root: Path) -> CurrentCorpusArtifacts:
         corpus_version=pointer["corpus_version"],
         manifest_path=manifest_path,
         canonical_documents_path=canonical_documents_path,
+        alias=pointer.get("alias"),
+        collection_name=pointer.get("collection_name"),
     )
+
+
+def resolve_query_collection(
+    project_root: Path, env_override: str | None = None
+) -> str:
+    """The single authoritative query entry (T06-R3 P1-2).
+
+    The runtime ALWAYS queries the live alias: publish switches and
+    rollbacks move the alias target on the server side, so a running
+    service follows them without a restart. The pointer records the alias
+    name and the concrete target, but the target is never the query entry.
+
+    Resolution order: explicit env override (diagnostics) > the pointer's
+    recorded alias > the legacy pointer's collection_name (pre-T06
+    pointers, kept working until the next publish) > the default live
+    alias.
+    """
+    if env_override:
+        return env_override
+    pointer_path = Path(project_root).resolve() / "data" / "registry" / "corpus-current.json"
+    if pointer_path.is_file():
+        pointer = json.loads(pointer_path.read_text(encoding="utf-8"))
+        if pointer.get("alias"):
+            return str(pointer["alias"])
+        if pointer.get("collection_name"):
+            return str(pointer["collection_name"])  # legacy pre-T06 pointer
+    return "corpus_v2_live"

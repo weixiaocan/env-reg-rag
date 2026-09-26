@@ -119,6 +119,8 @@ class QdrantRetrievalIndex:
         self,
         chunks: Sequence[dict[str, Any]],
         vectors: Sequence[Sequence[float]],
+        *,
+        create_only: bool = False,
     ) -> None:
         if len(chunks) != len(vectors):
             raise ValueError("each retrieval chunk must have exactly one dense vector")
@@ -126,6 +128,15 @@ class QdrantRetrievalIndex:
             raise ValueError("dense vector size does not match the collection schema")
 
         if self._client.collection_exists(self._collection_name):
+            if create_only:
+                # T06-R3: staging builds are create-only/immutable -- an
+                # existing collection (especially one referenced by the live
+                # alias or the current pointer) must never be deleted and
+                # recreated. The caller resolves identity beforehand and
+                # either reuses read-only or targets a fresh build identity.
+                raise RuntimeError(
+                    f"immutable build: collection {self._collection_name!r} "
+                    "already exists; refusing to delete and recreate it")
             self._client.delete_collection(self._collection_name)
         sparse_vectors_config = None
         if self._enable_bm25:
@@ -300,7 +311,11 @@ class QdrantRetrievalIndex:
             text=str(payload.get("text", "")),
             primary_evidence_id=str(payload.get("primary_evidence_id", "")),
             physical_pages=list(payload.get("physical_pages", [])),
-            usage_policy=str(payload.get("usage_policy", "answer_and_citation")),
+            # Missing/empty usage_policy must NEVER default to answer. The
+            # chunker projection owns the policy (strictest source wins); a
+            # payload without one is treated as source_locator_only (safest
+            # non-excluded) so it can locate but not support an answer (D2).
+            usage_policy=str(payload.get("usage_policy") or "source_locator_only"),
             score=score,
             document_version_id=str(payload.get("document_version_id", "")),
             file_name=str(payload.get("file_name", "")),

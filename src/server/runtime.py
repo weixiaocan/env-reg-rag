@@ -1,6 +1,7 @@
 """Production composition root for the V2 query application module.
 
-Wires the single ``corpus_v2`` Qdrant collection to both query profiles
+Wires the published corpus's Qdrant collection (from the current pointer) to
+both query profiles
 (answer / source_lookup). The answer profile uses the LangChain generator
 backed by the provider configured in ``.env`` (default: zhipu GLM). When the
 LLM is not configured (missing API key, unsupported provider) the answer
@@ -32,7 +33,10 @@ from src.adapters.source_evidence_document_catalog import (
     SourceEvidenceDocumentCatalog,
 )
 from src.application.answer_generation import Answer, AnswerGenerator, InMemoryAnswerGenerator
-from src.application.corpus_artifacts import resolve_current_corpus
+from src.application.corpus_artifacts import (
+    resolve_current_corpus,
+    resolve_query_collection,
+)
 from src.application.evidence_source import EvidenceSourceService
 from src.application.query_service import QueryApplicationService
 from src.application.scope_resolution import RuleBasedScopeResolver
@@ -78,7 +82,10 @@ def build_query_services(
     client = QdrantClient(
         url=os.getenv("QDRANT_URL", "http://127.0.0.1:6333"), timeout=30
     )
-    collection = os.getenv("QDRANT_COLLECTION", "corpus_v2")
+    collection = resolve_query_collection(
+        project_root,
+        env_override=os.getenv("QDRANT_COLLECTION"),
+    )
     index = QdrantRetrievalIndex(
         client=client,
         collection_name=collection,
