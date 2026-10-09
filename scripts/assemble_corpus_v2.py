@@ -61,6 +61,7 @@ from src.domain.canonical_document import SchemaError  # noqa: E402
 from src.ingestion.text_quality import document_text_quality  # noqa: E402
 
 _DEFAULT_FORMULA_RUN_ID = "5d3264515515e228"
+_DEFAULT_INDEPENDENT_OCR_RUN_ID = "ocrv6-ef06411e1606ba35"
 
 
 def _iter_page_documents(corpus_version: str, root: str | None = None) -> list[dict[str, Any]]:
@@ -129,11 +130,14 @@ def _assert_formula_coverage(
         )
 
 
-def _assemble_one(page_doc: dict[str, Any], formula_run_id: str) -> dict[str, Any]:
+def _assemble_one(
+    page_doc: dict[str, Any], formula_run_id: str, independent_ocr_run_id: str,
+    *, root: str | None = None,
+) -> dict[str, Any]:
     sha = page_doc["sha256"]
     page_count = len(page_doc.get("pages") or [])
     formula_cache_dir = os.path.join(
-        _REPO_ROOT, "data", "model_runtime", "corpus_formulas", formula_run_id
+        root or _REPO_ROOT, "data", "model_runtime", "corpus_formulas", formula_run_id
     )
     _assert_formula_cache(page_doc, formula_run_id, formula_cache_dir)
     formula_pages, cache_failures = load_formula_pages(
@@ -147,7 +151,14 @@ def _assemble_one(page_doc: dict[str, Any], formula_run_id: str) -> dict[str, An
             f"detected regions there close as explicit failed outcomes"
         )
     _assert_formula_coverage(page_doc, formula_pages, formula_run_id, formula_cache_dir)
-    doc = assemble_document(page_doc, formula_pages=formula_pages)
+    independent_run_dir = os.path.join(
+        root or _REPO_ROOT, "data", "model_runtime", "independent_ocr", "runs",
+        independent_ocr_run_id,
+    )
+    doc = assemble_document(
+        page_doc, formula_pages=formula_pages,
+        independent_ocr_run_dir=independent_run_dir,
+    )
     ids = compute_ids(doc)
     apply_computed_ids(doc, ids)
     validate_document(doc)
@@ -248,6 +259,11 @@ def main(argv: list[str] | None = None) -> int:
         help=f"formula cache run-id (defaults to {_DEFAULT_FORMULA_RUN_ID!r})",
     )
     parser.add_argument(
+        "--independent-ocr-run-id", default=_DEFAULT_INDEPENDENT_OCR_RUN_ID,
+        help=("existing local independent OCR run used for calibrated text fusion "
+              f"(defaults to {_DEFAULT_INDEPENDENT_OCR_RUN_ID!r}; missing pages hard-fail)"),
+    )
+    parser.add_argument(
         "--only", nargs="*", default=None,
         help="only assemble these sha256 prefixes (space-separated)",
     )
@@ -277,6 +293,7 @@ def main(argv: list[str] | None = None) -> int:
     total = len(all_docs)
     print(f"[assemble] {total} documents to assemble from {corpus_version}")
     print(f"[assemble] formula run-id: {args.formula_run_id}")
+    print(f"[assemble] independent OCR run-id: {args.independent_ocr_run_id}")
     print(f"[assemble] output dir: {output_dir}")
     print()
 
@@ -297,7 +314,8 @@ def main(argv: list[str] | None = None) -> int:
                 "bad_pages": quality.get("bad_pages"),
                 "pages": quality.get("pages"),
             })
-            doc = _assemble_one(page_doc, args.formula_run_id)
+            doc = _assemble_one(
+                page_doc, args.formula_run_id, args.independent_ocr_run_id, root=root)
             out_path = _write(doc, corpus_version, root)
             quar = _quarantine_count(page_doc)
             _print_row(idx, total, page_doc, doc, out_path, quar)

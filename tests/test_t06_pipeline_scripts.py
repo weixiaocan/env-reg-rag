@@ -42,6 +42,8 @@ from src.application.publish_state import (  # noqa: E402
 
 _SHA = "a" * 64
 _CV = "corpus-t06scripts"
+_FORMULA_RUN_ID = "run_t06"
+_INDEPENDENT_OCR_RUN_ID = "ocrv6-test"
 
 
 def _page_doc(sha: str = _SHA, *, text: str = "排水管道设计流量应按本条规定计算。",
@@ -88,8 +90,15 @@ class _ScriptRoot:
         self.root = Path(self.tmp)
         (self.root / "data" / "registry").mkdir(parents=True)
         (self.root / "data" / "canonical").mkdir(parents=True)
-        (self.root / "data" / "model_runtime" / "corpus_formulas" / "run_t06").mkdir(
+        (self.root / "data" / "model_runtime" / "corpus_formulas" / _FORMULA_RUN_ID).mkdir(
             parents=True)
+        ocr_run = (self.root / "data" / "model_runtime" / "independent_ocr"
+                   / "runs" / _INDEPENDENT_OCR_RUN_ID)
+        ocr_run.mkdir(parents=True)
+        _write_json(ocr_run / "run_manifest.json", {
+            "schema_version": "independent-ocr-run-v1",
+            "run_id": _INDEPENDENT_OCR_RUN_ID,
+        })
         self.sha = sha
         self.cv = _CV
         self.page_doc = page_doc or _page_doc(sha)
@@ -109,6 +118,36 @@ class _ScriptRoot:
             "canonical_documents": f"data/canonical/{self.cv}-documents.jsonl",
             "canonical_documents_sha256": digest,
         })
+        ocr_run = (self.root / "data" / "model_runtime" / "independent_ocr"
+                   / "runs" / _INDEPENDENT_OCR_RUN_ID)
+        for row in rows:
+            sha = row["sha256"]
+            for index, page in enumerate(row.get("pages") or []):
+                if page.get("extraction_route") not in {"full_ocr", "hybrid"}:
+                    continue
+                physical_page = int(page.get("physical_page") or index + 1)
+                lines = []
+                for line_index, element in enumerate(page.get("elements") or [], 1):
+                    if element.get("text") and element.get("bbox"):
+                        lines.append({
+                            "line_id": f"l{line_index:04d}",
+                            "text": element["text"],
+                            "bbox": list(element["bbox"]),
+                            "score": 0.999,
+                        })
+                _write_json(
+                    ocr_run / "pages" / sha / f"p{physical_page:04d}.json",
+                    {
+                        "file_sha256": sha,
+                        "physical_page": physical_page,
+                        "render": {
+                            "width_px": float(page.get("width") or 0.0),
+                            "height_px": float(page.get("height") or 0.0),
+                            "scale": 1.0,
+                        },
+                        "lines": lines,
+                    },
+                )
 
     def rewrite_page_docs(self, rows: list[dict]) -> None:
         self.page_doc = rows
@@ -129,7 +168,12 @@ def _write_json(path: Path, payload: dict) -> None:
 
 def _assemble(root: Path, cv: str, extra: list[str] | None = None):
     import scripts.assemble_corpus_v2 as asm
-    argv = ["--corpus-version", cv, "--root", str(root)] + (extra or [])
+    argv = [
+        "--corpus-version", cv,
+        "--root", str(root),
+        "--formula-run-id", _FORMULA_RUN_ID,
+        "--independent-ocr-run-id", _INDEPENDENT_OCR_RUN_ID,
+    ] + (extra or [])
     return asm.main(argv)
 
 

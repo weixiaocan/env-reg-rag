@@ -28,6 +28,7 @@ tmp/
 data/canonical/
 data/eval_results/
 eval/audits/ocr_sampling/crops/
+eval/audits/ocr_fix/T5_calibration_crops/
 
 # Local databases, vector stores, logs, model caches and other runtime state.
 data/qdrant/

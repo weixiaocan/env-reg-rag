@@ -45,6 +45,7 @@ from src.ingestion.heading_hierarchy import (
     detect_toc_pages,
     infer_headings,
 )
+from src.ingestion.independent_ocr_fusion import fuse_document_pages
 from src.ingestion.text_quality import is_answerable_text, score_text
 
 __all__ = ["assemble_document", "load_formula_pages", "CECS758_SHA"]
@@ -139,6 +140,7 @@ def assemble_document(
     *,
     formula_pages: dict[int, list[dict[str, Any]]] | None = None,
     metadata: dict[str, Any] | None = None,
+    independent_ocr_run_dir: str | None = None,
 ) -> dict[str, Any]:
     """Assemble a V2 CanonicalDocument dict from a V1 document.
 
@@ -164,6 +166,10 @@ def assemble_document(
     """
     _formula_ledger_produced = formula_pages is not None
     formula_pages = formula_pages or {}
+    fusion_summary = None
+    if independent_ocr_run_dir is not None:
+        page_document, fusion_summary = fuse_document_pages(
+            page_document, run_dir=independent_ocr_run_dir)
     page_rows = page_document.get("pages") or []
     sha = (page_document.get("sha256") or "").lower()
     page_count = len(page_rows)
@@ -857,7 +863,7 @@ def assemble_document(
     doc_metadata = _build_metadata(page_document, metadata)
     generation = _build_generation(
         page_document, formula_pages, ocr_engine_order, needs_unknown_engine,
-        formula_engine_order,
+        formula_engine_order, fusion_summary,
     )
 
     return {
@@ -1885,6 +1891,7 @@ def _collect_page_items(
                 region_cfgs.append(cfg)
         items.append(_PageItem(
             kind="text", page=pno, bbox=bbox, text=text, ref=elem,
+            extra={"ocr_fusion": elem.get("_ocr_fusion")},
             extraction_route=route, decision_status=decision, decision_reasons=reasons,
             ocr_confidence=ocr_confidence, engine_name=engine_name, engine_version=engine_version,
             engine_id=page_engine_id,
@@ -2020,6 +2027,13 @@ def _build_text_element(
     method, engine_id, confidence = _route_provenance(slot)
     provenance = [_provenance("extract", method, engine_id, confidence)]
     quality_status, policy_reasons = _derive_text_quality(slot, text)
+    fusion = slot.extra.get("ocr_fusion")
+    if fusion:
+        provenance.append(_provenance(
+            "merge", "ocr", "ocr-fusion-1", fusion.get("independent_score")))
+        quality_status = "needs_review"
+        if "independent_ocr_fusion_unreviewed" not in policy_reasons:
+            policy_reasons.append("independent_ocr_fusion_unreviewed")
     return {
         "element_id": elem_counter.next(),
         "type": "text",
@@ -2035,6 +2049,7 @@ def _build_text_element(
         "source_region_ids": list(slot.source_region_ids),
         "processing_config_ids": list(slot.region_processing_config_ids),
         "quality_issues": list(slot.region_issues),
+        **({"ocr_fusion": [dict(fusion)]} if fusion else {}),
     }
 
 
@@ -3436,6 +3451,7 @@ def _build_generation(
     ocr_engine_order: list[tuple[str, str, str]] | None = None,
     needs_unknown_engine: bool = False,
     formula_engine_order: list[tuple[str, str, str]] | None = None,
+    fusion_summary: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     config_hash = (page_document.get("config_hash") or "").lower()
     if not config_hash or len(config_hash) != 64:
@@ -3462,6 +3478,9 @@ def _build_generation(
     # missing engine_version on an old cache is "unknown", never a guess.
     for eid, name, version in (ocr_engine_order or []):
         engines.append({"engine_id": eid, "name": name, "version": version})
+    if fusion_summary and (fusion_summary.get("inserted") or fusion_summary.get("replaced")):
+        engines.append({"engine_id": "ocr-fusion-1", "name": "RapidOCR/PP-OCRv6_rec_small",
+                        "version": str(fusion_summary.get("run_id") or "unknown")})
     # T02 P1a: a page with a missing/unknown extraction route gets an honest
     # ``unknown-1`` engine (never guessed as native-1) so its provenance
     # engine_id resolves (invariant 16).

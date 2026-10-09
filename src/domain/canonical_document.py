@@ -72,6 +72,10 @@ _DIGEST_EXCLUDED_ELEMENT_FIELDS = {
     # formula and its "式中" explanation text elements; a binding change flips
     # canonical_id via the audit while content_id stays content-only.
     "explanation_bindings",
+    # T5: independent OCR fusion decisions are provenance/audit metadata.  The
+    # fused text itself remains content-addressed; this record explains how it
+    # was selected without changing the established ID inputs.
+    "ocr_fusion",
 }
 
 
@@ -171,6 +175,39 @@ def _validate_explanation_bindings(bindings: Any, where: str) -> None:
         if type(b["order"]) is not int or b["order"] < 0:
             raise SchemaError(
                 f"{where}[].order must be a non-negative int, got {b['order']!r}")
+
+
+def _validate_ocr_fusion(records: Any, where: str) -> None:
+    """Validate the closed audit record for an inserted/replaced OCR line."""
+    if not isinstance(records, list):
+        raise SchemaError(f"{where} must be a list")
+    required = {
+        "action", "engine", "run_id", "run_manifest_sha256", "rule_version",
+        "original_primary_text", "independent_text", "independent_line_id",
+        "independent_score", "alignment_score", "source_region_ids",
+    }
+    for record in records:
+        if not isinstance(record, dict):
+            raise SchemaError(f"{where} entries must be objects")
+        _require_keys(record, required, f"{where}[]")
+        if record["action"] not in {"insert", "replace"}:
+            raise SchemaError(f"{where}[].action must be insert or replace")
+        for key in ("engine", "run_id", "rule_version", "independent_text",
+                    "independent_line_id"):
+            if not isinstance(record[key], str) or not record[key]:
+                raise SchemaError(f"{where}[].{key} must be a non-empty string")
+        _sha256_hex(record["run_manifest_sha256"], f"{where}[].run_manifest_sha256")
+        original = record["original_primary_text"]
+        if original is not None and not isinstance(original, str):
+            raise SchemaError(f"{where}[].original_primary_text must be a string or null")
+        for key in ("independent_score", "alignment_score"):
+            value = record[key]
+            if value is not None and (not isinstance(value, (int, float))
+                                      or isinstance(value, bool) or not 0 <= value <= 1):
+                raise SchemaError(f"{where}[].{key} must be in [0,1] or null")
+        if not isinstance(record["source_region_ids"], list) or not all(
+                isinstance(v, str) for v in record["source_region_ids"]):
+            raise SchemaError(f"{where}[].source_region_ids must be a string list")
 
 
 def _validate_relation_records(relations: Any, where: str) -> None:
@@ -823,6 +860,10 @@ class Element:
     # the explanation stays an independent text element and the ambiguity is
     # recorded as a quality issue on the formula.
     explanation_bindings: list[dict[str, Any]] = field(default_factory=list)
+    # T5 optional, closed independent-OCR fusion record(s).  One text element
+    # currently has at most one record, but a list keeps the provenance chain
+    # explicit and avoids hiding a future staged merge.
+    ocr_fusion: list[dict[str, Any]] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "Element":
@@ -839,6 +880,7 @@ class Element:
                 "execution_status", "consumed_sources",
                 "crop_assets", "cross_page_relations",
                 "explanation_bindings",
+                "ocr_fusion",
             },
         )
         etype = data["type"]
@@ -877,6 +919,9 @@ class Element:
         bindings = data.get("explanation_bindings")
         if bindings is not None:
             _validate_explanation_bindings(bindings, "element.explanation_bindings")
+        fusion = data.get("ocr_fusion")
+        if fusion is not None:
+            _validate_ocr_fusion(fusion, "element.ocr_fusion")
         return cls(
             element_id=data["element_id"],
             type=etype,
@@ -897,6 +942,7 @@ class Element:
             crop_assets=[dict(c) for c in data["crop_assets"]] if data.get("crop_assets") is not None else [],
             cross_page_relations=[dict(r) for r in data["cross_page_relations"]] if data.get("cross_page_relations") is not None else [],
             explanation_bindings=[dict(b) for b in data["explanation_bindings"]] if data.get("explanation_bindings") is not None else [],
+            ocr_fusion=[dict(f) for f in data["ocr_fusion"]] if data.get("ocr_fusion") is not None else [],
         )
 
 
@@ -1143,6 +1189,8 @@ class CanonicalDocument:
             if e.explanation_bindings:
                 entry["explanation_bindings"] = [
                     dict(b) for b in e.explanation_bindings]
+            if e.ocr_fusion:
+                entry["ocr_fusion"] = [dict(f) for f in e.ocr_fusion]
             elements_audit.append(entry)
         # Engine descriptors for engines actually referenced by page audit
         # entries (deterministic: in generation.engines declaration order).
