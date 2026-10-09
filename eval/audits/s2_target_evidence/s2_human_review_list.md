@@ -1,0 +1,93 @@
+# S2 人工裁定短清单（带 PDF 页码）— 不代填 passed / review_assertion
+
+> 全部条目保持现状（needs_review / pending）；工程不可代填，逐条由人工裁定。
+
+## A. 受阻证据（chunk 级，按根因分组）
+
+- ☐ G001[f0] `城镇内涝防治技术规范.pdf` **p8** — chunk `chunk_54cec865de64022a7d…` — 普通文字质量(OCR待审) — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review']
+- ☐ G002[f0] `城镇内涝防治技术规范.pdf` **p14** — chunk `chunk_71d2590665a3a147f6…` — 普通文字质量(OCR待审) — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review']
+- ☐ G002[f0] `城镇内涝防治技术规范.pdf` **p14** — chunk `chunk_c3377c044d40e9bfc4…` — 结构化D3复核 — element_types=['formula', 'text', 'text', 'text', 'text', 'text', 'text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'structured_default_locator_only', 'too_short']
+- ☐ G002[f0] `城镇内涝防治技术规范.pdf` **p14** — chunk `chunk_5b0653c2107f2dac56…` — 普通文字质量(OCR待审) — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review']
+- ☐ G003[f0] `“十四五”全国城市基础设施建设规划.pdf` **p2** — chunk `chunk_fc68a40b71eb0148da…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G004[f0] `“十四五”全国城市基础设施建设规划.pdf` **p2** — chunk `chunk_fc68a40b71eb0148da…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G004[f0] `“十四五”城镇污水处理及资源化利用.pdf` **p6** — chunk `chunk_a914f8a27177388004…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short']
+- ☐ G005[f0] `降雨过程强度等级标准.pdf` **p5** — chunk `chunk_7579e97cdb41c25025…` — 普通文字质量(OCR待审) — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review']
+- ☐ G006[f0] `降雨过程强度等级标准.pdf` **p6** — chunk `chunk_8217c10967608ac0a8…` — 结构化D3复核 — element_types=['formula', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'structured_default_locator_only', 'too_short']
+- ☐ G007[f0] `附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf` **p4** — chunk `chunk_475fc9e9a4fe998588…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short', 'unmatched_text_region']
+- ☐ G010[f0] `DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf` **p3** — chunk `chunk_805e77588dd2468122…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short']
+- ☐ G011[f0] `DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf` **p56** — chunk `chunk_8914904bf4f3928865…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G012[f0] `武汉市排水管道混错接改造技术规程.pdf` **p1** — chunk `chunk_9092f9e17b6a8b045b…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short']
+- ☐ G013[f0] `武汉市排水管道混错接改造技术规程.pdf` **p3** — chunk `chunk_6b646fcaf9e4e7bbfd…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G014[f0] `“十四五”城镇污水处理及资源化利用.pdf` **p6** — chunk `chunk_a914f8a27177388004…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short']
+- ☐ G016[f0] `《城乡排水工程项目规范》 (GB 55027-2022).pdf` **p13** — chunk `chunk_c61c2ee442f79c158b…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G016[f0] `GB50014-2021+室外排水设计标准+预览.pdf` **p20** — chunk `chunk_55155c55f3a02aa9c3…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G017[f0] `《城乡排水工程项目规范》 (GB 55027-2022).pdf` **p11** — chunk `chunk_51af668fa6fd66966e…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G018[f0] `《城乡排水工程项目规范》 (GB 55027-2022).pdf` **p4** — chunk `chunk_d8c76042b3b4ff2abe…` — 普通文字质量(OCR待审) — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review']
+- ☐ G018[f0] `《城乡排水工程项目规范》 (GB 55027-2022).pdf` **p4** — chunk `chunk_b3cc1d4a08c52bc1d1…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G018[f0] `《城乡排水工程项目规范》 (GB 55027-2022).pdf` **p1** — chunk `chunk_afefe14eda631ad22a…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G019[f0] `城镇分流制排水系统雨污混接调查 征求意见稿.pdf` **p24** — chunk `chunk_4e9cafd610a7ac92f0…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G019[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p28** — chunk `chunk_3d03c7031aef4fecf3…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G020[f0] `城镇分流制排水系统雨污混接调查 征求意见稿.pdf` **p22** — chunk `chunk_fc1ff0301ebc28300e…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short']
+- ☐ G022[f0] `QXT 489－2019 降雨过程等级.pdf` **p9** — chunk `chunk_613eb0f8a5152b3b39…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G022[f0] `QXT 489－2019 降雨过程等级.pdf` **p9** — chunk `chunk_cd4ad3447fe818b903…` — 普通文字质量(OCR待审) — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review']
+- ☐ G023[f0] `GBT 28592-2012降水量等级.pdf` **p4** — chunk `chunk_2ae2464e89cb1dc2a0…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G023[f0] `短时气象服务降雨量等级TCMSA-2019.pdf` **p5** — chunk `chunk_53bc9cf1cd413c183e…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G023[f0] `QXT 489－2019 降雨过程等级.pdf` **p10** — chunk `chunk_d342b42872a12f04cd…` — 普通文字质量(OCR待审) — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review']
+- ☐ G023[f0] `短时气象服务降雨量等级TCMSA-2019.pdf` **p5** — chunk `chunk_34cc8546a2e6b5eb82…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['mojibake_symbol_text', 'needs_review_source']
+- ☐ G024[f0] `《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf` **p3** — chunk `chunk_6cc29ee60ccecc1a49…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G025[f0] `《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf` **p3** — chunk `chunk_6cc29ee60ccecc1a49…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G025[f0] `住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf` **p1** — chunk `chunk_d193ec2911a7df6b93…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G026[f0] `《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf` **p3** — chunk `chunk_6cc29ee60ccecc1a49…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G026[f0] `《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf` **p90** — chunk `chunk_8e6befa3c05683c622…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short']
+- ☐ G027[f0] `20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf` **p16** — chunk `chunk_24a585a64872cecb52…` — 结构化D3复核 — element_types=['figure'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G029[f0] `城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf` **p1** — chunk `chunk_43d194e2c4effe6970…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G030[f0] `城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf` **p18** — chunk `chunk_2e5f4720307959ba2c…` — 结构化D3复核 — element_types=['formula', 'text', 'text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'structured_default_locator_only', 'too_short']
+- ☐ G030[f0] `城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf` **p12** — chunk `chunk_a5ad758689de3ea75c…` — 结构化D3复核 — element_types=['figure'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G030[f0] `城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf` **p18** — chunk `chunk_7e8d23da399b9e29f8…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G032[f0] `短时气象服务降雨量等级TCMSA-2019.pdf` **p5** — chunk `chunk_53bc9cf1cd413c183e…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G032[f0] `短时气象服务降雨量等级TCMSA-2019.pdf` **p6** — chunk `chunk_0babc8863b58ca8b3b…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G033[f0] `GB50014-2021+室外排水设计标准+预览.pdf` **p21** — chunk `chunk_f2b52a6f65e1f5b691…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G034[f0] `GB50014-2021+室外排水设计标准+预览.pdf` **p22** — chunk `chunk_ebd2c621fe0db61608…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G035[f0] `GB50014-2021+室外排水设计标准+预览.pdf` **p21** — chunk `chunk_d2ba14bf7c5b77dcaa…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short', 'unmatched_text_region']
+- ☐ G035[f0] `GB50014-2021+室外排水设计标准+预览.pdf` **p22** — chunk `chunk_ebd2c621fe0db61608…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G036[f0] `GB50014-2021+室外排水设计标准+预览.pdf` **p22** — chunk `chunk_09c684848514925317…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G037[f0] `城市排水工程规划规范.pdf` **p20** — chunk `chunk_1e8179ff17e12e15b5…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G037[f0] `城市排水工程规划规范.pdf` **p20** — chunk `chunk_93d73b4c95b603ebfa…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G037[f0] `城市排水工程规划规范.pdf` **p20** — chunk `chunk_f25c3d7e77902ce547…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short']
+- ☐ G037[f0] `城市排水工程规划规范.pdf` **p20** — chunk `chunk_ba63bbc6615352674d…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G039[f0] `GBT+47884-2026.pdf` **p9** — chunk `chunk_b96e9371ecf1a2df2c…` — 结构化D3复核 — element_types=['figure'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G040[f0] `GBT+47884-2026.pdf` **p10** — chunk `chunk_d3a50df7c4deb6e80c…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G040[f0] `GBT+47884-2026.pdf` **p10** — chunk `chunk_bc01011f07cbb323ab…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G041[f0] `城镇生活污水处理设施补短板强弱项实施方案.pdf` **p1** — chunk `chunk_fca70c5f4bbcb58b4a…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short']
+- ☐ G042[f0] `多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf` **p11** — chunk `chunk_78d26e1d1e315e5ab4…` — 结构化D3复核 — element_types=['figure'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G043[f0] `GBT 28592-2012降水量等级.pdf` **p4** — chunk `chunk_578072edb03dac0e7a…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G044[f0] `GBT 28592-2012降水量等级.pdf` **p4** — chunk `chunk_578072edb03dac0e7a…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G044[f0] `GBT 28592-2012降水量等级.pdf` **p4** — chunk `chunk_2ae2464e89cb1dc2a0…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short']
+- ☐ G045[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p15** — chunk `chunk_5196cd43f3fd91c1e6…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'too_short', 'unmatched_text_region']
+- ☐ G046[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p24** — chunk `chunk_50c27da38e2791f3be…` — 结构化D3复核 — element_types=['formula', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G046[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p23** — chunk `chunk_935d5150cdc74f98bf…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G046[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p23** — chunk `chunk_9a6cb297abfc2e870c…` — 结构化D3复核 — element_types=['formula', 'text', 'text', 'text', 'text', 'text'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G047[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p28** — chunk `chunk_da84b811985d3d7ab1…` — 检索排名 — element_types=['text'] — quality=passed — reasons=[]
+- ☐ G047[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p29** — chunk `chunk_3cd0216d5b694ebd2f…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G047[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p28** — chunk `chunk_3fba97b64ee509a936…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G048[f0] `GB50268-2008给水排水管道工程施工及验收规范.pdf` **p15** — chunk `chunk_46b3d95876af3cbc20…` — 结构化D3复核 — element_types=['table'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G048[f0] `GB50268-2008给水排水管道工程施工及验收规范.pdf` **p23** — chunk `chunk_dba9b144b96e7b1550…` — 结构化D3复核 — element_types=['formula', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text', 'text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'structured_default_locator_only', 'too_short']
+- ☐ G049[f0] `GB50268-2008给水排水管道工程施工及验收规范.pdf` **p36** — chunk `chunk_645dd05f041512ee9b…` — 结构化D3复核 — element_types=['figure'] — quality=needs_review — reasons=['needs_review_source', 'structured_default_locator_only']
+- ☐ G049[f0] `GB50268-2008给水排水管道工程施工及验收规范.pdf` **p36** — chunk `chunk_0e3b1e7b83a2ecea13…` — 普通文字质量 — element_types=['text'] — quality=needs_review — reasons=['needs_review_source', 'ocr_source_review', 'too_short', 'unmatched_text_region']
+
+## B. 旧台账待人工裁定（14 条 pending rulings）
+
+- ☐ G006[f0] `降雨过程强度等级标准.pdf` **p6** — R由最大日雨量项与过程平均日雨量项加权后对测站平均得到
+- ☐ G006[f1] `降雨过程强度等级标准.pdf` **p6** — 式中含权重w、过程最大日雨量r_max、过程累计日雨量与历时T0
+- ☐ G011[f0] `DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf` **p56** — 灰水氨氮均值约为6.1 mg/L
+- ☐ G011[f1] `DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf` **p56** — 黑水氨氮范围约46.8~109.3 mg/L（表内均值更高）
+- ☐ G012[f0] `武汉市排水管道混错接改造技术规程.pdf` **p1** — 标准号为DB 4201/T 651—2021
+- ☐ G013[f0] `武汉市排水管道混错接改造技术规程.pdf` **p3** — 规程包含混错接点判定、混错接流量测定等调查评估步骤
+- ☐ G019[f0] `城镇分流制排水系统雨污混接调查 征求意见稿.pdf` **p24** — 征求意见稿表5-1：灰水氨氮均值约6.1 mg/L，黑水氨氮均值约76.8 mg/L
+- ☐ G019[f1] `城镇分流制排水系统雨污混接调查 征求意见稿.pdf` **p24** — T/CECS 758：按接入管管径、混接水量、混接水质评估混接程度
+- ☐ G023[f1] `GBT 28592-2012降水量等级.pdf` **p4** — T/CMSA按10分钟、30分钟、1小时划分六个短时等级，并引用QX/T 489－2019定义
+- ☐ G035[f0] `GB50014-2021+室外排水设计标准+预览.pdf` **p21** — 推理公式表述为Qs=qΨ（F为汇水面积，见式中说明）
+- ☐ G046[f0] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p24** — 容器体积法公式编号为(5.4.21)，Q单位m3/d，每日测6~8次
+- ☐ G046[f1] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p24** — 浮标法公式编号为(5.4.22)，含过流面积A与修正系数k约0.8~0.9
+- ☐ G046[f2] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p24** — 两种方法均基于一天内多次测量取用
+- ☐ G047[f1] `T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf` **p28** — 轻度：d<300mm且q<200 m3/d量级

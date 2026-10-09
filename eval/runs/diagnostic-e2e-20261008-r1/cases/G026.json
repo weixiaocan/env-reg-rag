@@ -1,0 +1,543 @@
+{
+  "case": "G026",
+  "question": "工作指南前言要求建设什么样的样板区？后文关于绩效考核时，提出建立以什么为核心的绩效评价体系并对管网运维单位按效付费？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261008-r1-G026",
+  "trace_missing": false,
+  "wall_ms": 26292.498,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "以提升污水收集处理效能为目标，建设城市污水管网全覆盖样板区。",
+        "evidence_ids": [
+          "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796"
+        ]
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "排水主管部门要构建以污染物收集效能为导向的管网运行维护绩效考核体系和付费体系，对污水处理厂和管网联动按效付费。",
+        "evidence_ids": [
+          "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796"
+        ]
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "根据污水管网的运行维护情况，对第三方运行维护单位实行绩效考核、按效付费，通常将污水管网干管浓度（污水处理厂进水浓度）、管网运维质量等作为绩效考核指标。",
+        "evidence_ids": [
+          "chunk_0af50955ede206a570086ba61029cbea"
+        ]
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_0af50955ede206a570086ba61029cbea",
+    "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796",
+    "chunk_53209145cb5c7bc8af9291ddffe0b914",
+    "chunk_0fa10c3043ec95cc3e14a05f3df559a9",
+    "chunk_87453034b301a3293777fd519cb8a30a",
+    "chunk_bed94d2fd6ce9d9fe39fd9071485c6dd",
+    "chunk_c6f274f0853526442cab04895b280401",
+    "chunk_ff43227c9548d8bd0e7f00c979673402",
+    "chunk_a89495a18768d2dd145d2ad4a3aabf49",
+    "chunk_403ebfe7e9d6de7f0faffabdd9aa2190"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_0af50955ede206a570086ba61029cbea",
+      "text": "2 加强系统谋划 > 5.2 推行管网专业运行维护管理机制 > 5.2.2 建立“厂网一体”运行维护机制\n绩效考核体系，根据污水管网的运行维护情况，对第三方运行维护单位\n实行绩效考核、按效付费。通常将污水管网干管浓度（污水处理厂进水\n浓度）、管网运维质量（包括但不限于运行维护频次、管网和泵站运行\n水位、污水溢流情况等）等作为绩效考核指标，由排水主管部门组织开\n展绩效考核，按考核结果支付服务费。实行“厂网一体”、“按效付\n费”，目的是提升污水管网建设改造质量和运行维护水平。\n2. 为什么要“按效付费”\n城市排水管网属于地下工程，其建设运维效果通常难以直观衡量，\n管网系统的运行性能也难以精准监测研判。另外，管网作为政府的“资\n产”，一直都是按照管网长度等指标“定额”核算运维成本，并划拨给\n管网运行维护单位。随着各地对管网工程的重视，社会资本进入管网建\n设和运行维护的案例逐渐增多，全国各地投入了大量人力物力开展管网\n检测、诊断、修复、改造工作，但局部改造修复对系统整体效能的贡献\n无法客观评价，企业运行维护投入与政府付费标准难以平衡。在总结部\n分地区实践经验的基础上，引入了“按效付费”机制，鼓励各地探索建",
+      "document_version_id": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        91
+      ],
+      "heading_path": [
+        "2 加强系统谋划",
+        "5.2 推行管网专业运行维护管理机制",
+        "5.2.2 建立“厂网一体”运行维护机制"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0af50955ede206a570086ba61029cbea__p91",
+          "physical_page": 91,
+          "kind": "text",
+          "bbox": [
+            85.58399963378906,
+            166.7596435546875,
+            521.253662109375,
+            572.7695922851562
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796",
+      "text": "相关单位应严格执行标准规范，严格组织管线工程验收，鼓励邀请\n管网运行维护单位参加验收。各地市场监管部门要运用好“双随\n机、一公开”监管方式，加强排水管材质量安全监管。\n四、完善管网运行维护机制\n四、完善管网运行维护机制\n（八）明确管网运行维护主体，建立常态化长效运维机制。各\n地要建立城市生活污水管网专业化运行维护队伍，严格规范安全作\n业流程，保障城市生活污水管网运行维护费用。排水主管部门要积\n极推动居住社区内部雨污水管网养护工作委托城市生活污水管网专\n业化运行维护单位负责。\n（九）持续推进“厂网一体”专业化运行维护。各地要完善城\n市生活污水管网建设管理体制和机制，鼓励组建城市生活污水管网\n专业企业，实行“厂网一体”专业化运行维护。排水主管部门要构\n建以污染物收集效能为导向的管网运行维护绩效考核体系和付费体\n系，对污水处理厂和管网联动按效付费。以提升污水收集处理效能\n为目标，建设城市污水管网全覆盖样板区。\n五、保障措施\n五、保障措施\n（十）加强组织领导。省级住房城乡建设部门要会同生态环\n境、发展改革等部门对生活污水管网建设改造的整体进展和实施效\n果进行检查评估，及时通报有关情况，总结经验，鼓励先进，督促",
+      "document_version_id": "76b7035435a3dd5d51104c77a5996e47a4deabe9fbfe0d8b6b504fbd4844cada",
+      "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+      "physical_pages": [
+        3,
+        4
+      ],
+      "heading_path": [],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://sousuo.www.gov.cn/zcwjk/policyDocumentLibrary",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "住房城乡建设部等5部门",
+      "publication_date": "2024-03-08",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796__p3",
+          "physical_page": 3,
+          "kind": "text",
+          "bbox": [
+            84.0,
+            579.125,
+            501.5998229980469,
+            764.0250244140625
+          ]
+        },
+        {
+          "region_id": "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            84.0,
+            64.125,
+            501.5998229980469,
+            464.5249938964844
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_53209145cb5c7bc8af9291ddffe0b914",
+      "text": "6 调查 > 6.11 运行性能检测\n宜通过对比管网实际运行性能与污水处理设施维护运营单位排水收集管控目标，评估维护工作成\n效。此外，对于故障应急维护，可将目标响应时间作为评价依据。该项评估亦可为后续工作策划提供\n基础，识别影响预防性维护开展的各类制约因素。提升预防性维护占比，可进一步提高运维效率，同\n时污水处理设施维护运营单位需合理平衡故障应急维护与预防性维护的工作占比。提高运维主动预判\n能力，有助于在管网修复与更新改造工作中制定更具战略性、优先级更清晰的实施方案，助力污水处\n理设施维护运营单位更好达成以关键绩效指标衡量的服务水平。各类服务水平要求及关键绩效指标，\n宜结合污水处理设施维护运营单位实际情况予以明确界定、充分宣贯、关联风险管控并动态更新。\nGB/Z XXXXX—XXXX/ISO 24516-3:2017",
+      "document_version_id": "a9ce88d538f5f2c5df3bacb6527db134baef2123d4e98e7ca06dee1125718106",
+      "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+      "physical_pages": [
+        29,
+        30
+      ],
+      "heading_path": [
+        "6 调查",
+        "6.11 运行性能检测"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_53209145cb5c7bc8af9291ddffe0b914__p29",
+          "physical_page": 29,
+          "kind": "text",
+          "bbox": [
+            70.86116790771484,
+            621.4786376953125,
+            538.5836791992188,
+            733.9786376953125
+          ]
+        },
+        {
+          "region_id": "chunk_53209145cb5c7bc8af9291ddffe0b914__p30",
+          "physical_page": 30,
+          "kind": "text",
+          "bbox": [
+            56.6962776184082,
+            69.0763931274414,
+            229.94627380371097,
+            79.5763931274414
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_0fa10c3043ec95cc3e14a05f3df559a9",
+      "text": "10 运行与维护 > 10.1 概述\n明确的职责分工；\n适用的作业设备；\n掌握管网系统、运行设施及沿线接驳用户相关信息；\n完善的台账记录与数据分析。\n的措施，可按永久性设施建设，留待污水处理设施维护运营单位后续使用。",
+      "document_version_id": "a9ce88d538f5f2c5df3bacb6527db134baef2123d4e98e7ca06dee1125718106",
+      "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+      "physical_pages": [
+        37
+      ],
+      "heading_path": [
+        "10 运行与维护",
+        "10.1 概述"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0fa10c3043ec95cc3e14a05f3df559a9__p37",
+          "physical_page": 37,
+          "kind": "text",
+          "bbox": [
+            70.86882781982422,
+            94.77088928222656,
+            417.3688354492187,
+            254.0708923339844
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_87453034b301a3293777fd519cb8a30a",
+      "text": "7 运维管理 > 7.3 检测评估 > 7.3.1 应对排水管网及配套设施的功能、结构状态进行检测评估，\n7. 3. 1\n应对排水管网及配套设施的功能、结构状态进行检测评估，\n现场检测人员的数量不得少于2 人。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        29
+      ],
+      "heading_path": [
+        "7 运维管理",
+        "7.3 检测评估",
+        "7.3.1 应对排水管网及配套设施的功能、结构状态进行检测评估，"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_87453034b301a3293777fd519cb8a30a__p29",
+          "physical_page": 29,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            192.065185546875,
+            356.23284912109375,
+            222.24761962890625
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_bed94d2fd6ce9d9fe39fd9071485c6dd",
+      "text": "11 更新改造 > 11.3 管网实体设施更新改造战术规划（中期规划） > 11.3.2 单项评估及优先级排序\n污水处理设施维护运营单位宜制定适配自身工况的评估标准与评估方法，全面契合既定评估准\n管网评估结果依据预设评判标准评估各管段风险。整个管网或管网各个局部片区的评估结果，用\n宜为各项评判指标设定评定标准，可采用打分模式，设施缺陷影响程度越高，对应分值越高。各\n管段逐项套用全部指标，将分项评估分值相加和/或相乘，得到综合评价结果。该环节为流程中本阶段\n的核心步骤，相关编制及统筹工作宜审慎推进。分项评估值的组合计算方式，需准确体现各指标间的\n权重关系。对评价结果排序后，即可得到中期规划内更新改造措施的优先级排序。\n选取评判指标时，宜保证各管段均可获得对应指标的完整基础资料，避免评估结果出现偏差。\n宜对偏差开展研判，核查其与整体更新改造战略的适配关联程度。",
+      "document_version_id": "a9ce88d538f5f2c5df3bacb6527db134baef2123d4e98e7ca06dee1125718106",
+      "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+      "physical_pages": [
+        40,
+        41
+      ],
+      "heading_path": [
+        "11 更新改造",
+        "11.3 管网实体设施更新改造战术规划（中期规划）",
+        "11.3.2 单项评估及优先级排序"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_bed94d2fd6ce9d9fe39fd9071485c6dd__p40",
+          "physical_page": 40,
+          "kind": "text",
+          "bbox": [
+            56.69633483886719,
+            427.4094848632813,
+            524.4130249023438,
+            696.9171752929688
+          ]
+        },
+        {
+          "region_id": "chunk_bed94d2fd6ce9d9fe39fd9071485c6dd__p41",
+          "physical_page": 41,
+          "kind": "text",
+          "bbox": [
+            70.86254119873047,
+            129.37088012695312,
+            375.362548828125,
+            139.87088012695312
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c6f274f0853526442cab04895b280401",
+      "text": "6 強化政策保障 > 6.2 完善收费政策，建立动态调整机制 > 6.2.2 统筹使用污水处理费与财政补贴资金\n激励合理、管理精细、使用高效的污水管网养护费用拨付机制，由市级\n排水主管部门统筹考核各区排水管网养护成效，建立污水处理厂运营服\n务费与污染物削减量挂钩机制，将运营服务费支付分为两个部分，分别\n考核处理水量和污染物削减量，实现按效付费。将进水COD、BOD、氨\n氮浓度纳入考核指标，不达标的核减当年污水处理费；将管网和泵站运\n行水位纳入考核，选择29个关键点位按月开展考核，考核点位月平均水\n位不得超过目标值50%（暴雨预警发布当日起至暴雨预警结束后3天内，\n所在区域的水位数据不计入考核），不达标的扣减当年管网运维费用；\n将污水溢流纳入考核，发生污水溢流情况的按溢流水量乘以30天计算水\n量，并按照该水量扣减污水处理费。\n案例6-4 以结果和效果为导向，实施按效付费\n江西省某城市新区排水系统补短板项目在立项阶段就明确了“污水\n不下河、清水不入厂”的目标。以省住房城乡建设厅污水处理提质增效\n三年行动计划为纲，明确提升城市生活污水集中收集率、提升污水处理\n厂进水浓度、消除污水直排口等任务目标，并将其植入设计、排查、改",
+      "document_version_id": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        119,
+        120
+      ],
+      "heading_path": [
+        "6 強化政策保障",
+        "6.2 完善收费政策，建立动态调整机制",
+        "6.2.2 统筹使用污水处理费与财政补贴资金"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c6f274f0853526442cab04895b280401__p119",
+          "physical_page": 119,
+          "kind": "text",
+          "bbox": [
+            85.58399963378906,
+            636.5195922851562,
+            521.1599731445312,
+            762.515625
+          ]
+        },
+        {
+          "region_id": "chunk_c6f274f0853526442cab04895b280401__p120",
+          "physical_page": 120,
+          "kind": "text",
+          "bbox": [
+            85.58399963378906,
+            81.350341796875,
+            521.260009765625,
+            375.9496154785156
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_ff43227c9548d8bd0e7f00c979673402",
+      "text": "2 加强系统谋划 > 5.2 推行管网专业运行维护管理机制 > 5.2.2 建立“厂网一体”运行维护机制\n率、汇率、税收、排放标准等变动对污水处理年成本产生一定影响时，\n经价格机构确认污水处理成本与上次调价对比，变动幅度在5%以上的可\n申请调价。单价调整由发展集团提出申请报告，调价的结果获得价格机\n构裁定通过后执行。\n二是管网运维费调整。按照市政管网运维协议，当运营维护服务内\n容发生变动，国家或福建省相关定额调整，或物价、人工费及税收等发\n生变化导致市场价格浮动较大时，可提出调整（原则上每3 年可调整一\n次）。由发展集团报请政府部门组织审核后予以调整。\n案例5-16 推行城市供排水一体化\n河南省积极推进污水处理“厂网一体”、“供排一体”。一是强化\n立法保障。将推行污水处理“厂网一体”作为重要条款写入《河南省城\n镇排水与污水处理条例》（2025年2月1日起施行），为推行污水处理\n“厂网一体”工作提供法律保障。二是建立工作机制。出台污水处理厂\n运营评价办法和评价指南，指导各地开展分类评价，为开展厂网一体化\n整合提供支撑。结合城市更新建立“政银企”对接机制，定期召开“政\n银企”对接会，为企业量身定制个性化融资方案，灵活运用信贷政策支",
+      "document_version_id": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        100
+      ],
+      "heading_path": [
+        "2 加强系统谋划",
+        "5.2 推行管网专业运行维护管理机制",
+        "5.2.2 建立“厂网一体”运行维护机制"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_ff43227c9548d8bd0e7f00c979673402__p100",
+          "physical_page": 100,
+          "kind": "text",
+          "bbox": [
+            85.58399963378906,
+            137.839599609375,
+            521.2600708007812,
+            599.8895874023438
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_a89495a18768d2dd145d2ad4a3aabf49",
+      "text": "2 加强系统谋划 > 5.2 推行管网专业运行维护管理机制 > 5.2.2 建立“厂网一体”运行维护机制\n标。二是明确“一个主体”，对污水收集处理全过程统筹管控和整体负\n责，引导各地因地制宜探索操作模式，确定“一个主体”：① 原投资建\n设运营主体（简称“原主体”）继续投资建设运营（简称“投建营”）\n污水管网，政府与原主体共同协商调整考核付费机制；② 引入新的管网\n投建营主体，污水处理厂运营主体向管网投建营主体支付管网使用费；\n③ 原主体依法退出，招标选择新的专业化单位。\n五是试点示范为引领。全省启动19个污水处理厂网一体化“按效付\n费”试点示范，省财政专门安排2000万元奖补资金支持示范项目。如某\n市政府出台了《××市城区排水一体化改革实施方案》，采取“委托运\n营+绩效合同管理”改革模式，将城区市政排水设施交由市水业集团实行\n“厂站网一体化”集约化、专业化运营管理，签订30年委托运营协议。\n某市城区4座污水处理厂在原特许经营协议基础上，全部补充签订了“按\n效付费”协议，通过实施一批“撇清水、挤外水、收污水”项目，经测\n算挤外水和按效付费每年可节省资金约5000多万元，进厂污水BOD浓度\n较上年同期提升20.8%；原规划的6万立方米/日的污水处理厂无需建设，",
+      "document_version_id": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        98
+      ],
+      "heading_path": [
+        "2 加强系统谋划",
+        "5.2 推行管网专业运行维护管理机制",
+        "5.2.2 建立“厂网一体”运行维护机制"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_a89495a18768d2dd145d2ad4a3aabf49__p98",
+          "physical_page": 98,
+          "kind": "text",
+          "bbox": [
+            85.58399963378906,
+            109.879638671875,
+            521.2799682617188,
+            516.942626953125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_403ebfe7e9d6de7f0faffabdd9aa2190",
+      "text": "11 更新改造 > 11.3 管网实体设施更新改造战术规划（中期规划） > 11.3.1 基于风险的评估方法\n达成该目标所需的改造措施，并划分实施优先级。\n结构设计规范的调整，或工业废水对管道理化耐受性能提出的新标准要求。\n效损失程度共同确定。\n则，完成对各管段的专项风险评估。\n于确定对应管段的更新改造优先级排序。风险可采用多种量纲予以表征。\n管网评估通用流程详见图7。",
+      "document_version_id": "a9ce88d538f5f2c5df3bacb6527db134baef2123d4e98e7ca06dee1125718106",
+      "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+      "physical_pages": [
+        40
+      ],
+      "heading_path": [
+        "11 更新改造",
+        "11.3 管网实体设施更新改造战术规划（中期规划）",
+        "11.3.1 基于风险的评估方法"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_403ebfe7e9d6de7f0faffabdd9aa2190__p40",
+          "physical_page": 40,
+          "kind": "text",
+          "bbox": [
+            56.68791580200195,
+            342.40948486328125,
+            403.18792724609375,
+            505.9094848632813
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.01,
+    "retrieval": 48.624,
+    "generation": 26239.354,
+    "validation": 0.005,
+    "total": 26288.05
+  },
+  "generate_context_evidence_ids": [
+    "chunk_0af50955ede206a570086ba61029cbea",
+    "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796",
+    "chunk_53209145cb5c7bc8af9291ddffe0b914",
+    "chunk_0fa10c3043ec95cc3e14a05f3df559a9",
+    "chunk_87453034b301a3293777fd519cb8a30a"
+  ],
+  "trace_evidence_ids": [
+    "chunk_0af50955ede206a570086ba61029cbea",
+    "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796",
+    "chunk_53209145cb5c7bc8af9291ddffe0b914",
+    "chunk_0fa10c3043ec95cc3e14a05f3df559a9",
+    "chunk_87453034b301a3293777fd519cb8a30a",
+    "chunk_bed94d2fd6ce9d9fe39fd9071485c6dd",
+    "chunk_c6f274f0853526442cab04895b280401",
+    "chunk_ff43227c9548d8bd0e7f00c979673402",
+    "chunk_a89495a18768d2dd145d2ad4a3aabf49",
+    "chunk_403ebfe7e9d6de7f0faffabdd9aa2190"
+  ],
+  "token_usage": {
+    "input_tokens": 2641,
+    "output_tokens": 2068,
+    "total_tokens": 4709,
+    "estimated_cost": 0.079032,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "工作指南前言要求建设什么样的样板区？后文关于绩效考核时，提出建立以什么为核心的绩效评价体系并对管网运维单位按效付费？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_0af50955ede206a570086ba61029cbea",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          91
+        ],
+        "text": "2 加强系统谋划 > 5.2 推行管网专业运行维护管理机制 > 5.2.2 建立“厂网一体”运行维护机制\n绩效考核体系，根据污水管网的运行维护情况，对第三方运行维护单位\n实行绩效考核、按效付费。通常将污水管网干管浓度（污水处理厂进水\n浓度）、管网运维质量（包括但不限于运行维护频次、管网和泵站运行\n水位、污水溢流情况等）等作为绩效考核指标，由排水主管部门组织开\n展绩效考核，按考核结果支付服务费。实行“厂网一体”、“按效付\n费”，目的是提升污水管网建设改造质量和运行维护水平。\n2. 为什么要“按效付费”\n城市排水管网属于地下工程，其建设运维效果通常难以直观衡量，\n管网系统的运行性能也难以精准监测研判。另外，管网作为政府的“资\n产”，一直都是按照管网长度等指标“定额”核算运维成本，并划拨给\n管网运行维护单位。随着各地对管网工程的重视，社会资本进入管网建\n设和运行维护的案例逐渐增多，全国各地投入了大量人力物力开展管网\n检测、诊断、修复、改造工作，但局部改造修复对系统整体效能的贡献\n无法客观评价，企业运行维护投入与政府付费标准难以平衡。在总结部\n分地区实践经验的基础上，引入了“按效付费”机制，鼓励各地探索建"
+      },
+      {
+        "evidence_id": "chunk_79b5ac51c7e51dcb0dd8dcdc60cf3796",
+        "usage_policy": "answer_and_citation",
+        "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+        "physical_pages": [
+          3,
+          4
+        ],
+        "text": "相关单位应严格执行标准规范，严格组织管线工程验收，鼓励邀请\n管网运行维护单位参加验收。各地市场监管部门要运用好“双随\n机、一公开”监管方式，加强排水管材质量安全监管。\n四、完善管网运行维护机制\n四、完善管网运行维护机制\n（八）明确管网运行维护主体，建立常态化长效运维机制。各\n地要建立城市生活污水管网专业化运行维护队伍，严格规范安全作\n业流程，保障城市生活污水管网运行维护费用。排水主管部门要积\n极推动居住社区内部雨污水管网养护工作委托城市生活污水管网专\n业化运行维护单位负责。\n（九）持续推进“厂网一体”专业化运行维护。各地要完善城\n市生活污水管网建设管理体制和机制，鼓励组建城市生活污水管网\n专业企业，实行“厂网一体”专业化运行维护。排水主管部门要构\n建以污染物收集效能为导向的管网运行维护绩效考核体系和付费体\n系，对污水处理厂和管网联动按效付费。以提升污水收集处理效能\n为目标，建设城市污水管网全覆盖样板区。\n五、保障措施\n五、保障措施\n（十）加强组织领导。省级住房城乡建设部门要会同生态环\n境、发展改革等部门对生活污水管网建设改造的整体进展和实施效\n果进行检查评估，及时通报有关情况，总结经验，鼓励先进，督促"
+      },
+      {
+        "evidence_id": "chunk_53209145cb5c7bc8af9291ddffe0b914",
+        "usage_policy": "answer_and_citation",
+        "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+        "physical_pages": [
+          29,
+          30
+        ],
+        "text": "6 调查 > 6.11 运行性能检测\n宜通过对比管网实际运行性能与污水处理设施维护运营单位排水收集管控目标，评估维护工作成\n效。此外，对于故障应急维护，可将目标响应时间作为评价依据。该项评估亦可为后续工作策划提供\n基础，识别影响预防性维护开展的各类制约因素。提升预防性维护占比，可进一步提高运维效率，同\n时污水处理设施维护运营单位需合理平衡故障应急维护与预防性维护的工作占比。提高运维主动预判\n能力，有助于在管网修复与更新改造工作中制定更具战略性、优先级更清晰的实施方案，助力污水处\n理设施维护运营单位更好达成以关键绩效指标衡量的服务水平。各类服务水平要求及关键绩效指标，\n宜结合污水处理设施维护运营单位实际情况予以明确界定、充分宣贯、关联风险管控并动态更新。\nGB/Z XXXXX—XXXX/ISO 24516-3:2017"
+      },
+      {
+        "evidence_id": "chunk_0fa10c3043ec95cc3e14a05f3df559a9",
+        "usage_policy": "answer_and_citation",
+        "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+        "physical_pages": [
+          37
+        ],
+        "text": "10 运行与维护 > 10.1 概述\n明确的职责分工；\n适用的作业设备；\n掌握管网系统、运行设施及沿线接驳用户相关信息；\n完善的台账记录与数据分析。\n的措施，可按永久性设施建设，留待污水处理设施维护运营单位后续使用。"
+      },
+      {
+        "evidence_id": "chunk_87453034b301a3293777fd519cb8a30a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          29
+        ],
+        "text": "7 运维管理 > 7.3 检测评估 > 7.3.1 应对排水管网及配套设施的功能、结构状态进行检测评估，\n7. 3. 1\n应对排水管网及配套设施的功能、结构状态进行检测评估，\n现场检测人员的数量不得少于2 人。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.046532
+}

@@ -1,0 +1,36 @@
+{
+  "schema_version": "e1-experiment-run/1.0",
+  "run_id": "diagnostic-exp-e1-control-20261006-r1",
+  "classification": "diagnostic",
+  "experiment": "E1-rerank",
+  "e1_config": "eval\\runs\\diagnostic-diag-baseline-20261001\\E1_CONFIG.json",
+  "baseline_run_id": "diagnostic-diag-baseline-20261001",
+  "dataset": "eval\\golden_v2.jsonl",
+  "dataset_sha256": "3b1f1cdc459aadb50bd1b39531bc90f51ecc25a0d969612d41612fa011bd6e89",
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "collection": "corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a",
+  "qdrant_url": "http://127.0.0.1:6333",
+  "round": 1,
+  "rerank_enabled": false,
+  "variable": {
+    "stage": "local-cross-encoder-rerank",
+    "model_id": "BAAI/bge-reranker-base",
+    "revision": null,
+    "revision_source": "control round -- no rerank model involved",
+    "device": "cpu",
+    "max_length": 512
+  },
+  "depth_semantics": {
+    "candidate_fetch_depth_per_leg": 20,
+    "fusion_request_limit": 40,
+    "final_top_k": 10,
+    "note": "每腿 prefetch 20 -> 融合候选 ≤40 -> rerank 重排 -> 重排后截取 top-10"
+  },
+  "embedding_model": "BAAI/bge-small-zh-v1.5",
+  "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+  "limit": 10,
+  "prefetch_limit": 20,
+  "pending_markers": 0,
+  "unfrozen_case_count": 50,
+  "diagnostic_notice": "DIAGNOSTIC E1 EXPERIMENT - not a formal baseline. Single variable vs baseline: local cross-encoder rerank. Numbers must not be quoted as formal Recall."
+}

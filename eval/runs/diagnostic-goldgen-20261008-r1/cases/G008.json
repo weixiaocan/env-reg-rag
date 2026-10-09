@@ -1,0 +1,26 @@
+{
+  "case": "G008",
+  "question": "美国EPA《Illicit Discharge Detection and Elimination》指导手册对住宅小区雨污混接的法定罚款上限是多少美元？",
+  "expected_answerability": "refuse",
+  "expected_facts": [
+    "应拒答：当前语料未覆盖美国EPA IDDE手册及罚款上限",
+    "不应编造美元罚款数额"
+  ],
+  "status": "refused",
+  "model_called": true,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {
+    "input_tokens": 719,
+    "output_tokens": 108,
+    "total_tokens": 827,
+    "estimated_cost": 0.008776,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "generation_ms": 2350.108,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.008776
+}

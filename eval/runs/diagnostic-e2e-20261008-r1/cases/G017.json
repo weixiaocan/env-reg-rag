@@ -1,0 +1,96 @@
+{
+  "case": "G017",
+  "question": "按GB 55027表3.3.2，超大城市和特大城市在“中心城区的重要地区”与“中心城区地下通道和下沉式广场等”的雨水管渠设计重现期分别取多少？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261008-r1-G017",
+  "trace_missing": false,
+  "wall_ms": 4890.074,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.01,
+    "retrieval": 65.331,
+    "generation": 4820.501,
+    "total": 4885.897
+  },
+  "generate_context_evidence_ids": [
+    "chunk_1e8179ff17e12e15b50eb377eac4fde1",
+    "chunk_bd6664bf693fe57e55fff4624d4b70e5",
+    "chunk_77814eba561a16a7f38378294fbce27e",
+    "chunk_920804b1dcfa3ae6b0abbc0150746648",
+    "chunk_be298fc71be01fe058fffc7f1c1c629f"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 3005,
+    "output_tokens": 311,
+    "total_tokens": 3316,
+    "estimated_cost": 0.032748,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按GB 55027表3.3.2，超大城市和特大城市在“中心城区的重要地区”与“中心城区地下通道和下沉式广场等”的雨水管渠设计重现期分别取多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_1e8179ff17e12e15b50eb377eac4fde1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20,
+          21
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.5 设计重现期应根据地形特点、气候条件、汇水面积、汇\n5.2.5\n设计重现期应根据地形特点、气候条件、汇水面积、汇\n水分区的用地性质（重要交通干道及立交桥区、广场、居住区）\n等因素综合确定，在同一排水系统中可采用不同设计重现期，重\n现期的选择应考虑雨水管渠的系统性；主干系统的设计重现期应\n按总汇水面积进行复核。设计重现期取值，按现行国家标准《室\n外排水设计规范》GB 50014 中关于雨水管渠、内涝防治设计重\n现期的相关规定执行。\n5.2.6\n雨水设计流量应采用数学模型法进行校核，并同步确定\n相应的径流量、不同设计重现期的淹没范围、水流深度及持续时\n间等。当汇水面积不超过2kmz时，雨水设计流量可采用推理公\nF——汇水面积(hm2)o"
+      },
+      {
+        "evidence_id": "chunk_bd6664bf693fe57e55fff4624d4b70e5",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          51,
+          52
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.5 设计重现期应根据地形特点、气候条件、汇水面积、汇\n5.2.5\n本条规定了雨水系统设计重现期的取值依据。\n本次修订在设计重现期的取值规定中增加了汇水面积及在同\n一排水系统中可采用不同设计重现期，重现期的选择应考虑雨水\n管渠的系统性；主干系统的设计重现期应按总收水面积进行复核\n等内容，目的是强调雨水管渠设计的系统性，及主干系统的重要\n作用。对设计重现期的具体取值建议参考现行国家标准《室外排\n水设计规范》GB 50014 的相关规定执行，主要是避免两个规范\n出现的数值不一致。\n城市排水工程规划设计重现期的取值应从城市的视角出发，"
+      },
+      {
+        "evidence_id": "chunk_77814eba561a16a7f38378294fbce27e",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          54,
+          55
+        ],
+        "text": "5 雨水系统 > 5.3 城市防涝空间 > 5.3.1 城市新建区域，防涝调蓄设施宜采用地面形式布置。建\n防涝调蓄设施的设置目的，主要是为了避免向下游排放的峰\n值流量过大而导致洪涝灾害风险的提高。按照开发建设前后外排\n设计流量不增加的原则确定调蓄设施的规模，基本可以将流域内\n因上游的城市化发展而对下游排水系统产生的影响控制在可接受\n的水平。因此，在确定防涝用地空间的规模时，应首先考虑下游\n地区行泄通道的承受能力，确定外排雨水设计流量，再确定超标\n雨水行泄通道的通行量，同时确定防涝调蓄设施的规模，二者相\n互协调，共同达到相应设计重现期的防御能力。由于防涝调蓄空\n间的使用具有偶然性和临时性，其有效调蓄容积的设计排空时\n间，可依据不同季节不同城市的降雨特征、水资源条件和排涝具\n体要求等确定，一般可采用24h\n72h 的区间值。\n2\n本款是关于城市防涝空间用地计算的边界条件。\n本款对于城市道路路面水流最大允许深度的限制性规定，是\n城市防涝空间布局的量化推算依据：在发生防涝系统设计标准所\n对应的降雨时，城市道路路面水流最大深度超出相应限值的地\n点，应布置城市防涝用地空间或设施。\n在降雨强度超出雨水管渠应对能力时，雨水径流已经不能"
+      },
+      {
+        "evidence_id": "chunk_920804b1dcfa3ae6b0abbc0150746648",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          53
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.5 设计重现期应根据地形特点、气候条件、汇水面积、汇\n(Storm Water Management Model) o SWMM曾在美国二十多个\n城市使用，解决当地排水流域的水量、水质问题，并且在加拿\n大、欧洲和澳大利亚也有广泛应用，主要用于进行合流管道溢流\n的复杂水力分析，以及许多城市暴雨管理规划和污染消减等工\n程，在我国也有很多应用实践。随后，各种城市排水模型相继问\n世，包括美国的ILLUDAS 模型(Illinois Urban Drainage Area\nSimulator)、美国陆军工程兵团水文工程中心开发的STORM 模\n型(Storage Treatment Overflow Runoff Model)、英国沃林福特\n水力研究公司(HR Wallingford) 开发的Infoworks 模型和丹麦\n水力研究所(DHD 开发的Mouse 模型等。"
+      },
+      {
+        "evidence_id": "chunk_be298fc71be01fe058fffc7f1c1c629f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          39,
+          40
+        ],
+        "text": "3 基本规定 > 3.5 排水管渠 > 3.5.4 本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约\n3. 5. 4\n本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约\n优化利用地下空间，解决马路拉链问题，提升抗灾防灾能力，新\n建区域要求管道人廊。排水管渠是城市基础设施的重要组成部\n分，而它又有重力流排水的明显特征，结合综合管廊布局统一规\n划设计排水管渠是城市建设的新命题，因此，本条提出对规划有\n综合管廊的路段宜结合管廊布局合理布置排水管渠，在保障安全\n的前提下，可利用大断面雨水管渠上部空间布置再生水、供水、\n通信等管线，因地制宜地做好支管及交叉管线的衔接。\n3. 5. 5\n本条规定城市排水管渠断面尺寸确定的原则。\n城市污水管渠建设因其特殊性，管渠的使用周期较长，因此\n不宜按近期建设，以避免重复建设改造对城市道路交通的影响。\n因此，确定污水管渠断面尺寸时，设计流量应采用远期最高日最\n高时污水量。\n确定截流初期雨水的污水管渠断面尺寸时，设计流量为远期"
+      }
+    ]
+  },
+  "diagnostic_outcome": "generation_refusal",
+  "cumulative_estimated_cost_cny": 0.654548
+}

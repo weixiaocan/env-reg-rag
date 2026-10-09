@@ -1,0 +1,36 @@
+{
+  "corpus_version": "corpus-76f242000e2a",
+  "gate": {
+    "failed_count": 0,
+    "manual_adjudication_count": 22765,
+    "quality_passed": false,
+    "status": "needs_adjudication"
+  },
+  "input_hashes": {
+    "canonical_aggregate": "397b192bf3582eec4d5836d7bf96b8e91617e3d8afb3ae4a6df17a398ee33839",
+    "manifest": "abf5cf774911f6c01ec134927d35c9fea7e8c041672c3a13e572c1ba4abfab59",
+    "page_intermediate_aggregate": "b727db52ac66774d4d5f86fc653acd29e714f23cf1ea772f2739478c88888535"
+  },
+  "ledger_sha256": "a0efe0839b56f3acdcf1c4754d948c811b6c319ff364a6c7107355b4f9b95987",
+  "schema_version": "canonical-quality-ledger-v1",
+  "summary": {
+    "conclusion_counts": {
+      "manual_review_required": 22765,
+      "not_detected": 3075,
+      "unsupported": 428,
+      "verified_passed": 17700
+    },
+    "execution_status_counts": {
+      "completed": 40893,
+      "not_detected": 3075
+    },
+    "integrity_issue_count": 0,
+    "object_counts": {
+      "canonical_element": 25063,
+      "page_content_type": 4576,
+      "source_document": 23,
+      "source_page": 1144,
+      "source_region": 13162
+    }
+  }
+}

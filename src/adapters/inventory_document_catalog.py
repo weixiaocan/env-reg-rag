@@ -17,6 +17,7 @@ class DocumentSource:
     jurisdiction: str
     source_uri: str
     local_path: Path | None
+    aliases: tuple[str, ...] = ()
 
 
 class DocumentCatalog(Protocol):

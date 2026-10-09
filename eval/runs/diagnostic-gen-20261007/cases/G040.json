@@ -1,0 +1,125 @@
+{
+  "case": "G040",
+  "question": "GB/T 47884表1规定的是什么内容？感知数据章节对在线监测点位布设提出了哪些原则？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "GB/T 47884表1是关于重要排水户和重要节点进行监测的具体要求（7.2.4条引用了表1）。",
+        "evidence_ids": [
+          "chunk_00251fe5ddbfa0de2dd66c58f9708c21"
+        ]
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则。",
+        "evidence_ids": [
+          "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57"
+        ]
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "在线监测点位的布设应遵循以下原则：a）基于排水管网上下游拓扑关系布设，宜覆盖\"源、网、厂、河\"等要素，优先覆盖管网关键节点、厂和排放口等重要点位；b）监测点位的服务范围应清晰明确，监测点布置应满足现场设备安装和运行的条件，在安装监测设备后不影响排水设施的正常运行；c）按照整体监测、分区监测和精细监测三个层级开展监测工作，逐步提高布点密度；d）统筹已有的排水管网监测点位，不重复建设；e）根据监测数据的应用情况，在使用过程中对监测点位进行动态调整；f）以应用需求为依据控制监测指标、监测频次、监测点数量等，宜采用长期固定监测和短期临时监测结合的方式获取有效、必要的在线监测数据。",
+        "evidence_ids": [
+          "chunk_6d3da13be1c89e4f906864867c8531cf"
+        ]
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+    "chunk_6d3da13be1c89e4f906864867c8531cf",
+    "chunk_7d815b61d6b92434d507c9ed8b28539e",
+    "chunk_00251fe5ddbfa0de2dd66c58f9708c21",
+    "chunk_224c43039276c7d77ba6b2c2cc32658b",
+    "chunk_9290ff68b9083d2104cc844ccc6ca6bb",
+    "chunk_8e4ed7a284ec89581370c31b6a5c4c08",
+    "chunk_81e6c05d11dc15f8554b1c0cba322913",
+    "chunk_3d8f50c6d932c7acce86833877f8c823",
+    "chunk_68013a950f3bf955df1d98d1365621b4"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+    "chunk_6d3da13be1c89e4f906864867c8531cf",
+    "chunk_7d815b61d6b92434d507c9ed8b28539e",
+    "chunk_00251fe5ddbfa0de2dd66c58f9708c21",
+    "chunk_224c43039276c7d77ba6b2c2cc32658b"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.017,
+    "retrieval": 43.644,
+    "generation": 24538.53,
+    "validation": 0.004,
+    "total": 24582.243
+  },
+  "token_usage": {
+    "input_tokens": 2280,
+    "output_tokens": 1424,
+    "total_tokens": 3704,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "GB/T 47884表1规定的是什么内容？感知数据章节对在线监测点位布设提出了哪些原则？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GBT+47884-2026.pdf",
+        "physical_pages": [
+          10
+        ],
+        "text": "7 感知数据 > 7.1 一般规则 > 7.1.4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则\n7.\n1.\n4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则。"
+      },
+      {
+        "evidence_id": "chunk_6d3da13be1c89e4f906864867c8531cf",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GBT+47884-2026.pdf",
+        "physical_pages": [
+          10
+        ],
+        "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.3 在线监测点位的布设应遵循以下原则:\n7.\n2.\n3 在线监测点位的布设应遵循以下原则:\na) 基于排水管网上下游拓扑关系布设,宜覆盖“源、网、厂、河”等要素,优先覆盖管网关键节点、厂\n和排放口等重要点位;\nb) 监测点位的服务范围应清晰明确,监测点布置应满足现场设备安装和运行的条件,在安装监测\n设备后不影响排水设施的正常运行;\nc) 按照整体监测、分区监测和精细监测三个层级开展监测工作,逐步提高布点密度;\nd) 统筹已有的排水管网监测点位,不重复建设;\ne) 根据监测数据的应用情况,在使用过程中对监测点位进行动态调整;\nf) 以应用需求为依据控制监测指标、监测频次、监测点数量等,宜采用长期固定监测和短期临时\n监测结合的方式获取有效、必要的在线监测数据。"
+      },
+      {
+        "evidence_id": "chunk_7d815b61d6b92434d507c9ed8b28539e",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GBT+47884-2026.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节\n标进行自动化采样化验。"
+      },
+      {
+        "evidence_id": "chunk_00251fe5ddbfa0de2dd66c58f9708c21",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GBT+47884-2026.pdf",
+        "physical_pages": [
+          10
+        ],
+        "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节\n7.\n2.\n4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节\n点进行监测,具体要求见表1。"
+      },
+      {
+        "evidence_id": "chunk_224c43039276c7d77ba6b2c2cc32658b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GBT+47884-2026.pdf",
+        "physical_pages": [
+          7,
+          8
+        ],
+        "text": "3 术语和定义\n感知数据 perceiveddata\n通过在线监测设备和设施设备控制系统采集的排水管网动态运行数据。\nGB/T47884—2026\n本文件规定了城镇排水管网数字化的总体要求、总体框架、基础数据、感知数据、数据治理、排水管\n以下文件中的内容通过文中的规范性引用而构成本文件必不可少的条款。其中,注日期的引用文\n件,仅该日期对应的版本适用于本文件;不注日期的引用文件,其最新版本(包括所有的修改单)适用于\n通过基础数据、感知数据和排水管网模型等融合,实现排水管网全生命周期数字化管理,具备数据\nGB/T47884—2026"
+      }
+    ]
+  }
+}

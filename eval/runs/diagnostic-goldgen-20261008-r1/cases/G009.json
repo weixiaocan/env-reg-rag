@@ -1,0 +1,61 @@
+{
+  "case": "G009",
+  "question": "福建省建筑与小区雨污混接改造技术标准附录示意图中，图1《雨水立管断接示意图（一）》的图注包含哪些主要部件？",
+  "expected_answerability": "answer",
+  "expected_facts": [
+    "图名为雨水立管断接示意图（一）",
+    "图注含雨水立管、建筑外墙、室外地面、支墩、卵石缓冲、海绵设施"
+  ],
+  "status": "answered",
+  "model_called": true,
+  "provided_evidence": [
+    {
+      "evidence_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+      "text": "5 设\n计 > 5.2 建筑排水 > 5.2.1 当阳台雨水管独立设置且存在污水混入时，应在排出管\n5. 2. 1\n当阳台雨水管未与屋面雨水斗共用立管，独立布置，混接\n改造比较简单，将合流管道排出管接室外污水管网，但应根据现\n行国家标准《建筑给水排水设计标准》GB 50015 的规定，落实水\n封和通气管设置情况的相关要求，一楼出户管是否需单独排出也\n应根据现行国家标准《建筑给水排水设计标准》GB 50015\n的相关要求。阳台雨水立管改造接入污水管网时，在接入污水检\n查井前要根据现场情况设置存水弯或水封井过渡。在水封井中设\n置存水弯装置，水封井进出水管标高应大于0.15m，且水封高度\n应大于0.25m。改造示意如图4 所示，水封装置如图5 所示。\n图1 雨水立管断接示意图（一）\n1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施\n图2 雨水立管断接示意图（二）\n1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施；\n7-现状雨水检查井\n图3\n雨水立管断接示意图（三）\n1-雨水立管；2-雨水弃流过滤器；3-溢流管；4-雨水回用出口；5-支墩；6-弃流管\n图4\n阳台雨落水管改造示意图",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        62,
+        63,
+        64
+      ],
+      "usage_policy": "answer_and_citation"
+    }
+  ],
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "图1《雨水立管断接示意图（一）》的图注包含的主要部件为：1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施。",
+        "evidence_ids": [
+          "chunk_0aa5091f5d00c60b906f33b7b133bc06"
+        ]
+      }
+    ],
+    "conflicts": []
+  },
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {
+    "input_tokens": 1291,
+    "output_tokens": 201,
+    "total_tokens": 1492,
+    "estimated_cost": 0.015956,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "generation_ms": 3827.889,
+  "failure_class": null,
+  "expected_facts_coverage": [
+    {
+      "fact_index": 0,
+      "numbers": [],
+      "covered": null
+    },
+    {
+      "fact_index": 1,
+      "numbers": [],
+      "covered": null
+    }
+  ],
+  "cumulative_estimated_cost_cny": 0.024732
+}

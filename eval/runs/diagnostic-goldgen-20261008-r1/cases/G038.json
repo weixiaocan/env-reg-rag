@@ -1,0 +1,69 @@
+{
+  "case": "G038",
+  "question": "《城市排水工程规划规范》表4.2.3规范的是哪类系数？在资料缺乏时该表用于什么场景？",
+  "expected_answerability": "answer",
+  "expected_facts": [
+    "表4.2.3为城市分类污水排放系数",
+    "资料缺乏时按该表取值"
+  ],
+  "status": "answered",
+  "model_called": true,
+  "provided_evidence": [
+    {
+      "evidence_id": "chunk_a3388ec36c0108333a46f0552a42c8a0",
+      "text": "4 污水系统 > 4.2 污水量 > 4.2.1 城市污水量应包括城市综合生活污水量和工业废水量\n4.2.1\n城市污水量应包括城市综合生活污水量和工业废水量。\n地下水位较高的地区，污水量还应计入地下水渗人量。\n4.2.2\n城市污水量可根据城市用水量和城市污水排放系数确定。\n4.2.3\n各类污水排放系数应根据城市历年供水量和污水量资料\n确定。当资料缺乏时，城市分类污水排放系数可根据城市居住和\n公共设施水平以及工业类型等，按表4.2.3 的规定取值。",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "usage_policy": "answer_and_citation"
+    }
+  ],
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "表4.2.3规范的是城市分类污水排放系数。",
+        "evidence_ids": [
+          "chunk_a3388ec36c0108333a46f0552a42c8a0"
+        ]
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "当资料缺乏时，城市分类污水排放系数可根据城市居住和公共设施水平以及工业类型等，按表4.2.3的规定取值。",
+        "evidence_ids": [
+          "chunk_a3388ec36c0108333a46f0552a42c8a0"
+        ]
+      }
+    ],
+    "conflicts": []
+  },
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {
+    "input_tokens": 1000,
+    "output_tokens": 435,
+    "total_tokens": 1435,
+    "estimated_cost": 0.02018,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "generation_ms": 5669.493,
+  "failure_class": null,
+  "expected_facts_coverage": [
+    {
+      "fact_index": 0,
+      "numbers": [
+        "4.2",
+        "3"
+      ],
+      "covered": true
+    },
+    {
+      "fact_index": 1,
+      "numbers": [],
+      "covered": null
+    }
+  ],
+  "cumulative_estimated_cost_cny": 0.094356
+}

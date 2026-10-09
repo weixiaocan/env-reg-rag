@@ -7,13 +7,13 @@ from pathlib import Path
 from typing import Literal
 from uuid import uuid4
 
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse, JSONResponse, Response
 from pydantic import BaseModel, Field
 
 from src.application.query_service import QueryApplicationService
 from src.adapters.inventory_document_catalog import DocumentCatalog
-from src.adapters.pdf_region_renderer import RegionImageService
+from src.adapters.pdf_region_renderer import DocumentPageImageService, RegionImageService
 from src.application.evidence_source import EvidenceSourceService
 from src.application.formula_preview import FormulaPreviewService
 from src.application.formula_review import FormulaReviewService
@@ -21,11 +21,13 @@ from src.domain.query import QueryRequest
 from src.server.http_errors import install_error_handlers
 from src.server.query_dto import AnswerResultDto, EvidenceDto
 from src.server.readiness import ReadinessProbe
+from src.server.rate_limit import QueryRateLimiter
+from src.server.deployment_profile import DeploymentProfile
 
 
 class QueryHttpRequest(BaseModel):
     request_id: str = Field(default_factory=lambda: str(uuid4()), min_length=1)
-    question: str = Field(min_length=1)
+    question: str = Field(min_length=1, max_length=1000)
     conversation_context: dict[str, str] = Field(default_factory=dict)
     mode: Literal["answer", "source_lookup"] = "answer"
 
@@ -37,40 +39,29 @@ class DocumentDto(BaseModel):
     document_kind: str
     jurisdiction: str
     source_uri: str
-    local_content_available: bool
-    local_content_url: str
+    aliases: list[str]
+    local_page_images_available: bool
+    page_count: int | None
+    page_image_url_template: str
 
 
-def create_app(
+def _register_diagnostic_routes(
+    app: FastAPI,
     *,
-    query_service: QueryApplicationService,
-    source_locator_service: QueryApplicationService | None = None,
-    document_catalog: DocumentCatalog | None = None,
-    evidence_catalog: EvidenceSourceService | None = None,
-    readiness_probe: ReadinessProbe | None = None,
-    answer_corpus_version: str = "formal-corpus-v1",
-    source_lookup_corpus_version: str = "m3-experiment-v1",
-    formula_preview: FormulaPreviewService | None = None,
-    formula_review: FormulaReviewService | None = None,
-    region_image_service: RegionImageService | None = None,
-) -> FastAPI:
-    """Create the HTTP adapter with its application dependency injected."""
-    app = FastAPI(title="排水法规标准智能问答系统", version="0.1.0")
-    install_error_handlers(app)
-    workbench_path = Path(__file__).parent / "static" / "index.html"
-
-    @app.get("/", response_class=FileResponse)
-    async def workbench() -> FileResponse:
-        return FileResponse(workbench_path)
-
-    @app.get("/api/v1/health")
-    async def health() -> dict[str, str]:
-        return {"status": "ok"}
-
+    formula_preview: FormulaPreviewService | None,
+    formula_review: FormulaReviewService | None,
+) -> None:
+    """Register internal review routes only when explicitly enabled."""
 
     def preview_service():
         if formula_preview is None:
-            raise HTTPException(status_code=503, detail={"code": "formula_preview_unavailable", "message": "formula preview is not configured"})
+            raise HTTPException(
+                status_code=503,
+                detail={
+                    "code": "formula_preview_unavailable",
+                    "message": "formula preview is not configured",
+                },
+            )
         return formula_preview
 
     @app.get("/api/v1/formulas")
@@ -81,46 +72,156 @@ def create_app(
     def get_formula(anchor_id: str):
         item = preview_service().get(anchor_id)
         if item is None:
-            raise HTTPException(status_code=404, detail={"code": "formula_not_found", "message": "formula is not registered"})
+            raise HTTPException(
+                status_code=404,
+                detail={
+                    "code": "formula_not_found",
+                    "message": "formula is not registered",
+                },
+            )
         return item
-
 
     def review_service():
         if formula_review is None:
-            raise HTTPException(status_code=503, detail={"code": "formula_review_unavailable"})
+            raise HTTPException(
+                status_code=503,
+                detail={"code": "formula_review_unavailable"},
+            )
         return formula_review
 
     @app.get("/api/v1/formula-review")
-    def review_list(category: str = "all", offset: int = 0, limit: int = 20, query: str = ""):
+    def review_list(
+        category: str = "all",
+        offset: int = 0,
+        limit: int = 20,
+        query: str = "",
+    ):
         service = review_service()
-        if category not in {"all", "relation_candidate", "expression_candidate", "fragment_candidate", "needs_review"} or offset < 0 or not 1 <= limit <= 50 or len(query) > 200:
-            raise HTTPException(status_code=400, detail={"code": "invalid_review_filter"})
+        if (
+            category
+            not in {
+                "all",
+                "relation_candidate",
+                "expression_candidate",
+                "fragment_candidate",
+                "needs_review",
+            }
+            or offset < 0
+            or not 1 <= limit <= 50
+            or len(query) > 200
+        ):
+            raise HTTPException(
+                status_code=400, detail={"code": "invalid_review_filter"}
+            )
         try:
             return service.list(category, offset, limit, query=query)
         except (OSError, ValueError, KeyError, TypeError):
-            raise HTTPException(status_code=503, detail={"code": "formula_review_unavailable"})
+            raise HTTPException(
+                status_code=503,
+                detail={"code": "formula_review_unavailable"},
+            )
 
     @app.get("/api/v1/formula-review/{candidate_id}")
     def review_detail(candidate_id: str):
         try:
             item = review_service().get(candidate_id)
         except (OSError, ValueError, KeyError, TypeError):
-            raise HTTPException(status_code=503, detail={"code": "formula_review_unavailable"})
+            raise HTTPException(
+                status_code=503,
+                detail={"code": "formula_review_unavailable"},
+            )
         if item is None:
-            raise HTTPException(status_code=404, detail={"code": "formula_review_not_found"})
+            raise HTTPException(
+                status_code=404,
+                detail={"code": "formula_review_not_found"},
+            )
         return item
 
     @app.get("/api/v1/formula-review/{candidate_id}/image")
-    def review_image(candidate_id: str, context: bool = False, full_page: bool = False, page_offset: int = 0):
+    def review_image(
+        candidate_id: str,
+        context: bool = False,
+        full_page: bool = False,
+        page_offset: int = 0,
+    ):
         if page_offset not in (-1, 0, 1) or (page_offset and not full_page):
-            raise HTTPException(status_code=400, detail={"code": "invalid_source_page_offset"})
+            raise HTTPException(
+                status_code=400,
+                detail={"code": "invalid_source_page_offset"},
+            )
         try:
-            image = review_service().image(candidate_id, context, full_page, page_offset)
+            image = review_service().image(
+                candidate_id, context, full_page, page_offset
+            )
         except (OSError, ValueError, KeyError, TypeError, RuntimeError):
-            raise HTTPException(status_code=503, detail={"code": "formula_image_unavailable"})
+            raise HTTPException(
+                status_code=503,
+                detail={"code": "formula_image_unavailable"},
+            )
         if image is None:
-            raise HTTPException(status_code=404, detail={"code": "formula_image_unavailable"})
-        return Response(content=image, media_type="image/png", headers={"Cache-Control": "no-store"})
+            raise HTTPException(
+                status_code=404,
+                detail={"code": "formula_image_unavailable"},
+            )
+        return Response(
+            content=image,
+            media_type="image/png",
+            headers={"Cache-Control": "no-store"},
+        )
+
+
+def create_app(
+    *,
+    query_service: QueryApplicationService,
+    source_locator_service: QueryApplicationService | None = None,
+    document_catalog: DocumentCatalog | None = None,
+    document_page_service: DocumentPageImageService | None = None,
+    evidence_catalog: EvidenceSourceService | None = None,
+    readiness_probe: ReadinessProbe | None = None,
+    answer_corpus_version: str = "formal-corpus-v1",
+    source_lookup_corpus_version: str = "m3-experiment-v1",
+    formula_preview: FormulaPreviewService | None = None,
+    formula_review: FormulaReviewService | None = None,
+    region_image_service: RegionImageService | None = None,
+    query_rate_limiter: QueryRateLimiter | None = None,
+    deployment_profile: DeploymentProfile = "self_hosted",
+    diagnostic_routes_enabled: bool = False,
+) -> FastAPI:
+    """Create the HTTP adapter with its application dependency injected."""
+    app = FastAPI(title="排水法规标准智能问答系统", version="0.1.0")
+    install_error_handlers(app)
+    workbench_path = Path(__file__).parent / "static" / "index.html"
+    documents_path = Path(__file__).parent / "static" / "documents.html"
+
+    @app.get("/", response_class=FileResponse)
+    async def workbench() -> FileResponse:
+        return FileResponse(workbench_path)
+
+    @app.get("/documents", response_class=FileResponse)
+    async def document_browser() -> FileResponse:
+        return FileResponse(documents_path)
+
+    @app.get("/api/v1/health")
+    async def health() -> dict[str, str]:
+        return {"status": "ok"}
+
+    @app.get("/api/v1/runtime")
+    async def runtime_profile() -> dict[str, str]:
+        return {
+            "deployment_profile": deployment_profile,
+            "answer_access": (
+                "shared_demo_budget"
+                if deployment_profile == "demo"
+                else "operator_configured"
+            ),
+        }
+
+    if diagnostic_routes_enabled:
+        _register_diagnostic_routes(
+            app,
+            formula_preview=formula_preview,
+            formula_review=formula_review,
+        )
 
     @app.get("/api/v1/ready")
     async def ready() -> JSONResponse:
@@ -161,9 +262,7 @@ def create_app(
             )
         return document
 
-    @app.get("/api/v1/documents/{document_version_id}", response_model=DocumentDto)
-    async def get_document(document_version_id: str) -> DocumentDto:
-        document = registered_document(document_version_id)
+    def document_dto(document) -> DocumentDto:
         return DocumentDto(
             document_version_id=document.document_version_id,
             file_name=document.file_name,
@@ -171,24 +270,67 @@ def create_app(
             document_kind=document.document_kind,
             jurisdiction=document.jurisdiction,
             source_uri=document.source_uri,
-            local_content_available=document.local_path is not None,
-            local_content_url=(
-                f"/api/v1/documents/{document.document_version_id}/content"
+            aliases=list(document.aliases),
+            local_page_images_available=(
+                document.local_path is not None and document_page_service is not None
+            ),
+            page_count=(
+                document_page_service.page_count(document.document_version_id)
+                if document_page_service is not None
+                else None
+            ),
+            page_image_url_template=(
+                f"/api/v1/documents/{document.document_version_id}/pages/{{physical_page}}/image"
             ),
         )
 
-    @app.get("/api/v1/documents/{document_version_id}/content")
-    async def get_document_content(document_version_id: str) -> FileResponse:
+    @app.get("/api/v1/documents", response_model=list[DocumentDto])
+    async def list_documents() -> list[DocumentDto]:
+        if document_catalog is None or not callable(getattr(document_catalog, "list", None)):
+            raise HTTPException(
+                status_code=503,
+                detail={
+                    "code": "document_catalog_unavailable",
+                    "message": "browsable document catalog is not configured",
+                },
+            )
+        return [document_dto(document) for document in document_catalog.list()]
+
+    @app.get("/api/v1/documents/{document_version_id}", response_model=DocumentDto)
+    async def get_document(document_version_id: str) -> DocumentDto:
         document = registered_document(document_version_id)
-        if document.local_path is None:
+        return document_dto(document)
+
+    @app.get("/api/v1/documents/{document_version_id}/pages/{physical_page}/image")
+    async def get_document_page_image(
+        document_version_id: str, physical_page: int
+    ) -> Response:
+        registered_document(document_version_id)
+        if document_page_service is None:
+            raise HTTPException(
+                status_code=503,
+                detail={
+                    "code": "document_page_service_unavailable",
+                    "message": "document page rendering is not configured",
+                },
+            )
+        png = document_page_service.image(document_version_id, physical_page)
+        if png is None:
             raise HTTPException(
                 status_code=404,
                 detail={
-                    "code": "document_content_not_found",
-                    "message": "local PDF content is not available",
+                    "code": "document_page_not_found",
+                    "message": "document page image is not available",
                 },
             )
-        return FileResponse(document.local_path, media_type="application/pdf")
+        return Response(
+            content=png,
+            media_type="image/png",
+            headers={
+                "Cache-Control": "public, max-age=86400",
+                "X-Content-Type-Options": "nosniff",
+            },
+        )
 
     @app.get("/api/v1/evidence/{evidence_id}", response_model=EvidenceDto)
     async def get_evidence(evidence_id: str) -> EvidenceDto:
@@ -237,7 +379,28 @@ def create_app(
         )
 
     @app.post("/api/v1/queries", response_model=AnswerResultDto)
-    async def submit_query(payload: QueryHttpRequest) -> AnswerResultDto:
+    async def submit_query(payload: QueryHttpRequest, request: Request) -> AnswerResultDto:
+        if query_rate_limiter is not None:
+            client_key = request.client.host if request.client is not None else "unknown"
+            decision = query_rate_limiter.check(client_key, payload.mode)
+            if not decision.allowed:
+                if decision.reason in {
+                    "answer_client_daily_limit_exceeded",
+                    "answer_daily_budget_exhausted",
+                }:
+                    message = (
+                        "今日 AI 演示额度已用完；仍可使用只找原文和资料浏览"
+                    )
+                else:
+                    message = "public query limit exceeded; retry later"
+                raise HTTPException(
+                    status_code=429,
+                    detail={
+                        "code": "rate_limit_exceeded",
+                        "message": message,
+                    },
+                    headers={"Retry-After": str(decision.retry_after_seconds)},
+                )
         selected_service = query_service
         corpus_version = answer_corpus_version
         if payload.mode == "source_lookup":

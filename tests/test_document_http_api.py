@@ -3,7 +3,9 @@ import tempfile
 import unittest
 from pathlib import Path
 
+import pymupdf
 from fastapi.testclient import TestClient
+from src.adapters.pdf_region_renderer import DocumentPageImageService
 
 from src.adapters.source_evidence_document_catalog import (
     SourceEvidenceDocumentCatalog,
@@ -85,12 +87,14 @@ class SourceEvidenceDocumentCatalogTest(unittest.TestCase):
 
 
 class DocumentHttpApiTest(unittest.TestCase):
-    def test_user_can_open_an_allowlisted_pdf_at_its_cited_page(self):
+    def test_user_can_open_an_allowlisted_pdf_page_without_pdf_download(self):
         with tempfile.TemporaryDirectory() as directory:
             root = Path(directory)
             pdf_path = root / "data" / "raw" / "example.pdf"
             pdf_path.parent.mkdir(parents=True)
-            pdf_path.write_bytes(b"%PDF-1.4\n%%EOF\n")
+            with pymupdf.open() as pdf:
+                pdf.new_page(width=200, height=300).insert_text((30, 50), "page one")
+                pdf.save(pdf_path)
             sha = "a" * 64
             registry_path = _write_source_evidence(
                 root,
@@ -103,29 +107,36 @@ class DocumentHttpApiTest(unittest.TestCase):
                     }
                 ],
             )
+            catalog = SourceEvidenceDocumentCatalog(
+                project_root=root, registry_path=registry_path
+            )
             client = TestClient(
                 create_app(
                     query_service=self._query_service(),
-                    document_catalog=SourceEvidenceDocumentCatalog(
-                        project_root=root, registry_path=registry_path
-                    ),
+                    document_catalog=catalog,
+                    document_page_service=DocumentPageImageService(catalog),
                 )
             )
 
             metadata = client.get(f"/api/v1/documents/{sha}")
-            content = client.get(f"/api/v1/documents/{sha}/content")
+            page = client.get(f"/api/v1/documents/{sha}/pages/1/image")
 
             self.assertEqual(metadata.status_code, 200)
             body = metadata.json()
             self.assertEqual(body["document_version_id"], sha)
             self.assertEqual(body["file_name"], "example.pdf")
-            self.assertTrue(body["local_content_available"])
+            self.assertTrue(body["local_page_images_available"])
+            self.assertEqual(body["page_count"], 1)
             self.assertEqual(
-                body["local_content_url"], f"/api/v1/documents/{sha}/content"
+                body["page_image_url_template"],
+                f"/api/v1/documents/{sha}/pages/{{physical_page}}/image",
             )
-            self.assertEqual(content.status_code, 200)
-            self.assertEqual(content.headers["content-type"], "application/pdf")
-            self.assertEqual(content.content, b"%PDF-1.4\n%%EOF\n")
+            self.assertEqual(page.status_code, 200)
+            self.assertEqual(page.headers["content-type"], "image/png")
+            self.assertEqual(
+                client.get(f"/api/v1/documents/{sha}/content").status_code,
+                404,
+            )
 
     def test_unknown_document_has_a_stable_not_found_error(self):
         with tempfile.TemporaryDirectory() as directory:

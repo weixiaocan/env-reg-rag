@@ -1,0 +1,26 @@
+{
+  "case": "G028",
+  "question": "ISO 24516-3中文指南是否规定了我国地级市污水管网年度更新改造率必须达到15%？",
+  "expected_answerability": "refuse",
+  "expected_facts": [
+    "应拒答或说明未覆盖：语料指南未给出该15%强制指标",
+    "该问题疑似库外或错误断言"
+  ],
+  "status": "refused",
+  "model_called": true,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {
+    "input_tokens": 715,
+    "output_tokens": 85,
+    "total_tokens": 800,
+    "estimated_cost": 0.0081,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "generation_ms": 2570.307,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.060464
+}

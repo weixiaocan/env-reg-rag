@@ -1,0 +1,56 @@
+{
+ "candidate": "corpus-b668e6aaa7f8",
+ "all_ok": true,
+ "checks": [
+  {
+   "check": "pointer_targets_candidate",
+   "ok": true,
+   "detail": {
+    "corpus_version": "corpus-b668e6aaa7f8",
+    "status": "candidate",
+    "manifest": "data/registry/corpus-b668e6aaa7f8.json",
+    "manifest_sha256": "8e8259524d936fbd54061086d8d2375d03768ec349415a94248a06928bd56a44"
+   }
+  },
+  {
+   "check": "pointer_manifest_sha",
+   "ok": true,
+   "detail": "8e8259524d936fbd..."
+  },
+  {
+   "check": "pi_sha_chain",
+   "ok": true,
+   "detail": "data/canonical/corpus-b668e6aaa7f8-documents.jsonl: 70176318561c4d67..."
+  },
+  {
+   "check": "audit_sha_chain",
+   "ok": true,
+   "detail": "843740234e1cf57e..."
+  },
+  {
+   "check": "base_pi_byte_identical",
+   "ok": true,
+   "detail": "base=corpus-928a999e0264 pi=70176318561c4d67..."
+  },
+  {
+   "check": "assembly_profile",
+   "ok": true,
+   "detail": "t09-formula-binding-5"
+  },
+  {
+   "check": "formal_pointer_untouched",
+   "ok": true,
+   "detail": "corpus-069284e6d60e"
+  },
+  {
+   "check": "artifact_manifest_all_hashes_verified",
+   "ok": true,
+   "detail": "page_intermediate + 23 canonicals + quality_report verified"
+  },
+  {
+   "check": "artifact_manifest_binds_pi",
+   "ok": true,
+   "detail": "70176318561c4d67..."
+  }
+ ]
+}

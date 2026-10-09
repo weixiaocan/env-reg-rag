@@ -21,7 +21,7 @@ from qdrant_client import QdrantClient
 
 from src.adapters.inventory_document_catalog import DocumentCatalog
 from src.adapters.jsonl_query_trace_recorder import JsonlQueryTraceRecorder
-from src.adapters.pdf_region_renderer import RegionImageService
+from src.adapters.pdf_region_renderer import DocumentPageImageService, RegionImageService
 from src.adapters.llm_provider import (
     LlmConfigurationError,
     LlmProviderSettings,
@@ -29,9 +29,7 @@ from src.adapters.llm_provider import (
 )
 from src.adapters.qdrant_evidence_catalog import QdrantEvidenceCatalog
 from src.adapters.qdrant_evidence_retriever import QdrantEvidenceRetriever
-from src.adapters.source_evidence_document_catalog import (
-    SourceEvidenceDocumentCatalog,
-)
+from src.adapters.public_document_catalog import PublicDocumentCatalog
 from src.application.answer_generation import Answer, AnswerGenerator, InMemoryAnswerGenerator
 from src.application.corpus_artifacts import (
     resolve_current_corpus,
@@ -43,6 +41,7 @@ from src.application.scope_resolution import RuleBasedScopeResolver
 from src.retrieval.bge_small_zh import BgeSmallZhEmbedder
 from src.retrieval.qdrant_index import QdrantRetrievalIndex
 from src.server.readiness import QdrantReadinessProbe, ReadinessProbe
+from src.server.rate_limit import QueryRateLimiter, build_query_rate_limiter
 
 _log = logging.getLogger(__name__)
 
@@ -52,10 +51,12 @@ class QueryServices:
     answer: QueryApplicationService
     source_lookup: QueryApplicationService
     documents: DocumentCatalog
+    document_page: DocumentPageImageService
     evidence: EvidenceSourceService
     readiness: ReadinessProbe
     region_image: RegionImageService
     corpus_version: str
+    query_rate_limiter: QueryRateLimiter | None
 
 
 def _build_answer_generator() -> AnswerGenerator:
@@ -141,21 +142,26 @@ def build_query_services(
             "retrieve_limit": "10",
         },
     )
-    documents = SourceEvidenceDocumentCatalog(
+    documents = PublicDocumentCatalog(
         project_root=project_root,
-        registry_path=project_root / "data" / "registry" / "source_evidence.jsonl",
+        inventory_path=project_root / "data" / "registry" / "inventory.csv",
     )
     return QueryServices(
         answer=answer_service,
         source_lookup=source_lookup_service,
         documents=documents,
+        document_page=DocumentPageImageService(documents),
         evidence=EvidenceSourceService(QdrantEvidenceCatalog(index=index)),
         readiness=QdrantReadinessProbe(
             client=client,
-            required_collections=[collection],
+            query_entry=collection,
+            expected_alias=current_corpus.alias,
+            expected_collection=current_corpus.collection_name,
+            expected_point_count=current_corpus.chunk_count,
         ),
         region_image=RegionImageService(index=index, document_catalog=documents),
         corpus_version=current_corpus.corpus_version,
+        query_rate_limiter=build_query_rate_limiter(),
     )
 
 

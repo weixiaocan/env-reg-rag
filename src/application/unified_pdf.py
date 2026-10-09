@@ -30,9 +30,9 @@ from src.evaluation.formula_triage import classify_math_region
 
 
 TYPES = ('text', 'table', 'formula', 'image')
-PROFILE = 'unified-local-v5:200dpi:original-context:no-generated-description'
-STAGE_PROFILES = {'text': 'native-ocr-routing-v2:rotated-native-coordinates', 'layout': 'all-layout-boxes-v1:200dpi',
-                  'tables': 'known-table-region-mobile-v5:200dpi:padding2:ocr-geometry-fallback', 'formula': 'formula-v1:200dpi:padding2'}
+PROFILE = 'unified-local-v6:200dpi:original-context:no-generated-description:rotated-inference'
+STAGE_PROFILES = {'text': 'native-ocr-routing-v3:rotated-ocr-inference', 'layout': 'all-layout-boxes-v1:200dpi',
+                  'tables': 'known-table-region-mobile-v6:200dpi:padding2:rotated-inference', 'formula': 'formula-v1:200dpi:padding2'}
 
 
 def fingerprint(value):
@@ -101,13 +101,42 @@ class UnifiedPageExtractor:
         key = fingerprint({'profile': stage_profile, 'stage': name, 'config': config})
         target = directory / (name + '-' + key[:16] + '.json')
         prior_timeout = False
+        if not target.is_file() and name == 'text':
+            previous_config = copy.deepcopy(config)
+            extractor_id = str(previous_config.get('extractor') or '')
+            previous_config['extractor'] = extractor_id.replace(
+                'auto-page-v9:', 'auto-page-v8:', 1)
+            previous_profile = 'native-ocr-routing-v2:rotated-native-coordinates'
+            previous_key = fingerprint({'profile': previous_profile, 'stage': name,
+                                        'config': previous_config})
+            previous_target = directory / (name + '-' + previous_key[:16] + '.json')
+            previous = cached_json(previous_target)
+            page = previous.get('result') or {}
+            reusable = page.get('extraction_route') == 'native' or not page.get('rotation')
+            if (previous.get('config_hash') == previous_key and
+                    previous.get('execution_status') == 'completed' and reusable and
+                    previous.get('result_sha256') == fingerprint(page)):
+                write_json(target, {**previous, 'config_hash': key, 'configuration': config,
+                           'normalization_reused_from': {
+                               'checkpoint': previous_target.relative_to(self.root).as_posix(),
+                               'result_sha256': previous['result_sha256']}})
         if not target.is_file() and name == 'tables':
             old = {}
             old_target = None
             old_key = None
-            for previous_profile in ('known-table-region-mobile-v4:200dpi:padding2:literal-inequality-html',
-                                     'known-table-region-mobile-v3:200dpi:padding2'):
-                candidate_key = fingerprint({'profile': previous_profile, 'stage': name, 'config': config})
+            prior_profiles = []
+            if int(config.get('page_rotation') or 0) == 0:
+                prior_profiles.append((
+                    'known-table-region-mobile-v5:200dpi:padding2:ocr-geometry-fallback',
+                    {k: v for k, v in config.items() if k != 'page_rotation'},
+                ))
+            prior_profiles.extend((profile, config) for profile in (
+                'known-table-region-mobile-v4:200dpi:padding2:literal-inequality-html',
+                'known-table-region-mobile-v3:200dpi:padding2',
+            ))
+            for previous_profile, previous_config in prior_profiles:
+                candidate_key = fingerprint({'profile': previous_profile, 'stage': name,
+                                             'config': previous_config})
                 candidate_target = directory / (name + '-' + candidate_key[:16] + '.json')
                 candidate = cached_json(candidate_target)
                 if candidate.get('config_hash') == candidate_key:
@@ -246,7 +275,7 @@ class UnifiedPageExtractor:
             page.pop('checkpoint_sha256', None)
             if (page.get('physical_page') == physical_page and page.get('decision_status') != 'failed'
                     and self._text_cache_compatible(page)):
-                if page.get('extraction_route') == 'native':
+                if page.get('extraction_route') == 'native' or not page.get('rotation'):
                     return page
         asset_cache = self.root / 'data/canonical/assets' / f'{asset.sha256}.{key[:12]}.json'
         if asset_cache.is_file():
@@ -255,9 +284,92 @@ class UnifiedPageExtractor:
                 matches = [p for p in payload.get('pages', []) if p.get('physical_page') == physical_page
                            and p.get('decision_status') != 'failed' and self._text_cache_compatible(p)]
                 if len(matches) == 1:
-                    if matches[0].get('extraction_route') == 'native':
+                    if matches[0].get('extraction_route') == 'native' or not matches[0].get('rotation'):
+                        return matches[0]
+        # v9 changes only 90/270-degree inference. Reuse the integrity-bound
+        # v8 text cache for unrotated pages (and native rotated pages, whose
+        # geometry was already normalized by NativePdfParser); rotated OCR
+        # pages must be reprocessed by the corrected OcrPdfParser.
+        old_config_id = str(self.text_extractor.config_id).replace('auto-page-v9:', 'auto-page-v8:', 1)
+        if old_config_id != self.text_extractor.config_id:
+            prior_extractor = type('_PriorExtractor', (), {'config_id': old_config_id})()
+            old_key = page_extractor_config_hash(prior_extractor)
+            old_cached = (self.root / 'data/canonical/pages' / asset.sha256 /
+                          old_key[:12] / f'{physical_page:04d}.json')
+            if old_cached.is_file():
+                page = cached_json(old_cached)
+                page.pop('checkpoint_sha256', None)
+                if (page.get('physical_page') == physical_page and
+                        page.get('decision_status') != 'failed' and
+                        self._text_cache_compatible(page) and
+                        (page.get('extraction_route') == 'native' or not page.get('rotation'))):
+                    return page
+            old_asset_cache = self.root / 'data/canonical/assets' / f'{asset.sha256}.{old_key[:12]}.json'
+            if old_asset_cache.is_file():
+                payload = cached_json(old_asset_cache)
+                if payload.get('sha256') == asset.sha256 and payload.get('config_hash') == old_key:
+                    matches = [p for p in payload.get('pages', [])
+                               if p.get('physical_page') == physical_page and
+                               p.get('decision_status') != 'failed' and
+                               self._text_cache_compatible(p) and
+                               (p.get('extraction_route') == 'native' or not p.get('rotation'))]
+                    if len(matches) == 1:
                         return matches[0]
         return self.text_extractor.extract(asset, physical_page=physical_page)
+
+    _RECOVERY_TEXT_ALLOWED_FIELDS = frozenset({
+        'physical_page', 'page_index', 'display_page_label', 'width', 'height',
+        'rotation', 'extraction_route', 'parser_name', 'parser_profile',
+        'engine_version', 'ocr_confidence', 'decision_status',
+        'decision_reasons', 'publishable', 'text', 'elements', 'tables',
+        'raw_artifact_ref', 'coordinate_normalizations',
+    })
+
+    @classmethod
+    def _validate_recovered_text_page(cls, page, physical_page):
+        """T07: STRICT field whitelist for a recovery TEXT-STAGE page.
+
+        Only the text-layer fields of a page (the AutomaticPageExtractor
+        output shape) are accepted. Tables must be EMPTY -- table structure,
+        regions, content_types and layout state are structure results and are
+        NEVER a recovery input (a page copied from a published jsonl fails
+        here instead of smuggling old structure into a new build).
+        """
+        if page.get('physical_page') != physical_page:
+            raise ValueError('recovery page physical_page mismatch')
+        missing = [f for f in ('text', 'decision_status', 'extraction_route',
+                               'elements') if f not in page]
+        if missing:
+            raise ValueError(
+                f'recovery page missing text-stage field(s): {missing}')
+        if not isinstance(page.get('text'), str) or not isinstance(
+                page.get('elements'), list):
+            raise ValueError('recovery page text stage malformed')
+        if page.get('tables'):
+            raise ValueError('recovery page carries non-empty tables -- '
+                             'table structure is never a recovery input')
+        unknown = sorted(set(page) - cls._RECOVERY_TEXT_ALLOWED_FIELDS)
+        if unknown:
+            raise ValueError('recovery page carries non-whitelisted field(s) '
+                             f'{unknown} -- regions/content_types/layout '
+                             'state is never a recovery input')
+
+    @classmethod
+    def _recovered_text(cls, recovered, physical_page):
+        """Validate a recovery override as a TEXT-STAGE result and return it.
+
+        A recovery page is produced by a specialist text extraction run; it
+        carries ONLY the recovered text layer. The page must be bound to its
+        checkpoint digest (tamper-evident stage-cache identity) and pass the
+        strict text whitelist; structure always comes from the unified
+        detection of THIS build.
+        """
+        page = copy.deepcopy(recovered)
+        page.pop('checkpoint_sha256', None)
+        if not page.pop('recovery_checkpoint_sha256', None):
+            raise ValueError('recovery page is not bound to its checkpoint digest')
+        cls._validate_recovered_text_page(page, physical_page)
+        return page
 
     @staticmethod
     def _text_cache_compatible(page):
@@ -311,7 +423,7 @@ class UnifiedPageExtractor:
         return {'file_sha256': asset.sha256, 'physical_page': physical_page,
                 'layout_status': layout['execution_status'], 'text_status': text['execution_status']}
 
-    def extract(self, asset, *, physical_page):
+    def extract(self, asset, *, physical_page, recovery_text=None):
         path = registered_pdf_path(self.root, asset.canonical_rel_path)
         if file_digest(path) != asset.sha256:
             raise ValueError('source checksum mismatch')
@@ -322,8 +434,20 @@ class UnifiedPageExtractor:
             image = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n)
             layout = self._stage(directory, 'layout', self._model_stage_config('layout'),
                                  lambda: self._predict_layout(image))
-            text = self._stage(directory, 'text', self._text_stage_config(),
-                               lambda: self._text(asset, physical_page))
+            if recovery_text is not None:
+                # T07: a recovery page is a TEXT-STAGE OVERRIDE only -- the
+                # unified structure stages below still run on top of the
+                # recovered text. The stage cache is keyed by the recovery
+                # checkpoint digest so it never collides with (or is reused
+                # as) the ordinary PDF-derived text stage.
+                text = self._stage(
+                    directory, 'text',
+                    {**self._text_stage_config(),
+                     'recovery_sha256': recovery_text.get('recovery_checkpoint_sha256') or ''},
+                    lambda: self._recovered_text(recovery_text, physical_page))
+            else:
+                text = self._stage(directory, 'text', self._text_stage_config(),
+                                   lambda: self._text(asset, physical_page))
             page = copy.deepcopy(text['result']) if text['result'] else {
                 'physical_page': physical_page, 'page_index': physical_page - 1,
                 'width': original.rect.width, 'height': original.rect.height, 'rotation': original.rotation,
@@ -367,19 +491,38 @@ class UnifiedPageExtractor:
                                      'native_exit_code': getattr(exc, 'exit_code', None)},
                                     {'route': 'ocr_geometry_fallback', 'execution_status': 'completed'}]
                         except (RuntimeError, ValueError) as exc:
+                            # T08: the full-page fallback must meet the SAME
+                            # acceptance bar as the cropped path and the stage
+                            # cache (every region covered by a parsed table
+                            # with cells AND a real bbox). Unanchored model
+                            # output (bbox None / basis missing) is NOT a
+                            # usable table: fall through to the OCR-geometry
+                            # fallback anchored on the validated detection
+                            # crop -- never fabricate coordinates, never hand-
+                            # mark a failed region completed.
+                            attempts = [
+                                {'route': 'cropped_table', 'execution_status': 'failed',
+                                 'reason': getattr(exc, 'reason_code', type(exc).__name__),
+                                 'native_exit_code': getattr(exc, 'exit_code', None)}]
                             try:
                                 recognized = normalize_tables(self.tables.parse_page(path, physical_page=physical_page))
-                                fallback_route = 'full_page_fallback'
+                                if not recognized or not all(
+                                        any(t.get('cells') and t.get('bbox')
+                                            and pymupdf.Rect(t['bbox']).intersects(pymupdf.Rect(box))
+                                            for t in recognized) for box in boxes):
+                                    raise ValueError('table_region_structure_not_recovered')
+                                attempts.append({'route': 'full_page_fallback',
+                                                 'execution_status': 'completed'})
                             except (RuntimeError, TimeoutError, ValueError) as fallback_exc:
                                 recognized = recover_tables_from_ocr_elements(
                                     page, boxes, failure_reason=type(fallback_exc).__name__)
-                                fallback_route = 'ocr_geometry_fallback'
+                                attempts.append({'route': 'full_page_fallback',
+                                                 'execution_status': 'failed',
+                                                 'reason': type(fallback_exc).__name__})
+                                attempts.append({'route': 'ocr_geometry_fallback',
+                                                 'execution_status': 'completed'})
                             for table in recognized:
-                                table['processing_attempts'] = [
-                                    {'route': 'cropped_table', 'execution_status': 'failed',
-                                     'reason': getattr(exc, 'reason_code', type(exc).__name__),
-                                     'native_exit_code': getattr(exc, 'exit_code', None)},
-                                    {'route': fallback_route, 'execution_status': 'completed'}]
+                                table['processing_attempts'] = attempts
                         return enrich_table_context(page, recognized)
                     return normalize_tables(self.tables.parse_page(path, physical_page=physical_page))
                 expected_boxes = [[b['coordinate'][0]*original.rect.width/pix.width,
@@ -390,7 +533,8 @@ class UnifiedPageExtractor:
                                   and valid_detection_box(b.get('coordinate'), pix.width, pix.height)]
                 table_stage = self._stage(directory, 'tables', {
                     'models': self._model_stage_config('tables'), 'layout_config_hash': layout['config_hash'],
-                    'expected_boxes': expected_boxes, 'original_context_hash': text.get('result_sha256')},
+                    'expected_boxes': expected_boxes, 'original_context_hash': text.get('result_sha256'),
+                    'page_rotation': int(original.rotation)},
                     recognize_tables,
                     timeout_fallback=lambda: recover_tables_from_ocr_elements(
                         page, expected_boxes, failure_reason='repeated_local_table_model_timeout'))

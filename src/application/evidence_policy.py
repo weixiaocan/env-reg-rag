@@ -67,6 +67,10 @@ REASON_QUARANTINED_SOURCE = "quarantined_source"
 REASON_MISSING_POLICY = "missing_policy_default_locator_only"
 REASON_MISSING_STRUCTURED_REVIEW = "missing_structured_review_assertion"
 REASON_MISSING_SOURCE_ELEMENTS = "missing_source_elements"
+# T09: a formula chunk whose anchor ([公式 N] + complete latex body) alone
+# breaches the bge 512-token hard cap. The body is verbatim evidence and is
+# never split to fit; the over-limit shard records this reason instead.
+REASON_ANCHOR_OVERFLOW = "anchor_exceeds_token_cap"
 
 # Fields that may carry an explicit human review / assertion binding on an
 # element. A structured element may only become ``answer_and_citation`` (D3

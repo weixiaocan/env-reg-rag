@@ -1,0 +1,125 @@
+{
+  "case": "G047",
+  "question": "按T/CECS 758表7.2.2及其续表，重度混接（3级）与轻度混接（1级）在接入管管径、出流流量上的分界大致如何？评估时应遵循什么取高原则？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "T/CECS 758第7.2.2条规定，单个混接点或混接源的严重程度与接入管的管径、出流水量以及出流水质有关；接入管管径越大预示因错误连接造成的污水流量越大，但管径不是唯一考量，还需依据实际水量水质综合评估。",
+        "evidence_ids": [
+          "chunk_20e57d7399bb65205a5846f315d93396"
+        ]
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "区域混错接程度分为三级——重度混错接（3级）、中度混错接（2级）、轻度混错接（1级），以任一指标高值的原则确定等级。",
+        "evidence_ids": [
+          "chunk_a9056e7d7c72877c60419bc3f726d6e8"
+        ]
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "根据混接密度（M）和混接水量比（C），区域混接程度分为三级：重度混接（3级）、中度混接（2级）、轻度混接（1级）。",
+        "evidence_ids": [
+          "chunk_2fd882ea38fe1df52169868682009c7e"
+        ]
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_3d03c7031aef4fecf30651ecb74086d1",
+    "chunk_a9056e7d7c72877c60419bc3f726d6e8",
+    "chunk_20e57d7399bb65205a5846f315d93396",
+    "chunk_2fd882ea38fe1df52169868682009c7e",
+    "chunk_03b66a671001d313293ab47a15fb108b",
+    "chunk_3d9fa1af346e673a389df8f80df65c57",
+    "chunk_8595e18fe0e79df5530c1abc65fa51e8",
+    "chunk_7b610c7b53ca9a8f0ecce9165d771ef8",
+    "chunk_bc134c23fa32858b0368945b26aad8b9",
+    "chunk_84fc4fe66024feb5dae3e14aab3aa6cf"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_3d03c7031aef4fecf30651ecb74086d1",
+    "chunk_a9056e7d7c72877c60419bc3f726d6e8",
+    "chunk_20e57d7399bb65205a5846f315d93396",
+    "chunk_2fd882ea38fe1df52169868682009c7e",
+    "chunk_03b66a671001d313293ab47a15fb108b"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.09,
+    "retrieval": 59.021,
+    "generation": 50086.642,
+    "validation": 0.012,
+    "total": 50145.922
+  },
+  "token_usage": {
+    "input_tokens": 2849,
+    "output_tokens": 4664,
+    "total_tokens": 7513,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "按T/CECS 758表7.2.2及其续表，重度混接（3级）与轻度混接（1级）在接入管管径、出流流量上的分界大致如何？评估时应遵循什么取高原则？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_3d03c7031aef4fecf30651ecb74086d1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          28
+        ],
+        "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n7. 2. 1\n单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n水量、1昆接水质进行评估。\n7.2.2\n单个混接点或泪接源的海接程度分级标准应按表7. 2. 2"
+      },
+      {
+        "evidence_id": "chunk_a9056e7d7c72877c60419bc3f726d6e8",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.8.1 排水管道混错接状况应按照调查范围进行评估。泵排系统应按照雨水泵站服务范围为单元进行\n评估，自流排放系统应以单个排放口的服务范围为单元进行评估。建筑以单根立管或者单个建筑为单元\n进行评估。 \n5.8.2 排水管道混错接密度可按市政管道混错接，地块混错接进行定性计算，计算方法如下： \n市政管道混错接密度计算： \n \n𝜌𝜌= 𝑛𝑛1 ÷ 𝐿𝐿× 100% ···································································· (1)\nC 雨——混错接水量比，指污水管道中混错接的雨水量占区域内总污水产生量的比值；\nQ雨——污水管道雨天输送水量，m³/d。\n5.8.4 根据混错接密度（M）和混错接水量比（C），区域混错接程度分为三级：重度混错接（3 级）、\n中度混错接（2 级）、轻度混错接（1 级），以任一指标高值的原则确定等级，详见表1 和表2。"
+      },
+      {
+        "evidence_id": "chunk_20e57d7399bb65205a5846f315d93396",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          72,
+          73
+        ],
+        "text": "7 雨污了昆接状况评估 > 7.2 评估指标与方法 > 7.2.2 单个混接点或1昆接源的严重程度与接入管的管径、出流水\n7.2.2\n单个混接点或1昆接源的严重程度与接入管的管径、出流水\n量以及出流水质有关。接入管的管径越大预示着由于错误连接而\n造成的污水流量越大，但管径大小也不是对棍接程度评估的唯一\n考量，还要依据实际所产生的水量水质，予以综合评估。\n7.2.3\n混接密度是以每公里混接点或渴接源数来表征区域雨污\n混接严重程度。这种评估指标比较直观，能形象表明区域雨污渴\n接的严重程度。通常情况下，混接密度越高，说明区域雨污混接状\n况越严重，但有时区域混接密度并不高，但排水口出流的污水量很\n高或出流污染严重，这时需溯源和评估单个混接点对汇水区的影\n响。\n7.2.4\n1昆接密度的等级划分主要参照福州、合肥、广州和上海等\n一些南方已开展过混接调查的城市，由于开展的城市还比较少，样\n本数还不够多，特别是针对北方的城市，没有得到样本，故在实际\n执行过程中各地允许进行适当调整。另外，消除雨污棍接，实现雨\n污分流，是一项循序渐进的工作，随着这项工作的开展，分级的指\n标将会越来越严。"
+      },
+      {
+        "evidence_id": "chunk_2fd882ea38fe1df52169868682009c7e",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          45
+        ],
+        "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.3 根据混接密度（M）和混接水量比（C），区域混接程度分为三\n7.1.3 根据混接密度（M）和混接水量比（C），区域混接程度分为三\n级：重度混接（3 级）、中度混接（2 级）、轻度混接（1 级），以任一"
+      },
+      {
+        "evidence_id": "chunk_03b66a671001d313293ab47a15fb108b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          68
+        ],
+        "text": "5 混接区域调查 > 5.4 管道流量测量\nAC 矩形）＝管沟宽×水位高\n(1)"
+      }
+    ]
+  }
+}

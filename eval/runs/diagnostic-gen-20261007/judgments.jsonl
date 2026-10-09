@@ -1,0 +1,50 @@
+{"case": "G001", "expected": "locate", "status": "refused"}
+{"case": "G002", "expected": "locate", "status": "refused"}
+{"case": "G003", "expected": "locate", "status": "refused"}
+{"case": "G004", "expected": "locate", "status": "refused"}
+{"case": "G005", "expected": "locate", "status": "refused"}
+{"case": "G006", "expected": "locate", "status": "refused"}
+{"case": "G007", "expected": "locate", "status": "refused"}
+{"case": "G008", "expected": "refuse", "status": "refused", "refuse_correct": true}
+{"case": "G009", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": [{"fact_index": 0, "numbers": [], "covered": null}, {"fact_index": 1, "numbers": [], "covered": null}]}
+{"case": "G010", "expected": "locate", "status": "refused"}
+{"case": "G011", "expected": "locate", "status": "refused"}
+{"case": "G012", "expected": "locate", "status": "answered"}
+{"case": "G013", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": [{"fact_index": 0, "numbers": [], "covered": null}]}
+{"case": "G014", "expected": "locate", "status": "answered"}
+{"case": "G015", "expected": "refuse", "status": "refused", "refuse_correct": true}
+{"case": "G016", "expected": "locate", "status": "refused"}
+{"case": "G017", "expected": "locate", "status": "refused"}
+{"case": "G018", "expected": "locate", "status": "refused"}
+{"case": "G019", "expected": "locate", "status": "answered"}
+{"case": "G020", "expected": "locate", "status": "refused"}
+{"case": "G021", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": [{"fact_index": 0, "numbers": ["2027", "73"], "covered": true}]}
+{"case": "G022", "expected": "locate", "status": "refused"}
+{"case": "G023", "expected": "locate", "status": "answered"}
+{"case": "G024", "expected": "locate", "status": "answered"}
+{"case": "G025", "expected": "locate", "status": "answered"}
+{"case": "G026", "expected": "locate", "status": "answered"}
+{"case": "G027", "expected": "locate", "status": "refused"}
+{"case": "G028", "expected": "refuse", "status": "refused", "refuse_correct": true}
+{"case": "G029", "expected": "locate", "status": "refused"}
+{"case": "G030", "expected": "locate", "status": "refused"}
+{"case": "G031", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": [{"fact_index": 0, "numbers": ["10", "30", "1", "6"], "covered": true}]}
+{"case": "G032", "expected": "locate", "status": "refused"}
+{"case": "G033", "expected": "locate", "status": "refused"}
+{"case": "G034", "expected": "locate", "status": "refused"}
+{"case": "G035", "expected": "locate", "status": "refused"}
+{"case": "G036", "expected": "locate", "status": "refused"}
+{"case": "G037", "expected": "locate", "status": "answered"}
+{"case": "G038", "expected": "answer", "status": "answered", "answered": true, "claims": 2, "claim_support_problems": [], "expected_facts_coverage": [{"fact_index": 0, "numbers": ["4.2", "3"], "covered": true}, {"fact_index": 1, "numbers": [], "covered": null}]}
+{"case": "G039", "expected": "locate", "status": "refused"}
+{"case": "G040", "expected": "answer", "status": "answered", "answered": true, "claims": 3, "claim_support_problems": ["claim-1: numbers ['47884'] not in cited evidence"], "expected_facts_coverage": [{"fact_index": 0, "numbers": ["1"], "covered": true}, {"fact_index": 1, "numbers": [], "covered": null}]}
+{"case": "G041", "expected": "locate", "status": "refused"}
+{"case": "G042", "expected": "locate", "status": "refused"}
+{"case": "G043", "expected": "locate", "status": "refused"}
+{"case": "G044", "expected": "locate", "status": "refused"}
+{"case": "G045", "expected": "locate", "status": "refused"}
+{"case": "G046", "expected": "locate", "status": "refused"}
+{"case": "G047", "expected": "locate", "status": "answered"}
+{"case": "G048", "expected": "locate", "status": "refused"}
+{"case": "G049", "expected": "locate", "status": "refused"}
+{"case": "G050", "expected": "refuse", "status": "refused", "refuse_correct": true}

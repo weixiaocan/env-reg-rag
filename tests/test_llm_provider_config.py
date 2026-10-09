@@ -30,6 +30,15 @@ class LlmProviderSettingsTest(unittest.TestCase):
 
         self.assertNotIn("must-not-leak", str(raised.exception))
 
+    def test_example_placeholder_is_treated_as_missing(self):
+        with self.assertRaisesRegex(LlmConfigurationError, "ZAI_API_KEY"):
+            LlmProviderSettings.from_env(
+                {
+                    "LLM_PROVIDER": "zhipu",
+                    "ZAI_API_KEY": "replace-with-your-zhipu-api-key",
+                }
+            )
+
     def test_optional_token_prices_are_parsed_as_a_pair(self):
         settings = LlmProviderSettings.from_env(
             {

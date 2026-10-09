@@ -1,0 +1,81 @@
+{
+  "kind": "t09-staging-only-ingest-observation",
+  "candidate": "corpus-b668e6aaa7f8",
+  "assembly_profile": "t09-formula-binding-5",
+  "executed_at": "2026-09-28",
+  "authorization": "staging-only ingest WITHOUT --publish; formal pointer / live collection / alias writes forbidden",
+  "run": {
+    "command": "PYTHONPATH=src python scripts/ingest_corpus_v2.py --corpus-version corpus-b668e6aaa7f8",
+    "qdrant_url": "http://127.0.0.1:6333",
+    "publish": false
+  },
+  "offline_stage": {
+    "artifact_manifest_verify": "passed (load_artifact_manifest verify=True)",
+    "chunks_rechunked": 4244,
+    "documents": 23,
+    "offline_preflight": "ok (23 docs, 4244 chunks)",
+    "chunk_manifest": "byte-identical reuse (create-only, chunk_set_sha256 f068ad7367b5012f...)",
+    "build_identity": "bi-976912d32bac8a229e8f27e9"
+  },
+  "build_stage": {
+    "status": "FAILED",
+    "collection_name": "corpus_v2__staging__corpus-b668e6aaa7f8__bi-976912d32bac8a229e8f27e9",
+    "error": "CollectionIdentityError: collection holds 4242 points, expected 4244",
+    "failure_point": "full-scroll payload identity verification immediately after index.build(create_only=True)",
+    "measured": {
+      "point_count": 4242,
+      "expected_points": 4244,
+      "dense_vector": {"size": 512, "distance": "Cosine"},
+      "sparse_vector": "bm25 (multilingual, idf)",
+      "payload_build_identity_stamped": "bi-976912d32bac8a229e8f27e9",
+      "payload_field_count_sample": 30
+    },
+    "fixed_smoke_queries": "NOT RUN (build failed before the smoke stage; search_smoke=[])",
+    "publish_gate": "NOT RUN (gate only executes after a successful build; no publish_gate_record written)"
+  },
+  "root_cause": {
+    "finding": "one chunk_id is emitted THREE times in the candidate's 4244 chunks: chunk_22871b5ebd6c08e322c18522965645a1 (4244 chunks -> 4242 unique ids). Qdrant deduplicates identical point ids, so the created collection holds 4242 points and the count-equality identity check fails closed.",
+    "source": "doc 48429f37 (武汉市排水管道混错接改造技术规程), table element e000261, page 22, span bbox (55.5, 188.5, 524.3, 723.5)",
+    "mechanism": [
+      "e000261 projects to an 836-char table text dominated by repeated empty-grid rows ('|  |  | ...')",
+      "emit_structured's overlong path calls _split_body (RecursiveCharacterTextSplitter, chunk_overlap=64): the splitter slides over the repeated empty-row lines and yields THREE byte-identical sub-chunks of 297 chars (subs lens [236, 297, 297, 297, 197])",
+      "each sub-chunk carries the same section prefix; the three identical subs produce three identical chunk texts and therefore identical chunk_ids",
+      "compute_chunk_id is text-derived, so identical texts collapse to one point id at upsert"
+    ],
+    "attribution": "PRE-EXISTING chunker edge case, not introduced by T09 round-3 formula binding: re-chunking this doc under the LEGACY (non-T09) projection also produces duplicates (162 chunks / 160 unique). The published corpus-069284e6d60e (4182 chunks == 4182 live points) is internally consistent because it was built before this projection state; no count mismatch exists in the published corpus.",
+    "evidence": "data/observability/t09_staging_dup_chunk_ids.json"
+  },
+  "candidate_dir_files_added_by_this_run": [
+    "data/canonical/v2/corpus-b668e6aaa7f8/ingest_report.json  (status=failed; build.error=CollectionIdentityError 4242 vs 4244; no publish_gate section)",
+    "data/canonical/v2/corpus-b668e6aaa7f8/ingest_manifest.json  (binds artifact_manifest_sha256 / chunk_manifest_sha256 / ingest_report_sha256, collection_name=staging collection, build_identity)"
+  ],
+  "candidate_dir_files_not_added": [
+    "publish_gate_record.json -- correctly absent: the gate never ran (build failed)"
+  ],
+  "guarded_state_untouched": {
+    "live_collection_corpus_v2": "points_count 4182, unchanged (never written by ingest)",
+    "alias_corpus_v2_live": "no aliases exist on the server (unchanged)",
+    "pointer_corpus_current_json": "still corpus-069284e6d60e, file not modified by this run",
+    "existing_collections_before_run": ["corpus_v2"],
+    "collections_after_run": ["corpus_v2", "corpus_v2__staging__corpus-b668e6aaa7f8__bi-976912d32bac8a229e8f27e9"]
+  },
+  "write_scope_correction_confirmed_by_this_run": {
+    "corrected_claims": [
+      "stage reports (ingest_report.json / ingest_manifest.json / publish_gate_record.json) are candidate-dir create-only writes inside data/canonical/v2/corpus-b668e6aaa7f8/ via write_candidate -- NOT data/registry files",
+      "the staging collection is created once and afterwards only identity-verified read-only reuse (never deleted, recreated or upserted); a rerun against the FAILED collection fails closed with the same CollectionIdentityError",
+      "guarded collections (corpus_v2, the pointer's collection, the live alias target) are never build targets"
+    ]
+  },
+  "recovery_implications": [
+    "the failed staging collection is immutable per T06 (never deleted/recreated); it remains as a dead build-identity artifact",
+    "a chunker fix (dedupe identical sub-chunks in _split_body consumers) changes the projection semantics -> ASSEMBLY_PROFILE bump + re-mint per the frozen workflow -> new chunk manifest -> NEW build identity -> a NEW staging collection name; the failed collection is never addressed again",
+    "the T09 candidate corpus-b668e6aaa7f8 itself stays frozen; whether to re-mint with a chunker fix is a reviewer decision, NOT performed this round"
+  ],
+  "verification_status": {
+    "point_count": "MEASURED 4242 vs expected 4244 -> MISMATCH (fail-closed)",
+    "vector_schema": "dense 512 cosine + sparse bm25 present (measured on scroll)",
+    "payload_identity": "NOT VERIFIED (the full-scroll verification aborted at the count check; build_identity stamp confirmed on sampled points)",
+    "fixed_smoke_queries": "NOT RUN"
+  },
+  "next_action": "STOPPED -- awaiting reviewer decision on the chunker sub-chunk dedupe fix and any re-mint; no ingest, publish, pointer, alias or live-collection writes beyond this report"
+}

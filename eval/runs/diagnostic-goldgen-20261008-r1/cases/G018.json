@@ -1,0 +1,19 @@
+{
+  "case": "G018",
+  "question": "城乡排水工程是否必须执行GB 55027？该规范属于什么类型？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "城乡排水工程必须执行本规范",
+    "属于全文强制性工程建设规范体系中的项目规范"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.033732
+}

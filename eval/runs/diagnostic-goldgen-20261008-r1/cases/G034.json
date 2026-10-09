@@ -1,0 +1,18 @@
+{
+  "case": "G034",
+  "question": "GB 50014表中，各种屋面、混凝土或沥青路面的径流系数取值范围是多少？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "径流系数约为0.85~0.95"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.074176
+}

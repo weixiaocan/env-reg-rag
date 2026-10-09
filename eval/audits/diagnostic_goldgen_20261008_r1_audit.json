@@ -1,0 +1,57 @@
+{
+  "classification": "diagnostic given-gold-evidence generation audit; retrieval bypassed; NOT HTTP; NOT formal",
+  "source_run": "eval/runs/diagnostic-goldgen-20261008-r1",
+  "dataset_sha256": "3b1f1cdc459aadb50bd1b39531bc90f51ecc25a0d969612d41612fa011bd6e89",
+  "s2_per_case_sha256": "ec4701942d01efd02eeaa6288d9b4c70a110bf55dbe31ab47d77ffaf7056f69f",
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "source_case_files_sha256": "f6cfa2c8645c79c6ac9160706221e1aa8a2057b42b5551bb55dd6d7047dd9fb6",
+  "identity": {
+    "case_files": 50,
+    "trace_lines": 50,
+    "problems": []
+  },
+  "denominators": {
+    "all_cases": 50,
+    "content_target_cases": 46,
+    "refusal_cases": 4,
+    "model_called": 8,
+    "content_model_called": 4,
+    "evidence_preparation_insufficient": 42
+  },
+  "semantic_review": {
+    "full_content_answers": 4,
+    "partial_content_answers": 0,
+    "incorrect_content_answers": 0,
+    "correct_refusals": 4,
+    "bad_examples": [],
+    "review_artifact": "eval/audits/diagnostic_goldgen_20261008_r1_agent_review.jsonl"
+  },
+  "citation_binding": {
+    "problem_case_count": 0
+  },
+  "failure_attribution": {
+    "evidence_preparation_insufficient": 42,
+    "successful_content_generation": 4,
+    "correct_refusal": 4,
+    "note": "42 content cases were not sent to the model and are unverified, not model failures"
+  },
+  "latency_ms": {
+    "generation": {
+      "p50": 3827.89,
+      "p95": 5669.49,
+      "mean": 3842.72,
+      "n": 8
+    }
+  },
+  "token_usage_totals": {
+    "input_tokens": 7344,
+    "output_tokens": 1601,
+    "total_tokens": 8945,
+    "estimated_cost_cny": 0.10358,
+    "pricing": "GLM-5.2 official standard API price: 8 CNY/million input tokens and 28 CNY/million output tokens"
+  },
+  "limitations": [
+    "semantic verdicts are agent review, not independent human adjudication",
+    "42 evidence-preparation-insufficient content cases have no generation-quality result"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "t06-3",
+  "created_at": "2026-09-28T14:52:26.704975+00:00",
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "alias": "corpus_v2_live",
+  "previous_pointer": {
+    "schema_version": "1",
+    "status": "published",
+    "published_at": "2026-09-24T05:57:04.049078+00:00",
+    "corpus_version": "corpus-069284e6d60e",
+    "manifest": "data/registry/corpus-069284e6d60e.json",
+    "collection_name": "corpus_v2",
+    "chunk_count": 4182,
+    "action": "built"
+  },
+  "previous_collection": null,
+  "new_collection": "corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a",
+  "new_pointer": {
+    "schema_version": "1",
+    "status": "published",
+    "published_at": "2026-09-28T14:52:26.704975+00:00",
+    "corpus_version": "corpus-0b9a1fd84e3d",
+    "manifest": "data/registry/corpus-0b9a1fd84e3d.json",
+    "alias": "corpus_v2_live",
+    "collection_name": "corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a",
+    "build_identity": "bi-d70cf457e0cac3fa3abbce0a",
+    "chunk_count": 4232,
+    "action": "built"
+  }
+}

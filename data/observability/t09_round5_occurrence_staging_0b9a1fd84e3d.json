@@ -1,0 +1,86 @@
+{
+  "kind": "t09-closure-round5-occurrence-identity-and-staging",
+  "candidate": "corpus-0b9a1fd84e3d",
+  "assembly_profile": "t09-formula-binding-7",
+  "projection_version": "chunk-text/v2-formula-binding-2",
+  "executed_at": "2026-09-28",
+  "authorization": "round-5 occurrence identity fix; staging-only ingest WITHOUT --publish; formal pointer / live collection / alias writes forbidden; corpus-90615a4bccad and its staging frozen (NOT modified in place)",
+
+  "mandate": [
+    "restore the u6b red test: 8 identical explanation lines retained per original occurrence count",
+    "e000261: distinguish real duplicate rows from splitter overlap windows; verify coverage by source position / occurrence order, never by text sets",
+    "chunk identity: different source positions with identical text stay trackable with deterministically unique ids; same chunk_id with different policy/reason is a HARD failure (never first-wins)",
+    "keep the global uniqueness gate; targeted + full regression + corpus-wide occurrence reconciliation",
+    "projection changed -> mint new candidate, staging-only validation only; STOP before publish"
+  ],
+
+  "implementation": {
+    "identity": [
+      "src/domain/v2_chunk.py compute_chunk_id: optional occurrence param (list of {element_id, start, end} element-relative char ranges); folded into the id hash ONLY when non-empty",
+      "src/application/v2_chunker.py _ChunkBuilder._declare_occurrence: occurrence-aware identity is part of the formula-binding projection semantics ONLY -- the legacy projection path is verbatim pre-round-5 (langchain splitter, no source_occurrence metadata, ids unchanged) so re-projecting published corpus-069284e6d60e stays byte-stable (publish_gate re-chunks every canonical; a legacy id drift would fail the gate on an immutable corpus)",
+      "projection version bumped chunk-text/v2-formula-binding -> chunk-text/v2-formula-binding-2: the old string pinned the OLD id space and must never label the new one"
+    ],
+    "trackability": [
+      "metadata source_occurrence: exact element-relative char ranges the chunk text was cut from (absent for legacy projections and for synthesized locator records)",
+      "offset-exact window packer (_split_windows/_pack_windows/_atomic_pieces/_hard_slice) replaces the recursive splitter on the formula-binding projection: recursive separator ladder with exact char ranges (separator kept with the preceding piece), greedy seal-then-start packing with trailing-piece overlap, hard char-slice fallback for unbreakable pieces; find-with-cursor heuristics rejected (they mis-assign ranges on periodic content -- exactly the e000261 case)"
+    ],
+    "dedupe_boundary": [
+      "_emit_chunk fingerprint is now (spans, policy, quality, reasons, occurrence): a re-emission of the SAME id with the SAME full projection is dropped; the same id with ANY difference -- especially policy/reasons -- raises ValueError (no first-wins)",
+      "publish_state.assert_unique_chunk_ids identity extended with usage_policy/quality_status/policy_reasons/source_occurrence"
+    ],
+    "formula_paths": [
+      "emit_formula_bound: explanation pieces carry their exact line offsets; every shard declares the explanation ranges it ACTUALLY carries plus the anchor range [0, len(anchor_body)) of the formula projection (declared only when the projection verbatim-starts with the anchor -- checked, never assumed)",
+      "_emit_formula_locator: synthesized pointer text declares NO occurrence ranges"
+    ]
+  },
+
+  "tests": {
+    "red_first_confirmed": "u6b restored (8 identical lines, count==8) + r19a/r19b (e000261 positional coverage + no gap) + r19c + r19d (same-id different policy ValueError) + r19e + 4 gate tests = 10 failed BEFORE implementation",
+    "new_green": "r19a-r19e + 4 gate policy/quality/reasons/occurrence tests",
+    "targeted": "test_t09 + test_t06 + test_v2_chunk + test_canonical_assembly: 199 passed",
+    "full_regression": "931 passed, 20 subtests passed, plus the KNOWN pre-existing baseline failure tests/test_repository_layout.py::test_only_product_facing_documents_remain (verified separately: 1 failed / 3 passed in that file)"
+  },
+
+  "new_candidate": {
+    "mint": "scripts/mint_assembly_candidate.py --base-corpus-version corpus-928a999e0264 --write-pointer (ASSEMBLY_PROFILE bumped t09-formula-binding-6 -> t09-formula-binding-7 BEFORE minting)",
+    "corpus_version": "corpus-0b9a1fd84e3d",
+    "page_intermediate": "byte-identical copy of base PI (sha256 70176318561c4d67...) -- PDF extraction and T09 assembly logic untouched",
+    "assemble": "23/23 docs OK; artifact manifest written and verified",
+    "chunk_manifest_offline": "4232 chunks, all <= 512 real-bge tokens (max exactly 512), determinism stable across double chunking, projection chunk-text/v2-formula-binding-2, 210 formula shards 0 drifts, offline preflight ok"
+  },
+
+  "occurrence_reconciliation": {
+    "script": "scripts/audit_chunk_occurrence_coverage.py (new; read-only, evidence-only write)",
+    "method": "per canonical document, every non-empty line occurrence of text/table/figure element projections must be FULLY covered by at least one declared source_occurrence range at its own position (multiplicity >= 1); multiplicity > 1 = overlap re-carry (allowed, reported); byte-identical chunk texts must occupy different occurrence range sets; formulas require anchor coverage only (context tail excluded, locator-only formulas counted separately); headings carried via section_path prefix excluded, counted",
+    "audit_reconciliation_of_first_run": "first run FAILED with 1705 uncovered line occurrences -- diagnosis: ALL of them sat on 1354 heading elements (e.g. e000075 '2.1术语' of 城镇内涝防治技术规范.pdf), which are never chunk-carried (heading text rides the section_path prefix of subsequent chunks, so it can have no source_occurrence slice); audit corrected to exclude+count headings (headings_carried_via_prefix); pre-fix evidence preserved as ..._preheadingfix-FAIL.json; re-run on the SAME artifacts: PASS with 0 uncovered",
+    "result": "PASS: 23 docs, 4232 chunks == manifest, 0 uncovered required line occurrences, 0 identical-text collisions, chunk ids unique per doc, counts match manifest",
+    "evidence": "data/observability/t09_round5_occurrence_reconciliation_corpus-0b9a1fd84e3d.json"
+  },
+
+  "staging_ingest": {
+    "command": "PYTHONPATH=src python scripts/ingest_corpus_v2.py --corpus-version corpus-0b9a1fd84e3d  (no --publish)",
+    "log": "data/observability/ingest_0b9a1fd84e3d_staging.log",
+    "staging_collection": "corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a",
+    "build_identity": "bi-d70cf457e0cac3fa3abbce0a",
+    "counts": {"total_chunks": 4232, "vector_count": 4232, "point_count": 4232},
+    "count_equality": "chunks == vectors == points == 4232 (VERIFIED)",
+    "publish_gate": {"gate": "passed", "failures": []},
+    "gate_record": "data/canonical/v2/corpus-0b9a1fd84e3d/publish_gate_record.json (gate=passed) -- the candidate is switch-ready, NOT switched",
+    "fixed_smoke_queries": [
+      {"q": "管道流量测量方法", "hits": 10, "top_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf", "top_score": 0.75},
+      {"q": "水质特征因子应能区分污水与雨水", "hits": 10, "top_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf", "top_score": 0.5556},
+      {"q": "雨污混接程度分级", "hits": 10, "top_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf", "top_score": 0.75}
+    ]
+  },
+
+  "guarded_state_untouched": {
+    "corpus_90615a4bccad": "frozen, never modified in place (its staging collection corpus_v2__staging__...90615a4bccad... bi-74b846da50d7f4b0e0d1d9b0 with 4242 points still present)",
+    "corpus_b668e6aaa7f8": "frozen, untouched",
+    "failed_staging_collection_b668e6aaa7f8": "present, untouched (immutable dead artifact, 4242 points)",
+    "pointer_corpus_current_json": "still corpus-069284e6d60e (git diff empty)",
+    "live_collection_corpus_v2": "4182 points, never written",
+    "alias_corpus_v2_live": "no aliases exist (unchanged)"
+  },
+
+  "next_action": "STOPPED -- staging build complete, occurrence reconciliation PASS, gate PASSED, but NO --publish was requested and NO alias/pointer/live write occurred. Awaiting review and explicit publish authorization."
+}

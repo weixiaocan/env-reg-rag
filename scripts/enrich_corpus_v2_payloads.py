@@ -23,12 +23,14 @@ import json
 import os
 import sys
 from pathlib import Path
+from typing import Any
 
 _REPO_ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(_REPO_ROOT))
 sys.path.insert(0, str(_REPO_ROOT / "src"))
 
 from src.application.corpus_artifacts import resolve_current_corpus  # noqa: E402
+from src.application.payload_enrichment import build_enrichment  # noqa: E402
 
 SOURCE_EVIDENCE_PATH = _REPO_ROOT / "data" / "registry" / "source_evidence.jsonl"
 COLLECTION = os.getenv("QDRANT_COLLECTION", "corpus_v2")
@@ -101,6 +103,22 @@ def _load_source_evidence_uris() -> dict[str, str]:
     return out
 
 
+def _build_enrichment(
+    payload: dict[str, Any],
+    md: dict[str, Any],
+    source_uri: str,
+    chunk_id: str,
+    sha: str,
+) -> dict[str, Any]:
+    """Build the set_payload dict for one point (T06 requirement 8).
+
+    Delegates to the shared, policy-preserving enrichment -- an existing
+    ``usage_policy`` is never overwritten (the chunker projection owns it,
+    D2); a missing policy is backfilled with ``source_locator_only``.
+    """
+    return build_enrichment(payload, md, source_uri)
+
+
 def main(argv: list[str] | None = None) -> int:
     import argparse
     from qdrant_client import QdrantClient, models
@@ -151,23 +169,7 @@ def main(argv: list[str] | None = None) -> int:
                 skipped += 1
                 continue
             md = canonical_md.get(sha, {})
-            enrichment = {
-                "primary_evidence_id": chunk_id,
-                "document_version_id": sha,
-                "usage_policy": "answer_and_citation",
-                "file_name": md.get("file_name", ""),
-                "document_kind": md.get("document_kind", ""),
-                "jurisdictions": md.get("jurisdictions", []),
-                "standard_number": md.get("standard_number", ""),
-                "source_authority": md.get("source_authority", ""),
-                "source_uri": source_uris.get(sha, ""),
-                "publication_date": md.get("publication_date", ""),
-                "effective_from": md.get("effective_from", ""),
-                "effective_to": md.get("effective_to", ""),
-                "effective_status": md.get("effective_status", "unknown"),
-                "effective_status_as_of": md.get("effective_status_as_of", ""),
-                "source_regions": [],
-            }
+            enrichment = _build_enrichment(payload, md, source_uris.get(sha, ""), chunk_id, sha)
             client.set_payload(
                 collection_name=COLLECTION,
                 payload=enrichment,

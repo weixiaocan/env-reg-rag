@@ -12,10 +12,13 @@ from fastapi.responses import JSONResponse
 LOGGER = logging.getLogger(__name__)
 
 
-def _response(*, status_code: int, code: str, message: str) -> JSONResponse:
+def _response(
+    *, status_code: int, code: str, message: str, headers: dict[str, str] | None = None
+) -> JSONResponse:
     return JSONResponse(
         status_code=status_code,
         content={"error": {"code": code, "message": message}},
+        headers=headers,
     )
 
 
@@ -40,6 +43,7 @@ def install_error_handlers(app: FastAPI) -> None:
                 status_code=error.status_code,
                 code=str(detail["code"]),
                 message=str(detail["message"]),
+                headers=error.headers,
             )
         return _response(
             status_code=error.status_code,

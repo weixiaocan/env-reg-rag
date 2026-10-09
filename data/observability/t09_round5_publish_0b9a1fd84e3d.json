@@ -1,0 +1,49 @@
+{
+  "kind": "t09-closure-round5-publish-switch",
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "executed_at": "2026-09-28",
+  "authorization": "user authorized publishing corpus-0b9a1fd84e3d ONLY; re-verify on-disk gate record / collection identity / old pointer before switching; rollback record preserved; alias + formal pointer only, candidate and collection NOT rebuilt; post-switch 4232-point check + one online source_lookup smoke test; any failure -> compensate/rollback per record and report; NO PDF or golden-set work",
+
+  "pre_switch_verification": {
+    "gate_record": "data/canonical/v2/corpus-0b9a1fd84e3d/publish_gate_record.json: gate=passed, failures=[], corpus_version match, build_identity=bi-d70cf457e0cac3fa3abbce0a",
+    "manifest_chain": "ingest_manifest.json agrees with the gate record on build identity AND collection name",
+    "collection_identity": "corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a: exact point count 4232; sampled points carry build_identity bi-d70cf457e0cac3fa3abbce0a",
+    "old_pointer": "corpus-current.json still corpus-069284e6d60e (status published, collection corpus_v2, 4182 chunks)",
+    "aliases": "none existed before the switch"
+  },
+
+  "publish_flow": {
+    "command": "PYTHONPATH=src python scripts/ingest_corpus_v2.py --corpus-version corpus-0b9a1fd84e3d --publish",
+    "log": "data/observability/ingest_0b9a1fd84e3d_publish.log",
+    "build_mode": "reused_readonly -- the existing staging collection was verified by full payload-identity scroll and NEVER re-embedded, re-created, or upserted (candidate and collection untouched, per authorization)",
+    "switch": "switch_pointer re-verified the on-disk gate record + ingest manifest + artifact manifest hashes + concrete collection identity; rollback record written BEFORE the alias switch; alias switched first, pointer second (T06-R3/R4 compensation semantics)",
+    "gate_recheck": "publish gate re-ran inside the publish flow: passed"
+  },
+
+  "post_switch_state": {
+    "alias": "corpus_v2_live -> corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a",
+    "points_via_alias": 4232,
+    "pointer": "corpus-current.json -> corpus-0b9a1fd84e3d (status published, alias corpus_v2_live, collection bound, build_identity bi-d70cf457e0cac3fa3abbce0a, chunk_count 4232)",
+    "rollback_record": "data/registry/rollback/20260928T145226704975Z-corpus-0b9a1fd84e3d.json (previous_pointer=corpus-069284e6d60e, previous_collection=None -- no alias existed before)",
+    "old_collections_untouched": {
+      "corpus_v2 (previous live)": 4182,
+      "corpus_v2__staging__corpus-90615a4bccad__bi-74b846da50d7f4b0e0d1d9b0": 4242,
+      "corpus_v2__staging__corpus-b668e6aaa7f8__bi-976912d32bac8a229e8f27e9": 4242
+    }
+  },
+
+  "online_source_lookup_smoke": {
+    "method": "in-process build_query_services -> source_lookup profile (skip_generation, no LLM call) -> execute against the live alias (resolve_query_collection reads the pointer's alias, so the query ran on corpus_v2_live)",
+    "request": "request_id=smoke-publish-0b9a1fd84e3d, question='管道流量测量方法有哪些？'",
+    "resolved_corpus_version": "corpus-0b9a1fd84e3d",
+    "evidence_count": 10,
+    "top_hits": [
+      {"file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf", "physical_pages": [23], "usage_policy": "answer_and_citation"},
+      {"file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf", "physical_pages": [38, 39], "usage_policy": "answer_and_citation"},
+      {"file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf", "physical_pages": [6], "usage_policy": "answer_and_citation"}
+    ],
+    "note": "top heading_path matches the fixed smoke set's known top document; no failures -> no compensation or rollback was needed"
+  },
+
+  "out_of_scope_per_authorization": "no PDF work, no golden-set reconciliation, no eval-script changes"
+}

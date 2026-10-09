@@ -1,0 +1,96 @@
+{
+  "case": "G043",
+  "question": "按GB/T 28592，24小时降雨量50.0～99.9 mm属于哪个降雨量等级？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261008-r1-G043",
+  "trace_missing": false,
+  "wall_ms": 7034.82,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.012,
+    "retrieval": 101.253,
+    "generation": 6924.929,
+    "total": 7026.29
+  },
+  "generate_context_evidence_ids": [
+    "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+    "chunk_ba63bbc6615352674d460e5f366ad577",
+    "chunk_1e2ef006b8af674f707598a1fc9d46e1",
+    "chunk_cf48520638629006e030bf28834aba92",
+    "chunk_772a323179004e1893b9a98d07dcf423"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 2451,
+    "output_tokens": 422,
+    "total_tokens": 2873,
+    "estimated_cost": 0.031424,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按GB/T 28592，24小时降雨量50.0～99.9 mm属于哪个降雨量等级？",
+    "conversation_context": {
+      "statistical_period": "24h"
+    },
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          5,
+          6
+        ],
+        "text": "3 等级划分\nT/CMSA 0013—2019\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降水。\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\nT/CMSA 0013—2019\n单位：毫米（mm）"
+      },
+      {
+        "evidence_id": "chunk_ba63bbc6615352674d460e5f366ad577",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.1 城市总体规划应按气候分区、水文特征、地质条件等确\nq——设计暴雨强度［L/ （s·hn?）］；"
+      },
+      {
+        "evidence_id": "chunk_1e2ef006b8af674f707598a1fc9d46e1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          61
+        ],
+        "text": "5 设\n计 > 5.1 一般规定 > 5.1.2 根据前期调查报告，宜同步进行排水管网的缺陷修复设\n修复要求的管段，可考虑开挖修复。当采用非开挖修复技术时，\n应按现行行业标准《城镇排水管道非开挖修复更新工程技术规程》\nCJJ/T 210 的有关规定进行施工及质量验收；当采用开挖修复新建\n管道时，应按现行国家标准《给水排水管道工程施工及验收规范》\nGB 50268 的有关规定进行施工及质量验收。功能性缺陷养护等级\n达到3 级及3 级以上应予以处理，达到等级2 级的可根据当地相\n关文件要求进行处理或制定处理计划。"
+      },
+      {
+        "evidence_id": "chunk_cf48520638629006e030bf28834aba92",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          24,
+          25
+        ],
+        "text": "6 施工与验收 > 6.2 施\n工 > 6.2.6 室外排水设施施工应符合下列规定：\n6. 2. 6\n室外排水设施施工应符合下列规定：\n1\n开槽施工应符合现行国家标准《给水排水管道工程施工\n及验收规范》GB 50268 的规定，基槽开挖和回填应满足设计要求；\n2\n非开挖修复施工应符合现行行业标准《城镇排水管道非\n开挖修复更新工程技术规程》CJJ/T 210 的规定；\n3\n管道埋设前必须做灌水试验和通水试验，排水应畅通，\n无堵塞，管接口无渗漏；\n4\n混接点封堵材质采用砖砌墙配合素混凝土时，素混凝土\n强度等级不应小于C20，混凝土砖强度等级不应小于MU20，胶\n粘剂性能应符合现行国家标准《工程结构加固材料安全性鉴定技\n术规范》GB 50728 的规定。"
+      },
+      {
+        "evidence_id": "chunk_772a323179004e1893b9a98d07dcf423",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          51
+        ],
+        "text": "5 雨水系统 > 5.2 雨\n水\n量 > 5.2.2 本条是关于设计降雨历时的确定原则。\n在采用数学模型法计算复核管道规模时，宜采用当地设计暴\n雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水面\n注：根据《澳大利亚降雨与径流》（1998）的建议，城区内修正后的综合径流系数"
+      }
+    ]
+  },
+  "diagnostic_outcome": "generation_refusal",
+  "cumulative_estimated_cost_cny": 1.720032
+}

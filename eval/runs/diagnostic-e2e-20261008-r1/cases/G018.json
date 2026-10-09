@@ -1,0 +1,92 @@
+{
+  "case": "G018",
+  "question": "城乡排水工程是否必须执行GB 55027？该规范属于什么类型？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261008-r1-G018",
+  "trace_missing": false,
+  "wall_ms": 11128.046,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.008,
+    "retrieval": 52.933,
+    "generation": 11069.104,
+    "total": 11122.102
+  },
+  "generate_context_evidence_ids": [
+    "chunk_cafa43a369fe14f06b2b0308d8cad286",
+    "chunk_6472b16f013e8531492ab7a133f99e60",
+    "chunk_e038d5bb49655a7a10957349fbb7d304",
+    "chunk_c07375e2a1bfaebf6637fd788c2f366c",
+    "chunk_823e044119a50bdc05dc561e7b76ab78"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 2523,
+    "output_tokens": 235,
+    "total_tokens": 2758,
+    "estimated_cost": 0.026764,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "城乡排水工程是否必须执行GB 55027？该规范属于什么类型？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_cafa43a369fe14f06b2b0308d8cad286",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          79
+        ],
+        "text": "6 施工与验收 > 6.3 验\n收 > 6.3.2 质量验收记录的填写应符合现行国家标准《给水排水管\n6. 3. 2\n场所排水与室外排水的质量验收记录应按现行国家标准\n《给水排水管道工程施工及验收规范》GB 50268 中的规定执行；\n建筑立管的质量验收记录应按现行国家标准《建筑给水排水及采\n暖工程施工质量验收规范》GB 50242 中的规定执行。"
+      },
+      {
+        "evidence_id": "chunk_6472b16f013e8531492ab7a133f99e60",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 总\n则 > 1.0.1 为保障城市水安全，提高水资源利用效率，促进水生态\n环境改善，统一城市排水工程规划的技术要求，制定本规范。\n1.0.2\n本规范适用于城市规划的排水工程规划和城市排水工程\n专项规划的编制。\n1.0.3\n城市排水工程规划应遵循“统筹规划、合理布局、综合\n利用、保护环境、保障安全”的原则，满足新型城镇化和生态文\n明建设的耍求。\n1.0.4\n城市排水工程规划除应符合本规范外，尚应符合国家现\n行有关标准的规定\n1.0.1\n为保障城市水安全，提高水资源利用效率，促进水生态\n环境改善，统一城市排水工程规划的技术要求，制定本规范。\n1.0.2\n本规范适用于城市规划的排水工程规划和城市排水工程\n专项规划的编制。\n1.0.3\n城市排水工程规划应遵循“统筹规划、合理布局、综合\n利用、保护环境、保障安全”的原则，满足新型城镇化和生态文\n明建设的耍求。\n1.0.4\n城市排水工程规划除应符合本规范外，尚应符合国家现\n行有关标准的规定。\n最新标准官方首发群：141160466\n最新标准定期更新\nI 资源共享有求必应"
+      },
+      {
+        "evidence_id": "chunk_e038d5bb49655a7a10957349fbb7d304",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "中华人民共和国国家标准\n城市排水工程规划规范\nCode for urban wastewater and stormwater\nengineering planning\nGB 50318-2017\n主编部门：中华人民共和国住房和城乡建设部\n批准部门：中华人民共和国住房和城乡建设部\n施行日期：2\n0\n1\n7\n年\n7\n月\n1\n日\n中国建筑工业出版社"
+      },
+      {
+        "evidence_id": "chunk_c07375e2a1bfaebf6637fd788c2f366c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          32
+        ],
+        "text": "1 总\n贝()\ni.o.i\n本条说明制订本规范的目的。\n《城市排水工程规划规范》GB 50318 - 2000 对城市排水工程\n的有序建设发挥了重要作用。但随着我国城镇化水平的快速提\n高，城市下垫面硬化比例增大，立体交通的建设量在特大城市、\n大城市的发展迅速，导致城市排水工程的建设条件发生了很大变\n化，城市原有自然生态本底和水文特征发生了根本性改变，城市\n生态环境、河湖水系的自然生态功能丧失，城市水安全问题频\n发，这些都对城市排水工程的建设产生了一定的影响。此外，近\n10 年来给水排水工程技术发展较快，新设备、新技术不断出现。\n随着国家新的《中华人民共和国城乡规划法》、《中华人民共和国\n环境保护法》、《中华人民共和国水污染防治法》、《中华人民共和\n国水法》等一系列法律的颁布和相关专业规范的陆续颁布实施及\n修订，修订《城市排水工程规划规范》的需求也越来越迫切。本\n次修订是在国家有关基本建设方针、政策、法令的指导下，在最\n近的《城镇排水与污水处理条例》、《关于做好城市排水防涝设施\n建设工作的通知》、《关于加强城市基础设施建设的意见》、《关于\n加强城市地下管线建设管理的指导意见》、《关于推进海绵城市建\n设的指导意见》的引领下，总结我国近年来排水工程建设的经"
+      },
+      {
+        "evidence_id": "chunk_823e044119a50bdc05dc561e7b76ab78",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          2
+        ],
+        "text": "2017 北\n京\n现批准《城市排水工程规划规范》为国家标准，编号为GB\n50318 - 2017, 自2017 年7 月1 日起实施。其中，第3.5.2、"
+      }
+    ]
+  },
+  "diagnostic_outcome": "generation_refusal",
+  "cumulative_estimated_cost_cny": 0.681312
+}

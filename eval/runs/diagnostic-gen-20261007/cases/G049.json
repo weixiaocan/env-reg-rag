@@ -1,0 +1,90 @@
+{
+  "case": "G049",
+  "question": "GB 50268图4.6.3的图名是什么？图中管顶以上500mm范围压实度示意约为多少？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_2709bdc46fa5a7186622b6f3e079ac80",
+    "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+    "chunk_b5705dfaff814e5b9966caf0f9cdda14",
+    "chunk_03b66a671001d313293ab47a15fb108b",
+    "chunk_c2c419d1095478e234d3a115c25e37dd"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.016,
+    "retrieval": 38.633,
+    "generation": 3523.233,
+    "total": 3561.954
+  },
+  "token_usage": {
+    "input_tokens": 2759,
+    "output_tokens": 316,
+    "total_tokens": 3075,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "GB 50268图4.6.3的图名是什么？图中管顶以上500mm范围压实度示意约为多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_2709bdc46fa5a7186622b6f3e079ac80",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          68
+        ],
+        "text": "5 混接区域调查 > 5.4 管道流量测量\nd\n水面位置的弦长，即图3 中的AB(m);\nh\n三角形AOC 的高，即图3 中的OC(m ）。"
+      },
+      {
+        "evidence_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          62,
+          63,
+          64
+        ],
+        "text": "5 设\n计 > 5.2 建筑排水 > 5.2.1 当阳台雨水管独立设置且存在污水混入时，应在排出管\n5. 2. 1\n当阳台雨水管未与屋面雨水斗共用立管，独立布置，混接\n改造比较简单，将合流管道排出管接室外污水管网，但应根据现\n行国家标准《建筑给水排水设计标准》GB 50015 的规定，落实水\n封和通气管设置情况的相关要求，一楼出户管是否需单独排出也\n应根据现行国家标准《建筑给水排水设计标准》GB 50015\n的相关要求。阳台雨水立管改造接入污水管网时，在接入污水检\n查井前要根据现场情况设置存水弯或水封井过渡。在水封井中设\n置存水弯装置，水封井进出水管标高应大于0.15m，且水封高度\n应大于0.25m。改造示意如图4 所示，水封装置如图5 所示。\n图1 雨水立管断接示意图（一）\n1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施\n图2 雨水立管断接示意图（二）\n1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施；\n7-现状雨水检查井\n图3\n雨水立管断接示意图（三）\n1-雨水立管；2-雨水弃流过滤器；3-溢流管；4-雨水回用出口；5-支墩；6-弃流管\n图4\n阳台雨落水管改造示意图"
+      },
+      {
+        "evidence_id": "chunk_b5705dfaff814e5b9966caf0f9cdda14",
+        "usage_policy": "answer_and_citation",
+        "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+        "physical_pages": [
+          21,
+          22
+        ],
+        "text": "5 资产管理工作原则 > 5.4 构建资产管理工作流程 > 5.4.3 规划周期\n以待评审的规划周期为基础，资产可持续管理流程可分为以下三个相互关联的子流程（见图\n长期战略规划重点是明确各项措施的实施范围，以及实现并维持管网状态水平所需的预算额度。\n在战术规划子流程中，基于管网评估结果，确定中期所需措施并进行优先级排序，同时预选适用\n在“运行计划”阶段，综合考量各类备选措施，审定并确定具体实施方案（从管线走向、公称管\n为此，各子流程并非相互独立，其在管理策略、规划方案及工程措施方面形成的成果，不仅彼此\nGB/Z XXXXX—XXXX/ISO 24516-3:2017"
+      },
+      {
+        "evidence_id": "chunk_03b66a671001d313293ab47a15fb108b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          68
+        ],
+        "text": "5 混接区域调查 > 5.4 管道流量测量\nAC 矩形）＝管沟宽×水位高\n(1)"
+      },
+      {
+        "evidence_id": "chunk_c2c419d1095478e234d3a115c25e37dd",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "6 混错接改造设计 > 6.2.1 对于分流制市政污水接入市政雨水改造，可通过拆除或封堵现状错接市政污水管，新建污水管\n的方式进行改造。具体为以下措施：\n—— 市政道路上的污水管宜用经严格防腐适用污水的球墨铸铁管和钢筋混凝土管，市政道路上的\n雨水管道宜采用钢筋混凝土管；\n—— 除穿越障碍物节点以外，采用顶管工艺施工的污水管宜用钢筋混凝土管；\n—— 小区内的污水管道宜优先采用化学管材，若直径较大可选用球墨铸铁管，小区内的雨水管道\n宜选用钢筋混凝土管。\n6.2.11 对于管道及检查井，在设计中需要明确管道和检查井井室基础做法要求；明确检查井盖质量和\n功能要求，明确防止检查井周边沉陷措施，如设置承载板等。城市道路车行道上的排水管道检查井，宜\n采用混凝土井或者预制混凝土井，降低渗漏率，并采用承载能力D400 mm 及以上等级的六防检查井盖。\n6.2.12 设计应明确污水管与检查井连接要求，检查井基础与管道基础之间应设置过渡区段，过渡区段\n长度应不小于1 倍管径，且不宜小于1.0 m。\n6.2.13 为了保证管道的维修、检修便捷，并保护原有管道质量，应按GB 50268 中的技术要求进行沟\n槽回填设计。"
+      }
+    ]
+  }
+}

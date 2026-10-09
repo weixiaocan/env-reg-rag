@@ -1,0 +1,75 @@
+{
+  "kind": "t09-prerelease-read-only-verification",
+  "candidate": "corpus-b668e6aaa7f8",
+  "assembly_profile": "t09-formula-binding-5",
+  "verified_at": "2026-09-28",
+  "mode": "READ-ONLY: no ingest, no publish, no pointer switch, no Qdrant access, no PDF re-extraction, no candidate mutation",
+  "hash_chain": {
+    "evidence_file": "data/observability/t09_prerelease_hashchain_b668e6aaa7f8.json",
+    "all_ok": true,
+    "checks": [
+      "corpus-candidate.json -> corpus-b668e6aaa7f8 (status=candidate) and manifest_sha256 recomputed and equal",
+      "registry manifest canonical_documents_sha256 == sha256(data/canonical/corpus-b668e6aaa7f8-documents.jsonl)",
+      "registry manifest structure_audit_sha256 == sha256(corpus-b668e6aaa7f8-structure-audit.json)",
+      "mint provenance: candidate PI byte-identical to base corpus-928a999e0264 PI; base_pi_sha256 matches both",
+      "artifact_manifest.json verify=True: page-intermediate + 23 canonicals + quality_report all hashes re-verified, zero mismatch",
+      "formal pointer corpus-current.json still corpus-069284e6d60e (untouched)"
+    ]
+  },
+  "chunks": {
+    "evidence_file": "data/observability/t09_prerelease_chunks_b668e6aaa7f8.json",
+    "total_chunks": 4244,
+    "manifest_match": "live re-projection with the REAL bge tokenizer reproduces per-document chunk_count and policy_counts exactly",
+    "policy_counts": {"source_locator_only": 3210, "answer_and_citation": 1034},
+    "quality_counts": {"needs_review": 3122, "quarantined": 88, "passed": 1034},
+    "projection_version": {"chunk-text/v2-formula-binding": 4244},
+    "max_chunk_tokens": 512,
+    "hard_cap_violations": 0
+  },
+  "fixed_queries_localization": {
+    "evidence_file": "data/observability/t09_prerelease_queries_b668e6aaa7f8.json",
+    "method": "local deterministic lexical scoring (no Qdrant, no external calls); top-3 per query; every chunk line must be attributable to its listed elements' own projections after excluding the metadata-carried section prefix and the constructed [公式 N] anchor header",
+    "queries": [
+      {"q": "混错接密度", "top1_policy": "source_locator_only", "pages": [11, 12], "expectation_met": true},
+      {"q": "地块单元中混错接点数", "top1_elements": ["e000128", "e000129", "e000130"], "policy": "source_locator_only", "note": "the remediated e000128 formula shard is retrievable; the mixed 5.8.3 element is NOT in it", "expectation_met": true},
+      {"q": "雨水泵站服务范围为单元进行评估", "top1_policy": "source_locator_only", "expectation_met": true},
+      {"q": "降雨强度等级", "expectation_met": true},
+      {"q": "年径流总量控制率", "top1_sha": "c3c3df5a", "expectation_met": true}
+    ],
+    "all_top3_attributable": true
+  },
+  "staging_build_impact_and_rollback": {
+    "entry": "scripts/ingest_corpus_v2.py --corpus-version corpus-b668e6aaa7f8 [--publish]",
+    "CORRECTION_2026-09-28": "the two stage-file entries below originally (incorrectly) claimed data/registry paths; the authoritative write scope — now CONFIRMED by the authorized staging-only ingest run of 2026-09-28 — is candidate-dir create-only writes (see data/observability/t09_staging_ingest_b668e6aaa7f8.json): ingest_report.json, ingest_manifest.json and (only on a PASSED gate) publish_gate_record.json are written via write_candidate INSIDE data/canonical/v2/corpus-b668e6aaa7f8/ (absent -> atomic write, byte-identical -> reuse, ANY difference -> CandidateConflictError).",
+    "writes_if_authorized": [
+      "STAGING ONLY (before gate pass): Qdrant collection corpus_v2__staging__corpus-b668e6aaa7f8__bi-<build_identity-hex> (physical name stable per embedding model/revision/dimension + dense/sparse schema identity); created once, then only identity-verified READ-ONLY reuse (never deleted, recreated or upserted); points embedded from the 4244 verified chunks",
+      "data/canonical/v2/corpus-b668e6aaa7f8/ingest_report.json + ingest_manifest.json (candidate-dir create-only stage chain, NOT data/registry)",
+      "data/canonical/v2/corpus-b668e6aaa7f8/publish_gate_record.json (only if the publish gate PASSES; chain: artifact_manifest -> ingest_manifest -> publish_gate_record)",
+      "rollback record under the rollback dir (written only at --publish switch time)"
+    ],
+    "never_written_before_gate_pass_and_explicit_publish": [
+      "live collection corpus_v2 (fixed name, ingest never writes it)",
+      "alias corpus_v2_live",
+      "data/registry/corpus-current.json (formal pointer, currently corpus-069284e6d60e)",
+      "the candidate directory data/canonical/v2/corpus-b668e6aaa7f8/ itself (immutable, create-only)"
+    ],
+    "rollback_conditions": [
+      "publish gate FAILS (offline preflight, exact canonical file set + aggregate hash, chunk-set identity, count equality chunks==vectors==points, payload identity, complete fixed smoke set) -> staging collection stays isolated, nothing to roll back, candidate remains staged",
+      "switch_pointer fails mid-switch -> automatic compensation back to the PUBLISHED state (alias restored first, pointer only after index side confirmed)",
+      "post-publish defect -> rollback_pointer restores previous pointer AND previous alias target from the most recent rollback record (alias first, then pointer; old collections never deleted)",
+      "any rollback requires the Qdrant alias admin to be present; a pointer-only rollback is refused by design"
+    ],
+    "physical_footprint": "one new Qdrant staging collection per build identity; embedding compute for 4244 points; no file outside data/registry (new ingest manifest) and Qdrant"
+  },
+  "token_budget_boundary_non_blocking": {
+    "soft_token_budget": 480,
+    "hard_cap": 512,
+    "measured_max_chunk_tokens_real_bge": 512,
+    "chunks_at_exactly_512": 13,
+    "characterization": "all 13 are ordinary multi-element TEXT chunks whose section prefix + packed body lands exactly on the hard-cap boundary via the prefix+body clamp (prefix+sub <= 512 by construction); none is a formula anchor shard; the central emission gate passes them (<= 512 inclusive)",
+    "impact": "NON-BLOCKING: within the bge-small-zh 512 max_length; vectors are complete, not truncated. Recorded because 'exactly 512' is the boundary where any future tokenizer drift would flip a chunk to over-cap; the central gate makes that a loud build failure, not silent truncation",
+    "policy_effect": "none directly; usage policy follows element quality/review credentials, not the token boundary"
+  },
+  "blockers": [],
+  "authorization": "AWAITING -- no ingest, no publish, no formal pointer switch performed"
+}

@@ -1368,5 +1368,94 @@ class TestEnrichmentPolicyInvariance(unittest.TestCase):
         self.assertEqual({**merged, **twice}, merged)
 
 
+
+class TestChunkIdUniquenessGate(unittest.TestCase):
+    """T09 closure round 4: the ingest-side global chunk-id uniqueness gate.
+    A duplicate chunk_id with DIFFERENT content or source is always a hard
+    error; even an identical duplicate is refused (point-count equality
+    chunks==vectors==points can never hold with any duplicate id)."""
+
+    def _v2chunk(self, chunk_id, text, *, sha="a" * 64, element_ids=None):
+        from src.domain.v2_chunk import ChunkSourceSpan, V2Chunk
+        return V2Chunk(
+            schema_version="v2.chunk/1.0",
+            chunk_id=chunk_id,
+            canonical_id="canonical-sha256:" + "0" * 64,
+            canonical_content_id="canonical-content-sha256:" + "0" * 64,
+            element_ids=element_ids or ["e1"],
+            text=text,
+            source_spans=[ChunkSourceSpan(physical_page=1, bbox=[0.0, 0.0, 1.0, 1.0])],
+            projection_version="chunk-text/v1",
+            metadata={"source_sha256": sha,
+                      "usage_policy": "source_locator_only"})
+
+    def test_rejects_same_id_different_content(self):
+        with self.assertRaises(PublishStateError) as ctx:
+            build_chunk_manifest([
+                self._v2chunk("chunk_x", "文本甲"),
+                self._v2chunk("chunk_x", "文本乙"),
+            ])
+        self.assertIn("different content or source", str(ctx.exception).lower())
+
+    def test_rejects_same_id_different_source_document(self):
+        with self.assertRaises(PublishStateError) as ctx:
+            build_chunk_manifest([
+                self._v2chunk("chunk_x", "同一文本", sha="a" * 64),
+                self._v2chunk("chunk_x", "同一文本", sha="b" * 64),
+            ])
+        self.assertIn("different content or source", str(ctx.exception).lower())
+
+    def test_rejects_identical_duplicate(self):
+        with self.assertRaises(PublishStateError) as ctx:
+            build_chunk_manifest([
+                self._v2chunk("chunk_x", "同一文本"),
+                self._v2chunk("chunk_x", "同一文本"),
+            ])
+        self.assertIn("identical", str(ctx.exception).lower())
+
+    def test_unique_stream_passes(self):
+        manifest = build_chunk_manifest([
+            self._v2chunk("chunk_x", "文本甲"),
+            self._v2chunk("chunk_y", "文本乙"),
+        ])
+        self.assertEqual(manifest["total_chunks"], 2)
+
+    # -- round 5: policy/quality/reasons/occurrence are part of the identity
+    # (same id + same text but different policy must hard-fail, never
+    # first-wins) ---------------------------------------------------------
+
+    def test_rejects_same_id_different_policy(self):
+        first = self._v2chunk("chunk_x", "同一文本")
+        second = self._v2chunk("chunk_x", "同一文本")
+        second.metadata["usage_policy"] = "answer_and_citation"
+        with self.assertRaises(PublishStateError) as ctx:
+            build_chunk_manifest([first, second])
+        self.assertIn("different content or source", str(ctx.exception).lower())
+
+    def test_rejects_same_id_different_policy_reasons(self):
+        first = self._v2chunk("chunk_x", "同一文本")
+        second = self._v2chunk("chunk_x", "同一文本")
+        second.metadata["policy_reasons"] = ["structured_default_locator_only"]
+        with self.assertRaises(PublishStateError) as ctx:
+            build_chunk_manifest([first, second])
+        self.assertIn("different content or source", str(ctx.exception).lower())
+
+    def test_rejects_same_id_different_quality(self):
+        first = self._v2chunk("chunk_x", "同一文本")
+        second = self._v2chunk("chunk_x", "同一文本")
+        second.metadata["quality_status"] = "needs_review"
+        with self.assertRaises(PublishStateError) as ctx:
+            build_chunk_manifest([first, second])
+        self.assertIn("different content or source", str(ctx.exception).lower())
+
+    def test_rejects_same_id_different_occurrence(self):
+        first = self._v2chunk("chunk_x", "同一文本")
+        second = self._v2chunk("chunk_x", "同一文本")
+        second.metadata["source_occurrence"] = [
+            {"element_id": "e1", "start": 0, "end": 4}]
+        with self.assertRaises(PublishStateError) as ctx:
+            build_chunk_manifest([first, second])
+        self.assertIn("different content or source", str(ctx.exception).lower())
+
 if __name__ == "__main__":
     unittest.main()

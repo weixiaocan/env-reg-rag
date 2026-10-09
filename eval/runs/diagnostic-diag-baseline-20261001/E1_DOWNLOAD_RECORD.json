@@ -1,0 +1,44 @@
+{
+  "authorization": "GRANTED by project owner 2026-10-06 -- exact scope: BAAI/bge-reranker-base @ 2cfc18c9415c912f9d8155881c133215df768a70, six filtered files only",
+  "repo_id": "BAAI/bge-reranker-base",
+  "pinned_sha": "2cfc18c9415c912f9d8155881c133215df768a70",
+  "actual_commit": "2cfc18c9415c912f9d8155881c133215df768a70",
+  "allow_patterns": [
+    "config.json",
+    "model.safetensors",
+    "tokenizer.json",
+    "tokenizer_config.json",
+    "special_tokens_map.json",
+    "sentencepiece.bpe.model"
+  ],
+  "files": [
+    {
+      "name": "config.json",
+      "bytes": 799
+    },
+    {
+      "name": "model.safetensors",
+      "bytes": 1112206140
+    },
+    {
+      "name": "tokenizer.json",
+      "bytes": 17098107
+    },
+    {
+      "name": "tokenizer_config.json",
+      "bytes": 443
+    },
+    {
+      "name": "special_tokens_map.json",
+      "bytes": 279
+    },
+    {
+      "name": "sentencepiece.bpe.model",
+      "bytes": 5069051
+    }
+  ],
+  "total_bytes": 1134374819,
+  "snapshot_path": "C:\\Users\\mugua\\.cache\\huggingface\\hub\\models--BAAI--bge-reranker-base\\snapshots\\2cfc18c9415c912f9d8155881c133215df768a70",
+  "excluded_present": [],
+  "verification": "resolved via scripts/run_e1_rerank_experiment.py::_resolve_snapshot (same path as the run)"
+}

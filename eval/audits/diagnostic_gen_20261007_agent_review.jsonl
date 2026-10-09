@@ -1,0 +1,15 @@
+{"case":"G009","verdict":"full","fact_coverage":["covered","covered"],"reason":"图名与六个部件均回答。"}
+{"case":"G012","verdict":"full","fact_coverage":["covered"],"reason":"标准号完整回答，仅格式空格和连接号有差异。"}
+{"case":"G013","verdict":"full","fact_coverage":["covered"],"reason":"回答包含混错接点判定与流量测定，并给出所属调查评估步骤。"}
+{"case":"G014","verdict":"incorrect","fact_coverage":["incorrect"],"reason":"题目要求到2025年全国目标；输出改成各城市原则上70%以上或较2020年提高5个百分点，主体与条件均改变。"}
+{"case":"G019","verdict":"incorrect","fact_coverage":["incorrect","covered"],"reason":"第一项把金事实6.1/76.8 mg/L答成6.0/27.3 mg/L；第二项三类评估要素回答。"}
+{"case":"G021","verdict":"full","fact_coverage":["covered"],"reason":"2027年达到73%以上完整回答。"}
+{"case":"G023","verdict":"partial","fact_coverage":["not_covered","partial","not_covered"],"reason":"只回答T/CMSA的10分钟、30分钟、1小时和六级，遗漏GB/T 28592两个时段、QX/T引用关系及区域过程等级定义。"}
+{"case":"G024","verdict":"full","fact_coverage":["covered"],"reason":"城市污水管网全覆盖样板区完整回答。"}
+{"case":"G025","verdict":"partial","fact_coverage":["not_covered","covered"],"reason":"回答了建城〔2024〕18号的2027年73%目标，但未回答指南前言引用了该通知。"}
+{"case":"G026","verdict":"partial","fact_coverage":["covered","partial","covered"],"reason":"样板区和按效付费已回答；绩效核心仅提污染物收集效能，遗漏水环境质量提升。"}
+{"case":"G031","verdict":"full","fact_coverage":["covered"],"reason":"三个历时和六个等级完整回答。"}
+{"case":"G037","verdict":"partial","fact_coverage":["not_covered","covered","not_covered"],"reason":"只回答不超过2 km²的适用条件，遗漏Q/q含义和0.60~0.70径流系数。"}
+{"case":"G038","verdict":"full","fact_coverage":["covered","covered"],"reason":"表类型和资料缺乏时的用途均回答。"}
+{"case":"G040","verdict":"partial","fact_coverage":["partial","covered"],"reason":"点位布设五项原则完整；对表1仅概括为重要排水户和重要节点监测要求，未完整说明监测对象及监测指标要求。"}
+{"case":"G047","verdict":"partial","fact_coverage":["not_covered","not_covered","covered"],"reason":"回答任一指标取高原则，但遗漏重度和轻度的管径、流量数值分界。"}

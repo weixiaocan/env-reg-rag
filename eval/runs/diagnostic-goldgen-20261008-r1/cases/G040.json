@@ -1,0 +1,19 @@
+{
+  "case": "G040",
+  "question": "GB/T 47884表1规定的是什么内容？感知数据章节对在线监测点位布设提出了哪些原则？",
+  "expected_answerability": "answer",
+  "expected_facts": [
+    "表1为应监测的对象及监测指标要求",
+    "点位布设原则：系统性、代表性、有效性、可行性、积极性"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.094356
+}

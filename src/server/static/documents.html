@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>资料逐页浏览</title>
+  <style>
+    :root{color-scheme:light;--ink:#17231d;--muted:#66756e;--line:#d9e1dc;--paper:#f3f5f2;--green:#116447}
+    *{box-sizing:border-box}body{margin:0;font-family:Inter,"Microsoft YaHei",system-ui,sans-serif;color:var(--ink);background:var(--paper)}
+    header{height:60px;display:flex;align-items:center;justify-content:space-between;padding:0 22px;background:#10271d;color:#fff}header a{color:#c8ee66;text-decoration:none}
+    main{height:calc(100vh - 60px);display:grid;grid-template-columns:340px 1fr}.catalog{overflow:auto;padding:16px;border-right:1px solid var(--line)}
+    .catalog h1{font-size:18px;margin:0 0 6px}.catalog p{color:var(--muted);font-size:12px;line-height:1.6}.list{display:grid;gap:8px;margin-top:16px}
+    .item{width:100%;padding:11px;text-align:left;border:1px solid var(--line);border-radius:9px;background:#fff}.item.active{border-color:var(--green);box-shadow:inset 3px 0 var(--green)}.item strong{display:block;font-size:12px;line-height:1.5}.item span{color:var(--muted);font-size:10px}
+    .viewer{min-width:0;display:flex;flex-direction:column}.toolbar{display:flex;align-items:center;gap:8px;padding:12px 16px;background:#fff;border-bottom:1px solid var(--line)}button{font:inherit;cursor:pointer;border:1px solid var(--line);border-radius:8px;background:#fff;padding:7px 11px}button:disabled{opacity:.45;cursor:not-allowed}.page{margin-left:auto;color:var(--muted);font-size:12px}
+    .canvas{flex:1;overflow:auto;display:grid;place-items:start center;padding:20px}.canvas img{display:block;max-width:min(100%,1100px);height:auto;background:#fff;box-shadow:0 8px 28px rgba(20,40,30,.15)}.empty{margin:auto;color:var(--muted)}
+    @media(max-width:760px){main{grid-template-columns:1fr}.catalog{max-height:38vh;border-right:0;border-bottom:1px solid var(--line)}.viewer{min-height:62vh}}
+  </style>
+</head>
+<body>
+  <header><strong>资料逐页浏览</strong><a href="/">返回问答工作台</a></header>
+  <main>
+    <aside class="catalog"><h1>公开资料</h1><p id="summary">正在读取目录…</p><div id="list" class="list"></div></aside>
+    <section class="viewer"><div class="toolbar"><button id="prev">上一页</button><button id="next">下一页</button><span id="page" class="page"></span></div><div id="canvas" class="canvas"><p class="empty">请选择一份资料</p></div></section>
+  </main>
+  <script>
+    const state={documents:[],selected:null,page:1};
+    const $=selector=>document.querySelector(selector);
+    function renderList(){const root=$('#list');root.replaceChildren(...state.documents.map((doc,index)=>{const button=document.createElement('button');button.className=`item ${state.selected===index?'active':''}`;const title=document.createElement('strong');title.textContent=doc.file_name;const meta=document.createElement('span');meta.textContent=`${doc.page_count||'?'} 页 · ${doc.aliases.length} 个文件名`;button.append(title,meta);button.addEventListener('click',()=>selectDocument(index));return button}))}
+    function renderPage(){const doc=state.documents[state.selected];const canvas=$('#canvas');if(!doc){canvas.innerHTML='<p class="empty">请选择一份资料</p>';return}const image=document.createElement('img');image.alt=`${doc.file_name} 第 ${state.page} 页`;image.src=doc.page_image_url_template.replace('{physical_page}',String(state.page));canvas.replaceChildren(image);$('#page').textContent=`第 ${state.page} / ${doc.page_count||'?'} 页`;$('#prev').disabled=state.page<=1;$('#next').disabled=Boolean(doc.page_count)&&state.page>=doc.page_count}
+    function selectDocument(index){state.selected=index;state.page=1;renderList();renderPage()}
+    function move(delta){const doc=state.documents[state.selected];if(!doc)return;const next=state.page+delta;if(next<1||(doc.page_count&&next>doc.page_count))return;state.page=next;renderPage()}
+    $('#prev').addEventListener('click',()=>move(-1));$('#next').addEventListener('click',()=>move(1));
+    fetch('/api/v1/documents').then(response=>{if(!response.ok)throw new Error(`HTTP ${response.status}`);return response.json()}).then(documents=>{state.documents=documents;$('#summary').textContent=`${documents.length} 个唯一内容；重复文件名合并展示`;renderList();if(documents.length)selectDocument(0)}).catch(error=>{$('#summary').textContent=`目录读取失败：${error.message}`});
+  </script>
+</body>
+</html>

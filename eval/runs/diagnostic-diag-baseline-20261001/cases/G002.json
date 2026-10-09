@@ -1,0 +1,442 @@
+{
+  "id": "G002",
+  "question": "《城镇内涝防治技术规范》中，当地面汇水距离不大于90m时，地面集水时间ta如何计算？式中n0、L、q、S分别表示什么？",
+  "labels": {
+    "repr": [
+      "条件",
+      "数值"
+    ],
+    "challenge": [
+      "公式",
+      "原文定位"
+    ],
+    "modality": [
+      "公式"
+    ]
+  },
+  "expected_facts": [
+    "适用条件：地面汇水距离不大于90m",
+    "ta=10.41(n0·L)^0.6/(q^0.4 S^0.3)",
+    "n0为粗糙系数，L为地面集水距离，q为设计暴雨强度"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 3,
+    "matched_evidence_at_5": 3,
+    "matched_evidence_at_10": 3,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 1.0,
+    "latency_ms": 119.204,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 3,
+    "locator_only_matched_at_5": 3,
+    "locator_only_matched_at_10": 3,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "城镇内涝防治技术规范.pdf",
+      "page": 14,
+      "element_ids": [
+        "e000465",
+        "e000468",
+        "e000469"
+      ],
+      "quote": "10.41 (n0 · L)0.6\n设计暴雨强度L/(s·ha）]：\nS——地形坡度。\n2当地面汇水距离大于90m时，可按下式计算：",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 3,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 3,
+      "locator_chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+      "locator_match_method": "quote_and_ids"
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "城镇内涝防治技术规范.pdf",
+      "page": 14,
+      "element_ids": [
+        "e000456",
+        "e000458",
+        "e000459",
+        "e000460",
+        "e000461",
+        "e000462",
+        "e000463"
+      ],
+      "quote": "t_{a}=\\frac{10.41\\left(n_{0}\\cdot L\\right)^{0.6}}{q^{0.4}S^{0.3}}\n式中：ta\n地面集水时间（min）；\n粗糙系数；\nn0\n地面集水距离（m）；",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 1,
+      "locator_chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+      "locator_match_method": "quote_and_ids"
+    },
+    {
+      "evidence_index": 2,
+      "doc_file": "城镇内涝防治技术规范.pdf",
+      "page": 14,
+      "element_ids": [
+        "e000453",
+        "e000454",
+        "e000455"
+      ],
+      "quote": "3.3.2地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n雨强度等因素通过计算确定，并应符合下列规定：\n1当地面汇水距离不大于90m时，可按下式计算：",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 2,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 2,
+      "locator_chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+      "score": 0.833333,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000456",
+        "e000458",
+        "e000459",
+        "e000460",
+        "e000461",
+        "e000462",
+        "e000463"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "10.41 (n0 · L)0.6"
+      ],
+      "text": "10.41 (n0 · L)0.6\n[公式]\nt_{a}=\\frac{10.41\\left(n_{0}\\cdot L\\right)^{0.6}}{q^{0.4}S^{0.3}}\n式中：ta\n地面集水时间（min）；\n粗糙系数；\nn0\n地面集水距离（m）；\nL",
+      "matched_evidence_indexes": [
+        1
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+      "score": 0.833333,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000453",
+        "e000454",
+        "e000455"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.1 一般规定",
+        "3.3.2 地面集水时间应根据汇水距离、地形坡度、地面种类和暴"
+      ],
+      "text": "3.1 一般规定 > 3.3.2 地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n3.3.2地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n雨强度等因素通过计算确定，并应符合下列规定：\n1当地面汇水距离不大于90m时，可按下式计算：",
+      "matched_evidence_indexes": [
+        2
+      ]
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+      "score": 0.5,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14,
+        15
+      ],
+      "element_ids": [
+        "e000465",
+        "e000468",
+        "e000469"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "10.41 (n0 · L)0.6"
+      ],
+      "text": "10.41 (n0 · L)0.6\n设计暴雨强度L/(s·ha）]：\nS——地形坡度。\n2当地面汇水距离大于90m时，可按下式计算：",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_6b381a4f82f794e179844ab2d083d6fe",
+      "score": 0.366667,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        38,
+        39
+      ],
+      "element_ids": [
+        "e001011",
+        "e001012",
+        "e001013",
+        "e001014",
+        "e001015",
+        "e001016",
+        "e001017",
+        "e001018",
+        "e001019",
+        "e001020",
+        "e001021",
+        "e001022",
+        "e001023",
+        "e001024",
+        "e001025",
+        "e001026",
+        "e001027",
+        "e001028"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7.3 应急管",
+        "7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝"
+      ],
+      "text": "7.3 应急管 > 7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\nB.0.3当采用手工计算的方法进行校核时，应将由道路表面和\n道路两侧的路缘石或建筑物等构成的积水空间视作明渠，断面形\nB.0.4按本规范第B.0.6条规定的方法进行校核时，下游区段\nB.0.5采用推理公式法进行内涝防治设计校核时，宜提高现行国家\n标准《室外排水设计规范》GB50014中规定的径流系数。当设计重现\n期为20年～30年时，宜将径流系数提高10%～15%：当设计重现期为\n30年～50年时，宜提高20%～25%：当设计重现期为50年～100年\n时，宜提高30%～50%；当计算的径流系数大于1时，按1取值。\nB.0.6用手工方法校核内涝防治设计，应按下列步骤执行：\n1按本规范的规定选取内涝防治设计重现期，确定允许的道\n2根据道路积水深度和水面高程，确定地面泄水通道过水断\n面的形状和参数，从上游至下游逐段计算道路表面的最大过水能\n3按推理公式法，从上游至下游逐段计算每个汇水区的地\n面集水时间、暴雨强度和设计流量（Q），并计算内涝防治设计标\n准下雨水管渠的过水能力（Q。）。计算暴雨强度和设计流量时，\n降雨历时的选择应与雨水管渠设计时采用的降雨历时保持\n一致；\n的泄水能力；",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_9bd9d0a40a13564b52b1d36fc2d42358",
+      "score": 0.271429,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000309",
+        "e000310",
+        "e000311",
+        "e000312",
+        "e000313",
+        "e000314",
+        "e000315",
+        "e000316",
+        "e000317",
+        "e000318",
+        "e000319",
+        "e000320",
+        "e000321",
+        "e000323",
+        "e000324",
+        "e000325",
+        "e000326",
+        "e000327",
+        "e000328",
+        "e000329",
+        "e000330",
+        "e000331"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "2.1 术",
+        "2.2.1 雨水设计流量"
+      ],
+      "text": "2.1 术 > 2.2.1 雨水设计流量\n截留和洼蓄量\nE\n蒸发量；\nfc\n稳定人渗\nf0\nf m\nL\n衰减常数；\n地面集水距离；\n粗糙系数；\nn0\n设计暴雨强度；\nR0\n净雨量；\nS\n地形坡度；\n降雨历时；\nt\n地面集水时间；\nta−\ntx—下渗时间。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_47a0c9262191187ed148852f8906694a",
+      "score": 0.225,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        39,
+        40,
+        41
+      ],
+      "element_ids": [
+        "e001029",
+        "e001030",
+        "e001031",
+        "e001032",
+        "e001033",
+        "e001034",
+        "e001035",
+        "e001037",
+        "e001038",
+        "e001039",
+        "e001040",
+        "e001041",
+        "e001042",
+        "e001043",
+        "e001044",
+        "e001045",
+        "e001046",
+        "e001047",
+        "e001049",
+        "e001050",
+        "e001051",
+        "e001052",
+        "e001053",
+        "e001054",
+        "e001055",
+        "e001056",
+        "e001057",
+        "e001058"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7.3 应急管",
+        "7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝"
+      ],
+      "text": "7.3 应急管 > 7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\n地面漫流与沟、渠、河道和箱涵等的衔接。\n限体积法等数值算法求解。\n以及范围。\n）减去内涝防治设计重现期\n，得到满足内涝防治设计重现期\n-\n，否则，应修改雨水管渠的设计增加雨水管\n合，应能模拟雨水在管渠系统和地表之间通过雨水口的传输，以及\nB.0.8采用数学模型进行校核时，雨水在地表的运动应基于浅\n水流动方程组（ShallowWaterEquations），通过有限差分法或有\nB.0.9当采用的数学模型只能模拟雨水在地下管道中的一维运\n动，而不能模拟雨水在地表的二维流动时，可运用数学模型模拟出\n各节点的溢流情况，根据地形数据计算溢流雨水的地表积水深度\nB.0.10采用数学模型校核或数学模型与手工计算结合的校核\n住房城乡建设部信息公开\n方法时，应采用不短于3h的暴雨，暴雨雨型应按本规范第3.33\n条和第3.3.4条的规定选取。\n浏览专用\n本规范用词说明\n1为便于在执行本规范条文时区别对待，\n同的用词说明如下：\n1)表示很严格，非这样做不可的：\n2)表示严格，在正常情况下均应这样做的：\n正面词采用“应”，反面词采用“不应”或“不得”；\n正面词采用“宜反面词采用“不宜”；\n浏览\n的规定”或“\n□",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_c61c2ee442f79c158beacd26afe77b83",
+      "score": 0.166667,
+      "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        13
+      ],
+      "element_ids": [
+        "e000302"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "1 总则…",
+        "3.1 城镇内涝防治的应急预案应确定组织体系、预测预警机",
+        "3.4.7 多功能调蓄设施，应符合下列规定："
+      ],
+      "text": "1 总则… > 3.1 城镇内涝防治的应急预案应确定组织体系、预测预警机 > 3.4.7 多功能调蓄设施，应符合下列规定：\n表3.4.2城镇内涝防治设计重现期\n城镇类型 | 重现期（年） | 地面最大允许积水深度\n超城市 | 100 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n特大城市 | 50~100 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n大城市 | 30~50 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n中等城市和小城市 | 20~30 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+      "score": 0.146465,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22,
+        23
+      ],
+      "element_ids": [
+        "e000752",
+        "e000753",
+        "e000754",
+        "e000755",
+        "e000756",
+        "e000757"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 设计流量",
+        "4.1.11 雨水管渠的降雨历时应按下式计算："
+      ],
+      "text": "4.1 设计流量 > 4.1.11 雨水管渠的降雨历时应按下式计算：\n具有20年以上自记雨量记录的地区，排水系统设计暴雨强度\n公式应采用年最大值法，并应按本标准附录B的规定编制。\nt1——地面集水时间（min），应根据汇水距离、地形坡度和地\n面种类通过计算确定，宜采用5min~15min；\nt2——管渠内雨水流行时间(min)。\nⅡ污水量",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_939eb1d17306c3166640dd047672a975",
+      "score": 0.142857,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        27
+      ],
+      "element_ids": [
+        "e000803",
+        "e000804",
+        "e000805"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.4 调蓄设施",
+        "5.2.3 路面积水宽度应根据道路表面的构造形式进行计算，并应"
+      ],
+      "text": "4.4 调蓄设施 > 5.2.3 路面积水宽度应根据道路表面的构造形式进行计算，并应\n管渠系统中排水泵站的设计规模，应与城镇内涝防治系统\n的其他组成部分相协调，在满足内涝防治设计重现期要求的前提\n下，经技术经济比较后确定。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_8b80c322f48b340cc48cf29b5a184475",
+      "score": 0.142857,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        35,
+        36,
+        37
+      ],
+      "element_ids": [
+        "e000941",
+        "e000942",
+        "e000943",
+        "e000944",
+        "e000945",
+        "e000947",
+        "e000948",
+        "e000949",
+        "e000950",
+        "e000951",
+        "e000952",
+        "e000953",
+        "e000954",
+        "e000955",
+        "e000957",
+        "e000958",
+        "e000959",
+        "e000960",
+        "e000962",
+        "e000963",
+        "e000964",
+        "e000965",
+        "e000966",
+        "e000967",
+        "e000968",
+        "e000969",
+        "e000970",
+        "e000971",
+        "e000972"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7.3 应急管",
+        "7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝"
+      ],
+      "text": "7.3 应急管 > 7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\n7.3.4城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\n住房城乡建设部信息公\n防治预警系统、内涝防治应急系统和内涝防治设施运行效果进行\n综合评价，并提出改进建议。\n浏览专用\n附录A内涝防治设计报告\nA.1一般规定\nA.1.1内涝防治设计报告应为独立文件，\n告、图纸和计算书代替。\nA.1.3建设项目的施工图等文\n的措施和设计执行。\n告内容\nL\n和地质水文特征等；\n和历史受淹情况等；\n数据和参数、计算方法、工具等；\n算等；\n型、规模、设备、与上下游的衔接设计等：\n收项目可\n?\n3设计标准：包括适用的国家设计标准、地方标准、主要基础\n4内涝防治现状：现状雨水排放格局和设计标准、现状雨水\n排放口位置，地表渗透系数、综合径流系数、不透水面积比例等现\n状下垫面条件，地面集水时间、不同设计重现期下的径流量计\n5内涝防治设施设计：项目建成后，内涝防治设施的建设对\n区域下垫面条件、集水时间、径流量的影响，内涝防治设施位置、类\n6结论：《城镇内涝防治技术规范》的执行情况、其他适用的\n国家标准的执行情况、当地设计标准的执行情况、内涝防治设施的\n有效性、项目全部建成后的雨水排放格局等；",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

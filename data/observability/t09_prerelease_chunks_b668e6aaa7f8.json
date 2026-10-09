@@ -1,0 +1,19 @@
+{
+ "candidate": "corpus-b668e6aaa7f8",
+ "total_chunks": 4244,
+ "policy_counts": {
+  "source_locator_only": 3210,
+  "answer_and_citation": 1034
+ },
+ "quality_counts": {
+  "needs_review": 3122,
+  "quarantined": 88,
+  "passed": 1034
+ },
+ "projection_versions": {
+  "chunk-text/v2-formula-binding": 4244
+ },
+ "max_chunk_tokens": 512,
+ "chunks_at_cap": 13,
+ "per_document_match_manifest": true
+}

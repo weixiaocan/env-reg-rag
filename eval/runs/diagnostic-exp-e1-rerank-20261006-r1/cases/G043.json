@@ -1,0 +1,314 @@
+{
+  "id": "G043",
+  "question": "按GB/T 28592，24小时降雨量50.0～99.9 mm属于哪个降雨量等级？",
+  "labels": {
+    "repr": [
+      "数值",
+      "表格"
+    ],
+    "challenge": [
+      "表格",
+      "相似干扰"
+    ],
+    "modality": [
+      "表格"
+    ]
+  },
+  "expected_facts": [
+    "24h降雨量50.0～99.9 mm为暴雨"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 0.3333333333333333,
+    "latency_ms": 2533.028,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 1,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GBT 28592-2012降水量等级.pdf",
+      "page": 4,
+      "element_ids": [
+        "e000043"
+      ],
+      "quote": "等 级 | 时段 雨量 | 时段 雨量\n等 级 | 12h降雨量 | 24h降雨量\n微量降雨（零星小雨） | <0.1 | <0.1\n小雨 | 0.1~4.9 | 0.1~9.9\n中雨 | 5.0~14.9 | 10.0~24.9\n大雨 | 15.0~29.9 | 25.0~49.9\n暴雨 | 30.0~69.9 | 50.0~99.9\n大暴雨 | 70.0~139.9 | 100.0~249.9\n特大暴雨 | ≥140.0 | ≥250.0",
+      "usage_policy": "source_locator_only",
+      "document_rank": 2,
+      "page_rank": 2,
+      "match_rank": 3,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 3,
+      "locator_chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+      "score": 0.225,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000067"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.2 单站降雨过程等级"
+      ],
+      "text": "3.2 单站降雨过程等级\n表1单站日降雨量等级划分表\n等级 | 日降雨量 mm\n小雨 | 0.1~9.9\n中雨 | 10.0~24.9\n大雨 | 25.0~49.9\n暴雨 | 50.0~99.9\n大暴雨 | 100.0~249.9\n特大暴雨 | ≥250.0",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+      "score": 0.342857,
+      "file_name": "GBT 28592-2012降水量等级.pdf",
+      "physical_pages": [
+        4
+      ],
+      "element_ids": [
+        "e000028",
+        "e000029",
+        "e000030",
+        "e000031",
+        "e000032",
+        "e000033",
+        "e000034",
+        "e000035",
+        "e000036",
+        "e000037",
+        "e000038",
+        "e000039",
+        "e000040",
+        "e000041",
+        "e000042"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "precipitation\n降水量\n失而在水平面上积聚的深度\n3降水量等级划分的原则\n降水量按24h，12h两个时间段进行\n4降雨量等级划分\n降雨分为微量降雨（零星小雨）、小雨、中雨、天\n5降雪量等级划分\nGB/T28592-2012\n降水量等级\n划分\n雨、暴雨、暴雨、特暴共个等级。具体划分见\n单位为毫米\n本标准适用于降水监测、预报、预警、服务等业务和科研工作，以及其他行业与降水相关的领域。\n某一时段内，从天空降落到地面上的液态（降雨）或固态（降雪）（经融化后）降水，未经蒸发、渗透、流",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+      "score": 0.5,
+      "file_name": "GBT 28592-2012降水量等级.pdf",
+      "physical_pages": [
+        4
+      ],
+      "element_ids": [
+        "e000043"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "等 级 | 时段 雨量 | 时段 雨量\n等 级 | 12h降雨量 | 24h降雨量\n微量降雨（零星小雨） | <0.1 | <0.1\n小雨 | 0.1~4.9 | 0.1~9.9\n中雨 | 5.0~14.9 | 10.0~24.9\n大雨 | 15.0~29.9 | 25.0~49.9\n暴雨 | 30.0~69.9 | 50.0~99.9\n大暴雨 | 70.0~139.9 | 100.0~249.9\n特大暴雨 | ≥140.0 | ≥250.0",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_4d3adae20eb2c6c7d92df0d4d2e4be87",
+      "score": 0.111111,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        4,
+        5
+      ],
+      "element_ids": [
+        "e000018",
+        "e000019",
+        "e000020"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "本标准按照GB/T 1.1－2009 给出的规则起草。\n本标准由中国气象服务协会提出并归口。\n本标准起草单位：中国气象局公共气象服务中心。\n本标准主要起草人：王曙东、张国平、惠建忠、高金兵、胡骏楠、何佳、何险峰。\nII\n短时气象服务降雨量等级",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_2ee664779f7f64a3cdb3bd7417560e02",
+      "score": 0.055556,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000071"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 区域日降雨等级"
+      ],
+      "text": "4.1 区域日降雨等级\n降雨等级。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_7579e97cdb41c250254cd5c16093ee53",
+      "score": 0.166667,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000047",
+        "e000048",
+        "e000049",
+        "e000050",
+        "e000052",
+        "e000053"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "降雨过程 rainfall process\n单站或区域降雨开始到降雨结束。\n3降雨过程强度等级划分\n过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。\n利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨\n强度、覆盖范围、持续时间三个指标，计算单站/区域（需设定）降雨过程强度指数（RSI/RPI），根据降雨",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_d2be53324b3ed7e4e71ede984daf3d09",
+      "score": 0.2,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000059",
+        "e000060",
+        "e000061"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "日降雨量 daily rainfall\n一天24小时内的累积降雨量。\n3单站降雨过程等级",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_0b68668131bccf42b047f36121c7f39c",
+      "score": 0.083333,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        35
+      ],
+      "element_ids": [
+        "e000864",
+        "e000865",
+        "e000866",
+        "e000867",
+        "e000868",
+        "e000869",
+        "e000870"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 监测方案",
+        "4.1.8 本条为对同步监测和监测时间的规定。为反映各监测点"
+      ],
+      "text": "4.1 监测方案 > 4.1.8 污管网流渗监测方案应符合下列规定：\n中雨、大雨的量级根据现行国家标准《降水量等级》GB/T\n28592的相关规定确定。降雨流渗监测一般持续时间不小于\n4周，如果原定的监测时间内未获得满足要求的降雨数据，则需\n要延长监测期，直到监测数据满足要求。\n监测方案需从时间或空间上避开管网特殊或异常运行工况，\n例如因干管塌陷而临时采取的导排等措施，这些异常工况会影响\n系统的水量分布和水平衡分析计算。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_9e8d85eb0be9b360f15a161f6f7daf46",
+      "score": 0.25,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        9,
+        10,
+        12
+      ],
+      "element_ids": [
+        "e000144",
+        "e000147",
+        "e000148",
+        "e000149",
+        "e000151",
+        "e000152",
+        "e000153",
+        "e000154",
+        "e000155",
+        "e000156",
+        "e000158",
+        "e000159",
+        "e000160",
+        "e000161",
+        "e000162",
+        "e000163",
+        "e000164",
+        "e000165",
+        "e000166",
+        "e000167",
+        "e000168",
+        "e000169",
+        "e000170",
+        "e000171",
+        "e000172",
+        "e000173",
+        "e000174",
+        "e000175",
+        "e000176",
+        "e000177",
+        "e000178",
+        "e000179",
+        "e000180"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.4 RSI/ RPI计算",
+        "4.4.2 区域降雨过程强度指数（RPI)"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.4 RSI/ RPI计算 > 4.4.2 区域降雨过程强度指数（RPI)\n表5查出对应降雨区持续时间指数。\n第j类降雨区降雨强度指数，j的取值范围[1，n]，利用公式（1)计算第j类降雨区降雨强\n第；类降雨区按照4.2区域降雨过程定义选取的测站占设定区域总测站的百分比；\n设定区域内第j类降雨区降雨持续时间指数，根据公式（3)计算降雨持续时间（T。），对照\n[1GB/T20480—2006江河流域面雨量等级\nGB/T28592—2012降水量等级\n[2\n[3]\n[4\n月发布\n参考文献\n大气科学词典编委会.大气科学词典.北京：气象出版社，1994\n中国气象局应急减灾与公共服务司.暴雨诱发山洪灾害气象预警业务规范（暂行).2015年9\n中华人民共和国\n气象行业标准\n降雨过程强度等级\nQX/T 341—2016\n￥\n气象出版社出版发行\n北京市海淀区中关村南大街46号\n邮政编码：100081\n网址:http://www.qxcbs.com\n发行部：010-68408042\n北京中新伟业印刷有限公司印刷\n各地新华书店经销\n*\n开本：880×12301/16印张：0.75字数：22.5千字\n2017年1月第一版2017年1月第一次印刷\n￥\n书号：135029-5847定价：15.00元\n如有印装差错由本社发行部调换\n版权专有侵权必究\n举报电话：(010)68406301",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_e22fd2e5e818104f9223c993392da379",
+      "score": 0.05,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000065"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.2 单站降雨过程等级"
+      ],
+      "text": "3.2 单站降雨过程等级\n单站降雨过程等级为降雨过程中该站日降雨量等级中的最强等级。",
+      "matched_evidence_indexes": []
+    }
+  ],
+  "rerank_latency_ms": 2512.099700048566
+}

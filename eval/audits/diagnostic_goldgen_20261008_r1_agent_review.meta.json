@@ -1,0 +1,7 @@
+{
+  "classification": "diagnostic agent semantic review; not independent human adjudication",
+  "source_run": "eval/runs/diagnostic-goldgen-20261008-r1",
+  "source_case_files_sha256": "f6cfa2c8645c79c6ac9160706221e1aa8a2057b42b5551bb55dd6d7047dd9fb6",
+  "review_artifact": "eval/audits/diagnostic_goldgen_20261008_r1_agent_review.jsonl",
+  "review_scope": "eight model-called cases"
+}

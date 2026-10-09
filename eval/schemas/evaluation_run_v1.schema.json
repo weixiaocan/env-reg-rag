@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evaluation_run_v1.schema.json",
+  "title": "Evaluation run configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "modes",
+    "run_kind",
+    "dataset_sha256",
+    "corpus_version",
+    "code_revision",
+    "worktree_clean",
+    "external_calls",
+    "external_data_authorized",
+    "retrieve_limit",
+    "generate_context_limit",
+    "metadata"
+  ],
+  "properties": {
+    "schema_version": {"const": "evaluation-run-config/1.0"},
+    "run_id": {"type": "string", "minLength": 1},
+    "modes": {
+      "type": "array",
+      "minItems": 1,
+      "uniqueItems": true,
+      "items": {"enum": ["retrieval", "generation", "e2e"]}
+    },
+    "run_kind": {"enum": ["provisional", "official"]},
+    "dataset_sha256": {"type": "string", "minLength": 1},
+    "corpus_version": {"type": "string", "minLength": 1},
+    "code_revision": {"type": ["string", "null"]},
+    "worktree_clean": {"type": "boolean"},
+    "external_calls": {"type": "boolean"},
+    "external_data_authorized": {"type": "boolean"},
+    "retrieve_limit": {"type": "integer", "minimum": 10},
+    "generate_context_limit": {"type": "integer", "minimum": 1},
+    "metadata": {"type": "object"}
+  }
+}

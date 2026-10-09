@@ -64,5 +64,6 @@ class SourceEvidenceDocumentCatalog:
                     jurisdiction="unknown",
                     source_uri="",
                     local_path=local_path,
+                    aliases=tuple(a.get("file_name") or "" for a in aliases),
                 )
         return documents

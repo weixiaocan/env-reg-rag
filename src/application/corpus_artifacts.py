@@ -25,6 +25,7 @@ class CurrentCorpusArtifacts:
     # T06: the versioned collection the publish gate promoted. Recorded for
     # traceability -- NEVER used as the runtime query entry.
     collection_name: str | None = None
+    chunk_count: int | None = None
 
 
 def resolve_current_corpus(project_root: Path) -> CurrentCorpusArtifacts:
@@ -59,6 +60,11 @@ def resolve_current_corpus(project_root: Path) -> CurrentCorpusArtifacts:
         canonical_documents_path=canonical_documents_path,
         alias=pointer.get("alias"),
         collection_name=pointer.get("collection_name"),
+        chunk_count=(
+            int(pointer["chunk_count"])
+            if pointer.get("chunk_count") is not None
+            else None
+        ),
     )
 
 

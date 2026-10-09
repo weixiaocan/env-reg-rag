@@ -1,0 +1,20 @@
+{
+  "case": "G004",
+  "question": "对照“十四五”全国城市基础设施建设规划表1与“十四五”城镇污水处理及资源化利用规划，2020年城市污水处理率是多少？到2025年全国城市生活污水集中收集率力争达到多少？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "2020年城市污水处理率为97.5%",
+    "2025年全国城市生活污水集中收集率力争达到70%以上",
+    "两指标名称与年份不同：“十三五”指标为城市污水处理率（2020年97.5%），“十四五”目标为全国城市生活污水集中收集率（2025年力争达到70%以上）"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.0
+}

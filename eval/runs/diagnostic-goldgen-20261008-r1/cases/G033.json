@@ -1,0 +1,18 @@
+{
+  "case": "G033",
+  "question": "GB 50014规定交通枢纽在内涝防治设计重现期下的最大允许退水时间是多少？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "交通枢纽最大允许退水时间应为0.5h"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.074176
+}

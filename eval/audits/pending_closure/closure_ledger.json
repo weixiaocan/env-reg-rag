@@ -1,0 +1,1063 @@
+{
+ "dataset_sha256_before": "ca524d78b1d00e8e61476df2d45d5ee488e981f27221e7cc0eab74697c838256",
+ "markers_before": {
+  "pdf_rendering_faithfulness": 52,
+  "weak_anchor_needs_review": 3,
+  "fact_coverage_needs_review": 26,
+  "quote_spans_multiple_elements": 5,
+  "page_reanchored": 4
+ },
+ "markers_after": {
+  "fact_coverage_needs_review": 1
+ },
+ "closed": 89,
+ "kept": [
+  [
+   "G004",
+   0,
+   "fact_coverage_needs_review"
+  ]
+ ],
+ "allowlisted_number_gaps": [
+  "G019:758",
+  "G023:489",
+  "G028:15",
+  "G046:0.9"
+ ],
+ "edits": [
+  {
+   "case": "G003",
+   "index": 0,
+   "edit": "quote_rebuild",
+   "old_quote_head": "长幅度\n道路交通 | 人均城市道路面积（平方米） | 15.6 | 18.0 |",
+   "new_quote_head": "表1 “十三五”全国城市基础设施建设主要进展\n类别 | 指标名称 | 2015年",
+   "new_quote_len": 264
+  },
+  {
+   "case": "G004",
+   "index": 0,
+   "edit": "quote_rebuild",
+   "old_quote_head": "长幅度\n道路交通 | 人均城市道路面积（平方米） | 15.6 | 18.0 |",
+   "new_quote_head": "表1 “十三五”全国城市基础设施建设主要进展\n类别 | 指标名称 | 2015年",
+   "new_quote_len": 264
+  },
+  {
+   "case": "G006",
+   "index": 0,
+   "edit": "quote_rebuild",
+   "old_quote_head": "4.3降雨过程评价指标计算",
+   "new_quote_head": "[公式]\nR=\\frac{w*\\sum\\limits_{i=1}^{n}\\lef",
+   "new_quote_len": 344
+  },
+  {
+   "case": "G021",
+   "index": 0,
+   "edit": "quote_rebuild",
+   "old_quote_head": "展污水收集系统问题排查。各地要按照每5—10年完成\n一轮城市生活污水管网排查滚动",
+   "new_quote_head": "73%以上，城市生活污水收集处理综合效能显著提升。\n各省、自治区住房城乡建设厅、",
+   "new_quote_len": 322
+  },
+  {
+   "case": "G025",
+   "index": 1,
+   "edit": "quote_rebuild",
+   "old_quote_head": "展污水收集系统问题排查。各地要按照每5—10年完成\n一轮城市生活污水管网排查滚动",
+   "new_quote_head": "73%以上，城市生活污水收集处理综合效能显著提升。\n各省、自治区住房城乡建设厅、",
+   "new_quote_len": 322
+  },
+  {
+   "case": "G037",
+   "index": 0,
+   "edit": "reanchor",
+   "old_ids_head": "e000305",
+   "new_ids": [
+    "e000321",
+    "e000322",
+    "e000323",
+    "e000324",
+    "e000325",
+    "e000326",
+    "e000327",
+    "e000328"
+   ],
+   "old_page": 20,
+   "new_page": 20,
+   "old_policy": "source_locator_only",
+   "new_policy": "answer_and_citation",
+   "old_quote_head": "综合确定，其中雨水排放系统宜采用短历\n时降雨，防涝系统宜采用不同历时的降雨。\n5",
+   "new_quote_head": "5.2.6\n雨水设计流量应采用数学模型法进行校核，并同步确定\n相应的径流量、不同"
+  },
+  {
+   "case": "G043",
+   "index": 0,
+   "edit": "reanchor",
+   "old_ids_head": "e000028",
+   "new_ids": [
+    "e000043"
+   ],
+   "old_page": 4,
+   "new_page": 4,
+   "old_policy": "source_locator_only",
+   "new_policy": "source_locator_only",
+   "old_quote_head": "precipitation\n降水量\n失而在水平面上积聚的深度\n3降水量等级划分的",
+   "new_quote_head": "等 级 | 时段 雨量 | 时段 雨量\n等 级 | 12h降雨量 | 24h降雨"
+  },
+  {
+   "case": "G044",
+   "index": 0,
+   "edit": "reanchor",
+   "old_ids_head": "e000028",
+   "new_ids": [
+    "e000043"
+   ],
+   "old_page": 4,
+   "new_page": 4,
+   "old_policy": "source_locator_only",
+   "new_policy": "source_locator_only",
+   "old_quote_head": "precipitation\n降水量\n失而在水平面上积聚的深度\n3降水量等级划分的",
+   "new_quote_head": "等 级 | 时段 雨量 | 时段 雨量\n等 级 | 12h降雨量 | 24h降雨"
+  },
+  {
+   "case": "G030",
+   "index": 1,
+   "edit": "page_fix",
+   "element": "e000242",
+   "spans": [
+    12,
+    12,
+    11
+   ],
+   "old_page": 11,
+   "new_page": 12
+  },
+  {
+   "case": "G039",
+   "index": 0,
+   "edit": "page_fix",
+   "element": "e000122",
+   "spans": [
+    9,
+    9,
+    8
+   ],
+   "old_page": 8,
+   "new_page": 9
+  },
+  {
+   "case": "G049",
+   "index": 0,
+   "edit": "page_fix",
+   "element": "e000988",
+   "spans": [
+    36,
+    36,
+    34
+   ],
+   "old_page": 34,
+   "new_page": 36
+  },
+  {
+   "case": "G046",
+   "index": 0,
+   "edit": "rendering_swap",
+   "reason": "原 rendering 为容器体积法条文转写，移至新证据 G046[2]；本证据改用 5.4.22 式中转写"
+  },
+  {
+   "case": "G018",
+   "index": 1,
+   "edit": "new_evidence",
+   "chunk_elements": [
+    "e000085",
+    "e000086",
+    "e000087",
+    "e000088",
+    "e000089",
+    "e000090"
+   ],
+   "page": 4,
+   "policy": "source_locator_only",
+   "must_hit": true,
+   "quote_head": "1 总则… > 4.3 污水和再生水处理 > 1.0.2 城乡排水工程必须执行本",
+   "quote_len": 79
+  },
+  {
+   "case": "G018",
+   "index": 2,
+   "edit": "new_evidence",
+   "chunk_elements": [
+    "e000001",
+    "e000002",
+    "e000003",
+    "e000004",
+    "e000005",
+    "e000006",
+    "e000007",
+    "e000008",
+    "e000009",
+    "e000010",
+    "e000011",
+    "e000012",
+    "e000013",
+    "e000014",
+    "e000015",
+    "e000016",
+    "e000017",
+    "e000018",
+    "e000019",
+    "e000020",
+    "e000021",
+    "e000022"
+   ],
+   "page": 1,
+   "policy": "source_locator_only",
+   "must_hit": true,
+   "quote_head": "关于规范种类。强制性工程建设规范体系覆盖工程建设领域\n各类建设工程项目，分为工程",
+   "quote_len": 243
+  },
+  {
+   "case": "G030",
+   "index": 2,
+   "edit": "new_evidence",
+   "chunk_elements": [
+    "e000442",
+    "e000443"
+   ],
+   "page": 18,
+   "policy": "source_locator_only",
+   "must_hit": true,
+   "quote_head": "5.2 旱天入流入渗计算 > 5.2.3 采用特征因子法计算旱天流渗量时，应按下",
+   "quote_len": 65
+  },
+  {
+   "case": "G040",
+   "index": 1,
+   "edit": "new_evidence",
+   "chunk_elements": [
+    "e000171"
+   ],
+   "page": 10,
+   "policy": "source_locator_only",
+   "must_hit": true,
+   "quote_head": "表1 应监测的对象及监测指标要求\n排水管网类型 | 监测对象 | 监测指标\n污水",
+   "quote_len": 113
+  },
+  {
+   "case": "G046",
+   "index": 2,
+   "edit": "new_evidence",
+   "chunk_elements": [
+    "e000424",
+    "e000425",
+    "e000426",
+    "e000427",
+    "e000428",
+    "e000429"
+   ],
+   "page": 23,
+   "policy": "answer_and_citation",
+   "must_hit": true,
+   "quote_head": "5. 4. 2\n管道流量测量方法可选用容器体积法、浮标法和速度一面\n积流量计测定",
+   "quote_len": 142
+  },
+  {
+   "case": "G002",
+   "index": 1,
+   "edit": "new_evidence",
+   "chunk_elements": [
+    "e000456",
+    "e000458",
+    "e000459",
+    "e000460",
+    "e000461",
+    "e000462",
+    "e000463"
+   ],
+   "page": 14,
+   "policy": "source_locator_only",
+   "must_hit": true,
+   "quote_head": "t_{a}=\\frac{10.41\\left(n_{0}\\cdot L\\righ",
+   "quote_len": 104
+  },
+  {
+   "case": "G002",
+   "index": 2,
+   "edit": "new_evidence",
+   "chunk_elements": [
+    "e000453",
+    "e000454",
+    "e000455"
+   ],
+   "page": 14,
+   "policy": "source_locator_only",
+   "must_hit": true,
+   "quote_head": "3.3.2地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n雨强度等因素通过计",
+   "quote_len": 77
+  },
+  {
+   "case": "G049",
+   "index": 1,
+   "edit": "new_evidence",
+   "chunk_elements": [
+    "e000955",
+    "e000956",
+    "e000958",
+    "e000959",
+    "e000960",
+    "e000961",
+    "e000962",
+    "e000963",
+    "e000964",
+    "e000965",
+    "e000966",
+    "e000967",
+    "e000968",
+    "e000969",
+    "e000970",
+    "e000971",
+    "e000972",
+    "e000973",
+    "e000974",
+    "e000975",
+    "e000976",
+    "e000977",
+    "e000978",
+    "e000979",
+    "e000980",
+    "e000981",
+    "e000982",
+    "e000983",
+    "e000984",
+    "e000985",
+    "e000986"
+   ],
+   "page": 36,
+   "policy": "source_locator_only",
+   "must_hit": true,
+   "quote_head": "地面\n≥90%\n管顶500~1000mm\n管顶以上500mm，且\n≥90%\n85",
+   "quote_len": 94
+  },
+  {
+   "case": "G001",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为同段 2.1.1 内涝定义人工转写（含英文名与 2.1.2 邻条）；chunk 文本 OCR 丢行『雨水设施消纳能』属语料提取质量（PDF 原文完好），不影响 chunk 锚定与命中语义。裁定：转写忠实，闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G002",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 与引文同属 3.3.2 地面集水时间条款（v1 转写含条文 1 与完整公式 ta=10.41(n0·L)0.6/(q0.4·S0.3)）；v2 窗口落在公式残片 chunk——分母 q^0.4·S^0.3 与条文 1（不大于90m）未入窗。补证据 G002[1]（公式+式中，p14）与 G002[2]（3.3.2 条文 1，p14）后 fact1/2/3 实质闭合；本证据保留 q 设计暴雨强度/S 地形坡度 片段锚定。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G003",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "weak_anchor_needs_review",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表1 人工转写（表头+城市污水处理率 91.9→97.5 行），与重建后引文（含表头）一致。闭合。",
+    "weak_anchor_needs_review": "弱锚系 v2 窗口起点截断表头（『长幅度』起）；窗口已重建为表头起、城市污水处理率行止，表头四列全部入窗。闭合。",
+    "fact_coverage_needs_review": "fact『2020年城市污水处理率97.5%』：97.5/城市污水处理率原在窗内，2020 截于表头外；窗口重建后 2020/97.5/城市污水处理率 全部入窗。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G004",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表1 人工转写，与重建后引文一致（同 G003[0] 承载 chunk）。闭合。"
+   },
+   "markers_kept": {
+    "fact_coverage_needs_review": "fact3『两指标口径分别为污水处理率与生活污水集中收集率，不宜直接等同』为归纳性表述：全库检索两份文档（建设规划/资源化利用规划）正文与表格均无『口径』注或等同性说明，语料无法直接佐证。保留待核——需人工裁定改写该 fact、调整 answerability 或维持原判；在此之前本标记不闭合，正式评估继续被运行器硬门拒绝。"
+   }
+  },
+  {
+   "case": "G004",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为主要目标句人工转写，与引文语义一致（sim 1.0）。闭合。",
+    "fact_coverage_needs_review": "fact2『2025年集中收集率力争达到70%以上』逐字在引文（全国城市生活污水集中收集率力争达到70%以上）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G005",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 与引文同为等级划分段（五个等级/见表1）与表1 表头，同源互补窗口。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G006",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "引文由 12 字残根重建为公式+式中窗口；rendering 的公式转写与 LaTeX 原文逐项对应（w、rmax、T0、rd）。闭合。",
+    "fact_coverage_needs_review": "fact1（最大日雨量项与过程平均日雨量项加权后对测站平均）与 fact2（权重 w/r_max/T0）实质均入重建窗口（式中各符号定义行）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G007",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为前言/主要技术内容段转写，与引文（编制说明窗口）同页同源。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G009",
+   "index": 0,
+   "markers_before": [
+    "quote_spans_multiple_elements"
+   ],
+   "markers_closed": {
+    "quote_spans_multiple_elements": "引文为图片图注类 chunk 的连续窗口（合约测试验证 quote ⊆ 单 chunk 文本、element_ids ⊆ chunk 元素集）；跨多元素是图+图注+标签元素拼接的固有形态。本轮命中 rank2（quote_and_ids），不影响判定。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G010",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为前言主要技术内容转写，与引文窗口互补同源。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G011",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表1 生活污水水质特征因子浓度转写，与引文一致。闭合。",
+    "fact_coverage_needs_review": "6.1 与 46.8~109.3/76.8 均在引文表格窗口逐字；低分为 _fact_coverage 单元格拼接 artifact（『范围|均值』列序）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G012",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为封面转写（DB 4201/T 651—2021 武汉市地方标准），与引文一致（sim 0.91）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G013",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为同目录人工转写，与引文（5.2~5.5 目录窗口）同源。闭合。",
+    "fact_coverage_needs_review": "fact『规程包含混错接点判定、混错接流量测定等调查评估步骤』：目录窗口含 5.4 混错接点判定、5.5 混错接流量测定、5.3 混错接区域判定、5.2 现场踏勘与管道普查，步骤名全部入窗。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G014",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为（三）主要目标段转写，与引文（指导思想尾部窗口）同 chunk 相邻窗口。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G015",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 与引文同为（三）主要目标段（sim 0.90）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G016",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "weak_anchor_needs_review",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表3.4.2 人工转写，与引文一致（列内 OCR 切词为 corpus 形态）。闭合。",
+    "weak_anchor_needs_review": "弱锚系表行窗口不含表头；锚定 chunk 正确（表3.4.2 全表在同 chunk），行值逐字在窗。闭合。",
+    "fact_coverage_needs_review": "超城市 100、中等城市和小城市 20~30、15cm（道路一条车道积水深度）均在引文逐字；低分为单元格拼接/列切分 artifact。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G016",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表4.1.4 人工转写，与引文一致。闭合。",
+    "fact_coverage_needs_review": "超大城市 100 等行值在引文逐字；低分为表格列拼接 artifact。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G017",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表3.3.2 人工转写，与引文一致。闭合。",
+    "fact_coverage_needs_review": "3~5（中心城区的重要地区）与 30~50（地下通道和下沉式广场等）在引文表格行逐字。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G018",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 p4 人工转写（1.0.2+1.0.3），与引文（1.0.3 原则窗口）同源；1.0.2 句的承载由新增证据 G018[1] 锚定。闭合。",
+    "fact_coverage_needs_review": "fact『必须执行本规范』与『项目规范』分别由新增证据 G018[1]（1.0.2 条窗口）与 G018[2]（前言规范种类段）承载；本证据维持 1.0.3 原则锚定。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G019",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表5-1 人工转写，与引文一致。闭合。",
+    "fact_coverage_needs_review": "灰水 6.1、黑水 76.8 在表5-1 窗口逐字；低分为表格列拼接 artifact。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G019",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 7.2.1/7.2.2 人工转写，与引文（7.2.1 窗口）同源。闭合。",
+    "fact_coverage_needs_review": "『接入管管径、混接水量、混接水质』逐字在 7.2.1 窗口（1昆接/泪接 为 OCR mojibake，语义对应混接）；标准号 T/CECS 758 为文档归属（evidence.standard_number 元数据承载），不在节文本内。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G020",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为【条文解释】图2 示意段转写，与引文（5.2.1 条文+条文解释窗口）同源。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G021",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为工作目标句人工转写（到2027年…73%以上）；该页 corpus OCR 版面打散，v2 原 320 字窗口丢 2027 年份，已重建为覆盖『73%以上…』至 chunk 尾『…到2027年，…集中收集率达到』的连续窗口，年份与数值均入窗。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G022",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表1 单站日降雨量等级划分表转写，与引文（3.2+表1 窗口）一致。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G023",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为同页表1 行转写，与引文（等级划分原则叙述窗口）互补同源。闭合。",
+    "fact_coverage_needs_review": "fact1『GB/T 28592按12h与24h划分』：『降水量按24h，12h两个时间段进行』逐字在窗。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G023",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 2.1 降雨量定义+3 等级划分转写，与引文同源。闭合。",
+    "fact_coverage_needs_review": "fact2 六等级（10分钟/30分钟/1小时）逐字在窗；『引用QX/T 489－2019定义』的引用标注在 PDF p5 术语节，corpus 将其分入 chunk_34cc8546a2e6（『2 术语和定义 [QX/T 489－2019,定义2.2]』，p5，e000025）——引用关系语料可证但不在本引文窗口，作为标注归属记录，不构成事实缺口。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G023",
+   "index": 2,
+   "markers_before": [
+    "quote_spans_multiple_elements",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "quote_spans_multiple_elements": "引文为术语/定义混排 chunk 的连续窗口（合约验证单 chunk）；跨元素为该类 chunk 固有形态。@10 未命中系融合排名（14@pf20），非证据缺陷。闭合。",
+    "fact_coverage_needs_review": "fact3『区域降雨过程等级为…最强等级』逐字在引文；标准号归属由 evidence.standard_number 与 G023[1] 注记录的引用 chunk 承载。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G024",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为前言延续段转写（样板区句），与引文（前言窗口）同源互补。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G025",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为建城〔2024〕18 号通知句转写，与引文一致（sim 0.73）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G025",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "同 G021[0]：OCR 版面打散页，窗口已重建，2027 与 73% 均入窗；rendering 为工作目标句转写。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G026",
+   "index": 0,
+   "markers_before": [
+    "quote_spans_multiple_elements"
+   ],
+   "markers_closed": {
+    "quote_spans_multiple_elements": "引文为前言叙述类 chunk 的连续窗口（合约验证单 chunk、element_ids ⊆ chunk 元素集）；跨元素为长前言段落多元素拼接的固有形态。@10 未命中系 dense 53/bm25 12 融合排名（19@pf20）问题，非证据缺陷。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G026",
+   "index": 1,
+   "markers_before": [
+    "quote_spans_multiple_elements"
+   ],
+   "markers_closed": {
+    "quote_spans_multiple_elements": "引文为同 chunk 连续窗口（合约验证）；跨元素为表格/条文混排固有形态。本轮命中 rank2（locator）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G027",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为图1 性能要求确定流程图注转写，与引文（5.1.3+图注窗口）一致。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G029",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为封面转写（T/CECS 1764-2024），与引文一致（sim 0.97）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G030",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 5.2.3 公式+式中转写，与引文（LaTeX 窗口）逐项对应。闭合。",
+    "fact_coverage_needs_review": "fact1 BI=ADF×(Cw-C)/(Cw-Cws) 在公式窗口；fact2『ADF为旱天日均流量监测值』由新增证据 G030[2]（5.2.3 式中 ADF 行，p18）承载。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G030",
+   "index": 1,
+   "markers_before": [
+    "page_reanchored",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "page_reanchored": "页码 11→12：承载 chunk 物理页 [11,12]，图3.0.5 图注元素 e000242 的 source_spans 3 处中 2 处落 p12，按多数裁定 p12。闭合。",
+    "fact_coverage_needs_review": "fact3『工作流程见图3.0.5』由本图注引文承载（图3.0.5…工作流程图 逐字）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G031",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 3 等级划分段转写（六等级），与引文（T/CMSA 0013—2019 窗口）同源。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G033",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 4.1.5 条+表转写，与引文（4.1.5 窗口）同源互补。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G034",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表4.1.8-1 径流系数表转写，与引文（4.1.11+表窗口）一致。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G035",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 4.1.7 条+式转写，与引文一致。闭合。",
+    "fact_coverage_needs_review": "Qs=qΨ 与式中『汇水面积（hm2）』在窗口内；低分为公式行/式中行离散化 artifact。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G035",
+   "index": 1,
+   "markers_before": [
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "fact_coverage_needs_review": "0.85~0.95 在表4.1.8-1 引文逐字（各种屋面、混凝土或沥青路面行）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G036",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 4.1.11 公式 t=t1+t2+式中转写，与引文（4.1.11 窗口）同源互补。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G036",
+   "index": 1,
+   "markers_before": [
+    "quote_spans_multiple_elements"
+   ],
+   "markers_closed": {
+    "quote_spans_multiple_elements": "引文为同 chunk 连续窗口（合约验证），跨元素为条文+公式元素混排固有形态；本轮命中 rank1。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G037",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "重锚：v1 引文为 5.2.6 推理公式段（rendering 佐证），v2 窗口误落 5.2.3 暴雨强度段（sim 0.0 的根因）；现重锚至承载 chunk（p20，e000321~e000328）的 5.2.6 窗口，rendering 与新引文对应。闭合。",
+    "fact_coverage_needs_review": "fact2『汇水面积不超过2km²时可采用推理公式法』实质入重锚窗口（当汇水面积不超过2kmz时…推理公，2kmz 为 2km² 的 OCR 形态）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G037",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表5.2.4 转写，与引文一致。闭合。",
+    "fact_coverage_needs_review": "0.60~0.70 在表5.2.4 窗口逐字（corpus 形态『0. 60 0.70』，归一化后一致）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G038",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 4.2.3 表4.2.3 转写，与引文（4.2.1 窗口）为同 chunk 相邻窗口，fact 覆盖已另行核验（无 fact 标记）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G039",
+   "index": 0,
+   "markers_before": [
+    "page_reanchored"
+   ],
+   "markers_closed": {
+    "page_reanchored": "页码 8→9：总体架构逻辑关系图核心图注元素 e000122 的 source_spans 3 处中 2 处落 p9，承载 chunk 物理页 [8,9] 含 9。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G040",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 7.1.4 条+表1 表头转写，与引文（7.1.4 窗口）同源。闭合。",
+    "fact_coverage_needs_review": "fact1『表1为应监测的对象及监测指标要求』由新增证据 G040[1]（表1 全表 chunk，p10）承载；本证据维持 7.1.4 条文锚定（fact2 布设原则）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G041",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为实施目标段转写，与引文（导语尾段窗口）同文档相邻窗口。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G042",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为 5.4.1.2+图1 转写，与引文一致。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G043",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "重锚：v1 引文即表1 行（rendering 佐证：暴雨 30.0~69.9/50.0~99.9 等），v2 窗口误落叙述段致 50.0/99.9 缺失；现重锚至表1 chunk（p4，e000043），rendering 与新引文逐行对应。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G044",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "重锚（同 G043[0] 承载 chunk）：表头 12h/24h 与特大暴雨 ≥250.0 均入新窗口；rendering 为表1（12h/24h 列）转写。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G045",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为图3.0.4 图注+环节标签转写，与引文（3.0.7 条+图注+环节窗口）同源。闭合。",
+    "fact_coverage_needs_review": "『图 3.0.4 1昆接调查与治理环节示意图』图注与环节标签（编制混接整改方案/改造施工与验收/建立长拉动态管理机制）在引文窗内（1昆接=混接 mojibake）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G046",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "page_reanchored",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "原 rendering 为容器体积法条文转写（对应 v1 引文），与新证据 G046[2] 窗口对应；本证据 rendering 已更换为 5.4.22 公式+式中转写，与引文一致。闭合。",
+    "page_reanchored": "页码核验维持 24：公式元素 e000448~e000456 的 source_spans 全在 p24，承载 chunk 物理页含 24。v1→v2 页码变化系重锚正确化。闭合。",
+    "fact_coverage_needs_review": "fact2（5.4.22、A、修正系数 0.8~0.9）在引文式中逐字（0. 8~ o. 9 0 为 OCR 形态）；fact1 容器体积法(5.4.21) 由新增证据 G046[2]（p23）承载；fact3 两种方法均基于一天内多次测量：G046[2]『每日流量应基于→天内多次的测量数据』+本引文『每日测量6 次～8 次』。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G046",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为式 5.4.22 公式+式中转写，与引文逐项对应；v1 本意即式中上下文（与 G046[0] 同锚非错锚，容器体积法由新增 G046[2] 补齐）。闭合。",
+    "fact_coverage_needs_review": "6~8 次/3h~4h/0.8~0.9/A 过流面积均在引文式中逐字。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G047",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表7.2.2 重度行转写，与引文（7.2 取高值句窗口）同 chunk 互补。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G047",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "weak_anchor_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为续表7.2.2 中度/轻度行转写，与引文一致。闭合。",
+    "weak_anchor_needs_review": "续表7.2.2 中度/轻度行逐字在承载 chunk；重度行在主表 chunk（G047[0] 同 chunk 侧），轻度 fact 由本引文全承载。锚定正确。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G048",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为表3.1.8 转写，与引文一致（列重复为 corpus 表投影形态）。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G048",
+   "index": 1,
+   "markers_before": [
+    "pdf_rendering_faithfulness"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为式 4.3.2 B=Do+2(b1+b2+b3)+式中转写，与引文（LaTeX 窗口）对应。闭合。"
+   },
+   "markers_kept": {}
+  },
+  {
+   "case": "G049",
+   "index": 0,
+   "markers_before": [
+    "pdf_rendering_faithfulness",
+    "page_reanchored",
+    "fact_coverage_needs_review"
+   ],
+   "markers_closed": {
+    "pdf_rendering_faithfulness": "rendering 为图4.6.3 图注+区域标注转写；标注数值行由新增证据 G049[1]（chunk_0e3b1e7b，p35,36）承载，图注句与本引文一致。闭合。",
+    "page_reanchored": "页码 34→36：图注元素 e000988 的 source_spans 3 处中 2 处落 p36，承载 chunk 物理页 [34,36] 含 36。闭合。",
+    "fact_coverage_needs_review": "fact2 压实度数值（≥90%/85±2%/管顶以上500mm）由新增证据 G049[1] 的区域标注窗口逐字承载；fact1 图4.6.3 图示句在本引文。闭合。"
+   },
+   "markers_kept": {}
+  }
+ ],
+ "contract_problems": [],
+ "fact_number_gaps": []
+}

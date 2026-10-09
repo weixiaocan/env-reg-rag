@@ -1,0 +1,372 @@
+{
+  "id": "G039",
+  "question": "GB/T 47884—2026中图1的图名是什么？它表示什么逻辑关系？",
+  "labels": {
+    "repr": [
+      "定义"
+    ],
+    "challenge": [
+      "图片",
+      "原文定位"
+    ],
+    "modality": [
+      "图片图注"
+    ]
+  },
+  "expected_facts": [
+    "图1为城镇排水管网数字化通用技术的总体架构逻辑关系图"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 1.0,
+    "latency_ms": 19.745,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 1,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GBT+47884-2026.pdf",
+      "page": 8,
+      "element_ids": [
+        "e000122"
+      ],
+      "quote": "图1 城镇排水管网数字化通用技术的总体架构逻辑关系图",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_b96e9371ecf1a2df2c4617f67a08f321",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 1,
+      "locator_chunk_id": "chunk_b96e9371ecf1a2df2c4617f67a08f321",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_b96e9371ecf1a2df2c4617f67a08f321",
+      "score": 0.5625,
+      "file_name": "GBT+47884-2026.pdf",
+      "physical_pages": [
+        8,
+        9
+      ],
+      "element_ids": [
+        "e000122"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5 总体架构"
+      ],
+      "text": "5 总体架构\n[图1 城镇排水管网数字化通用技术的总体架构逻辑关系图]\n内容(见图1),且其要求如下:",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_81d8787f2f07e1c4d7db4ebe9c6c5666",
+      "score": 0.5,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000124"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 术语和符号",
+        "7.1 General requirements ……………………………………( 19 )"
+      ],
+      "text": "2 术语和符号 > 7.1 General requirements ……………………………………( 19 )\n7. 1\nGeneral requirements ……………………………………( 19 )",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_feab42f0550f87c9d7b92feb3a703dae",
+      "score": 0.333333,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        46,
+        47,
+        48,
+        49,
+        50
+      ],
+      "element_ids": [
+        "e000745",
+        "e000747",
+        "e000748",
+        "e000750",
+        "e000751",
+        "e000752",
+        "e000753",
+        "e000754",
+        "e000755",
+        "e000756",
+        "e000757",
+        "e000758",
+        "e000759",
+        "e000760",
+        "e000761",
+        "e000762",
+        "e000763",
+        "e000764",
+        "e000765",
+        "e000766",
+        "e000767",
+        "e000768",
+        "e000770",
+        "e000771",
+        "e000772",
+        "e000773",
+        "e000774",
+        "e000775",
+        "e000776"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 分流制雨水管道旱天元明显水流；"
+      ],
+      "text": "4 分流制雨水管道旱天元明显水流；\n调查者：\n记录者：\n第页，共页\n同的用词说明如下：\n的规定”或“应按……执行”。\n本规程用词说明\n1) 表示很严格，非这样做不可的：\n正面词采用“必、须”，反面词采用“严禁”；\n2 ）表示严格，在正常情况下均应这样做的：\n正面词采用“应”，反面词采用“不应”或“不得”；\n正面词采用“宜”，反面词采用“不宜”；\n1\n为便于在执行本规程条文时区别对待，对要求严格程度不\n3 ）表示允许稍有选择，在条件许可时首先应这样做的：\n4 ）表示有选择，在一定条件下可以这样做的，采用“可”。\n2\n条文中指明应按其他有关标准执行的写法为：“应符合……\n引用标准名录\n《室外排水设计标准》GB 50014\n《建筑给水排水设计标准》GB 50015\n《给水排水管道工程施工及验收规范》GB 50268\n《城镇排水管道维护安全技术规程》CJJ 6\n《城市地下管线探测技术规程》CJJ 61\n《城镇排水管渠与泵站运行、维护及安全技术规程》CJ] 68\n《城镇排水管道检测与评估技术规程》CJJ 181\n《城镇排水管道非开挖修复更新工程技术规程》CJJ/T 210\n中国工程建设标准化协会标准\n城镇排水管道混接调查及治理\n技术规程\nT/CECS 758-2020\n条文说明\n自次\n1\n总则…………………………………………………（45 )",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_0d8a0e67408c95509be9842a35589465",
+      "score": 0.333333,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000080"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "2 术语和符号",
+        "5.2 混接调查\n………………………………………"
+      ],
+      "text": "2 术语和符号 > 5.2 混接调查\n………………………………………\n5. 2\n混接调查\n………………………………………...",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_3ee7b2b5f6a90235573fc05acdfbdd7d",
+      "score": 0.25,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000081"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 术语和符号",
+        "2.1 术语……………………………………………………（2 )"
+      ],
+      "text": "2 术语和符号 > 2.1 术语……………………………………………………（2 )\n2. 1\n术语……………………………………………………（2 )",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_115fcf42f7e8c60a4d44bf5e93a8aa48",
+      "score": 0.25,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        23,
+        24,
+        25,
+        26
+      ],
+      "element_ids": [
+        "e000600",
+        "e000601",
+        "e000602",
+        "e000603",
+        "e000605",
+        "e000606",
+        "e000608",
+        "e000609",
+        "e000611",
+        "e000612",
+        "e000614",
+        "e000615",
+        "e000616",
+        "e000617",
+        "e000618",
+        "e000619",
+        "e000620",
+        "e000621",
+        "e000622",
+        "e000623",
+        "e000624",
+        "e000626",
+        "e000627",
+        "e000628",
+        "e000629",
+        "e000630",
+        "e000631",
+        "e000632",
+        "e000633",
+        "e000634"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5.3 降雨入流入渗计算",
+        "5.3.6 污管网的降雨流渗评估值应按下式计算："
+      ],
+      "text": "5.3 降雨入流入渗计算 > 5.3.6 污管网的降雨流渗评估值应按下式计算：\n用词说明\n为便于在执行本标准条文时区别对待，对要求严格程度不同\n的用词说明如下：\n表示很严格,非这样做不可的：\n正面词采用“必须”，反面词采用“严禁”;\n表示严格，在正常情况下均应这样做的：\n正面词采用“应”，反面词采用“不应”或“不得”；\n表示允许稍有选择，在条件许可时首先应这样做的：\n正面词采用，反面词采用“不宜”；\n表示有选择，在一定条件下可以这样做的，采用“可”。\n. 15.\n引用标准名录\n本标准引用下列标准。其中，注日期的，仅该日期对应的版\n本适用本标准；不注日期的，其最新版适用于本标准。\n《城市排防涝设施数据采集与维护技术规范》GB/T51187\n《地面象观测规范总则》GB/T35221\n《城镇污水水质标准检验方法》CJ/T51\n《城镇排水管渠与泵站运行、维护及安全技术规程》CJJ68\n《水质采样样品的保存和管理技术规定》HJ493\n《水质采样技术指导》HJ494\n《城镇排管网在线监测技术规程》T/CECS869\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nT/CECS 1764-2024\n条文说明\n制定说明\n本标准制定过程中，编制组进行了污水管道流渗量化方\n法以及相关工程实践的调查研究，总结了国内污水管道流入渗\n监测和评估的实践经验。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_54749183b3a9bb576fb4200cc11bcc19",
+      "score": 0.2,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000113"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 术语和符号",
+        "5.1 General requirements ……………………………………( 11 )"
+      ],
+      "text": "2 术语和符号 > 5.1 一般规定\n………………………………………………( 11 )\n5. 1\nGeneral requirements ……………………………………( 11 )",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_4d9388c8bf461c2d918b985bddb89364",
+      "score": 0.2,
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        25,
+        26,
+        27,
+        28
+      ],
+      "element_ids": [
+        "e000378",
+        "e000379",
+        "e000380",
+        "e000381",
+        "e000382",
+        "e000383",
+        "e000384",
+        "e000385",
+        "e000386",
+        "e000387",
+        "e000388",
+        "e000389",
+        "e000390",
+        "e000391",
+        "e000392",
+        "e000393",
+        "e000394",
+        "e000396",
+        "e000397",
+        "e000399"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7 监控与预警",
+        "7.0.1 城市雨水、污水系统应设置监控系统。在排水管网关键"
+      ],
+      "text": "7 监控与预警 > 7.0.1 城市雨水、污水系统应设置监控系统。在排水管网关键\n7.0.1\n城市雨水、污水系统应设置监控系统。在排水管网关键\n节点宜设置液位、流量和水质的监测设施。\n7.0.2\n城市雨水工程规划和污水工程规划应确定重点监控区域,\n提出监控内容和要求。污水工程专项规划应提出再生水系统、污\n泥系统的监控内容和要求。\n7.0.3\n应根据城市内涝易发点分布及影响范围，对城市易涝点、\n易涝地区和重点防护区域进行监控。\n]7\n本规范用词说明\n1\n为便于在执行本规范条文时区别对待，对要求严格程度\n不同的用词说明如下：\n1）表示很严格，非这样做不可的：\n正面词采用“必须”，反面词采用“严禁”；\n2）表示严格，在正常情况下均应这样做的：\n正面词采用“应”，反面词采用“不应”或“不得”；\n3）表示允许稍有选择，在条件许可时首先应这样做的：\n正面词采用“宜”，反面词采用“不宜”；\n4）表示有选择，在一定条件下可以这样做的，采用\n“可”。\n2\n条文中指明应按其他有关标准执行的写法为：“应符\n合⋯⋯的规定”或“应按⋯⋯执行”。\n引用标准名录\n1 《室外排水设计规范》GB 50014\n2 《城镇污水处理厂污染物排放标准》GB 18918\n3 《污水排入城镇下水道水质标准》GB/T 31962\n中华人民共和国国家标准",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_f0c2ea531439dbddb3c58d5e3c9b33a0",
+      "score": 0.166667,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        116,
+        117
+      ],
+      "element_ids": [
+        "e003005",
+        "e003007",
+        "e003008",
+        "e003009",
+        "e003010",
+        "e003011",
+        "e003012",
+        "e003013",
+        "e003014",
+        "e003015",
+        "e003016",
+        "e003017",
+        "e003018",
+        "e003019",
+        "e003020",
+        "e003021",
+        "e003022",
+        "e003023",
+        "e003024",
+        "e003025",
+        "e003026",
+        "e003027",
+        "e003029"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "0.25 年、0.33年、0.5年、1年、2年、3年、5年、10年统计。资料条"
+      ],
+      "text": "0.25 年、0.33年、0.5年、1年、2年、3年、5年、10年统计。资料条\n同的用词说明如下：\n本标准用词说明\n1为便于在执行本标准条文时区别对待，对要\n1)表示很严格，非这样做不可的：\n2)表示严格，在正常情况下均应这样做的：\n正面词采用“应”，反面词采用“不应”或“不得”；\n正面词采用“宜”反面词采用“不宜”；\n3)表示允许稍有选择，在条件许可时首先应这样做的：\n4)表示有选择，在一定条件下可以这样做的，采用“可”。\n引用标准名录\n《室外给水设计标准》GB50013\n《建筑给水排水设计标准》GB50015\n《室外给水排水和燃气热力工程抗震设\n《工业企业噪声控制设计规范》GB/T\n《城市综合管廊工程技术规范》GB50838\n《大中型沼气工程技术规范》GB/T51063\n浏览专用\n《工业企业厂界环境噪声排放标准》GB12348\n住房城乡\n《城镇污水处理厂\n污泥泥质》GB24188\n管息公开\n. 109",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_f8784d786a2d2a9407208b32af0d3e00",
+      "score": 0.166667,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000086"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 术语和符号",
+        "5.1 一般规定\n………………………………………………( 11 )"
+      ],
+      "text": "2 术语和符号 > 5.1 一般规定\n………………………………………………( 11 )\n5. 1\n一般规定\n………………………………………………( 11 )",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

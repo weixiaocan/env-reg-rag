@@ -1,0 +1,93 @@
+{
+  "case": "G045",
+  "question": "T/CECS 758中图3.0.4的图名是什么？该示意图概括了混接工作的哪些环节取向？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261008-r1-G045",
+  "trace_missing": false,
+  "wall_ms": 4601.006,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.01,
+    "retrieval": 63.86,
+    "generation": 4528.095,
+    "total": 4592.044
+  },
+  "generate_context_evidence_ids": [
+    "chunk_58a6f76eefdbed7de17fd086e051ec30",
+    "chunk_e66b7611d7b128f163a22032c15e3bbf",
+    "chunk_1b7fa7f95cd1f3cb68845501ccd318f8",
+    "chunk_ff200904923996b70d1b360bcf06d1d6",
+    "chunk_8b279f3d6312a676ce72ac6a5430fdc6"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 2599,
+    "output_tokens": 409,
+    "total_tokens": 3008,
+    "estimated_cost": 0.032244,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "T/CECS 758中图3.0.4的图名是什么？该示意图概括了混接工作的哪些环节取向？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_58a6f76eefdbed7de17fd086e051ec30",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          41
+        ],
+        "text": "1 次数据） > 2.0 蓝色（5） \nHJ_CODE \nHJ-YJ \n方向正北\n【条文解释】要结合已经收收集到的区域管线图，编织制作混接点分\n布图，在混接点图上要能够显示出混接点的类型和位置，使用扯旗的\n方式标识出来，方便进行统一的查找。可以借助于测绘工程使用的方\n式，将混接点分布图平均分成若干个区域，并将相应的区域进行编号，\n各个编号范围内的混接点分布图放大打印，方便后续管理单位的准确"
+      },
+      {
+        "evidence_id": "chunk_e66b7611d7b128f163a22032c15e3bbf",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          10,
+          11
+        ],
+        "text": "3 基本规定 > 3.0.3 工作环节：主要包括混接预判、资料收集与现场踏勘、混接区\n3.0.3 工作环节：主要包括混接预判、资料收集与现场踏勘、混接区\n域筛查、混接点位置探查与判定、混接水量与水质测定、编制评估报\n告与改造方案、混接改造、提出长效管理机制体制等。根据混接程度\n的轻、重，可以精简部分环节，但需征得主管部门或委托单位同意。\n【条文解释】本条规定了城镇分流制排水系统雨污混接调查与治理工\n作开展的主要环节和实施步骤，其工作技术路线图如附图1 所示。雨\n污混接调查与治理工作既系统又琐碎，首先应通过水体是否黑臭、旱\n天雨水排口是否有污水排出、污水提升泵站（污水厂）的进水水量是\n否异常增加或进水水质是否异常降低等现象预判区域内是否存在雨\n污混接；如存在雨污混接现象则需要系统性调查、分析区域排水系统\n资料，筛选可能出现的混接点；其次应进行定点探查与混接水量、水\n质的测定，为混接改造工程方案研究、设计及实施提供基础资料；改\n造完成后应进行验收，并提出并建立长效动态管理机制体制，巩固并\n保障雨污混接改造工程效益。工作技术路线如图1 所示。\n在具体实施过程中，可根据混接程度的轻、重情况，采取相应的"
+      },
+      {
+        "evidence_id": "chunk_1b7fa7f95cd1f3cb68845501ccd318f8",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "3 术语和定义 > 3.5 CCTV 检测  CCTV detection \n管道摄像机器人检测法\n3.5\nCCTV 检测 CCTV detection\n管道摄像机器人检测法\nDB4201/T 651-2021\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。\n下列文件中的内容通过文中的规范性引用而构成本文件必不可少的条款。其中，注日期的引用文件，\n仅该日期对应的版本适用于本文件；不注日期的引用文件，其最新版本（包括所有的修改单）适用于本\n文件。"
+      },
+      {
+        "evidence_id": "chunk_ff200904923996b70d1b360bcf06d1d6",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          41
+        ],
+        "text": "1 次数据） > 2.0 蓝色（5） \nHJ_CODE \nHJ-YJ \n方向正北 > 6.4.3 以系统或调查区域为单位的雨污混接点分布总图包含的要素有：\n6.4.3 以系统或调查区域为单位的雨污混接点分布总图包含的要素有：\n系统范围、泵站位置、街道线、街道名称、主干管、管径、流向、交"
+      },
+      {
+        "evidence_id": "chunk_8b279f3d6312a676ce72ac6a5430fdc6",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          40
+        ],
+        "text": "8 效果评估 > 8.0.4 效果评估结果不合格时，建设单位应组织混接调查单位、\n附录F\n雨污混接改造情况表\n表F\n雨污混接改造情况表"
+      }
+    ]
+  },
+  "diagnostic_outcome": "generation_refusal",
+  "cumulative_estimated_cost_cny": 1.821324
+}

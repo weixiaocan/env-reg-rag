@@ -24,7 +24,7 @@ def source_context(pdf, physical_page, bbox, document_id):
                                  'bbox': [float(v) for v in block[:4]],
                                  'verified': False})
         result.append({'physical_page': number, 'relation': 'current' if number == physical_page else 'previous' if number < physical_page else 'next',
-                       'source_url': f'/api/v1/documents/{document_id}/content#page={number}',
+                       'source_url': f'/api/v1/documents/{document_id}/pages/{number}/image',
                        'status': 'unverified_native_text' if excerpts else 'no_native_text_in_window',
                        'verified': False, 'excerpts': excerpts})
     return result

@@ -22,6 +22,42 @@ _MAX_CROP_PIXELS = 12_000_000
 _DPI = 200
 
 
+class DocumentPageImageService:
+    """Render allowlisted PDF pages without exposing the source PDF bytes."""
+
+    def __init__(self, document_catalog: DocumentCatalog, *, dpi: int = 144) -> None:
+        self._catalog = document_catalog
+        self._dpi = dpi
+
+    def page_count(self, document_version_id: str) -> int | None:
+        document = self._catalog.get(document_version_id)
+        if document is None or document.local_path is None:
+            return None
+        try:
+            with pymupdf.open(document.local_path) as pdf:
+                return len(pdf)
+        except Exception:
+            return None
+
+    def image(self, document_version_id: str, physical_page: int) -> bytes | None:
+        if physical_page < 1:
+            return None
+        document = self._catalog.get(document_version_id)
+        if document is None or document.local_path is None:
+            return None
+        try:
+            with pymupdf.open(document.local_path) as pdf:
+                if physical_page > len(pdf):
+                    return None
+                page = pdf[physical_page - 1]
+                scale = self._dpi / 72.0
+                if page.rect.width * scale * page.rect.height * scale > _MAX_CROP_PIXELS:
+                    return None
+                return page.get_pixmap(dpi=self._dpi, alpha=False).tobytes("png")
+        except Exception:
+            return None
+
+
 class RegionImageService:
     """Render a PNG crop of a chunk's source spans on one PDF page."""
 

@@ -1,0 +1,277 @@
+{
+  "run_id": "diagnostic-diag-baseline-20261001",
+  "dataset_sha256": "3b1f1cdc459aadb50bd1b39531bc90f51ecc25a0d969612d41612fa011bd6e89",
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "collection": "corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a",
+  "prefetch_limit": 20,
+  "point_count": 4232,
+  "probe_note": "read-only miss diagnosis: dense/bm25 full-corpus ranks + RRF fusion rank under the run's own prefetch limit",
+  "misses": [
+    {
+      "case": "G001",
+      "evidence_index": 0,
+      "doc_file": "城镇内涝防治技术规范.pdf",
+      "page": 8,
+      "usage_policy": "source_locator_only",
+      "quote_head": "2.1 术 > 2.1.1 内涝\n一定范围内的强降雨或连续性降雨起\n力，导致地面产生积水的现象。",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_54cec865de64022a7dd7d23dc6853894"
+      ],
+      "question": "《城镇内涝防治技术规范》如何定义“内涝”？",
+      "dense_rank": 27,
+      "bm25_rank": 326,
+      "rrf_rank_pf": null,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": false,
+      "carrier_text_head": "2.1 术 > 2.1.1 内涝 一定范围内的强降雨或连续性降雨起 力，导致地面产生积水的现象。"
+    },
+    {
+      "case": "G004",
+      "evidence_index": 0,
+      "doc_file": "“十四五”全国城市基础设施建设规划.pdf",
+      "page": 2,
+      "usage_policy": "source_locator_only",
+      "quote_head": "表1 “十三五”全国城市基础设施建设主要进展\n类别 | 指标名称 | 2015年 | 2020年 | 增长幅度\n道路交通",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_fc68a40b71eb0148da7625918983ca6e"
+      ],
+      "question": "对照“十四五”全国城市基础设施建设规划表1与“十四五”城镇污水处理及资源化利用规划，2020年城市污水处理率是多少？到2025年全国城市生活污水集中收集率力争达到多少？",
+      "dense_rank": 26,
+      "bm25_rank": 9,
+      "rrf_rank_pf": 14,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": true,
+      "carrier_text_head": "表1 “十三五”全国城市基础设施建设主要进展 类别 | 指标名称 | 2015年 | 2020年 | 增长幅度 道路交通 | 人均城市道路面积（平方米） | 1"
+    },
+    {
+      "case": "G018",
+      "evidence_index": 0,
+      "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "page": 4,
+      "usage_policy": "source_locator_only",
+      "quote_head": "1 总则… > 4.3 污水和再生水处理 > 1.0.3 排水工程的规划、建设和运行应遵循以下原则：\n1.0.3排水工程",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_d8c76042b3b4ff2abed658862485ab18"
+      ],
+      "question": "城乡排水工程是否必须执行GB 55027？该规范属于什么类型？",
+      "dense_rank": 43,
+      "bm25_rank": 162,
+      "rrf_rank_pf": null,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": false,
+      "carrier_text_head": "1 总则… > 4.3 污水和再生水处理 > 1.0.3 排水工程的规划、建设和运行应遵循以下原则： 1.0.3排水工程的规划、建设和运行应遵循以下原则： 1统"
+    },
+    {
+      "case": "G018",
+      "evidence_index": 2,
+      "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "page": 1,
+      "usage_policy": "source_locator_only",
+      "quote_head": "关于规范种类。强制性工程建设规范体系覆盖工程建设领域\n各类建设工程项目，分为工程项目类规范（简称项目规范）和通\n用技术类",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_afefe14eda631ad22a16270793f336e3"
+      ],
+      "question": "城乡排水工程是否必须执行GB 55027？该规范属于什么类型？",
+      "dense_rank": 253,
+      "bm25_rank": 30,
+      "rrf_rank_pf": null,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": false,
+      "carrier_text_head": "伞 前言 为适应国际技术法规与技术标准通规则，2016年以来， 住房和城乡建设部陆续印发《深化工程建设标准化工作改革的意 见》等文件，提出政府制定强制性标准、社"
+    },
+    {
+      "case": "G019",
+      "evidence_index": 1,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 28,
+      "usage_policy": "answer_and_citation",
+      "quote_head": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n7",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_3d03c7031aef4fecf30651ecb74086d1"
+      ],
+      "question": "对照《城镇分流制排水系统雨污混接调查》征求意见稿与T/CECS 758：前者表5-1给出生活污水中氨氮浓度的灰水/黑水均值大约是多少？后者规定单个混接点或混接源的混接程度可依据哪些要素评估？",
+      "dense_rank": 386,
+      "bm25_rank": 14,
+      "rrf_rank_pf": 27,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": true,
+      "carrier_text_head": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接 7. 2. 1 单个氓接点或提接源的1昆接"
+    },
+    {
+      "case": "G020",
+      "evidence_index": 0,
+      "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "page": 22,
+      "usage_policy": "source_locator_only",
+      "quote_head": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.1 雨水管网中污水混接筛查，遵循以下方法：\n【条文解释】\n基于节",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_fc1ff0301ebc28300e7e04501dfd7d5a"
+      ],
+      "question": "《城镇分流制排水系统雨污混接调查》征求意见稿中，图5-1的图名是什么？条文解释举例用什么水质指标做筛查？",
+      "dense_rank": 18,
+      "bm25_rank": 12,
+      "rrf_rank_pf": 12,
+      "in_dense_prefetch": true,
+      "in_bm25_prefetch": true,
+      "carrier_text_head": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.1 雨水管网中污水混接筛查，遵循以下方法： 【条文解释】 基于节点水质监测的雨水管网中污水混接区域筛查，"
+    },
+    {
+      "case": "G023",
+      "evidence_index": 0,
+      "doc_file": "GBT 28592-2012降水量等级.pdf",
+      "page": 4,
+      "usage_policy": "source_locator_only",
+      "quote_head": "precipitation\n降水量\n失而在水平面上积聚的深度\n3降水量等级划分的原则\n降水量按24h，12h两个时间段进",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_2ae2464e89cb1dc2a03c888569363179"
+      ],
+      "question": "对照GB/T 28592与T/CMSA 0013：前者降雨量等级按哪两个时段划分？后者把哪些历时划分为六个短时等级？QX/T 489—2019如何规定区域降雨过程等级？",
+      "dense_rank": 24,
+      "bm25_rank": 7,
+      "rrf_rank_pf": 17,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": true,
+      "carrier_text_head": "precipitation 降水量 失而在水平面上积聚的深度 3降水量等级划分的原则 降水量按24h，12h两个时间段进行 4降雨量等级划分 降雨分为微量降雨（"
+    },
+    {
+      "case": "G023",
+      "evidence_index": 2,
+      "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+      "page": 10,
+      "usage_policy": "source_locator_only",
+      "quote_head": "4.2区域降雨过程等级 区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_d342b42872a12f04cd192df8990fbcd6"
+      ],
+      "question": "对照GB/T 28592与T/CMSA 0013：前者降雨量等级按哪两个时段划分？后者把哪些历时划分为六个短时等级？QX/T 489—2019如何规定区域降雨过程等级？",
+      "dense_rank": 20,
+      "bm25_rank": 11,
+      "rrf_rank_pf": 14,
+      "in_dense_prefetch": true,
+      "in_bm25_prefetch": true,
+      "carrier_text_head": "4.2 区域降雨过程等级 区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。 区域可分为省（自治区、直辖市）、跨省（自治区、直辖市）或相当面积的地域范围"
+    },
+    {
+      "case": "G023",
+      "evidence_index": 3,
+      "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "page": 5,
+      "usage_policy": "source_locator_only",
+      "quote_head": "2 术语和定义\n[QX/T 489－2019,定义2.2]",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_34cc8546a2e6b5eb82f8907440d00d5c"
+      ],
+      "question": "对照GB/T 28592与T/CMSA 0013：前者降雨量等级按哪两个时段划分？后者把哪些历时划分为六个短时等级？QX/T 489—2019如何规定区域降雨过程等级？",
+      "dense_rank": 1421,
+      "bm25_rank": 122,
+      "rrf_rank_pf": null,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": false,
+      "carrier_text_head": "2 术语和定义 [QX/T 489－2019,定义2.2]"
+    },
+    {
+      "case": "G026",
+      "evidence_index": 0,
+      "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "page": 3,
+      "usage_policy": "source_locator_only",
+      "quote_head": "要“加快补齐城镇污水收集和处理设施短板，建设城市污水管网全覆盖样板区”。",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_6cc29ee60ccecc1a498e5408942d730b"
+      ],
+      "question": "工作指南前言要求建设什么样的样板区？后文关于绩效考核时，提出建立以什么为核心的绩效评价体系并对管网运维单位按效付费？",
+      "dense_rank": 53,
+      "bm25_rank": 12,
+      "rrf_rank_pf": 19,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": true,
+      "carrier_text_head": "推进城市生活污水管网全覆盖 及厂网一体长效机制建设工作指南 （第一版） 住房城乡建设部城市建设司 2025年1月 前 言 党的二十大报告提出，要建设人与自然和谐"
+    },
+    {
+      "case": "G027",
+      "evidence_index": 0,
+      "doc_file": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+      "page": 16,
+      "usage_policy": "source_locator_only",
+      "quote_head": "5 资产管理工作原则 > 5.1 目标和要求 > 5.1.3 性能要求\n[图 1 性能要求确定流程]\n性能要求的确定流程",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_24a585a64872cecb52c13d82ed2f33fb"
+      ],
+      "question": "供水和污水系统资产管理指南第3部分中，图1的图名是什么？该图用于说明什么流程？",
+      "dense_rank": 113,
+      "bm25_rank": 20,
+      "rrf_rank_pf": 31,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": true,
+      "carrier_text_head": "5 资产管理工作原则 > 5.1 目标和要求 > 5.1.3 性能要求 [图 1 性能要求确定流程] 性能要求的确定流程，如图1 所示。"
+    },
+    {
+      "case": "G030",
+      "evidence_index": 1,
+      "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "page": 12,
+      "usage_policy": "source_locator_only",
+      "quote_head": "图3.0.5城镇污水管网入流入渗检测与评估工作流程图",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_a5ad758689de3ea75c7033090b6cde89"
+      ],
+      "question": "按T/CECS 1764，采用特征因子法计算旱天入流入渗量BI的公式是什么？式中ADF、Cw、C、Cws含义是什么？",
+      "dense_rank": 477,
+      "bm25_rank": 490,
+      "rrf_rank_pf": null,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": false,
+      "carrier_text_head": "5.3 Calculation ofrainfall derived infiltration and inflow … > 3.0.6 城镇污水管网流入渗监测"
+    },
+    {
+      "case": "G040",
+      "evidence_index": 1,
+      "doc_file": "GBT+47884-2026.pdf",
+      "page": 10,
+      "usage_policy": "source_locator_only",
+      "quote_head": "表1 应监测的对象及监测指标要求\n排水管网类型 | 监测对象 | 监测指标\n污水管网 | 高水位运行点、主干管节点、污水",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_bc01011f07cbb323abf7d0ae8c4cf01d"
+      ],
+      "question": "GB/T 47884表1规定的是什么内容？感知数据章节对在线监测点位布设提出了哪些原则？",
+      "dense_rank": 45,
+      "bm25_rank": 6,
+      "rrf_rank_pf": 12,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": true,
+      "carrier_text_head": "7 感知数据 > 7.2 在线监测数据 > 7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节 表1 应监测的对"
+    },
+    {
+      "case": "G047",
+      "evidence_index": 0,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 28,
+      "usage_policy": "answer_and_citation",
+      "quote_head": "181 的有关规定 > 7.2 评估指标与方法\n执行，并应以任一指标取高值的原则进行评估。",
+      "carrier_count": 1,
+      "carrier_chunk_ids": [
+        "chunk_da84b811985d3d7ab1b60c58054f5457"
+      ],
+      "question": "按T/CECS 758表7.2.2及其续表，重度混接（3级）与轻度混接（1级）在接入管管径、出流流量上的分界大致如何？评估时应遵循什么取高原则？",
+      "dense_rank": 254,
+      "bm25_rank": 68,
+      "rrf_rank_pf": null,
+      "in_dense_prefetch": false,
+      "in_bm25_prefetch": false,
+      "carrier_text_head": "181 的有关规定 > 7.2 评估指标与方法 执行，并应以任一指标取高值的原则进行评估。"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+{
+  "classification": "diagnostic",
+  "layer": "given_gold_evidence_generation",
+  "retrieval": "bypassed",
+  "run_id": "diagnostic-goldgen-20261008-r1",
+  "dataset_sha256": "3b1f1cdc459aadb50bd1b39531bc90f51ecc25a0d969612d41612fa011bd6e89",
+  "s2_per_case_sha256": "ec4701942d01efd02eeaa6288d9b4c70a110bf55dbe31ab47d77ffaf7056f69f",
+  "dataset_cases": 50,
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "evidence_source": "S2 supported=true citable binding carriers with exact saved chunk payloads; retrieval rank ignored",
+  "provider": "zhipu",
+  "model": "glm-5.2",
+  "temperature": 0.1,
+  "pricing": {
+    "input_cost_per_million": 8.0,
+    "output_cost_per_million": 28.0,
+    "currency": "CNY",
+    "status": "configured and required by external-run guard"
+  },
+  "external_data_authorized": true,
+  "authorization": {
+    "provider": "zhipu",
+    "model": "glm-5.2",
+    "base_url": "https://open.bigmodel.cn/api/paas/v4/",
+    "send_scope": "gold-evidence:8-cases:questions-and-exact-saved-citable-chunks",
+    "note": "User explicitly approved zhipu GLM-5.2, exact gold-evidence scope, and 2 CNY layer budget within 10 CNY total on 2026-10-08",
+    "budget_cny": 2.0,
+    "per_call_reserve_cny": 0.5
+  },
+  "budget_guard_limit": "per-call reserve is checked before dispatch; actual calculated cost is checked after response, so this is not a provider-side hard spending cap"
+}

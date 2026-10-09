@@ -1,0 +1,489 @@
+{
+  "classification": "diagnostic saved-run audit; deterministic checks plus agent semantic review; NOT formal and NOT human gold",
+  "source_run": "eval/runs/diagnostic-gen-20261007",
+  "dataset_sha256": "3b1f1cdc459aadb50bd1b39531bc90f51ecc25a0d969612d41612fa011bd6e89",
+  "s2_per_case_sha256": "ec4701942d01efd02eeaa6288d9b4c70a110bf55dbe31ab47d77ffaf7056f69f",
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "identity": {
+    "golden_cases": 50,
+    "case_files": 50,
+    "trace_lines": 50,
+    "judgment_lines": 50,
+    "problems": [],
+    "source_case_files_sha256": "9c8cc092ec762636eef3ffbac6b25ccfc0a7de1d51183637eae7c09a523cea75",
+    "semantic_review_meta": "eval/audits/diagnostic_gen_20261007_agent_review.meta.json"
+  },
+  "run_layer": "production retrieval -> generation application service (not retrieval-bypassed generation; not HTTP)",
+  "status_distribution": {
+    "refused": 35,
+    "answered": 15
+  },
+  "citation_binding": {
+    "answered_cases": 15,
+    "problem_case_count": 0,
+    "problems": {}
+  },
+  "product_target_review": {
+    "content_case_denominator": 46,
+    "full_answers": 7,
+    "partial_answers": 6,
+    "incorrect_answers": 2,
+    "no_answer_content_cases": 31,
+    "no_answer_case_ids": [
+      "G001",
+      "G002",
+      "G003",
+      "G004",
+      "G005",
+      "G006",
+      "G007",
+      "G010",
+      "G011",
+      "G016",
+      "G017",
+      "G018",
+      "G020",
+      "G022",
+      "G027",
+      "G029",
+      "G030",
+      "G032",
+      "G033",
+      "G034",
+      "G035",
+      "G036",
+      "G039",
+      "G041",
+      "G042",
+      "G043",
+      "G044",
+      "G045",
+      "G046",
+      "G048",
+      "G049"
+    ],
+    "refusal_case_denominator": 4,
+    "correct_refusals": 4,
+    "correct_refusal_case_ids": [
+      "G008",
+      "G015",
+      "G028",
+      "G050"
+    ],
+    "semantic_review_artifact": "eval/audits/diagnostic_gen_20261007_agent_review.jsonl"
+  },
+  "bad_answer_examples": [
+    {
+      "case": "G014",
+      "verdict": "incorrect",
+      "fact_coverage": [
+        "incorrect"
+      ],
+      "reason": "题目要求到2025年全国目标；输出改成各城市原则上70%以上或较2020年提高5个百分点，主体与条件均改变。"
+    },
+    {
+      "case": "G019",
+      "verdict": "incorrect",
+      "fact_coverage": [
+        "incorrect",
+        "covered"
+      ],
+      "reason": "第一项把金事实6.1/76.8 mg/L答成6.0/27.3 mg/L；第二项三类评估要素回答。"
+    },
+    {
+      "case": "G023",
+      "verdict": "partial",
+      "fact_coverage": [
+        "not_covered",
+        "partial",
+        "not_covered"
+      ],
+      "reason": "只回答T/CMSA的10分钟、30分钟、1小时和六级，遗漏GB/T 28592两个时段、QX/T引用关系及区域过程等级定义。"
+    },
+    {
+      "case": "G025",
+      "verdict": "partial",
+      "fact_coverage": [
+        "not_covered",
+        "covered"
+      ],
+      "reason": "回答了建城〔2024〕18号的2027年73%目标，但未回答指南前言引用了该通知。"
+    },
+    {
+      "case": "G026",
+      "verdict": "partial",
+      "fact_coverage": [
+        "covered",
+        "partial",
+        "covered"
+      ],
+      "reason": "样板区和按效付费已回答；绩效核心仅提污染物收集效能，遗漏水环境质量提升。"
+    },
+    {
+      "case": "G037",
+      "verdict": "partial",
+      "fact_coverage": [
+        "not_covered",
+        "covered",
+        "not_covered"
+      ],
+      "reason": "只回答不超过2 km²的适用条件，遗漏Q/q含义和0.60~0.70径流系数。"
+    },
+    {
+      "case": "G040",
+      "verdict": "partial",
+      "fact_coverage": [
+        "partial",
+        "covered"
+      ],
+      "reason": "点位布设五项原则完整；对表1仅概括为重要排水户和重要节点监测要求，未完整说明监测对象及监测指标要求。"
+    },
+    {
+      "case": "G047",
+      "verdict": "partial",
+      "fact_coverage": [
+        "not_covered",
+        "not_covered",
+        "covered"
+      ],
+      "reason": "回答任一指标取高原则，但遗漏重度和轻度的管径、流量数值分界。"
+    }
+  ],
+  "failure_attribution": {
+    "content_case_denominator": 46,
+    "counts": {
+      "causal_unresolved_due_to_gold_preparation_gap": 42,
+      "success": 4
+    },
+    "cases": [
+      {
+        "case": "G001",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G002",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G003",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G004",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G005",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G006",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G007",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G009",
+        "category": "success",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "完整可达"
+      },
+      {
+        "case": "G010",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G011",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G012",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G013",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G014",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G016",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G017",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G018",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G019",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G020",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G021",
+        "category": "success",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "完整可达"
+      },
+      {
+        "case": "G022",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G023",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G024",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G025",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "部分可达"
+      },
+      {
+        "case": "G026",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G027",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G029",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G030",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G031",
+        "category": "success",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "完整可达"
+      },
+      {
+        "case": "G032",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G033",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G034",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G035",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G036",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G037",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "部分可达"
+      },
+      {
+        "case": "G038",
+        "category": "success",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "完整可达"
+      },
+      {
+        "case": "G039",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G040",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "部分可达"
+      },
+      {
+        "case": "G041",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G042",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G043",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G044",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G045",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G046",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G047",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "answered",
+        "refusal_stage": "n/a",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G048",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      },
+      {
+        "case": "G049",
+        "category": "causal_unresolved_due_to_gold_preparation_gap",
+        "saved_status": "refused",
+        "refusal_stage": "refused_by_generation",
+        "s2_completeness": "不可达"
+      }
+    ],
+    "method": "output quality remains a separate semantic verdict; causal attribution first requires a complete corrected-S2 supported+citable carrier set, then compares each fact carrier with the saved generation context"
+  },
+  "limitations": [
+    "semantic verdicts are an agent review against current expected_facts, not independent human adjudication",
+    "the original numeric-only judgment did not evaluate non-numeric facts or locate-labeled content cases",
+    "provider pricing was not configured, so saved token usage cannot be converted to a verified cost"
+  ]
+}

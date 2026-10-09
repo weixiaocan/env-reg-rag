@@ -69,7 +69,7 @@ class LlmProviderSettings:
                 f"unsupported LLM_PROVIDER {provider!r}; choose one of: {supported}"
             )
         raw_key = values.get(profile.key_variable, "").strip()
-        if not raw_key:
+        if not raw_key or raw_key.lower().startswith("replace-with-"):
             raise LlmConfigurationError(
                 f"{profile.key_variable} is required for provider {provider}"
             )

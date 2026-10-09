@@ -60,7 +60,7 @@ class FormulaPreviewService:
         if not valid_source:
             result['preview_reason'] = 'source_unavailable_or_changed'
             return result
-        result['source_url'] = f'/api/v1/documents/{document_id}/content#page={page}'
+        result['source_url'] = f'/api/v1/documents/{digest}/pages/{page}/image'
         report_path = self.folder / f'{anchor_id}-v1.json'
         try:
             # Never follow a generated report symlink outside its allowlisted directory.

@@ -1,0 +1,4437 @@
+{
+ "generated": "2026-09-30",
+ "dataset_sha256": "3b1f1cdc459aadb50bd1b39531bc90f51ecc25a0d969612d41612fa011bd6e89",
+ "checker": "numbers literal in space-stripped text (superscripts normalised) + non-numeric CJK bigram ratio >= 0.5, over the union of must_hit carriers",
+ "threshold": 0.5,
+ "classification_counts": {
+  "covered": 73,
+  "covered_formula_structure": 2,
+  "refuse_meta": 8,
+  "covered_table_cell": 4,
+  "covered_verbatim_parts": 4,
+  "covered_attribution_binding": 1,
+  "fixed_by_new_evidence": 2,
+  "covered_ocr_variant": 1
+ },
+ "gap_categories": {
+  "missing": [],
+  "pdf_only": [],
+  "rendering_only": []
+ },
+ "verified_renders": [
+  {
+   "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+   "page": 56,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\DBJ_T_13_477_2024_福建省建筑与-p56.png"
+  },
+  {
+   "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "page": 21,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\GB50014_2021_室外排水设计标准_预览-p21.png"
+  },
+  {
+   "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "page": 22,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\GB50014_2021_室外排水设计标准_预览-p22.png"
+  },
+  {
+   "doc": "GBT 28592-2012降水量等级.pdf",
+   "page": 4,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\GBT_28592_2012降水量等级-p04.png"
+  },
+  {
+   "doc": "QXT 489－2019 降雨过程等级.pdf",
+   "page": 10,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\QXT_489_2019_降雨过程等级-p10.png"
+  },
+  {
+   "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "page": 23,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\T_CECS_758_2020城镇排水管道混接调-p23.png"
+  },
+  {
+   "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "page": 24,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\T_CECS_758_2020城镇排水管道混接调-p24.png"
+  },
+  {
+   "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "page": 28,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\T_CECS_758_2020城镇排水管道混接调-p28.png"
+  },
+  {
+   "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "page": 29,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\T_CECS_758_2020城镇排水管道混接调-p29.png"
+  },
+  {
+   "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "page": 24,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\城镇分流制排水系统雨污混接调查_征求意见稿-p24.png"
+  },
+  {
+   "doc": "武汉市排水管道混错接改造技术规程.pdf",
+   "page": 1,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\武汉市排水管道混错接改造技术规程-p01.png"
+  },
+  {
+   "doc": "武汉市排水管道混错接改造技术规程.pdf",
+   "page": 3,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\武汉市排水管道混错接改造技术规程-p03.png"
+  },
+  {
+   "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+   "page": 5,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\短时气象服务降雨量等级TCMSA_2019-p05.png"
+  },
+  {
+   "doc": "降雨过程强度等级标准.pdf",
+   "page": 6,
+   "render": "eval\\audits\\fact_reconciliation\\renders\\降雨过程强度等级标准-p06.png"
+  }
+ ],
+ "edits": [],
+ "facts": [
+  {
+   "case": "G001",
+   "fact_index": 0,
+   "fact": "内涝指一定范围内强降雨或连续性降雨超出雨水设施消纳能力，导致地面产生积水的现象",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_54cec865de64022a7dd7d23dc6853894",
+     "pdf_page": 8,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6389
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6389,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_54cec865de64022a7dd7d23dc6853894",
+     "pdf_page": 8,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G002",
+   "fact_index": 0,
+   "fact": "适用条件：地面汇水距离不大于90m",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5385
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "90"
+     ],
+     "text_cov": 0.2308
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6923
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6923,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+     "pdf_page": 14,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+     "pdf_page": 14,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+     "pdf_page": 14,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G002",
+   "fact_index": 1,
+   "fact": "ta=10.41(n0·L)^0.6/(q^0.4 S^0.3)",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "0.3"
+     ],
+     "text_cov": 1.0
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "0.3",
+      "0.4",
+      "0.6",
+      "10.41"
+     ],
+     "text_cov": 1.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+     "pdf_page": 14,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+     "pdf_page": 14,
+     "supported": true
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+     "pdf_page": 14,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G002",
+   "fact_index": 2,
+   "fact": "n0为粗糙系数，L为地面集水距离，q为设计暴雨强度",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4444
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4444
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+     "pdf_page": 14,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4444
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.7222,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_71d2590665a3a147f63842411cb7ddd7",
+     "pdf_page": 14,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_c3377c044d40e9bfc4a6a13c0778647d",
+     "pdf_page": 14,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城镇内涝防治技术规范.pdf",
+     "chunk_id": "chunk_5b0653c2107f2dac562cb4929f32ae6c",
+     "pdf_page": 14,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G003",
+   "fact_index": 0,
+   "fact": "表中2020年城市污水处理率为97.5%",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+     "pdf_page": 2,
+     "doc": "“十四五”全国城市基础设施建设规划.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "“十四五”全国城市基础设施建设规划.pdf",
+     "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+     "pdf_page": 2,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G004",
+   "fact_index": 0,
+   "fact": "2020年城市污水处理率为97.5%",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+     "pdf_page": 2,
+     "doc": "“十四五”全国城市基础设施建设规划.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.75
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "2020",
+      "97.5"
+     ],
+     "text_cov": 0.875
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.875,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "“十四五”全国城市基础设施建设规划.pdf",
+     "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+     "pdf_page": 2,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G004",
+   "fact_index": 1,
+   "fact": "2025年全国城市生活污水集中收集率力争达到70%以上",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+     "pdf_page": 2,
+     "doc": "“十四五”全国城市基础设施建设规划.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "2025",
+      "70"
+     ],
+     "text_cov": 0.3684
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.9474
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.9474,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "“十四五”全国城市基础设施建设规划.pdf",
+     "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+     "pdf_page": 2,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G004",
+   "fact_index": 2,
+   "fact": "两指标名称与年份不同：“十三五”指标为城市污水处理率（2020年97.5%），“十四五”目标为全国城市生活污水集中收集率（2025年力争达到70%以上）",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+     "pdf_page": 2,
+     "doc": "“十四五”全国城市基础设施建设规划.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "2025",
+      "70"
+     ],
+     "text_cov": 0.3636
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "2020",
+      "97.5"
+     ],
+     "text_cov": 0.5
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6136,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "“十四五”全国城市基础设施建设规划.pdf",
+     "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+     "pdf_page": 2,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G005",
+   "fact_index": 0,
+   "fact": "划分为特强、强、较强、中等和弱五个等级",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_7579e97cdb41c250254cd5c16093ee53",
+     "pdf_page": 5,
+     "doc": "降雨过程强度等级标准.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "降雨过程强度等级标准.pdf",
+     "chunk_id": "chunk_7579e97cdb41c250254cd5c16093ee53",
+     "pdf_page": 5,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G006",
+   "fact_index": 0,
+   "fact": "R由最大日雨量项与过程平均日雨量项加权后对测站平均得到",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_8217c10967608ac0a8132e4b7e595610",
+     "pdf_page": 6,
+     "doc": "降雨过程强度等级标准.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.2381
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.2381,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "降雨过程强度等级标准.pdf",
+     "chunk_id": "chunk_8217c10967608ac0a8132e4b7e595610",
+     "pdf_page": 6,
+     "supported": false
+    }
+   ],
+   "classification": "covered_formula_structure",
+   "human_ruling": "pending",
+   "note": "公式结构事实：LaTeX 公式逐字在承载 chunk——R=(w·Σ(r_max)_i+(1-w)·Σ(Σr_d/T0)_i)/n，即最大日雨量项（w 加权）与过程平均日雨量项（Σr_d/T0）加权后对 n 个测站平均；改写措辞的 bigram 度量无法核对数学结构。"
+  },
+  {
+   "case": "G006",
+   "fact_index": 1,
+   "fact": "式中含权重w、过程最大日雨量r_max、过程累计日雨量与历时T0",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_8217c10967608ac0a8132e4b7e595610",
+     "pdf_page": 6,
+     "doc": "降雨过程强度等级标准.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.3158
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.3158,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "降雨过程强度等级标准.pdf",
+     "chunk_id": "chunk_8217c10967608ac0a8132e4b7e595610",
+     "pdf_page": 6,
+     "supported": false
+    }
+   ],
+   "classification": "covered_formula_structure",
+   "human_ruling": "pending",
+   "note": "式中定义逐字在承载 chunk：权重 w（区域取0.5）、rmax（日最大雨量值）、rd（日雨量值）、T0（降雨过程持续时间）——『过程累计日雨量』为 Σr_d 的结构表述。"
+  },
+  {
+   "case": "G007",
+   "fact_index": 0,
+   "fact": "包括地块项目评价、市政道路项目评价、排水分区项目评价",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_475fc9e9a4fe9985887ef32e9b4e0c8b",
+     "pdf_page": 4,
+     "doc": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8824
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8824,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+     "chunk_id": "chunk_475fc9e9a4fe9985887ef32e9b4e0c8b",
+     "pdf_page": 4,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G008",
+   "fact_index": 0,
+   "fact": "应拒答：当前语料未覆盖美国EPA IDDE手册及罚款上限",
+   "answerability": "refuse",
+   "per_evidence": [],
+   "union_supported": null,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.0,
+   "bindings": [],
+   "classification": "refuse_meta",
+   "human_ruling": "n/a",
+   "note": "拒答题 meta-fact（应拒答/不应编造/不得套用），非语料内容事实，不入内容证据对账分母。"
+  },
+  {
+   "case": "G008",
+   "fact_index": 1,
+   "fact": "不应编造美元罚款数额",
+   "answerability": "refuse",
+   "per_evidence": [],
+   "union_supported": null,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.0,
+   "bindings": [],
+   "classification": "refuse_meta",
+   "human_ruling": "n/a",
+   "note": "拒答题 meta-fact（应拒答/不应编造/不得套用），非语料内容事实，不入内容证据对账分母。"
+  },
+  {
+   "case": "G009",
+   "fact_index": 0,
+   "fact": "图名为雨水立管断接示意图（一）",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+     "pdf_page": 63,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.75
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.75,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "chunk_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+     "pdf_page": 63,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G009",
+   "fact_index": 1,
+   "fact": "图注含雨水立管、建筑外墙、室外地面、支墩、卵石缓冲、海绵设施",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+     "pdf_page": 63,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.875
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.875,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "chunk_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+     "pdf_page": 63,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G010",
+   "fact_index": 0,
+   "fact": "包括总则、术语、基本规定、前期调查、设计、施工与验收、运维管理、效果评估等",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_805e77588dd246812276da66b9ad2045",
+     "pdf_page": 3,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8966
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8966,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "chunk_id": "chunk_805e77588dd246812276da66b9ad2045",
+     "pdf_page": 3,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G011",
+   "fact_index": 0,
+   "fact": "灰水氨氮均值约为6.1 mg/L",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_8914904bf4f39288652d79f16488ef73",
+     "pdf_page": 56,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.375
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.375,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "chunk_id": "chunk_8914904bf4f39288652d79f16488ef73",
+     "pdf_page": 56,
+     "supported": false
+    }
+   ],
+   "classification": "covered_table_cell",
+   "human_ruling": "pending",
+   "note": "表格单元格事实：6.1 逐字在承载 chunk 氨氮行×灰水列×均值列（『氨氮（mg/L） | 3.6~9.6 | 6.1 |…』），行/列表头逐字在场；关联为表格位置性，bigram 度量跨单元格不连接。"
+  },
+  {
+   "case": "G011",
+   "fact_index": 1,
+   "fact": "黑水氨氮范围约46.8~109.3 mg/L（表内均值更高）",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_8914904bf4f39288652d79f16488ef73",
+     "pdf_page": 56,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.3333
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.3333,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+     "chunk_id": "chunk_8914904bf4f39288652d79f16488ef73",
+     "pdf_page": 56,
+     "supported": false
+    }
+   ],
+   "classification": "covered_table_cell",
+   "human_ruling": "pending",
+   "note": "表格单元格事实：46.8~109.3 与均值 76.8 逐字在承载 chunk 黑水行（『黑水…46.8~109.3 | 76.8』），表头逐字在场。"
+  },
+  {
+   "case": "G012",
+   "fact_index": 0,
+   "fact": "标准号为DB 4201/T 651—2021",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_9092f9e17b6a8b045b3e51fe69ff9d93",
+     "pdf_page": 1,
+     "doc": "武汉市排水管道混错接改造技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.25
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.25,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "武汉市排水管道混错接改造技术规程.pdf",
+     "chunk_id": "chunk_9092f9e17b6a8b045b3e51fe69ff9d93",
+     "pdf_page": 1,
+     "supported": false
+    }
+   ],
+   "classification": "covered_verbatim_parts",
+   "human_ruling": "pending",
+   "note": "标准号『DB 4201/T 651—2021』逐字在封面承载 chunk（2021-11-12 发布 / 2021-12-13 实施）；残余 bigram（标准号为）为设问填充词。"
+  },
+  {
+   "case": "G013",
+   "fact_index": 0,
+   "fact": "规程包含混错接点判定、混错接流量测定等调查评估步骤",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_6b646fcaf9e4e7bbfd05c1b35ca6e25d",
+     "pdf_page": 3,
+     "doc": "武汉市排水管道混错接改造技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4762
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.4762,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "武汉市排水管道混错接改造技术规程.pdf",
+     "chunk_id": "chunk_6b646fcaf9e4e7bbfd05c1b35ca6e25d",
+     "pdf_page": 3,
+     "supported": false
+    }
+   ],
+   "classification": "covered_verbatim_parts",
+   "human_ruling": "pending",
+   "note": "步骤名『混错接点判定』『混错接流量测定』逐字在目次承载 chunk（5.4/5.5 节名）；残余（包含/调查评估步骤）为设问措辞。"
+  },
+  {
+   "case": "G014",
+   "fact_index": 0,
+   "fact": "到2025年全国城市生活污水集中收集率力争达到70%以上",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.95
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.95,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G015",
+   "fact_index": 0,
+   "fact": "应拒绝给出2035年的具体百分比：证据只对2035年作定性目标表述",
+   "answerability": "refuse",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.087
+    }
+   ],
+   "union_supported": null,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.087,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "supported": false
+    }
+   ],
+   "classification": "refuse_meta",
+   "human_ruling": "n/a",
+   "note": "拒答题 meta-fact（应拒答/不应编造/不得套用），非语料内容事实，不入内容证据对账分母。"
+  },
+  {
+   "case": "G015",
+   "fact_index": 1,
+   "fact": "95%以上和25%以上是2025年目标，不得套用为2035年目标",
+   "answerability": "refuse",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.1538
+    }
+   ],
+   "union_supported": null,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.1538,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "“十四五”城镇污水处理及资源化利用.pdf",
+     "chunk_id": "chunk_a914f8a27177388004f9fdaddcb39699",
+     "pdf_page": 6,
+     "supported": false
+    }
+   ],
+   "classification": "refuse_meta",
+   "human_ruling": "n/a",
+   "note": "拒答题 meta-fact（应拒答/不应编造/不得套用），非语料内容事实，不入内容证据对账分母。"
+  },
+  {
+   "case": "G016",
+   "fact_index": 0,
+   "fact": "超大城市内涝防治设计重现期均为100年",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_c61c2ee442f79c158beacd26afe77b83",
+     "pdf_page": 13,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6667
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_55155c55f3a02aa9c34fd368bd5ef86a",
+     "pdf_page": 20,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.7333
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.7333,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_c61c2ee442f79c158beacd26afe77b83",
+     "pdf_page": 13,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_55155c55f3a02aa9c34fd368bd5ef86a",
+     "pdf_page": 20,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G016",
+   "fact_index": 1,
+   "fact": "中等城市和小城市均为20~30年",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_c61c2ee442f79c158beacd26afe77b83",
+     "pdf_page": 13,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6667
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_55155c55f3a02aa9c34fd368bd5ef86a",
+     "pdf_page": 20,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6667
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6667,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_c61c2ee442f79c158beacd26afe77b83",
+     "pdf_page": 13,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_55155c55f3a02aa9c34fd368bd5ef86a",
+     "pdf_page": 20,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G016",
+   "fact_index": 2,
+   "fact": "均要求道路中一条车道积水深度不超过15cm",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_c61c2ee442f79c158beacd26afe77b83",
+     "pdf_page": 13,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.7059
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_55155c55f3a02aa9c34fd368bd5ef86a",
+     "pdf_page": 20,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.7647
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.7647,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_c61c2ee442f79c158beacd26afe77b83",
+     "pdf_page": 13,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_55155c55f3a02aa9c34fd368bd5ef86a",
+     "pdf_page": 20,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G017",
+   "fact_index": 0,
+   "fact": "超大/特大城市中心城区重要地区：3~5年",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_51af668fa6fd66966e27cd290ba86f44",
+     "pdf_page": 11,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.7857
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.7857,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_51af668fa6fd66966e27cd290ba86f44",
+     "pdf_page": 11,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G017",
+   "fact_index": 1,
+   "fact": "超大/特大城市中心城区地下通道和下沉式广场等：30~50年",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_51af668fa6fd66966e27cd290ba86f44",
+     "pdf_page": 11,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.9048
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.9048,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_51af668fa6fd66966e27cd290ba86f44",
+     "pdf_page": 11,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G018",
+   "fact_index": 0,
+   "fact": "城乡排水工程必须执行本规范",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_d8c76042b3b4ff2abed658862485ab18",
+     "pdf_page": 4,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.3333
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_b3cc1d4a08c52bc1d1f5f477cb796a48",
+     "pdf_page": 4,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_afefe14eda631ad22a16270793f336e3",
+     "pdf_page": 1,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.3333
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_d8c76042b3b4ff2abed658862485ab18",
+     "pdf_page": 4,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_b3cc1d4a08c52bc1d1f5f477cb796a48",
+     "pdf_page": 4,
+     "supported": true
+    },
+    {
+     "evidence_index": 2,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_afefe14eda631ad22a16270793f336e3",
+     "pdf_page": 1,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G018",
+   "fact_index": 1,
+   "fact": "属于全文强制性工程建设规范体系中的项目规范",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_d8c76042b3b4ff2abed658862485ab18",
+     "pdf_page": 4,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.1053
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_b3cc1d4a08c52bc1d1f5f477cb796a48",
+     "pdf_page": 4,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.1579
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_afefe14eda631ad22a16270793f336e3",
+     "pdf_page": 1,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8421
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8421,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_d8c76042b3b4ff2abed658862485ab18",
+     "pdf_page": 4,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_b3cc1d4a08c52bc1d1f5f477cb796a48",
+     "pdf_page": 4,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+     "chunk_id": "chunk_afefe14eda631ad22a16270793f336e3",
+     "pdf_page": 1,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G019",
+   "fact_index": 0,
+   "fact": "征求意见稿表5-1：灰水氨氮均值约6.1 mg/L，黑水氨氮均值约76.8 mg/L",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_4e9cafd610a7ac92f0251c0c7fa7d1ab",
+     "pdf_page": 24,
+     "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.2857
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_3d03c7031aef4fecf30651ecb74086d1",
+     "pdf_page": 28,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "5",
+      "6.1",
+      "76.8"
+     ],
+     "text_cov": 0.0
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.2857,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+     "chunk_id": "chunk_4e9cafd610a7ac92f0251c0c7fa7d1ab",
+     "pdf_page": 24,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_3d03c7031aef4fecf30651ecb74086d1",
+     "pdf_page": 28,
+     "supported": false
+    }
+   ],
+   "classification": "covered_table_cell",
+   "human_ruling": "pending",
+   "note": "表格单元格事实：灰水 6.1、黑水 76.8 逐字在承载 chunk 表5-1（『灰水 | 3.6~9.6 | 6.1…黑水 | 46.8~109 | 76.8』），表头（水量来源/范围/均值）逐字在场。"
+  },
+  {
+   "case": "G019",
+   "fact_index": 1,
+   "fact": "T/CECS 758：按接入管管径、混接水量、混接水质评估混接程度",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_4e9cafd610a7ac92f0251c0c7fa7d1ab",
+     "pdf_page": 24,
+     "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "758"
+     ],
+     "text_cov": 0.1875
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_3d03c7031aef4fecf30651ecb74086d1",
+     "pdf_page": 28,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "758"
+     ],
+     "text_cov": 0.75
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [
+    "758"
+   ],
+   "union_text_cov": 0.75,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+     "chunk_id": "chunk_4e9cafd610a7ac92f0251c0c7fa7d1ab",
+     "pdf_page": 24,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_3d03c7031aef4fecf30651ecb74086d1",
+     "pdf_page": 28,
+     "supported": false
+    }
+   ],
+   "classification": "covered_attribution_binding",
+   "human_ruling": "pending",
+   "note": "内容句 t≈0.9（接接入管管径/混接水量/混接水质/评估，混接为 OCR『1昆』mojibake）；标准号 758 为文档归属——逐字在封面 chunk（p1『T / CECS 7 58-2020』），由证据文档绑定佐证，非该 chunk 正文。"
+  },
+  {
+   "case": "G020",
+   "fact_index": 0,
+   "fact": "图名为雨水管网中污水混接筛查技术路线",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_fc1ff0301ebc28300e7e04501dfd7d5a",
+     "pdf_page": 22,
+     "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5882
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.5882,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+     "chunk_id": "chunk_fc1ff0301ebc28300e7e04501dfd7d5a",
+     "pdf_page": 22,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G020",
+   "fact_index": 1,
+   "fact": "条文解释举例以氨氮为节点水质监测指标",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_fc1ff0301ebc28300e7e04501dfd7d5a",
+     "pdf_page": 22,
+     "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6471
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6471,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+     "chunk_id": "chunk_fc1ff0301ebc28300e7e04501dfd7d5a",
+     "pdf_page": 22,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G021",
+   "fact_index": 0,
+   "fact": "到2027年城市生活污水集中收集率达到73%以上",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_d193ec2911a7df6b9331d378d35d7e30",
+     "pdf_page": 1,
+     "doc": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.875
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.875,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+     "chunk_id": "chunk_d193ec2911a7df6b9331d378d35d7e30",
+     "pdf_page": 1,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G022",
+   "fact_index": 0,
+   "fact": "单站日降雨量等级以该站日降雨量为划分依据，见表1",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+     "pdf_page": 9,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4706
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+     "pdf_page": 9,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+     "pdf_page": 9,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+     "pdf_page": 9,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G022",
+   "fact_index": 1,
+   "fact": "暴雨日降雨量50.0~99.9 mm",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+     "pdf_page": 9,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8333
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+     "pdf_page": 9,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "50.0",
+      "99.9"
+     ],
+     "text_cov": 0.5
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8333,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+     "pdf_page": 9,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+     "pdf_page": 9,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G022",
+   "fact_index": 2,
+   "fact": "大暴雨日降雨量100.0~249.9 mm",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+     "pdf_page": 9,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8571
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+     "pdf_page": 9,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "100.0",
+      "249.9"
+     ],
+     "text_cov": 0.4286
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8571,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+     "pdf_page": 9,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+     "pdf_page": 9,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G023",
+   "fact_index": 0,
+   "fact": "GB/T 28592按12h与24h划分",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6667
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "12",
+      "24",
+      "28592"
+     ],
+     "text_cov": 0.3333
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+     "pdf_page": 10,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "12",
+      "24",
+      "28592"
+     ],
+     "text_cov": 0.3333
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_34cc8546a2e6b5eb82f8907440d00d5c",
+     "pdf_page": 5,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "12",
+      "24",
+      "28592"
+     ],
+     "text_cov": 0.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6667,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+     "pdf_page": 10,
+     "supported": false
+    },
+    {
+     "evidence_index": 3,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_34cc8546a2e6b5eb82f8907440d00d5c",
+     "pdf_page": 5,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G023",
+   "fact_index": 1,
+   "fact": "T/CMSA按10分钟、30分钟、1小时划分六个短时等级，并引用QX/T 489－2019定义",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "10",
+      "2019",
+      "30",
+      "489"
+     ],
+     "text_cov": 0.1111
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "489"
+     ],
+     "text_cov": 0.3889
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+     "pdf_page": 10,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "1",
+      "10",
+      "2019",
+      "30",
+      "489"
+     ],
+     "text_cov": 0.1111
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_34cc8546a2e6b5eb82f8907440d00d5c",
+     "pdf_page": 5,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "10",
+      "30"
+     ],
+     "text_cov": 0.0556
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.4444,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+     "pdf_page": 10,
+     "supported": false
+    },
+    {
+     "evidence_index": 3,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_34cc8546a2e6b5eb82f8907440d00d5c",
+     "pdf_page": 5,
+     "supported": false
+    }
+   ],
+   "classification": "fixed_by_new_evidence",
+   "human_ruling": "pending",
+   "note": "本轮补证据修复：新增术语定义 chunk（p5，『[QX/T 489－2019,定义2.2]』逐字）"
+  },
+  {
+   "case": "G023",
+   "fact_index": 2,
+   "fact": "QX/T 489—2019规定区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "2019",
+      "489"
+     ],
+     "text_cov": 0.0909
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "489"
+     ],
+     "text_cov": 0.1818
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+     "pdf_page": 10,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "2019",
+      "489"
+     ],
+     "text_cov": 0.9545
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_34cc8546a2e6b5eb82f8907440d00d5c",
+     "pdf_page": 5,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "QXT 489－2019 降雨过程等级.pdf",
+     "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+     "pdf_page": 10,
+     "supported": false
+    },
+    {
+     "evidence_index": 3,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_34cc8546a2e6b5eb82f8907440d00d5c",
+     "pdf_page": 5,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G024",
+   "fact_index": 0,
+   "fact": "提出建设城市污水管网全覆盖样板区",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.9333
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.9333,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G025",
+   "fact_index": 0,
+   "fact": "指南引用建城〔2024〕18号通知",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_d193ec2911a7df6b9331d378d35d7e30",
+     "pdf_page": 1,
+     "doc": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.375
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.5,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+     "chunk_id": "chunk_d193ec2911a7df6b9331d378d35d7e30",
+     "pdf_page": 1,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G025",
+   "fact_index": 1,
+   "fact": "到2027年城市生活污水集中收集率达到73%以上",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "2027",
+      "73"
+     ],
+     "text_cov": 0.375
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_d193ec2911a7df6b9331d378d35d7e30",
+     "pdf_page": 1,
+     "doc": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.875
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.875,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+     "chunk_id": "chunk_d193ec2911a7df6b9331d378d35d7e30",
+     "pdf_page": 1,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G026",
+   "fact_index": 0,
+   "fact": "建设城市污水管网全覆盖样板区",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_8e6befa3c05683c622f857b8a50f5048",
+     "pdf_page": 90,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.3846
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_8e6befa3c05683c622f857b8a50f5048",
+     "pdf_page": 90,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G026",
+   "fact_index": 1,
+   "fact": "以污染物集中收集效能和水环境质量提升为核心的绩效评价体系",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.2593
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_8e6befa3c05683c622f857b8a50f5048",
+     "pdf_page": 90,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_8e6befa3c05683c622f857b8a50f5048",
+     "pdf_page": 90,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G026",
+   "fact_index": 2,
+   "fact": "对管网运维单位绩效考核、按效付费",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.1429
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_8e6befa3c05683c622f857b8a50f5048",
+     "pdf_page": 90,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8571
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8571,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+     "pdf_page": 3,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+     "chunk_id": "chunk_8e6befa3c05683c622f857b8a50f5048",
+     "pdf_page": 90,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G027",
+   "fact_index": 0,
+   "fact": "图1图名为性能要求确定流程",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_24a585a64872cecb52c13d82ed2f33fb",
+     "pdf_page": 16,
+     "doc": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6364
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6364,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+     "chunk_id": "chunk_24a585a64872cecb52c13d82ed2f33fb",
+     "pdf_page": 16,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G027",
+   "fact_index": 1,
+   "fact": "用于说明性能要求的确定流程",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_24a585a64872cecb52c13d82ed2f33fb",
+     "pdf_page": 16,
+     "doc": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6667
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6667,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+     "chunk_id": "chunk_24a585a64872cecb52c13d82ed2f33fb",
+     "pdf_page": 16,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G028",
+   "fact_index": 0,
+   "fact": "应拒答或说明未覆盖：语料指南未给出该15%强制指标",
+   "answerability": "refuse",
+   "per_evidence": [],
+   "union_supported": null,
+   "union_missing_numbers": [
+    "15"
+   ],
+   "union_text_cov": 0.0,
+   "bindings": [],
+   "classification": "refuse_meta",
+   "human_ruling": "n/a",
+   "note": "拒答题 meta-fact（应拒答/不应编造/不得套用），非语料内容事实，不入内容证据对账分母。"
+  },
+  {
+   "case": "G028",
+   "fact_index": 1,
+   "fact": "该问题疑似库外或错误断言",
+   "answerability": "refuse",
+   "per_evidence": [],
+   "union_supported": null,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.0,
+   "bindings": [],
+   "classification": "refuse_meta",
+   "human_ruling": "n/a",
+   "note": "拒答题 meta-fact（应拒答/不应编造/不得套用），非语料内容事实，不入内容证据对账分母。"
+  },
+  {
+   "case": "G029",
+   "fact_index": 0,
+   "fact": "规范城镇污水管网入流入渗的监测与评估",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_43d194e2c4effe69705dbc0f891ff69d",
+     "pdf_page": 1,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.7647
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.7647,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_43d194e2c4effe69705dbc0f891ff69d",
+     "pdf_page": 1,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G030",
+   "fact_index": 0,
+   "fact": "BI=ADF×(Cw-C)/(Cw-Cws)",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_2e5f4720307959ba2c805c108a28eb05",
+     "pdf_page": 18,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_a5ad758689de3ea75c7033090b6cde89",
+     "pdf_page": 12,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_7e8d23da399b9e29f8f02bb0e22249aa",
+     "pdf_page": 18,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_2e5f4720307959ba2c805c108a28eb05",
+     "pdf_page": 18,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_a5ad758689de3ea75c7033090b6cde89",
+     "pdf_page": 12,
+     "supported": true
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_7e8d23da399b9e29f8f02bb0e22249aa",
+     "pdf_page": 18,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G030",
+   "fact_index": 1,
+   "fact": "ADF为旱天日均流量监测值",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_2e5f4720307959ba2c805c108a28eb05",
+     "pdf_page": 18,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.1111
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_a5ad758689de3ea75c7033090b6cde89",
+     "pdf_page": 12,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.1111
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_7e8d23da399b9e29f8f02bb0e22249aa",
+     "pdf_page": 18,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8889
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8889,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_2e5f4720307959ba2c805c108a28eb05",
+     "pdf_page": 18,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_a5ad758689de3ea75c7033090b6cde89",
+     "pdf_page": 12,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_7e8d23da399b9e29f8f02bb0e22249aa",
+     "pdf_page": 18,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G030",
+   "fact_index": 2,
+   "fact": "工作流程见图3.0.5",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_2e5f4720307959ba2c805c108a28eb05",
+     "pdf_page": 18,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": false,
+     "missing_numbers": [
+      "3.0"
+     ],
+     "text_cov": 0.0
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_a5ad758689de3ea75c7033090b6cde89",
+     "pdf_page": 12,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_7e8d23da399b9e29f8f02bb0e22249aa",
+     "pdf_page": 18,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "supported": false,
+     "missing_numbers": [
+      "3.0"
+     ],
+     "text_cov": 0.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_2e5f4720307959ba2c805c108a28eb05",
+     "pdf_page": 18,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_a5ad758689de3ea75c7033090b6cde89",
+     "pdf_page": 12,
+     "supported": true
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+     "chunk_id": "chunk_7e8d23da399b9e29f8f02bb0e22249aa",
+     "pdf_page": 18,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G031",
+   "fact_index": 0,
+   "fact": "对10分钟、30分钟、1小时降雨量划分短时小雨至短时特大暴雨共6个等级",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.7917
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.7917,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G032",
+   "fact_index": 0,
+   "fact": "1小时8.0～19.9 mm为短时暴雨",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "19.9",
+      "8.0"
+     ],
+     "text_cov": 0.8333
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_0babc8863b58ca8b3b77b52fae8a82b0",
+     "pdf_page": 6,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6667
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8333,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+     "pdf_page": 5,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "短时气象服务降雨量等级TCMSA-2019.pdf",
+     "chunk_id": "chunk_0babc8863b58ca8b3b77b52fae8a82b0",
+     "pdf_page": 6,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G033",
+   "fact_index": 0,
+   "fact": "交通枢纽最大允许退水时间应为0.5h",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_f2b52a6f65e1f5b691eee2d7de41768c",
+     "pdf_page": 21,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.9286
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.9286,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_f2b52a6f65e1f5b691eee2d7de41768c",
+     "pdf_page": 21,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G034",
+   "fact_index": 0,
+   "fact": "径流系数约为0.85~0.95",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_ebd2c621fe0db61608480e90f388e0e9",
+     "pdf_page": 22,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_ebd2c621fe0db61608480e90f388e0e9",
+     "pdf_page": 22,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G035",
+   "fact_index": 0,
+   "fact": "推理公式表述为Qs=qΨ（F为汇水面积，见式中说明）",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_d2ba14bf7c5b77dcaa3ca773530d4f7e",
+     "pdf_page": 21,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4375
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_ebd2c621fe0db61608480e90f388e0e9",
+     "pdf_page": 22,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.0
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.4375,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_d2ba14bf7c5b77dcaa3ca773530d4f7e",
+     "pdf_page": 21,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_ebd2c621fe0db61608480e90f388e0e9",
+     "pdf_page": 22,
+     "supported": false
+    }
+   ],
+   "classification": "covered_verbatim_parts",
+   "human_ruling": "pending",
+   "note": "『Qs = qΨ』与『汇水面积（hm2）』逐字在承载 chunk 式中结构；残余（表述为/见式中说明）为设问措辞。"
+  },
+  {
+   "case": "G035",
+   "fact_index": 1,
+   "fact": "各种屋面、混凝土或沥青路面径流系数0.85~0.95",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_d2ba14bf7c5b77dcaa3ca773530d4f7e",
+     "pdf_page": 21,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "0.85",
+      "0.95"
+     ],
+     "text_cov": 0.2
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_ebd2c621fe0db61608480e90f388e0e9",
+     "pdf_page": 22,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.9333
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.9333,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_d2ba14bf7c5b77dcaa3ca773530d4f7e",
+     "pdf_page": 21,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_ebd2c621fe0db61608480e90f388e0e9",
+     "pdf_page": 22,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G036",
+   "fact_index": 0,
+   "fact": "t=t1+t2",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 22,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 23,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 22,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 23,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G036",
+   "fact_index": 1,
+   "fact": "t1为地面集水时间，宜采用5min~15min",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 22,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 23,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 22,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 23,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G036",
+   "fact_index": 2,
+   "fact": "t2为管渠内雨水流行时间",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 22,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8889
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 23,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8889
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8889,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 22,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50014-2021+室外排水设计标准+预览.pdf",
+     "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+     "pdf_page": 23,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G037",
+   "fact_index": 0,
+   "fact": "Q为雨水设计流量（L/s），q为设计暴雨强度",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_1e8179ff17e12e15b50eb377eac4fde1",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4167
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_93d73b4c95b603ebfad92a1bb74f8790",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.0833
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_f25c3d7e77902ce5471d3c1f8598b766",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8333
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_ba63bbc6615352674d460e5f366ad577",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8333,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_1e8179ff17e12e15b50eb377eac4fde1",
+     "pdf_page": 20,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_93d73b4c95b603ebfad92a1bb74f8790",
+     "pdf_page": 20,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_f25c3d7e77902ce5471d3c1f8598b766",
+     "pdf_page": 20,
+     "supported": true
+    },
+    {
+     "evidence_index": 3,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_ba63bbc6615352674d460e5f366ad577",
+     "pdf_page": 20,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G037",
+   "fact_index": 1,
+   "fact": "适用条件含汇水面积不超过2km²时可采推理公式法",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_1e8179ff17e12e15b50eb377eac4fde1",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5789
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_93d73b4c95b603ebfad92a1bb74f8790",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.0526
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_f25c3d7e77902ce5471d3c1f8598b766",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.3158
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_ba63bbc6615352674d460e5f366ad577",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.0526
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6842,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_1e8179ff17e12e15b50eb377eac4fde1",
+     "pdf_page": 20,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_93d73b4c95b603ebfad92a1bb74f8790",
+     "pdf_page": 20,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_f25c3d7e77902ce5471d3c1f8598b766",
+     "pdf_page": 20,
+     "supported": false
+    },
+    {
+     "evidence_index": 3,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_ba63bbc6615352674d460e5f366ad577",
+     "pdf_page": 20,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G037",
+   "fact_index": 2,
+   "fact": "城市建筑密集区雨水排放系统综合径流系数约0.60~0.70",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_1e8179ff17e12e15b50eb377eac4fde1",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "0.60",
+      "0.70"
+     ],
+     "text_cov": 0.2105
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_93d73b4c95b603ebfad92a1bb74f8790",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8421
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_f25c3d7e77902ce5471d3c1f8598b766",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "0.60",
+      "0.70"
+     ],
+     "text_cov": 0.5789
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_ba63bbc6615352674d460e5f366ad577",
+     "pdf_page": 20,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "0.60",
+      "0.70"
+     ],
+     "text_cov": 0.1579
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8947,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_1e8179ff17e12e15b50eb377eac4fde1",
+     "pdf_page": 20,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_93d73b4c95b603ebfad92a1bb74f8790",
+     "pdf_page": 20,
+     "supported": true
+    },
+    {
+     "evidence_index": 2,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_f25c3d7e77902ce5471d3c1f8598b766",
+     "pdf_page": 20,
+     "supported": false
+    },
+    {
+     "evidence_index": 3,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_ba63bbc6615352674d460e5f366ad577",
+     "pdf_page": 20,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G038",
+   "fact_index": 0,
+   "fact": "表4.2.3为城市分类污水排放系数",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_a3388ec36c0108333a46f0552a42c8a0",
+     "pdf_page": 15,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8182
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8182,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_a3388ec36c0108333a46f0552a42c8a0",
+     "pdf_page": 15,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G038",
+   "fact_index": 1,
+   "fact": "资料缺乏时按该表取值",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_a3388ec36c0108333a46f0552a42c8a0",
+     "pdf_page": 15,
+     "doc": "城市排水工程规划规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5556
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.5556,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城市排水工程规划规范.pdf",
+     "chunk_id": "chunk_a3388ec36c0108333a46f0552a42c8a0",
+     "pdf_page": 15,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G039",
+   "fact_index": 0,
+   "fact": "图1为城镇排水管网数字化通用技术的总体架构逻辑关系图",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_b96e9371ecf1a2df2c4617f67a08f321",
+     "pdf_page": 9,
+     "doc": "GBT+47884-2026.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.9167
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.9167,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT+47884-2026.pdf",
+     "chunk_id": "chunk_b96e9371ecf1a2df2c4617f67a08f321",
+     "pdf_page": 9,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G040",
+   "fact_index": 0,
+   "fact": "表1为应监测的对象及监测指标要求",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+     "pdf_page": 10,
+     "doc": "GBT+47884-2026.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.0769
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_bc01011f07cbb323abf7d0ae8c4cf01d",
+     "pdf_page": 10,
+     "doc": "GBT+47884-2026.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8462
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8462,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT+47884-2026.pdf",
+     "chunk_id": "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+     "pdf_page": 10,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GBT+47884-2026.pdf",
+     "chunk_id": "chunk_bc01011f07cbb323abf7d0ae8c4cf01d",
+     "pdf_page": 10,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G040",
+   "fact_index": 1,
+   "fact": "点位布设原则：系统性、代表性、有效性、可行性、积极性",
+   "answerability": "answer",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+     "pdf_page": 10,
+     "doc": "GBT+47884-2026.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_bc01011f07cbb323abf7d0ae8c4cf01d",
+     "pdf_page": 10,
+     "doc": "GBT+47884-2026.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.1
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT+47884-2026.pdf",
+     "chunk_id": "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+     "pdf_page": 10,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GBT+47884-2026.pdf",
+     "chunk_id": "chunk_bc01011f07cbb323abf7d0ae8c4cf01d",
+     "pdf_page": 10,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G041",
+   "fact_index": 0,
+   "fact": "到2023年，县级及以上城市设施能力基本满足生活污水处理需求",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_fca70c5f4bbcb58b4a8414f753e9a477",
+     "pdf_page": 1,
+     "doc": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+     "chunk_id": "chunk_fca70c5f4bbcb58b4a8414f753e9a477",
+     "pdf_page": 1,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G041",
+   "fact_index": 1,
+   "fact": "提升收集效能、推进雨污混错接改造等",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_fca70c5f4bbcb58b4a8414f753e9a477",
+     "pdf_page": 1,
+     "doc": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6667
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6667,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+     "chunk_id": "chunk_fca70c5f4bbcb58b4a8414f753e9a477",
+     "pdf_page": 1,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G042",
+   "fact_index": 0,
+   "fact": "图1为流量试验装置示意图",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_78d26e1d1e315e5ab473b31fef9e787d",
+     "pdf_page": 11,
+     "doc": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+     "chunk_id": "chunk_78d26e1d1e315e5ab473b31fef9e787d",
+     "pdf_page": 11,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G042",
+   "fact_index": 1,
+   "fact": "由水流量标准装置和排水管道组成（图中含被测流量仪）",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_78d26e1d1e315e5ab473b31fef9e787d",
+     "pdf_page": 11,
+     "doc": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.7143
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.7143,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+     "chunk_id": "chunk_78d26e1d1e315e5ab473b31fef9e787d",
+     "pdf_page": 11,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G043",
+   "fact_index": 0,
+   "fact": "24h降雨量50.0～99.9 mm为暴雨",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+     "pdf_page": 4,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+     "pdf_page": 4,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G044",
+   "fact_index": 0,
+   "fact": "按24h、12h两个时段划分",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+     "pdf_page": 4,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.1667
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8333
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8333,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+     "pdf_page": 4,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G044",
+   "fact_index": 1,
+   "fact": "特大暴雨24h降雨量≥250.0 mm",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+     "pdf_page": 4,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.7143
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "250.0"
+     ],
+     "text_cov": 0.4286
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.7143,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "chunk_id": "chunk_578072edb03dac0e7aa569e3c9d06784",
+     "pdf_page": 4,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GBT 28592-2012降水量等级.pdf",
+     "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+     "pdf_page": 4,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G045",
+   "fact_index": 0,
+   "fact": "图3.0.4为混接调查与治理环节示意图",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_5196cd43f3fd91c1e6f2f82c23fb4c9a",
+     "pdf_page": 15,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8462
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8462,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_5196cd43f3fd91c1e6f2f82c23fb4c9a",
+     "pdf_page": 15,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G045",
+   "fact_index": 1,
+   "fact": "环节包括整改方案、改造施工与验收、长效动态管理等",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_5196cd43f3fd91c1e6f2f82c23fb4c9a",
+     "pdf_page": 15,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.619
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.619,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_5196cd43f3fd91c1e6f2f82c23fb4c9a",
+     "pdf_page": 15,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G046",
+   "fact_index": 0,
+   "fact": "容器体积法公式编号为(5.4.21)，Q单位m3/d，每日测6~8次",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "21"
+     ],
+     "text_cov": 0.4667
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "21"
+     ],
+     "text_cov": 0.4667
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_935d5150cdc74f98bf75a9425daf383a",
+     "pdf_page": 23,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "3",
+      "6",
+      "8"
+     ],
+     "text_cov": 0.3333
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_9a6cb297abfc2e870c060dcb3ae43915",
+     "pdf_page": 23,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4667
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.4667,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_935d5150cdc74f98bf75a9425daf383a",
+     "pdf_page": 23,
+     "supported": false
+    },
+    {
+     "evidence_index": 3,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_9a6cb297abfc2e870c060dcb3ae43915",
+     "pdf_page": 23,
+     "supported": false
+    }
+   ],
+   "classification": "fixed_by_new_evidence",
+   "human_ruling": "pending",
+   "note": "本轮补证据修复：新增 5.4.21 式中 chunk（p23，Q单位m3/d、每日测量6~8次、间隔3h~4h 逐字）"
+  },
+  {
+   "case": "G046",
+   "fact_index": 1,
+   "fact": "浮标法公式编号为(5.4.22)，含过流面积A与修正系数k约0.8~0.9",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_935d5150cdc74f98bf75a9425daf383a",
+     "pdf_page": 23,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "0.8",
+      "22"
+     ],
+     "text_cov": 0.1667
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_9a6cb297abfc2e870c060dcb3ae43915",
+     "pdf_page": 23,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "0.8",
+      "22"
+     ],
+     "text_cov": 0.1667
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.5,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "supported": true
+    },
+    {
+     "evidence_index": 2,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_935d5150cdc74f98bf75a9425daf383a",
+     "pdf_page": 23,
+     "supported": false
+    },
+    {
+     "evidence_index": 3,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_9a6cb297abfc2e870c060dcb3ae43915",
+     "pdf_page": 23,
+     "supported": false
+    }
+   ],
+   "classification": "covered_ocr_variant",
+   "human_ruling": "pending",
+   "note": "0.9 在承载 chunk 为扫描 OCR『o. 9 0』（0 误读为 o），数值在场；公式编号(5.4.22)与 0.8 逐字在 chunk。"
+  },
+  {
+   "case": "G046",
+   "fact_index": 2,
+   "fact": "两种方法均基于一天内多次测量取用",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.2
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.2
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_935d5150cdc74f98bf75a9425daf383a",
+     "pdf_page": 23,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4
+    },
+    {
+     "evidence_index": 3,
+     "chunk_id": "chunk_9a6cb297abfc2e870c060dcb3ae43915",
+     "pdf_page": 23,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.2
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.4667,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_50c27da38e2791f3bedd1926717ad896",
+     "pdf_page": 24,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_935d5150cdc74f98bf75a9425daf383a",
+     "pdf_page": 23,
+     "supported": false
+    },
+    {
+     "evidence_index": 3,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_9a6cb297abfc2e870c060dcb3ae43915",
+     "pdf_page": 23,
+     "supported": false
+    }
+   ],
+   "classification": "covered_verbatim_parts",
+   "human_ruling": "pending",
+   "note": "两种方法的一天内多次测量均有逐字支撑：5.4.21 条文『每日流量应基于一天内多次的测量数据』（ev[2]，『→天』为 OCR 一天之误读）与两式 η『每日测量6次～8次』；残余（两种/均/取用）为设问措辞。"
+  },
+  {
+   "case": "G047",
+   "fact_index": 0,
+   "fact": "重度：管径d≥600mm且/或流量q>600 m3/d（并按水质指标）",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_da84b811985d3d7ab1b60c58054f5457",
+     "pdf_page": 28,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "3",
+      "600"
+     ],
+     "text_cov": 0.0769
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+     "pdf_page": 29,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.4615
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+     "pdf_page": 28,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.5385
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.5385,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_da84b811985d3d7ab1b60c58054f5457",
+     "pdf_page": 28,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+     "pdf_page": 29,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+     "pdf_page": 28,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G047",
+   "fact_index": 1,
+   "fact": "轻度：d<300mm且q<200 m3/d量级",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_da84b811985d3d7ab1b60c58054f5457",
+     "pdf_page": 28,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "200",
+      "3",
+      "300"
+     ],
+     "text_cov": 0.0
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+     "pdf_page": 29,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.25
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+     "pdf_page": 28,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "300"
+     ],
+     "text_cov": 0.0
+    }
+   ],
+   "union_supported": false,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.25,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_da84b811985d3d7ab1b60c58054f5457",
+     "pdf_page": 28,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+     "pdf_page": 29,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+     "pdf_page": 28,
+     "supported": false
+    }
+   ],
+   "classification": "covered_table_cell",
+   "human_ruling": "pending",
+   "note": "表格单元格事实：轻度混接(1级) 行 d<300 | q<200 逐字在续表 chunk（m³/d 为上标 3，已归一）；『量级』为设问措辞。"
+  },
+  {
+   "case": "G047",
+   "fact_index": 2,
+   "fact": "任一指标取高值原则",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_da84b811985d3d7ab1b60c58054f5457",
+     "pdf_page": 28,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.875
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+     "pdf_page": 29,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.125
+    },
+    {
+     "evidence_index": 2,
+     "chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+     "pdf_page": 28,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.125
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.875,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_da84b811985d3d7ab1b60c58054f5457",
+     "pdf_page": 28,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+     "pdf_page": 29,
+     "supported": false
+    },
+    {
+     "evidence_index": 2,
+     "doc": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+     "chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+     "pdf_page": 28,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G048",
+   "fact_index": 0,
+   "fact": "施工测量允许偏差见表3.1.8",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_46b3d95876af3cbc20648232fd284938",
+     "pdf_page": 15,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6667
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_dba9b144b96e7b155022975f7ad4e989",
+     "pdf_page": 23,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "3.1",
+      "8"
+     ],
+     "text_cov": 0.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6667,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_46b3d95876af3cbc20648232fd284938",
+     "pdf_page": 15,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_dba9b144b96e7b155022975f7ad4e989",
+     "pdf_page": 23,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G048",
+   "fact_index": 1,
+   "fact": "B=Do+2(b1+b2+b3)",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_46b3d95876af3cbc20648232fd284938",
+     "pdf_page": 15,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_dba9b144b96e7b155022975f7ad4e989",
+     "pdf_page": 23,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 1.0
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 1.0,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_46b3d95876af3cbc20648232fd284938",
+     "pdf_page": 15,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_dba9b144b96e7b155022975f7ad4e989",
+     "pdf_page": 23,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G048",
+   "fact_index": 2,
+   "fact": "B为沟槽底开挖宽度，Do为管外径",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_46b3d95876af3cbc20648232fd284938",
+     "pdf_page": 15,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.0
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_dba9b144b96e7b155022975f7ad4e989",
+     "pdf_page": 23,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.6364
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.6364,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_46b3d95876af3cbc20648232fd284938",
+     "pdf_page": 15,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_dba9b144b96e7b155022975f7ad4e989",
+     "pdf_page": 23,
+     "supported": true
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G049",
+   "fact_index": 0,
+   "fact": "图4.6.3为柔性管道沟槽回填部位与压实度示意图",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_645dd05f041512ee9b3670cf2c4bcb2e",
+     "pdf_page": 36,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": true,
+     "missing_numbers": [],
+     "text_cov": 0.8889
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_0e3b1e7b83a2ecea1374c4cc7067299d",
+     "pdf_page": 36,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.3333
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.8889,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_645dd05f041512ee9b3670cf2c4bcb2e",
+     "pdf_page": 36,
+     "supported": true
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_0e3b1e7b83a2ecea1374c4cc7067299d",
+     "pdf_page": 36,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G049",
+   "fact_index": 1,
+   "fact": "管顶以上相关回填压实度示意见图注≥90%/85±2%等",
+   "answerability": "locate",
+   "per_evidence": [
+    {
+     "evidence_index": 0,
+     "chunk_id": "chunk_645dd05f041512ee9b3670cf2c4bcb2e",
+     "pdf_page": 36,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": false,
+     "missing_numbers": [
+      "2",
+      "85",
+      "90"
+     ],
+     "text_cov": 0.375
+    },
+    {
+     "evidence_index": 1,
+     "chunk_id": "chunk_0e3b1e7b83a2ecea1374c4cc7067299d",
+     "pdf_page": 36,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "supported": false,
+     "missing_numbers": [],
+     "text_cov": 0.375
+    }
+   ],
+   "union_supported": true,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.5625,
+   "bindings": [
+    {
+     "evidence_index": 0,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_645dd05f041512ee9b3670cf2c4bcb2e",
+     "pdf_page": 36,
+     "supported": false
+    },
+    {
+     "evidence_index": 1,
+     "doc": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+     "chunk_id": "chunk_0e3b1e7b83a2ecea1374c4cc7067299d",
+     "pdf_page": 36,
+     "supported": false
+    }
+   ],
+   "classification": "covered",
+   "human_ruling": "machine_approved",
+   "note": ""
+  },
+  {
+   "case": "G050",
+   "fact_index": 0,
+   "fact": "应拒答或明确说明当前法规库未覆盖欧盟城市废水处理指令及其合流制溢流限值",
+   "answerability": "refuse",
+   "per_evidence": [],
+   "union_supported": null,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.0,
+   "bindings": [],
+   "classification": "refuse_meta",
+   "human_ruling": "n/a",
+   "note": "拒答题 meta-fact（应拒答/不应编造/不得套用），非语料内容事实，不入内容证据对账分母。"
+  },
+  {
+   "case": "G050",
+   "fact_index": 1,
+   "fact": "不应臆造数值",
+   "answerability": "refuse",
+   "per_evidence": [],
+   "union_supported": null,
+   "union_missing_numbers": [],
+   "union_text_cov": 0.0,
+   "bindings": [],
+   "classification": "refuse_meta",
+   "human_ruling": "n/a",
+   "note": "拒答题 meta-fact（应拒答/不应编造/不得套用），非语料内容事实，不入内容证据对账分母。"
+  }
+ ]
+}

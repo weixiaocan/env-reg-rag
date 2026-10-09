@@ -1,0 +1,7 @@
+{
+  "classification": "diagnostic agent semantic review; not independent human adjudication",
+  "source_run": "eval/runs/diagnostic-gen-20261007",
+  "source_case_files_sha256": "9c8cc092ec762636eef3ffbac6b25ccfc0a7de1d51183637eae7c09a523cea75",
+  "review_artifact": "eval/audits/diagnostic_gen_20261007_agent_review.jsonl",
+  "review_scope": "answered content cases only"
+}

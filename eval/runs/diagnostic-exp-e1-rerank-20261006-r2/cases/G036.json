@@ -1,0 +1,354 @@
+{
+  "id": "G036",
+  "question": "按GB 50014，雨水管渠的降雨历时t如何计算？t1、t2分别指什么，t1宜采用什么范围？",
+  "labels": {
+    "repr": [
+      "条件",
+      "数值"
+    ],
+    "challenge": [
+      "公式",
+      "跨页",
+      "多证据"
+    ],
+    "modality": [
+      "公式"
+    ]
+  },
+  "expected_facts": [
+    "t=t1+t2",
+    "t1为地面集水时间，宜采用5min~15min",
+    "t2为管渠内雨水流行时间"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 2,
+    "matched_evidence_at_5": 2,
+    "matched_evidence_at_10": 2,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 1.0,
+    "latency_ms": 3360.116,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 2,
+    "locator_only_matched_at_5": 2,
+    "locator_only_matched_at_10": 2,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "page": 22,
+      "element_ids": [
+        "e000752",
+        "e000753",
+        "e000754",
+        "e000755",
+        "e000756",
+        "e000757"
+      ],
+      "quote": "4.1 设计流量 > 4.1.11 雨水管渠的降雨历时应按下式计算：\n具有20年以上自记雨量记录的地区，排水系统设计暴雨强度\n公式应采用年最大值法，并应按本标准附录B的规定编制。\nt1——地面集水时间（min），应根据汇水距离、地形坡度和地\n面种类通过计算确定，宜采用5min~15min；\nt2——管渠内雨水流行时间(min)。\nⅡ污水量",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_09c684848514925317d9a192288d4080",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 1,
+      "locator_chunk_id": "chunk_09c684848514925317d9a192288d4080",
+      "locator_match_method": "quote_and_ids"
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "page": 23,
+      "element_ids": [
+        "e000752",
+        "e000753",
+        "e000754",
+        "e000755",
+        "e000756",
+        "e000757"
+      ],
+      "quote": "面种类通过计算确定，宜采用5min~15min； t2——管渠内雨水流行时间(min)。",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_09c684848514925317d9a192288d4080",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 1,
+      "locator_chunk_id": "chunk_09c684848514925317d9a192288d4080",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_09c684848514925317d9a192288d4080",
+      "score": 0.833333,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22,
+        23
+      ],
+      "element_ids": [
+        "e000752",
+        "e000753",
+        "e000754",
+        "e000755",
+        "e000756",
+        "e000757"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 设计流量",
+        "4.1.11 雨水管渠的降雨历时应按下式计算："
+      ],
+      "text": "4.1 设计流量 > 4.1.11 雨水管渠的降雨历时应按下式计算：\n具有20年以上自记雨量记录的地区，排水系统设计暴雨强度\n公式应采用年最大值法，并应按本标准附录B的规定编制。\nt1——地面集水时间（min），应根据汇水距离、地形坡度和地\n面种类通过计算确定，宜采用5min~15min；\nt2——管渠内雨水流行时间(min)。\nⅡ污水量",
+      "matched_evidence_indexes": [
+        0,
+        1
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_04ba790105e923680f340944f4f1d647",
+      "score": 0.833333,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "element_ids": [
+        "e000744",
+        "e000745",
+        "e000746",
+        "e000748",
+        "e000749"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 设计流量",
+        "4.1.11 雨水管渠的降雨历时应按下式计算："
+      ],
+      "text": "4.1 设计流量 > 4.1.11 雨水管渠的降雨历时应按下式计算：\n4.1.11雨水管渠的降雨历时应按下式计算：\nt =t1 +t2\n式中：t—降雨历时（min）；\n(4.1.9)\n(4.1.11)",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_ebd2c621fe0db61608480e90f388e0e9",
+      "score": 0.071429,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "element_ids": [
+        "e000750"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 设计流量",
+        "4.1.11 雨水管渠的降雨历时应按下式计算："
+      ],
+      "text": "4.1 设计流量 > 4.1.11 雨水管渠的降雨历时应按下式计算：\n表4.1.8-1径流系数\n地面种类 | 径流系数\n各种屋面、混凝土或沥青路面 | 0.85~0.95\n大块石铺砌路面或沥青表面各种的碎石路面 | 0.55~0.65\n级配碎石路面 | \n干砌砖石或碎石路面 | \n非铺砌土路面 | 35\n公园或绿地 | 10~0.20",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_054c52ea2141a8178ab8b5edf4bd3f59",
+      "score": 0.125,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "element_ids": [
+        "e000751"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 设计流量",
+        "4.1.11 雨水管渠的降雨历时应按下式计算："
+      ],
+      "text": "4.1 设计流量 > 4.1.11 雨水管渠的降雨历时应按下式计算：\n表4.1.8-2\n区域情况 | 综合径流系数\n城镇建筑密集区 | 0.60~0.70\n城镇建筑较密集区 | \n城镇建筑稀疏区 |",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_6b381a4f82f794e179844ab2d083d6fe",
+      "score": 0.166667,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        38,
+        39
+      ],
+      "element_ids": [
+        "e001011",
+        "e001012",
+        "e001013",
+        "e001014",
+        "e001015",
+        "e001016",
+        "e001017",
+        "e001018",
+        "e001019",
+        "e001020",
+        "e001021",
+        "e001022",
+        "e001023",
+        "e001024",
+        "e001025",
+        "e001026",
+        "e001027",
+        "e001028"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7.3 应急管",
+        "7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝"
+      ],
+      "text": "7.3 应急管 > 7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\nB.0.3当采用手工计算的方法进行校核时，应将由道路表面和\n道路两侧的路缘石或建筑物等构成的积水空间视作明渠，断面形\nB.0.4按本规范第B.0.6条规定的方法进行校核时，下游区段\nB.0.5采用推理公式法进行内涝防治设计校核时，宜提高现行国家\n标准《室外排水设计规范》GB50014中规定的径流系数。当设计重现\n期为20年～30年时，宜将径流系数提高10%～15%：当设计重现期为\n30年～50年时，宜提高20%～25%：当设计重现期为50年～100年\n时，宜提高30%～50%；当计算的径流系数大于1时，按1取值。\nB.0.6用手工方法校核内涝防治设计，应按下列步骤执行：\n1按本规范的规定选取内涝防治设计重现期，确定允许的道\n2根据道路积水深度和水面高程，确定地面泄水通道过水断\n面的形状和参数，从上游至下游逐段计算道路表面的最大过水能\n3按推理公式法，从上游至下游逐段计算每个汇水区的地\n面集水时间、暴雨强度和设计流量（Q），并计算内涝防治设计标\n准下雨水管渠的过水能力（Q。）。计算暴雨强度和设计流量时，\n降雨历时的选择应与雨水管渠设计时采用的降雨历时保持\n一致；\n的泄水能力；",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_f25c3d7e77902ce5471d3c1f8598b766",
+      "score": 0.2,
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        19,
+        20
+      ],
+      "element_ids": [
+        "e000305",
+        "e000306",
+        "e000307",
+        "e000308",
+        "e000309",
+        "e000310",
+        "e000311",
+        "e000312",
+        "e000313",
+        "e000315",
+        "e000316"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量",
+        "5.2.1 城市总体规划应按气候分区、水文特征、地质条件等确"
+      ],
+      "text": "5 雨水系统 > 5.2 雨水量 > 5.2.1 城市总体规划应按气候分区、水文特征、地质条件等确\n5.2.1\n城市总体规划应按气候分区、水文特征、地质条件等确\n定径流总量控制目标；专项规划应将城市的径流总量控制目标进\n行分解和落实。\n5.2.2\n采用数学模型法计算雨水设计流量时，宜采用当地设计\nII\n暴雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水\n面积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历\n时降雨，防涝系统宜采用不同历时的降雨。\n5.2.3\n设计暴雨强度，应按当地设计暴雨强度公式计算.计算\n方法按现行国家标准《室外排水设计规范》GB 50014 中的规定\n执行。暴雨强度公式应适时进行修订。\n5.2.4\n综合径流系数可按表5. 2. 4 的规定取值。城市开发建设\n式法按下式计算。\n式中：Q——雨水设计流量（L/s）；\n史一综合径流系数；\n应采用低影响开发建设模式，降低综合径流系数。\nQ = gXWXF\n（5.2.6）",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_9c465b35cd0ca864690bf0b61e051835",
+      "score": 0.090909,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        113
+      ],
+      "element_ids": [
+        "e002969",
+        "e002970"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "9.6 智慧排水系统",
+        "9.6.5 智慧排水信息中心和下属排水"
+      ],
+      "text": "9.6 智慧排水系统 > 9.6.5 智慧排水信息中心和下属排水\nB.0.7计算降雨历时宜采用5min、10min、15min、20min、30min、\n45min、60min、90min、120min共9个历时。计算降雨重现期宜按",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_6a386942031e530bc276343223f35808",
+      "score": 0.047619,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "element_ids": [
+        "e000738",
+        "e000739",
+        "e000740",
+        "e000741",
+        "e000742"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 设计流量",
+        "4.1.7 当采用推理公式法时、"
+      ],
+      "text": "4.1 设计流量 > 4.1.7 当采用推理公式法时、\n设计重现期（年）；\n降雨历时（min）；\nt\nA1 ,C,b,n\n参数，根据统计方法进行计算确定。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_ac35dc695b20c58b50bbae535cb20b40",
+      "score": 0.05,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000133"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.4 RSI/ RPI计算",
+        "4.4.2 区域降雨过程强度指数（RPI)"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.4 RSI/ RPI计算 > 4.4.2 区域降雨过程强度指数（RPI)\nT——持续时间指数，根据公式（3)计算降雨持续时间（T。），对照表5查出对应指数。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_9d2992f96716e2933215406fb4b665e4",
+      "score": 0.25,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        19
+      ],
+      "element_ids": [
+        "e000670",
+        "e000671",
+        "e000672",
+        "e000673",
+        "e000674",
+        "e000675",
+        "e000676"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 设计流量"
+      ],
+      "text": "4.1 设计流量\nI雨水量\n量控制率确定，\n气候特征等因素，经技术经济比较后按表\n2雨水管渠按重力流、满管流计算。\n包括本数，以下不包括本数）。\n· 11.\n并应明确相应的设计降雨量，可按本标准附录A的规定进行计算。",
+      "matched_evidence_indexes": []
+    }
+  ],
+  "rerank_latency_ms": 3338.145500048995
+}

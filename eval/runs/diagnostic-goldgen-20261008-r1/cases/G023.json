@@ -1,0 +1,20 @@
+{
+  "case": "G023",
+  "question": "对照GB/T 28592与T/CMSA 0013：前者降雨量等级按哪两个时段划分？后者把哪些历时划分为六个短时等级？QX/T 489—2019如何规定区域降雨过程等级？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "GB/T 28592按12h与24h划分",
+    "T/CMSA按10分钟、30分钟、1小时划分六个短时等级，并引用QX/T 489－2019定义",
+    "QX/T 489—2019规定区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.052364
+}

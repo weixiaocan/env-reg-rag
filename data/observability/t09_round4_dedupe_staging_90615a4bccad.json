@@ -1,0 +1,94 @@
+{
+  "kind": "t09-closure-round4-dedupe-and-staging-ingest",
+  "candidate": "corpus-90615a4bccad",
+  "assembly_profile": "t09-formula-binding-6",
+  "executed_at": "2026-09-28",
+  "authorization": "fix chunk-id duplication + re-mint + staging-only ingest WITHOUT --publish; formal pointer / live collection / alias writes forbidden",
+
+  "defect": {
+    "summary": "candidate corpus-b668e6aaa7f8's 4244 chunks contained one chunk_id three times (chunk_22871b5ebd6c08e322c18522965645a1, table element e000261 of doc 48429f37, page 22). Qdrant deduplicates identical point ids, so its staging build created a collection with 4242 points and the post-build payload-identity check failed closed (CollectionIdentityError).",
+    "root_cause": "_split_body (RecursiveCharacterTextSplitter, chunk_overlap=64) slides its overlap window over the empty-grid table's repeated '| | |' rows and emits byte-identical sub-chunks; identical texts derive identical content-addressed chunk_ids.",
+    "attribution": "pre-existing chunker edge (legacy non-T09 projection reproduces 162/160 on the same doc); NOT introduced by T09 formula binding",
+    "failed_artifacts_left_untouched": [
+      "candidate corpus-b668e6aaa7f8 (frozen, never modified)",
+      "staging collection corpus_v2__staging__corpus-b668e6aaa7f8__bi-976912d32bac8a229e8f27e9 (4242 points, immutable dead artifact, never deleted)"
+    ]
+  },
+
+  "fix": {
+    "chunker": [
+      "src/application/v2_chunker.py _ChunkBuilder._emit_chunk (the same single choke point as the <=512 token gate): deterministic identical-projection dedupe -- a repeated emission of the SAME (chunk_id, element_ids, source_spans) is dropped; the same chunk_id arriving with a DIFFERENT projection (element_ids or spans) raises ValueError. No surrogate/random ids.",
+      "publish-facing effect: identical projections now emit exactly once; all distinct content preserved (verified: e000261's 31 projection lines all present across its 3 distinct shards)"
+    ],
+    "ingest_gate": [
+      "src/application/publish_state.py assert_unique_chunk_ids + wired into build_chunk_manifest: GLOBAL chunk-id uniqueness hard gate before anything is written. Duplicate id with DIFFERENT content or source (canonical/content id, element ids, projection, text sha, spans, source document) -> PublishStateError; even an IDENTICAL duplicate is refused (chunk==vector==point equality is unattainable with any duplicate).",
+      "offline_preflight and publish_gate surface a uniqueness violation as a structured failure (not a crash)"
+    ],
+    "semantic_change_recorded": "explanation lines that are byte-identical to each other now project once (test u6b's 8 identical lines fixture updated to 8 DISTINCT lines; exactly-once holds per DISTINCT line; identical-lines behavior asserted in the new round-4 tests)"
+  },
+
+  "tests": {
+    "red_first": [
+      "ClosureRound4ChunkDedupTest.test_r18_split_overlap_never_duplicates_chunk_ids (real-shape repro: 12 chunks -> 1 unique id BEFORE fix)",
+      "TestChunkIdUniquenessGate (4 tests) -- 5 red failures confirmed before implementation"
+    ],
+    "new_tests_green": [
+      "r18 uniqueness (ids and texts), r18b content preservation (emitted texts == DISTINCT splitter windows; no projection line lost), r18c identical emission dedupes to one chunk, r18d same ids different text NOT deduped",
+      "gate: different content rejected, different source document rejected, identical duplicate rejected, unique stream passes"
+    ],
+    "u6b_updated": "exactly-once per distinct explanation line + duplicate-free id stream",
+    "targeted": "tests/test_t09_formula_explanation_binding.py + tests/test_t06_publish_state.py: 141 passed",
+    "full_regression": "929 passed, 20 subtests passed, 1 failed = tests/test_repository_layout.py::PublicRepositoryLayoutTests::test_only_product_facing_documents_remain -- the KNOWN pre-existing baseline failure (test count 921 -> 929 = exactly the 8 new round-4 tests; baseline unchanged)"
+  },
+
+  "new_candidate": {
+    "mint": "scripts/mint_assembly_candidate.py --base-corpus-version corpus-928a999e0264 --write-pointer (ASSEMBLY_PROFILE bumped t09-formula-binding-5 -> t09-formula-binding-6 BEFORE minting)",
+    "corpus_version": "corpus-90615a4bccad",
+    "page_intermediate": "byte-identical copy of base PI (sha256 70176318561c4d67...) -- PDF extraction and T09 assembly logic untouched",
+    "assemble": "23/23 docs OK; artifact_manifest written and verified",
+    "chunk_manifest_offline": "4242 chunks, all <= 512 real-bge tokens (max exactly 512), determinism stable across double chunking, projection chunk-text/v2-formula-binding, 210 formula shards 0 drifts, offline preflight ok",
+    "manual_verification": [
+      "4242 chunks / 4242 unique chunk_ids (uniqueness gate implicit in build_chunk_manifest)",
+      "e000261: 3 distinct shards, 0 missing projection lines, spans (p22, 55.5..723.5), policy source_locator_only, quality needs_review",
+      "policy counts: source_locator_only 3208 / answer_and_citation 1034"
+    ]
+  },
+
+  "staging_ingest": {
+    "command": "PYTHONPATH=src python scripts/ingest_corpus_v2.py --corpus-version corpus-90615a4bccad  (no --publish)",
+    "log": "data/observability/ingest_90615a4bccad_staging.log",
+    "staging_collection": "corpus_v2__staging__corpus-90615a4bccad__bi-74b846da50d7f4b0e0d1d9b0",
+    "build_identity": "bi-74b846da50d7f4b0e0d1d9b0",
+    "build_mode": "create",
+    "counts": {"total_chunks": 4242, "vector_count": 4242, "point_count": 4242},
+    "count_equality": "chunks == vectors == points == 4242 (VERIFIED)",
+    "payload_identity": "full-scroll verify_collection_payload_identity passed post-build (build ok required it); sampled points carry build_identity=bi-74b846da50d7f4b0e0d1d9b0, dense 512 + sparse bm25",
+    "publish_gate": {"gate": "passed", "failures": [],
+                     "checks": {"offline_preflight": "ok", "artifact_manifest": "ok",
+                                "collection_name": "match", "build_identity": "match"}},
+    "gate_record": "data/canonical/v2/corpus-90615a4bccad/publish_gate_record.json (gate=passed) -- the candidate is switch-ready, NOT switched",
+    "fixed_smoke_queries": [
+      {"q": "管道流量测量方法", "hits": 10, "top_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf", "top_score": 0.75},
+      {"q": "水质特征因子应能区分污水与雨水", "hits": 10, "top_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf", "top_score": 0.5556},
+      {"q": "雨污混接程度分级", "hits": 10, "top_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf", "top_score": 0.75}
+    ]
+  },
+
+  "guarded_state_untouched": {
+    "live_collection_corpus_v2": "4182 points, never written",
+    "alias_corpus_v2_live": "no aliases exist (unchanged)",
+    "pointer_corpus_current_json": "still corpus-069284e6d60e (git-verified unmodified)",
+    "old_candidate_corpus_b668e6aaa7f8": "frozen, untouched",
+    "failed_staging_collection_b668e6aaa7f8": "present, untouched (immutable dead artifact)"
+  },
+
+  "candidate_dir_files": [
+    "23 *.canonical.json + artifact_manifest.json + quality_report.json (assemble)",
+    "chunk_manifest.json (offline stage-1 mirror, create-only)",
+    "ingest_report.json (status ok, gate passed)",
+    "ingest_manifest.json (stage chain: artifact_manifest -> ingest_manifest -> publish_gate_record)",
+    "publish_gate_record.json (gate=passed, build_identity bound)"
+  ],
+
+  "next_action": "STOPPED -- staging build complete and gate PASSED, but NO --publish was requested and NO alias/pointer/live write occurred. Awaiting explicit publish authorization (switch_pointer with rollback record, alias first)."
+}

@@ -30,8 +30,15 @@ services:
     env_file:
       - .env
     environment:
+      APP_PROFILE: ${APP_PROFILE:-self_hosted}
       QDRANT_URL: http://qdrant:6333
-      QDRANT_COLLECTION: ${QDRANT_COLLECTION:-corpus_v2}
+      QDRANT_COLLECTION: ${QDRANT_COLLECTION:-corpus_v2_live}
+      PUBLIC_RATE_LIMIT_ENABLED: ${PUBLIC_RATE_LIMIT_ENABLED:-true}
+      PUBLIC_SOURCE_LOOKUP_PER_MINUTE: ${PUBLIC_SOURCE_LOOKUP_PER_MINUTE:-30}
+      PUBLIC_ANSWER_PER_MINUTE: ${PUBLIC_ANSWER_PER_MINUTE:-3}
+      PUBLIC_ANSWER_PER_CLIENT_DAILY: ${PUBLIC_ANSWER_PER_CLIENT_DAILY:-10}
+      PUBLIC_ANSWER_DAILY_BUDGET: ${PUBLIC_ANSWER_DAILY_BUDGET:-20}
+      PUBLIC_DIAGNOSTIC_ROUTES_ENABLED: ${PUBLIC_DIAGNOSTIC_ROUTES_ENABLED:-false}
     volumes:
       - ./data/registry:/app/data/registry:ro
       - ./data/canonical:/app/data/canonical:ro

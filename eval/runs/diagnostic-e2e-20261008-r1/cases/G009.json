@@ -1,0 +1,506 @@
+{
+  "case": "G009",
+  "question": "福建省建筑与小区雨污混接改造技术标准附录示意图中，图1《雨水立管断接示意图（一）》的图注包含哪些主要部件？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261008-r1-G009",
+  "trace_missing": false,
+  "wall_ms": 7907.005,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "图1《雨水立管断接示意图（一）》的图注包含的主要部件为：1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施。",
+        "evidence_ids": [
+          "chunk_0aa5091f5d00c60b906f33b7b133bc06"
+        ]
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+    "chunk_129623574c2270a5d18b99aa28275c4a",
+    "chunk_352e174a73e31baf46d05e6524357b66",
+    "chunk_d02f02d8ea3cfec986e99aecc725ca6a",
+    "chunk_9a90f7107c87a6c4ee8dc6c1142851f4",
+    "chunk_04119f65207086e50ae06cba3686599c",
+    "chunk_0166b82397f9dfc2b4afbf9a50006af8",
+    "chunk_40a74421df45e3d374bb3a022fa09346",
+    "chunk_f9f8a156e3d3f8ecc95c2db19a366e73",
+    "chunk_35f0dfc62f2ce3223914fac509779881"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+      "text": "5 设\n计 > 5.2 建筑排水 > 5.2.1 当阳台雨水管独立设置且存在污水混入时，应在排出管\n5. 2. 1\n当阳台雨水管未与屋面雨水斗共用立管，独立布置，混接\n改造比较简单，将合流管道排出管接室外污水管网，但应根据现\n行国家标准《建筑给水排水设计标准》GB 50015 的规定，落实水\n封和通气管设置情况的相关要求，一楼出户管是否需单独排出也\n应根据现行国家标准《建筑给水排水设计标准》GB 50015\n的相关要求。阳台雨水立管改造接入污水管网时，在接入污水检\n查井前要根据现场情况设置存水弯或水封井过渡。在水封井中设\n置存水弯装置，水封井进出水管标高应大于0.15m，且水封高度\n应大于0.25m。改造示意如图4 所示，水封装置如图5 所示。\n图1 雨水立管断接示意图（一）\n1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施\n图2 雨水立管断接示意图（二）\n1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施；\n7-现状雨水检查井\n图3\n雨水立管断接示意图（三）\n1-雨水立管；2-雨水弃流过滤器；3-溢流管；4-雨水回用出口；5-支墩；6-弃流管\n图4\n阳台雨落水管改造示意图",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        62,
+        63,
+        64
+      ],
+      "heading_path": [
+        "5 设\n计",
+        "5.2 建筑排水",
+        "5.2.1 当阳台雨水管未与屋面雨水斗共用立管，独立布置，混接"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06__p62",
+          "physical_page": 62,
+          "kind": "text",
+          "bbox": [
+            51.00001525878906,
+            384.0650939941406,
+            345.8493347167969,
+            510.24755859375
+          ]
+        },
+        {
+          "region_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06__p63",
+          "physical_page": 63,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            58.67244720458984,
+            332.0440979003906,
+            514.9697265625
+          ]
+        },
+        {
+          "region_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06__p64",
+          "physical_page": 64,
+          "kind": "text",
+          "bbox": [
+            137.63999938964844,
+            189.2990264892578,
+            259.19488525390625,
+            201.40402221679688
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_129623574c2270a5d18b99aa28275c4a",
+      "text": "1 总\n则 > 1.0.3 建筑与小区雨污混接改造工程，除应符合本标准外，尚\n1. 0. 3\n建筑与小区雨污混接改造工程，除应符合本标准外，尚\n应符合国家、行业和福建省现行有关技术标准的规定。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "1 总\n则",
+        "1.0.3 建筑与小区雨污混接改造工程，除应符合本标准外，尚"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_129623574c2270a5d18b99aa28275c4a__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            50.99998474121094,
+            221.10519409179688,
+            345.70611572265625,
+            249.5543975830078
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_352e174a73e31baf46d05e6524357b66",
+      "text": "5 设\n计 > 5.1 一般规定 > 5.1.5 当周边有海绵设施时，混接改造后的雨水立管应进行断\n5. 1. 5\n当周边有海绵设施时，混接改造后的雨水立管应进行断\n接，同时可利用水体和下沉绿地等进行雨水调蓄。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        17
+      ],
+      "heading_path": [
+        "5 设\n计",
+        "5.1 一般规定",
+        "5.1.5 当周边有海绵设施时，混接改造后的雨水立管应进行断"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_352e174a73e31baf46d05e6524357b66__p17",
+          "physical_page": 17,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            310.7451477050781,
+            342.8476257324219,
+            339.19439697265625
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_d02f02d8ea3cfec986e99aecc725ca6a",
+      "text": "5 设\n计 > 5.1 一般规定 > 5.1.1 应在前期调查的基础上，制定改造方案。施工图设计应\n5. 1. 1\n结合已进行雨污混接改造城市经验，雨污混接改造工程应\n先进行方案报批，经相关管理部门审查，雨污混接改造方案的选\n择应以上位规划为依据，方案内容应明确工程范围、建设目标和\n改造内容。改造工程措施应简单适用，力求环境效益最大化，杜\n绝大拆大建，尽量采用短平快的工程措施，便于排水户自行管理\n应从建筑内部雨污水立管进行梳理和排查，制定从建筑排水\n立管到接户井的改造方案。对存在内涝积水的建筑与小区，应结\n合内涝积水问题整治同步进行，改造方案应结合实际情况确定。\n建设目标主要包括：（1）建筑排水立管实现雨污分流；（2）建\n筑与小区内雨水、污水管网分别接入市政雨水、污水管网，无混\n改造内容包括：（1）建筑立管雨污混接改造；（2）产生污\n染源场所雨污混接改造；（3）室外排水管网雨污混接改造；（4）\n根据需要结合黑臭水体整治、污水提质增效、老旧小区改造和海\n设计单位应根据审查意见对改造设计方案进行修改完善，然\n后再进行施工图设计，避免系统不合理、混接改造不到位或技术",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        60
+      ],
+      "heading_path": [
+        "5 设\n计",
+        "5.1 一般规定",
+        "5.1.1 结合已进行雨污混接改造城市经验，雨污混接改造工程应"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d02f02d8ea3cfec986e99aecc725ca6a__p60",
+          "physical_page": 60,
+          "kind": "text",
+          "bbox": [
+            50.99993896484375,
+            166.7452392578125,
+            351.00897216796875,
+            451.1544189453125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_9a90f7107c87a6c4ee8dc6c1142851f4",
+      "text": "1 总\n则 > 1.0.1 为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n1. 0. 1\n为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n污混接改造工作，制定本标准。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "1 总\n则",
+        "1.0.1 为贯彻落实水污染防治行动，规范福建省建筑与小区雨"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_9a90f7107c87a6c4ee8dc6c1142851f4__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            50.99998474121094,
+            141.06524658203125,
+            345.8315124511719,
+            169.6344451904297
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_04119f65207086e50ae06cba3686599c",
+      "text": "3 基本规定 > 3.0.2 雨污混接改造宜结合黑臭水体整治、老旧小区改造和海\n3. 0. 2\n建筑与小区的雨污混接改造工作与黑臭水体整治、污水处\n理提质增效、雨水系统提标、老旧小区改造和海绵城市建设等城\n市更新工程息息相关，为避免重复施工、减小影响城市正常运转、\n此外，雨污混接改造工程原则上对海绵城市控制指标不做具\n体要求。但考虑到许多城市已逐步开展海绵城市建设，如福州、\n厦门、龙岩、南平、漳州等城市已有相关的海绵城市建设指标要\n求，鼓励有条件的地区在雨污混接改造时，按照省、市海绵城市\n相关规划或系统化方案同步落实海绵管控指标。在改造过程中，\n融入海绵城市建设理念，能够有效减少雨水排放总量和峰值流量，\n降低雨污混接率和合流排水区雨水流量，减轻对污水管网、中途\n污水提升泵站和末端污水处理厂的压力，减少下游溢流污染的程\n度和频次。建筑与小区雨污混接改造过程中“海绵化”做法有很\n多，例如将新增或改造的雨水立管末端断接至下游改造的下沉绿\n地、雨水花园等进行雨水渗透、调蓄；建筑屋面可结合立管改造，\n设置为绿色屋面，减少雨水径流排放量；室外管网改造过程中，\n破损路面恢复可结合道路使用功能，在不影响通行及荷载要求下，",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        50
+      ],
+      "heading_path": [
+        "3 基本规定",
+        "3.0.2 建筑与小区的雨污混接改造工作与黑臭水体整治、污水处"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_04119f65207086e50ae06cba3686599c__p50",
+          "physical_page": 50,
+          "kind": "text",
+          "bbox": [
+            50.999969482421875,
+            173.105224609375,
+            351.01422119140625,
+            441.554443359375
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_0166b82397f9dfc2b4afbf9a50006af8",
+      "text": "8 雨污混接改造 > 8.3 排水户内部雨污混接改造 > 8.3.2 居住小区屋面雨水立管，如存在生活废水接入雨水立管的问题，\n8.3.2 居住小区屋面雨水立管，如存在生活废水接入雨水立管的问题，\n可将现有雨水立管保留作为生活废水收集管并接入小区污水系统内，\n同时新建屋面雨水立管；或新建废水立管接纳生活废水，并接入小区",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        50
+      ],
+      "heading_path": [
+        "8 雨污混接改造",
+        "8.3 排水户内部雨污混接改造",
+        "8.3.2 居住小区屋面雨水立管，如存在生活废水接入雨水立管的问题，"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0166b82397f9dfc2b4afbf9a50006af8__p50",
+          "physical_page": 50,
+          "kind": "text",
+          "bbox": [
+            89.82373046875,
+            586.1090698242188,
+            512.4698486328125,
+            657.0250854492188
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_40a74421df45e3d374bb3a022fa09346",
+      "text": "6 施工与验收 > 6.1 一般规定 > 6.1.1 雨污混接改造工程应按批准的设计文件和国家现行标准\n6. 1. 1\n建筑与小区雨污混接改造工程是一项系统性工程，施工\n图审查合格后，建设单位应组织设计单位向施工单位、监理单位\n本条规定施工单位应熟悉设计文件和施工图，理解设计意图\n及要求，严格按照设计文件和相应的技术标准进行施工，不得无\n图纸擅自施工，造成雨污混接改造达不到应有的效果。施工单位\n如发现现场情况与设计文件不相符的，应及时联系建设单位与设",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        76
+      ],
+      "heading_path": [
+        "6 施工与验收",
+        "6.1 一般规定",
+        "6.1.1 建筑与小区雨污混接改造工程是一项系统性工程，施工"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_40a74421df45e3d374bb3a022fa09346__p76",
+          "physical_page": 76,
+          "kind": "text",
+          "bbox": [
+            50.99998474121094,
+            166.7452392578125,
+            345.83740234375,
+            275.2344055175781
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_f9f8a156e3d3f8ecc95c2db19a366e73",
+      "text": "6 混错接改造设计 > 6.4.1 建筑排水立管混错接改造应查明错接原因，并采取针对性的改造措施，实施雨污分流。 \n6.4.2 建筑雨水立管错接小区污水管应新建雨水管接入小区现状雨水管或结合海绵改造散排入海绵设\n施。 \n6.4.3 建筑污水错接雨水立管，如住户阳台污水（洗衣机、洗手池排水等）错接雨水立管等情况，应\n将接入阳台污水原雨水立管改造成污水立管接入小区内污水系统，增设雨水立管，并保证新增的雨水立\n管排水能力不低于原雨水立管排水能力；若阳台污水混错接用户少，可单独室内改造，将阳台污水接入\n建筑污水系统。 \n6.4.4 未按规定将生活污水纳管的排水户，设计应单独敷设污水管道进行收集居民生活污水\n6.4.1 建筑排水立管混错接改造应查明错接原因，并采取针对性的改造措施，实施雨污分流。\n6.4.2 建筑雨水立管错接小区污水管应新建雨水管接入小区现状雨水管或结合海绵改造散排入海绵设\n施。\n6.4.3 建筑污水错接雨水立管，如住户阳台污水（洗衣机、洗手池排水等）错接雨水立管等情况，应\n将接入阳台污水原雨水立管改造成污水立管接入小区内污水系统，增设雨水立管，并保证新增的雨水立",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        16
+      ],
+      "heading_path": [
+        "6 混错接改造设计",
+        "6.4.1 建筑排水立管混错接改造应查明错接原因，并采取针对性的改造措施，实施雨污分流。 \n6.4.2 建筑雨水立管错接小区污水管应新建雨水管接入小区现状雨水管或结合海绵改造散排入海绵设\n施。 \n6.4.3 建筑污水错接雨水立管，如住户阳台污水（洗衣机、洗手池排水等）错接雨水立管等情况，应\n将接入阳台污水原雨水立管改造成污水立管接入小区内污水系统，增设雨水立管，并保证新增的雨水立\n管排水能力不低于原雨水立管排水能力；若阳台污水混错接用户少，可单独室内改造，将阳台污水接入\n建筑污水系统。 \n6.4.4 未按规定将生活污水纳管的排水户，设计应单独敷设污水管道进行收集居民生活污水"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_f9f8a156e3d3f8ecc95c2db19a366e73__p16",
+          "physical_page": 16,
+          "kind": "text",
+          "bbox": [
+            56.68223571777344,
+            632.9583129882812,
+            524.5904541015625,
+            752.8565673828125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_35f0dfc62f2ce3223914fac509779881",
+      "text": "6 混错接改造设计 > 6.3.1 小区等地块进行混错接改造设计时，应预先调查清楚小区是否进行过雨污分流改造。具体包括\n以下措施：\n6.3.1 小区等地块进行混错接改造设计时，应预先调查清楚小区是否进行过雨污分流改造。具体包括\n以下措施：\n—— 对于进行过雨污分流改造的小区，结合竣工资料对内部排水管道进行倒排查，解决小区内部\n混错接问题；\n—— 对于未进行过雨污分流改造的小区，需核实其近期有无改造计划，根据小区排水管道情况综\n合考虑确定节点改造方案（临时改造措施）。\n6.3.2 针对小区等地块有雨污水两套系统，且雨水管错接小区污水管，如小区等地块内建筑雨水立管\n错接污水管（井）或小区等地块内雨水管道错接污水井的情况。统筹海绵改造方案采取封堵或拆除错接\n管，新建雨水管或就近散排入海绵设施的方式。具体包括以下措施：\na) 拆除或封堵小区等地块内错接的建筑雨水立管排出管（或雨水检查井、雨水口）至污水检查\n井（系统）之间的管道；\nb) 结合海绵改造方案从错接处的建筑雨水立管（或雨水检查井、雨水口）新建雨水管道至小区",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        15
+      ],
+      "heading_path": [
+        "6 混错接改造设计",
+        "6.3.1 小区等地块进行混错接改造设计时，应预先调查清楚小区是否进行过雨污分流改造。具体包括\n以下措施："
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_35f0dfc62f2ce3223914fac509779881__p15",
+          "physical_page": 15,
+          "kind": "text",
+          "bbox": [
+            70.99786376953125,
+            445.79302978515625,
+            538.9823608398438,
+            629.8643188476562
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.012,
+    "retrieval": 102.678,
+    "generation": 7791.913,
+    "validation": 0.012,
+    "total": 7894.69
+  },
+  "generate_context_evidence_ids": [
+    "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+    "chunk_129623574c2270a5d18b99aa28275c4a",
+    "chunk_352e174a73e31baf46d05e6524357b66",
+    "chunk_d02f02d8ea3cfec986e99aecc725ca6a",
+    "chunk_9a90f7107c87a6c4ee8dc6c1142851f4"
+  ],
+  "trace_evidence_ids": [
+    "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+    "chunk_129623574c2270a5d18b99aa28275c4a",
+    "chunk_352e174a73e31baf46d05e6524357b66",
+    "chunk_d02f02d8ea3cfec986e99aecc725ca6a",
+    "chunk_9a90f7107c87a6c4ee8dc6c1142851f4",
+    "chunk_04119f65207086e50ae06cba3686599c",
+    "chunk_0166b82397f9dfc2b4afbf9a50006af8",
+    "chunk_40a74421df45e3d374bb3a022fa09346",
+    "chunk_f9f8a156e3d3f8ecc95c2db19a366e73",
+    "chunk_35f0dfc62f2ce3223914fac509779881"
+  ],
+  "token_usage": {
+    "input_tokens": 2756,
+    "output_tokens": 497,
+    "total_tokens": 3253,
+    "estimated_cost": 0.035964,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "福建省建筑与小区雨污混接改造技术标准附录示意图中，图1《雨水立管断接示意图（一）》的图注包含哪些主要部件？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_0aa5091f5d00c60b906f33b7b133bc06",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          62,
+          63,
+          64
+        ],
+        "text": "5 设\n计 > 5.2 建筑排水 > 5.2.1 当阳台雨水管独立设置且存在污水混入时，应在排出管\n5. 2. 1\n当阳台雨水管未与屋面雨水斗共用立管，独立布置，混接\n改造比较简单，将合流管道排出管接室外污水管网，但应根据现\n行国家标准《建筑给水排水设计标准》GB 50015 的规定，落实水\n封和通气管设置情况的相关要求，一楼出户管是否需单独排出也\n应根据现行国家标准《建筑给水排水设计标准》GB 50015\n的相关要求。阳台雨水立管改造接入污水管网时，在接入污水检\n查井前要根据现场情况设置存水弯或水封井过渡。在水封井中设\n置存水弯装置，水封井进出水管标高应大于0.15m，且水封高度\n应大于0.25m。改造示意如图4 所示，水封装置如图5 所示。\n图1 雨水立管断接示意图（一）\n1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施\n图2 雨水立管断接示意图（二）\n1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施；\n7-现状雨水检查井\n图3\n雨水立管断接示意图（三）\n1-雨水立管；2-雨水弃流过滤器；3-溢流管；4-雨水回用出口；5-支墩；6-弃流管\n图4\n阳台雨落水管改造示意图"
+      },
+      {
+        "evidence_id": "chunk_129623574c2270a5d18b99aa28275c4a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 总\n则 > 1.0.3 建筑与小区雨污混接改造工程，除应符合本标准外，尚\n1. 0. 3\n建筑与小区雨污混接改造工程，除应符合本标准外，尚\n应符合国家、行业和福建省现行有关技术标准的规定。"
+      },
+      {
+        "evidence_id": "chunk_352e174a73e31baf46d05e6524357b66",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          17
+        ],
+        "text": "5 设\n计 > 5.1 一般规定 > 5.1.5 当周边有海绵设施时，混接改造后的雨水立管应进行断\n5. 1. 5\n当周边有海绵设施时，混接改造后的雨水立管应进行断\n接，同时可利用水体和下沉绿地等进行雨水调蓄。"
+      },
+      {
+        "evidence_id": "chunk_d02f02d8ea3cfec986e99aecc725ca6a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          60
+        ],
+        "text": "5 设\n计 > 5.1 一般规定 > 5.1.1 应在前期调查的基础上，制定改造方案。施工图设计应\n5. 1. 1\n结合已进行雨污混接改造城市经验，雨污混接改造工程应\n先进行方案报批，经相关管理部门审查，雨污混接改造方案的选\n择应以上位规划为依据，方案内容应明确工程范围、建设目标和\n改造内容。改造工程措施应简单适用，力求环境效益最大化，杜\n绝大拆大建，尽量采用短平快的工程措施，便于排水户自行管理\n应从建筑内部雨污水立管进行梳理和排查，制定从建筑排水\n立管到接户井的改造方案。对存在内涝积水的建筑与小区，应结\n合内涝积水问题整治同步进行，改造方案应结合实际情况确定。\n建设目标主要包括：（1）建筑排水立管实现雨污分流；（2）建\n筑与小区内雨水、污水管网分别接入市政雨水、污水管网，无混\n改造内容包括：（1）建筑立管雨污混接改造；（2）产生污\n染源场所雨污混接改造；（3）室外排水管网雨污混接改造；（4）\n根据需要结合黑臭水体整治、污水提质增效、老旧小区改造和海\n设计单位应根据审查意见对改造设计方案进行修改完善，然\n后再进行施工图设计，避免系统不合理、混接改造不到位或技术"
+      },
+      {
+        "evidence_id": "chunk_9a90f7107c87a6c4ee8dc6c1142851f4",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 总\n则 > 1.0.1 为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n1. 0. 1\n为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n污混接改造工作，制定本标准。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 0.315268
+}

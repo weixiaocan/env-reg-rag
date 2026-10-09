@@ -1,0 +1,21 @@
+{
+  "schema_version": "retrieval-eval-run/1.0",
+  "run_id": "retrieval-baseline-v1",
+  "started_at": "2026-09-26T13:56:32.998621+00:00",
+  "finished_at": "2026-09-26T13:56:34.674928+00:00",
+  "dataset": "eval\\golden_v1.jsonl",
+  "dataset_sha256": "73744425b81e3706594ad842826fe007877f04f1f56cbaa76fcba8f94287b4fd",
+  "corpus_version": "corpus-069284e6d60e",
+  "collection": "corpus_v2",
+  "qdrant_url": "http://127.0.0.1:6333",
+  "point_count": 4182,
+  "retrieval_mode": "qdrant-dense-bm25-rrf",
+  "embedding_model": "BAAI/bge-small-zh-v1.5",
+  "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+  "limit": 10,
+  "prefetch_limit": 20,
+  "primary_k": 5,
+  "secondary_k": 10,
+  "case_count": 50,
+  "matching": "element_ids_then_document_page_quote"
+}

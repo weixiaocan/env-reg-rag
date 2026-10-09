@@ -1,0 +1,93 @@
+{
+  "case": "G010",
+  "question": "该福建标准主要技术内容大致包含哪些环节？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261008-r1-G010",
+  "trace_missing": false,
+  "wall_ms": 9083.289,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.017,
+    "retrieval": 82.574,
+    "generation": 8991.464,
+    "total": 9074.163
+  },
+  "generate_context_evidence_ids": [
+    "chunk_e2e677d1b6014060311951503d9edef5",
+    "chunk_feaa8416fd76c732c3f4fe9f874c8cb1",
+    "chunk_12680cb6698aef9d820012f0754df91a",
+    "chunk_9a90f7107c87a6c4ee8dc6c1142851f4",
+    "chunk_129623574c2270a5d18b99aa28275c4a"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 2431,
+    "output_tokens": 793,
+    "total_tokens": 3224,
+    "estimated_cost": 0.041652,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "该福建标准主要技术内容大致包含哪些环节？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_e2e677d1b6014060311951503d9edef5",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          76
+        ],
+        "text": "6 施工与验收 > 6.1 一般规定 > 6.1.2 施工单位在开工前应编制施工组织设计和专项施工方案，\n6. 1. 2\n施工组织设计的核心是施工方案，本标准重点对施工方案\n作出具体规定；对于施工组织设计和施工方案审批程序，各地市\n规定不同，本标准仅强调其内容要求和按“规定程序”审批后执\n行，执行时若有变更需求时按规定办理变更审批手续。施工方案\n涉及危险性较大的分项、分部工程时应符合现行福建省工程建设\n地方标准《福建省危险性较大的分部分项工程安全管理标准》\n施工组织设计应充分考虑好民众的出行路线、出行习惯，合"
+      },
+      {
+        "evidence_id": "chunk_feaa8416fd76c732c3f4fe9f874c8cb1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          11,
+          12
+        ],
+        "text": "3 基本规定 > 3.0.3 工作环节：主要包括混接预判、资料收集与现场踏勘、混接区\n工程措施或非工程措施：针对混接程度较轻、混接改造工作比较容易\n实施并能取得良好效果的情况（如改造工作和实施内容为直接封堵原\n错接的排水管道），在征得委托单位及相关主管部门同意后，可以精\n简如“编制混接调查工作大纲、混接水量与水质测定、编制评估报告”\n等环节，直接进行方案研究与设计、施工与验收，以加快治理工作的\n进程，尽早发挥效益。\n附图1 城镇分流制排水系统雨污混接调查与治理工作技术路线图"
+      },
+      {
+        "evidence_id": "chunk_12680cb6698aef9d820012f0754df91a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求 > 4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1\n4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1。"
+      },
+      {
+        "evidence_id": "chunk_9a90f7107c87a6c4ee8dc6c1142851f4",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 总\n则 > 1.0.1 为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n1. 0. 1\n为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n污混接改造工作，制定本标准。"
+      },
+      {
+        "evidence_id": "chunk_129623574c2270a5d18b99aa28275c4a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 总\n则 > 1.0.3 建筑与小区雨污混接改造工程，除应符合本标准外，尚\n1. 0. 3\n建筑与小区雨污混接改造工程，除应符合本标准外，尚\n应符合国家、行业和福建省现行有关技术标准的规定。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "generation_refusal",
+  "cumulative_estimated_cost_cny": 0.35692
+}

@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "evaluation_case_trace_v1.schema.json",
+  "title": "Evaluation case trace",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "case_id",
+    "mode",
+    "question",
+    "expected_facts",
+    "gold_evidence",
+    "retrieved",
+    "generation_context",
+    "answer",
+    "metrics",
+    "judge",
+    "timings_ms",
+    "failure_attribution"
+  ],
+  "properties": {
+    "schema_version": {"const": "evaluation-case-trace/1.0"},
+    "case_id": {"type": "string", "minLength": 1},
+    "mode": {"enum": ["retrieval", "generation", "e2e"]},
+    "question": {"type": "string", "minLength": 1},
+    "expected_facts": {"type": "array", "items": {"type": "string"}},
+    "gold_evidence": {"type": "array", "items": {"type": "object"}},
+    "retrieved": {"type": "array", "items": {"type": "object"}},
+    "generation_context": {"type": "array", "items": {"type": "object"}},
+    "answer": {"type": ["object", "null"]},
+    "metrics": {"type": "object"},
+    "judge": {"type": ["object", "null"]},
+    "timings_ms": {
+      "type": "object",
+      "additionalProperties": {"type": "number", "minimum": 0}
+    },
+    "failure_attribution": {
+      "enum": ["retrieval", "generation", "both", "ok", "not_applicable"]
+    }
+  }
+}

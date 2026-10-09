@@ -1,0 +1,494 @@
+{
+  "case_count": 50,
+  "eligible_case_count": 47,
+  "macro": {
+    "recall_at_5": 0.719858,
+    "recall_at_10": 0.826241,
+    "mrr": 0.679965,
+    "document_hit_at_5": 0.960993,
+    "document_hit_at_10": 0.971631,
+    "page_hit_at_5": 0.794326,
+    "page_hit_at_10": 0.875887
+  },
+  "micro": {
+    "required_evidence_count": 61,
+    "matched_evidence_at_5": 43,
+    "matched_evidence_at_10": 50,
+    "recall_at_5": 0.704918,
+    "recall_at_10": 0.819672
+  },
+  "complete_case_rate_at_5": 0.638298,
+  "complete_case_rate_at_10": 0.787234,
+  "latency_ms": {
+    "p50": 26.155,
+    "p95": 49.262,
+    "mean": 33.4044
+  },
+  "by_label": {
+    "challenge:公式": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.75,
+        "recall_at_10": 0.9375,
+        "mrr": 0.916667,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.8125,
+        "page_hit_at_10": 0.9375
+      },
+      "micro": {
+        "required_evidence_count": 14,
+        "matched_evidence_at_5": 10,
+        "matched_evidence_at_10": 13,
+        "recall_at_5": 0.714286,
+        "recall_at_10": 0.928571
+      },
+      "complete_case_rate_at_5": 0.5,
+      "complete_case_rate_at_10": 0.875
+    },
+    "challenge:原文定位": {
+      "case_count": 16,
+      "eligible_case_count": 16,
+      "macro": {
+        "recall_at_5": 0.5625,
+        "recall_at_10": 0.6875,
+        "mrr": 0.440104,
+        "document_hit_at_5": 0.9375,
+        "document_hit_at_10": 0.9375,
+        "page_hit_at_5": 0.625,
+        "page_hit_at_10": 0.75
+      },
+      "micro": {
+        "required_evidence_count": 16,
+        "matched_evidence_at_5": 9,
+        "matched_evidence_at_10": 11,
+        "recall_at_5": 0.5625,
+        "recall_at_10": 0.6875
+      },
+      "complete_case_rate_at_5": 0.5625,
+      "complete_case_rate_at_10": 0.6875
+    },
+    "challenge:同义表达": {
+      "case_count": 4,
+      "eligible_case_count": 4,
+      "macro": {
+        "recall_at_5": 0.75,
+        "recall_at_10": 0.75,
+        "mrr": 0.583333,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 1.0,
+        "page_hit_at_10": 1.0
+      },
+      "micro": {
+        "required_evidence_count": 4,
+        "matched_evidence_at_5": 3,
+        "matched_evidence_at_10": 3,
+        "recall_at_5": 0.75,
+        "recall_at_10": 0.75
+      },
+      "complete_case_rate_at_5": 0.75,
+      "complete_case_rate_at_10": 0.75
+    },
+    "challenge:图片": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.4375,
+        "recall_at_10": 0.4375,
+        "mrr": 0.34375,
+        "document_hit_at_5": 0.875,
+        "document_hit_at_10": 0.875,
+        "page_hit_at_5": 0.4375,
+        "page_hit_at_10": 0.4375
+      },
+      "micro": {
+        "required_evidence_count": 9,
+        "matched_evidence_at_5": 4,
+        "matched_evidence_at_10": 4,
+        "recall_at_5": 0.444444,
+        "recall_at_10": 0.444444
+      },
+      "complete_case_rate_at_5": 0.375,
+      "complete_case_rate_at_10": 0.375
+    },
+    "challenge:多文档": {
+      "case_count": 5,
+      "eligible_case_count": 5,
+      "macro": {
+        "recall_at_5": 0.666667,
+        "recall_at_10": 0.766667,
+        "mrr": 0.8,
+        "document_hit_at_5": 0.833333,
+        "document_hit_at_10": 0.933333,
+        "page_hit_at_5": 0.666667,
+        "page_hit_at_10": 0.833333
+      },
+      "micro": {
+        "required_evidence_count": 11,
+        "matched_evidence_at_5": 7,
+        "matched_evidence_at_10": 8,
+        "recall_at_5": 0.636364,
+        "recall_at_10": 0.727273
+      },
+      "complete_case_rate_at_5": 0.4,
+      "complete_case_rate_at_10": 0.6
+    },
+    "challenge:多条件": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.8125,
+        "recall_at_10": 0.8125,
+        "mrr": 0.71875,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.9375,
+        "page_hit_at_10": 0.9375
+      },
+      "micro": {
+        "required_evidence_count": 9,
+        "matched_evidence_at_5": 7,
+        "matched_evidence_at_10": 7,
+        "recall_at_5": 0.777778,
+        "recall_at_10": 0.777778
+      },
+      "complete_case_rate_at_5": 0.75,
+      "complete_case_rate_at_10": 0.75
+    },
+    "challenge:多证据": {
+      "case_count": 13,
+      "eligible_case_count": 13,
+      "macro": {
+        "recall_at_5": 0.717949,
+        "recall_at_10": 0.833333,
+        "mrr": 0.782051,
+        "document_hit_at_5": 0.935897,
+        "document_hit_at_10": 0.974359,
+        "page_hit_at_5": 0.717949,
+        "page_hit_at_10": 0.858974
+      },
+      "micro": {
+        "required_evidence_count": 26,
+        "matched_evidence_at_5": 18,
+        "matched_evidence_at_10": 21,
+        "recall_at_5": 0.692308,
+        "recall_at_10": 0.807692
+      },
+      "complete_case_rate_at_5": 0.461538,
+      "complete_case_rate_at_10": 0.692308
+    },
+    "challenge:库外": {
+      "case_count": 3,
+      "eligible_case_count": 0,
+      "macro": {
+        "recall_at_5": null,
+        "recall_at_10": null,
+        "mrr": null,
+        "document_hit_at_5": null,
+        "document_hit_at_10": null,
+        "page_hit_at_5": null,
+        "page_hit_at_10": null
+      },
+      "micro": {
+        "required_evidence_count": 0,
+        "matched_evidence_at_5": 0,
+        "matched_evidence_at_10": 0,
+        "recall_at_5": null,
+        "recall_at_10": null
+      },
+      "complete_case_rate_at_5": null,
+      "complete_case_rate_at_10": null
+    },
+    "challenge:相似干扰": {
+      "case_count": 24,
+      "eligible_case_count": 22,
+      "macro": {
+        "recall_at_5": 0.833333,
+        "recall_at_10": 0.901515,
+        "mrr": 0.784091,
+        "document_hit_at_5": 0.962121,
+        "document_hit_at_10": 0.984848,
+        "page_hit_at_5": 0.924242,
+        "page_hit_at_10": 0.962121
+      },
+      "micro": {
+        "required_evidence_count": 28,
+        "matched_evidence_at_5": 22,
+        "matched_evidence_at_10": 24,
+        "recall_at_5": 0.785714,
+        "recall_at_10": 0.857143
+      },
+      "complete_case_rate_at_5": 0.772727,
+      "complete_case_rate_at_10": 0.863636
+    },
+    "challenge:表格": {
+      "case_count": 19,
+      "eligible_case_count": 19,
+      "macro": {
+        "recall_at_5": 0.72807,
+        "recall_at_10": 0.938596,
+        "mrr": 0.739035,
+        "document_hit_at_5": 0.982456,
+        "document_hit_at_10": 0.982456,
+        "page_hit_at_5": 0.807018,
+        "page_hit_at_10": 0.95614
+      },
+      "micro": {
+        "required_evidence_count": 27,
+        "matched_evidence_at_5": 19,
+        "matched_evidence_at_10": 24,
+        "recall_at_5": 0.703704,
+        "recall_at_10": 0.888889
+      },
+      "complete_case_rate_at_5": 0.631579,
+      "complete_case_rate_at_10": 0.894737
+    },
+    "challenge:跨页": {
+      "case_count": 7,
+      "eligible_case_count": 7,
+      "macro": {
+        "recall_at_5": 0.714286,
+        "recall_at_10": 0.857143,
+        "mrr": 0.833333,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.714286,
+        "page_hit_at_10": 0.857143
+      },
+      "micro": {
+        "required_evidence_count": 14,
+        "matched_evidence_at_5": 10,
+        "matched_evidence_at_10": 12,
+        "recall_at_5": 0.714286,
+        "recall_at_10": 0.857143
+      },
+      "complete_case_rate_at_5": 0.428571,
+      "complete_case_rate_at_10": 0.714286
+    },
+    "modality:公式": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.75,
+        "recall_at_10": 0.9375,
+        "mrr": 0.916667,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.8125,
+        "page_hit_at_10": 0.9375
+      },
+      "micro": {
+        "required_evidence_count": 14,
+        "matched_evidence_at_5": 10,
+        "matched_evidence_at_10": 13,
+        "recall_at_5": 0.714286,
+        "recall_at_10": 0.928571
+      },
+      "complete_case_rate_at_5": 0.5,
+      "complete_case_rate_at_10": 0.875
+    },
+    "modality:图片图注": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.4375,
+        "recall_at_10": 0.4375,
+        "mrr": 0.34375,
+        "document_hit_at_5": 0.875,
+        "document_hit_at_10": 0.875,
+        "page_hit_at_5": 0.4375,
+        "page_hit_at_10": 0.4375
+      },
+      "micro": {
+        "required_evidence_count": 9,
+        "matched_evidence_at_5": 4,
+        "matched_evidence_at_10": 4,
+        "recall_at_5": 0.444444,
+        "recall_at_10": 0.444444
+      },
+      "complete_case_rate_at_5": 0.375,
+      "complete_case_rate_at_10": 0.375
+    },
+    "modality:正文": {
+      "case_count": 6,
+      "eligible_case_count": 6,
+      "macro": {
+        "recall_at_5": 0.638889,
+        "recall_at_10": 0.722222,
+        "mrr": 0.75,
+        "document_hit_at_5": 0.861111,
+        "document_hit_at_10": 0.944444,
+        "page_hit_at_5": 0.638889,
+        "page_hit_at_10": 0.777778
+      },
+      "micro": {
+        "required_evidence_count": 12,
+        "matched_evidence_at_5": 7,
+        "matched_evidence_at_10": 8,
+        "recall_at_5": 0.583333,
+        "recall_at_10": 0.666667
+      },
+      "complete_case_rate_at_5": 0.333333,
+      "complete_case_rate_at_10": 0.5
+    },
+    "modality:表格": {
+      "case_count": 20,
+      "eligible_case_count": 20,
+      "macro": {
+        "recall_at_5": 0.716667,
+        "recall_at_10": 0.941667,
+        "mrr": 0.727083,
+        "document_hit_at_5": 0.958333,
+        "document_hit_at_10": 0.983333,
+        "page_hit_at_5": 0.791667,
+        "page_hit_at_10": 0.958333
+      },
+      "micro": {
+        "required_evidence_count": 29,
+        "matched_evidence_at_5": 20,
+        "matched_evidence_at_10": 26,
+        "recall_at_5": 0.689655,
+        "recall_at_10": 0.896552
+      },
+      "complete_case_rate_at_5": 0.6,
+      "complete_case_rate_at_10": 0.9
+    },
+    "repr:定义": {
+      "case_count": 16,
+      "eligible_case_count": 16,
+      "macro": {
+        "recall_at_5": 0.614583,
+        "recall_at_10": 0.645833,
+        "mrr": 0.567708,
+        "document_hit_at_5": 0.916667,
+        "document_hit_at_10": 0.916667,
+        "page_hit_at_5": 0.708333,
+        "page_hit_at_10": 0.729167
+      },
+      "micro": {
+        "required_evidence_count": 19,
+        "matched_evidence_at_5": 11,
+        "matched_evidence_at_10": 12,
+        "recall_at_5": 0.578947,
+        "recall_at_10": 0.631579
+      },
+      "complete_case_rate_at_5": 0.5625,
+      "complete_case_rate_at_10": 0.625
+    },
+    "repr:拒答": {
+      "case_count": 4,
+      "eligible_case_count": 1,
+      "macro": {
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 1.0,
+        "page_hit_at_10": 1.0
+      },
+      "micro": {
+        "required_evidence_count": 1,
+        "matched_evidence_at_5": 1,
+        "matched_evidence_at_10": 1,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0
+      },
+      "complete_case_rate_at_5": 1.0,
+      "complete_case_rate_at_10": 1.0
+    },
+    "repr:数值": {
+      "case_count": 27,
+      "eligible_case_count": 27,
+      "macro": {
+        "recall_at_5": 0.796296,
+        "recall_at_10": 0.925926,
+        "mrr": 0.75,
+        "document_hit_at_5": 0.981481,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.833333,
+        "page_hit_at_10": 0.925926
+      },
+      "micro": {
+        "required_evidence_count": 37,
+        "matched_evidence_at_5": 29,
+        "matched_evidence_at_10": 34,
+        "recall_at_5": 0.783784,
+        "recall_at_10": 0.918919
+      },
+      "complete_case_rate_at_5": 0.703704,
+      "complete_case_rate_at_10": 0.888889
+    },
+    "repr:条件": {
+      "case_count": 23,
+      "eligible_case_count": 23,
+      "macro": {
+        "recall_at_5": 0.797101,
+        "recall_at_10": 0.905797,
+        "mrr": 0.806159,
+        "document_hit_at_5": 0.963768,
+        "document_hit_at_10": 0.985507,
+        "page_hit_at_5": 0.797101,
+        "page_hit_at_10": 0.92029
+      },
+      "micro": {
+        "required_evidence_count": 36,
+        "matched_evidence_at_5": 27,
+        "matched_evidence_at_10": 31,
+        "recall_at_5": 0.75,
+        "recall_at_10": 0.861111
+      },
+      "complete_case_rate_at_5": 0.652174,
+      "complete_case_rate_at_10": 0.826087
+    },
+    "repr:流程要求": {
+      "case_count": 10,
+      "eligible_case_count": 10,
+      "macro": {
+        "recall_at_5": 0.55,
+        "recall_at_10": 0.55,
+        "mrr": 0.425,
+        "document_hit_at_5": 0.9,
+        "document_hit_at_10": 0.9,
+        "page_hit_at_5": 0.65,
+        "page_hit_at_10": 0.65
+      },
+      "micro": {
+        "required_evidence_count": 11,
+        "matched_evidence_at_5": 6,
+        "matched_evidence_at_10": 6,
+        "recall_at_5": 0.545455,
+        "recall_at_10": 0.545455
+      },
+      "complete_case_rate_at_5": 0.5,
+      "complete_case_rate_at_10": 0.5
+    },
+    "repr:表格": {
+      "case_count": 19,
+      "eligible_case_count": 19,
+      "macro": {
+        "recall_at_5": 0.72807,
+        "recall_at_10": 0.938596,
+        "mrr": 0.739035,
+        "document_hit_at_5": 0.982456,
+        "document_hit_at_10": 0.982456,
+        "page_hit_at_5": 0.807018,
+        "page_hit_at_10": 0.95614
+      },
+      "micro": {
+        "required_evidence_count": 27,
+        "matched_evidence_at_5": 19,
+        "matched_evidence_at_10": 24,
+        "recall_at_5": 0.703704,
+        "recall_at_10": 0.888889
+      },
+      "complete_case_rate_at_5": 0.631579,
+      "complete_case_rate_at_10": 0.894737
+    }
+  },
+  "run_id": "retrieval-baseline-v1",
+  "corpus_version": "corpus-069284e6d60e",
+  "collection": "corpus_v2"
+}

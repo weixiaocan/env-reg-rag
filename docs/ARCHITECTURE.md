@@ -36,7 +36,7 @@ flowchart LR
 
 ## V2 Canonical 装配
 
-`scripts/assemble_corpus_v2.py` 读取 page-intermediate OCR 缓存（`data/canonical/corpus-37456321a968-documents.jsonl`，由 PDF 处理管线产出），逐文档装配为 V2 Canonical：把每页元素按列检测与标题层级排成单一逻辑 `elements[]` 流，每个元素带类型化 `content` 联合（text / table / formula / figure）、`source_spans`（物理页码与 bbox）、`provenance` 与 `links`。装配是纯重组层，不调用任何 OCR / PDF 引擎；page-intermediate 缓存只读复用一次，避免重复跑昂贵的 OCR / 版面 / 公式识别。
+`scripts/assemble_corpus_v2.py` 读取 page-intermediate OCR 缓存（`data/canonical/<corpus-version>-documents.jsonl`，由 PDF 处理管线产出），逐文档装配为 V2 Canonical：把每页元素按列检测与标题层级排成单一逻辑 `elements[]` 流，每个元素带类型化 `content` 联合（text / table / formula / figure）、`source_spans`（物理页码与 bbox）、`provenance` 与 `links`。装配是纯重组层，不调用任何 OCR / PDF 引擎；page-intermediate 缓存只读复用一次，避免重复跑昂贵的 OCR / 版面 / 公式识别。
 
 装配后由 `canonical_validation.compute_ids` 填充 `canonical_id` / `canonical_content_id` / `metadata_fingerprint`，并由 `validate_document` 校验 17 条不变量（含 bbox 不越页面边界等）。未来新 PDF 经 `src/ingestion/` + `unified_pdf` 直接产出同结构 page-intermediate，无需任何遗留中间态——`assemble_document` 接受的 `page_document` 字典形状是 PDF 处理与 V2 Canonical 之间的稳定 seam。
 
@@ -44,11 +44,11 @@ flowchart LR
 
 `src/application/v2_chunker.py` 按 heading / clause / 结构化单元边界做结构感知分块（token budget 480、overlap 64、bge tokenizer），块内剩余正文用 langchain `RecursiveCharacterTextSplitter` 兜底切分。每个 `V2Chunk` 的 `chunk_id` 由 `canonical_content_id + element_ids + projection_version + text_sha256` 派生，`to_qdrant_payload()` 把元数据 flatten 到顶层，保留 element_ids 到原文页码与坐标的回查链路。
 
-`scripts/ingest_corpus_v2.py` 遍历 `data/canonical/v2/corpus-37456321a968/*.canonical.json`（21 文档），分块后用 `BgeSmallZhEmbedder` 编码，写入持久化 Qdrant collection `corpus_v2`（512 维 dense + BM25 sparse）。collection 存在则 drop 重建（全量）；canonical_content_id 不变的块可跳过向量重算。
+`scripts/ingest_corpus_v2.py` 遍历 `data/canonical/v2/<corpus-version>/*.canonical.json`，分块后用 `BgeSmallZhEmbedder` 编码，写入版本化的不可变 Qdrant staging collection（512 维 dense + BM25 sparse）。发布门禁通过后，运行时查询 alias `corpus_v2_live` 原子切换到新 collection；当前尚未实现按文档或 chunk 增量 upsert。
 
 ## 证据约束
 
-来源记录和离线完整性检查见 [PDF 数据处理说明](PDF_PROCESSING.md)。新登记按完整文件哈希关联字段依据，区分声明与核验；旧值不自动继承为新批准。审计报告与来源登记和文件清单一致时才参与后续建库，字段冲突与完整性未知有显式状态，不自动阻断解析。来源/完整性元数据变化产生新的候选库版本，现有发布版本不会被审计命令切换。
+来源记录和离线完整性检查由 `scripts/audit_pdf_sources.py`、`data/registry/source_evidence.jsonl` 与语料 manifest 共同保存。新登记按完整文件哈希关联字段依据，区分声明与核验；旧值不自动继承为新批准。审计报告与来源登记和文件清单一致时才参与后续建库，字段冲突与完整性未知有显式状态，不自动阻断解析。来源/完整性元数据变化产生新的候选库版本，现有发布版本不会被审计命令切换。
 
 - V2 Canonical 元素保存原文、文档版本、条款路径、物理页码和 bbox 定位。
 - 检索块可增加标题、表头和父级语境以改善召回，但不能替代可引用原文。
@@ -57,13 +57,13 @@ flowchart LR
 
 ## 检索
 
-Qdrant 同时保存 dense（bge-small-zh 512 维）与 BM25 稀疏表示，并通过 RRF 合并结果。检索命中经 `element_ids` 追溯到 V2 Canonical 元素，还原文档、条款路径、物理页码与坐标，支持原文定位与跳转。V2 检索 HTTP API / MCP 接口为后续工作，当前通过脚本与 Qdrant 直接检索。
+Qdrant 同时保存 dense（bge-small-zh 512 维）与 BM25 稀疏表示，并通过 RRF 合并结果。检索命中经 `element_ids` 追溯到 V2 Canonical 元素，还原文档、条款路径、物理页码与坐标，支持原文定位与跳转。FastAPI 已提供 `answer` 和 `source_lookup` 两种查询模式；MCP 接口尚未实现。
 
 ## 运行数据
 
 - `data/raw/`：仓库携带的原始资料。
 - `data/registry/`：文件清单、来源状态、文档关系和版本 manifest。
-- `data/canonical/corpus-37456321a968-documents.jsonl`：page-intermediate OCR 缓存（V2 输入，只读复用）。
+- `data/canonical/<corpus-version>-documents.jsonl`：page-intermediate OCR 缓存（V2 输入，只读复用）。
 - `data/canonical/v2/`：V2 Canonical 文档（可由装配脚本重建）。
 - `data/model_runtime/`：版面、表格、公式模型缓存与裁剪图。
 - SQLite、Qdrant 存储、日志和模型权重不进入 Git。
@@ -112,8 +112,8 @@ PDF处理全部在本地执行，不上传图片或PDF。处理结果不写供�
 
 本轮包含存量全部主文本逐页版面分析与四类分派、同入口增量更新、候选全量核对和显式发布。原生文字合格也必须分析版面，旧基础检查不得用于跳过结构。处理执行状态和内容质量独立，失败、无图注及关联缺口保留具体文件、页面、区域、原因；未复核结构仅原文定位。漏检检查依据独立原PDF。保留全部副本、旧集合与回退指针，完整候选核对之前不得发布。
 
-### 实施状态（2026-09-19）
+### 实施状态（2026-09-23）
 
-统一入口已完成当前 21 份主文本、1078 页的全量运行，并发布 `corpus-37456321a968`。版面完成 1078/1078 页；V2 Canonical 共 23095 个元素（文本 22568、表格 239、公式 210、图片 78）。质量状态为 passed 10788、quarantined 234、needs_review 955，因此只能声明处理覆盖完整，不能声明全库内容正确性已核验。
+截至 2026-09-29，`data/registry/corpus-current.json` 指向 `corpus-0b9a1fd84e3d`。统一入口记录 23 份主文本、1144 页、13162 个结构区域和 0 个执行失败；1096 页为 approved，48 页为 quarantine。`corpus_v2_live` 指向的 collection 保存 4232 个检索点。版面漏检尚未经过独立验证，所有资料的来源复核状态仍以 registry 原值为准，因此只能声明工程处理覆盖，不声明全库内容正确性或法规效力已经核验。
 
 表格模型在 GB 50268-2008 第 34、117、127、165、182 物理页重复超时时，改用原页本地 OCR 文字框建立保守行序与原图定位；表头、列、合并单元格及转录准确性仍待复核，对应元素仅用于原文定位。该回退与稳定的 v4 表格阶段结果迁移纳入同一增量入口，不需要维护者另外运行表格脚本。详细区域、固定原 PDF 样例和漏检信号见候选版本的 structure audit。

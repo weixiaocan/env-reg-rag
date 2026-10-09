@@ -1,0 +1,269 @@
+{
+  "id": "G044",
+  "question": "GB/T 28592降雨量等级按哪两个时段划分？特大暴雨的24小时阈值是多少？",
+  "labels": {
+    "repr": [
+      "数值",
+      "条件",
+      "表格"
+    ],
+    "challenge": [
+      "多条件",
+      "表格",
+      "相似干扰"
+    ],
+    "modality": [
+      "表格"
+    ]
+  },
+  "expected_facts": [
+    "按24h、12h两个时段划分",
+    "特大暴雨24h降雨量≥250.0 mm"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 0.25,
+    "latency_ms": 19.628
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GBT 28592-2012降水量等级.pdf",
+      "page": 4,
+      "element_ids": [
+        "e000044",
+        "e000035",
+        "e000039",
+        "e000034",
+        "e000043"
+      ],
+      "quote": "时段的降雨量等级划分表 单位为毫米 时段 雨量 等 级 12h降雨量 24h降雨量 微量降雨（零星小雨） <0.1 <0.1 小雨 0.1~4.9 0.1~9.9 中雨 5.0~14.9 10.0~24.9 大雨 15.0~29.9 25.0~49.9 暴雨 30.0~69.9 50.0~99.9 大暴雨 70.0~139.9 100.0~249.9 特大暴雨 ≥140.0 ≥250.0 5降雪量等级划分 降雪分为微量降雪（零星小雪）、小雪、中雪、大雪、暴雪、大暴雪、特大暴雪共7个等级。具体划分见 表2。",
+      "document_rank": 4,
+      "page_rank": 4,
+      "match_rank": 4,
+      "match_method": "element_ids",
+      "matched_chunk_id": "chunk_68bc7f3679ab5bc6012aaa628a751c73"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_01b6020438abe939582edec21fb5b70a",
+      "score": 0.833333,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5,
+        6
+      ],
+      "element_ids": [
+        "e000029",
+        "e000031",
+        "e000032",
+        "e000033",
+        "e000034",
+        "e000036"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "text": "3 等级划分\nT/CMSA 0013—2019\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降水。\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\nT/CMSA 0013—2019\n单位：毫米（mm）",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_9ab8b7c253658681c3056ec6e1f46258",
+      "score": 0.571429,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000037"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "10 分钟 \n30 分钟 \n1 小时"
+      ],
+      "text": "10 分钟 \n30 分钟 \n1 小时\n表1 短时气象服务降雨量等级划分表\n等级 |  | 时段\n10 分钟 | 30 分钟 | 1 小时\n短时小雨 | ＜0.5 | ＜1.0\n短时中雨 | 0.5～0.9 | 1.0～1.9\n短时大雨 | 1.0～1.9 | 2.0～3.9\n短时暴雨 | 2.0～4.9 | 4.0～9.9\n短时大暴雨 | 5.0～15.0 | 10.0～30.0\n短时特大暴雨 | ＞15.0 | ＞30.0",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_2caa1d079969deef75709452369a9e5e",
+      "score": 0.375,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        7
+      ],
+      "element_ids": [
+        "e000038",
+        "e000039",
+        "e000040",
+        "e000041"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "10 分钟 \n30 分钟 \n1 小时"
+      ],
+      "text": "10 分钟 \n30 分钟 \n1 小时\n参 考 文 献\n[1] GB/T 27961－2011 气象服务分类术语\n[2] GB/T 28592－2012 降水量等级\n[3] QX/T 489－2019 降雨过程等级\n_________________________________\nT/CMSA 0013—2019",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_68bc7f3679ab5bc6012aaa628a751c73",
+      "score": 0.35,
+      "file_name": "GBT 28592-2012降水量等级.pdf",
+      "physical_pages": [
+        4
+      ],
+      "element_ids": [
+        "e000028",
+        "e000029",
+        "e000030",
+        "e000031",
+        "e000032",
+        "e000033",
+        "e000034",
+        "e000035",
+        "e000036",
+        "e000037",
+        "e000038",
+        "e000039",
+        "e000040",
+        "e000041",
+        "e000042"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [],
+      "text": "precipitation\n降水量\n失而在水平面上积聚的深度\n3降水量等级划分的原则\n降水量按24h，12h两个时间段进行\n4降雨量等级划分\n降雨分为微量降雨（零星小雨）、小雨、中雨、天\n5降雪量等级划分\nGB/T28592-2012\n降水量等级\n划分\n雨、暴雨、暴雨、特暴共个等级。具体划分见\n单位为毫米\n本标准适用于降水监测、预报、预警、服务等业务和科研工作，以及其他行业与降水相关的领域。\n某一时段内，从天空降落到地面上的液态（降雨）或固态（降雪）（经融化后）降水，未经蒸发、渗透、流",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_fa979c85799dfea60d1a74b0d2e56922",
+      "score": 0.333333,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000069"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.3 降雨过程评价指标计算",
+        "4.3.1 降雨强度（R）计算和指数划分"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.3 降雨过程评价指标计算 > 4.3.1 降雨强度（R）计算和指数划分\n降雨强度（R）：日雨量达到表3标定区间的测站日最大雨量和过程平均日雨量的加权。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_8a27c47565107965c06267c7e5592985",
+      "score": 0.253968,
+      "file_name": "GBT 28592-2012降水量等级.pdf",
+      "physical_pages": [
+        4
+      ],
+      "element_ids": [
+        "e000043"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [],
+      "text": "表1。\n等 |  | 雨量 时段\n级 |  | \n12h降雨量 |  | 24h降雨量 <0.1\n<0.1 |  | \n微量降雨（零星小雨） |  | \n小雨 |  | 0.1~9.9\n0.1~4.9 |  | \n中雨 |  | 10.0~24.9\n5.0~14.9 |  | \n大雨 |  | 25.0~49.9\n15.0~29.9 |  | \n暴雨 |  | \n30.0~69.9 |  | 50.0~99.9\n大暴雨 |  | \n70.0~139.9 |  | 100.0~249.9\n特大暴雨 |  | ≥250.0\n≥140.0 |  |",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_f7b396b55edb3f0cade809c3be56b777",
+      "score": 0.25,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000078"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4.2 区域降雨过程等级"
+      ],
+      "text": "4.2 区域降雨过程等级\n表2区域日降雨等级划分表\n等级 |  | 划分方法\n小雨 |  | 区域内40%以上站点出现小雨\n中雨 |  | 区域内有30%以上站点出现中雨\n大雨 |  | 区域内有20%以上站点出现大雨\n暴雨 |  | 区域内有10%以上站点出现暴雨\n大暴雨 |  | 区域内有5%以上站点出现大暴雨\n特大暴雨 |  | \n区域内有5%以上站点出现大暴雨，且有2%以上站点出现特大暴雨 |  |",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_d428ab02b9d514af9787eb980b73d433",
+      "score": 0.2,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000047",
+        "e000048",
+        "e000049",
+        "e000050",
+        "e000052",
+        "e000053"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [],
+      "text": "降雨过程 rainfall process\n单站或区域降雨开始到降雨结束。\n3降雨过程强度等级划分\n过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。\n利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨\n强度、覆盖范围、持续时间三个指标，计算单站/区域（需设定）降雨过程强度指数（RSI/RPI），根据降雨",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_471acd8288e87851fd2cf4c8e213f997",
+      "score": 0.2,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000067"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3.2 单站降雨过程等级"
+      ],
+      "text": "3.2 单站降雨过程等级\n表1单站日降雨量等级划分表\n等级 |  | 日降雨量 mm\n小雨 |  | 0.1~9.9\n中雨 |  | 10.0~24.9\n大雨 |  | 25.0~49.9\n暴雨 |  | 50.0~99.9\n大暴雨 |  | 100.0~249.9\n特大暴雨 |  | ≥250.0",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_56718f26ce4d48e96952235b91987fb4",
+      "score": 0.166667,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        7
+      ],
+      "element_ids": [
+        "e000095"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.3 降雨过程评价指标计算",
+        "4.3.3 持续时间（T。)计算和指数划分"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.3 降雨过程评价指标计算 > 4.3.3 持续时间（T。)计算和指数划分\n[公式]\nT_{0}=T_{e}-T_{s}+1\n式中：\n3",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

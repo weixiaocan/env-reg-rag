@@ -1,0 +1,20 @@
+{
+  "case": "G048",
+  "question": "按GB 50268，施工测量允许偏差应符合哪张表？沟槽底部开挖宽度设计无要求时可按哪一公式计算，式中B、Do含义是什么？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "施工测量允许偏差见表3.1.8",
+    "B=Do+2(b1+b2+b3)",
+    "B为沟槽底开挖宽度，Do为管外径"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.094356
+}

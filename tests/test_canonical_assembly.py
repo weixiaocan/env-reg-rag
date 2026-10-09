@@ -65,7 +65,7 @@ def _build_cecs758_v2() -> dict:
     """Assemble + compute_ids + validate the CECS758 V2 document (in-memory)."""
     page_doc = _stream_find_page_document(CECS758_SHA)
     page_count = len(page_doc.get("pages") or [])
-    formula_pages = load_formula_pages(
+    formula_pages, _cache_failures = load_formula_pages(
         CECS758_SHA, range(1, page_count + 1), cache_dir=_FORMULA_CACHE_DIR
     )
     doc = assemble_document(page_doc, formula_pages=formula_pages)
@@ -385,7 +385,7 @@ class TestNoOcrReRun(unittest.TestCase):
         # Smoke: assemble runs against an in-memory dict + dict formula cache.
         page_doc = _stream_find_page_document(CECS758_SHA)
         page_count = len(page_doc.get("pages") or [])
-        formula_pages = load_formula_pages(
+        formula_pages, _cache_failures = load_formula_pages(
             CECS758_SHA, range(1, page_count + 1), cache_dir=_FORMULA_CACHE_DIR
         )
         doc = assemble_document(page_doc, formula_pages=formula_pages)

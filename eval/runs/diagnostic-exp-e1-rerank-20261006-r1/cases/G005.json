@@ -1,0 +1,331 @@
+{
+  "id": "G005",
+  "question": "降雨过程强度等级标准把单站/区域降雨过程强度划分为哪几个等级？",
+  "labels": {
+    "repr": [
+      "定义",
+      "表格"
+    ],
+    "challenge": [
+      "表格",
+      "相似干扰"
+    ],
+    "modality": [
+      "表格"
+    ]
+  },
+  "expected_facts": [
+    "划分为特强、强、较强、中等和弱五个等级"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 0.5,
+    "latency_ms": 1564.237,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 1,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "降雨过程强度等级标准.pdf",
+      "page": 5,
+      "element_ids": [
+        "e000047",
+        "e000048",
+        "e000049",
+        "e000050",
+        "e000052",
+        "e000053"
+      ],
+      "quote": "降雨过程 rainfall process\n单站或区域降雨开始到降雨结束。\n3降雨过程强度等级划分\n过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。\n利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨\n强度、覆盖范围、持续时间三个指标，计算单站/区域（需设定）降雨过程强度指数（RSI/RPI），根据降雨",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 2,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_7579e97cdb41c250254cd5c16093ee53",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 2,
+      "locator_chunk_id": "chunk_7579e97cdb41c250254cd5c16093ee53",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_359a0848d99e58689eb8f19e39da5023",
+      "score": 0.326923,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000035"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "表1降雨过程强度等级划分表\n降雨区 | 降雨过程强度指数值 | 降雨过程强度等级\n单一测站 | 1≤RSI≤4 | 特强(I级)\n单一测站 | 4<RSI≤8 | 强(Ⅱ级)\n单一测站 | 8<RSI≤12 | 较强(Ⅲ级)\n单一测站 | 12<RSI≤16 | 中等(Ⅳ级)\n单一测站 | RSI>16 | 弱（V级)\n区域 | 1≤RPI≤12 | 特强（I级)\n区域 | 12<RPI≤24 | 强（Ⅱ级)\n区域 | 24∧RPI≤36 | 较强（Ⅲ级)\n区域 | 36<RPI≤64 | 中等（Ⅳ级）\n区域 | RPI>64 | 弱（V级)",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_7579e97cdb41c250254cd5c16093ee53",
+      "score": 0.833333,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000047",
+        "e000048",
+        "e000049",
+        "e000050",
+        "e000052",
+        "e000053"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "降雨过程 rainfall process\n单站或区域降雨开始到降雨结束。\n3降雨过程强度等级划分\n过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。\n利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨\n强度、覆盖范围、持续时间三个指标，计算单站/区域（需设定）降雨过程强度指数（RSI/RPI），根据降雨",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_d4e226d0fa3f552174e3a760293ae267",
+      "score": 0.833333,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000036",
+        "e000037",
+        "e000038",
+        "e000039",
+        "e000040",
+        "e000041"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "降雨过程强度等级\n1范围\n本标准规定了降雨过程强度等级划分及其计算方法。\n本标准适用于单站和区域降雨过程的监测、评估及服务。\n2术语和定义\n下列术语和定义适用于本文件。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_9215c938a6a04ee6e80bac9cfa2b9cb2",
+      "score": 0.25,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000069"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.2 单站降雨过程等级"
+      ],
+      "text": "3.2 单站降雨过程等级\n4区域降雨过程等级",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+      "score": 0.257576,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000067"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.2 单站降雨过程等级"
+      ],
+      "text": "3.2 单站降雨过程等级\n表1单站日降雨量等级划分表\n等级 | 日降雨量 mm\n小雨 | 0.1~9.9\n中雨 | 10.0~24.9\n大雨 | 25.0~49.9\n暴雨 | 50.0~99.9\n大暴雨 | 100.0~249.9\n特大暴雨 | ≥250.0",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_e22fd2e5e818104f9223c993392da379",
+      "score": 0.311111,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000065"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.2 单站降雨过程等级"
+      ],
+      "text": "3.2 单站降雨过程等级\n单站降雨过程等级为降雨过程中该站日降雨量等级中的最强等级。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+      "score": 0.392857,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000073",
+        "e000075",
+        "e000076",
+        "e000077"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.2 区域降雨过程等级"
+      ],
+      "text": "4.2 区域降雨过程等级\n区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。\n区域可分为省（自治区、直辖市）、跨省（自治区、直辖市）或相当面积的地域范围，区域内站点包括县\n级以上国家级地面气象观测站和区域自动站。区域日降雨等级划分以单站日降雨量等级为依据，按照\n区域内达到某等级的站点百分比确定，见表2。若同时满足不同等级标准，则按照最强一级划定区域日",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_aaf5a97b4be1db74bafa87f132d5a37a",
+      "score": 0.18254,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        1,
+        3,
+        4
+      ],
+      "element_ids": [
+        "e000001",
+        "e000002",
+        "e000003",
+        "e000004",
+        "e000005",
+        "e000006",
+        "e000007",
+        "e000008",
+        "e000009",
+        "e000010",
+        "e000011",
+        "e000012",
+        "e000013",
+        "e000014",
+        "e000015",
+        "e000016",
+        "e000017",
+        "e000018",
+        "e000020",
+        "e000026",
+        "e000028",
+        "e000029",
+        "e000030",
+        "e000031",
+        "e000032",
+        "e000033",
+        "e000034"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "ICS 07.060\nA47\n2016-09-29发布\nQX\nQX/T 341—2016\n降雨过程强度等级\nThe intensity grade of rainfall process\n2017-03-01实施\n中国气象局发布\n中华人民共和国气象行业标准\n次\n目\n前言\n1范围\n2术语和定义\n3降雨过程强度等级划分\n4RSI/RPI计算方法\n参考文献……\nⅡI\nI\n本标准按照GB/T1.1—2009给出的规则起草。\n本标准起草单位：国家气象中心。\n本标准主要起草人：王莉萍、王秀荣、王维国、张立生。\nⅡ\n前\n言\n本标准由全国气象防灾减灾标准化技术委员会（SAC/TC345)提出并归口。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_9e8d85eb0be9b360f15a161f6f7daf46",
+      "score": 0.132479,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        9,
+        10,
+        12
+      ],
+      "element_ids": [
+        "e000144",
+        "e000147",
+        "e000148",
+        "e000149",
+        "e000151",
+        "e000152",
+        "e000153",
+        "e000154",
+        "e000155",
+        "e000156",
+        "e000158",
+        "e000159",
+        "e000160",
+        "e000161",
+        "e000162",
+        "e000163",
+        "e000164",
+        "e000165",
+        "e000166",
+        "e000167",
+        "e000168",
+        "e000169",
+        "e000170",
+        "e000171",
+        "e000172",
+        "e000173",
+        "e000174",
+        "e000175",
+        "e000176",
+        "e000177",
+        "e000178",
+        "e000179",
+        "e000180"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.4 RSI/ RPI计算",
+        "4.4.2 区域降雨过程强度指数（RPI)"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.4 RSI/ RPI计算 > 4.4.2 区域降雨过程强度指数（RPI)\n表5查出对应降雨区持续时间指数。\n第j类降雨区降雨强度指数，j的取值范围[1，n]，利用公式（1)计算第j类降雨区降雨强\n第；类降雨区按照4.2区域降雨过程定义选取的测站占设定区域总测站的百分比；\n设定区域内第j类降雨区降雨持续时间指数，根据公式（3)计算降雨持续时间（T。），对照\n[1GB/T20480—2006江河流域面雨量等级\nGB/T28592—2012降水量等级\n[2\n[3]\n[4\n月发布\n参考文献\n大气科学词典编委会.大气科学词典.北京：气象出版社，1994\n中国气象局应急减灾与公共服务司.暴雨诱发山洪灾害气象预警业务规范（暂行).2015年9\n中华人民共和国\n气象行业标准\n降雨过程强度等级\nQX/T 341—2016\n￥\n气象出版社出版发行\n北京市海淀区中关村南大街46号\n邮政编码：100081\n网址:http://www.qxcbs.com\n发行部：010-68408042\n北京中新伟业印刷有限公司印刷\n各地新华书店经销\n*\n开本：880×12301/16印张：0.75字数：22.5千字\n2017年1月第一版2017年1月第一次印刷\n￥\n书号：135029-5847定价：15.00元\n如有印装差错由本社发行部调换\n版权专有侵权必究\n举报电话：(010)68406301",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+      "score": 0.15,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000063"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.1 单站日降雨量等级"
+      ],
+      "text": "3.1 单站日降雨量等级\n单站日降雨量等级以该站日降雨量为划分依据，见表1。",
+      "matched_evidence_indexes": []
+    }
+  ],
+  "rerank_latency_ms": 1540.7588999951258
+}

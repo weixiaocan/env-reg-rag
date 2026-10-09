@@ -17,6 +17,7 @@ from typing import Any, Callable, Protocol
 
 from src.ingestion.native_pdf import NativePdfParser
 from src.ingestion.ocr_pdf import OcrPdfParser, PaddleTextOcrEngine
+from src.application.publish_state import CandidateConflictError
 from src.application.document_relations import apply_relations
 from src.application.formula_region_gate import load_formula_region_gate
 from src.application.pdf_source_audit import (
@@ -298,7 +299,7 @@ class AutomaticPageExtractor:
         else:
             self.ocr = OcrPdfParser(engine=PaddleTextOcrEngine(), dpi=150)
         self.config_id = (
-            f"auto-page-v7:native-min={minimum_native_characters}:ocr={enable_ocr}:native-quality=mojibake-v1:"
+            f"auto-page-v9:native-min={minimum_native_characters}:ocr={enable_ocr}:native-quality=mojibake-v2:"
             f"layout={self.layout_recognition}:tables={table_recognition}"
         )
 
@@ -338,6 +339,14 @@ class AutomaticPageExtractor:
 
     @staticmethod
     def _page(source: dict[str, Any], *, status: str, reasons: list[str]) -> dict[str, Any]:
+        # T02: persist the OCR engine name/version and page-level mean confidence
+        # so they flow losslessly into V2 Canonical provenance. Pre-T02
+        # page-intermediate caches do not carry these fields; assembly reads them
+        # optionally (``.get``) and falls back to safe defaults. Native pages
+        # have no per-page confidence (lexical quality only) -> None.
+        is_ocr = source["extraction_route"] == "full_ocr"
+        raw = source.get("raw") or {}
+        metrics = (source.get("quality") or {}).get("metrics") or {}
         return {
             "physical_page": source["physical_page"],
             "page_index": source["page_index"],
@@ -347,11 +356,11 @@ class AutomaticPageExtractor:
             "rotation": source["rotation"],
             "extraction_route": source["extraction_route"],
             "parser_name": (
-                source.get("raw", {}).get("engine_name", "paddleocr")
-                if source["extraction_route"] == "full_ocr"
-                else "pymupdf-native"
+                raw.get("engine_name", "paddleocr-text") if is_ocr else "pymupdf-native"
             ),
             "parser_profile": "full-corpus-auto-v1",
+            "engine_version": raw.get("engine_version") if is_ocr else None,
+            "ocr_confidence": metrics.get("mean_confidence") if is_ocr else None,
             "decision_status": status,
             "decision_reasons": reasons,
             "publishable": status == "approved",
@@ -404,6 +413,15 @@ class AutomaticPageExtractor:
             ):
                 status = "quarantine"
                 reasons = list(dict.fromkeys(reasons + post["reasons"] + ["ocr_text_unreadable"]))
+        # T08: a native->OCR re-route must never SILENTLY lose most of the
+        # candidate text. When the rejected native layer held substantially
+        # more content than the OCR pass recovered, quarantine for review.
+        if status == "approved" and count >= self.minimum_native_characters:
+            ocr_count = len(re.sub(r"\s", "", ocr.get("text") or ""))
+            if ocr_count * 2 < count:
+                status = "quarantine"
+                reasons = list(dict.fromkeys(
+                    reasons + ["native_text_rejected_ocr_text_shrunk"]))
         return self._page(ocr, status=status, reasons=reasons)
 
 
@@ -420,6 +438,7 @@ class CorpusUpdateService:
         page_extractor_factory: Callable[[], PageExtractor] | None = None,
         formula_run_id: str | None = None,
         attempted_contents: set[str] | None = None,
+        recovery_dir: Path | None = None,
     ):
         if worker_count < 1:
             raise ValueError("worker_count must be positive")
@@ -432,6 +451,28 @@ class CorpusUpdateService:
         self.page_extractor_factory = page_extractor_factory
         self.formula_run_id = formula_run_id
         self.attempted_contents = attempted_contents or set()
+        # T06/T07: surgical recovery (e.g. re-extracted QXT pages) enters a
+        # build ONLY as an explicit TEXT-STAGE override input from this
+        # directory -- never as an in-place patch of published artifacts.
+        # The recovered pages change the DOCUMENTS, and the final corpus
+        # version hash covers the documents -- so an override build always
+        # produces a NEW corpus version (the input fingerprint is unchanged).
+        self.recovery_dir = Path(recovery_dir) if recovery_dir is not None else None
+
+    def _recovery_dir_identity(self) -> str:
+        """Canonical project-relative posix identity of the recovery dir.
+
+        Everything derived from it (page provenance, corpus_version hash)
+        must be machine-independent; an unrelativizable path is a hard error.
+        """
+        try:
+            return self.recovery_dir.relative_to(self.root).as_posix()
+        except ValueError:
+            raise ValueError(
+                f"recovery_dir {str(self.recovery_dir)!r} is not inside the "
+                "project root -- refusing to record an absolute recovery "
+                "path in page provenance (corpus version ids must be "
+                "machine-independent)")
 
     def _cache_path(self, asset: ContentAsset, config_hash: str) -> Path:
         return (
@@ -453,6 +494,45 @@ class CorpusUpdateService:
             / asset.sha256
             / config_hash[:12]
             / f"{physical_page:04d}.json"
+        )
+
+    def _recovery_page_path(self, sha256: str, physical_page: int) -> Path:
+        # T07 Finding A: recovery pages are read from the CONFIGURED recovery
+        # directory through its canonical project-relative identity -- a dir
+        # outside the project root fails closed here instead of silently
+        # reading (or ignoring) pages at a hardcoded location.
+        return (
+            self.root
+            / self._recovery_dir_identity()
+            / sha256
+            / f"{physical_page:04d}.json"
+        )
+
+    def recovery_page(self, sha256: str, physical_page: int) -> dict[str, Any] | None:
+        """Return the integrity-checked recovery override page, if present."""
+        if self.recovery_dir is None:
+            return None
+        path = self._recovery_page_path(sha256, physical_page)
+        if not path.is_file():
+            return None
+        page, integrity = self._read_checkpoint(path)
+        if not integrity:
+            raise ValueError(
+                f"recovery override page failed its integrity check: {path}")
+        return page
+
+    def _has_recovery_pages(self, asset: ContentAsset) -> bool:
+        """True when any recovery override page exists for this asset.
+
+        A build given recovery overrides must re-derive the affected
+        documents from the overrides instead of silently reusing a cached
+        checkpoint that predates the recovery.
+        """
+        if self.recovery_dir is None:
+            return False
+        return any(
+            self.recovery_page(asset.sha256, page) is not None
+            for page in range(1, asset.page_count + 1)
         )
 
     def _write_json(self, path: Path, payload: Any) -> None:
@@ -484,6 +564,134 @@ class CorpusUpdateService:
         temporary.write_text(content, encoding="utf-8")
         temporary.replace(path)
 
+    def _write_candidate_text(self, path: Path, content: str) -> None:
+        """T07: candidate artifacts are CREATE-ONLY and immutable.
+
+        Absent -> atomic write; byte-identical -> quiet reuse; ANY other
+        existing content -> CandidateConflictError raised BEFORE any write,
+        so a rebuild never truncates or overwrites an existing candidate.
+        """
+        payload = content.encode("utf-8")
+        if path.is_file():
+            # _write_text runs in text mode, so the platform newline (CRLF on
+            # Windows) is a storage artifact, not content: compare modulo it.
+            if path.read_bytes().replace(b"\r\n", b"\n") == payload:
+                return
+            raise CandidateConflictError(
+                "immutable candidate conflict: "
+                f"{path.relative_to(self.root).as_posix()} already exists "
+                "with different content -- existing candidate left untouched")
+        self._write_text(path, content)
+
+    def _write_candidate_json(self, path: Path, payload: Any) -> None:
+        """Create-only JSON candidate write (same contract, _write_json form).
+
+        The only tolerated difference on reuse is ``generated_at`` -- a pure
+        informational wall-clock stamp that has never taken part in the
+        manifest immutability comparison. Everything else must be identical.
+        """
+        if path.is_file():
+            try:
+                stored = json.loads(path.read_text(encoding="utf-8"))
+            except (ValueError, UnicodeError) as exc:
+                raise CandidateConflictError(
+                    "immutable candidate conflict: "
+                    f"{path.relative_to(self.root).as_posix()} exists but is "
+                    "unreadable -- existing candidate left untouched") from exc
+            comparable = json.loads(json.dumps(payload, ensure_ascii=False))
+            if isinstance(stored, dict) and isinstance(comparable, dict):
+                stored = {k: v for k, v in stored.items() if k != "generated_at"}
+                comparable = {k: v for k, v in comparable.items()
+                              if k != "generated_at"}
+            if stored == comparable:
+                return
+            raise CandidateConflictError(
+                "immutable candidate conflict: "
+                f"{path.relative_to(self.root).as_posix()} already exists "
+                "with different content -- existing candidate left untouched")
+        self._write_json(path, payload)
+
+    def _validate_recovery_inputs(self, catalog) -> None:
+        """T07: an explicit recovery dir is a FULLY VALIDATED build input.
+
+        Runs BEFORE any candidate write: a missing/empty directory, a
+        missing or inconsistent recovery record, unknown catalog sha, pages
+        missing / duplicated / out of range, failed checkpoint integrity or
+        a text-whitelist violation all HARD-FAIL the build -- a broken
+        recovery input can never silently degrade into a recovery-less one.
+        """
+        from src.application.unified_pdf import UnifiedPageExtractor
+        recovery_rel = self._recovery_dir_identity()
+        if not self.recovery_dir.is_dir():
+            raise ValueError(
+                f"recovery dir does not exist: {recovery_rel} -- refusing to "
+                "build without the explicitly requested recovery input")
+        by_sha = {asset.sha256: asset for asset in catalog.assets}
+        sha_dirs = [d for d in sorted(self.recovery_dir.iterdir())
+                    if d.is_dir()]
+        if not sha_dirs:
+            raise ValueError(
+                f"recovery dir is empty: {recovery_rel} -- refusing to build "
+                "without the explicitly requested recovery input")
+        for sha_dir in sha_dirs:
+            sha = sha_dir.name
+            asset = by_sha.get(sha)
+            if asset is None:
+                raise ValueError(
+                    f"recovery document {sha[:12]}... is not in the catalog")
+            record_path = sha_dir / "recovery_record.json"
+            if not record_path.is_file():
+                raise ValueError(
+                    f"recovery record missing for {sha[:12]}... "
+                    f"(expected {record_path.name})")
+            try:
+                record = json.loads(record_path.read_text(encoding="utf-8"))
+            except (ValueError, UnicodeError) as exc:
+                raise ValueError(
+                    f"un readable recovery record for {sha[:12]}...") from exc
+            record_dir = f"{recovery_rel}/{sha}"
+            if (record.get("schema_version") != "t06-recovery-1"
+                    or record.get("sha256") != sha
+                    or record.get("recovery_dir") != record_dir):
+                raise ValueError(
+                    f"recovery record inconsistent for {sha[:12]}...: it "
+                    "must bind the directory sha256 and the canonical "
+                    f"recovery path {record_dir!r}")
+            page_files = sorted(p for p in sha_dir.glob("*.json")
+                                if p.name != "recovery_record.json")
+            if not page_files:
+                raise ValueError(f"no recovery pages for {sha[:12]}...")
+            file_pages: list[int] = []
+            for page_path in page_files:
+                match = re.fullmatch(r"(\d{4})\.json", page_path.name)
+                if not match:
+                    raise ValueError(
+                        f"unexpected recovery page file name: {page_path.name}")
+                page_no = int(match.group(1))
+                if not 1 <= page_no <= asset.page_count:
+                    raise ValueError(
+                        f"recovery page {page_no} out of range for "
+                        f"{sha[:12]}... ({asset.page_count} pages)")
+                file_pages.append(page_no)
+            record_pages = record.get("pages")
+            if not isinstance(record_pages, list) or sorted(
+                    record_pages) != file_pages:
+                raise ValueError(
+                    f"recovery record pages {record_pages!r} do not match "
+                    f"the page files {file_pages} for {sha[:12]}...")
+            for page_path, page_no in zip(page_files, file_pages):
+                page, integrity = self._read_checkpoint(page_path)
+                if not integrity:
+                    raise ValueError(
+                        "recovery override page failed its integrity check: "
+                        f"{page_path}")
+                if page.get("physical_page") != page_no:
+                    raise ValueError(
+                        f"recovery page file {page_path.name} claims "
+                        f"physical_page {page.get('physical_page')!r}")
+                UnifiedPageExtractor._validate_recovered_text_page(
+                    page, page_no)
+
     def _page(
         self,
         asset: ContentAsset,
@@ -491,6 +699,36 @@ class CorpusUpdateService:
         physical_page: int,
         extractor: PageExtractor,
     ) -> tuple[dict[str, Any], bool]:
+        # T07: a surgical recovery override (if the build was given one) is an
+        # explicit, integrity-checked TEXT-STAGE input of THIS unified build.
+        # It never bypasses the unified structure stages: the extractor still
+        # runs layout/tables/formulas/figures on top of the recovered text.
+        # Recovery-derived pages are NEVER written into the reusable caches --
+        # a later build without --recovery-dir must not inherit the content.
+        recovered = None
+        if self.recovery_dir is not None:
+            recovered = self.recovery_page(asset.sha256, physical_page)
+        if recovered is not None:
+            if not getattr(extractor, 'requires_structure', False):
+                return recovered, True
+            bound = {**recovered,
+                     'recovery_checkpoint_sha256': _stable_json_sha(recovered)}
+            page = extractor.extract(
+                asset, physical_page=physical_page, recovery_text=bound)
+            page["sample_id"] = f"P-{asset.sha256[:8]}-{physical_page:04d}"
+            page["raw_artifact_ref"] = self._cache_path(
+                asset, config_hash
+            ).relative_to(self.root).as_posix()
+            page["recovery_text_source"] = {
+                # T07 Finding A: this provenance enters the document -> the
+                # corpus_version hash, so it MUST be a project-relative posix
+                # path (same content -> same version on every machine).
+                # Absolute paths fail closed, never fall back silently.
+                "recovery_dir": self._recovery_dir_identity(),
+                "page_file": f"{physical_page:04d}.json",
+                "checkpoint_sha256": bound["recovery_checkpoint_sha256"],
+            }
+            return page, False
         page_cache = self._page_cache_path(asset, config_hash, physical_page)
         if page_cache.is_file():
             page, integrity = self._read_checkpoint(page_cache)
@@ -534,8 +772,11 @@ class CorpusUpdateService:
         self, asset: ContentAsset, config_hash: str, extractor: PageExtractor
     ) -> tuple[dict[str, Any], bool]:
         cache_path = self._cache_path(asset, config_hash)
+        # T06: recovery overrides invalidate document-level cache reuse --
+        # the override pages must enter THIS build via _page.
+        recovery_active = self._has_recovery_pages(asset)
         payload: dict[str, Any]
-        if cache_path.is_file():
+        if not recovery_active and cache_path.is_file():
             payload, integrity = self._read_checkpoint(cache_path)
             if (
                 payload.get("sha256") == asset.sha256
@@ -560,6 +801,7 @@ class CorpusUpdateService:
 
         if (
             not completed_pages
+            and not recovery_active
             and payload.get("sha256") == asset.sha256
             and payload.get("config_hash") == config_hash
             and payload.get("status") == "processing"
@@ -583,16 +825,20 @@ class CorpusUpdateService:
                     "decision_status": page["decision_status"],
                 }
             )
-            self._write_checkpoint(
-                cache_path,
-                {
-                    "status": "processing",
-                    "sha256": asset.sha256,
-                    "config_hash": config_hash,
-                    "expected_page_count": asset.page_count,
-                    "pages": completed_pages,
-                },
-            )
+            # T07: while a recovery override is active for this document, the
+            # document cache is not written at all -- recovery content must
+            # stay out of every cache a later build could reuse.
+            if not recovery_active:
+                self._write_checkpoint(
+                    cache_path,
+                    {
+                        "status": "processing",
+                        "sha256": asset.sha256,
+                        "config_hash": config_hash,
+                        "expected_page_count": asset.page_count,
+                        "pages": completed_pages,
+                    },
+                )
         document = {
             "schema_version": "1",
             "scope": "full_unique_content",
@@ -608,21 +854,71 @@ class CorpusUpdateService:
             "canonical_rel_path": asset.canonical_rel_path,
             "pages": completed_pages,
         }
-        self._write_checkpoint(
-            cache_path,
-            {
-                "status": "complete",
-                "sha256": asset.sha256,
-                "config_hash": config_hash,
-                "expected_page_count": asset.page_count,
-                "pages": completed_pages,
-                "document": document,
-            },
-        )
+        if not recovery_active:
+            self._write_checkpoint(
+                cache_path,
+                {
+                    "status": "complete",
+                    "sha256": asset.sha256,
+                    "config_hash": config_hash,
+                    "expected_page_count": asset.page_count,
+                    "pages": completed_pages,
+                    "document": document,
+                },
+            )
         return document, was_reused or all_pages_reused
+
+    def _recovery_provenance(self, catalog) -> dict[str, Any]:
+        """Corpus-level recovery provenance for the registry manifest (T07).
+
+        Records the canonical recovery directory and every recovery page's
+        checkpoint digest, so the manifest alone proves the recovery channel
+        participated in this build. Page files are re-hashed here -- a
+        recovery page that fails its checkpoint integrity is a hard error.
+        """
+        if self.recovery_dir is None:
+            return {"schema_version": "t07-recovery-manifest-1",
+                    "recovery_dir": None, "documents": []}
+        try:
+            recovery_rel = self.recovery_dir.relative_to(self.root).as_posix()
+        except ValueError:
+            raise ValueError(
+                f"recovery_dir {str(self.recovery_dir)!r} is not inside the "
+                "project root -- refusing to record an absolute recovery path "
+                "in the manifest (corpus version ids must be machine-independent)")
+        catalog_shas = {asset.sha256 for asset in catalog.assets}
+        documents: list[dict[str, Any]] = []
+        if not self.recovery_dir.is_dir():
+            return {"schema_version": "t07-recovery-manifest-1",
+                    "recovery_dir": recovery_rel, "documents": []}
+        for sha_dir in sorted(self.recovery_dir.iterdir()):
+            if not sha_dir.is_dir() or sha_dir.name not in catalog_shas:
+                continue
+            pages: list[dict[str, Any]] = []
+            for page_path in sorted(sha_dir.glob("*.json")):
+                if page_path.name == "recovery_record.json":
+                    continue
+                page, integrity = self._read_checkpoint(page_path)
+                if not integrity:
+                    raise ValueError(
+                        "recovery override page failed its integrity check: "
+                        f"{page_path}")
+                pages.append({
+                    "physical_page": page.get("physical_page"),
+                    "page_file": page_path.name,
+                    "checkpoint_sha256": _stable_json_sha(page),
+                })
+            if pages:
+                documents.append({"sha256": sha_dir.name, "pages": pages})
+        return {"schema_version": "t07-recovery-manifest-1",
+                "recovery_dir": recovery_rel, "documents": documents}
 
     def build(self) -> dict[str, Any]:
         catalog = build_source_catalog(self.root)
+        if self.recovery_dir is not None:
+            # T07: validate the full recovery input chain BEFORE any
+            # candidate write -- inconsistencies hard-fail with zero writes.
+            self._validate_recovery_inputs(catalog)
         formula_gate = load_formula_region_gate(self.root, self.formula_run_id, catalog) if self.formula_run_id else None
         config_hash = _stable_json_sha(
             {"schema_version": "1", "page_extractor": self.page_extractor.config_id}
@@ -683,7 +979,7 @@ class CorpusUpdateService:
         canonical_path = (
             self.root / "data" / "canonical" / f"{corpus_version}-documents.jsonl"
         )
-        self._write_text(
+        self._write_candidate_text(
             canonical_path,
             "".join(json.dumps(document, ensure_ascii=False) + "\n" for document in documents),
         )
@@ -734,23 +1030,18 @@ class CorpusUpdateService:
             "formula_region_gate": formula_gate['provenance'] if formula_gate else None,
             "assets": [asdict(asset) for asset in catalog.assets],
         }
+        manifest["recovery_provenance"] = self._recovery_provenance(catalog)
         if structure_audit is not None:
             audit_path = self.root / 'data/canonical' / f'{corpus_version}-structure-audit.json'
-            self._write_json(audit_path, structure_audit)
+            self._write_candidate_json(audit_path, structure_audit)
             manifest['structure_audit'] = audit_path.relative_to(self.root).as_posix()
             manifest['structure_audit_sha256'] = _sha256(audit_path)
         manifest_path = self.root / "data" / "registry" / f"{corpus_version}.json"
-        if manifest_path.is_file():
-            stored_manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-            comparable = json.loads(json.dumps(manifest, ensure_ascii=False))
-            comparable["generated_at"] = stored_manifest.get("generated_at")
-            if stored_manifest != comparable:
-                raise RuntimeError(
-                    "immutable corpus manifest conflicts with rebuilt artifacts"
-                )
-        else:
-            self._write_json(manifest_path, manifest)
-            stored_manifest = manifest
+        # T07: create-only candidate write -- reuse requires identity modulo
+        # the informational generated_at stamp; any other difference raises
+        # CandidateConflictError and leaves the existing manifest untouched.
+        self._write_candidate_json(manifest_path, manifest)
+        stored_manifest = manifest
         self._write_json(
             self.root / "data" / "registry" / "corpus-candidate.json",
             {
@@ -771,6 +1062,49 @@ def page_extractor_config_hash(extractor: PageExtractor) -> str:
     return _stable_json_sha(
         {"schema_version": "1", "page_extractor": extractor.config_id}
     )
+
+
+def write_recovery_pages(
+    project_root: Path, sha256: str, pages: list[dict[str, Any]]
+) -> dict[str, Any]:
+    """Write surgically recovered pages as a unified-build override input (T06).
+
+    This is the ONLY sanctioned output of a specialist recovery run (e.g. a
+    re-extracted garbled QXT document): per-page files under
+    ``data/canonical/recovery/<sha256>/`` (checkpoint-integrity protected)
+    plus a recovery record. It NEVER touches the published page-intermediate
+    jsonl, any manifest or the current pointer -- the recovered pages enter
+    the corpus only when a unified ``build_corpus.py`` run passes the
+    recovery directory as ``recovery_dir``, which produces a NEW corpus
+    version (the fingerprint covers the documents).
+    """
+    root = Path(project_root)
+    recovery_dir = root / "data" / "canonical" / "recovery" / sha256
+    recovery_dir.mkdir(parents=True, exist_ok=True)
+    written: list[int] = []
+    for page in pages:
+        physical_page = int(page["physical_page"])
+        payload = {**page, "checkpoint_sha256": _stable_json_sha(page)}
+        path = recovery_dir / f"{physical_page:04d}.json"
+        tmp = path.with_suffix(".json.tmp")
+        tmp.write_text(
+            json.dumps(payload, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8")
+        tmp.replace(path)
+        written.append(physical_page)
+    record = {
+        "schema_version": "t06-recovery-1",
+        "sha256": sha256,
+        "recovery_dir": recovery_dir.relative_to(root).as_posix(),
+        "pages": sorted(written),
+        "written_at": _utc_now(),
+    }
+    record_path = recovery_dir / "recovery_record.json"
+    tmp = record_path.with_suffix(".json.tmp")
+    tmp.write_text(
+        json.dumps(record, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    tmp.replace(record_path)
+    return record
 
 
 def pending_content_pages(

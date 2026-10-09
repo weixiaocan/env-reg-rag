@@ -1,0 +1,112 @@
+{
+  "G001[0]": [
+    {
+      "chunk_id": "chunk_54cec865de64022a7dd7d23dc6853894",
+      "dense_rank": 27,
+      "bm25_rank": 326,
+      "rrf_rank@pf20": ">100",
+      "rrf_rank@pf50": 47,
+      "rrf_rank@pf100": 51
+    }
+  ],
+  "G004[0]": [
+    {
+      "chunk_id": "chunk_fc68a40b71eb0148da7625918983ca6e",
+      "dense_rank": 26,
+      "bm25_rank": 9,
+      "rrf_rank@pf20": 14,
+      "rrf_rank@pf50": 11,
+      "rrf_rank@pf100": 12
+    }
+  ],
+  "G018[0]": [
+    {
+      "chunk_id": "chunk_d8c76042b3b4ff2abed658862485ab18",
+      "dense_rank": 43,
+      "bm25_rank": 162,
+      "rrf_rank@pf20": ">100",
+      "rrf_rank@pf50": 72,
+      "rrf_rank@pf100": 76
+    }
+  ],
+  "G019[1]": [
+    {
+      "chunk_id": "chunk_3d03c7031aef4fecf30651ecb74086d1",
+      "dense_rank": 386,
+      "bm25_rank": 14,
+      "rrf_rank@pf20": 26,
+      "rrf_rank@pf50": 28,
+      "rrf_rank@pf100": 28
+    }
+  ],
+  "G020[0]": [
+    {
+      "chunk_id": "chunk_fc1ff0301ebc28300e7e04501dfd7d5a",
+      "dense_rank": 18,
+      "bm25_rank": 12,
+      "rrf_rank@pf20": 12,
+      "rrf_rank@pf50": 12,
+      "rrf_rank@pf100": 12
+    }
+  ],
+  "G023[0]": [
+    {
+      "chunk_id": "chunk_2ae2464e89cb1dc2a03c888569363179",
+      "dense_rank": 24,
+      "bm25_rank": 7,
+      "rrf_rank@pf20": 17,
+      "rrf_rank@pf50": 12,
+      "rrf_rank@pf100": 12
+    }
+  ],
+  "G023[2]": [
+    {
+      "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+      "dense_rank": 20,
+      "bm25_rank": 11,
+      "rrf_rank@pf20": 14,
+      "rrf_rank@pf50": 18,
+      "rrf_rank@pf100": 18
+    }
+  ],
+  "G026[0]": [
+    {
+      "chunk_id": "chunk_6cc29ee60ccecc1a498e5408942d730b",
+      "dense_rank": 53,
+      "bm25_rank": 12,
+      "rrf_rank@pf20": 19,
+      "rrf_rank@pf50": 21,
+      "rrf_rank@pf100": 17
+    }
+  ],
+  "G027[0]": [
+    {
+      "chunk_id": "chunk_24a585a64872cecb52c13d82ed2f33fb",
+      "dense_rank": 113,
+      "bm25_rank": 20,
+      "rrf_rank@pf20": 32,
+      "rrf_rank@pf50": 32,
+      "rrf_rank@pf100": 33
+    }
+  ],
+  "G030[1]": [
+    {
+      "chunk_id": "chunk_a5ad758689de3ea75c7033090b6cde89",
+      "dense_rank": 477,
+      "bm25_rank": 490,
+      "rrf_rank@pf20": ">100",
+      "rrf_rank@pf50": ">100",
+      "rrf_rank@pf100": ">100"
+    }
+  ],
+  "G047[0]": [
+    {
+      "chunk_id": "chunk_da84b811985d3d7ab1b60c58054f5457",
+      "dense_rank": 254,
+      "bm25_rank": 68,
+      "rrf_rank@pf20": ">100",
+      "rrf_rank@pf50": ">100",
+      "rrf_rank@pf100": ">100"
+    }
+  ]
+}

@@ -57,6 +57,7 @@ def compute_chunk_id(
     element_ids: list[str],
     projection_version: str,
     text: str,
+    occurrence: list[dict[str, Any]] | None = None,
 ) -> str:
     """Deterministic chunk id (design §9.3).
 
@@ -64,6 +65,15 @@ def compute_chunk_id(
     element_ids + projection_version + text_sha256)``. ``canonical_content_id``
     is the cache key: a metadata-only change leaves it (and therefore the chunk
     id and its embedding) untouched.
+
+    ``occurrence`` (closure round 5): the source character ranges
+    ``[{"element_id", "start", "end"}, ...]`` this chunk's text was cut from,
+    element-relative to each element's projected text. Byte-identical text cut
+    from DIFFERENT source positions is a different provenance fact and must get
+    a deterministically distinct id, so the occurrence ranges are folded into
+    the hash -- but ONLY when non-empty, so every legacy/positional-irrelevant
+    emission (and any previously published re-projection) keeps its exact
+    pre-round-5 id.
     """
     payload = {
         "canonical_content_id": canonical_content_id,
@@ -71,6 +81,11 @@ def compute_chunk_id(
         "projection_version": projection_version,
         "text_sha256": _text_sha256(text),
     }
+    if occurrence:
+        payload["occurrence"] = [
+            {"element_id": o["element_id"], "start": o["start"], "end": o["end"]}
+            for o in occurrence
+        ]
     digest = hashlib.sha256(_canonical_json(payload)).hexdigest()
     return "chunk_" + digest[:32]
 

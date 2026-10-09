@@ -1,0 +1,319 @@
+{
+ "candidate": "corpus-b668e6aaa7f8",
+ "all_top3_attributable": true,
+ "queries": [
+  {
+   "query": "混错接密度",
+   "expected_sha": "48429f37",
+   "expected_element": null,
+   "expectation_met": true,
+   "top": [
+    {
+     "chunk_id": "chunk_731d7c9f3667bde5ce93041f3f5c64e6",
+     "sha": "48429f37",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000124",
+      "e000125",
+      "e000126"
+     ],
+     "pages": [
+      11,
+      12
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "5 资料收集、现场踏勘与混错接判定 > 5.8.1 排水管道混错接状况应按照调查范围进行评估。泵排系统应按照雨水泵站服务范围为单元进行\n评估"
+    },
+    {
+     "chunk_id": "chunk_0d53c303b3c7b65dcad8001f95ad1345",
+     "sha": "48429f37",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000157"
+     ],
+     "pages": [
+      13
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "6 混错接改造设计\n表1 区域雨水管道中污水混错接程度分级评估及治理建议表\n区域混错接程度 | 混错接密度和混错接水量比 | 混错接密度和混"
+    },
+    {
+     "chunk_id": "chunk_75d62a4fb32cce2441d29933ae1ac07d",
+     "sha": "48429f37",
+     "policy": "answer_and_citation",
+     "elements": [
+      "e000131",
+      "e000132",
+      "e000133"
+     ],
+     "pages": [
+      12
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "5 资料收集、现场踏勘与混错接判定 > 5.8.1 排水管道混错接状况应按照调查范围进行评估。泵排系统应按照雨水泵站服务范围为单元进行\n评估"
+    }
+   ]
+  },
+  {
+   "query": "地块单元中混错接点数",
+   "expected_sha": "48429f37",
+   "expected_element": "e000128",
+   "expectation_met": true,
+   "top": [
+    {
+     "chunk_id": "chunk_c71ac77f8f0f610e900717cec9c660cd",
+     "sha": "48429f37",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000128",
+      "e000129",
+      "e000130"
+     ],
+     "pages": [
+      12
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "5 资料收集、现场踏勘与混错接判定 > 5.8.1 排水管道混错接状况应按照调查范围进行评估。泵排系统应按照雨水泵站服务范围为单元进行\n评估"
+    },
+    {
+     "chunk_id": "chunk_0014d5116a5f33d47fee138925ad8066",
+     "sha": "48429f37",
+     "policy": "answer_and_citation",
+     "elements": [
+      "e000161"
+     ],
+     "pages": [
+      13
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "6 混错接改造设计 > 6.1.1 区域混错接改造工作应在前期调查与评估结果的基础上，科学合理制定改造方案，有序开展混\n错接改造设计工作。 "
+    },
+    {
+     "chunk_id": "chunk_00204cd15a49b5e6a3acba82e6e50f45",
+     "sha": "f280957b",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000328"
+     ],
+     "pages": [
+      9
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "7 安装与校准 > 4.4 影响量影响 > 4.4.1 工作环境\n环境温度：-20°℃~50°℃。"
+    }
+   ]
+  },
+  {
+   "query": "雨水泵站服务范围为单元进行评估",
+   "expected_sha": "48429f37",
+   "expected_element": null,
+   "expectation_met": true,
+   "top": [
+    {
+     "chunk_id": "chunk_731d7c9f3667bde5ce93041f3f5c64e6",
+     "sha": "48429f37",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000124",
+      "e000125",
+      "e000126"
+     ],
+     "pages": [
+      11,
+      12
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "5 资料收集、现场踏勘与混错接判定 > 5.8.1 排水管道混错接状况应按照调查范围进行评估。泵排系统应按照雨水泵站服务范围为单元进行\n评估"
+    },
+    {
+     "chunk_id": "chunk_0a0b35daaa3e0230ca2f2723e401b202",
+     "sha": "6b281418",
+     "policy": "answer_and_citation",
+     "elements": [
+      "e000741",
+      "e000742",
+      "e000743",
+      "e000744",
+      "e000745",
+      "e000746",
+      "e000747",
+      "e000748"
+     ],
+     "pages": [
+      43
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.1 雨污混接状况应按照调查范围进行评估。泵排系统应按照雨水\n7.1.1 雨污混接状况"
+    },
+    {
+     "chunk_id": "chunk_0fcc1f6208c6a44162b0f0f70045d091",
+     "sha": "48429f37",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000138",
+      "e000139",
+      "e000140",
+      "e000141",
+      "e000142",
+      "e000143"
+     ],
+     "pages": [
+      12
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "5 资料收集、现场踏勘与混错接判定 > 5.8.1 排水管道混错接状况应按照调查范围进行评估。泵排系统应按照雨水泵站服务范围为单元进行\n评估"
+    }
+   ]
+  },
+  {
+   "query": "降雨强度等级",
+   "expected_sha": null,
+   "expected_element": null,
+   "expectation_met": true,
+   "top": [
+    {
+     "chunk_id": "chunk_0014d5116a5f33d47fee138925ad8066",
+     "sha": "48429f37",
+     "policy": "answer_and_citation",
+     "elements": [
+      "e000161"
+     ],
+     "pages": [
+      13
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "6 混错接改造设计 > 6.1.1 区域混错接改造工作应在前期调查与评估结果的基础上，科学合理制定改造方案，有序开展混\n错接改造设计工作。 "
+    },
+    {
+     "chunk_id": "chunk_00204cd15a49b5e6a3acba82e6e50f45",
+     "sha": "f280957b",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000328"
+     ],
+     "pages": [
+      9
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "7 安装与校准 > 4.4 影响量影响 > 4.4.1 工作环境\n环境温度：-20°℃~50°℃。"
+    },
+    {
+     "chunk_id": "chunk_002d1e64d39fa4748bf28e23f925da12",
+     "sha": "60bfe783",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000143",
+      "e000144",
+      "e000145",
+      "e000146",
+      "e000147",
+      "e000148",
+      "e000149",
+      "e000150"
+     ],
+     "pages": [
+      6
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "1 总则… > 2.1 规模和布局 > 2.1.10 乡村污水系统应以县级行政区域\n利用安全、生产安全和职业卫生健康安全的要求\n排水工程相关"
+    }
+   ]
+  },
+  {
+   "query": "年径流总量控制率",
+   "expected_sha": null,
+   "expected_element": null,
+   "expectation_met": true,
+   "top": [
+    {
+     "chunk_id": "chunk_0e85bb72ae12fee71e333e027bdc1675",
+     "sha": "c3c3df5a",
+     "policy": "source_locator_only",
+     "elements": [
+      "e002942",
+      "e002943",
+      "e002944",
+      "e002945",
+      "e002946",
+      "e002947",
+      "e002948",
+      "e002949"
+     ],
+     "pages": [
+      111,
+      112
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "9.6 智慧排水系统 > 9.6.5 智慧排水信息中心和下属排水\n下列步骤计\n(A.0.1)\n. 103\n3根据下式依次计算日降雨量对应的年"
+    },
+    {
+     "chunk_id": "chunk_19ad3e57ed559f5a70a07f0133d6a7de",
+     "sha": "c3c3df5a",
+     "policy": "source_locator_only",
+     "elements": [
+      "e002926",
+      "e002927",
+      "e002929",
+      "e002930",
+      "e002931",
+      "e002932",
+      "e002933",
+      "e002934"
+     ],
+     "pages": [
+      110,
+      111
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "9.6 智慧排水系统 > 9.6.5 智慧排水信息中心和下属排水\n应安全可靠。\n浏览专用\n附录A年径流总量控制率对应的\n设计降雨量计算方法\n"
+    },
+    {
+     "chunk_id": "chunk_3e8d712208f820492f928b4e323cf4f9",
+     "sha": "60bfe783",
+     "policy": "source_locator_only",
+     "elements": [
+      "e000125",
+      "e000126",
+      "e000127"
+     ],
+     "pages": [
+      5
+     ],
+     "pages_valid": true,
+     "unattributable_lines": 0,
+     "unattributable_samples": [],
+     "text_head": "1 总则… > 2.1 规模和布局 > 2.1.6 城镇雨水系统的建设规模应满足年径流总量控制率、雨\n2.1.6城镇雨水系统的建设规模应满足"
+    }
+   ]
+  }
+ ],
+ "method": "local deterministic lexical scoring; localization check strips the metadata-carried section prefix and constructed [公式 N] anchor headers, then requires every remaining line to appear in the listed elements' own projections (text/table/formula)"
+}

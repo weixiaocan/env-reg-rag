@@ -1,0 +1,90 @@
+{
+  "case": "G029",
+  "question": "T/CECS 1764标准规范的对象是城镇污水管网的哪类问题监测与评估？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_c094d90821f14d0e7dd507bc0d453b3f",
+    "chunk_1d25ac5853c8ce6168b3b4c3a76af4e2",
+    "chunk_e0ddf2aaa5a2e305c757bf96adef51fe",
+    "chunk_dba8eafbfcefb50c6847f6c5dc76059f",
+    "chunk_19b60f77de66e27237766ec065f2dc44"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.014,
+    "retrieval": 39.867,
+    "generation": 3636.543,
+    "total": 3676.489
+  },
+  "token_usage": {
+    "input_tokens": 2822,
+    "output_tokens": 295,
+    "total_tokens": 3117,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "T/CECS 1764标准规范的对象是城镇污水管网的哪类问题监测与评估？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_c094d90821f14d0e7dd507bc0d453b3f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          48,
+          49,
+          50
+        ],
+        "text": "50014 和现行行业标准等的规定\n管网调查、施工与验收及运维管理应符合国家现行标准《给\n水排水构筑物工程施工及验收规范》GB 50141、《建筑给水排水\n及采暖工程施工质量验收规范》GB 50242、《给水排水管道工程\n施工及验收规范》GB 50268、《建筑工程施工质量验收统一标准》\nGB 50300、《城镇排水管道维护安全技术规程》CJJ 6、《城市地\n下管线探测技术规程》CJJ 61、《城镇排水管道检测与评估技术\n规程》CJJ 181 和现行地方标准《福建省城镇排水管道检查井防坠\n落安全网标准》DBJ/T 13-184、《福建省城镇排水管渠安全运维\n与管理标准》DBJ/T 13-300 等的规定。\n道路工程验收应符合现行行业标准《城镇道路工程施工与质\n量验收规范》CJJ 1 等的规定。\n排入城镇污水管网的污水水质应符合现行国家标准《污水排\n水城镇下水道水质标准》GB/T 31962 等的规定。\n排水设施的使用寿命。"
+      },
+      {
+        "evidence_id": "chunk_1d25ac5853c8ce6168b3b4c3a76af4e2",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          28
+        ],
+        "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.1.4 雨污混接与排水管道功能性、结构性缺陷一并进行探查\n7. 1. 4\n雨污混接与排水管道功能性、结构性缺陷一并进行探查\n的，缺陷评估可与混接状况评估合并进行，也可单独进行，评估要\n求应符合现行行业标准《城镇排水管道检测与评估技术规程》CJJ"
+      },
+      {
+        "evidence_id": "chunk_e0ddf2aaa5a2e305c757bf96adef51fe",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "2 规范性引用文件\nGB 50014 室外排水设计规范\nGB 50092 沥青路面施工及验收规范\nGB 50141 给水排水构筑物工程施工及验收规范\nGB 50268 给水排水管道工程施工及验收规范\nGBJ 97 水泥混凝土路面施工及验收规范\nCJ/T 51 城镇污水水质标准检验方法\nCJJ 68 城镇排水管渠与泵站运行、维护及安全技术规程\nCECS 164 埋地聚乙烯排水管管道工程技术规程"
+      },
+      {
+        "evidence_id": "chunk_dba8eafbfcefb50c6847f6c5dc76059f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          19,
+          20
+        ],
+        "text": "9 运行维护 > 8.4.1 系统评估工作应由第三方评估单位编制系统评估方案，需对评估范围、评估周期、评估内容等\n进行具体说明。 \n8.4.2 系统评估范围主要是对于未达标的河湖汇水区，在区域性混错接项目实施完成后，宜以重大雨\n水排口汇水区（d1000 mm 以上）为单元进行雨水系统评估；宜对污水厂（站）生化需氧量（BOD）浓度\n明显偏低的污水系统进行评估。具体范围可结合项目所属区域排水系统的实际情况以及系统评估的情况\n予以确定。 \n8.4.3 系统评估周期宜分为短期评估和长期抽检，短期评估应至少跨越一个完整雨季，评估应在工程\n验收和项目评估后进行，评估周期内必须完成相关所有评估内容。长期抽检即在运营期间，由业主和评\n估单位共同拟定周期进行评估。 \n8.4.4 评估内容宜包含下列内容。 \n—— 评估监测点的选取：针对所进行系统评估的排水系统对象，结合其雨污水系统特点，合理选\n严格进行污水排放许可管理。对于将污、废水偷排进入城镇雨水管道系统的排水户，应由城镇排\n9.2\n水主管部门依法处罚。\nDB4201/T 651-2021"
+      },
+      {
+        "evidence_id": "chunk_19b60f77de66e27237766ec065f2dc44",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          28
+        ],
+        "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.1.3 雨污氓接状况评估应针对雨污水管道混接点和混接源的\n7. 1. 3\n雨污氓接状况评估应针对雨污水管道混接点和混接源的\n数量和流入雨水管道的污水水质水量等要素进行评估分级。"
+      }
+    ]
+  }
+}

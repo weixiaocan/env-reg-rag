@@ -1,6 +1,6 @@
 # Third-party notices
 
-This repository contains original project source code and configuration. It does not vendor Python packages, model weights, or Qdrant binaries. It does bundle 27 third-party PDF files under `data/raw/`: 23 original corpus candidates and 4 official-verification copies, representing 22 unique byte contents and 5 exact duplicate copies. Bundling a PDF does not mean it has passed formal-corpus admission.
+This repository contains original project source code and configuration. It does not vendor Python packages, model weights, or Qdrant binaries. As of 2026-09-29, Git tracks 29 third-party PDF files under `data/raw/`: 25 in the regular source directory and 4 official-verification copies, representing 24 unique byte contents and 5 exact duplicate copies. The published corpus selects 23 primary texts. Bundling a PDF does not mean it has passed formal-corpus admission.
 
 The project itself is distributed under GNU Affero General Public License version 3 only (`AGPL-3.0-only`) because its PDF ingestion path directly uses PyMuPDF under PyMuPDF's open-source AGPL option. A commercial PyMuPDF license is not included.
 

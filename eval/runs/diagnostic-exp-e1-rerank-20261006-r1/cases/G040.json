@@ -1,0 +1,342 @@
+{
+  "id": "G040",
+  "question": "GB/T 47884表1规定的是什么内容？感知数据章节对在线监测点位布设提出了哪些原则？",
+  "labels": {
+    "repr": [
+      "表格",
+      "条件"
+    ],
+    "challenge": [
+      "表格",
+      "多条件"
+    ],
+    "modality": [
+      "表格"
+    ]
+  },
+  "expected_facts": [
+    "表1为应监测的对象及监测指标要求",
+    "点位布设原则：系统性、代表性、有效性、可行性、积极性"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 2,
+    "matched_evidence_at_5": 2,
+    "matched_evidence_at_10": 2,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 1.0,
+    "latency_ms": 2551.292,
+    "citable_evidence_count": 1,
+    "citable_matched_at_5": 1,
+    "citable_matched_at_10": 1,
+    "citable_recall_at_5": 1.0,
+    "citable_recall_at_10": 1.0,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 1,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GBT+47884-2026.pdf",
+      "page": 10,
+      "element_ids": [
+        "e000146"
+      ],
+      "quote": "7 感知数据 > 7.1 一般规则 > 7.1.4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则\n7.\n1.\n4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 1,
+      "citable_chunk_id": "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "GBT+47884-2026.pdf",
+      "page": 10,
+      "element_ids": [
+        "e000171"
+      ],
+      "quote": "表1 应监测的对象及监测指标要求\n排水管网类型 | 监测对象 | 监测指标\n污水管网 | 高水位运行点、主干管节点、污水厂前关键节点等 | 液位\n污水管网 | 泵站上游节点、排水分区出口、重点排水户接入点 | 液位、流速、流量",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 5,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_bc01011f07cbb323abf7d0ae8c4cf01d",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 5,
+      "locator_chunk_id": "chunk_bc01011f07cbb323abf7d0ae8c4cf01d",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_d3a50df7c4deb6e80ccc7f1001ceaa57",
+      "score": 0.833333,
+      "file_name": "GBT+47884-2026.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000146"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 感知数据",
+        "7.1 一般规则",
+        "7.1.4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则"
+      ],
+      "text": "7 感知数据 > 7.1 一般规则 > 7.1.4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则\n7.\n1.\n4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则。",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_6d3da13be1c89e4f906864867c8531cf",
+      "score": 0.666667,
+      "file_name": "GBT+47884-2026.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000159",
+        "e000160",
+        "e000161",
+        "e000162",
+        "e000163",
+        "e000164",
+        "e000165",
+        "e000166",
+        "e000167",
+        "e000168"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 感知数据",
+        "7.2 在线监测数据",
+        "7.2.3 在线监测点位的布设应遵循以下原则:"
+      ],
+      "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.3 在线监测点位的布设应遵循以下原则:\n7.\n2.\n3 在线监测点位的布设应遵循以下原则:\na) 基于排水管网上下游拓扑关系布设,宜覆盖“源、网、厂、河”等要素,优先覆盖管网关键节点、厂\n和排放口等重要点位;\nb) 监测点位的服务范围应清晰明确,监测点布置应满足现场设备安装和运行的条件,在安装监测\n设备后不影响排水设施的正常运行;\nc) 按照整体监测、分区监测和精细监测三个层级开展监测工作,逐步提高布点密度;\nd) 统筹已有的排水管网监测点位,不重复建设;\ne) 根据监测数据的应用情况,在使用过程中对监测点位进行动态调整;\nf) 以应用需求为依据控制监测指标、监测频次、监测点数量等,宜采用长期固定监测和短期临时\n监测结合的方式获取有效、必要的在线监测数据。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_367eb20cf8aa60de85d0a25beb57e774",
+      "score": 0.333333,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        15
+      ],
+      "element_ids": [
+        "e000353",
+        "e000354",
+        "e000355"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 监测方案",
+        "4.1.7 流量在线监测的布点密度，应保证每个监测分区至少有"
+      ],
+      "text": "4.1 监测方案 > 4.1.7 流量在线监测的布点密度，应保证每个监测分区至少有\n4.1.7流量在线监测的布点密度，应保证每个监测分区至少有\n1个布点，宜布置在监测分区的进、出口位置，可根据数据需求\n选择固定监测或临时监测方式。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_00251fe5ddbfa0de2dd66c58f9708c21",
+      "score": 0.3125,
+      "file_name": "GBT+47884-2026.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000169",
+        "e000170"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 感知数据",
+        "7.2 在线监测数据",
+        "7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节"
+      ],
+      "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节\n7.\n2.\n4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节\n点进行监测,具体要求见表1。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_bc01011f07cbb323abf7d0ae8c4cf01d",
+      "score": 0.142857,
+      "file_name": "GBT+47884-2026.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000171"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7 感知数据",
+        "7.2 在线监测数据",
+        "7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节"
+      ],
+      "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节\n表1 应监测的对象及监测指标要求\n排水管网类型 | 监测对象 | 监测指标\n污水管网 | 高水位运行点、主干管节点、污水厂前关键节点等 | 液位\n污水管网 | 泵站上游节点、排水分区出口、重点排水户接入点 | 液位、流速、流量\n雨水管网 | 历史积水点、易涝点、交汇关键节点和城市下穿隧道等 | 液位\n雨水管网 | 排放口、泵站上游节点等 | 液位、流量\n合流制管网 | 高水位运行点、易涝点、高风险点、主干管节点等 | 液位\n合流制管网 | 泵站上游节点、溢流口和晴天冒溢点等 | 液位、流速、流量",
+      "matched_evidence_indexes": [
+        1
+      ]
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_7d815b61d6b92434d507c9ed8b28539e",
+      "score": 0.277778,
+      "file_name": "GBT+47884-2026.pdf",
+      "physical_pages": [
+        11
+      ],
+      "element_ids": [
+        "e000173"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 感知数据",
+        "7.2 在线监测数据",
+        "7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节"
+      ],
+      "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节\n标进行自动化采样化验。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_59c8196552590323c97050fceb549add",
+      "score": 0.333333,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        17
+      ],
+      "element_ids": [
+        "e000397",
+        "e000398",
+        "e000399",
+        "e000400"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.2 监测方法",
+        "4.2.6 在线监测设备安装前应对监测点位的安装和监测条件进"
+      ],
+      "text": "4.2 监测方法 > 4.2.6 在线监测设备安装前应对监测点位的安装和监测条件进\n4.2.6在线监测设备安装前应对监测点位的安装和监测条件进\n行现场确认，不满条件的监测点位应予以调整。在线监测设备\n的安装和维护应符合现协会标准《城镇排管网在线监测技术\n规程》T/CECS869的有关规定。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_bac6c8dcd86ff4638977fb1cc2f2e98b",
+      "score": 0.192857,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        36
+      ],
+      "element_ids": [
+        "e000903",
+        "e000904",
+        "e000905",
+        "e000906",
+        "e000907"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.2 监测方法",
+        "4.2.6 在线监测设备需要一定的安装条件。例如，降雨监测设"
+      ],
+      "text": "4.2 监测方法 > 4.2.6 在线监测设备安装前应对监测点位的安装和监测条件进\n4.2.6在线监测设备需要一定的安装条件。例如，降雨监测设\n备安装在平坦避风场所，仪器口部30仰角范围内不得有障碍\n物。流量监测设备探头安装在流速稳定的位置，探头表面不能存\n在淤积物。安装前对监测点位的安装条件进行复核和确认，确保\n在线监测数据的准确性和有效性。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_7b011264eeaefb5f9cacfd67c1cdea36",
+      "score": 0.180556,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        34
+      ],
+      "element_ids": [
+        "e000828",
+        "e000829",
+        "e000830",
+        "e000831",
+        "e000832",
+        "e000833",
+        "e000834",
+        "e000835",
+        "e000836",
+        "e000837",
+        "e000838",
+        "e000839",
+        "e000840",
+        "e000841",
+        "e000842",
+        "e000843",
+        "e000844"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.1 监测方案",
+        "4.1.7 本条对流量监测点的布设密度进行了规定。流量在线监"
+      ],
+      "text": "4.1 监测方案 > 4.1.7 流量在线监测的布点密度，应保证每个监测分区至少有\n4.1.7本条对流量监测点的布设密度进行了规定。流量在线监\n测是管网流渗监测的重点，因此需保证流量监测点达到一定\n的密度。根据本标准第4.1.4条的规定，对于待监测区域需至少\n划分两级监测分区，二级监测分区的面积不大于1km2，所以流\n量监测点至少需达到1个/km2。对于排水情况复杂、流渗\n问题突出的区域，流量监测点的密度建议适当提高，一般根据管\n线长度布设，如每1km~3km管线布设一个流量监测点。对于\n污管网的分支关系、汇集流向比较清晰的监测分区，流量监测\n点需设置在监测分区的总出口处及与其他分区的连接处；同时，\n流量监测点需根据地形、污水管网拓扑关系确定。此外，由于管\n网流渗是一个动态过程，随着管网使用时间的增加，管网\n流渗问题会发生变化。在有条件的地区，需建立雨量和流量的\n固定监测式，长期持续运，跟踪动态计算与评估不同时期的\n流渗情况，支持污水管网常态化评估管理。在实际应用中，\n需要综合考虑需求、成本、运维代价、数据价值等多方面因素，\n选择长期固定监测或短期临时监测的方式，开展监测作，从而\n为排水管理提供有效、充足的监测依据。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_316cfd212eae181ac85f188978830955",
+      "score": 0.0625,
+      "file_name": "GBT+47884-2026.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000148",
+        "e000149",
+        "e000150",
+        "e000151",
+        "e000152",
+        "e000153",
+        "e000154",
+        "e000155",
+        "e000156",
+        "e000157"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7 感知数据",
+        "7.2 在线监测数据",
+        "7.2.1 排水管网在线监测设备应符合以下要求:"
+      ],
+      "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.1 排水管网在线监测设备应符合以下要求:\n7.\n2.\n1 排水管网在线监测设备应符合以下要求:\na) 适应排水管网的实际工况,满足长时间稳定可靠运行的要求,具备故障诊断、功能升级和远程\n配置参数的功能;\nb) 满足易安装维护和智能报警等使用要求,满足监测点位的防水、防爆、防腐等性能要求,具备时\n钟自动同步功能;\nc) 满足浅流、非满流、满流、管道压力过载、低流速、逆流等各种工况的要求,测量准确度满足管理\n需求;\nd) 具备监测数据本地化存储功能,监测数据能根据通信频次自动间隔上传,若通信中断,能在通\n信恢复后续传历史监测数据;\ne) 监测设备的选型、安装与运维满足现场安全要求,不增加安全风险。",
+      "matched_evidence_indexes": []
+    }
+  ],
+  "rerank_latency_ms": 2527.4141000118107
+}

@@ -1,0 +1,88 @@
+{
+  "case": "G039",
+  "question": "GB/T 47884—2026中图1的图名是什么？它表示什么逻辑关系？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_be298fc71be01fe058fffc7f1c1c629f",
+    "chunk_81d8787f2f07e1c4d7db4ebe9c6c5666",
+    "chunk_19b6ab80a8a9917c887400e774a9e95d",
+    "chunk_3ee7b2b5f6a90235573fc05acdfbdd7d",
+    "chunk_54749183b3a9bb576fb4200cc11bcc19"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.02,
+    "retrieval": 38.991,
+    "generation": 5062.692,
+    "total": 5101.773
+  },
+  "token_usage": {
+    "input_tokens": 2219,
+    "output_tokens": 426,
+    "total_tokens": 2645,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "GB/T 47884—2026中图1的图名是什么？它表示什么逻辑关系？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_be298fc71be01fe058fffc7f1c1c629f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          39,
+          40
+        ],
+        "text": "3 基本规定 > 3.5 排水管渠 > 3.5.4 本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约\n3. 5. 4\n本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约\n优化利用地下空间，解决马路拉链问题，提升抗灾防灾能力，新\n建区域要求管道人廊。排水管渠是城市基础设施的重要组成部\n分，而它又有重力流排水的明显特征，结合综合管廊布局统一规\n划设计排水管渠是城市建设的新命题，因此，本条提出对规划有\n综合管廊的路段宜结合管廊布局合理布置排水管渠，在保障安全\n的前提下，可利用大断面雨水管渠上部空间布置再生水、供水、\n通信等管线，因地制宜地做好支管及交叉管线的衔接。\n3. 5. 5\n本条规定城市排水管渠断面尺寸确定的原则。\n城市污水管渠建设因其特殊性，管渠的使用周期较长，因此\n不宜按近期建设，以避免重复建设改造对城市道路交通的影响。\n因此，确定污水管渠断面尺寸时，设计流量应采用远期最高日最\n高时污水量。\n确定截流初期雨水的污水管渠断面尺寸时，设计流量为远期"
+      },
+      {
+        "evidence_id": "chunk_81d8787f2f07e1c4d7db4ebe9c6c5666",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          8
+        ],
+        "text": "2 术语和符号 > 7.1 General requirements ……………………………………( 19 )\n7. 1\nGeneral requirements ……………………………………( 19 )"
+      },
+      {
+        "evidence_id": "chunk_19b6ab80a8a9917c887400e774a9e95d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+        "physical_pages": [
+          4
+        ],
+        "text": "11.4 运行计划——更新改造落地实施方案...........................................................................31\n图 1 性能要求确定流程........................................................................................................... 6\n图 2 污水管网综合管理流程................................................................................................... 10\n图 3 更新改造目标实施与评估逻辑步骤.................................................................................. 11"
+      },
+      {
+        "evidence_id": "chunk_3ee7b2b5f6a90235573fc05acdfbdd7d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          6
+        ],
+        "text": "2 术语和符号 > 2.1 术语……………………………………………………（2 )\n2. 1\n术语……………………………………………………（2 )"
+      },
+      {
+        "evidence_id": "chunk_54749183b3a9bb576fb4200cc11bcc19",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          8
+        ],
+        "text": "2 术语和符号 > 5.1 一般规定\n………………………………………………( 11 )\n5. 1\nGeneral requirements ……………………………………( 11 )"
+      }
+    ]
+  }
+}

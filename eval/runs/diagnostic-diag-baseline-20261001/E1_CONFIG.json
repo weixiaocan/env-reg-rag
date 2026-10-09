@@ -1,0 +1,95 @@
+{
+  "schema_version": "e1-rerank-config/1.0",
+  "experiment": "E1-rerank",
+  "baseline_run_id": "diagnostic-diag-baseline-20261001",
+  "classification": "diagnostic",
+  "dataset": "eval/golden_v2.jsonl",
+  "dataset_sha256": "3b1f1cdc459aadb50bd1b39531bc90f51ecc25a0d969612d41612fa011bd6e89",
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "collection": "corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a",
+  "unchanged_fields": {
+    "limit": 10,
+    "prefetch_limit": 20,
+    "retrieval_mode": "qdrant-dense-bm25-rrf",
+    "embedding_model": "BAAI/bge-small-zh-v1.5",
+    "embedding_revision": "7999e1d3359715c523056ef9478215996d62a620",
+    "primary_k": 5,
+    "secondary_k": 10,
+    "matching": "doc_page_then_strict_quote_ids_upgrade",
+    "point_count": 4232
+  },
+  "depth_semantics": {
+    "candidate_fetch_depth_per_leg": 20,
+    "candidate_set_max": 40,
+    "fusion_request_limit": 40,
+    "final_top_k": 10,
+    "note": "候选获取深度与最终 top-10 是两回事：每腿 prefetch 20（dense 20 + bm25 20），服务端 RRF 融合候选集 ≤40 —— 融合请求以 limit=40 取回全部候选，rerank 只在该候选集内重排；最终 top-10 = 重排后截取前 10（截取发生在重排之后，limit 10 不变）。E1 不加深 prefetch，加深 prefetch 是 E2 的唯一变量。"
+  },
+  "variable": {
+    "stage": "local-cross-encoder-rerank",
+    "model_id": "BAAI/bge-reranker-base",
+    "revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "revision_policy": "运行 revision 固定为 model_download.repo_sha（与本配置同一 commit，即授权下载的快照），不允许回退到 main 或任何分支 ref；离线解析走与下载相同的 FILTERED_ALLOW_PATTERNS（local_files_only），解析出的快照目录名必须等于 pinned sha 且六文件齐全，任一缺失/不一致即硬失败；模型与 tokenizer 从同一快照路径加载（同一快照保证）；确认结果在任何权重加载前记入 run config，不得事后修改",
+    "scorer": "BAAI/bge-reranker-base（278M，CPU，中文域）",
+    "device": "cpu",
+    "max_length": 512,
+    "score_contract": "scorer 必须返回有限 float —— None/NaN/±inf 一律硬失败（ValueError），绝不静默沉底",
+    "seam": "src/retrieval/rerank.py::RerankStage —— 只重排、不过滤、不改 usage_policy/文档字段；scorer 未接入时为恒等（重排关闭 = 基线链路）；本模块自身不下载不加载模型",
+    "runner": "scripts/run_e1_rerank_experiment.py —— 实验运行器：融合请求 limit=2×prefetch=40 取回全部候选 → RerankStage 重排 → 重排后截取 top-10；分类恒为 diagnostic；数据集/语料绑定校验复用探针验证器，失配即拒绝；scorer 构建全程 local_files_only=True（fail-closed，缓存缺失即硬失败，绝不联网下载）"
+  },
+  "runs": {
+    "rounds": 2,
+    "run_id_pattern_r1": "diagnostic-exp-e1-rerank-<date>-r1",
+    "run_id_pattern_r2": "diagnostic-exp-e1-rerank-<date>-r2",
+    "control_run_id_pattern": "diagnostic-exp-e1-control-<date>-r<r>",
+    "independent_run_ids": "两轮各自独立 run_id，不复用、不覆盖；控制轮（--disable-rerank）使用独立 control run_id，与重排轮不共 ID；运行前 run 目录已存在即拒绝（ID 永不复用不覆盖）；延迟取两轮稳定口径（缺口 G8）；重排耗时在 summary 以 rerank_latency_ms p50/p95/mean 单列"
+  },
+  "model_download": {
+    "required": true,
+    "hf_cache_has_reranker": false,
+    "repo_id": "BAAI/bge-reranker-base",
+    "repo_sha": "2cfc18c9415c912f9d8155881c133215df768a70",
+    "scope": {
+      "mode": "filtered",
+      "allow_patterns_ref": "scripts/run_e1_rerank_experiment.py::FILTERED_ALLOW_PATTERNS",
+      "allow_patterns": [
+        "config.json",
+        "model.safetensors",
+        "tokenizer.json",
+        "tokenizer_config.json",
+        "special_tokens_map.json",
+        "sentencepiece.bpe.model"
+      ],
+      "files": [
+        {"name": "config.json", "bytes": 799},
+        {"name": "model.safetensors", "bytes": 1112206140},
+        {"name": "tokenizer.json", "bytes": 17098107},
+        {"name": "tokenizer_config.json", "bytes": 443},
+        {"name": "special_tokens_map.json", "bytes": 279},
+        {"name": "sentencepiece.bpe.model", "bytes": 5069051}
+      ],
+      "total_bytes": 1134374819,
+      "total_note": "≈1.13 GB（1.06 GiB）——transformers 加载所需的精确文件集；文件大小来自只读元数据查询（files_metadata=True），未下载任何模型文件",
+      "excluded": [
+        {"name": "pytorch_model.bin", "bytes": 1112251061, "reason": "权重 pickle 副本——加载优先 model.safetensors，不需要"},
+        {"name": "onnx/model.onnx", "bytes": 1112459588, "reason": "E1 用 transformers 本地推理，非 ONNX 路径"},
+        {"name": "README.md", "bytes": 34111, "reason": "加载不需要"},
+        {"name": ".gitattributes", "bytes": 1562, "reason": "加载不需要"}
+      ]
+    },
+    "full_snapshot_total_bytes": 3359121141,
+    "full_snapshot_note": "完整 snapshot（含 pytorch_model.bin + model.safetensors + onnx 全部）≈3.36 GB（3.13 GiB）——若授权改为完整 snapshot，须按此容量重新申请",
+    "filtered_cache_resolution": "已验证：仅含 allow_patterns 6 文件的缓存布局在 local_files_only=True 下可被 transformers cached_file 与 hub try_to_load_from_cache 按文件解析，且缺任一文件即解析失败（tests/test_hf_download_scope.py）；被排除文件不解析、不构成加载依赖",
+    "download_command_hint": "授权后一次性执行：huggingface_hub.snapshot_download(repo_id=..., revision=<repo_sha，固定不回退>, allow_patterns=<FILTERED_ALLOW_PATTERNS>)——此后运行期解析使用完全相同的 patterns + revision + local_files_only（同一条 filtered 下载→离线运行路径），不再联网",
+    "authorization": "NOT GRANTED -- HF 模型首次联网下载仍须由项目负责人明确授权；本配置提交不构成该授权。推荐范围=filtered 1.13 GB（model.safetensors 路径）；若负责人选择完整 snapshot，按 3.36 GB 重新申请"
+  },
+  "transition_tracking": {
+    "fixed_tracking_set": "基线 14 条漏命中为固定追踪集合：救回（None→≤10，子标救回@5/救回@10 与命中 chunk/policy）/ 不变（仍 None）；判定只取自实验 run 的 trace",
+    "full_guardrail_set": "全量 77 条 must_hit 为 guardrail 集合：变差（命中→未命中、@5→6–10、排名升 ≥2）/ 改善（6–10→≤5、排名降 ≥2）/ 不变；净效应 变差 ≤ 救回",
+    "authority": "四态只取自实验 run 的 trace（cases/G*.json 的 evidence_results.match_rank）；探针只作候选腿诊断，不能代替 rerank 最终排名"
+  },
+  "adoption_gates_ref": "OPTIMIZATION_PLAN.md 采纳门槛表（R@5 净增 ≥2 条且 R@10 不降、降级不新增、弱层与相似干扰 guardrail、p50 重排耗时 ≤1500ms、document_hit 不降、变差 ≤ 救回）",
+  "fallback": {
+    "model_alternate": "BAAI/bge-reranker-v2-m3（精度更高，CPU 耗时约 2×；若 E1 延迟门槛超线，换模型属新实验，另立 run 目录）"
+  }
+}

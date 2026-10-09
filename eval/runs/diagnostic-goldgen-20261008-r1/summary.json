@@ -1,0 +1,43 @@
+{
+  "classification": "diagnostic (given gold evidence; retrieval bypassed; NOT HTTP; NOT formal)",
+  "denominators": {
+    "all_cases": 50,
+    "content_target_cases": 46,
+    "refusal_cases": 4,
+    "model_called": 8,
+    "evidence_preparation_insufficient": 42
+  },
+  "status_distribution": {
+    "answered": 4,
+    "evidence_preparation_insufficient": 42,
+    "refused": 4
+  },
+  "citation_problem_cases": [],
+  "claim_support_problem_cases": [],
+  "latency_ms": {
+    "generation": {
+      "p50": 3827.89,
+      "p95": 5669.49,
+      "mean": 3842.72,
+      "n": 8
+    }
+  },
+  "token_usage_totals": {
+    "input_tokens": 7344,
+    "output_tokens": 1601,
+    "total_tokens": 8945,
+    "estimated_cost": 0.10358,
+    "currencies": [
+      "CNY"
+    ],
+    "pricing_statuses": [
+      "calculated"
+    ]
+  },
+  "budget": {
+    "authorized_cny": 2.0,
+    "per_call_reserve_cny": 0.5,
+    "estimated_spent_cny": 0.10358,
+    "completed_case_records": 50
+  }
+}

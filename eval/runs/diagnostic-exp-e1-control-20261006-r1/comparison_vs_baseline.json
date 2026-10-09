@@ -1,0 +1,358 @@
+{
+  "baseline_run_id": "diagnostic-diag-baseline-20261001",
+  "experiment_run_id": "diagnostic-exp-e1-control-20261006-r1",
+  "classification": "diagnostic",
+  "rerank_enabled": false,
+  "metrics": {
+    "baseline": {
+      "micro_recall_at_5": 0.701299,
+      "micro_recall_at_10": 0.818182,
+      "citable": {
+        "evidence_count": 14,
+        "matched_at_5": 9,
+        "matched_at_10": 11,
+        "recall_at_5": 0.642857,
+        "recall_at_10": 0.785714,
+        "downgraded_at_5": 1,
+        "downgraded_at_10": 1
+      },
+      "locator_only": {
+        "evidence_count": 63,
+        "matched_at_5": 44,
+        "matched_at_10": 51,
+        "recall_at_5": 0.698413,
+        "recall_at_10": 0.809524
+      },
+      "macro_recall_at_5": 0.721631,
+      "document_hit": {
+        "at_5": 0.957447,
+        "at_10": 0.994681
+      },
+      "complete_case_rate": {
+        "at_5": 0.595745,
+        "at_10": 0.765957
+      },
+      "citable_downgraded": {
+        "at_5": 1,
+        "at_10": 1
+      },
+      "latency_ms": {
+        "p50": 61.84,
+        "p95": 128.441,
+        "mean": 69.4163
+      }
+    },
+    "experiment": {
+      "micro_recall_at_5": 0.701299,
+      "micro_recall_at_10": 0.818182,
+      "citable": {
+        "evidence_count": 14,
+        "matched_at_5": 9,
+        "matched_at_10": 11,
+        "recall_at_5": 0.642857,
+        "recall_at_10": 0.785714,
+        "downgraded_at_5": 1,
+        "downgraded_at_10": 1
+      },
+      "locator_only": {
+        "evidence_count": 63,
+        "matched_at_5": 44,
+        "matched_at_10": 51,
+        "recall_at_5": 0.698413,
+        "recall_at_10": 0.809524
+      },
+      "macro_recall_at_5": 0.721631,
+      "document_hit": {
+        "at_5": 0.957447,
+        "at_10": 0.994681
+      },
+      "complete_case_rate": {
+        "at_5": 0.595745,
+        "at_10": 0.765957
+      },
+      "citable_downgraded": {
+        "at_5": 1,
+        "at_10": 1
+      },
+      "latency_ms": {
+        "p50": 25.461,
+        "p95": 46.979,
+        "mean": 28.8383
+      },
+      "rerank_latency_ms": {
+        "p50": 0.034,
+        "p95": 0.06,
+        "mean": 0.037236
+      }
+    }
+  },
+  "fixed_tracking_set": {
+    "size": 14,
+    "rescued": [],
+    "unchanged": [
+      "G001[0]",
+      "G004[0]",
+      "G018[0]",
+      "G018[2]",
+      "G019[1]",
+      "G020[0]",
+      "G023[0]",
+      "G023[2]",
+      "G023[3]",
+      "G026[0]",
+      "G027[0]",
+      "G030[1]",
+      "G040[1]",
+      "G047[0]"
+    ]
+  },
+  "guardrail_transitions_77": {
+    "worse": [],
+    "better": [],
+    "rescued": [],
+    "unchanged_count": 77,
+    "classified_count": 77
+  },
+  "control_equivalence": {
+    "micro_recall_identical": true,
+    "order_identical_cases": [
+      "G003",
+      "G005",
+      "G007",
+      "G011",
+      "G013",
+      "G014",
+      "G015",
+      "G016",
+      "G017",
+      "G019",
+      "G020",
+      "G021",
+      "G022",
+      "G023",
+      "G024",
+      "G026",
+      "G029",
+      "G034",
+      "G037",
+      "G039",
+      "G041",
+      "G043",
+      "G046"
+    ],
+    "same_set_reorder_cases": [
+      {
+        "case": "G001",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G002",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G004",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G006",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G008",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G009",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G012",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G018",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G025",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G027",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G030",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G031",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G032",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G033",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G035",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G036",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G038",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G040",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G042",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G044",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G045",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G047",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G049",
+        "max_positional_deviation": 1
+      },
+      {
+        "case": "G050",
+        "max_positional_deviation": 1
+      }
+    ],
+    "boundary_flip_cases": [
+      {
+        "case": "G010",
+        "baseline_only": [
+          "chunk_9a90f7107c87a6c4ee8dc6c1142851f4"
+        ],
+        "control_only": [
+          "chunk_feaa8416fd76c732c3f4fe9f874c8cb1"
+        ]
+      },
+      {
+        "case": "G028",
+        "baseline_only": [
+          "chunk_a714979065642a396f826c5729df34d8"
+        ],
+        "control_only": [
+          "chunk_282f6ae8a2b0379d67e05319594039f9"
+        ]
+      },
+      {
+        "case": "G048",
+        "baseline_only": [
+          "chunk_e5781142b2b2962f4a5d6298834e04fa"
+        ],
+        "control_only": [
+          "chunk_751a343b1edf1ac3db3aae2d84a9e843"
+        ]
+      }
+    ],
+    "note": "服务端 RRF 并列分 tie-break 跨 run 非严格稳定（§3）：顺序级 47/50 同集合（24 题 ±1 换位）+ 3 题 top-10 边界翻转；指标级（@K 计数）必须一致，跨 run 对比只看 @K 计数"
+  },
+  "adoption_gates": {
+    "recall_at_5_net_gain_ge_2": {
+      "net_gain": 0,
+      "ok": false
+    },
+    "recall_at_10_not_dropping": {
+      "net_gain": 0,
+      "ok": true
+    },
+    "citable_downgraded_not_new": {
+      "at_5": {
+        "baseline": 1,
+        "experiment": 1,
+        "ok": true
+      },
+      "at_10": {
+        "baseline": 1,
+        "experiment": 1,
+        "ok": true
+      }
+    },
+    "weak_strata": {
+      "challenge:同义表达": {
+        "baseline": 0.583333,
+        "experiment": 0.583333,
+        "drop": 0.0,
+        "limit": 0.05,
+        "ok": true
+      },
+      "modality:图片图注": {
+        "baseline": 0.458333,
+        "experiment": 0.458333,
+        "drop": 0.0,
+        "limit": 0.05,
+        "ok": true
+      },
+      "challenge:原文定位": {
+        "baseline": 0.5625,
+        "experiment": 0.5625,
+        "drop": 0.0,
+        "limit": 0.05,
+        "ok": true
+      },
+      "repr:定义": {
+        "baseline": 0.583333,
+        "experiment": 0.583333,
+        "drop": 0.0,
+        "limit": 0.05,
+        "ok": true
+      },
+      "challenge:相似干扰": {
+        "baseline": 0.852273,
+        "experiment": 0.852273,
+        "drop": 0.0,
+        "limit": 0.02,
+        "ok": true
+      }
+    },
+    "rerank_latency": {
+      "p50_ms": 0.034,
+      "limit": 1500,
+      "ok": true,
+      "p95_ms": 0.06,
+      "p95_limit": 3000,
+      "ok_p95": true
+    },
+    "document_hit_not_dropping": {
+      "at_5": {
+        "baseline": 0.957447,
+        "experiment": 0.957447,
+        "ok": true
+      },
+      "at_10": {
+        "baseline": 0.994681,
+        "experiment": 0.994681,
+        "ok": true
+      }
+    },
+    "net_effect_worse_le_saved": {
+      "worse": 0,
+      "saved": 0,
+      "fixed_tracking_rescued": 0,
+      "overlap": 0,
+      "ok": true
+    }
+  }
+}

@@ -1,0 +1,198 @@
+{
+  "classification": "diagnostic (generation layer, real LLM, NOT formal)",
+  "status_distribution": {
+    "refused": 35,
+    "answered": 15
+  },
+  "refusal": {
+    "denominator": 4,
+    "refuse_correct": 4,
+    "cases": [
+      {
+        "case": "G008",
+        "status": "refused",
+        "refuse_correct": true
+      },
+      {
+        "case": "G015",
+        "status": "refused",
+        "refuse_correct": true
+      },
+      {
+        "case": "G028",
+        "status": "refused",
+        "refuse_correct": true
+      },
+      {
+        "case": "G050",
+        "status": "refused",
+        "refuse_correct": true
+      }
+    ]
+  },
+  "answer_expected": {
+    "denominator": 6,
+    "answered": 6,
+    "with_support_problems": 1,
+    "cases": [
+      {
+        "case": "G009",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 1,
+        "claim_support_problems": [],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [],
+            "covered": null
+          },
+          {
+            "fact_index": 1,
+            "numbers": [],
+            "covered": null
+          }
+        ]
+      },
+      {
+        "case": "G013",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 1,
+        "claim_support_problems": [],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [],
+            "covered": null
+          }
+        ]
+      },
+      {
+        "case": "G021",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 1,
+        "claim_support_problems": [],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [
+              "2027",
+              "73"
+            ],
+            "covered": true
+          }
+        ]
+      },
+      {
+        "case": "G031",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 1,
+        "claim_support_problems": [],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [
+              "10",
+              "30",
+              "1",
+              "6"
+            ],
+            "covered": true
+          }
+        ]
+      },
+      {
+        "case": "G038",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 2,
+        "claim_support_problems": [],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [
+              "4.2",
+              "3"
+            ],
+            "covered": true
+          },
+          {
+            "fact_index": 1,
+            "numbers": [],
+            "covered": null
+          }
+        ]
+      },
+      {
+        "case": "G040",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 3,
+        "claim_support_problems": [
+          "claim-1: numbers ['47884'] not in cited evidence"
+        ],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [
+              "1"
+            ],
+            "covered": true
+          },
+          {
+            "fact_index": 1,
+            "numbers": [],
+            "covered": null
+          }
+        ]
+      }
+    ]
+  },
+  "locate_observed": {
+    "denominator": 40,
+    "statuses": {
+      "answered": 9,
+      "refused": 31
+    },
+    "answered_locate_cases": [
+      "G012",
+      "G014",
+      "G019",
+      "G023",
+      "G024",
+      "G025",
+      "G026",
+      "G037",
+      "G047"
+    ]
+  },
+  "failure_classes": {},
+  "latency_ms": {
+    "generation": {
+      "p50": 5841.8,
+      "p95": 38004.26,
+      "mean": 10189.07,
+      "n": 50
+    },
+    "total": {
+      "p50": 5910.51,
+      "p95": 38099.24,
+      "mean": 10249.0,
+      "n": 50
+    }
+  },
+  "token_usage_totals": {
+    "input_tokens": 141861,
+    "output_tokens": 36381,
+    "pricing_status": "not_configured (cost rates not set; tokens only)"
+  }
+}

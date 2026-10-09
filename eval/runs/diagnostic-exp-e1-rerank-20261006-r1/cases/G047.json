@@ -1,0 +1,344 @@
+{
+  "id": "G047",
+  "question": "按T/CECS 758表7.2.2及其续表，重度混接（3级）与轻度混接（1级）在接入管管径、出流流量上的分界大致如何？评估时应遵循什么取高原则？",
+  "labels": {
+    "repr": [
+      "数值",
+      "表格",
+      "条件"
+    ],
+    "challenge": [
+      "表格",
+      "跨页",
+      "多证据"
+    ],
+    "modality": [
+      "表格"
+    ]
+  },
+  "expected_facts": [
+    "重度：管径d≥600mm且/或流量q>600 m3/d（并按水质指标）",
+    "轻度：d<300mm且q<200 m3/d量级",
+    "任一指标取高值原则"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 3,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 2,
+    "recall_at_5": 0.3333333333333333,
+    "recall_at_10": 0.6666666666666666,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 0.3333333333333333,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": 0.3333333333333333,
+    "latency_ms": 3175.427,
+    "citable_evidence_count": 1,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": 0.0,
+    "citable_recall_at_10": 0.0,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 2,
+    "locator_only_matched_at_5": 1,
+    "locator_only_matched_at_10": 2,
+    "locator_only_recall_at_5": 0.5,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 28,
+      "element_ids": [
+        "e000533"
+      ],
+      "quote": "181 的有关规定 > 7.2 评估指标与方法\n执行，并应以任一指标取高值的原则进行评估。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 7,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 29,
+      "element_ids": [
+        "e000547"
+      ],
+      "quote": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n续表7. 2. 2\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L) | 污水出流水质(mg/L)\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 氨氮 | COD\n中度混接(2级) | 300≤d<600 | 200<q≤600 | >6且≤30 | >100且≤200\n轻度混接(1级) | d<300 | q<200 | ≤6 | ≤100",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 3,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 3,
+      "locator_chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+      "locator_match_method": "quote_and_ids"
+    },
+    {
+      "evidence_index": 2,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 28,
+      "element_ids": [
+        "e000546"
+      ],
+      "quote": "表7. 2. 2 \n单个混接点或混接源混接程度分级标准\n混接程度与分级 | 接入管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L) | 污水出流水质(mg/L)\n混接程度与分级 | 接入管管径d (mm) | 出流流量q (m³/d) | 氨氮 | COD\n重度混接(3级) | d≥600 | q>600 | >30 | >200",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 7,
+      "match_rank": 9,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 9,
+      "locator_chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_c30b4c7948e1bd7611d9e619ad4945c7",
+      "score": 0.285714,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        29
+      ],
+      "element_ids": [
+        "e000555"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "181 的有关规定",
+        "7.2 评估指标与方法",
+        "7.2.3 区域雨污水管道：昆接程度应依据混接密度进行评估。区"
+      ],
+      "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.3 区域雨污水管道：昆接程度应依据混接密度进行评估。区\n表7.2.4\n区域混接程度分级\n混接密度(个/km) | >10 | 5~10 | <5\n混接程度 | 重度混接(3级) | 中度混接(2级) | 轻度混接(1级)",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_2fd882ea38fe1df52169868682009c7e",
+      "score": 0.14359,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        45
+      ],
+      "element_ids": [
+        "e000800",
+        "e000801"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.3 根据混接密度（M）和混接水量比（C），区域混接程度分为三"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.3 根据混接密度（M）和混接水量比（C），区域混接程度分为三\n7.1.3 根据混接密度（M）和混接水量比（C），区域混接程度分为三\n级：重度混接（3 级）、中度混接（2 级）、轻度混接（1 级），以任一",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+      "score": 1.0,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        29
+      ],
+      "element_ids": [
+        "e000547"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "181 的有关规定",
+        "7.2 评估指标与方法",
+        "7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接"
+      ],
+      "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n续表7. 2. 2\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L) | 污水出流水质(mg/L)\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 氨氮 | COD\n中度混接(2级) | 300≤d<600 | 200<q≤600 | >6且≤30 | >100且≤200\n轻度混接(1级) | d<300 | q<200 | ≤6 | ≤100",
+      "matched_evidence_indexes": [
+        1
+      ]
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_607e0dc888a9d944b00b2a589447c7ac",
+      "score": 0.361111,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        45
+      ],
+      "element_ids": [
+        "e000802"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.3 根据混接密度（M）和混接水量比（C），区域混接程度分为三"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.3 根据混接密度（M）和混接水量比（C），区域混接程度分为三\n表7.1-1  区域混接程度分级评价表\n分级评价 混接程度 | 混接密度 (M) | 混接水量比 (C)\n重度混接 （3级） | >10%以上 | >50%以上\n中度混接（2级） | 5-10% | 30-50%\n轻度混接（1级） | <0-5% | <0-30%",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_33224dd3397c6f6e83ab9b305a808c09",
+      "score": 0.416667,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        46
+      ],
+      "element_ids": [
+        "e000807"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n表7.1-2   单个混接点混接程度分级标准表\n分级评价 混接程度 | 接入管管径 （mm） | 流入水量（m³/d） | 污水流入水质 （NH3-N数值）\n重度混接（3级） | ≥600 | >600 | >30mg/L\n中度混接（2级） | ≥300且<600 | >200且≤600 | >6且≤30\n轻度混接（1级） | <300 | <200 | ≤6 mg/L",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_3d9fa1af346e673a389df8f80df65c57",
+      "score": 0.125,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        45,
+        46
+      ],
+      "element_ids": [
+        "e000803",
+        "e000804",
+        "e000805"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n以任一指标高值的原则确定等级，混接点混接程度分级标准见表7.1.2。\n最终考察的都是混接管接入后对于原有管道的危害程度。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_3d03c7031aef4fecf30651ecb74086d1",
+      "score": 0.149733,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        28
+      ],
+      "element_ids": [
+        "e000544",
+        "e000545"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "181 的有关规定",
+        "7.2 评估指标与方法",
+        "7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接"
+      ],
+      "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n7. 2. 1\n单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n水量、1昆接水质进行评估。\n7.2.2\n单个混接点或泪接源的海接程度分级标准应按表7. 2. 2",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_33b62e079353b04663721d67d9b81a1d",
+      "score": 0.211111,
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        13
+      ],
+      "element_ids": [
+        "e000158"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "6 混错接改造设计"
+      ],
+      "text": "6 混错接改造设计\n表2 区域污水管道中雨水混错接程度分级评估及治理建议表\n区域混错接程度 | 混错接密度和混错接水量比 | 混错接密度和混错接水量比\n区域混错接程度 | 混错接密度（M) _ | 混错接水量比（C雨）\n重度混错接（3级） | >10%以上 | >50%以上\n中度混错接（2级） | 5%~10% | 30%~50%\n轻度混错接 （1级 - | <0~5% | <0~30%",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+      "score": 0.666667,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        28
+      ],
+      "element_ids": [
+        "e000546"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "181 的有关规定",
+        "7.2 评估指标与方法",
+        "7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接"
+      ],
+      "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n表7. 2. 2 \n单个混接点或混接源混接程度分级标准\n混接程度与分级 | 接入管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L) | 污水出流水质(mg/L)\n混接程度与分级 | 接入管管径d (mm) | 出流流量q (m³/d) | 氨氮 | COD\n重度混接(3级) | d≥600 | q>600 | >30 | >200",
+      "matched_evidence_indexes": [
+        2
+      ]
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_7b610c7b53ca9a8f0ecce9165d771ef8",
+      "score": 0.125,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        46,
+        47
+      ],
+      "element_ids": [
+        "e000808",
+        "e000809",
+        "e000810",
+        "e000811",
+        "e000812",
+        "e000813",
+        "e000814",
+        "e000815",
+        "e000816",
+        "e000817",
+        "e000818",
+        "e000819",
+        "e000820",
+        "e000821"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n【条文解释】单个混接点的评估根据混接管管径、混接水量和混接水\n质来评价。对于一个确定的管道，当混接的管道管径越大，混接进入\n原有管道的水量就会相对较大，造成的危害也就越大；当混接管的管\n径相对较小，但是混接的流量很大时，也会造成比较严重的混接结果；\n对于雨水管道来说，混接接入的污水浓度越高，就会对雨水管道内的\n水质产生更大的危害，也就是导致严重的混接。因此对于单个混接点\n的判断需要参考混接管管径、混接水量或排放水质作为评判的标准。\n氮浓度均值约为6.0mg/L，因此当氨氮浓度≤6.0 mg/L 时，可以认为\n混接水质为灰水为特点的生活污水，污染程度相对较轻，定义为轻度\n混接；居住小区中灰水和黑水的比例约为灰水：黑水=0.7:0.3，根据\n污水中氨氮浓度均值约为27.3 mg/L。因此可以认为当氨氮浓度≥30.0\nmg/L 时，混接水质为包括黑水的居住区生活污水，污染程度相对较\n严重，定义为重度混接。混接排放口氨氮浓度在此之间的情形，即\n6~30mg/L，定义为中度混接。",
+      "matched_evidence_indexes": []
+    }
+  ],
+  "rerank_latency_ms": 3152.1490999730304
+}

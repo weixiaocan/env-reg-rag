@@ -1,0 +1,61 @@
+{
+  "corpus_version": "corpus-0ae8a9423e2f",
+  "gate": {
+    "failed_count": 0,
+    "manual_adjudication_count": 18616,
+    "quality_passed": false,
+    "status": "needs_adjudication"
+  },
+  "input_hashes": {
+    "canonical_aggregate": "8e9484c5a8ca6e9b6c0fafddb0ca9247e4cd18893a75423b523a27ee0d061aad",
+    "canonical_file:1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82.canonical.json": "03bceae3c2620b42e8460fdd0257e1de4615e5bb9a9fcb6f75135cbee349de7b",
+    "canonical_file:25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7.canonical.json": "8b5466368d3d01c42bd9b666b907741ac1407d3ab3d8c4b59977c672a6cc6b35",
+    "canonical_file:31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b.canonical.json": "821a22131e90225e70ae8217b32d69b6103c1c5224c9b5aa3333731dd3b8f238",
+    "canonical_file:4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed.canonical.json": "bcc72167e17cbbb7b44c5ec84d54d3b677075d096c739a051b59b2c30359000f",
+    "canonical_file:4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c.canonical.json": "dd27dddee2bdaf04a954a6b62c7759b5588a8e82e1cd84f5e35f980aaca1eecd",
+    "canonical_file:48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16.canonical.json": "b4cbde4f73415ae7f762dfb3f784ca21ec60c89f3bd82e0eebe71625e923f499",
+    "canonical_file:57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2.canonical.json": "4d75458257d335520cd95a030f2aa2866e2a8de5316905bca8b4b247004f8bda",
+    "canonical_file:60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f.canonical.json": "a5f0cd9eb1a6a68405ec20ebdf3af029a52d5367a84a0f0919939e724bf5544a",
+    "canonical_file:6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1.canonical.json": "e674e981ed91f97d15a7aa6bdaad5905e0ceeb8129c54869f882470ea09838cc",
+    "canonical_file:76b7035435a3dd5d51104c77a5996e47a4deabe9fbfe0d8b6b504fbd4844cada.canonical.json": "c1c5b79c0081ef610f7375f4368ebd2db9bf9d83040469bea5e321def4875fa1",
+    "canonical_file:89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004.canonical.json": "2d2529b367f7e8fc2db57cd9ff202bcc702caa22bfa8140a3c27aa5bc9d7352d",
+    "canonical_file:9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b.canonical.json": "9afb41c705b2b1311247fbcbd84682547dea3ef962256dd87ff8c4f844b124f6",
+    "canonical_file:a9ce88d538f5f2c5df3bacb6527db134baef2123d4e98e7ca06dee1125718106.canonical.json": "895833124c23be3205235fe500f43a304e6c64381f334f34e67411e861977855",
+    "canonical_file:adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f.canonical.json": "bc34bf382551dbd0afd7886432ef524644bde99341e23d8baca29c22332558c6",
+    "canonical_file:be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966.canonical.json": "631e366b1fbe96789a054481c69aa5729bb7cd0059431cc8172bc85639c50ffb",
+    "canonical_file:c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1.canonical.json": "c940cdd82c98f0162b77b9c60d2a786540fccdf08abee3abf8c7397d53968287",
+    "canonical_file:c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0.canonical.json": "9a4f985c7a3ecd2e432982fcbf92d7fdf2bad4df7b636bacb7ce850d544b9e16",
+    "canonical_file:d4fc5f9bbe645bc5dd3ef53aa14a3b8620b015123f214ab266608cd17b687766.canonical.json": "db855455431862bf1219f8c57c7e3fc4b43abe028e0b830523a0af897e331344",
+    "canonical_file:f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4.canonical.json": "6aa430aba1584a6ad9d0e227cc9706a41d3e15c181688bfac49054b7885a39c9",
+    "canonical_file:f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d.canonical.json": "a5f8d7cbafcd34a00df4ac171644e366790eb0ca6c4b73d8a6fb5aa783fafb5f",
+    "canonical_file:f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81.canonical.json": "bbb11fc89a3431242068c48a81fe8074549984137970b3c3e4ef254b050d425e",
+    "canonical_file:f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941.canonical.json": "1e42d06a5abfd5c21f7f98f3d4825799be707766760c14c105f5e1d8021a814a",
+    "canonical_file:fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed.canonical.json": "e2964451c41c883c4b6eb76f0921502368e7832d6a8e460b5bed3415bed322c4",
+    "manifest": "b4f113d513384ad88c003626d7b78339fdc7a38b4f1a1b018e002deb5e4a0311",
+    "manifest_file": "75da2f00399a974306b1c9ac7200333efbf4279eb4d25f072a3875888b11f8f9",
+    "page_intermediate_aggregate": "db3aac50578d56ed948ffdb6d254e914282318f494a4153fc44d0ec96a31002c",
+    "page_intermediate_file": "b66a745e5ae6faad51edb5a1459e7b4aa9f9d6e0e4f9be8928f9c679036ca1e3"
+  },
+  "ledger_sha256": "b17990bbc8c7575ca792ab551aa6411cf0b288bbde5cf00ec5bc4625b7db5492",
+  "schema_version": "canonical-quality-ledger-v1",
+  "summary": {
+    "conclusion_counts": {
+      "manual_review_required": 18616,
+      "not_detected": 3102,
+      "unsupported": 458,
+      "verified_passed": 21796
+    },
+    "execution_status_counts": {
+      "completed": 40897,
+      "not_detected": 3075
+    },
+    "integrity_issue_count": 0,
+    "object_counts": {
+      "canonical_element": 25067,
+      "page_content_type": 4576,
+      "source_document": 23,
+      "source_page": 1144,
+      "source_region": 13162
+    }
+  }
+}

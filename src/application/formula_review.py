@@ -112,7 +112,7 @@ class FormulaReviewService:
                 and 0 <= box[0] < box[2] and 0 <= box[1] < box[3]):
             item['bbox'] = None
         if valid:
-            item['source_url'] = f'/api/v1/documents/doc_{item["file_sha256"][:16]}/content#page={item["physical_page"]}'
+            item['source_url'] = f'/api/v1/documents/{item["file_sha256"]}/pages/{item["physical_page"]}/image'
             if item['bbox'] is not None:
                 item['image_url'] = f'/api/v1/formula-review/{identity}/image'
                 item['context_image_url'] = item['image_url'] + '?context=true'
@@ -133,7 +133,7 @@ class FormulaReviewService:
             try:
                 with pymupdf.open(document.local_path) as pdf:
                     item['source_context'] = source_context(pdf, item['physical_page'], item['bbox'],
-                                                           'doc_' + item['file_sha256'][:16])
+                                                           item['file_sha256'])
                 if file_digest(document.local_path) != item['file_sha256']:
                     raise ValueError('source changed during context extraction')
             except pymupdf.FileDataError:

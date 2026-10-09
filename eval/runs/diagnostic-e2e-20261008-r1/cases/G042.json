@@ -1,0 +1,522 @@
+{
+  "case": "G042",
+  "question": "多普勒断面扫描式排水管道在线监测流量仪标准中，图1的图名是什么？流量试验装置由哪几部分组成？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261008-r1-G042",
+  "trace_missing": false,
+  "wall_ms": 37175.487,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "图1的图名为“速度—面积流量测定法示意图”。",
+        "evidence_ids": [
+          "chunk_3a53485a27364da753975d1cc911cd91"
+        ]
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "流量计的组成部分包括流量计探头和PCM流量计的计算机部分。",
+        "evidence_ids": [
+          "chunk_3a53485a27364da753975d1cc911cd91"
+        ]
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_3a53485a27364da753975d1cc911cd91",
+    "chunk_27a8fdbf2f77e0506730d3400d96e38d",
+    "chunk_fc31a11f836c7539e9a1569d89d1389e",
+    "chunk_be298fc71be01fe058fffc7f1c1c629f",
+    "chunk_03b66a671001d313293ab47a15fb108b",
+    "chunk_7d815b61d6b92434d507c9ed8b28539e",
+    "chunk_2709bdc46fa5a7186622b6f3e079ac80",
+    "chunk_a56690b31e02002e8381deb5f084369d",
+    "chunk_448a7a97dfab2afdeda80b9a8e8476cb",
+    "chunk_18b3172d326974534af0c728c4d77385"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_3a53485a27364da753975d1cc911cd91",
+      "text": "1 次数据）\n（a）流量计探头 （b） PCM 流量计\n（c）流量计现场安装与观测\n附图1 速度—面积流量测定法示意图\n【条文解释】速度—面积流量计测定法：该方法的原理是发射超声波\n根据多普勒效应来测量管道中的分层流速，进而根据水深积分计算流\n量。例如，德国NIVUS 公司的PCM 型管道流量计机箱如附图1 示，\n使用时流量计的探头需要固定在管道底部，探头连接PCM 流量计的\n计算机部分。在使用流量计之前，需要进行流量计中各参数的设定，\n包括管道形状、管径大小、读数频次（如每5 分钟或者更长的时间读",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        39
+      ],
+      "heading_path": [
+        "1 次数据）"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_3a53485a27364da753975d1cc911cd91__p39",
+          "physical_page": 39,
+          "kind": "text",
+          "bbox": [
+            89.85189819335938,
+            108.9817123413086,
+            512.378662109375,
+            729.9240112304688
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_27a8fdbf2f77e0506730d3400d96e38d",
+      "text": "6 混接点探查与判定 > 6.2 混接点位置探查与判定 > 6.3.1 流量测定可用于探测下列情况：\n污水管道的雨天混接水量；",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        35
+      ],
+      "heading_path": [
+        "6 混接点探查与判定",
+        "6.2 混接点位置探查与判定",
+        "6.3.1 流量测定可用于探测下列情况："
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_27a8fdbf2f77e0506730d3400d96e38d__p35",
+          "physical_page": 35,
+          "kind": "text",
+          "bbox": [
+            89.8519287109375,
+            670.826416015625,
+            261.36456298828125,
+            689.2750244140625
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_fc31a11f836c7539e9a1569d89d1389e",
+      "text": "2 术\n语 > 2.0.2 源头减排系统\nsource control drainage system\n源头减排系统主要通过竖向、景观和园林绿化设计。满足径\n流总量控制率要求的滞蓄空间，可由植草沟、下沉式绿地、生物\n滞留设施等源头、分散的生态设施和小型人工设施组成，其设置\n的核心目的是维持场地开发前后水文特征基本不变，但该系统通\n常兼有维持水文循环状态、控制径流污染、促进雨水资源化利\n用、缓解内涝风险等综合效益。\n源头减排系统一般是在场地开发过程中分散构建的，它从雨\n水形成的第一时间即通过渗、滞、蓄、净、用等源头减排措施加\n以控制，不同场地的源头减排系统通常互不影响，一般以城市道\n路、建筑小区、公园绿地、广场、开放式运动场等空间为主要\n场地。\n2.0.3\n本条是雨水排放系统的定义。\n雨水排放系统即目前所说的“雨水管渠系统”。雨水排放系\n统是城市雨水系统的组成部分之一，主要用于收集、输送和处置\n该系统设计排水能力以内的降雨、融雪径流等，其设置目的是为\n了减少因低强度降雨事件所带来的不便，降低经常重复出现的破\n坏及频繁的街道维护需求。国外比较常见的术语为“Minor\n（Drainage）System（小排水系统）\" 或\"Initial（Drainage）Sys¬\ntem（基本排水系统）\n雨水排放系统的组成部分包括道路街沟（偏沟）、边沟、雨",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        34
+      ],
+      "heading_path": [
+        "2 术\n语",
+        "2.0.2 本条是源头减排系统的定义"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "superseded",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_fc31a11f836c7539e9a1569d89d1389e__p34",
+          "physical_page": 34,
+          "kind": "text",
+          "bbox": [
+            45.87776184082031,
+            155.3944549560547,
+            345.7235412597656,
+            465.3946838378906
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_be298fc71be01fe058fffc7f1c1c629f",
+      "text": "3 基本规定 > 3.5 排水管渠 > 3.5.4 本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约\n3. 5. 4\n本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约\n优化利用地下空间，解决马路拉链问题，提升抗灾防灾能力，新\n建区域要求管道人廊。排水管渠是城市基础设施的重要组成部\n分，而它又有重力流排水的明显特征，结合综合管廊布局统一规\n划设计排水管渠是城市建设的新命题，因此，本条提出对规划有\n综合管廊的路段宜结合管廊布局合理布置排水管渠，在保障安全\n的前提下，可利用大断面雨水管渠上部空间布置再生水、供水、\n通信等管线，因地制宜地做好支管及交叉管线的衔接。\n3. 5. 5\n本条规定城市排水管渠断面尺寸确定的原则。\n城市污水管渠建设因其特殊性，管渠的使用周期较长，因此\n不宜按近期建设，以避免重复建设改造对城市道路交通的影响。\n因此，确定污水管渠断面尺寸时，设计流量应采用远期最高日最\n高时污水量。\n确定截流初期雨水的污水管渠断面尺寸时，设计流量为远期",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        39,
+        40
+      ],
+      "heading_path": [
+        "3 基本规定",
+        "3.5 排水管渠",
+        "3.5.4 本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "superseded",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_be298fc71be01fe058fffc7f1c1c629f__p39",
+          "physical_page": 39,
+          "kind": "text",
+          "bbox": [
+            45.535797119140625,
+            435.450439453125,
+            340.3155517578125,
+            525.57470703125
+          ]
+        },
+        {
+          "region_id": "chunk_be298fc71be01fe058fffc7f1c1c629f__p40",
+          "physical_page": 40,
+          "kind": "text",
+          "bbox": [
+            52.524017333984375,
+            61.17852783203125,
+            353.6166076660156,
+            198.30892944335935
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_03b66a671001d313293ab47a15fb108b",
+      "text": "5 混接区域调查 > 5.4 管道流量测量\nAC 矩形）＝管沟宽×水位高\n(1)",
+      "document_version_id": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        68
+      ],
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "publication_date": "2020-10-09",
+      "effective_from": "2021-03-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_03b66a671001d313293ab47a15fb108b__p68",
+          "physical_page": 68,
+          "kind": "text",
+          "bbox": [
+            145.66799926757812,
+            251.119873046875,
+            356.9739685058594,
+            261.83721923828125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_7d815b61d6b92434d507c9ed8b28539e",
+      "text": "7 感知数据 > 7.2 在线监测数据 > 7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节\n标进行自动化采样化验。",
+      "document_version_id": "d4fc5f9bbe645bc5dd3ef53aa14a3b8620b015123f214ab266608cd17b687766",
+      "file_name": "GBT+47884-2026.pdf",
+      "physical_pages": [
+        11
+      ],
+      "heading_path": [
+        "7 感知数据",
+        "7.2 在线监测数据",
+        "7.2.4 每10km 市政排水管道应布设不少于1个液位或流量监测点位,同时应在重要排水户和重要节"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_7d815b61d6b92434d507c9ed8b28539e__p11",
+          "physical_page": 11,
+          "kind": "text",
+          "bbox": [
+            71.33899688720703,
+            111.11056518554688,
+            185.8409881591797,
+            134.0702362060547
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_2709bdc46fa5a7186622b6f3e079ac80",
+      "text": "5 混接区域调查 > 5.4 管道流量测量\nd\n水面位置的弦长，即图3 中的AB(m);\nh\n三角形AOC 的高，即图3 中的OC(m ）。",
+      "document_version_id": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        68
+      ],
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "publication_date": "2020-10-09",
+      "effective_from": "2021-03-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_2709bdc46fa5a7186622b6f3e079ac80__p68",
+          "physical_page": 68,
+          "kind": "text",
+          "bbox": [
+            84.79800415039062,
+            325.3129577636719,
+            292.0680236816406,
+            354.12298583984375
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_a56690b31e02002e8381deb5f084369d",
+      "text": "8 雨污？昆接治理与验收 > 8.2 市政排水管道两污混接治理 > 8.2.1 针对市政污水管道接入市政雨水管道的情况，应核算下游\n力高程后，将截流的旱天污水和雨天部分雨污混合水截流至市政\n污水管道，并采取防止该截流系统成为新的雨污1昆接点的保障措\n施。\n8.2.5\n防水体水倒灌的装置包括安装在排水口检查井中的水力\n止回堪门、水力浮动止回堪门、限流阀、浮筒闸门、可调式溢流埋\n等，具体说明参见住房和城乡建设部2016 年8 月发布的《城市黑\n臭水体整治一一排水口、管道及检查井治理技术指南（试行）》。\n从近年来黑臭水体的治理工程案例来看，采用重力截流方式\n的截流式分流制系统倒灌现象十分严重。另外，在污水系统运行\n水位较高时，污水也可能通过截流系统排入河道水体。因此，建议\n将截流方式由重力方式改为水泵提升方式，并采取措施防止河水\n倒灌进入截流系统。",
+      "document_version_id": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        74,
+        75
+      ],
+      "heading_path": [
+        "8 雨污混接治理与验收",
+        "8.2 市政排水管道雨污混接治理",
+        "8.2.1 针对错接入市政雨水管道的市政污水管道，在改接前要核"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "publication_date": "2020-10-09",
+      "effective_from": "2021-03-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_a56690b31e02002e8381deb5f084369d__p74",
+          "physical_page": 74,
+          "kind": "text",
+          "bbox": [
+            55.978004455566406,
+            429.9949951171875,
+            351.6406555175781,
+            519.0349731445312
+          ]
+        },
+        {
+          "region_id": "chunk_a56690b31e02002e8381deb5f084369d__p75",
+          "physical_page": 75,
+          "kind": "text",
+          "bbox": [
+            47.50800323486328,
+            70.22499084472656,
+            342.24041748046875,
+            159.7449951171875
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_448a7a97dfab2afdeda80b9a8e8476cb",
+      "text": "4 术语和定义\n资产管理\nasset management\n组织利用资产（3.1）实现价值的协作活动。\n注1：实现价值通常需要权衡成本、风险、机会和绩效收益。\n注2：活动还可指资产管理体系中要素的应用。\n注3：术语“活动”是广义的，例如可包含方法、策划、计划及其实施等。\nGB/Z XXXXX—XXXX/ISO 24516-3:2017\n供水和污水系统资产管理指南 第3 部分：污水管网\n本文件提供了污水管网资产管理的技术方面、工具和良好实践指南，以维持现有资产的价值。\n本文件不适用于污水处理厂资产的管理，虽然这些资产在物理上也是污水系统的组成部分，并可\n注1：以下设施的资产管理由GB/Z XXXXX《供水和污水系统资产管理指南》系列文件的第4 部分涵盖：污水泵\n本文件适用于运营污水管网的各类别、各规模组织和/或单位，也适用于运营单位内部承担资产管\n理工作的各类角色/职能（例如资产所有者/责任方、资产管理者/运营方、服务提供方/运营方）。\n注2：污水处理设施维护运营单位可根据自身的规模和架构，可自行决定采用本文件的程度，但无论如何，本文件\n注1：价值可能是有形的或无形的,可能是财务的或非财务的,而且价值包括对风险和债务的考虑。价值在资产寿命",
+      "document_version_id": "a9ce88d538f5f2c5df3bacb6527db134baef2123d4e98e7ca06dee1125718106",
+      "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+      "physical_pages": [
+        11
+      ],
+      "heading_path": [
+        "4 术语和定义"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_448a7a97dfab2afdeda80b9a8e8476cb__p11",
+          "physical_page": 11,
+          "kind": "text",
+          "bbox": [
+            70.87094116210938,
+            69.0763931274414,
+            538.5836181640625,
+            765.5404663085938
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_18b3172d326974534af0c728c4d77385",
+      "text": "6 混接点探查与判定 > 6.3 混接流量与水质检测 > 6.3.5 流量测定方法可选用容器法、浮标法和速度-面积流量计测定法，\n3. 速度-面积流量计测定法适用于满管和非满管的流量测量；用\n于对混接排放口流量的连续动态测量。所使用的器材有速度-面积流\n量计、探头固定装置和计算机。\n使用该仪器进行流量测量时应注意以下事项：\n（1）使用探头固定装置，将探头固定在管道底部；\n（2）安装探头时应注意避免被泥土覆盖；\n（3）仪器在使用前要进行校准。\n4. 管网末端或者中途节点设置有雨污水提升泵站时，可根据雨污\n水泵站的运行记录计算管网末端或者中途节点的出流水量。\n使用该方法时，可对系统配置的污水泵和雨水泵的特性曲线进行\n拟合，得到污水泵或者雨水泵排放水量与扬程的特征函数，对雨水泵\n或者雨水泵的铭牌流量进行修正。",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        38,
+        39
+      ],
+      "heading_path": [
+        "6 混接点探查与判定",
+        "6.3 混接流量与水质检测",
+        "6.3.5 流量测定方法可选用容器法、浮标法和速度-面积流量计测定法，"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_18b3172d326974534af0c728c4d77385__p38",
+          "physical_page": 38,
+          "kind": "text",
+          "bbox": [
+            89.83023071289062,
+            384.9817199707031,
+            505.6262512207031,
+            733.5808715820312
+          ]
+        },
+        {
+          "region_id": "chunk_18b3172d326974534af0c728c4d77385__p39",
+          "physical_page": 39,
+          "kind": "text",
+          "bbox": [
+            89.87999725341797,
+            73.95597839355469,
+            302.8800048828125,
+            89.7239761352539
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.009,
+    "retrieval": 80.001,
+    "generation": 37089.628,
+    "validation": 0.007,
+    "total": 37169.717
+  },
+  "generate_context_evidence_ids": [
+    "chunk_3a53485a27364da753975d1cc911cd91",
+    "chunk_27a8fdbf2f77e0506730d3400d96e38d",
+    "chunk_fc31a11f836c7539e9a1569d89d1389e",
+    "chunk_be298fc71be01fe058fffc7f1c1c629f",
+    "chunk_03b66a671001d313293ab47a15fb108b"
+  ],
+  "trace_evidence_ids": [
+    "chunk_3a53485a27364da753975d1cc911cd91",
+    "chunk_27a8fdbf2f77e0506730d3400d96e38d",
+    "chunk_fc31a11f836c7539e9a1569d89d1389e",
+    "chunk_be298fc71be01fe058fffc7f1c1c629f",
+    "chunk_03b66a671001d313293ab47a15fb108b",
+    "chunk_7d815b61d6b92434d507c9ed8b28539e",
+    "chunk_2709bdc46fa5a7186622b6f3e079ac80",
+    "chunk_a56690b31e02002e8381deb5f084369d",
+    "chunk_448a7a97dfab2afdeda80b9a8e8476cb",
+    "chunk_18b3172d326974534af0c728c4d77385"
+  ],
+  "token_usage": {
+    "input_tokens": 2617,
+    "output_tokens": 3694,
+    "total_tokens": 6311,
+    "estimated_cost": 0.124368,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "多普勒断面扫描式排水管道在线监测流量仪标准中，图1的图名是什么？流量试验装置由哪几部分组成？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_3a53485a27364da753975d1cc911cd91",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          39
+        ],
+        "text": "1 次数据）\n（a）流量计探头 （b） PCM 流量计\n（c）流量计现场安装与观测\n附图1 速度—面积流量测定法示意图\n【条文解释】速度—面积流量计测定法：该方法的原理是发射超声波\n根据多普勒效应来测量管道中的分层流速，进而根据水深积分计算流\n量。例如，德国NIVUS 公司的PCM 型管道流量计机箱如附图1 示，\n使用时流量计的探头需要固定在管道底部，探头连接PCM 流量计的\n计算机部分。在使用流量计之前，需要进行流量计中各参数的设定，\n包括管道形状、管径大小、读数频次（如每5 分钟或者更长的时间读"
+      },
+      {
+        "evidence_id": "chunk_27a8fdbf2f77e0506730d3400d96e38d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          35
+        ],
+        "text": "6 混接点探查与判定 > 6.2 混接点位置探查与判定 > 6.3.1 流量测定可用于探测下列情况：\n污水管道的雨天混接水量；"
+      },
+      {
+        "evidence_id": "chunk_fc31a11f836c7539e9a1569d89d1389e",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          34
+        ],
+        "text": "2 术\n语 > 2.0.2 源头减排系统\nsource control drainage system\n源头减排系统主要通过竖向、景观和园林绿化设计。满足径\n流总量控制率要求的滞蓄空间，可由植草沟、下沉式绿地、生物\n滞留设施等源头、分散的生态设施和小型人工设施组成，其设置\n的核心目的是维持场地开发前后水文特征基本不变，但该系统通\n常兼有维持水文循环状态、控制径流污染、促进雨水资源化利\n用、缓解内涝风险等综合效益。\n源头减排系统一般是在场地开发过程中分散构建的，它从雨\n水形成的第一时间即通过渗、滞、蓄、净、用等源头减排措施加\n以控制，不同场地的源头减排系统通常互不影响，一般以城市道\n路、建筑小区、公园绿地、广场、开放式运动场等空间为主要\n场地。\n2.0.3\n本条是雨水排放系统的定义。\n雨水排放系统即目前所说的“雨水管渠系统”。雨水排放系\n统是城市雨水系统的组成部分之一，主要用于收集、输送和处置\n该系统设计排水能力以内的降雨、融雪径流等，其设置目的是为\n了减少因低强度降雨事件所带来的不便，降低经常重复出现的破\n坏及频繁的街道维护需求。国外比较常见的术语为“Minor\n（Drainage）System（小排水系统）\" 或\"Initial（Drainage）Sys¬\ntem（基本排水系统）\n雨水排放系统的组成部分包括道路街沟（偏沟）、边沟、雨"
+      },
+      {
+        "evidence_id": "chunk_be298fc71be01fe058fffc7f1c1c629f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          39,
+          40
+        ],
+        "text": "3 基本规定 > 3.5 排水管渠 > 3.5.4 本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约\n3. 5. 4\n本条是关于排水管渠与综合管廊关系的规定。\n国务院办公厅2015 年61 号文要求各地建设地下管廊，集约\n优化利用地下空间，解决马路拉链问题，提升抗灾防灾能力，新\n建区域要求管道人廊。排水管渠是城市基础设施的重要组成部\n分，而它又有重力流排水的明显特征，结合综合管廊布局统一规\n划设计排水管渠是城市建设的新命题，因此，本条提出对规划有\n综合管廊的路段宜结合管廊布局合理布置排水管渠，在保障安全\n的前提下，可利用大断面雨水管渠上部空间布置再生水、供水、\n通信等管线，因地制宜地做好支管及交叉管线的衔接。\n3. 5. 5\n本条规定城市排水管渠断面尺寸确定的原则。\n城市污水管渠建设因其特殊性，管渠的使用周期较长，因此\n不宜按近期建设，以避免重复建设改造对城市道路交通的影响。\n因此，确定污水管渠断面尺寸时，设计流量应采用远期最高日最\n高时污水量。\n确定截流初期雨水的污水管渠断面尺寸时，设计流量为远期"
+      },
+      {
+        "evidence_id": "chunk_03b66a671001d313293ab47a15fb108b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          68
+        ],
+        "text": "5 混接区域调查 > 5.4 管道流量测量\nAC 矩形）＝管沟宽×水位高\n(1)"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.688608
+}

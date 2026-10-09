@@ -1,0 +1,59 @@
+{
+  "case": "G031",
+  "question": "T/CMSA 0013把哪些历时的降雨量分成六个短时等级？",
+  "expected_answerability": "answer",
+  "expected_facts": [
+    "对10分钟、30分钟、1小时降雨量划分短时小雨至短时特大暴雨共6个等级"
+  ],
+  "status": "answered",
+  "model_called": true,
+  "provided_evidence": [
+    {
+      "evidence_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+      "text": "3 等级划分\nT/CMSA 0013—2019\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降水。\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\nT/CMSA 0013—2019\n单位：毫米（mm）",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5,
+        6
+      ],
+      "usage_policy": "answer_and_citation"
+    }
+  ],
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "T/CMSA 0013将10分钟、30分钟、1小时的降雨量划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大暴雨、短时特大暴雨共6个等级。",
+        "evidence_ids": [
+          "chunk_53bc9cf1cd413c183e4c40c2350faadc"
+        ]
+      }
+    ],
+    "conflicts": []
+  },
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {
+    "input_tokens": 1014,
+    "output_tokens": 200,
+    "total_tokens": 1214,
+    "estimated_cost": 0.013712,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "generation_ms": 3944.312,
+  "failure_class": null,
+  "expected_facts_coverage": [
+    {
+      "fact_index": 0,
+      "numbers": [
+        "10",
+        "30",
+        "1",
+        "6"
+      ],
+      "covered": true
+    }
+  ],
+  "cumulative_estimated_cost_cny": 0.074176
+}

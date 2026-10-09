@@ -1,0 +1,19 @@
+{
+  "case": "G019",
+  "question": "对照《城镇分流制排水系统雨污混接调查》征求意见稿与T/CECS 758：前者表5-1给出生活污水中氨氮浓度的灰水/黑水均值大约是多少？后者规定单个混接点或混接源的混接程度可依据哪些要素评估？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "征求意见稿表5-1：灰水氨氮均值约6.1 mg/L，黑水氨氮均值约76.8 mg/L",
+    "T/CECS 758：按接入管管径、混接水量、混接水质评估混接程度"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.033732
+}

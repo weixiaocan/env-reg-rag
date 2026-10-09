@@ -1,5 +1,8 @@
 import unittest
+import tempfile
 from pathlib import Path
+
+import pymupdf
 
 from src.ingestion.ocr_pdf import OcrPdfParser
 
@@ -123,6 +126,26 @@ class OcrPdfParserContractTest(unittest.TestCase):
 
         self.assertEqual(page["quality"]["status"], "review")
         self.assertIn("low_confidence_text", page["quality"]["reasons"])
+
+    def test_rotated_page_is_normalized_for_inference_and_geometry_is_restored(self):
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "rotated.pdf"
+            pdf = pymupdf.open()
+            source_page = pdf.new_page(width=200, height=100)
+            source_page.set_rotation(270)
+            pdf.save(path)
+            pdf.close()
+
+            engine = FixtureStructureEngine()
+            page = OcrPdfParser(engine=engine, dpi=72).parse_page(path, physical_page=1)
+
+        self.assertEqual(page["rotation"], 270)
+        self.assertEqual(page["raw"]["inference_rotation_k"], 3)
+        # The first model block covers the upper half of the normalized
+        # landscape image; in displayed page coordinates it is the left half.
+        self.assertAlmostEqual(page["elements"][0]["bbox"][0], 0.0, places=3)
+        self.assertAlmostEqual(page["elements"][0]["bbox"][2], page["width"] / 2, places=3)
+        self.assertAlmostEqual(page["elements"][0]["bbox"][3], page["height"], places=3)
 
 
 if __name__ == "__main__":

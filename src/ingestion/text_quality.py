@@ -24,8 +24,19 @@ def _symbol_count(compact: str) -> int:
 
 
 def score_text(text: str) -> dict[str, Any]:
-    """Score a text blob; reasons are empty when the text looks like readable Chinese."""
-    compact = re.sub(r"\s", "", text or "")
+    """Score a text blob; reasons are empty when the text looks like readable content.
+
+    T08 amendment: dot-leader runs (>=3 '.'/'\u2026'/'\u00b7' in a row -- table-of-contents
+    page furniture) are removed from the scored content; they are not mojibake
+    symbols. And a low Han ratio ALONE is not evidence of corruption for
+    legitimately non-Chinese-dominant pages (English contents pages, standards
+    reference lists): ``low_han_ratio`` additionally requires corruption
+    evidence (replacement characters, glyph markers, or a high symbol ratio).
+    """
+    raw_compact = re.sub(r"\s", "", text or "")
+    leader_stripped = re.sub(r"[.\u2026\u00b7]{3,}", "", raw_compact)
+    leader_char_count = len(raw_compact) - len(leader_stripped)
+    compact = leader_stripped
     character_count = len(compact)
     replacement_count = compact.count("\ufffd")
     glyph_marker_count = len(re.findall(r"/G\d+", text or ""))
@@ -34,6 +45,8 @@ def score_text(text: str) -> dict[str, Any]:
     replacement_ratio = replacement_count / character_count if character_count else 0.0
     han_ratio = han_count / character_count if character_count else 0.0
     symbol_ratio = symbol_count / character_count if character_count else 0.0
+    corruption_evidence = bool(replacement_count or glyph_marker_count
+                               or symbol_ratio >= 0.25)
     reasons: list[str] = []
     if not character_count:
         reasons.append("empty_text")
@@ -45,7 +58,7 @@ def score_text(text: str) -> dict[str, Any]:
         reasons.append("encoded_glyph_markers")
     if character_count >= 20 and han_ratio < 0.12 and symbol_ratio >= 0.25:
         reasons.append("mojibake_symbol_text")
-    elif character_count >= 40 and han_ratio < 0.15:
+    elif character_count >= 40 and han_ratio < 0.15 and corruption_evidence:
         reasons.append("low_han_ratio")
     status = "fail" if reasons else "pass"
     return {
@@ -56,6 +69,7 @@ def score_text(text: str) -> dict[str, Any]:
             "replacement_characters": replacement_count,
             "replacement_character_ratio": round(replacement_ratio, 6),
             "encoded_glyph_markers": glyph_marker_count,
+            "leader_dot_characters": leader_char_count,
             "han_characters": han_count,
             "han_ratio": round(han_ratio, 6),
             "symbol_characters": symbol_count,

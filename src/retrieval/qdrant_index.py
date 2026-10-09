@@ -18,6 +18,7 @@ class RetrievalHit:
     physical_pages: list[int]
     usage_policy: str
     score: float
+    element_ids: list[str] = field(default_factory=list)
     document_version_id: str = ""
     file_name: str = ""
     heading_path: list[str] = field(default_factory=list)
@@ -317,6 +318,7 @@ class QdrantRetrievalIndex:
             # non-excluded) so it can locate but not support an answer (D2).
             usage_policy=str(payload.get("usage_policy") or "source_locator_only"),
             score=score,
+            element_ids=list(payload.get("element_ids") or []),
             document_version_id=str(payload.get("document_version_id", "")),
             file_name=str(payload.get("file_name", "")),
             heading_path=heading_path,

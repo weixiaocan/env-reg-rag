@@ -1,0 +1,331 @@
+{
+  "id": "G001",
+  "question": "《城镇内涝防治技术规范》如何定义“内涝”？",
+  "labels": {
+    "repr": [
+      "定义"
+    ],
+    "challenge": [
+      "同义表达",
+      "原文定位"
+    ]
+  },
+  "expected_facts": [
+    "内涝指一定范围内强降雨或连续性降雨超出雨水设施消纳能力，导致地面产生积水的现象"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 0,
+    "matched_evidence_at_10": 0,
+    "recall_at_5": 0.0,
+    "recall_at_10": 0.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": 0.0,
+    "latency_ms": 72.576,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": 0.0,
+    "locator_only_recall_at_10": 0.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "城镇内涝防治技术规范.pdf",
+      "page": 8,
+      "element_ids": [
+        "e000234",
+        "e000235"
+      ],
+      "quote": "2.1 术 > 2.1.1 内涝\n一定范围内的强降雨或连续性降雨起\n力，导致地面产生积水的现象。",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 3,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_757e9ed42940f3169e23715e892849a5",
+      "score": 0.642857,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        41,
+        42
+      ],
+      "element_ids": [
+        "e001060",
+        "e001061",
+        "e001062",
+        "e001063",
+        "e001064",
+        "e001065",
+        "e001066",
+        "e001067",
+        "e001068",
+        "e001069",
+        "e001070",
+        "e001071",
+        "e001072",
+        "e001073"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7.3 应急管",
+        "7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝"
+      ],
+      "text": "7.3 应急管 > 7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\n3)表示允许稍有选择，在条件许可时首先应这样做的：\n4)表示有选择，在一定条件下可以这样做的，采用“可”。\n2条文中指明应按其他有关标准执行的写法为：“应符合….\n住房城乡建设部信息公开\n引用标准名录\n《室外排水设计规范》GB50014\n《城镇雨水调蓄工程技术规范》GB51174\n《城镇排水管道维护安全技术规程》CJJ\n《透水水泥混凝土路面技术规程》C\n《透水砖路面技术规程》CJ\n/T]\n《透水沥青路面技术规程》C】\n浏览专用\n《绿化种植土壤》CJ/T",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_71879ffcf06a8c563a826eaf533fa02a",
+      "score": 0.5625,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        12
+      ],
+      "element_ids": [
+        "e000390",
+        "e000391",
+        "e000392",
+        "e000393",
+        "e000394",
+        "e000395",
+        "e000396",
+        "e000397",
+        "e000399"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.1 一般规定",
+        "3.1.1 城镇内涝防治系统应包括源头减排、"
+      ],
+      "text": "3.1 一般规定 > 3.1.1 城镇内涝防治系统应包括源头减排、\n3.1.1城镇内涝防治系统应包括源头减排、\n衔接。\n规定：\n以\n界限；\n道路等现有设施，提高内涝防治能力；\n5应考虑上游的过境流量。\n规定：\n占用。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_49c5863f1d0fcd8556df428bd6901b89",
+      "score": 0.533333,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        7,
+        8
+      ],
+      "element_ids": [
+        "e000228",
+        "e000229"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "6.4 Emergency stormwater conveyance",
+        "1.0.7 城镇内涝防治设施的建设和运行维护，除应符合本规范"
+      ],
+      "text": "6.4 Emergency stormwater conveyance > 1.0.7 城镇内涝防治设施的建设和运行维护，除应符合本规范\n1.0.7城镇内涝防治设施的建设和运行维护，除应符合本规范\n2术语和符号",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_8b80c322f48b340cc48cf29b5a184475",
+      "score": 0.4,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        35,
+        36,
+        37
+      ],
+      "element_ids": [
+        "e000941",
+        "e000942",
+        "e000943",
+        "e000944",
+        "e000945",
+        "e000947",
+        "e000948",
+        "e000949",
+        "e000950",
+        "e000951",
+        "e000952",
+        "e000953",
+        "e000954",
+        "e000955",
+        "e000957",
+        "e000958",
+        "e000959",
+        "e000960",
+        "e000962",
+        "e000963",
+        "e000964",
+        "e000965",
+        "e000966",
+        "e000967",
+        "e000968",
+        "e000969",
+        "e000970",
+        "e000971",
+        "e000972"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7.3 应急管",
+        "7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝"
+      ],
+      "text": "7.3 应急管 > 7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\n7.3.4城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\n住房城乡建设部信息公\n防治预警系统、内涝防治应急系统和内涝防治设施运行效果进行\n综合评价，并提出改进建议。\n浏览专用\n附录A内涝防治设计报告\nA.1一般规定\nA.1.1内涝防治设计报告应为独立文件，\n告、图纸和计算书代替。\nA.1.3建设项目的施工图等文\n的措施和设计执行。\n告内容\nL\n和地质水文特征等；\n和历史受淹情况等；\n数据和参数、计算方法、工具等；\n算等；\n型、规模、设备、与上下游的衔接设计等：\n收项目可\n?\n3设计标准：包括适用的国家设计标准、地方标准、主要基础\n4内涝防治现状：现状雨水排放格局和设计标准、现状雨水\n排放口位置，地表渗透系数、综合径流系数、不透水面积比例等现\n状下垫面条件，地面集水时间、不同设计重现期下的径流量计\n5内涝防治设施设计：项目建成后，内涝防治设施的建设对\n区域下垫面条件、集水时间、径流量的影响，内涝防治设施位置、类\n6结论：《城镇内涝防治技术规范》的执行情况、其他适用的\n国家标准的执行情况、当地设计标准的执行情况、内涝防治设施的\n有效性、项目全部建成后的雨水排放格局等；",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_3ddba26068db0747de78125603fcdfd8",
+      "score": 0.25,
+      "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        13
+      ],
+      "element_ids": [
+        "e000295",
+        "e000296"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "1 总则…",
+        "3.1 城镇内涝防治的应急预案应确定组织体系、预测预警机",
+        "3.4.2 城镇排涝除险设施的规模应根据内涝防治设计重现期、"
+      ],
+      "text": "1 总则… > 3.1 城镇内涝防治的应急预案应确定组织体系、预测预警机 > 3.4.2 城镇排涝除险设施的规模应根据内涝防治设计重现期、\n水体，用手区域内雨水调蓄、输送和排放。\n根据需要合理设置调蓄设施。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_b08d88f15434712c71a40498aab312eb",
+      "score": 0.25,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        23,
+        24
+      ],
+      "element_ids": [
+        "e000711",
+        "e000712",
+        "e000713",
+        "e000714",
+        "e000715"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.4 调蓄设施",
+        "4.4.2 源头调蓄设施的设计容积，应根据当地的内涝防治设计标"
+      ],
+      "text": "4.4 调蓄设施 > 4.4.2 源头调蓄设施的设计容积，应根据当地的内涝防治设计标\n4.4.2源头调蓄设施的设计容积，应根据当地的内涝防治设计标\n准、其他源头减排设施的有效容积和位于下游的排水管渠、街道、\n内河、湖泊等受纳体的调蓄能力等因素，经技术经济比较后确定，\n并应符合现行国家标准《城镇雨水调蓄工程技术规范》GB51174\n的有关规定。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_c4be646d3736497f3097d0edb943ace6",
+      "score": 0.24359,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        7
+      ],
+      "element_ids": [
+        "e000218",
+        "e000219"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "6.4 Emergency stormwater conveyance",
+        "1.0.4 城镇内涝防治设施的建设，应以城镇总体规划和城镇内涝"
+      ],
+      "text": "6.4 Emergency stormwater conveyance > 1.0.4 城镇内涝防治设施的建设，应以城镇总体规划和城镇内涝\n1.0.4城镇内涝防治设施的建设，应以城镇总体规划和城镇内涝\n防治专项规划为依据，并与海绵城市、城镇排水，城镇防洪、河道水",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_bec5b9f6e1c2c2cc3facfa755296958d",
+      "score": 0.238095,
+      "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        12
+      ],
+      "element_ids": [
+        "e000290",
+        "e000291",
+        "e000292",
+        "e000293"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "1 总则…",
+        "3.1 城镇内涝防治的应急预案应确定组织体系、预测预警机",
+        "3.4.2 城镇排涝除险设施的规模应根据内涝防治设计重现期、"
+      ],
+      "text": "1 总则… > 3.1 城镇内涝防治的应急预案应确定组织体系、预测预警机 > 3.4.2 城镇排涝除险设施的规模应根据内涝防治设计重现期、\n3.4.2城镇排涝除险设施的规模应根据内涝防治设计重现期、\n地面最大允许积水深度和对应的最大允许退水时间确定。内涝防\n治设计重现期应根据城镇类型、地形特点、积水影响程度和受纳\n水体水位变化等因素，经技术经济比较后，按表3.4.2的规定取",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_255bbd2a13a7195cf1fb85b15c4e871a",
+      "score": 0.2,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        12
+      ],
+      "element_ids": [
+        "e000402",
+        "e000403",
+        "e000404",
+        "e000405",
+        "e000406"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.1 一般规定",
+        "3.1.1 城镇内涝防治系统应包括源头减排、"
+      ],
+      "text": "3.1 一般规定 > 3.1.1 城镇内涝防治系统应包括源头减排、\n排涝除险\n2应为城镇雨水径流提供空间和出路，对于内涝防治设计重\n现期下超出源头减排设施和排水管渠承载能力的雨水，应预设城\n镇水体、调蓄设施和行泄通道并核实下游的受纳能力；\n3应遵循就地解决本区域内涝问题的原则，不宜把内涝问题",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_5b6144e0ab26241bef893020e113ba8e",
+      "score": 0.172619,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        33
+      ],
+      "element_ids": [
+        "e000912"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7.1 一般规定",
+        "7.1.2 城镇内涝防治系统运行维护应建立运行管理制度、岗位操"
+      ],
+      "text": "7.1 一般规定 > 7.1.2 城镇内涝防治系统运行维护应建立运行管理制度、岗位操\n7.1.2城镇内涝防治系统运行维护应建立运行管理制度、岗位操",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

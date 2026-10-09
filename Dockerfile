@@ -35,7 +35,7 @@ RUN mkdir -p \
 
 ENV TRANSFORMERS_OFFLINE=1 \
     QDRANT_URL=http://qdrant:6333 \
-    QDRANT_COLLECTION=corpus_v2
+    QDRANT_COLLECTION=corpus_v2_live
 
 USER appuser
 

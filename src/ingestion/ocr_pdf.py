@@ -63,6 +63,66 @@ def _bbox_in_pdf_points(
     return converted
 
 
+def _restore_rotated_point(x: float, y: float, *, rotation_k: int,
+                           original_width: float, original_height: float) -> tuple[float, float]:
+    if rotation_k == 1:
+        return original_width - y, x
+    if rotation_k == 2:
+        return original_width - x, original_height - y
+    if rotation_k == 3:
+        return y, original_height - x
+    return x, y
+
+
+def _restore_rotated_bbox(bbox: Any, *, rotation_k: int,
+                          original_width: float, original_height: float) -> Any:
+    if not isinstance(bbox, (list, tuple)) or len(bbox) != 4:
+        return bbox
+    x0, y0, x1, y1 = map(float, bbox)
+    points = [_restore_rotated_point(x, y, rotation_k=rotation_k,
+                                     original_width=original_width,
+                                     original_height=original_height)
+              for x, y in ((x0, y0), (x1, y0), (x1, y1), (x0, y1))]
+    xs, ys = [p[0] for p in points], [p[1] for p in points]
+    return [min(xs), min(ys), max(xs), max(ys)]
+
+
+def _restore_rotated_polygon(poly: Any, *, rotation_k: int,
+                             original_width: float, original_height: float) -> Any:
+    if not isinstance(poly, (list, tuple)):
+        return poly
+    try:
+        return [list(_restore_rotated_point(float(point[0]), float(point[1]),
+                                            rotation_k=rotation_k,
+                                            original_width=original_width,
+                                            original_height=original_height))
+                for point in poly]
+    except (IndexError, TypeError, ValueError):
+        return poly
+
+
+def _restore_rotated_engine_result(result: dict[str, Any], *, rotation_k: int,
+                                   original_width: int, original_height: int) -> None:
+    """Return model geometry to the rendered page coordinate system in place."""
+    if not rotation_k:
+        return
+    kwargs = {"rotation_k": rotation_k, "original_width": float(original_width),
+              "original_height": float(original_height)}
+    for block in result.get("parsing_res_list") or []:
+        block["block_bbox"] = _restore_rotated_bbox(block.get("block_bbox"), **kwargs)
+    ocr = result.get("overall_ocr_res") or {}
+    ocr["rec_boxes"] = [_restore_rotated_bbox(box, **kwargs) for box in ocr.get("rec_boxes") or []]
+    ocr["rec_polys"] = [_restore_rotated_polygon(poly, **kwargs) for poly in ocr.get("rec_polys") or []]
+    for table in result.get("table_res_list") or []:
+        if table.get("bbox") is not None:
+            table["bbox"] = _restore_rotated_bbox(table["bbox"], **kwargs)
+        table["cell_box_list"] = [
+            _restore_rotated_bbox(box, **kwargs) for box in table.get("cell_box_list") or []
+        ]
+    result["width"] = original_width
+    result["height"] = original_height
+
+
 def _ocr_quality(text: str, result: dict[str, Any]) -> dict[str, Any]:
     ocr = result.get("overall_ocr_res") or {}
     scores = [float(score) for score in ocr.get("rec_scores", [])]
@@ -313,7 +373,16 @@ class OcrPdfParser:
                 table_recognition=self.table_recognition
             )
         engine = self.engine
-        result = engine.predict(image)
+        # PyMuPDF renders a page in its display rotation.  OCR/table models do
+        # not reliably classify 90/270-degree text, so normalize the pixels for
+        # inference and map every returned coordinate back before projection.
+        rotation_k = (int(rotation) // 90) % 4
+        engine_image = np.rot90(image, rotation_k) if rotation_k else image
+        result = engine.predict(engine_image)
+        _restore_rotated_engine_result(
+            result, rotation_k=rotation_k,
+            original_width=image.shape[1], original_height=image.shape[0],
+        )
         image_width = float(result.get("width") or image.shape[1])
         image_height = float(result.get("height") or image.shape[0])
         if image_width <= 0 or image_height <= 0:
@@ -401,6 +470,7 @@ class OcrPdfParser:
                 "render_dpi": self.dpi,
                 "render_width": image.shape[1],
                 "render_height": image.shape[0],
+                "inference_rotation_k": rotation_k,
                 "render_origin": [render_rectangle.x0, render_rectangle.y0],
                 "render_page_width": render_rectangle.width,
                 "render_page_height": render_rectangle.height,

@@ -51,15 +51,21 @@ from src.application.canonical_validation import (  # noqa: E402
     validate_document,
 )
 from src.application.corpus_artifacts import resolve_current_corpus  # noqa: E402
+from src.application.publish_state import (  # noqa: E402
+    CandidateConflictError,
+    write_artifact_manifest,
+    write_canonical_candidate,
+    write_quality_report,
+)
 from src.domain.canonical_document import SchemaError  # noqa: E402
 from src.ingestion.text_quality import document_text_quality  # noqa: E402
 
 _DEFAULT_FORMULA_RUN_ID = "5d3264515515e228"
 
 
-def _iter_page_documents(corpus_version: str) -> list[dict[str, Any]]:
+def _iter_page_documents(corpus_version: str, root: str | None = None) -> list[dict[str, Any]]:
     page_documents = os.path.join(
-        _REPO_ROOT, "data", "canonical", f"{corpus_version}-documents.jsonl"
+        root or _REPO_ROOT, "data", "canonical", f"{corpus_version}-documents.jsonl"
     )
     docs: list[dict[str, Any]] = []
     with open(page_documents, "r", encoding="utf-8") as fh:
@@ -130,9 +136,16 @@ def _assemble_one(page_doc: dict[str, Any], formula_run_id: str) -> dict[str, An
         _REPO_ROOT, "data", "model_runtime", "corpus_formulas", formula_run_id
     )
     _assert_formula_cache(page_doc, formula_run_id, formula_cache_dir)
-    formula_pages = load_formula_pages(
+    formula_pages, cache_failures = load_formula_pages(
         sha, range(1, page_count + 1), cache_dir=formula_cache_dir
     )
+    if cache_failures:
+        print(
+            f"  [formula] {page_doc.get('file_name', '')} sha={sha[:12]}: "
+            f"{len(cache_failures)} page(s) without a cache file "
+            f"(pages {[f['physical_page'] for f in cache_failures]}) -- "
+            f"detected regions there close as explicit failed outcomes"
+        )
     _assert_formula_coverage(page_doc, formula_pages, formula_run_id, formula_cache_dir)
     doc = assemble_document(page_doc, formula_pages=formula_pages)
     ids = compute_ids(doc)
@@ -141,14 +154,46 @@ def _assemble_one(page_doc: dict[str, Any], formula_run_id: str) -> dict[str, An
     return doc
 
 
-def _write(doc: dict[str, Any], corpus_version: str) -> str:
+def _verify_upstream_page_intermediate(corpus_version: str, root: str | None = None) -> None:
+    """T06: verify the page-intermediate against the build-stage manifest hash.
+
+    Assembly consumes the build output; if the jsonl on disk no longer
+    matches the ``canonical_documents_sha256`` the registry manifest bound at
+    build time, assembling would silently use unverified input. Hard fail.
+    """
+    base = root or _REPO_ROOT
+    manifest_path = os.path.join(base, "data", "registry", f"{corpus_version}.json")
+    jsonl_path = os.path.join(base, "data", "canonical", f"{corpus_version}-documents.jsonl")
+    if not os.path.isfile(manifest_path):
+        raise FileNotFoundError(f"registry manifest not found: {manifest_path}")
+    with open(manifest_path, "r", encoding="utf-8") as fh:
+        manifest = json.load(fh)
+    expected = manifest.get("canonical_documents_sha256")
+    if not expected:
+        raise RuntimeError(
+            f"registry manifest {manifest_path} does not bind "
+            "canonical_documents_sha256; rebuild the page-intermediate first")
+    import hashlib as _hashlib
+    digest = _hashlib.sha256()
+    with open(jsonl_path, "rb") as fh:
+        for block in iter(lambda: fh.read(1 << 20), b""):
+            digest.update(block)
+    if digest.hexdigest() != expected:
+        raise RuntimeError(
+            f"page-intermediate hash mismatch for {corpus_version}: the jsonl "
+            "on disk does not match the manifest bound at build time "
+            f"({digest.hexdigest()[:12]} != {expected[:12]}); refusing to "
+            "assemble from unverified upstream input")
+
+
+def _write(doc: dict[str, Any], corpus_version: str, root: str | None = None) -> str:
+    """T06: candidate-only write -- never overwrite an existing artifact."""
     sha = doc["source"]["sha256"]
-    output_dir = os.path.join(_REPO_ROOT, "data", "canonical", "v2", corpus_version)
-    os.makedirs(output_dir, exist_ok=True)
-    out_path = os.path.join(output_dir, f"{sha}.canonical.json")
-    with open(out_path, "w", encoding="utf-8") as fh:
-        json.dump(doc, fh, ensure_ascii=False, indent=2)
-    return out_path
+    data = json.dumps(doc, ensure_ascii=False, indent=2).encode("utf-8")
+    status = write_canonical_candidate(
+        root or _REPO_ROOT, corpus_version, f"{sha}.canonical.json", data)
+    return os.path.join(root or _REPO_ROOT, "data", "canonical", "v2",
+                        corpus_version, f"{sha}.canonical.json")
 
 
 
@@ -177,12 +222,17 @@ def _print_row(idx: int, total: int, page_doc: dict[str, Any], doc: dict[str, An
     fn = (page_doc.get("file_name") or "")[:42]
     elements = doc.get("elements") or []
     tc = Counter(e["type"] for e in elements)
+    fo = Counter(
+        o["execution_status"] for o in doc.get("structured_outcomes") or []
+        if o.get("kind") == "formula")
     size_kb = os.path.getsize(out_path) / 1024.0
     print(
         f"[{idx:>2}/{total}] {fn:<42} sha={sha[:12]} "
         f"pages={len(doc.get('pages') or []):<4} elems={len(elements):<5} "
         f"text={tc.get('text',0):<4} table={tc.get('table',0):<3} "
         f"formula={tc.get('formula',0):<3} figure={tc.get('figure',0):<3} "
+        f"f_out(c/f/u)={fo.get('completed',0)}/{fo.get('failed',0)}/"
+        f"{fo.get('unsupported',0):<3} "
         f"quar={quar:<3} {size_kb:.0f}KB"
     )
 
@@ -205,13 +255,18 @@ def main(argv: list[str] | None = None) -> int:
         "--allow-garbled", action="store_true",
         help="diagnostic only: assemble even when document verdict is garbled_text",
     )
+    parser.add_argument(
+        "--root", default=None,
+        help="project root override (tests only)",
+    )
     args = parser.parse_args(argv)
 
+    root = args.root or _REPO_ROOT
     corpus_version = args.corpus_version or resolve_current_corpus(
-        _REPO_ROOT).corpus_version
-    output_dir = os.path.join(_REPO_ROOT, "data", "canonical", "v2", corpus_version)
+        root).corpus_version
+    output_dir = os.path.join(root, "data", "canonical", "v2", corpus_version)
 
-    all_docs = _iter_page_documents(corpus_version)
+    all_docs = _iter_page_documents(corpus_version, root)
     if args.only:
         wanted = {p.lower() for p in args.only}
         all_docs = [d for d in all_docs if d["sha256"].lower().startswith(tuple(wanted))]
@@ -225,15 +280,25 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[assemble] output dir: {output_dir}")
     print()
 
+    # T06: verify the build-stage page-intermediate hash BEFORE consuming it.
+    _verify_upstream_page_intermediate(corpus_version, root)
+
     ok = 0
     failed: list[tuple[str, str]] = []
+    quality_rows: list[dict[str, Any]] = []
     for idx, page_doc in enumerate(all_docs, 1):
         sha = page_doc["sha256"]
         fn = page_doc.get("file_name") or ""
         try:
-            _assert_text_quality(page_doc, allow_garbled=args.allow_garbled)
+            quality = _assert_text_quality(page_doc, allow_garbled=args.allow_garbled)
+            quality_rows.append({
+                "sha256": sha,
+                "verdict": quality.get("verdict"),
+                "bad_pages": quality.get("bad_pages"),
+                "pages": quality.get("pages"),
+            })
             doc = _assemble_one(page_doc, args.formula_run_id)
-            out_path = _write(doc, corpus_version)
+            out_path = _write(doc, corpus_version, root)
             quar = _quarantine_count(page_doc)
             _print_row(idx, total, page_doc, doc, out_path, quar)
             ok += 1
@@ -248,6 +313,20 @@ def main(argv: list[str] | None = None) -> int:
         for sha, msg in failed:
             print(f"  {sha[:12]}: {msg}")
         return 1
+
+    # T06: bind the candidate with a quality report + artifact manifest
+    # (full-corpus runs only -- a partial --only run must not mark quality).
+    if not args.only:
+        reasons = ["allow_garbled"] if args.allow_garbled else None
+        write_quality_report(root, corpus_version, quality_rows,
+                             non_publishable_reasons=reasons)
+        write_artifact_manifest(
+            root, corpus_version, non_publishable_reasons=reasons)
+        if args.allow_garbled:
+            print("[assemble] WARNING: --allow-garbled diagnostic artifact -- "
+                  "marked NON-PUBLISHABLE; ingest/publish will refuse it")
+        print("[assemble] artifact manifest written "
+              "(page-intermediate + canonicals + quality report bound)")
 
     # Aggregate summary across the whole corpus.
     _print_corpus_summary(output_dir)

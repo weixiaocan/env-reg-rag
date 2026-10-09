@@ -1,0 +1,14 @@
+{"case":"G009","verdict":"full","fact_coverage":["covered","covered"],"reason":"图名与六个部件完整回答。"}
+{"case":"G012","verdict":"full","fact_coverage":["covered"],"reason":"地方标准号完整，空格和连接号格式差异不影响事实。"}
+{"case":"G013","verdict":"full","fact_coverage":["covered"],"reason":"混错接点判定与流量测定均回答为调查评估步骤。"}
+{"case":"G014","verdict":"incorrect","fact_coverage":["incorrect"],"reason":"问题要求2025年全国70%以上目标，答案改成各城市原则上70%以上或较2020年提高5个百分点，主体和条件改变。"}
+{"case":"G019","verdict":"incorrect","fact_coverage":["incorrect","covered"],"reason":"灰水/黑水均值应约6.1/76.8 mg/L，答案为6.0/27.3；第二项三个评估要素正确。"}
+{"case":"G021","verdict":"full","fact_coverage":["covered"],"reason":"2027年73%以上完整回答。"}
+{"case":"G023","verdict":"partial","fact_coverage":["not_covered","partial","not_covered"],"reason":"仅回答T/CMSA的10分钟、30分钟、1小时和六级；遗漏GB/T 28592的12h/24h、QX/T引用及区域过程等级定义。"}
+{"case":"G025","verdict":"partial","fact_coverage":["not_covered","covered"],"reason":"回答建城〔2024〕18号及73%目标，但未回答指南前言引用该通知。"}
+{"case":"G026","verdict":"partial","fact_coverage":["covered","partial","covered"],"reason":"样板区和按效付费已回答；绩效核心遗漏水环境质量提升。"}
+{"case":"G031","verdict":"full","fact_coverage":["covered"],"reason":"三个历时和六个等级完整回答。"}
+{"case":"G037","verdict":"partial","fact_coverage":["not_covered","covered","not_covered"],"reason":"只回答不超过2km2条件；遗漏Q/q含义和0.60至0.70数值范围。"}
+{"case":"G038","verdict":"full","fact_coverage":["covered","covered"],"reason":"系数类别和资料缺乏时用途均完整回答。"}
+{"case":"G040","verdict":"partial","fact_coverage":["partial","covered"],"reason":"五项原则完整；表1仅给出局部点位要求，未完整概括应监测对象及监测指标要求。"}
+{"case":"G042","verdict":"incorrect","fact_coverage":["incorrect","incorrect"],"reason":"应为流量试验装置示意图，装置由水流量标准装置和排水管道组成；答案误答为速度面积法示意图及流量计探头/计算机。"}

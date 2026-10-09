@@ -1,0 +1,279 @@
+{
+  "id": "G031",
+  "question": "T/CMSA 0013把哪些历时的降雨量分成六个短时等级？",
+  "labels": {
+    "repr": [
+      "定义",
+      "表格"
+    ],
+    "challenge": [
+      "表格",
+      "相似干扰"
+    ],
+    "modality": [
+      "表格"
+    ]
+  },
+  "expected_facts": [
+    "对10分钟、30分钟、1小时降雨量划分短时小雨至短时特大暴雨共6个等级"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 1.0,
+    "latency_ms": 23.372
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "page": 5,
+      "element_ids": [
+        "e000033",
+        "e000027"
+      ],
+      "quote": "发生在较短时间内的天气而进行的监测、预警等气象服务。 3 等级划分 将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大 暴雨、短时特大暴雨共6个等级。具体划分见表1。",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "element_ids",
+      "matched_chunk_id": "chunk_01b6020438abe939582edec21fb5b70a"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_01b6020438abe939582edec21fb5b70a",
+      "score": 1.0,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5,
+        6
+      ],
+      "element_ids": [
+        "e000029",
+        "e000031",
+        "e000032",
+        "e000033",
+        "e000034",
+        "e000036"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "text": "3 等级划分\nT/CMSA 0013—2019\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降水。\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\nT/CMSA 0013—2019\n单位：毫米（mm）",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_2caa1d079969deef75709452369a9e5e",
+      "score": 0.416667,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        7
+      ],
+      "element_ids": [
+        "e000038",
+        "e000039",
+        "e000040",
+        "e000041"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "10 分钟 \n30 分钟 \n1 小时"
+      ],
+      "text": "10 分钟 \n30 分钟 \n1 小时\n参 考 文 献\n[1] GB/T 27961－2011 气象服务分类术语\n[2] GB/T 28592－2012 降水量等级\n[3] QX/T 489－2019 降雨过程等级\n_________________________________\nT/CMSA 0013—2019",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_56718f26ce4d48e96952235b91987fb4",
+      "score": 0.333333,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        7
+      ],
+      "element_ids": [
+        "e000095"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.3 降雨过程评价指标计算",
+        "4.3.3 持续时间（T。)计算和指数划分"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.3 降雨过程评价指标计算 > 4.3.3 持续时间（T。)计算和指数划分\n[公式]\nT_{0}=T_{e}-T_{s}+1\n式中：\n3",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_7745a1f738d091a39b2116cefbfe6816",
+      "score": 0.333333,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        1,
+        3,
+        4
+      ],
+      "element_ids": [
+        "e000001",
+        "e000002",
+        "e000003",
+        "e000004",
+        "e000005",
+        "e000006",
+        "e000007",
+        "e000008",
+        "e000009",
+        "e000010",
+        "e000011",
+        "e000012",
+        "e000013",
+        "e000014",
+        "e000015",
+        "e000016",
+        "e000017"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "ICS 29.050\nK10\n团\n体\n标\n准\nT/CMSA 0013—2019\n短时气象服务降雨量等级\nThe grade of rainfall in short time weather service\n2019 - 11 - 06 发布\n2019 - 11 - 06 实施\n中国气象服务协会 发布\nT/CMSA 0013—2019\n目 次\n前 言 .............................................................................. II\n1 范围 ............................................................................... 1\n2 术语和定义 ......................................................................... 1\n3 等级划分 ........................................................................... 1\n参 考 文 献 .......................................................................... 3\nI\nT/CMSA 0013—2019\n前 言",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_2f1bf2f51484c70d19728f047e0d8cdf",
+      "score": 0.25,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        7
+      ],
+      "element_ids": [
+        "e000096",
+        "e000098",
+        "e000099"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.3 降雨过程评价指标计算",
+        "4.3.3 持续时间（T。)计算和指数划分"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.3 降雨过程评价指标计算 > 4.3.3 持续时间（T。)计算和指数划分\n式中：\n…(2)\n…(3)",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_759482d5679118485d42f4c072079c06",
+      "score": 0.2,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000132"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.4 RSI/ RPI计算",
+        "4.4.2 区域降雨过程强度指数（RPI)"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.4 RSI/ RPI计算 > 4.4.2 区域降雨过程强度指数（RPI)\nT——持续时间指数，根据公式（3)计算降雨持续时间（T。），对照表5查出对应指数。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_083b99c87ed75aa81885d8012813ac68",
+      "score": 0.2,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "element_ids": [
+        "e000475"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "10.41 (n0 · L)0.6",
+        "3.3.5 净雨量和净雨过程线的确定应扣除集"
+      ],
+      "text": "10.41 (n0 · L)0.6 > 3.3.5 净雨量和净雨过程线的确定应扣除集\n[公式]\nR_{0}=(i-f_{m})t-D_{0}\\int E_{0}\n式中：R\n土壤入渗率（mm/h）；\n降雨历时（h)；\nDo\n截留和洼蓄量（mm）；\n蒸发量（mm），降雨历时较短时可忽略。\n−k0 x",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_fc110fb1650c8dedb85a55a685299679",
+      "score": 0.166667,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "element_ids": [
+        "e000476",
+        "e000477",
+        "e000478",
+        "e000479",
+        "e000480",
+        "e000481"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "10.41 (n0 · L)0.6",
+        "3.3.5 净雨量和净雨过程线的确定应扣除集"
+      ],
+      "text": "10.41 (n0 · L)0.6 > 3.3.5 净雨量和净雨过程线的确定应扣除集\n式中：R\n土壤入渗率（mm/h）；\n降雨历时（h)；\nDo\n截留和洼蓄量（mm）；\n蒸发量（mm），降雨历时较短时可忽略。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_9138c10afb62884bb653d055dd419217",
+      "score": 0.142857,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000131"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.4 RSI/ RPI计算",
+        "4.4.2 区域降雨过程强度指数（RPI)"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.4 RSI/ RPI计算 > 4.4.2 区域降雨过程强度指数（RPI)\n表5降雨持续时间指数划分表\n降雨区 |  | 持续时间(T)\n持续时间指数(T) |  | d ≥6\n1 |  | 4~5.9\n2 |  | \n1区 |  | \n3区 |  | \n3 |  | 2~3.9 <2\n4 |  | ≥7\n1 |  | 5~6.9\n2 |  | \n2区 |  | \n4区 |  | \n3 |  | 3~4.9 <3\n4 |  |",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_9ab8b7c253658681c3056ec6e1f46258",
+      "score": 0.142857,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000037"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "10 分钟 \n30 分钟 \n1 小时"
+      ],
+      "text": "10 分钟 \n30 分钟 \n1 小时\n表1 短时气象服务降雨量等级划分表\n等级 |  | 时段\n10 分钟 | 30 分钟 | 1 小时\n短时小雨 | ＜0.5 | ＜1.0\n短时中雨 | 0.5～0.9 | 1.0～1.9\n短时大雨 | 1.0～1.9 | 2.0～3.9\n短时暴雨 | 2.0～4.9 | 4.0～9.9\n短时大暴雨 | 5.0～15.0 | 10.0～30.0\n短时特大暴雨 | ＞15.0 | ＞30.0",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

@@ -514,13 +514,76 @@ def write_quality_report(
 # 2. Chunk manifest (requirements 2, 4)
 # --------------------------------------------------------------------------- #
 
+def assert_unique_chunk_ids(chunks: list[Any]) -> None:
+    """T09 closure round 4: GLOBAL chunk-id uniqueness gate (pre-ingest).
+
+    Chunk ids are content-addressed
+    (canonical_content_id + element_ids + projection + text sha), so any
+    duplicate id is a stream defect. A duplicate with DIFFERENT content or
+    source (canonical id, element ids, projection, text, spans, source
+    document) is a hard error -- content-addressed ids must never collide.
+    Even an IDENTICAL duplicate is refused: Qdrant would silently deduplicate
+    the point, making chunk==vector==point count equality unattainable.
+    Identical projections must be eliminated in the chunker, never repaired
+    by minting surrogate ids.
+
+    Round 5: the identity now also covers usage_policy / quality_status /
+    policy_reasons / source_occurrence -- a same-id emission whose policy or
+    reason projection differs is a hard error (never first-wins), and the
+    declared occurrence ranges (which distinguish identical texts cut from
+    different source positions) are pinned per id.
+    """
+    seen: dict[str, str] = {}
+    for chunk in chunks:
+        md = chunk.metadata or {}
+        ident = json.dumps({
+            "canonical_id": getattr(chunk, "canonical_id", ""),
+            "canonical_content_id": chunk.canonical_content_id,
+            "element_ids": list(getattr(chunk, "element_ids", None) or []),
+            "projection_version": chunk.projection_version,
+            "text_sha256": hashlib.sha256(
+                chunk.text.encode("utf-8")).hexdigest(),
+            "source_sha256": (md.get("source_sha256") or "").lower(),
+            "source_spans": [
+                [s.physical_page, list(s.bbox)] for s in chunk.source_spans],
+            "usage_policy": md.get("usage_policy") or "",
+            "quality_status": md.get("quality_status") or "",
+            "policy_reasons": list(md.get("policy_reasons") or []),
+            "source_occurrence": [
+                {"element_id": o.get("element_id"),
+                 "start": o.get("start"), "end": o.get("end")}
+                for o in (md.get("source_occurrence") or [])
+            ],
+        }, sort_keys=True, ensure_ascii=False)
+        prior = seen.get(chunk.chunk_id)
+        if prior is not None:
+            if prior == ident:
+                raise PublishStateError(
+                    f"chunk-id uniqueness gate: {chunk.chunk_id} appears "
+                    "multiple times with IDENTICAL content and source -- "
+                    "eliminate identical projections deterministically in the "
+                    "chunker; duplicate ids can never satisfy chunk==vector=="
+                    "point equality")
+            raise PublishStateError(
+                f"chunk-id uniqueness gate: {chunk.chunk_id} appears with "
+                "DIFFERENT content or source -- a content-addressed chunk id "
+                "colliding across different projections is a corrupt stream; "
+                "refusing to build the chunk manifest")
+        seen[chunk.chunk_id] = ident
+
+
 def build_chunk_manifest(chunks: list[Any]) -> dict[str, Any]:
     """Bind the chunk stream identity: counts, policies, chunk-set hash.
 
     ``chunk_set_sha256`` covers every ``chunk_id`` + ``usage_policy`` pair so
     the manifest pins the exact chunk stream the ingest produced, while the
     texts themselves stay bound via the canonical aggregate hash.
+
+    Hard gate: the chunk stream must be globally unique by ``chunk_id``
+    (identical duplicates and content/source collisions both abort the
+    manifest, i.e. the ingest, before anything is written).
     """
+    assert_unique_chunk_ids(chunks)
     per_doc: dict[str, dict[str, Any]] = {}
     policy_counts: dict[str, int] = {}
     lines: list[str] = []
@@ -872,18 +935,27 @@ def offline_preflight(root: Path | str, corpus_version: str) -> dict[str, Any]:
     if chunk_manifest is None:
         failures.append("chunk_manifest.json missing")
     else:
-        recomputed = build_chunk_manifest(chunks)
-        if recomputed["total_chunks"] != chunk_manifest.get("total_chunks"):
+        try:
+            recomputed = build_chunk_manifest(chunks)
+        except PublishStateError as exc:
+            # T09 round 4: a duplicate chunk id aborts the manifest build --
+            # surface it as a structured preflight failure, not a crash.
+            recomputed = None
+            failures.append(f"re-chunked stream rejected by the chunk-id "
+                            f"uniqueness gate: {exc}")
+        if recomputed is not None and \
+                recomputed["total_chunks"] != chunk_manifest.get("total_chunks"):
             failures.append(
                 f"chunk count mismatch: recomputed {recomputed['total_chunks']} "
                 f"vs manifest {chunk_manifest.get('total_chunks')}")
-        if recomputed["chunk_set_sha256"] != chunk_manifest.get("chunk_set_sha256"):
-            failures.append("chunk-set hash mismatch vs chunk manifest")
-        for policy in (chunk_manifest.get("policy_counts") or {}):
-            if policy not in _USAGE_POLICIES:
-                failures.append(f"unknown usage_policy in chunk manifest: {policy!r}")
-        if chunk_manifest.get("policy_counts") != recomputed["policy_counts"]:
-            failures.append("policy counts mismatch vs chunk manifest")
+        if recomputed is not None:
+            if recomputed["chunk_set_sha256"] != chunk_manifest.get("chunk_set_sha256"):
+                failures.append("chunk-set hash mismatch vs chunk manifest")
+            for policy in (chunk_manifest.get("policy_counts") or {}):
+                if policy not in _USAGE_POLICIES:
+                    failures.append(f"unknown usage_policy in chunk manifest: {policy!r}")
+            if chunk_manifest.get("policy_counts") != recomputed["policy_counts"]:
+                failures.append("policy counts mismatch vs chunk manifest")
 
     if failures:
         raise OfflineValidationError(failures)
@@ -981,7 +1053,14 @@ def publish_gate(
         total_chunks = None
     else:
         total_chunks = chunk_manifest.get("total_chunks")
-        recomputed = _recompute_chunk_identity(root, corpus_version)
+        try:
+            recomputed = _recompute_chunk_identity(root, corpus_version)
+        except PublishStateError as exc:
+            # T09 round 4: a duplicate chunk id aborts the manifest build --
+            # surface it as a structured gate failure, not a crash.
+            recomputed = None
+            failures.append(f"re-chunked stream rejected by the chunk-id "
+                            f"uniqueness gate: {exc}")
         if recomputed is not None:
             if recomputed.get("chunk_set_sha256") != chunk_manifest.get("chunk_set_sha256"):
                 failures.append("chunk-set hash mismatch vs re-chunked canonicals")

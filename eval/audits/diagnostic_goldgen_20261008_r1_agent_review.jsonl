@@ -1,0 +1,8 @@
+{"case":"G008","verdict":"correct_refusal","reason":"空证据下无claims/conflicts，未编造美元罚款。"}
+{"case":"G009","verdict":"full","fact_coverage":["covered","covered"],"reason":"图名与六个部件完整回答，引用唯一给定证据。"}
+{"case":"G015","verdict":"correct_refusal","reason":"空证据下无claims/conflicts，未编造欧盟处罚。"}
+{"case":"G021","verdict":"full","fact_coverage":["covered"],"reason":"2027年73%以上完整回答。"}
+{"case":"G028","verdict":"correct_refusal","reason":"空证据下无claims/conflicts，未编造深圳标准限值。"}
+{"case":"G031","verdict":"full","fact_coverage":["covered"],"reason":"三个历时与六级完整回答。"}
+{"case":"G038","verdict":"full","fact_coverage":["covered","covered"],"reason":"系数类别与资料缺乏时用途完整回答。"}
+{"case":"G050","verdict":"correct_refusal","reason":"空证据下无claims/conflicts，未编造2028目标。"}

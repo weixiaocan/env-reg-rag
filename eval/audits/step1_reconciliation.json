@@ -1,0 +1,5491 @@
+{
+ "old_corpus": "corpus-069284e6d60e",
+ "new_corpus": "corpus-0b9a1fd84e3d",
+ "source_dataset": "eval/golden_v1.jsonl",
+ "source_dataset_sha256": "73744425b81e3706594ad842826fe007877f04f1f56cbaa76fcba8f94287b4fd",
+ "output_dataset": "eval/golden_v2.jsonl",
+ "output_dataset_sha256": "ca524d78b1d00e8e61476df2d45d5ee488e981f27221e7cc0eab74697c838256",
+ "document_page_counts": {
+  "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf": {
+   "old_pages": 47,
+   "new_pages": 47
+  },
+  "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf": {
+   "old_pages": 85,
+   "new_pages": 85
+  },
+  "GB50014-2021+室外排水设计标准+预览.pdf": {
+   "old_pages": 117,
+   "new_pages": 117
+  },
+  "GB50268-2008给水排水管道工程施工及验收规范.pdf": {
+   "old_pages": 255,
+   "new_pages": 255
+  },
+  "GBT 28592-2012降水量等级.pdf": {
+   "old_pages": 7,
+   "new_pages": 7
+  },
+  "GBT+47884-2026.pdf": {
+   "old_pages": 19,
+   "new_pages": 19
+  },
+  "QXT 489－2019 降雨过程等级.pdf": {
+   "old_pages": 12,
+   "new_pages": 12
+  },
+  "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf": {
+   "old_pages": 75,
+   "new_pages": 75
+  },
+  "“十四五”全国城市基础设施建设规划.pdf": {
+   "old_pages": 36,
+   "new_pages": 36
+  },
+  "“十四五”城镇污水处理及资源化利用.pdf": {
+   "old_pages": 15,
+   "new_pages": 15
+  },
+  "《城乡排水工程项目规范》 (GB 55027-2022).pdf": {
+   "old_pages": 20,
+   "new_pages": 20
+  },
+  "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf": {
+   "old_pages": 125,
+   "new_pages": 125
+  },
+  "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf": {
+   "old_pages": 5,
+   "new_pages": 5
+  },
+  "城市排水工程规划规范.pdf": {
+   "old_pages": 60,
+   "new_pages": 60
+  },
+  "城镇内涝防治技术规范.pdf": {
+   "old_pages": 42,
+   "new_pages": 42
+  },
+  "城镇分流制排水系统雨污混接调查 征求意见稿.pdf": {
+   "old_pages": 63,
+   "new_pages": 63
+  },
+  "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf": {
+   "old_pages": 52,
+   "new_pages": 52
+  },
+  "城镇生活污水处理设施补短板强弱项实施方案.pdf": {
+   "old_pages": 5,
+   "new_pages": 5
+  },
+  "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf": {
+   "old_pages": 21,
+   "new_pages": 21
+  },
+  "武汉市排水管道混错接改造技术规程.pdf": {
+   "old_pages": 25,
+   "new_pages": 25
+  },
+  "短时气象服务降雨量等级TCMSA-2019.pdf": {
+   "old_pages": 7,
+   "new_pages": 7
+  },
+  "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf": {
+   "old_pages": 39,
+   "new_pages": 39
+  },
+  "降雨过程强度等级标准.pdf": {
+   "old_pages": 12,
+   "new_pages": 12
+  }
+ },
+ "evidence_count": 65,
+ "records": [
+  {
+   "case_id": "G001",
+   "evidence_index": 0,
+   "doc_file": "城镇内涝防治技术规范.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 8,
+    "anchor": [
+     {
+      "id": "e000241",
+      "pages": [
+       8
+      ],
+      "type": "text",
+      "text_head": "design rainfall distribution"
+     },
+     {
+      "id": "e000257",
+      "pages": [
+       8
+      ],
+      "type": "text",
+      "text_head": "扣除蒸发、下渗、洼蓄和植物截留等作用之后，完全转化成地"
+     },
+     {
+      "id": "e000245",
+      "pages": [
+       8
+      ],
+      "type": "text",
+      "text_head": "2.1.6净雨过程线 hyetograph"
+     },
+     {
+      "id": "e000246",
+      "pages": [
+       8
+      ],
+      "type": "text",
+      "text_head": "降雨事件中，净雨量随时间变化的过程曲线。"
+     },
+     {
+      "id": "e000234",
+      "pages": [
+       8
+      ],
+      "type": "text",
+      "text_head": "一定范围内的强降雨或连续性降雨起"
+     },
+     {
+      "id": "e000243",
+      "pages": [
+       8
+      ],
+      "type": "text",
+      "text_head": "net rainfall depth"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 8,
+    "element_ids": [
+     "e000234",
+     "e000235"
+    ],
+    "anchor_text_heads": [
+     "一定范围内的强降雨或连续性降雨起",
+     "力，导致地面产生积水的现象。"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "2.1 术 > 2.1.1 内涝\n一定范围内的强降雨或连续性降雨起\n力，导致地面产生积水的现象。",
+    "rendering": "2术语和符号 2.1 术 语 2.1.1内涝 local flooding 一定范围内的强降雨或连续性降雨起 雨水设施消纳能 力，导致地面产生积水的现象。 2.1.2城镇内涝 urban flooding F and control system L 2.1.4设计雨型 design rainfall distribution 2.1.5净雨量 net rainfall depth 扣除蒸发、下渗、洼蓄和植物截留等作用之后，完全转化成地 面径流的雨量。 2.1.6净雨过程线 hyetograph 降雨事件中，净雨量随时间变化的过程曲线。 2.1.7"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "内涝指一定范围内强降雨或连续性降雨超出雨水设施消纳能力，导致地面产生积水的现象": 0.6389
+   }
+  },
+  {
+   "case_id": "G002",
+   "evidence_index": 0,
+   "doc_file": "城镇内涝防治技术规范.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 14,
+    "anchor": [
+     {
+      "id": "e000453",
+      "pages": [
+       14
+      ],
+      "type": "text",
+      "text_head": "3.3.2地面集水时间应根据汇水距离、地形坡度、地面种类和暴"
+     },
+     {
+      "id": "e000455",
+      "pages": [
+       14
+      ],
+      "type": "text",
+      "text_head": "1当地面汇水距离不大于90m时，可按下式计算："
+     },
+     {
+      "id": "e000454",
+      "pages": [
+       14
+      ],
+      "type": "text",
+      "text_head": "雨强度等因素通过计算确定，并应符合下列规定："
+     },
+     {
+      "id": "e000459",
+      "pages": [
+       14
+      ],
+      "type": "text",
+      "text_head": "地面集水时间（min）；"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 4
+   },
+   "new": {
+    "resolved": true,
+    "page": 14,
+    "element_ids": [
+     "e000465",
+     "e000468",
+     "e000469"
+    ],
+    "anchor_text_heads": [
+     "设计暴雨强度L/(s·ha）]：",
+     "S——地形坡度。",
+     "2当地面汇水距离大于90m时，可按下式计算："
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "10.41 (n0 · L)0.6\n设计暴雨强度L/(s·ha）]：\nS——地形坡度。\n2当地面汇水距离大于90m时，可按下式计算：",
+    "rendering": "3.3.2地面集水时间应根据汇水距离、地形坡度、地面种类和暴雨强度等因素通过计算确定，并应符合下列规定：1当地面汇水距离不大于90m时，可按下式计算：ta = 10.41(n0·L)0.6 / (q0.4 S0.3)  (3.3.2-1) 式中：ta 地面集水时间（min）；n0 粗糙系数；L 地面集水距离（m）；q 设计暴雨强度[L/(s·ha)]；"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "适用条件：地面汇水距离不大于90m": 1.0,
+    "ta=10.41(n0·L)^0.6/(q^0.4 S^0.3)": 0.6,
+    "n0为粗糙系数，L为地面集水距离，q为设计暴雨强度": 1.0
+   }
+  },
+  {
+   "case_id": "G003",
+   "evidence_index": 0,
+   "doc_file": "“十四五”全国城市基础设施建设规划.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 2,
+    "anchor": [
+     {
+      "id": "e000026",
+      "pages": [
+       2
+      ],
+      "type": "table",
+      "text_head": "表1 “十三五”全国城市基础设施建设主要进展\n类别 | 指标名称 | 2015 年\n人均城市道路面积（平方米） | 15"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 2,
+    "element_ids": [
+     "e000026"
+    ],
+    "anchor_text_heads": [
+     "表1 “十三五”全国城市基础设施建设主要进展\n类别 | 指标名称 | 2015年 | 2020年 | 增长幅度\n道路交通"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "长幅度\n道路交通 | 人均城市道路面积（平方米） | 15.6 | 18.0 | 15.4%\n道路交通 | 道路长度（万公里） | 36.5 | 49.3 | 35.1%\n道路交通 | 城市轨道交通运营里程（公里） | 3000 | 6600 | 120.0%\n供水排水 | 用水普及率（%） | 98.1 | 99.0 | 0.9个百分点\n供水排水 | 城市污水处理率（%） | 91.9 | 97.5 | 5.6个百分点\n供水排水 | 污水集中处理能力（亿立方米/日） | 1.4 | 1.9 | 35.7%\n燃气供热 | 城市燃气普及率（%) | 95.3 | 97.9 | 2.6个百分点\n燃气供热 | 城市集中供热面积（亿平方米）",
+    "rendering": "% 供水排水 用水普及率（%） 98.1 99.0 0.9 个百分点 城市污水处理率（%） 91.9 97.5 5.6 个百分点 污水集中处理能力（亿立方米/日） 1.4 1.9 35.7% 燃气供热 城市燃气普及率（%） 95.3 97.9 2.6 个百分点 城市集中供热面积（亿平方米） 67.2 98.8 47.0% 垃圾处理 生活垃圾无害化处理率（%） 94.1 99.7 5.6 个百分点 生活垃圾焚烧处理能力占比（%） 38.0 58.9 20.9 个百分点 园林绿化 建成区绿地面积（万公顷） 190.8 239.8 25.7% 建成区绿地率（%） 36."
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "weak_anchor_needs_review",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "表中2020年城市污水处理率为97.5%": 0.0
+   }
+  },
+  {
+   "case_id": "G004",
+   "evidence_index": 0,
+   "doc_file": "“十四五”全国城市基础设施建设规划.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 2,
+    "anchor": [
+     {
+      "id": "e000026",
+      "pages": [
+       2
+      ],
+      "type": "table",
+      "text_head": "表1 “十三五”全国城市基础设施建设主要进展\n类别 | 指标名称 | 2015 年\n人均城市道路面积（平方米） | 15"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 2,
+    "element_ids": [
+     "e000026"
+    ],
+    "anchor_text_heads": [
+     "表1 “十三五”全国城市基础设施建设主要进展\n类别 | 指标名称 | 2015年 | 2020年 | 增长幅度\n道路交通"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "长幅度\n道路交通 | 人均城市道路面积（平方米） | 15.6 | 18.0 | 15.4%\n道路交通 | 道路长度（万公里） | 36.5 | 49.3 | 35.1%\n道路交通 | 城市轨道交通运营里程（公里） | 3000 | 6600 | 120.0%\n供水排水 | 用水普及率（%） | 98.1 | 99.0 | 0.9个百分点\n供水排水 | 城市污水处理率（%） | 91.9 | 97.5 | 5.6个百分点\n供水排水 | 污水集中处理能力（亿立方米/日） | 1.4 | 1.9 | 35.7%\n燃气供热 | 城市燃气普及率（%) | 95.3 | 97.9 | 2.6个百分点\n燃气供热 | 城市集中供热面积（亿平方米）",
+    "rendering": "表1 “十三五”全国城市基础设施建设主要进展 类别 指标名称 2015 年 2020 年 增长幅度 供水排水 城市污水处理率（%） 91.9 97.5 5.6 个百分点"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "2020年城市污水处理率为97.5%": 0.0,
+    "2025年全国城市生活污水集中收集率力争达到70%以上": 1.0,
+    "两指标口径分别为污水处理率与生活污水集中收集率，不宜直接等同": 0.4074
+   }
+  },
+  {
+   "case_id": "G004",
+   "evidence_index": 1,
+   "doc_file": "“十四五”城镇污水处理及资源化利用.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 6,
+    "anchor": [
+     {
+      "id": "e000090",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "处理设施空白区，全国城市生活污水集中收集率力争达到70%以"
+     },
+     {
+      "id": "e000089",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "——到2025 年，基本消除城市建成区生活污水直排口和收集"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 2
+   },
+   "new": {
+    "resolved": true,
+    "page": 6,
+    "element_ids": [
+     "e000081",
+     "e000082",
+     "e000083",
+     "e000084",
+     "e000085",
+     "e000086",
+     "e000087",
+     "e000088",
+     "e000089",
+     "e000090",
+     "e000091",
+     "e000092",
+     "e000093",
+     "e000094",
+     "e000095",
+     "e000096",
+     "e000097",
+     "e000098",
+     "e000099",
+     "e000100",
+     "e000101"
+    ],
+    "anchor_text_heads": [
+     "利用和污泥处置设施短板，推进城镇污水管网全覆盖，提升设施",
+     "处理能力。推广厂网一体、泥水并重、建管并举，提升运行管理",
+     "施。",
+     "政府主导，市场运作。发挥市场配置资源的决定性作用和更",
+     "好发挥政府作用。明确责任主体，强化标准约束，严格监管考",
+     "核。完善价格机制，加大财政投入，吸引社会资本，形成可持续",
+     "的建设经营模式。",
+     "（三）主要目标",
+     "——到2025 年，基本消除城市建成区生活污水直排口和收集",
+     "处理设施空白区，全国城市生活污水集中收集率力争达到70%以",
+     "上；城市和县城污水处理能力基本满足经济社会发展需要，县城",
+     "污水处理率达到95%以上；水环境敏感地区污水处理基本达到一",
+     "级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%",
+     "以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺",
+     "水城市力争达到30%；城市和县城污泥无害化、资源化利用水平",
+     "进一步提升，城市污泥无害化处置率达到90%以上；长江经济",
+     "带、黄河流域、京津冀地区建制镇污水收集处理能力、污泥无害",
+     "化处置水平明显提升。",
+     "——到2035 年，城市生活污水收集管网基本全覆盖，城镇污",
+     "水处理能力全覆盖，全面实现污泥无害化处置，污水污泥资源化",
+     "利用水平显著提升，城镇污水得到安全高效处理，全民共享绿"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "明确责任主体，强化标准约束，严格监管考\n核。完善价格机制，加大财政投入，吸引社会资本，形成可持续\n的建设经营模式。\n（三）主要目标\n——到2025 年，基本消除城市建成区生活污水直排口和收集\n处理设施空白区，全国城市生活污水集中收集率力争达到70%以\n上；城市和县城污水处理能力基本满足经济社会发展需要，县城\n污水处理率达到95%以上；水环境敏感地区污水处理基本达到一\n级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%\n以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺\n水城市力争达到30%；城市和县城污泥无害化、资源化利用水平\n进一步提升，城市污泥无害化处置率达到90%以上；长江经济\n带、黄河流域、京津冀地区建制镇",
+    "rendering": "到2025 年，基本消除城市建成区生活污水直排口和收集处理设施空白区，全国城市生活污水集中收集率力争达到70%以上"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "2020年城市污水处理率为97.5%": 0.0,
+    "2025年全国城市生活污水集中收集率力争达到70%以上": 1.0,
+    "两指标口径分别为污水处理率与生活污水集中收集率，不宜直接等同": 0.4074
+   }
+  },
+  {
+   "case_id": "G005",
+   "evidence_index": 0,
+   "doc_file": "降雨过程强度等级标准.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 5,
+    "anchor": [
+     {
+      "id": "e000050",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。"
+     },
+     {
+      "id": "e000036",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "降雨过程强度等级"
+     },
+     {
+      "id": "e000049",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "3降雨过程强度等级划分"
+     },
+     {
+      "id": "e000053",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "强度、覆盖范围、持续时间三个指标，计算单站/区域（需设定）降雨过程强度指数（RSI/RPI），根据降雨"
+     },
+     {
+      "id": "e000038",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "本标准规定了降雨过程强度等级划分及其计算方法。"
+     },
+     {
+      "id": "e000035",
+      "pages": [
+       5
+      ],
+      "type": "table",
+      "text_head": "表1降雨过程强度等级划分表\n降雨区 |  | 降雨过程强度等级\n降雨过程强度指数值 |  | \n1≤RSI≤4 |  |"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 5,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 5,
+    "element_ids": [
+     "e000047",
+     "e000048",
+     "e000049",
+     "e000050",
+     "e000052",
+     "e000053"
+    ],
+    "anchor_text_heads": [
+     "降雨过程 rainfall process",
+     "单站或区域降雨开始到降雨结束。",
+     "3降雨过程强度等级划分",
+     "过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。",
+     "利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨",
+     "强度、覆盖范围、持续时间三个指标，计算单站/区域（需设定）降雨过程强度指数（RSI/RPI），根据降雨"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "降雨过程 rainfall process\n单站或区域降雨开始到降雨结束。\n3降雨过程强度等级划分\n过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。\n利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨\n强度、覆盖范围、持续时间三个指标，计算单站/区域（需设定）降雨过程强度指数（RSI/RPI），根据降雨",
+    "rendering": "域（需设定）降雨过程强度指数（RSI/RPI），根据降雨 过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。 表1降雨过程强度等级划分表 降雨区 降雨过程强度指数值 降雨过程强度等级 1≤RSI≤4 特强（I级) 4<RSI≤8 强（Ⅱ级） 单一测站 8<RSI≤12 较强（Ⅲ级） 12<RSI≤16 中等(Ⅳ级) RSI>16 弱（V级） 1RPI≤12 特强（I级) 12<RPI≤24 强（Ⅱ级） 区域 24<RPI≤36 较强（Ⅲ级） 36<RPI≤64 中等（Ⅳ级) RPI>64 弱（V级）"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "划分为特强、强、较强、中等和弱五个等级": 1.0
+   }
+  },
+  {
+   "case_id": "G006",
+   "evidence_index": 0,
+   "doc_file": "降雨过程强度等级标准.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 6,
+    "anchor": [
+     {
+      "id": "e000067",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "4.3降雨过程评价指标计算"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 6,
+    "element_ids": [
+     "e000070",
+     "e000072",
+     "e000073",
+     "e000074",
+     "e000075",
+     "e000076",
+     "e000077",
+     "e000078",
+     "e000079",
+     "e000080",
+     "e000081",
+     "e000082",
+     "e000083"
+    ],
+    "anchor_text_heads": [
+     "[公式]\nR=\\frac{w*\\sum\\limits_{i=1}^{n}\\left(r_{\\max}\\right)_{i",
+     "式中：",
+     "权重，区域降雨过程中取0.5，单站降雨过程根据当地情况可作调整；",
+     "w",
+     "按照4.2区域降雨过程定义选取的测站个数，i取值范围[1，n]；",
+     "n",
+     "按照4.2区域降雨过程定义选取测站的日最大雨量值，单位为毫米（mm）；",
+     "rmax",
+     "T0",
+     "降雨过程持续时间，单位为天（d)，d取值范围[1，T。]；",
+     "按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米（mm）。",
+     "rd",
+     "对降雨强度指数（I）划分见表3。"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source",
+     "ocr_source_review",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "4.3降雨过程评价指标计算",
+    "rendering": "4.3降雨过程评价指标计算 R = [w * Σ(r_max)_i + (1-w) × Σ( (Σ_{d=1}^{T0} r_d)/T0 )_i ] / n"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "R由最大日雨量项与过程平均日雨量项加权后对测站平均得到": 0.0476,
+    "式中含权重w、过程最大日雨量r_max、过程累计日雨量与历时T0": 0.0
+   }
+  },
+  {
+   "case_id": "G007",
+   "evidence_index": 0,
+   "doc_file": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 4,
+    "anchor": [
+     {
+      "id": "e000030",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "路58号，联系电话及传真00862363670607，邮箱：cqpsswzx@"
+     },
+     {
+      "id": "e000027",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "城镇排水事务中心、重庆市住房和建设技术发展中心（重庆市建"
+     },
+     {
+      "id": "e000029",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "议，请寄送重庆市城镇排水事务中心（地址：重庆市渝中区长江一"
+     },
+     {
+      "id": "e000026",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "本导则由重庆市住房和城乡建设委员会负责管理，由重庆市"
+     },
+     {
+      "id": "e000028",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "筑节能中心）负责具体技术内容解释。执过程中如有意见或建"
+     },
+     {
+      "id": "e000023",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "本导则的主要技术内容是：1.总则：2.术语和符号：3.基本规"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 4,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000010",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000017",
+     "e000018",
+     "e000019",
+     "e000020",
+     "e000021",
+     "e000022",
+     "e000023",
+     "e000024",
+     "e000025",
+     "e000026",
+     "e000027",
+     "e000028",
+     "e000029",
+     "e000030",
+     "e000031"
+    ],
+    "anchor_text_heads": [
+     "重庆市城市排水管网雨污分流效果评价",
+     "技术导则(试行)",
+     "重庆市住房和城乡建设委员会发布",
+     "2025年12月",
+     "重庆市城市排水管网雨污分流效果评价",
+     "技术导则(试行）",
+     "Technical guidelines for evaluation of rainwater and",
+     "sewage diversion effects of urban drainage networks",
+     "in chongqing municipality",
+     "主编单位：重庆市城镇排水事务中心",
+     "重庆市住房和建设技术发展中心",
+     "（重庆市建筑节能中心）",
+     "批准部门：重庆市住房和城乡建设委员会",
+     "画",
+     "2025重庆",
+     "重庆工程建设",
+     "前言",
+     "根据《重庆市住房和城乡建设委员会关于下达2022年度重",
+     "庆市工程建设标准制定修订项目立项计划的通知》（渝建科",
+     "[2022]32号）文件安排，编制组经调查研究，认真总结实践经验，",
+     "充分研究城市排水系统现状，参考国家、行业及地方相关标准、规",
+     "定，并在广泛征求意见的基础上，制定本导则。",
+     "本导则的主要技术内容是：1.总则：2.术语和符号：3.基本规",
+     "定；4.地块项目评价；5.市政道路项目评价；6.排水分区项目",
+     "评价。",
+     "本导则由重庆市住房和城乡建设委员会负责管理，由重庆市",
+     "城镇排水事务中心、重庆市住房和建设技术发展中心（重庆市建",
+     "筑节能中心）负责具体技术内容解释。执过程中如有意见或建",
+     "议，请寄送重庆市城镇排水事务中心（地址：重庆市渝中区长江一",
+     "路58号，联系电话及传真00862363670607，邮箱：cqpsswzx@"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "unmatched_text_region",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "年度重\n庆市工程建设标准制定修订项目立项计划的通知》（渝建科\n[2022]32号）文件安排，编制组经调查研究，认真总结实践经验，\n充分研究城市排水系统现状，参考国家、行业及地方相关标准、规\n定，并在广泛征求意见的基础上，制定本导则。\n本导则的主要技术内容是：1.总则：2.术语和符号：3.基本规\n定；4.地块项目评价；5.市政道路项目评价；6.排水分区项目\n评价。\n本导则由重庆市住房和城乡建设委员会负责管理，由重庆市\n城镇排水事务中心、重庆市住房和建设技术发展中心（重庆市建\n筑节能中心）负责具体技术内容解释。执过程中如有意见或建\n议，请寄送重庆市城镇排水事务中心（地址：重庆市渝中区长江一\n路58号，联系电话及传真00862363670",
+    "rendering": "本导则的主要技术内容是：1.总则：2.术语和符号：3.基本规 定；4.地块项目评价；5.市政道路项目评价；6.排水分区项目 评价。 本导则由重庆市住房和城乡建设委员会负责管理，由重庆市 城镇排水事务中心、重庆市住房和建设技术发展中心（重庆市建 筑节能中心）负责具体技术内容解释。执过程中如有意见或建 议，请寄送重庆市城镇排水事务中心（地址：重庆市渝中区长江一 路58号，联系电话及传真00862363670607，邮箱：cqpsswzx@ 重 163.com）。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "包括地块项目评价、市政道路项目评价、排水分区项目评价": 0.7647
+   }
+  },
+  {
+   "case_id": "G008",
+   "evidence_index": 0,
+   "doc_file": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+   "must_hit": false,
+   "old": {
+    "page": 1,
+    "anchor": [
+     {
+      "id": "e000001",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "重庆市城市排水管网雨污分流效果评价"
+     },
+     {
+      "id": "e000002",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "技术导则(试行)"
+     },
+     {
+      "id": "e000003",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "重庆市住房和城乡建设委员会发布"
+     },
+     {
+      "id": "e000004",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "2025年12月"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 4
+   },
+   "new": {
+    "resolved": true,
+    "page": 1,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004"
+    ],
+    "anchor_text_heads": [
+     "重庆市城市排水管网雨污分流效果评价",
+     "技术导则(试行)",
+     "重庆市住房和城乡建设委员会发布",
+     "2025年12月"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source"
+    ],
+    "quote_kind": "page_excerpt",
+    "quote": "重庆市城市排水管网雨污分流效果评价 技术导则(试行) 重庆市住房和城乡建设委员会发布 2025年12月",
+    "rendering": null
+   },
+   "pending": []
+  },
+  {
+   "case_id": "G009",
+   "evidence_index": 0,
+   "doc_file": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 63,
+    "anchor": [
+     {
+      "id": "e001140",
+      "pages": [
+       63
+      ],
+      "type": "text",
+      "text_head": "1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施"
+     },
+     {
+      "id": "e001142",
+      "pages": [
+       63
+      ],
+      "type": "text",
+      "text_head": "1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施；"
+     },
+     {
+      "id": "e001139",
+      "pages": [
+       63
+      ],
+      "type": "figure",
+      "text_head": "[图1 雨水立管断接示意图（一）]"
+     },
+     {
+      "id": "e001141",
+      "pages": [
+       63
+      ],
+      "type": "figure",
+      "text_head": "[图2 雨水立管断接示意图（二）]"
+     },
+     {
+      "id": "e001144",
+      "pages": [
+       63
+      ],
+      "type": "figure",
+      "text_head": "[图3\n雨水立管断接示意图（三）]"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 5
+   },
+   "new": {
+    "resolved": true,
+    "page": 63,
+    "element_ids": [
+     "e001130",
+     "e001131",
+     "e001132",
+     "e001133",
+     "e001134",
+     "e001135",
+     "e001136",
+     "e001137",
+     "e001138",
+     "e001140",
+     "e001141",
+     "e001143",
+     "e001144",
+     "e001145",
+     "e001147",
+     "e001148",
+     "e001152"
+    ],
+    "anchor_text_heads": [
+     "5. 2. 1\n当阳台雨水管未与屋面雨水斗共用立管，独立布置，混接",
+     "改造比较简单，将合流管道排出管接室外污水管网，但应根据现",
+     "行国家标准《建筑给水排水设计标准》GB 50015 的规定，落实水",
+     "封和通气管设置情况的相关要求，一楼出户管是否需单独排出也",
+     "应根据现行国家标准《建筑给水排水设计标准》GB 50015",
+     "的相关要求。阳台雨水立管改造接入污水管网时，在接入污水检",
+     "查井前要根据现场情况设置存水弯或水封井过渡。在水封井中设",
+     "置存水弯装置，水封井进出水管标高应大于0.15m，且水封高度",
+     "应大于0.25m。改造示意如图4 所示，水封装置如图5 所示。",
+     "图1 雨水立管断接示意图（一）",
+     "1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施",
+     "图2 雨水立管断接示意图（二）",
+     "1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施；",
+     "7-现状雨水检查井",
+     "图3\n雨水立管断接示意图（三）",
+     "1-雨水立管；2-雨水弃流过滤器；3-溢流管；4-雨水回用出口；5-支墩；6-弃流管",
+     "图4\n阳台雨落水管改造示意图"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "verbatim_kept",
+    "quote": "图1 雨水立管断接示意图（一） 1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施",
+    "rendering": null
+   },
+   "pending": [
+    "quote_spans_multiple_elements"
+   ],
+   "fact_coverage": {
+    "图名为雨水立管断接示意图（一）": 0.75,
+    "图注含雨水立管、建筑外墙、室外地面、支墩、卵石缓冲、海绵设施": 0.6667
+   }
+  },
+  {
+   "case_id": "G010",
+   "evidence_index": 0,
+   "doc_file": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 3,
+    "anchor": [
+     {
+      "id": "e000045",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "址：福州市北大路242 号，邮编：350001）和厦门市城市规划设"
+     },
+     {
+      "id": "e000043",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "规划设计研究院有限公司负责具体内容的解释。执行过程中如有"
+     },
+     {
+      "id": "e000044",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "意见或建议，请寄送福建省住房和城乡建设厅科技与设计处（地"
+     },
+     {
+      "id": "e000046",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "计研究院有限公司（地址：厦门市思明区体育路95-17 号，邮编："
+     },
+     {
+      "id": "e000042",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "本标准由福建省住房和城乡建设厅负责管理，由厦门市城市"
+     },
+     {
+      "id": "e000041",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "4.前期调查；5.设计；6.施工与验收；7.运维管理；8.效果评估；"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 3,
+    "element_ids": [
+     "e000038",
+     "e000039",
+     "e000040",
+     "e000041",
+     "e000042",
+     "e000043",
+     "e000044",
+     "e000045",
+     "e000046",
+     "e000047",
+     "e000048",
+     "e000049",
+     "e000050",
+     "e000051",
+     "e000052",
+     "e000053",
+     "e000054",
+     "e000056",
+     "e000057"
+    ],
+    "anchor_text_heads": [
+     "〔2022〕33 号）的要求，标准编制组经广泛调查研究，认真总结",
+     "实践经验，参考国家及行业相关标准，在广泛征求意见的基础上，",
+     "本标准的主要技术内容是：1.总则；2.术语；3.基本规定；",
+     "4.前期调查；5.设计；6.施工与验收；7.运维管理；8.效果评估；",
+     "本标准由福建省住房和城乡建设厅负责管理，由厦门市城市",
+     "规划设计研究院有限公司负责具体内容的解释。执行过程中如有",
+     "意见或建议，请寄送福建省住房和城乡建设厅科技与设计处（地",
+     "址：福州市北大路242 号，邮编：350001）和厦门市城市规划设",
+     "计研究院有限公司（地址：厦门市思明区体育路95-17 号，邮编：",
+     "本标准主编单位：厦门市城市规划设计研究院有限公司",
+     "本标准主要起草人：王\n宁\n杨锌钰\n康晓鹍\n张\n朔",
+     "陈俊宇\n翟立晓\n郭繁锦\n张鑫惠",
+     "韩云洪\n郑淑勤\n谢鹏贵\n林燕秋",
+     "张永命\n刘凤英\n洪武荣\n郑益斌",
+     "本标准主要审查人：林功波\n李益勤\n林\n涛\n薛经秋",
+     "周真明\n何镍鹏\n陈\n谷\n高树新",
+     "吴毅峰",
+     "目\n次",
+     "1\n总\n则......................................................."
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "泛调查研究，认真总结\n实践经验，参考国家及行业相关标准，在广泛征求意见的基础上，\n本标准的主要技术内容是：1.总则；2.术语；3.基本规定；\n4.前期调查；5.设计；6.施工与验收；7.运维管理；8.效果评估；\n本标准由福建省住房和城乡建设厅负责管理，由厦门市城市\n规划设计研究院有限公司负责具体内容的解释。执行过程中如有\n意见或建议，请寄送福建省住房和城乡建设厅科技与设计处（地\n址：福州市北大路242 号，邮编：350001）和厦门市城市规划设\n计研究院有限公司（地址：厦门市思明区体育路95-17 号，邮编：\n本标准主编单位：厦门市城市规划设计研究院有限公司\n本标准主要起草人：王\n宁\n杨锌钰\n康晓鹍\n张\n朔\n陈俊宇\n翟立晓\n郭繁锦\n",
+    "rendering": "准。 本标准的主要技术内容是：1.总则；2.术语；3.基本规定； 4.前期调查；5.设计；6.施工与验收；7.运维管理；8.效果评估； 附录。 本标准由福建省住房和城乡建设厅负责管理，由厦门市城市 规划设计研究院有限公司负责具体内容的解释。执行过程中如有 意见或建议，请寄送福建省住房和城乡建设厅科技与设计处（地 址：福州市北大路242 号，邮编：350001）和厦门市城市规划设 计研究院有限公司（地址：厦门市思明区体育路95-17 号，邮编： 361012），以供今后修订时参考。 本标准主编单位：厦门市城市规划设计研究院有限公司 北京市建筑设计研究院股"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "包括总则、术语、基本规定、前期调查、设计、施工与验收、运维管理、效果评估等": 0.6552
+   }
+  },
+  {
+   "case_id": "G011",
+   "evidence_index": 0,
+   "doc_file": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 56,
+    "anchor": [
+     {
+      "id": "e000981",
+      "pages": [
+       56
+      ],
+      "type": "text",
+      "text_head": "水水质特征因子浓度如表1 所示。"
+     },
+     {
+      "id": "e000991",
+      "pages": [
+       56
+      ],
+      "type": "table",
+      "text_head": "表1\n生活污水水质特征因子浓度\n以洗涤废水为主要特点的灰水 | 以粪便污水为特点的黑水 | \n水质参数 |  | \n范围"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 1,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 56,
+    "element_ids": [
+     "e000991"
+    ],
+    "anchor_text_heads": [
+     "表1\n生活污水水质特征因子浓度\n水质参数 | 以洗涤废水为主要特点的灰水 | 以洗涤废水为主要特点的灰水 | 以粪便污水"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "3.4 混接调查时应结合收集的资料，选用合适的混接调查手\n表1\n生活污水水质特征因子浓度\n水质参数 | 以洗涤废水为主要特点的灰水 | 以洗涤废水为主要特点的灰水 | 以粪便污水为特点的黑水 | 以粪便污水为特点的黑水\n水质参数 | 范围 | 均值 | 范围 | 均值\nCODcr (mg/L) | 142~387 | 285 | 426~803 | 575\n氨氮（mg/L） | 3.6~9.6 | 6.1 | 46.8~109.3 | 76.8\n磷酸盐(mg/L) | 0.47~1.36 | 0.89 | 4.16~7.74 | 5.87\n总氮(mg/L) | 12.3~40.0 | 22.4 | 54.2~121.6 | 99.2",
+    "rendering": "表1 生活污水水质特征因子浓度 水质参数 以洗涤废水为主要特点的灰水 以粪便污水为特点的黑水 范围 均值 范围 均值 氨氮（mg/L） 3.6~9.6 6.1 46.8~109.3"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "灰水氨氮均值约为6.1 mg/L": 0.0,
+    "黑水氨氮范围约46.8~109.3 mg/L（表内均值更高）": 0.0
+   }
+  },
+  {
+   "case_id": "G012",
+   "evidence_index": 0,
+   "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 1,
+    "anchor": [
+     {
+      "id": "e000006",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "Code of technical regulation for reconstruction of mixed con"
+     },
+     {
+      "id": "e000008",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "2021 - 11 - 12 发布\n2021 - 12 - 13 实施"
+     },
+     {
+      "id": "e000005",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "武汉市排水管道混错接改造技术规程"
+     },
+     {
+      "id": "e000004",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "DB 4201/T 651—2021"
+     },
+     {
+      "id": "e000009",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "武汉市市场监督管理局 发布"
+     },
+     {
+      "id": "e000007",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "in Wuhan City"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 1,
+    "element_ids": [
+     "e000001",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000010",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000016"
+    ],
+    "anchor_text_heads": [
+     "ICS 91.140.80\nCCS P 41",
+     "武\n汉\n市\n地\n方\n标\n准",
+     "DB 4201/T 651—2021",
+     "武汉市排水管道混错接改造技术规程",
+     "Code of technical regulation for reconstruction of mixed con",
+     "in Wuhan City",
+     "2021 - 11 - 12 发布\n2021 - 12 - 13 实施",
+     "武汉市市场监督管理局 发布",
+     "DB4201/T 651-2021",
+     "目\n次",
+     "前言 .........................................................",
+     "1 范围 .......................................................",
+     "2 规范性引用文件 ..................................................",
+     "3 术语和定义 ....................................................",
+     "4 目标、原则和要求 ................................................."
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "\n汉\n市\n地\n方\n标\n准\nDB 4201/T 651—2021\n武汉市排水管道混错接改造技术规程\nCode of technical regulation for reconstruction of mixed connection drainage pipeline\nin Wuhan City\n2021 - 11 - 12 发布\n2021 - 12 - 13 实施\n武汉市市场监督管理局 发布\nDB4201/T 651-2021\n目\n次\n前言 ................................................................................. II\n1 范围 ......",
+    "rendering": "140.80 CCS P 41 4201 武 汉 市 地 方 标 准 DB 4201/T 651—2021 武汉市排水管道混错接改造技术规程 Code of technical regulation for reconstruction of mixed connection drainage pipeline in Wuhan City 2021 - 11 - 12 发布 2021 - 12 - 13 实施 武汉市市场监督管理局 发布"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "标准号为DB 4201/T 651—2021": 1.0
+   }
+  },
+  {
+   "case_id": "G013",
+   "evidence_index": 0,
+   "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 3,
+    "anchor": [
+     {
+      "id": "e000019",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "基本要求 ......................................................."
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 3,
+    "element_ids": [
+     "e000019"
+    ],
+    "anchor_text_heads": [
+     "基本要求 ......................................................."
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "4\n5.2\n现场踏勘与管道普查 ............................................................. 4\n5.3\n混错接区域判定 ................................................................. 5\n5.4\n混错接点判定 ................................................................... 6\n5.5\n混错接流量测定 ................................................................. 7",
+    "rendering": "............................ 5 5.4 混错接点判定 ................................................................... 6 5.5 混错接流量测定 ................................................................. 7 5.6 混错接水质检测 ................................................................. 7 5.7 混错接程度"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "规程包含混错接点判定、混错接流量测定等调查评估步骤": 0.4286
+   }
+  },
+  {
+   "case_id": "G014",
+   "evidence_index": 0,
+   "doc_file": "“十四五”城镇污水处理及资源化利用.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 6,
+    "anchor": [
+     {
+      "id": "e000090",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "处理设施空白区，全国城市生活污水集中收集率力争达到70%以"
+     },
+     {
+      "id": "e000092",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "污水处理率达到95%以上；水环境敏感地区污水处理基本达到一"
+     },
+     {
+      "id": "e000093",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%"
+     },
+     {
+      "id": "e000091",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "上；城市和县城污水处理能力基本满足经济社会发展需要，县城"
+     },
+     {
+      "id": "e000094",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺"
+     },
+     {
+      "id": "e000095",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "水城市力争达到30%；城市和县城污泥无害化、资源化利用水平"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 6,
+    "element_ids": [
+     "e000081",
+     "e000082",
+     "e000083",
+     "e000084",
+     "e000085",
+     "e000086",
+     "e000087",
+     "e000088",
+     "e000089",
+     "e000090",
+     "e000091",
+     "e000092",
+     "e000093",
+     "e000094",
+     "e000095",
+     "e000096",
+     "e000097",
+     "e000098",
+     "e000099",
+     "e000100",
+     "e000101"
+    ],
+    "anchor_text_heads": [
+     "利用和污泥处置设施短板，推进城镇污水管网全覆盖，提升设施",
+     "处理能力。推广厂网一体、泥水并重、建管并举，提升运行管理",
+     "施。",
+     "政府主导，市场运作。发挥市场配置资源的决定性作用和更",
+     "好发挥政府作用。明确责任主体，强化标准约束，严格监管考",
+     "核。完善价格机制，加大财政投入，吸引社会资本，形成可持续",
+     "的建设经营模式。",
+     "（三）主要目标",
+     "——到2025 年，基本消除城市建成区生活污水直排口和收集",
+     "处理设施空白区，全国城市生活污水集中收集率力争达到70%以",
+     "上；城市和县城污水处理能力基本满足经济社会发展需要，县城",
+     "污水处理率达到95%以上；水环境敏感地区污水处理基本达到一",
+     "级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%",
+     "以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺",
+     "水城市力争达到30%；城市和县城污泥无害化、资源化利用水平",
+     "进一步提升，城市污泥无害化处置率达到90%以上；长江经济",
+     "带、黄河流域、京津冀地区建制镇污水收集处理能力、污泥无害",
+     "化处置水平明显提升。",
+     "——到2035 年，城市生活污水收集管网基本全覆盖，城镇污",
+     "水处理能力全覆盖，全面实现污泥无害化处置，污水污泥资源化",
+     "利用水平显著提升，城镇污水得到安全高效处理，全民共享绿"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "运行管理\n施。\n政府主导，市场运作。发挥市场配置资源的决定性作用和更\n好发挥政府作用。明确责任主体，强化标准约束，严格监管考\n核。完善价格机制，加大财政投入，吸引社会资本，形成可持续\n的建设经营模式。\n（三）主要目标\n——到2025 年，基本消除城市建成区生活污水直排口和收集\n处理设施空白区，全国城市生活污水集中收集率力争达到70%以\n上；城市和县城污水处理能力基本满足经济社会发展需要，县城\n污水处理率达到95%以上；水环境敏感地区污水处理基本达到一\n级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%\n以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺\n水城市力争达到30%；城市和县城污泥无害化、资源化利用水平\n进",
+    "rendering": "本消除城市建成区生活污水直排口和收集 处理设施空白区，全国城市生活污水集中收集率力争达到70%以 上；城市和县城污水处理能力基本满足经济社会发展需要，县城 污水处理率达到95%以上；水环境敏感地区污水处理基本达到一 级A 排放标准；全国地级及以上缺水城市再生水利用率达到25% 以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺 水城市力争达到30%；城市和县城污泥无害化、资源化利用水平 进一步提升，城市污泥无害化处置率达到90%以上；长江经济 带、黄河流域、京津冀地区建制镇污水收集处理能力、污泥无害 化处置水平明显提升。 ——到2035 年，城市"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "到2025年全国城市生活污水集中收集率力争达到70%以上": 1.0
+   }
+  },
+  {
+   "case_id": "G015",
+   "evidence_index": 0,
+   "doc_file": "“十四五”城镇污水处理及资源化利用.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 6,
+    "anchor": [
+     {
+      "id": "e000092",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "污水处理率达到95%以上；水环境敏感地区污水处理基本达到一"
+     },
+     {
+      "id": "e000093",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%"
+     },
+     {
+      "id": "e000091",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "上；城市和县城污水处理能力基本满足经济社会发展需要，县城"
+     },
+     {
+      "id": "e000094",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺"
+     },
+     {
+      "id": "e000095",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "水城市力争达到30%；城市和县城污泥无害化、资源化利用水平"
+     },
+     {
+      "id": "e000096",
+      "pages": [
+       6
+      ],
+      "type": "text",
+      "text_head": "进一步提升，城市污泥无害化处置率达到90%以上；长江经济"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 6,
+    "element_ids": [
+     "e000081",
+     "e000082",
+     "e000083",
+     "e000084",
+     "e000085",
+     "e000086",
+     "e000087",
+     "e000088",
+     "e000089",
+     "e000090",
+     "e000091",
+     "e000092",
+     "e000093",
+     "e000094",
+     "e000095",
+     "e000096",
+     "e000097",
+     "e000098",
+     "e000099",
+     "e000100",
+     "e000101"
+    ],
+    "anchor_text_heads": [
+     "利用和污泥处置设施短板，推进城镇污水管网全覆盖，提升设施",
+     "处理能力。推广厂网一体、泥水并重、建管并举，提升运行管理",
+     "施。",
+     "政府主导，市场运作。发挥市场配置资源的决定性作用和更",
+     "好发挥政府作用。明确责任主体，强化标准约束，严格监管考",
+     "核。完善价格机制，加大财政投入，吸引社会资本，形成可持续",
+     "的建设经营模式。",
+     "（三）主要目标",
+     "——到2025 年，基本消除城市建成区生活污水直排口和收集",
+     "处理设施空白区，全国城市生活污水集中收集率力争达到70%以",
+     "上；城市和县城污水处理能力基本满足经济社会发展需要，县城",
+     "污水处理率达到95%以上；水环境敏感地区污水处理基本达到一",
+     "级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%",
+     "以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺",
+     "水城市力争达到30%；城市和县城污泥无害化、资源化利用水平",
+     "进一步提升，城市污泥无害化处置率达到90%以上；长江经济",
+     "带、黄河流域、京津冀地区建制镇污水收集处理能力、污泥无害",
+     "化处置水平明显提升。",
+     "——到2035 年，城市生活污水收集管网基本全覆盖，城镇污",
+     "水处理能力全覆盖，全面实现污泥无害化处置，污水污泥资源化",
+     "利用水平显著提升，城镇污水得到安全高效处理，全民共享绿"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "营模式。\n（三）主要目标\n——到2025 年，基本消除城市建成区生活污水直排口和收集\n处理设施空白区，全国城市生活污水集中收集率力争达到70%以\n上；城市和县城污水处理能力基本满足经济社会发展需要，县城\n污水处理率达到95%以上；水环境敏感地区污水处理基本达到一\n级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%\n以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺\n水城市力争达到30%；城市和县城污泥无害化、资源化利用水平\n进一步提升，城市污泥无害化处置率达到90%以上；长江经济\n带、黄河流域、京津冀地区建制镇污水收集处理能力、污泥无害\n化处置水平明显提升。\n——到2035 年，城市生活污水收集管网基本全覆盖，城镇",
+    "rendering": "力争达到70%以 上；城市和县城污水处理能力基本满足经济社会发展需要，县城 污水处理率达到95%以上；水环境敏感地区污水处理基本达到一 级A 排放标准；全国地级及以上缺水城市再生水利用率达到25% 以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺 水城市力争达到30%；城市和县城污泥无害化、资源化利用水平 进一步提升，城市污泥无害化处置率达到90%以上；长江经济 带、黄河流域、京津冀地区建制镇污水收集处理能力、污泥无害 化处置水平明显提升。 ——到2035 年，城市生活污水收集管网基本全覆盖，城镇污 水处理能力全覆盖，全面实现污泥无害化处置，污水污泥"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ]
+  },
+  {
+   "case_id": "G016",
+   "evidence_index": 0,
+   "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+   "must_hit": true,
+   "old": {
+    "page": 13,
+    "anchor": [
+     {
+      "id": "e000302",
+      "pages": [
+       13
+      ],
+      "type": "table",
+      "text_head": "表3.4.2城镇内涝防治设计重现期\n城镇类型 |  | \n重现期（年） |  | 地面最大允许积水深度\n100 |  |"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 13,
+    "element_ids": [
+     "e000302"
+    ],
+    "anchor_text_heads": [
+     "表3.4.2城镇内涝防治设计重现期\n城镇类型 | 重现期（年） | 地面最大允许积水深度\n超城市 | 100 | 1 居"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "系、预测预警机 > 3.4.7 多功能调蓄设施，应符合下列规定：\n表3.4.2城镇内涝防治设计重现期\n城镇类型 | 重现期（年） | 地面最大允许积水深度\n超城市 | 100 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n特大城市 | 50~100 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n大城市 | 30~50 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n中等城市和小城市 | 20~30 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ",
+    "rendering": "表3.4.2城镇内涝防治设计重现期 城镇类型 重现期（年） 地面最大允许积水深度 超大城市 100 1居民住宅和工商业建筑物的底层不进水； 特大城市 50~100 大城市 30~50 2道路中一条车道的积深度不超过15cm 中等城市和小城市 20~30"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "weak_anchor_needs_review",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "超大城市内涝防治设计重现期均为100年": 0.0,
+    "中等城市和小城市均为20~30年": 0.0,
+    "均要求道路中一条车道积水深度不超过15cm": 1.0
+   }
+  },
+  {
+   "case_id": "G016",
+   "evidence_index": 1,
+   "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 20,
+    "anchor": [
+     {
+      "id": "e000702",
+      "pages": [
+       20
+      ],
+      "type": "table",
+      "text_head": "表4.1.4内涝防治设计重现期(年）\n城镇类型 |  | \n重现期 |  | 地面积水设计标准\n超大城市 |  | 10"
+     },
+     {
+      "id": "e000699",
+      "pages": [
+       20
+      ],
+      "type": "text",
+      "text_head": "4.1.4排涝除险设施的设计水量应根据内涝防治设计重现期及"
+     },
+     {
+      "id": "e000700",
+      "pages": [
+       20
+      ],
+      "type": "text",
+      "text_head": "对应的最大允许退水时间确定。内涝防治设计重现期应根据城镇"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 20,
+    "element_ids": [
+     "e000703"
+    ],
+    "anchor_text_heads": [
+     "表4.1.4内涝防治设计重现期(年）\n城镇类型 | 重现期 | 地面积水设计标准\n超大城市 | 100 | 1居民住宅和"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "应根据内涝防治设计重现期及\n表4.1.4内涝防治设计重现期(年）\n城镇类型 | 重现期 | 地面积水设计标准\n超大城市 | 100 | 1居民住宅和工商业 建筑物的底层不进水； 2道路中一条车道的 积水深度不超过15cm\n特大城市 | 50~100 | 1居民住宅和工商业 建筑物的底层不进水； 2道路中一条车道的 积水深度不超过15cm\n大城市 | 30~50 | 1居民住宅和工商业 建筑物的底层不进水； 2道路中一条车道的 积水深度不超过15cm\n中等城市和小城市 | 20~30 | 1居民住宅和工商业 建筑物的底层不进水； 2道路中一条车道的 积水深度不超过15cm\n注：详见表4.1.3的注3。",
+    "rendering": "表4.1.4内涝防治设计重现期(年） 城镇类型 重现期 地面积水设计标准 超大城市 100 1居民住宅和工商业 特大城市 50~100 建筑物的底层不进水； 大城市 30~50 2道路中一条车道的 积水深度不超过15cm 中等城市和小城市 20~30"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "超大城市内涝防治设计重现期均为100年": 0.0,
+    "中等城市和小城市均为20~30年": 0.0,
+    "均要求道路中一条车道积水深度不超过15cm": 1.0
+   }
+  },
+  {
+   "case_id": "G017",
+   "evidence_index": 0,
+   "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+   "must_hit": true,
+   "old": {
+    "page": 11,
+    "anchor": [
+     {
+      "id": "e000261",
+      "pages": [
+       11
+      ],
+      "type": "text",
+      "text_head": "并应在雨水管渠设计重现期下保证地面不积水。"
+     },
+     {
+      "id": "e000262",
+      "pages": [
+       11
+      ],
+      "type": "text",
+      "text_head": "3.3.2城镇雨水管渠的规模应根据雨水管渠设计重现期确定。"
+     },
+     {
+      "id": "e000263",
+      "pages": [
+       11
+      ],
+      "type": "text",
+      "text_head": "雨水管渠设计重现期应根据城镇类型、城区类型、地形特点和气"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 11,
+    "element_ids": [
+     "e000266"
+    ],
+    "anchor_text_heads": [
+     "表3.3.2城镇雨水管渠设计重现期（年）\n城镇类型 | 城区类型 | 城区类型 | 城区类型 | 城区类型\n城镇类型 |"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "1 总则… > 3.1 城镇内涝防治的应急预案应确定组织体系、预测预警机 > 3.3.2 城镇雨水管渠的规模应根据雨水管渠设计重现期确定\n表3.3.2城镇雨水管渠设计重现期（年）\n城镇类型 | 城区类型 | 城区类型 | 城区类型 | 城区类型\n城镇类型 | 中心城区 | 非中心城区 | 中心城区的 重要地区 | 中心城区地下通道 和下沉式广场等\n超大城市和特大城市 | 3~5 | 2~3 | 5~10 | 30~50\n大城市 | 2~5 | 2~3 | 5~10 | 20~30\n中等城市和小城市 | 2~3 | 2~3 | 3~5 | 10~20",
+    "rendering": "表3.3.2城镇雨水管渠设计重现期（年） 城区类型 城镇类型 中心城区的重要地区 中心城区 中心城区地下通道和下沉式广场等 非中心城区 超大城市和特大城市 3~5 2~3 5~10 30~50 大城市 2~5 2~3 5~10 20~30 中等城市和小城市 2~3 2~3 3~5 10~20"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "超大/特大城市中心城区重要地区：3~5年": 0.0,
+    "超大/特大城市中心城区地下通道和下沉式广场等：30~50年": 0.0
+   }
+  },
+  {
+   "case_id": "G018",
+   "evidence_index": 0,
+   "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+   "must_hit": true,
+   "old": {
+    "page": 4,
+    "anchor": [
+     {
+      "id": "e000094",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "生态环境自然积存、自然渗透和自然净化的能力，合理控制城镇"
+     },
+     {
+      "id": "e000095",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "开发强度，满足蓝线和水面率的要求，实现生活污水的有效收集"
+     },
+     {
+      "id": "e000093",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "1统筹区域流域的生态环境治理与城乡建设，保护和修复"
+     },
+     {
+      "id": "e000097",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "3统筹防洪与城镇排水防涝，提升城镇雨水系统建设水平，"
+     },
+     {
+      "id": "e000096",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "2统筹水资源利用与防灾减灾，提升城镇对雨水的渗、滞、"
+     },
+     {
+      "id": "e000092",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "1.0.3排水工程的规划、建设和运行应遵循以下原则："
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 4,
+    "element_ids": [
+     "e000092",
+     "e000093",
+     "e000094",
+     "e000095",
+     "e000096",
+     "e000097"
+    ],
+    "anchor_text_heads": [
+     "1.0.3排水工程的规划、建设和运行应遵循以下原则：",
+     "1统筹区域流域的生态环境治理与城乡建设，保护和修复",
+     "生态环境自然积存、自然渗透和自然净化的能力，合理控制城镇",
+     "开发强度，满足蓝线和水面率的要求，实现生活污水的有效收集",
+     "2统筹水资源利用与防灾减灾，提升城镇对雨水的渗、滞、",
+     "3统筹防洪与城镇排水防涝，提升城镇雨水系统建设水平，"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "1 总则… > 4.3 污水和再生水处理 > 1.0.3 排水工程的规划、建设和运行应遵循以下原则：\n1.0.3排水工程的规划、建设和运行应遵循以下原则：\n1统筹区域流域的生态环境治理与城乡建设，保护和修复\n生态环境自然积存、自然渗透和自然净化的能力，合理控制城镇\n开发强度，满足蓝线和水面率的要求，实现生活污水的有效收集\n2统筹水资源利用与防灾减灾，提升城镇对雨水的渗、滞、\n3统筹防洪与城镇排水防涝，提升城镇雨水系统建设水平，",
+    "rendering": "1总 则 开 规范。 1.0.2城乡排水工程必须执行本规范。 1.0.3排水工程的规划、建设和运行应遵循以下原则： 1统筹区域流域的生态环境治理与城乡建设，保护和修复 生态环境自然积存、自然渗透和自然净化的能力，合理控制城镇 开发强度，满足蓝线和水面率的要求，实现生活污水的有效收集 处理和污泥的安全处理处置； - 2统筹水资源利用与防灾减灾，提升城镇对雨水的渗、滞、 蓄能力，充分利用再生水，强化雨水的积蓄利用； 3统筹防洪与城镇排水防涝，提升城镇雨水系统建设水平， 加强城镇排水防涝和流域防洪的体系衔接。 1.0.4排水工程应加"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "城乡排水工程必须执行本规范": 0.3333,
+    "属于全文强制性工程建设规范体系中的项目规范": 0.1053
+   }
+  },
+  {
+   "case_id": "G019",
+   "evidence_index": 0,
+   "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 24,
+    "anchor": [
+     {
+      "id": "e000377",
+      "pages": [
+       24
+      ],
+      "type": "table",
+      "text_head": "表5-1 生活污水中氨氮和电导率的浓度范围\n氨氮（mg/L） | 电导率（us/cm） | \n水量来源 |  | \n范围"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_page_shifted": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 24,
+    "element_ids": [
+     "e000384"
+    ],
+    "anchor_text_heads": [
+     "表5-1 生活污水中氨氮和电导率的浓度范围\n水量来源 | 氨氮（mg/L) | 氨氮（mg/L) | 电导率（us/cm"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2 雨水管网混接筛查中，管网节点监测的水质特征因子选取如下：\n表5-1 生活污水中氨氮和电导率的浓度范围\n水量来源 | 氨氮（mg/L) | 氨氮（mg/L) | 电导率（us/cm) | 电导率（us/cm)\n水量来源 | 范围 | 均值 | 范围 | 均值\n灰水 | 3.6~9.6 | 6.1 | 432~1058 | 810\n黑水 | 46.8~109 | 76.8 | 1314~2044 | 1786",
+    "rendering": "表5-1 生活污水中氨氮和电导率的浓度范围 水量来源 氨氮（mg/L） 电导率（us/cm） 范围 均值 范围 均值 灰水 3.6~9.6 6.1 432~1058 810 黑水 46.8~109 76.8 1314~2044 1786"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "征求意见稿表5-1：灰水氨氮均值约6.1 mg/L，黑水氨氮均值约76.8 mg/L": 0.3333,
+    "T/CECS 758：按接入管管径、混接水量、混接水质评估混接程度": 0.0
+   }
+  },
+  {
+   "case_id": "G019",
+   "evidence_index": 1,
+   "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 28,
+    "anchor": [
+     {
+      "id": "e000537",
+      "pages": [
+       28
+      ],
+      "type": "text",
+      "text_head": "水量、1昆接水质进行评估。\n7.2.2\n单个混接点或泪接源的海接程度分级标准应按表7. 2. 2"
+     },
+     {
+      "id": "e000536",
+      "pages": [
+       28
+      ],
+      "type": "text",
+      "text_head": "7. 2. 1\n单个氓接点或提接源的1昆接程度可依据接入管管径、混接"
+     },
+     {
+      "id": "e000525",
+      "pages": [
+       28
+      ],
+      "type": "text",
+      "text_head": "执行，并应以任一指标取高值的原则进行评估。"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 2,
+    "id_aliased_page_shifted": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 28,
+    "element_ids": [
+     "e000544",
+     "e000545"
+    ],
+    "anchor_text_heads": [
+     "7. 2. 1\n单个氓接点或提接源的1昆接程度可依据接入管管径、混接",
+     "水量、1昆接水质进行评估。\n7.2.2\n单个混接点或泪接源的海接程度分级标准应按表7. 2. 2"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n7. 2. 1\n单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n水量、1昆接水质进行评估。\n7.2.2\n单个混接点或泪接源的海接程度分级标准应按表7. 2. 2",
+    "rendering": "7. 2. 1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接 水量、1昆接水质进行评估。 7.2.2 单个混接点或泪接源的海接程度分级标准应按表7. 2. 2 执行，并应以任一指标取高值的原则进行评估。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "征求意见稿表5-1：灰水氨氮均值约6.1 mg/L，黑水氨氮均值约76.8 mg/L": 0.3333,
+    "T/CECS 758：按接入管管径、混接水量、混接水质评估混接程度": 0.0
+   }
+  },
+  {
+   "case_id": "G020",
+   "evidence_index": 0,
+   "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 22,
+    "anchor": [
+     {
+      "id": "e000357",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "基于节点水质监测的雨水管网中污水混接区域筛查，可用如下附"
+     },
+     {
+      "id": "e000355",
+      "pages": [
+       22
+      ],
+      "type": "figure",
+      "text_head": "[图5-1 雨水管网中污水混接筛查技术路线]"
+     },
+     {
+      "id": "e000358",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "受纳水体的使用功能类型为V 类，那么混接区域筛查的氨氮浓度参"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 2,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 22,
+    "element_ids": [
+     "e000356",
+     "e000357",
+     "e000358",
+     "e000359",
+     "e000361"
+    ],
+    "anchor_text_heads": [
+     "【条文解释】",
+     "基于节点水质监测的雨水管网中污水混接区域筛查，可用如下附",
+     "图2 示意。若节点水质监测指标为氨氮，并且该雨水管网排放口对应",
+     "受纳水体的使用功能类型为V 类，那么混接区域筛查的氨氮浓度参",
+     "照值为2.0 mg/L。图中雨水干管的两个节点上氨氮浓度均超出"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.1 雨水管网中污水混接筛查，遵循以下方法：\n【条文解释】\n基于节点水质监测的雨水管网中污水混接区域筛查，可用如下附\n图2 示意。若节点水质监测指标为氨氮，并且该雨水管网排放口对应\n受纳水体的使用功能类型为V 类，那么混接区域筛查的氨氮浓度参\n照值为2.0 mg/L。图中雨水干管的两个节点上氨氮浓度均超出",
+    "rendering": "图5-1 雨水管网中污水混接筛查技术路线 【条文解释】 基于节点水质监测的雨水管网中污水混接区域筛查，可用如下附图2示意。若节点水质监测指标为氨氮，并且该雨水管网排放口对应受纳水体的使用功能类型为V类，那么混接区域筛查的氨氮浓度"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "图名为雨水管网中污水混接筛查技术路线": 0.5882,
+    "条文解释举例以氨氮为节点水质监测指标": 0.6471
+   }
+  },
+  {
+   "case_id": "G021",
+   "evidence_index": 0,
+   "doc_file": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 1,
+    "anchor": [
+     {
+      "id": "e000003",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "一轮城市生活污水管网排查滚动摸排的要求，持续推进管网现状评"
+     },
+     {
+      "id": "e000020",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "成区生活污水直排口和设施空白区，城市生活污水集中收集率达到"
+     },
+     {
+      "id": "e000002",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "（一）开展污水收集系统问题排查。各地要按照每5—10年完成"
+     },
+     {
+      "id": "e000010",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "73%以上，城市生活污水收集处理综合效能显著提升。"
+     },
+     {
+      "id": "e000006",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "二、推进设施体系建设\n二、推进设施体系建设"
+     },
+     {
+      "id": "e000019",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "市生活污水专业化运行维护管理模式。到2027年，基本消除城市建"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 1,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000010",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000016",
+     "e000017",
+     "e000018",
+     "e000019",
+     "e000020"
+    ],
+    "anchor_text_heads": [
+     "住房城乡建设部等5部门关于加强城市生活污水\n住房城乡建设部等5部门关于加强城市生活污水",
+     "（一）开展污水收集系统问题排查。各地要按照每5—10年完成",
+     "一轮城市生活污水管网排查滚动摸排的要求，持续推进管网现状评",
+     "委、财政局、市场监管局：",
+     "一、工作目标\n一、工作目标",
+     "二、推进设施体系建设\n二、推进设施体系建设",
+     "管网建设和运行维护的通知\n管网建设和运行维护的通知",
+     "建城〔2024〕18号",
+     "提升城市生活污水收集效能，现就有关事项通知如下。",
+     "73%以上，城市生活污水收集处理综合效能显著提升。",
+     "各省、自治区住房城乡建设厅、生态环境厅、发展改革委、财政",
+     "厅、市场监管局（厅），直辖市住房城乡建设（管）委、生态环境",
+     "局、发展改革委、财政局、水务局、市场监管局（委），海南省水",
+     "务厅，新疆生产建设兵团住房城乡建设局、生态环境局、发展改革",
+     "为贯彻落实党中央、国务院关于全面推进美丽中国建设有关部",
+     "署，加快城市生活污水管网补短板，建立运行维护长效机制，切实",
+     "以效能提升为核心，以管网补短板为重点，坚持问题导向、重",
+     "点突破、建管并举、系统整治、精准施策，推动建立厂网统筹的城",
+     "市生活污水专业化运行维护管理模式。到2027年，基本消除城市建",
+     "成区生活污水直排口和设施空白区，城市生活污水集中收集率达到"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "展污水收集系统问题排查。各地要按照每5—10年完成\n一轮城市生活污水管网排查滚动摸排的要求，持续推进管网现状评\n委、财政局、市场监管局：\n一、工作目标\n一、工作目标\n二、推进设施体系建设\n二、推进设施体系建设\n管网建设和运行维护的通知\n管网建设和运行维护的通知\n建城〔2024〕18号\n提升城市生活污水收集效能，现就有关事项通知如下。\n73%以上，城市生活污水收集处理综合效能显著提升。\n各省、自治区住房城乡建设厅、生态环境厅、发展改革委、财政\n厅、市场监管局（厅），直辖市住房城乡建设（管）委、生态环境\n局、发展改革委、财政局、水务局、市场监管局（委），海南省水\n务厅，新疆生产建设兵团住房城乡建设局、生态环境局、发展改革\n为贯彻落实党中",
+    "rendering": "027年，基本消除城市建 成区生活污水直排口和设施空白区，城市生活污水集中收集率达到 73%以上，城市生活污水收集处理综合效能显著提升。 二、推进设施体系建设 二、推进设施体系建设 （一）开展污水收集系统问题排查。各地要按照每5—10年完成 一轮城市生活污水管网排查滚动摸排的要求，持续推进管网现状评"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "到2027年城市生活污水集中收集率达到73%以上": 0.5
+   }
+  },
+  {
+   "case_id": "G022",
+   "evidence_index": 0,
+   "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 9,
+    "anchor": [
+     {
+      "id": "e000063",
+      "pages": [
+       9
+      ],
+      "type": "text",
+      "text_head": "单站日降雨量等级以该站日降雨量为划分依据，见表1。"
+     },
+     {
+      "id": "e000062",
+      "pages": [
+       9
+      ],
+      "type": "text",
+      "text_head": "3.1单站日降雨量等级"
+     },
+     {
+      "id": "e000067",
+      "pages": [
+       9
+      ],
+      "type": "table",
+      "text_head": "表1单站日降雨量等级划分表\n等级 |  | 日降雨量 mm\n小雨 |  | 0.1~9.9\n中雨 |  | 10.0~2"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 9,
+    "element_ids": [
+     "e000067"
+    ],
+    "anchor_text_heads": [
+     "表1单站日降雨量等级划分表\n等级 | 日降雨量 mm\n小雨 | 0.1~9.9\n中雨 | 10.0~24.9\n大雨 | "
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "3.2 单站降雨过程等级\n表1单站日降雨量等级划分表\n等级 | 日降雨量 mm\n小雨 | 0.1~9.9\n中雨 | 10.0~24.9\n大雨 | 25.0~49.9\n暴雨 | 50.0~99.9\n大暴雨 | 100.0~249.9\n特大暴雨 | ≥250.0",
+    "rendering": "单站日降雨量等级以该站日降雨量为划分依据，见表1。表1单站日降雨量等级划分表 小雨 0.1~9.9 中雨 10.0~24.9 大雨 25.0~49.9 暴雨 50.0~99.9 大暴雨 100.0~249.9 特大暴雨 ≥250.0"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "单站日降雨量等级以该站日降雨量为划分依据，见表1": 1.0,
+    "暴雨日降雨量50.0~99.9 mm": 1.0,
+    "大暴雨日降雨量100.0~249.9 mm": 1.0
+   }
+  },
+  {
+   "case_id": "G023",
+   "evidence_index": 0,
+   "doc_file": "GBT 28592-2012降水量等级.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 4,
+    "anchor": [
+     {
+      "id": "e000032",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "降水量按24h，12h两个时间段进行"
+     },
+     {
+      "id": "e000031",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "3降水量等级划分的原则"
+     },
+     {
+      "id": "e000024",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "本标准规定了降水量等级划分的原则和等级。"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 4,
+    "element_ids": [
+     "e000028",
+     "e000029",
+     "e000030",
+     "e000031",
+     "e000032",
+     "e000033",
+     "e000034",
+     "e000035",
+     "e000036",
+     "e000037",
+     "e000038",
+     "e000039",
+     "e000040",
+     "e000041",
+     "e000042"
+    ],
+    "anchor_text_heads": [
+     "precipitation",
+     "降水量",
+     "失而在水平面上积聚的深度",
+     "3降水量等级划分的原则",
+     "降水量按24h，12h两个时间段进行",
+     "4降雨量等级划分",
+     "降雨分为微量降雨（零星小雨）、小雨、中雨、天",
+     "5降雪量等级划分",
+     "GB/T28592-2012",
+     "降水量等级",
+     "划分",
+     "雨、暴雨、暴雨、特暴共个等级。具体划分见",
+     "单位为毫米",
+     "本标准适用于降水监测、预报、预警、服务等业务和科研工作，以及其他行业与降水相关的领域。",
+     "某一时段内，从天空降落到地面上的液态（降雨）或固态（降雪）（经融化后）降水，未经蒸发、渗透、流"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "precipitation\n降水量\n失而在水平面上积聚的深度\n3降水量等级划分的原则\n降水量按24h，12h两个时间段进行\n4降雨量等级划分\n降雨分为微量降雨（零星小雨）、小雨、中雨、天\n5降雪量等级划分\nGB/T28592-2012\n降水量等级\n划分\n雨、暴雨、暴雨、特暴共个等级。具体划分见\n单位为毫米\n本标准适用于降水监测、预报、预警、服务等业务和科研工作，以及其他行业与降水相关的领域。\n某一时段内，从天空降落到地面上的液态（降雨）或固态（降雪）（经融化后）降水，未经蒸发、渗透、流",
+    "rendering": "3降水量等级划分的原则 降水量按24h，12h两个时间段进行划分 表1不同时段的降雨量等级划分表 暴雨 30.0~69.9 50.0~99.9"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "GB/T 28592按12h与24h划分": 0.6667,
+    "T/CMSA按10分钟、30分钟、1小时划分六个短时等级，并引用QX/T 489－2019定义": 0.75,
+    "QX/T 489—2019规定区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级": 0.0
+   }
+  },
+  {
+   "case_id": "G023",
+   "evidence_index": 1,
+   "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 5,
+    "anchor": [
+     {
+      "id": "e000033",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级"
+     },
+     {
+      "id": "e000032",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降"
+     },
+     {
+      "id": "e000025",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "[QX/T 489－2019,定义2.2]"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 5,
+    "element_ids": [
+     "e000029",
+     "e000031",
+     "e000032",
+     "e000033",
+     "e000034",
+     "e000036"
+    ],
+    "anchor_text_heads": [
+     "T/CMSA 0013—2019",
+     "本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。",
+     "降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降",
+     "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级",
+     "T/CMSA 0013—2019",
+     "单位：毫米（mm）"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "3 等级划分\nT/CMSA 0013—2019\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降水。\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\nT/CMSA 0013—2019\n单位：毫米（mm）",
+    "rendering": "2.1 降雨量 rainfall 某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等固态降水。 [QX/T 489－2019,定义2.2] 3 等级划分 将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大暴雨、短时特大暴雨共6个等级。具体划分见表1。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "GB/T 28592按12h与24h划分": 0.6667,
+    "T/CMSA按10分钟、30分钟、1小时划分六个短时等级，并引用QX/T 489－2019定义": 0.75,
+    "QX/T 489—2019规定区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级": 0.0
+   }
+  },
+  {
+   "case_id": "G023",
+   "evidence_index": 2,
+   "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 10,
+    "anchor": [
+     {
+      "id": "e000073",
+      "pages": [
+       10
+      ],
+      "type": "text",
+      "text_head": "区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。"
+     },
+     {
+      "id": "e000072",
+      "pages": [
+       10
+      ],
+      "type": "text",
+      "text_head": "4.2区域降雨过程等级"
+     },
+     {
+      "id": "e000069",
+      "pages": [
+       10
+      ],
+      "type": "text",
+      "text_head": "4区域降雨过程等级"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 10,
+    "element_ids": [
+     "e000073",
+     "e000075",
+     "e000076",
+     "e000077"
+    ],
+    "anchor_text_heads": [
+     "区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。",
+     "区域可分为省（自治区、直辖市）、跨省（自治区、直辖市）或相当面积的地域范围，区域内站点包括县",
+     "级以上国家级地面气象观测站和区域自动站。区域日降雨等级划分以单站日降雨量等级为依据，按照",
+     "区域内达到某等级的站点百分比确定，见表2。若同时满足不同等级标准，则按照最强一级划定区域日"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source"
+    ],
+    "quote_kind": "verbatim_kept",
+    "quote": "4.2区域降雨过程等级 区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。",
+    "rendering": null
+   },
+   "pending": [
+    "quote_spans_multiple_elements",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "GB/T 28592按12h与24h划分": 0.6667,
+    "T/CMSA按10分钟、30分钟、1小时划分六个短时等级，并引用QX/T 489－2019定义": 0.75,
+    "QX/T 489—2019规定区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级": 0.0
+   }
+  },
+  {
+   "case_id": "G024",
+   "evidence_index": 0,
+   "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 3,
+    "anchor": [
+     {
+      "id": "e000014",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "部、市场监管总局5部门联合印发了《住房城乡建设部等5部门"
+     },
+     {
+      "id": "e000018",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "推进城市生活污水管网全覆盖，建设管网运行维护长效机制，"
+     },
+     {
+      "id": "e000019",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "切实提升城市生活污水收集效能，改善城市人居环境，助力城"
+     },
+     {
+      "id": "e000012",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "水收集和处理设施短板，建设城市污水管网全覆盖样板区”。"
+     },
+     {
+      "id": "e000015",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "关于加强城市生活污水管网建设和运行维护的通知》（建城"
+     },
+     {
+      "id": "e000017",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "为指导各地加强城市生活污水管网建设和运行维护，加快"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 3,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000010",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000016",
+     "e000017",
+     "e000018",
+     "e000019",
+     "e000020",
+     "e000021",
+     "e000022",
+     "e000023",
+     "e000024"
+    ],
+    "anchor_text_heads": [
+     "推进城市生活污水管网全覆盖",
+     "及厂网一体长效机制建设工作指南",
+     "（第一版）",
+     "住房城乡建设部城市建设司",
+     "2025年1月",
+     "前 言",
+     "党的二十大报告提出，要建设人与自然和谐共生的中国式",
+     "现代化，推进美丽中国建设。2023年，习近平总书记在中央经",
+     "济工作会议上强调，城市地下管网是城市的“里子”工程，这",
+     "个工程投资潜力大，带动能力强。《中共中央、国务院关于全",
+     "面推进美丽中国建设的意见》明确提出，要“加快补齐城镇污",
+     "水收集和处理设施短板，建设城市污水管网全覆盖样板区”。",
+     "为此，住房城乡建设部、生态环境部、国家发展改革委、财政",
+     "部、市场监管总局5部门联合印发了《住房城乡建设部等5部门",
+     "关于加强城市生活污水管网建设和运行维护的通知》（建城",
+     "〔2024〕18号）。",
+     "为指导各地加强城市生活污水管网建设和运行维护，加快",
+     "推进城市生活污水管网全覆盖，建设管网运行维护长效机制，",
+     "切实提升城市生活污水收集效能，改善城市人居环境，助力城",
+     "市高质量发展，制定本工作指南。",
+     "本指南的主要内容包括：总体要求、加强系统谋划、实施",
+     "排查检测、完善管网体系、健全长效机制、强化政策保障。指",
+     "南定位为推进污水管网全覆盖和运行维护长效机制建设工作的",
+     "“工具箱”，其中的“专栏”主要是对相关技术性内容的解释"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "前 言\n党的二十大报告提出，要建设人与自然和谐共生的中国式\n现代化，推进美丽中国建设。2023年，习近平总书记在中央经\n济工作会议上强调，城市地下管网是城市的“里子”工程，这\n个工程投资潜力大，带动能力强。《中共中央、国务院关于全\n面推进美丽中国建设的意见》明确提出，要“加快补齐城镇污\n水收集和处理设施短板，建设城市污水管网全覆盖样板区”。\n为此，住房城乡建设部、生态环境部、国家发展改革委、财政\n部、市场监管总局5部门联合印发了《住房城乡建设部等5部门\n关于加强城市生活污水管网建设和运行维护的通知》（建城\n〔2024〕18号）。\n为指导各地加强城市生活污水管网建设和运行维护，加快\n推进城市生活污水管网全覆盖，建设管网运行维护长效机制",
+    "rendering": "提出，要“加快补齐城镇污 水收集和处理设施短板，建设城市污水管网全覆盖样板区”。 为此，住房城乡建设部、生态环境部、国家发展改革委、财政 部、市场监管总局5部门联合印发了《住房城乡建设部等5部门 关于加强城市生活污水管网建设和运行维护的通知》（建城 〔2024〕18号）。 为指导各地加强城市生活污水管网建设和运行维护，加快 推进城市生活污水管网全覆盖，建设管网运行维护长效机制， 切实提升城市生活污水收集效能，改善城市人居环境，助力城 市高质量发展，制定本工作指南。 本指南的主要内容包括：总体要求、加强系统谋划、实施 排查检测、完善管网体系、健全长效机"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "提出建设城市污水管网全覆盖样板区": 0.9333
+   }
+  },
+  {
+   "case_id": "G025",
+   "evidence_index": 0,
+   "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 3,
+    "anchor": [
+     {
+      "id": "e000014",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "部、市场监管总局5部门联合印发了《住房城乡建设部等5部门"
+     },
+     {
+      "id": "e000015",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "关于加强城市生活污水管网建设和运行维护的通知》（建城"
+     },
+     {
+      "id": "e000013",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "为此，住房城乡建设部、生态环境部、国家发展改革委、财政"
+     },
+     {
+      "id": "e000017",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "为指导各地加强城市生活污水管网建设和运行维护，加快"
+     },
+     {
+      "id": "e000018",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "推进城市生活污水管网全覆盖，建设管网运行维护长效机制，"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 5
+   },
+   "new": {
+    "resolved": true,
+    "page": 3,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000010",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000016",
+     "e000017",
+     "e000018",
+     "e000019",
+     "e000020",
+     "e000021",
+     "e000022",
+     "e000023",
+     "e000024"
+    ],
+    "anchor_text_heads": [
+     "推进城市生活污水管网全覆盖",
+     "及厂网一体长效机制建设工作指南",
+     "（第一版）",
+     "住房城乡建设部城市建设司",
+     "2025年1月",
+     "前 言",
+     "党的二十大报告提出，要建设人与自然和谐共生的中国式",
+     "现代化，推进美丽中国建设。2023年，习近平总书记在中央经",
+     "济工作会议上强调，城市地下管网是城市的“里子”工程，这",
+     "个工程投资潜力大，带动能力强。《中共中央、国务院关于全",
+     "面推进美丽中国建设的意见》明确提出，要“加快补齐城镇污",
+     "水收集和处理设施短板，建设城市污水管网全覆盖样板区”。",
+     "为此，住房城乡建设部、生态环境部、国家发展改革委、财政",
+     "部、市场监管总局5部门联合印发了《住房城乡建设部等5部门",
+     "关于加强城市生活污水管网建设和运行维护的通知》（建城",
+     "〔2024〕18号）。",
+     "为指导各地加强城市生活污水管网建设和运行维护，加快",
+     "推进城市生活污水管网全覆盖，建设管网运行维护长效机制，",
+     "切实提升城市生活污水收集效能，改善城市人居环境，助力城",
+     "市高质量发展，制定本工作指南。",
+     "本指南的主要内容包括：总体要求、加强系统谋划、实施",
+     "排查检测、完善管网体系、健全长效机制、强化政策保障。指",
+     "南定位为推进污水管网全覆盖和运行维护长效机制建设工作的",
+     "“工具箱”，其中的“专栏”主要是对相关技术性内容的解释"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "部、市场监管总局5部门联合印发了《住房城乡建设部等5部门\n关于加强城市生活污水管网建设和运行维护的通知》（建城\n〔2024〕18号）。\n为指导各地加强城市生活污水管网建设和运行维护，加快\n推进城市生活污水管网全覆盖，建设管网运行维护长效机制，\n切实提升城市生活污水收集效能，改善城市人居环境，助力城\n市高质量发展，制定本工作指南。\n本指南的主要内容包括：总体要求、加强系统谋划、实施\n排查检测、完善管网体系、健全长效机制、强化政策保障。指\n南定位为推进污水管网全覆盖和运行维护长效机制建设工作的\n“工具箱”，其中的“专栏”主要是对相关技术性内容的解释",
+    "rendering": "住房城乡建设部、生态环境部、国家发展改革委、财政部、市场监管总局5部门联合印发了《住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知》（建城〔2024〕18号）。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "指南引用建城〔2024〕18号通知": 1.0,
+    "到2027年城市生活污水集中收集率达到73%以上": 0.5
+   }
+  },
+  {
+   "case_id": "G025",
+   "evidence_index": 1,
+   "doc_file": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 1,
+    "anchor": [
+     {
+      "id": "e000020",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "成区生活污水直排口和设施空白区，城市生活污水集中收集率达到"
+     },
+     {
+      "id": "e000010",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "73%以上，城市生活污水收集处理综合效能显著提升。"
+     },
+     {
+      "id": "e000019",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "市生活污水专业化运行维护管理模式。到2027年，基本消除城市建"
+     },
+     {
+      "id": "e000009",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "提升城市生活污水收集效能，现就有关事项通知如下。"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 4
+   },
+   "new": {
+    "resolved": true,
+    "page": 1,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000010",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000016",
+     "e000017",
+     "e000018",
+     "e000019",
+     "e000020"
+    ],
+    "anchor_text_heads": [
+     "住房城乡建设部等5部门关于加强城市生活污水\n住房城乡建设部等5部门关于加强城市生活污水",
+     "（一）开展污水收集系统问题排查。各地要按照每5—10年完成",
+     "一轮城市生活污水管网排查滚动摸排的要求，持续推进管网现状评",
+     "委、财政局、市场监管局：",
+     "一、工作目标\n一、工作目标",
+     "二、推进设施体系建设\n二、推进设施体系建设",
+     "管网建设和运行维护的通知\n管网建设和运行维护的通知",
+     "建城〔2024〕18号",
+     "提升城市生活污水收集效能，现就有关事项通知如下。",
+     "73%以上，城市生活污水收集处理综合效能显著提升。",
+     "各省、自治区住房城乡建设厅、生态环境厅、发展改革委、财政",
+     "厅、市场监管局（厅），直辖市住房城乡建设（管）委、生态环境",
+     "局、发展改革委、财政局、水务局、市场监管局（委），海南省水",
+     "务厅，新疆生产建设兵团住房城乡建设局、生态环境局、发展改革",
+     "为贯彻落实党中央、国务院关于全面推进美丽中国建设有关部",
+     "署，加快城市生活污水管网补短板，建立运行维护长效机制，切实",
+     "以效能提升为核心，以管网补短板为重点，坚持问题导向、重",
+     "点突破、建管并举、系统整治、精准施策，推动建立厂网统筹的城",
+     "市生活污水专业化运行维护管理模式。到2027年，基本消除城市建",
+     "成区生活污水直排口和设施空白区，城市生活污水集中收集率达到"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "展污水收集系统问题排查。各地要按照每5—10年完成\n一轮城市生活污水管网排查滚动摸排的要求，持续推进管网现状评\n委、财政局、市场监管局：\n一、工作目标\n一、工作目标\n二、推进设施体系建设\n二、推进设施体系建设\n管网建设和运行维护的通知\n管网建设和运行维护的通知\n建城〔2024〕18号\n提升城市生活污水收集效能，现就有关事项通知如下。\n73%以上，城市生活污水收集处理综合效能显著提升。\n各省、自治区住房城乡建设厅、生态环境厅、发展改革委、财政\n厅、市场监管局（厅），直辖市住房城乡建设（管）委、生态环境\n局、发展改革委、财政局、水务局、市场监管局（委），海南省水\n务厅，新疆生产建设兵团住房城乡建设局、生态环境局、发展改革\n为贯彻落实党中",
+    "rendering": "到2027年，基本消除城市建成区生活污水直排口和设施空白区，城市生活污水集中收集率达到73%以上，城市生活污水收集处理综合效能显著提升。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "指南引用建城〔2024〕18号通知": 1.0,
+    "到2027年城市生活污水集中收集率达到73%以上": 0.5
+   }
+  },
+  {
+   "case_id": "G026",
+   "evidence_index": 0,
+   "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 3,
+    "anchor": [
+     {
+      "id": "e000012",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "水收集和处理设施短板，建设城市污水管网全覆盖样板区”。"
+     },
+     {
+      "id": "e000011",
+      "pages": [
+       3
+      ],
+      "type": "text",
+      "text_head": "面推进美丽中国建设的意见》明确提出，要“加快补齐城镇污"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 2
+   },
+   "new": {
+    "resolved": true,
+    "page": 3,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000010",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000016",
+     "e000017",
+     "e000018",
+     "e000019",
+     "e000020",
+     "e000021",
+     "e000022",
+     "e000023",
+     "e000024"
+    ],
+    "anchor_text_heads": [
+     "推进城市生活污水管网全覆盖",
+     "及厂网一体长效机制建设工作指南",
+     "（第一版）",
+     "住房城乡建设部城市建设司",
+     "2025年1月",
+     "前 言",
+     "党的二十大报告提出，要建设人与自然和谐共生的中国式",
+     "现代化，推进美丽中国建设。2023年，习近平总书记在中央经",
+     "济工作会议上强调，城市地下管网是城市的“里子”工程，这",
+     "个工程投资潜力大，带动能力强。《中共中央、国务院关于全",
+     "面推进美丽中国建设的意见》明确提出，要“加快补齐城镇污",
+     "水收集和处理设施短板，建设城市污水管网全覆盖样板区”。",
+     "为此，住房城乡建设部、生态环境部、国家发展改革委、财政",
+     "部、市场监管总局5部门联合印发了《住房城乡建设部等5部门",
+     "关于加强城市生活污水管网建设和运行维护的通知》（建城",
+     "〔2024〕18号）。",
+     "为指导各地加强城市生活污水管网建设和运行维护，加快",
+     "推进城市生活污水管网全覆盖，建设管网运行维护长效机制，",
+     "切实提升城市生活污水收集效能，改善城市人居环境，助力城",
+     "市高质量发展，制定本工作指南。",
+     "本指南的主要内容包括：总体要求、加强系统谋划、实施",
+     "排查检测、完善管网体系、健全长效机制、强化政策保障。指",
+     "南定位为推进污水管网全覆盖和运行维护长效机制建设工作的",
+     "“工具箱”，其中的“专栏”主要是对相关技术性内容的解释"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "verbatim_kept",
+    "quote": "要“加快补齐城镇污水收集和处理设施短板，建设城市污水管网全覆盖样板区”。",
+    "rendering": null
+   },
+   "pending": [
+    "quote_spans_multiple_elements"
+   ],
+   "fact_coverage": {
+    "建设城市污水管网全覆盖样板区": 1.0,
+    "以污染物集中收集效能和水环境质量提升为核心的绩效评价体系": 1.0,
+    "对管网运维单位绩效考核、按效付费": 0.7857
+   }
+  },
+  {
+   "case_id": "G026",
+   "evidence_index": 1,
+   "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 90,
+    "anchor": [
+     {
+      "id": "e001764",
+      "pages": [
+       90
+      ],
+      "type": "text",
+      "text_head": "建立以污染物集中收集效能和水环境质量提升为核心的"
+     },
+     {
+      "id": "e001765",
+      "pages": [
+       90
+      ],
+      "type": "text",
+      "text_head": "绩效评价体系，制定绩效考核办法，对管网运行维护单位进"
+     },
+     {
+      "id": "e001766",
+      "pages": [
+       90
+      ],
+      "type": "text",
+      "text_head": "行绩效考核，按效付费。"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 90,
+    "element_ids": [
+     "e001759",
+     "e001760",
+     "e001761",
+     "e001762",
+     "e001763",
+     "e001764",
+     "e001765",
+     "e001766",
+     "e001767",
+     "e001768",
+     "e001769",
+     "e001770",
+     "e001771",
+     "e001772",
+     "e001773",
+     "e001774",
+     "e001775",
+     "e001776",
+     "e001777",
+     "e001778",
+     "e001779"
+    ],
+    "anchor_text_heads": [
+     "积极推行污水处理厂、排水管网和河湖水体联动的“厂",
+     "网一体”化、专业化运行维护模式，保障“厂—网”管理的",
+     "系统性和完整性。鼓励从城市层面实施“厂网一体”化运作。",
+     "不能从城市层面实施的，可以单个污水处理厂服务范围为单",
+     "元，将区域内污水收集管网、泵站、污水处理厂等设施实施",
+     "“厂网一体化”运行维护。有条件的，可连同服务范围内的",
+     "河、湖等地表水体的运维或相关协调工作交由一个专业化团",
+     "队实施。",
+     "建立以污染物集中收集效能和水环境质量提升为核心的",
+     "绩效评价体系，制定绩效考核办法，对管网运行维护单位进",
+     "行绩效考核，按效付费。",
+     "污水处理厂和污水管网暂未实现由一家单位运行维护的，",
+     "应将污水主干管（污水处理厂进水）浓度、污水管网运行水",
+     "位、维修养护质量等作为污水管网运行维护绩效考核的重要",
+     "指标，实现“厂—网”联动考核。利用建设—经营—转让",
+     "（BOT）协议、特许经营协议时限到期或调整等时机，逐步",
+     "将污水处理厂与污水管网交由一家单位运维管理。",
+     "- 79 -",
+     "专栏5-4 污水管网运行维护“按效付费”",
+     "1. 什么是“按效付费”",
+     "“按效付费”是指构建的以提升生活污水污染物收集效能为导向的"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "verbatim_kept",
+    "quote": "建立以污染物集中收集效能和水环境质量提升为核心的绩效评价体系，制定绩效考核办法，对管网运行维护单位进行绩效考核，按效付费。",
+    "rendering": null
+   },
+   "pending": [
+    "quote_spans_multiple_elements"
+   ],
+   "fact_coverage": {
+    "建设城市污水管网全覆盖样板区": 1.0,
+    "以污染物集中收集效能和水环境质量提升为核心的绩效评价体系": 1.0,
+    "对管网运维单位绩效考核、按效付费": 0.7857
+   }
+  },
+  {
+   "case_id": "G027",
+   "evidence_index": 0,
+   "doc_file": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 16,
+    "anchor": [
+     {
+      "id": "e000341",
+      "pages": [
+       16
+      ],
+      "type": "text",
+      "text_head": "性能要求的确定流程，如图1 所示。"
+     },
+     {
+      "id": "e000342",
+      "pages": [
+       16
+      ],
+      "type": "figure",
+      "text_head": "[图 1  性能要求确定流程]"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 2
+   },
+   "new": {
+    "resolved": true,
+    "page": 16,
+    "element_ids": [
+     "e000342"
+    ],
+    "anchor_text_heads": [
+     "[图 1 性能要求确定流程]\n性能要求的确定流程，如图1 所示。"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "5 资产管理工作原则 > 5.1 目标和要求 > 5.1.3 性能要求\n[图 1 性能要求确定流程]\n性能要求的确定流程，如图1 所示。",
+    "rendering": "性能要求的确定流程，如图1 所示。 图 1  性能要求确定流程"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "图1图名为性能要求确定流程": 1.0,
+    "用于说明性能要求的确定流程": 0.6667
+   }
+  },
+  {
+   "case_id": "G028",
+   "evidence_index": 0,
+   "doc_file": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+   "must_hit": false,
+   "old": {
+    "page": 1,
+    "anchor": [
+     {
+      "id": "e000001",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "ICS 03.100.01"
+     },
+     {
+      "id": "e000002",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "GB/Z XXXXX—XXXX/ISO 24516-3:2017"
+     },
+     {
+      "id": "e000003",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "供水和污水系统资产管理指南 第3 部"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 1,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003"
+    ],
+    "anchor_text_heads": [
+     "ICS 03.100.01",
+     "GB/Z XXXXX—XXXX/ISO 24516-3:2017",
+     "供水和污水系统资产管理指南 第3 部"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "page_excerpt",
+    "quote": "ICS 03.100.01 GB/Z XXXXX—XXXX/ISO 24516-3:2017 供水和污水系统资产管理指南 第3 部",
+    "rendering": null
+   },
+   "pending": []
+  },
+  {
+   "case_id": "G029",
+   "evidence_index": 0,
+   "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "must_hit": true,
+   "old": {
+    "page": 1,
+    "anchor": [
+     {
+      "id": "e000006",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "Standard for monitoring and estimation of inflow and"
+     },
+     {
+      "id": "e000007",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "infiltration in urban sanitary sewer system"
+     },
+     {
+      "id": "e000003",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "中国工程建设标准化协会标准"
+     },
+     {
+      "id": "e000004",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "城镇污水管网入流入渗监测与"
+     },
+     {
+      "id": "e000008",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "中国建筑工业出版社"
+     },
+     {
+      "id": "e000002",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "T/CECS1764-2024"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 1,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000010",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000016",
+     "e000017",
+     "e000018",
+     "e000019",
+     "e000020",
+     "e000021",
+     "e000022",
+     "e000023",
+     "e000024",
+     "e000025",
+     "e000026",
+     "e000027",
+     "e000028",
+     "e000029",
+     "e000030",
+     "e000031",
+     "e000032",
+     "e000033",
+     "e000034",
+     "e000035",
+     "e000036",
+     "e000037",
+     "e000038",
+     "e000039",
+     "e000040",
+     "e000041",
+     "e000042",
+     "e000043",
+     "e000044",
+     "e000045"
+    ],
+    "anchor_text_heads": [
+     "CECS",
+     "T/CECS1764-2024",
+     "中国工程建设标准化协会标准",
+     "城镇污水管网入流入渗监测与",
+     "评估标准",
+     "Standard for monitoring and estimation of inflow and",
+     "infiltration in urban sanitary sewer system",
+     "中国建筑工业出版社",
+     "中国工程建设标准化协会标准",
+     "城镇污水管网入流入渗监测与",
+     "评估标准",
+     "Standard for monitoring and estimation of inflow and",
+     "infiltration in urban sanitary sewer system",
+     "T/CECS1764-2024",
+     "主编单位：上海市政工程设计研究总院（集团）有限公司",
+     "批准部门：中国工程建设标准化协会",
+     "施期：2 0 2 5 年 4 1",
+     "中国建筑工业出版社",
+     "2024北",
+     "京",
+     "中国工程建设标准化协会标准",
+     "城镇污水管网入流入渗监测与",
+     "评估标准",
+     "Standard for monitoring and estimation of inflow and",
+     "infiltration in urban sanitary sewer system",
+     "T/CECS1764-2024",
+     "*",
+     "中国建筑工业出版社出版、发行（北京海淀三里河路9号）",
+     "各地新华书店、建筑书店经销",
+     "北京红光制版公司制版",
+     "廊坊市海涛印刷有限公司印刷",
+     "*",
+     "开本：850毫米×1168毫米1/32印张：15字数：42千字",
+     "2025年3月第一版2025年3月第一次印刷",
+     "印数：1—600册",
+     "定价：33.00元",
+     "统书号：15112·44269",
+     "版权所有翻印必究",
+     "如有质量问题，可与本社读者服务中心联系",
+     "电话：（010）58337283（邮政编码100037）",
+     "本社网址：http：//www.cabp.com.cn",
+     "网上书店：http://www.china-building.com.cn",
+     "中国工程建设标准化协会公告",
+     "第2223号",
+     "关于发布《城镇污水管网入流入渗监测"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "1764-2024\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nStandard for monitoring and estimation of inflow and\ninfiltration in urban sanitary sewer system\n中国建筑工业出版社\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nStandard for monitoring and estimation of inflow and\ninfiltration in urban sanitary sewer system\nT/CECS1764-2024\n主编单位：上海市政工程设计研究总院（集团）有限公",
+    "rendering": "/CECS1764-2024 中国工程建设标准化协会标准 城镇污水管网入流入渗监测与 评估标准 Standard for monitoring and estimation of inflow and infiltration in urban sanitary sewer system 中国建筑工业出版社"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "规范城镇污水管网入流入渗的监测与评估": 0.7647
+   }
+  },
+  {
+   "case_id": "G030",
+   "evidence_index": 0,
+   "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "must_hit": true,
+   "old": {
+    "page": 18,
+    "anchor": [
+     {
+      "id": "e000408",
+      "pages": [
+       18
+      ],
+      "type": "text",
+      "text_head": "5.2.3采用特征因子法计算旱天流渗量时，应按下式计算："
+     },
+     {
+      "id": "e000412",
+      "pages": [
+       18
+      ],
+      "type": "text",
+      "text_head": "旱天人流入渗量（m{/d）；"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_page_shifted": 2
+   },
+   "new": {
+    "resolved": true,
+    "page": 18,
+    "element_ids": [
+     "e000437",
+     "e000439",
+     "e000440"
+    ],
+    "anchor_text_heads": [
+     "[公式]\nB I=\\frac{A D F\\times(C_{\\mathrm{w}}-C)}{C_{\\mathrm{w}}",
+     "式中：BI—",
+     "旱天人流入渗量（m{/d）；"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source",
+     "ocr_source_review",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "5.2 旱天入流入渗计算 > 5.2.3 采用特征因子法计算旱天流渗量时，应按下式计算：\n[公式]\nB I=\\frac{A D F\\times(C_{\\mathrm{w}}-C)}{C_{\\mathrm{w}}-C_{\\mathrm{w s}}}\n式中：BI—\n旱天人流入渗量（m{/d）；",
+    "rendering": "5.2.3采用特征因子法计算旱天流渗量时，应按下式计算： BI = ADF×(Cw-C) / (Cw-Cws)  (5.2.3) 式中：BI— 旱天人流入渗量（m³/d）； ADF 旱天日均流量监测值（m³/d）；"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "BI=ADF×(Cw-C)/(Cw-Cws)": 1.0,
+    "ADF为旱天日均流量监测值": 0.1111,
+    "工作流程见图3.0.5": 1.0
+   }
+  },
+  {
+   "case_id": "G030",
+   "evidence_index": 1,
+   "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "must_hit": true,
+   "old": {
+    "page": 12,
+    "anchor": [
+     {
+      "id": "e000242",
+      "pages": [
+       12
+      ],
+      "type": "figure",
+      "text_head": "[图3.0.5城镇污水管网入流入渗检测与评估工作流程图]"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 11,
+    "element_ids": [
+     "e000242"
+    ],
+    "anchor_text_heads": [
+     "[图3.0.5城镇污水管网入流入渗检测与评估工作流程图]\n识别、报告编制等内容（图3.0.5）。监测开展前应编制完整的"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "verbatim_kept",
+    "quote": "图3.0.5城镇污水管网入流入渗检测与评估工作流程图",
+    "rendering": null
+   },
+   "pending": [
+    "page_reanchored",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "BI=ADF×(Cw-C)/(Cw-Cws)": 1.0,
+    "ADF为旱天日均流量监测值": 0.1111,
+    "工作流程见图3.0.5": 1.0
+   }
+  },
+  {
+   "case_id": "G031",
+   "evidence_index": 0,
+   "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 5,
+    "anchor": [
+     {
+      "id": "e000033",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级"
+     },
+     {
+      "id": "e000027",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "短时气象服务 short time weather service\n针对发生在较短时间内的天气而进行的监测、预警等气象服"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 2
+   },
+   "new": {
+    "resolved": true,
+    "page": 5,
+    "element_ids": [
+     "e000029",
+     "e000031",
+     "e000032",
+     "e000033",
+     "e000034",
+     "e000036"
+    ],
+    "anchor_text_heads": [
+     "T/CMSA 0013—2019",
+     "本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。",
+     "降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降",
+     "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级",
+     "T/CMSA 0013—2019",
+     "单位：毫米（mm）"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "3 等级划分\nT/CMSA 0013—2019\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降水。\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\nT/CMSA 0013—2019\n单位：毫米（mm）",
+    "rendering": "发生在较短时间内的天气而进行的监测、预警等气象服务。 3 等级划分 将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大 暴雨、短时特大暴雨共6个等级。具体划分见表1。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "对10分钟、30分钟、1小时降雨量划分短时小雨至短时特大暴雨共6个等级": 1.0
+   }
+  },
+  {
+   "case_id": "G032",
+   "evidence_index": 1,
+   "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+   "must_hit": true,
+   "old": null,
+   "drift_classification": {
+    "native_addition": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 6,
+    "element_ids": [
+     "e000037"
+    ],
+    "anchor_text_heads": [
+     "表1 短时气象服务降雨量等级划分表\n等级 | 时段 | 时段 | 时段\n等级 | 10分钟 | 30分钟 | 1小时\n短"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "native_table_row",
+    "quote": "短时暴雨 | 2.0~4.9 | 4.0~9.9 | 8.0~19.9",
+    "rendering": null
+   },
+   "pending": []
+  },
+  {
+   "case_id": "G032",
+   "evidence_index": 0,
+   "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 5,
+    "anchor": [
+     {
+      "id": "e000033",
+      "pages": [
+       5
+      ],
+      "type": "text",
+      "text_head": "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 5,
+    "element_ids": [
+     "e000029",
+     "e000031",
+     "e000032",
+     "e000033",
+     "e000034",
+     "e000036"
+    ],
+    "anchor_text_heads": [
+     "T/CMSA 0013—2019",
+     "本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。",
+     "降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降",
+     "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级",
+     "T/CMSA 0013—2019",
+     "单位：毫米（mm）"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "verbatim_kept",
+    "quote": "0分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大 暴雨、短时特大暴雨共6个等级。具体划分见表1。",
+    "rendering": null
+   },
+   "pending": [],
+   "fact_coverage": {
+    "1小时8.0～19.9 mm为短时暴雨": 0.5
+   }
+  },
+  {
+   "case_id": "G033",
+   "evidence_index": 0,
+   "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 21,
+    "anchor": [
+     {
+      "id": "e000705",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "城区，最大允许退水时间应采用规定的下限。交通枢纽的最大允"
+     },
+     {
+      "id": "e000723",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "综合径流系数应严格按规划确定的控制，并应符合下列规定："
+     },
+     {
+      "id": "e000724",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "综合径流系数高于0.7的地区应采用渗透、调蓄等措施。"
+     },
+     {
+      "id": "e000718",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "考虑区域降雨和地面渗透性能"
+     },
+     {
+      "id": "e000719",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "过程等因素，采用数学模型法确"
+     },
+     {
+      "id": "e000708",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "4.1.7当采用推理公式法时、"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 21,
+    "element_ids": [
+     "e000705",
+     "e000706",
+     "e000707",
+     "e000708"
+    ],
+    "anchor_text_heads": [
+     "4.1.5的规定。人口密集、内涝易发、特别重要且经济条件较好的",
+     "城区，最大允许退水时间应采用规定的下限。交通枢纽的最大允",
+     "许退水时间应为0.5h。",
+     "原径流量。"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "4.1 设计流量 > 4.1.5 内涝防治设计重现期下的最大允许退水时间应符合表\n4.1.5的规定。人口密集、内涝易发、特别重要且经济条件较好的\n城区，最大允许退水时间应采用规定的下限。交通枢纽的最大允\n许退水时间应为0.5h。\n原径流量。",
+    "rendering": "发、特别重要且经济条件较好的 城区，最大允许退水时间应采用规定的下限。交通枢纽的最大允 许退水时间应为0.5h。 城区类型 中心城区 非中心城区 最大允许退水时间 1.0~3.0 1.5~4.0 0.5~2.0 原径流量。 4.1.7当采用推理公式法时、 考虑区域降雨和地面渗透性能 过程等因素，采用数学模型法确 A 定雨水设计流量。 Qs = qΨ (4.1.7) 式中：Q 流量（L/s) 合径流系数； 汇水面积（hm2）。 综合径流系数应严格按规划确定的控制，并应符合下列规定： 1 综合径流系数高于0.7的地区应采用渗透、调蓄等措施。 2综合径流系数"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "交通枢纽最大允许退水时间应为0.5h": 1.0
+   }
+  },
+  {
+   "case_id": "G034",
+   "evidence_index": 0,
+   "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 22,
+    "anchor": [
+     {
+      "id": "e000749",
+      "pages": [
+       22
+      ],
+      "type": "table",
+      "text_head": "表4.1.8-2\n区域情况 |  | 综合径流系数\n城镇建筑密集区 |  | 0.60~ ,\n城镇建筑 |  | 45"
+     },
+     {
+      "id": "e000750",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "具有20年以上自记雨量记录的地区，排水系统设计暴雨强度"
+     },
+     {
+      "id": "e000740",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "参数，根据统计方法进行计算确定。"
+     },
+     {
+      "id": "e000744",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "式中：t—降雨历时（min）；"
+     },
+     {
+      "id": "e000751",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "公式应采用年最大值法，并应按本标准附录B的规定编制。"
+     },
+     {
+      "id": "e000748",
+      "pages": [
+       22
+      ],
+      "type": "table",
+      "text_head": "表4.1.8-1径流系数\n地面种类 |  | 径流系数\n各种屋面、混凝土或沥青路面 |  | 0.85~0.95 0.5"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 22,
+    "element_ids": [
+     "e000750"
+    ],
+    "anchor_text_heads": [
+     "表4.1.8-1径流系数\n地面种类 | 径流系数\n各种屋面、混凝土或沥青路面 | 0.85~0.95\n大块石铺砌路面或沥"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "4.1 设计流量 > 4.1.11 雨水管渠的降雨历时应按下式计算：\n表4.1.8-1径流系数\n地面种类 | 径流系数\n各种屋面、混凝土或沥青路面 | 0.85~0.95\n大块石铺砌路面或沥青表面各种的碎石路面 | 0.55~0.65\n级配碎石路面 | \n干砌砖石或碎石路面 | \n非铺砌土路面 | 35\n公园或绿地 | 10~0.20",
+    "rendering": "表4.1.8-1径流系数 地面种类 径流系数 各种屋面、混凝土或沥青路面 0.85~0.95 大块石铺砌路面或沥青表面各种的碎石路面 0.55~0.65 级配碎石路面 0.40~ 干砌砖石或碎石路面 非铺砌土路面 公园或绿地 表4.1.8-2 区域情况 综合径流系数 城镇建筑密集区 0.60~ , 城镇建筑 45 4.1.9 设计 9 (4.1.9) 0 设计重现期（年）； t 降雨历时（min）； A1 ,C,b,n 参数，根据统计方法进行计算确定。 具有20年以上自记雨量记录的地区，排水系统设计暴雨强度 公式应采用年最大值法，并应按本标准附录"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "径流系数约为0.85~0.95": 1.0
+   }
+  },
+  {
+   "case_id": "G035",
+   "evidence_index": 0,
+   "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 21,
+    "anchor": [
+     {
+      "id": "e000718",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "考虑区域降雨和地面渗透性能"
+     },
+     {
+      "id": "e000719",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "过程等因素，采用数学模型法确"
+     },
+     {
+      "id": "e000708",
+      "pages": [
+       21
+      ],
+      "type": "text",
+      "text_head": "4.1.7当采用推理公式法时、"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 21,
+    "element_ids": [
+     "e000710",
+     "e000711",
+     "e000712",
+     "e000713",
+     "e000714",
+     "e000715",
+     "e000716",
+     "e000718",
+     "e000719",
+     "e000720",
+     "e000721"
+    ],
+    "anchor_text_heads": [
+     "A",
+     "定雨水设计流量。",
+     "Qs = qΨ",
+     "式中：Q",
+     "流量（L/s)",
+     "合径流系数；",
+     "汇水面积（hm2）。",
+     "实地面种类的组成和比例。",
+     "考虑区域降雨和地面渗透性能",
+     "过程等因素，采用数学模型法确",
+     "(4.1.7)"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "too_short",
+     "needs_review_source",
+     "unmatched_text_region"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "4.1 设计流量 > 4.1.7 当采用推理公式法时、\nA\n定雨水设计流量。\nQs = qΨ\n式中：Q\n流量（L/s)\n合径流系数；\n汇水面积（hm2）。\n实地面种类的组成和比例。\n考虑区域降雨和地面渗透性能\n过程等因素，采用数学模型法确\n(4.1.7)",
+    "rendering": "4.1.7当采用推理公式法时、 考虑区域降雨和地面渗透性能 过程等因素，采用数学模型法确 A 定雨水设计流量。 Qs = qΨ (4.1.7) 式中：Q 流量（L/s) 合径流系数； 汇水面积（hm2）。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "推理公式表述为Qs=qΨ（F为汇水面积，见式中说明）": 0.4375,
+    "各种屋面、混凝土或沥青路面径流系数0.85~0.95": 1.0
+   }
+  },
+  {
+   "case_id": "G035",
+   "evidence_index": 1,
+   "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 22,
+    "anchor": [
+     {
+      "id": "e000748",
+      "pages": [
+       22
+      ],
+      "type": "table",
+      "text_head": "表4.1.8-1径流系数\n地面种类 |  | 径流系数\n各种屋面、混凝土或沥青路面 |  | 0.85~0.95 0.5"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 22,
+    "element_ids": [
+     "e000750"
+    ],
+    "anchor_text_heads": [
+     "表4.1.8-1径流系数\n地面种类 | 径流系数\n各种屋面、混凝土或沥青路面 | 0.85~0.95\n大块石铺砌路面或沥"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "verbatim_kept",
+    "quote": "表4.1.8-1径流系数 地面种类 径流系数 各种屋面、混凝土或沥青路面 0.85~0.95",
+    "rendering": null
+   },
+   "pending": [
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "推理公式表述为Qs=qΨ（F为汇水面积，见式中说明）": 0.4375,
+    "各种屋面、混凝土或沥青路面径流系数0.85~0.95": 1.0
+   }
+  },
+  {
+   "case_id": "G036",
+   "evidence_index": 0,
+   "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 22,
+    "anchor": [
+     {
+      "id": "e000752",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "t1——地面集水时间（min），应根据汇水距离、地形坡度和地"
+     },
+     {
+      "id": "e000742",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "4.1.11雨水管渠的降雨历时应按下式计算："
+     },
+     {
+      "id": "e000744",
+      "pages": [
+       22
+      ],
+      "type": "text",
+      "text_head": "式中：t—降雨历时（min）；"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 22,
+    "element_ids": [
+     "e000752",
+     "e000753",
+     "e000754",
+     "e000755",
+     "e000756",
+     "e000757"
+    ],
+    "anchor_text_heads": [
+     "具有20年以上自记雨量记录的地区，排水系统设计暴雨强度",
+     "公式应采用年最大值法，并应按本标准附录B的规定编制。",
+     "t1——地面集水时间（min），应根据汇水距离、地形坡度和地",
+     "面种类通过计算确定，宜采用5min~15min；",
+     "t2——管渠内雨水流行时间(min)。",
+     "Ⅱ污水量"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "4.1 设计流量 > 4.1.11 雨水管渠的降雨历时应按下式计算：\n具有20年以上自记雨量记录的地区，排水系统设计暴雨强度\n公式应采用年最大值法，并应按本标准附录B的规定编制。\nt1——地面集水时间（min），应根据汇水距离、地形坡度和地\n面种类通过计算确定，宜采用5min~15min；\nt2——管渠内雨水流行时间(min)。\nⅡ污水量",
+    "rendering": "4.1.11雨水管渠的降雨历时应按下式计算： t =t1 +t2  (4.1.11) 式中：t—降雨历时（min）； t1——地面集水时间（min），应根据汇水距离、地形坡度和地"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "t=t1+t2": 1.0,
+    "t1为地面集水时间，宜采用5min~15min": 1.0,
+    "t2为管渠内雨水流行时间": 1.0
+   }
+  },
+  {
+   "case_id": "G036",
+   "evidence_index": 1,
+   "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 23,
+    "anchor": [
+     {
+      "id": "e000753",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "面种类通过计算确定，宜采用5min~15min；"
+     },
+     {
+      "id": "e000754",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "t2——管渠内雨水流行时间(min)。"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_page_shifted": 2
+   },
+   "new": {
+    "resolved": true,
+    "page": 23,
+    "element_ids": [
+     "e000752",
+     "e000753",
+     "e000754",
+     "e000755",
+     "e000756",
+     "e000757"
+    ],
+    "anchor_text_heads": [
+     "具有20年以上自记雨量记录的地区，排水系统设计暴雨强度",
+     "公式应采用年最大值法，并应按本标准附录B的规定编制。",
+     "t1——地面集水时间（min），应根据汇水距离、地形坡度和地",
+     "面种类通过计算确定，宜采用5min~15min；",
+     "t2——管渠内雨水流行时间(min)。",
+     "Ⅱ污水量"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "verbatim_kept",
+    "quote": "面种类通过计算确定，宜采用5min~15min； t2——管渠内雨水流行时间(min)。",
+    "rendering": null
+   },
+   "pending": [
+    "quote_spans_multiple_elements"
+   ],
+   "fact_coverage": {
+    "t=t1+t2": 1.0,
+    "t1为地面集水时间，宜采用5min~15min": 1.0,
+    "t2为管渠内雨水流行时间": 1.0
+   }
+  },
+  {
+   "case_id": "G037",
+   "evidence_index": 0,
+   "doc_file": "城市排水工程规划规范.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 20,
+    "anchor": [
+     {
+      "id": "e000312",
+      "pages": [
+       20
+      ],
+      "type": "text",
+      "text_head": "式中：Q——雨水设计流量（L/s）；"
+     },
+     {
+      "id": "e000325",
+      "pages": [
+       20
+      ],
+      "type": "text",
+      "text_head": "间等。当汇水面积不超过2kmz时，雨水设计流量可采用推理公"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 1,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 20,
+    "element_ids": [
+     "e000305",
+     "e000306",
+     "e000307",
+     "e000308",
+     "e000309",
+     "e000310",
+     "e000311",
+     "e000312",
+     "e000313",
+     "e000315",
+     "e000316"
+    ],
+    "anchor_text_heads": [
+     "5.2.1\n城市总体规划应按气候分区、水文特征、地质条件等确",
+     "定径流总量控制目标；专项规划应将城市的径流总量控制目标进",
+     "行分解和落实。\n5.2.2\n采用数学模型法计算雨水设计流量时，宜采用当地设计",
+     "II",
+     "暴雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水",
+     "面积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历\n时降雨，防涝系统宜采用不同历时的降雨。\n5.2.3\n设计暴雨强",
+     "式法按下式计算。",
+     "式中：Q——雨水设计流量（L/s）；",
+     "史一综合径流系数；",
+     "应采用低影响开发建设模式，降低综合径流系数。",
+     "Q = gXWXF\n（5.2.6）"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "综合确定，其中雨水排放系统宜采用短历\n时降雨，防涝系统宜采用不同历时的降雨。\n5.2.3\n设计暴雨强度，应按当地设计暴雨强度公式计算.计算\n方法按现行国家标准《室外排水设计规范》GB 50014 中的规定\n执行。暴雨强度公式应适时进行修订。\n5.2.4\n综合径流系数可按表5. 2. 4 的规定取值。城市开发建设\n式法按下式计算。\n式中：Q——雨水设计流量（L/s）；\n史一综合径流系数；\n应采用低影响开发建设模式，降低综合径流系数。\nQ = gXWXF\n（5.2.6）",
+    "rendering": "当汇水面积不超过2kmz时，雨水设计流量可采用推理公式法按下式计算。 Q = gXWXF （5.2.6） 式中：Q——雨水设计流量（L/s）； q——设计暴雨强度［L/ （s·hn?）］；"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "Q为雨水设计流量（L/s），q为设计暴雨强度": 0.8333,
+    "适用条件含汇水面积不超过2km²时可采推理公式法": 0.0,
+    "城市建筑密集区雨水排放系统综合径流系数约0.60~0.70": 0.0
+   }
+  },
+  {
+   "case_id": "G037",
+   "evidence_index": 1,
+   "doc_file": "城市排水工程规划规范.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 20,
+    "anchor": [
+     {
+      "id": "e000318",
+      "pages": [
+       20
+      ],
+      "type": "table",
+      "text_head": "表5. 2. 4\n综合径流系数\n区域情况 |  | 综合径流系数（w）\n雨水排放系统 | 防涝系统 | \n城市建筑密集区"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 20,
+    "element_ids": [
+     "e000320"
+    ],
+    "anchor_text_heads": [
+     "表5. 2. 4\n综合径流系数\n区域情况 | 综合径流系数（Ψ) | 综合径流系数（Ψ)\n区域情况 | 雨水排放系统 |"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "5 雨水系统 > 5.2 雨水量 > 5.2.1 城市总体规划应按气候分区、水文特征、地质条件等确\n表5. 2. 4\n综合径流系数\n区域情况 | 综合径流系数（Ψ) | 综合径流系数（Ψ)\n区域情况 | 雨水排放系统 | 防涝系统\n城市建筑密集区 | 0.60~0.70 | 0.80~1.00\n城市建筑较密集区 | 0.45~0.60 | 0.60~0.80\n城市建筑稀疏区 | 0.20~0.45 | 0.40~0.60",
+    "rendering": "表5. 2. 4 综合径流系数 区域情况 综合径流系数（w） 雨水排放系统 防涝系统 城市建筑密集区 0. 60 0.70 0. 80 1.00"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "Q为雨水设计流量（L/s），q为设计暴雨强度": 0.8333,
+    "适用条件含汇水面积不超过2km²时可采推理公式法": 0.0,
+    "城市建筑密集区雨水排放系统综合径流系数约0.60~0.70": 0.0
+   }
+  },
+  {
+   "case_id": "G038",
+   "evidence_index": 0,
+   "doc_file": "城市排水工程规划规范.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 15,
+    "anchor": [
+     {
+      "id": "e000234",
+      "pages": [
+       15
+      ],
+      "type": "text",
+      "text_head": "确定。当资料缺乏时，城市分类污水排放系数可根据城市居住和"
+     },
+     {
+      "id": "e000235",
+      "pages": [
+       15
+      ],
+      "type": "text",
+      "text_head": "公共设施水平以及工业类型等，按表4.2.3 的规定取值。"
+     },
+     {
+      "id": "e000233",
+      "pages": [
+       15
+      ],
+      "type": "text",
+      "text_head": "地下水位较高的地区，污水量还应计入地下水渗人量。\n4.2.2\n城市污水量可根据城市用水量和城市污水排放系数确定。\n4.2"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 3
+   },
+   "new": {
+    "resolved": true,
+    "page": 15,
+    "element_ids": [
+     "e000232",
+     "e000233",
+     "e000234",
+     "e000235"
+    ],
+    "anchor_text_heads": [
+     "4.2.1\n城市污水量应包括城市综合生活污水量和工业废水量。",
+     "地下水位较高的地区，污水量还应计入地下水渗人量。\n4.2.2\n城市污水量可根据城市用水量和城市污水排放系数确定。\n4.2",
+     "确定。当资料缺乏时，城市分类污水排放系数可根据城市居住和",
+     "公共设施水平以及工业类型等，按表4.2.3 的规定取值。"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "4 污水系统 > 4.2 污水量 > 4.2.1 城市污水量应包括城市综合生活污水量和工业废水量\n4.2.1\n城市污水量应包括城市综合生活污水量和工业废水量。\n地下水位较高的地区，污水量还应计入地下水渗人量。\n4.2.2\n城市污水量可根据城市用水量和城市污水排放系数确定。\n4.2.3\n各类污水排放系数应根据城市历年供水量和污水量资料\n确定。当资料缺乏时，城市分类污水排放系数可根据城市居住和\n公共设施水平以及工业类型等，按表4.2.3 的规定取值。",
+    "rendering": "4.2.3 各类污水排放系数应根据城市历年供水量和污水量资料确定。当资料缺乏时，城市分类污水排放系数可根据城市居住和公共设施水平以及工业类型等，按表4.2.3 的规定取值。 表4. 2.3 城市分类污水排放系数"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "表4.2.3为城市分类污水排放系数": 1.0,
+    "资料缺乏时按该表取值": 0.5556
+   }
+  },
+  {
+   "case_id": "G039",
+   "evidence_index": 0,
+   "doc_file": "GBT+47884-2026.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 9,
+    "anchor": [
+     {
+      "id": "e000122",
+      "pages": [
+       9
+      ],
+      "type": "figure",
+      "text_head": "[图1 城镇排水管网数字化通用技术的总体架构逻辑关系图]"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 8,
+    "element_ids": [
+     "e000122"
+    ],
+    "anchor_text_heads": [
+     "[图1 城镇排水管网数字化通用技术的总体架构逻辑关系图]\n内容(见图1),且其要求如下:"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "verbatim_kept",
+    "quote": "图1 城镇排水管网数字化通用技术的总体架构逻辑关系图",
+    "rendering": null
+   },
+   "pending": [
+    "page_reanchored"
+   ],
+   "fact_coverage": {
+    "图1为城镇排水管网数字化通用技术的总体架构逻辑关系图": 1.0
+   }
+  },
+  {
+   "case_id": "G040",
+   "evidence_index": 0,
+   "doc_file": "GBT+47884-2026.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 10,
+    "anchor": [
+     {
+      "id": "e000146",
+      "pages": [
+       10
+      ],
+      "type": "text",
+      "text_head": "7.\n1.\n4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则。"
+     },
+     {
+      "id": "e000159",
+      "pages": [
+       10
+      ],
+      "type": "text",
+      "text_head": "7.\n2.\n3 在线监测点位的布设应遵循以下原则:"
+     },
+     {
+      "id": "e000171",
+      "pages": [
+       10
+      ],
+      "type": "table",
+      "text_head": "表1 应监测的对象及监测指标要求\n排水管网类型 | 监测对象 | 监测指标\n高水位运行点、主干管节点、污水厂前关键节点等"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 2,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 10,
+    "element_ids": [
+     "e000146"
+    ],
+    "anchor_text_heads": [
+     "7.\n1.\n4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则。"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "7 感知数据 > 7.1 一般规则 > 7.1.4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则\n7.\n1.\n4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则。",
+    "rendering": "表1 应监测的对象及监测指标要求 7.1.4 在线监测点位的布设应遵守系统性、代表性、有效性、可行性和积极性的原则。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "表1为应监测的对象及监测指标要求": 0.0,
+    "点位布设原则：系统性、代表性、有效性、可行性、积极性": 0.8
+   }
+  },
+  {
+   "case_id": "G041",
+   "evidence_index": 0,
+   "doc_file": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 1,
+    "anchor": [
+     {
+      "id": "e000018",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "更新取得显著成效。城市污泥无害化处置率和资源化利用率进一步"
+     },
+     {
+      "id": "e000016",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "到2023 年，县级及以上城市设施能力基本满足生活污水处理"
+     },
+     {
+      "id": "e000017",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "需求。生活污水收集效能明显提升，城市市政雨污管网混错接改造"
+     },
+     {
+      "id": "e000019",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "提高。缺水地区和水环境敏感区域污水资源化利用水平明显提升。"
+     },
+     {
+      "id": "e000021",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "有序建设、适度超前的原则，统筹考虑城镇（含易地扶贫搬迁后）"
+     },
+     {
+      "id": "e000020",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "（一）强化城镇污水处理厂弱项。按照因地制宜、查漏补缺、"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 1,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005",
+     "e000006",
+     "e000007",
+     "e000008",
+     "e000009",
+     "e000011",
+     "e000012",
+     "e000013",
+     "e000014",
+     "e000015",
+     "e000016",
+     "e000017",
+     "e000018",
+     "e000019",
+     "e000020",
+     "e000021",
+     "e000022"
+    ],
+    "anchor_text_heads": [
+     "城镇生活污水处理设施补短板强弱项实施方案",
+     "为深入贯彻习近平生态文明思想，落实党中央、国务院关于加",
+     "强生态环境保护、建设美丽中国的决策部署和《政府工作报告》要",
+     "求，解决城镇生活污水收集处理发展不均衡、不充分的矛盾，加快",
+     "一、总体要求",
+     "态环境需要。",
+     "二、实施目标",
+     "三、主要任务",
+     "补齐城镇生活污水处理设施建设短板，制定本方案。",
+     "以习近平新时代中国特色社会主义思想为指导，全面贯彻党的",
+     "十九大和十九届二中、三中、四中全会精神，提升城镇生活污水收",
+     "集处理能力，加大生活污水收集管网配套建设和改造力度，促进污",
+     "水资源化利用，推进污泥无害化资源化处理处置，加快补齐设施短",
+     "板，完善生活污水收集处理设施体系，满足人民日益增长的优美生",
+     "到2023 年，县级及以上城市设施能力基本满足生活污水处理",
+     "需求。生活污水收集效能明显提升，城市市政雨污管网混错接改造",
+     "更新取得显著成效。城市污泥无害化处置率和资源化利用率进一步",
+     "提高。缺水地区和水环境敏感区域污水资源化利用水平明显提升。",
+     "（一）强化城镇污水处理厂弱项。按照因地制宜、查漏补缺、",
+     "有序建设、适度超前的原则，统筹考虑城镇（含易地扶贫搬迁后）",
+     "人口容量和分布，坚持集中与分散相结合，科学确定城镇污水处理"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "too_short",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "全会精神，提升城镇生活污水收\n集处理能力，加大生活污水收集管网配套建设和改造力度，促进污\n水资源化利用，推进污泥无害化资源化处理处置，加快补齐设施短\n板，完善生活污水收集处理设施体系，满足人民日益增长的优美生\n到2023 年，县级及以上城市设施能力基本满足生活污水处理\n需求。生活污水收集效能明显提升，城市市政雨污管网混错接改造\n更新取得显著成效。城市污泥无害化处置率和资源化利用率进一步\n提高。缺水地区和水环境敏感区域污水资源化利用水平明显提升。\n（一）强化城镇污水处理厂弱项。按照因地制宜、查漏补缺、\n有序建设、适度超前的原则，统筹考虑城镇（含易地扶贫搬迁后）\n人口容量和分布，坚持集中与分散相结合，科学确定城镇污水处理",
+    "rendering": "集处理设施体系，满足人民日益增长的优美生 态环境需要。 二、实施目标 到2023 年，县级及以上城市设施能力基本满足生活污水处理 需求。生活污水收集效能明显提升，城市市政雨污管网混错接改造 更新取得显著成效。城市污泥无害化处置率和资源化利用率进一步 提高。缺水地区和水环境敏感区域污水资源化利用水平明显提升。 三、主要任务 （一）强化城镇污水处理厂弱项。按照因地制宜、查漏补缺、 有序建设、适度超前的原则，统筹考虑城镇（含易地扶贫搬迁后）"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "到2023年，县级及以上城市设施能力基本满足生活污水处理需求": 1.0,
+    "提升收集效能、推进雨污混错接改造等": 0.6667
+   }
+  },
+  {
+   "case_id": "G042",
+   "evidence_index": 0,
+   "doc_file": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 11,
+    "anchor": [
+     {
+      "id": "e000408",
+      "pages": [
+       11
+      ],
+      "type": "text",
+      "text_head": "5.4.1.2流量仪流量试验装置由水流量标准装置和排水管道组成，见图1。"
+     },
+     {
+      "id": "e000409",
+      "pages": [
+       11
+      ],
+      "type": "figure",
+      "text_head": "[图1流量试验装置示意图]"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 2
+   },
+   "new": {
+    "resolved": true,
+    "page": 11,
+    "element_ids": [
+     "e000423"
+    ],
+    "anchor_text_heads": [
+     "[图1流量试验装置示意图]\n5.4.1.2流量仪流量试验装置由水流量标准装置和排水管道组成，见图1。"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "7 安装与校准 > 5.3 安全性能试验 > 5.3.3 防爆性能试验 > 5.4.1.2 流量仪流量试验装置由水流量标准装置和排水管道组成，见图1\n[图1流量试验装置示意图]\n5.4.1.2流量仪流量试验装置由水流量标准装置和排水管道组成，见图1。",
+    "rendering": "5.4.1.2流量仪流量试验装置由水流量标准装置和排水管道组成，见图1。 水流标准装置 排水管道 被测流量仪 图1流量试验装置示意图"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "图1为流量试验装置示意图": 1.0,
+    "由水流量标准装置和排水管道组成（图中含被测流量仪）": 0.7143
+   }
+  },
+  {
+   "case_id": "G043",
+   "evidence_index": 0,
+   "doc_file": "GBT 28592-2012降水量等级.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 4,
+    "anchor": [
+     {
+      "id": "e000044",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "降雪分为微量降雪（零星小雪）、小雪、中雪、大雪、暴雪、大暴雪、特大暴雪共7个等级。具体划分见"
+     },
+     {
+      "id": "e000035",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "5降雪量等级划分"
+     },
+     {
+      "id": "e000039",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "雨、暴雨、暴雨、特暴共个等级。具体划分见"
+     },
+     {
+      "id": "e000043",
+      "pages": [
+       4
+      ],
+      "type": "table",
+      "text_head": "表1。\n等 |  | 雨量 时段\n级 |  | \n12h降雨量 |  | 24h降雨量 <0.1\n<0.1 |  | \n"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 3,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 4,
+    "element_ids": [
+     "e000028",
+     "e000029",
+     "e000030",
+     "e000031",
+     "e000032",
+     "e000033",
+     "e000034",
+     "e000035",
+     "e000036",
+     "e000037",
+     "e000038",
+     "e000039",
+     "e000040",
+     "e000041",
+     "e000042"
+    ],
+    "anchor_text_heads": [
+     "precipitation",
+     "降水量",
+     "失而在水平面上积聚的深度",
+     "3降水量等级划分的原则",
+     "降水量按24h，12h两个时间段进行",
+     "4降雨量等级划分",
+     "降雨分为微量降雨（零星小雨）、小雨、中雨、天",
+     "5降雪量等级划分",
+     "GB/T28592-2012",
+     "降水量等级",
+     "划分",
+     "雨、暴雨、暴雨、特暴共个等级。具体划分见",
+     "单位为毫米",
+     "本标准适用于降水监测、预报、预警、服务等业务和科研工作，以及其他行业与降水相关的领域。",
+     "某一时段内，从天空降落到地面上的液态（降雨）或固态（降雪）（经融化后）降水，未经蒸发、渗透、流"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "precipitation\n降水量\n失而在水平面上积聚的深度\n3降水量等级划分的原则\n降水量按24h，12h两个时间段进行\n4降雨量等级划分\n降雨分为微量降雨（零星小雨）、小雨、中雨、天\n5降雪量等级划分\nGB/T28592-2012\n降水量等级\n划分\n雨、暴雨、暴雨、特暴共个等级。具体划分见\n单位为毫米\n本标准适用于降水监测、预报、预警、服务等业务和科研工作，以及其他行业与降水相关的领域。\n某一时段内，从天空降落到地面上的液态（降雨）或固态（降雪）（经融化后）降水，未经蒸发、渗透、流",
+    "rendering": "雨 15.0~29.9 25.0~49.9 暴雨 30.0~69.9 50.0~99.9 大暴雨 70.0~139.9 100.0~249.9 特大暴雨 ≥140.0 ≥250.0 5降雪量等级划分 降雪分为微量降雪（零星小雪）、小雪、中雪、大雪、暴雪、大暴雪、特大暴雪共7个等级。具体划分见 表2。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "24h降雨量50.0～99.9 mm为暴雨": 0.5
+   }
+  },
+  {
+   "case_id": "G044",
+   "evidence_index": 0,
+   "doc_file": "GBT 28592-2012降水量等级.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 4,
+    "anchor": [
+     {
+      "id": "e000044",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "降雪分为微量降雪（零星小雪）、小雪、中雪、大雪、暴雪、大暴雪、特大暴雪共7个等级。具体划分见"
+     },
+     {
+      "id": "e000035",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "5降雪量等级划分"
+     },
+     {
+      "id": "e000039",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "雨、暴雨、暴雨、特暴共个等级。具体划分见"
+     },
+     {
+      "id": "e000034",
+      "pages": [
+       4
+      ],
+      "type": "text",
+      "text_head": "降雨分为微量降雨（零星小雨）、小雨、中雨、天"
+     },
+     {
+      "id": "e000043",
+      "pages": [
+       4
+      ],
+      "type": "table",
+      "text_head": "表1。\n等 |  | 雨量 时段\n级 |  | \n12h降雨量 |  | 24h降雨量 <0.1\n<0.1 |  | \n"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 4,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 4,
+    "element_ids": [
+     "e000028",
+     "e000029",
+     "e000030",
+     "e000031",
+     "e000032",
+     "e000033",
+     "e000034",
+     "e000035",
+     "e000036",
+     "e000037",
+     "e000038",
+     "e000039",
+     "e000040",
+     "e000041",
+     "e000042"
+    ],
+    "anchor_text_heads": [
+     "precipitation",
+     "降水量",
+     "失而在水平面上积聚的深度",
+     "3降水量等级划分的原则",
+     "降水量按24h，12h两个时间段进行",
+     "4降雨量等级划分",
+     "降雨分为微量降雨（零星小雨）、小雨、中雨、天",
+     "5降雪量等级划分",
+     "GB/T28592-2012",
+     "降水量等级",
+     "划分",
+     "雨、暴雨、暴雨、特暴共个等级。具体划分见",
+     "单位为毫米",
+     "本标准适用于降水监测、预报、预警、服务等业务和科研工作，以及其他行业与降水相关的领域。",
+     "某一时段内，从天空降落到地面上的液态（降雨）或固态（降雪）（经融化后）降水，未经蒸发、渗透、流"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "precipitation\n降水量\n失而在水平面上积聚的深度\n3降水量等级划分的原则\n降水量按24h，12h两个时间段进行\n4降雨量等级划分\n降雨分为微量降雨（零星小雨）、小雨、中雨、天\n5降雪量等级划分\nGB/T28592-2012\n降水量等级\n划分\n雨、暴雨、暴雨、特暴共个等级。具体划分见\n单位为毫米\n本标准适用于降水监测、预报、预警、服务等业务和科研工作，以及其他行业与降水相关的领域。\n某一时段内，从天空降落到地面上的液态（降雨）或固态（降雪）（经融化后）降水，未经蒸发、渗透、流",
+    "rendering": "时段的降雨量等级划分表 单位为毫米 时段 雨量 等 级 12h降雨量 24h降雨量 微量降雨（零星小雨） <0.1 <0.1 小雨 0.1~4.9 0.1~9.9 中雨 5.0~14.9 10.0~24.9 大雨 15.0~29.9 25.0~49.9 暴雨 30.0~69.9 50.0~99.9 大暴雨 70.0~139.9 100.0~249.9 特大暴雨 ≥140.0 ≥250.0 5降雪量等级划分 降雪分为微量降雪（零星小雪）、小雪、中雪、大雪、暴雪、大暴雪、特大暴雪共7个等级。具体划分见 表2。"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "按24h、12h两个时段划分": 1.0,
+    "特大暴雨24h降雨量≥250.0 mm": 0.5
+   }
+  },
+  {
+   "case_id": "G045",
+   "evidence_index": 0,
+   "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 15,
+    "anchor": [
+     {
+      "id": "e000248",
+      "pages": [
+       15
+      ],
+      "type": "figure",
+      "text_head": "[图\n3. 0. 4 \n1昆接调查与治理环节示意图]"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 15,
+    "element_ids": [
+     "e000244",
+     "e000245",
+     "e000246",
+     "e000249",
+     "e000250",
+     "e000251",
+     "e000252",
+     "e000253",
+     "e000254",
+     "e000255",
+     "e000256",
+     "e000257"
+    ],
+    "anchor_text_heads": [
+     "3. 0. 7\n城镇分流制排水系统雨污泪接、外水入渗与水体水倒灌调",
+     "查与治理应符合国家现行标准《给水排水管道工程施工及验收规",
+     "范》GB 50268 、《城镇排水管道维护安全技术规程》CJJ\n6 ，《城镇排",
+     "图\n3. 0. 4\n1昆接调查与治理环节示意图",
+     "改造施工与验收\n======\n建立长拉动态管理机制",
+     "二二二二二工二二二二二",
+     "编制混接整改方案",
+     "〈主、",
+     "水管渠与泵站运行、维护及安全技术规程》CJJ\n68 、《城镇排水管道",
+     "检测与评估技术规程》CJJ\n181 、《城镇排水管道非开挖修复更新工",
+     "程技术规程》CJJ/T 210 的有关规定。\n3.0.8\n运营单位应按现行行业标准《城镇排水管渠与泵站运行、",
+     "维护及安全技术规程》CJJ\n68 的有关规定，加强排水管道的维护。"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "unmatched_text_region",
+     "needs_review_source",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "接、外水入渗与水体水倒灌调\n3. 0. 7\n城镇分流制排水系统雨污泪接、外水入渗与水体水倒灌调\n查与治理应符合国家现行标准《给水排水管道工程施工及验收规\n范》GB 50268 、《城镇排水管道维护安全技术规程》CJJ\n6 ，《城镇排\n图\n3. 0. 4\n1昆接调查与治理环节示意图\n改造施工与验收\n======\n建立长拉动态管理机制\n二二二二二工二二二二二\n编制混接整改方案\n〈主、\n水管渠与泵站运行、维护及安全技术规程》CJJ\n68 、《城镇排水管道\n检测与评估技术规程》CJJ\n181 、《城镇排水管道非开挖修复更新工\n程技术规程》CJJ/T 210 的有关规定。\n3.0.8\n运营单位应按现行行业标准《城镇排水管渠与泵站运行、\n维护及",
+    "rendering": "编制混接整改方案 改造施工与验收 建立长拉动态管理机制 图 3. 0. 4 1昆接调查与治理环节示意图"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "图3.0.4为混接调查与治理环节示意图": 0.0,
+    "环节包括整改方案、改造施工与验收、长效动态管理等": 0.619
+   }
+  },
+  {
+   "case_id": "G046",
+   "evidence_index": 0,
+   "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 23,
+    "anchor": [
+     {
+      "id": "e000420",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "5. 4. 2\n管道流量测量方法可选用容器体积法、浮标法和速度一面"
+     },
+     {
+      "id": "e000422",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "1\n排水口的自由出流流量测定可采用容器体积法，测量记录"
+     },
+     {
+      "id": "e000423",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "应按本规程附录E 第E. 0. 1 条规定执行。每日流量应基于→天"
+     },
+     {
+      "id": "e000427",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "η\n测定次数（次／d ），每日测量6 次～8 次，对应的时间间"
+     },
+     {
+      "id": "e000421",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "积流量计测定法，并应符合下列规定："
+     },
+     {
+      "id": "e000424",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "内多次的测量数据，按下式计算："
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 6
+   },
+   "new": {
+    "resolved": true,
+    "page": 24,
+    "element_ids": [
+     "e000448",
+     "e000449",
+     "e000450",
+     "e000451",
+     "e000452",
+     "e000453",
+     "e000454",
+     "e000455",
+     "e000456"
+    ],
+    "anchor_text_heads": [
+     "[公式 5.4.22]\nQ=\\frac{1}{n}\\sum_{i=1}^{n}A\\times L_i/\\Delta t_",
+     "式中：Q一二流量（m3/d);",
+     "η\n测定次数（次／d），每日测量6 次～8 次，对应的时间间",
+     "隔为3h～4h;",
+     "A\n管渠过流面积（mz);",
+     "L ；一一一第i 次测定浮标流动的起止点距离（m);",
+     "6.t ；一→第\ni 次测定所用的时间（s);",
+     "走\n？手标法测定的表面流速与断面平均流速之间的修正",
+     "系数，取0. 8~ o. 9 0"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "5 1昆接区域调查 > 5.4 管道流量测量 > 5.4.2 管道流量测量方法可选用容器体积法、浮标法和速度一面\n[公式 5.4.22]\nQ=\\frac{1}{n}\\sum_{i=1}^{n}A\\times L_i/\\Delta t_i\\times k\\times3600\\times24\n式中：Q一二流量（m3/d);\nη\n测定次数（次／d），每日测量6 次～8 次，对应的时间间\n隔为3h～4h;\nA\n管渠过流面积（mz);\nL ；一一一第i 次测定浮标流动的起止点距离（m);\n6.t ；一→第\ni 次测定所用的时间（s);\n走\n？手标法测定的表面流速与断面平均流速之间的修正\n系数，取0. 8~ o. 9 0",
+    "rendering": "5. 4. 2 管道流量测量方法可选用容器体积法、浮标法和速度一面 积流量计测定法，并应符合下列规定： 1 排水口的自由出流流量测定可采用容器体积法，测量记录 应按本规程附录E 第E. 0. 1 条规定执行。每日流量应基于→天 内多次的测量数据，按下式计算： Q (5.4.21) 式中：Q 流量（m3/d); η 测定次数（次／d ），每日测量6 次～8 次，对应的时间间 隔为3h ～4h;"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "page_reanchored",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "容器体积法公式编号为(5.4.21)，Q单位m3/d，每日测6~8次": 0.3333,
+    "浮标法公式编号为(5.4.22)，含过流面积A与修正系数k约0.8~0.9": 0.5,
+    "两种方法均基于一天内多次测量取用": 0.2
+   }
+  },
+  {
+   "case_id": "G046",
+   "evidence_index": 1,
+   "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 24,
+    "anchor": [
+     {
+      "id": "e000447",
+      "pages": [
+       24
+      ],
+      "type": "text",
+      "text_head": "走\n？手标法测定的表面流速与断面平均流速之间的修正"
+     },
+     {
+      "id": "e000442",
+      "pages": [
+       24
+      ],
+      "type": "text",
+      "text_head": "η\n测定次数（次／d），每日测量6 次～8 次，对应的时间间"
+     },
+     {
+      "id": "e000445",
+      "pages": [
+       24
+      ],
+      "type": "text",
+      "text_head": "L ；一一一第i 次测定浮标流动的起止点距离（m);"
+     },
+     {
+      "id": "e000441",
+      "pages": [
+       24
+      ],
+      "type": "text",
+      "text_head": "式中：Q一二流量（m3/d);"
+     },
+     {
+      "id": "e000444",
+      "pages": [
+       24
+      ],
+      "type": "text",
+      "text_head": "A\n管渠过流面积（mz);"
+     },
+     {
+      "id": "e000448",
+      "pages": [
+       24
+      ],
+      "type": "text",
+      "text_head": "系数，取0. 8~ o. 9 0"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_page_shifted": 5,
+    "id_stable": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 24,
+    "element_ids": [
+     "e000448",
+     "e000449",
+     "e000450",
+     "e000451",
+     "e000452",
+     "e000453",
+     "e000454",
+     "e000455",
+     "e000456"
+    ],
+    "anchor_text_heads": [
+     "[公式 5.4.22]\nQ=\\frac{1}{n}\\sum_{i=1}^{n}A\\times L_i/\\Delta t_",
+     "式中：Q一二流量（m3/d);",
+     "η\n测定次数（次／d），每日测量6 次～8 次，对应的时间间",
+     "隔为3h～4h;",
+     "A\n管渠过流面积（mz);",
+     "L ；一一一第i 次测定浮标流动的起止点距离（m);",
+     "6.t ；一→第\ni 次测定所用的时间（s);",
+     "走\n？手标法测定的表面流速与断面平均流速之间的修正",
+     "系数，取0. 8~ o. 9 0"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "5 1昆接区域调查 > 5.4 管道流量测量 > 5.4.2 管道流量测量方法可选用容器体积法、浮标法和速度一面\n[公式 5.4.22]\nQ=\\frac{1}{n}\\sum_{i=1}^{n}A\\times L_i/\\Delta t_i\\times k\\times3600\\times24\n式中：Q一二流量（m3/d);\nη\n测定次数（次／d），每日测量6 次～8 次，对应的时间间\n隔为3h～4h;\nA\n管渠过流面积（mz);\nL ；一一一第i 次测定浮标流动的起止点距离（m);\n6.t ；一→第\ni 次测定所用的时间（s);\n走\n？手标法测定的表面流速与断面平均流速之间的修正\n系数，取0. 8~ o. 9 0",
+    "rendering": "Q 二~2=A × L/iJL ×走× 36川24 (5.4.22) 式中：Q一二流量（m3/d); η 测定次数（次／d），每日测量6 次～8 次，对应的时间间 隔为3h～4h; A 管渠过流面积（mz); L ；一一一第i 次测定浮标流动的起止点距离（m); 走 ？手标法测定的表面流速与断面平均流速之间的修正 系数，取0. 8~ o. 9 0"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "容器体积法公式编号为(5.4.21)，Q单位m3/d，每日测6~8次": 0.3333,
+    "浮标法公式编号为(5.4.22)，含过流面积A与修正系数k约0.8~0.9": 0.5,
+    "两种方法均基于一天内多次测量取用": 0.2
+   }
+  },
+  {
+   "case_id": "G047",
+   "evidence_index": 0,
+   "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 28,
+    "anchor": [
+     {
+      "id": "e000525",
+      "pages": [
+       28
+      ],
+      "type": "text",
+      "text_head": "执行，并应以任一指标取高值的原则进行评估。"
+     },
+     {
+      "id": "e000538",
+      "pages": [
+       28
+      ],
+      "type": "table",
+      "text_head": "表7. 2. 2 \n单个混接点或混接源混接程度分级标准\n出流流量q |  | 污水出流水质（mg/L)\n1昆接程度与分级"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_page_shifted": 1,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 28,
+    "element_ids": [
+     "e000533"
+    ],
+    "anchor_text_heads": [
+     "执行，并应以任一指标取高值的原则进行评估。"
+    ],
+    "usage_policy": "answer_and_citation",
+    "quality_status": "passed",
+    "policy_reasons": [],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "181 的有关规定 > 7.2 评估指标与方法\n执行，并应以任一指标取高值的原则进行评估。",
+    "rendering": "并应以任一指标取高值的原则进行评估。 表7. 2. 2 单个混接点或混接源混接程度分级标准 重度1昆接（3 级） d 二三600 q>600 氨氮 >30 COD >200"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "重度：管径d≥600mm且/或流量q>600 m3/d（并按水质指标）": 0.5,
+    "轻度：d<300mm且q<200 m3/d量级": 1.0,
+    "任一指标取高值原则": 0.875
+   }
+  },
+  {
+   "case_id": "G047",
+   "evidence_index": 1,
+   "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 29,
+    "anchor": [
+     {
+      "id": "e000539",
+      "pages": [
+       29
+      ],
+      "type": "table",
+      "text_head": "续表7. 2. 2\n接入管管径d | 出流流量q | 污水出流水质（mg/L)\n中度混接（2 级） | 300< d<6"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_page_shifted": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 29,
+    "element_ids": [
+     "e000547"
+    ],
+    "anchor_text_heads": [
+     "续表7. 2. 2\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n续表7. 2. 2\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L) | 污水出流水质(mg/L)\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 氨氮 | COD\n中度混接(2级) | 300≤d<600 | 200<q≤600 | >6且≤30 | >100且≤200\n轻度混接(1级) | d<300 | q<200 | ≤6 | ≤100",
+    "rendering": "续表7. 2. 2 中度混接（2 级） 300< d<600 ZOO<q< 600 轻度j昆接Cl 级） d<300 q<ZOO"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "weak_anchor_needs_review"
+   ],
+   "fact_coverage": {
+    "重度：管径d≥600mm且/或流量q>600 m3/d（并按水质指标）": 0.5,
+    "轻度：d<300mm且q<200 m3/d量级": 1.0,
+    "任一指标取高值原则": 0.875
+   }
+  },
+  {
+   "case_id": "G048",
+   "evidence_index": 0,
+   "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 15,
+    "anchor": [
+     {
+      "id": "e000391",
+      "pages": [
+       15
+      ],
+      "type": "text",
+      "text_head": "3.1.8施工测量的允许偏差，应符合表3.1.8的规定，并应满"
+     },
+     {
+      "id": "e000394",
+      "pages": [
+       15
+      ],
+      "type": "table",
+      "text_head": "表3.1.8施工测量的允许偏差\n项目 |  | 允许偏差\n平地 |  | ±20√L(mm)\n水准测量高程闭合差 |  "
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_stable": 1,
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 15,
+    "element_ids": [
+     "e000394"
+    ],
+    "anchor_text_heads": [
+     "表3.1.8施工测量的允许偏差\n项目 | 项目 | 允许偏差\n水准测量高程闭合差 | 平地 | ±20√L(mm)\n水准"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "9 管道功能性试验 > 3.1 施工基本规定 > 3.1.8 施工测量的允许偏差，应符合表3.1.8的规定，并应满\n表3.1.8施工测量的允许偏差\n项目 | 项目 | 允许偏差\n水准测量高程闭合差 | 平地 | ±20√L(mm)\n水准测量高程闭合差 | 山地 | ±6√n(mm)\n导线测量方位角闭合差 | 导线测量方位角闭合差 | 40√n(\")\n导线测量相对闭合差 | 开槽施工管道 | 1/1000\n导线测量相对闭合差 | 其他方法施工管道 | 1/3000\n直接丈量测距的两次较差 | 直接丈量测距的两次较差 | 1/5000\n注：1L为水准测量闭合线路的长度（km）；",
+    "rendering": "3.1.8施工测量的允许偏差，应符合表3.1.8的规定 表3.1.8施工测量的允许偏差 项目 允许偏差 平地 ±20√L(mm) 水准测量高程闭合差 山地 ±6√n(mm)"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "施工测量允许偏差见表3.1.8": 1.0,
+    "B=Do+2(b1+b2+b3)": 1.0,
+    "B为沟槽底开挖宽度，Do为管外径": 0.6364
+   }
+  },
+  {
+   "case_id": "G048",
+   "evidence_index": 1,
+   "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 23,
+    "anchor": [
+     {
+      "id": "e000631",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "4.3.2沟槽底部的开挖宽度，应符合设计要求；设计无要求时，"
+     },
+     {
+      "id": "e000614",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "管道沟槽底部的开挖宽度（mm）；"
+     },
+     {
+      "id": "e000611",
+      "pages": [
+       23
+      ],
+      "type": "text",
+      "text_head": "可按下式计算确定："
+     },
+     {
+      "id": "e000612",
+      "pages": [
+       23
+      ],
+      "type": "formula",
+      "text_head": "[公式]\nB=D_{0}+2(b_{1}+b_{2}+b_{3})\n式中 B\n管道沟槽底部的开挖宽度（mm）；\nDo\n管"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "page_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 4
+   },
+   "new": {
+    "resolved": true,
+    "page": 23,
+    "element_ids": [
+     "e000612",
+     "e000613",
+     "e000614",
+     "e000615",
+     "e000616",
+     "e000617",
+     "e000618",
+     "e000619",
+     "e000620",
+     "e000621",
+     "e000622",
+     "e000623",
+     "e000624",
+     "e000625"
+    ],
+    "anchor_text_heads": [
+     "[公式]\nB=D_{0}+2(b_{1}+b_{2}+b_{3})\n式中 B\n管道沟槽底部的开挖宽度（mm）；\nDo\n管",
+     "式中 B",
+     "管道沟槽底部的开挖宽度（mm）；",
+     "Do",
+     "管外径（mm）；",
+     "b1",
+     "管道一侧的工作面宽度（mm），可按表4.3.2",
+     "选取；",
+     "b2",
+     "有支撑要求时，管道一侧的支撑厚度，可取150",
+     "~200mm;",
+     "b3",
+     "现场浇筑混凝土或钢筋混凝土管渠一侧模板的厚度",
+     "(mm)。"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source",
+     "ocr_source_review",
+     "too_short"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "9 管道功能性试验 > 4.3 沟槽开挖与支护\n[公式]\nB=D_{0}+2(b_{1}+b_{2}+b_{3})\n式中 B\n管道沟槽底部的开挖宽度（mm）；\nDo\n管外径（mm）；\nb1\n管道一侧的工作面宽度（mm），可按表4.3.2\n选取；\nb2\n有支撑要求时，管道一侧的支撑厚度，可取150\n~200mm;\nb3\n现场浇筑混凝土或钢筋混凝土管渠一侧模板的厚度\n(mm)。",
+    "rendering": "4.3.2沟槽底部的开挖宽度，应符合设计要求；设计无要求时，可按下式计算确定： B=Do+2(b1+b2+b3)  (4.3.2) 式中 B 管道沟槽底部的开挖宽度（mm）； Do 管外径（mm）；"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness"
+   ],
+   "fact_coverage": {
+    "施工测量允许偏差见表3.1.8": 1.0,
+    "B=Do+2(b1+b2+b3)": 1.0,
+    "B为沟槽底开挖宽度，Do为管外径": 0.6364
+   }
+  },
+  {
+   "case_id": "G049",
+   "evidence_index": 0,
+   "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "must_hit": true,
+   "old": {
+    "page": 36,
+    "anchor": [
+     {
+      "id": "e000961",
+      "pages": [
+       36
+      ],
+      "type": "figure",
+      "text_head": "[图4.6.3柔性管道沟槽回填部位与压实度示意图]"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "non_verbatim_transcription"
+   },
+   "drift_classification": {
+    "id_aliased_same_page": 1
+   },
+   "new": {
+    "resolved": true,
+    "page": 34,
+    "element_ids": [
+     "e000988"
+    ],
+    "anchor_text_heads": [
+     "[图4.6.3柔性管道沟槽回填部位与压实度示意图]\n度见图4.6.3。"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "structured_default_locator_only",
+     "needs_review_source"
+    ],
+    "quote_kind": "rebuilt_element_excerpt",
+    "quote": "9 管道功能性试验 > 4.6 质量验收标准 > 4.6.3 沟槽回填应符合下列规定：\n[图4.6.3柔性管道沟槽回填部位与压实度示意图]\n度见图4.6.3。",
+    "rendering": "管顶以上500mm，且 ≥90% 85±2% ≥90% 不小于一倍管径 图4.6.3柔性管道沟槽回填部位与压实度示意图"
+   },
+   "pending": [
+    "pdf_rendering_faithfulness",
+    "page_reanchored",
+    "fact_coverage_needs_review"
+   ],
+   "fact_coverage": {
+    "图4.6.3为柔性管道沟槽回填部位与压实度示意图": 1.0,
+    "管顶以上相关回填压实度示意见图注≥90%/85±2%等": 0.0
+   }
+  },
+  {
+   "case_id": "G050",
+   "evidence_index": 0,
+   "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "must_hit": false,
+   "old": {
+    "page": 1,
+    "anchor": [
+     {
+      "id": "e000001",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "中华人民共和国国家质量监督检验检疫总局"
+     },
+     {
+      "id": "e000002",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "UDC"
+     },
+     {
+      "id": "e000003",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "中华人民共和国国家标准"
+     },
+     {
+      "id": "e000004",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "P"
+     },
+     {
+      "id": "e000005",
+      "pages": [
+       1
+      ],
+      "type": "text",
+      "text_head": "Code for construction and acceptance of"
+     }
+    ],
+    "quote_verdict_in_old_corpus": "element_verbatim"
+   },
+   "drift_classification": {
+    "id_stable": 5
+   },
+   "new": {
+    "resolved": true,
+    "page": 1,
+    "element_ids": [
+     "e000001",
+     "e000002",
+     "e000003",
+     "e000004",
+     "e000005"
+    ],
+    "anchor_text_heads": [
+     "中华人民共和国国家质量监督检验检疫总局",
+     "UDC",
+     "中华人民共和国国家标准",
+     "P",
+     "Code for construction and acceptance of"
+    ],
+    "usage_policy": "source_locator_only",
+    "quality_status": "needs_review",
+    "policy_reasons": [
+     "ocr_source_review",
+     "needs_review_source",
+     "too_short",
+     "unmatched_text_region"
+    ],
+    "quote_kind": "page_excerpt",
+    "quote": "中华人民共和国国家质量监督检验检疫总局 UDC 中华人民共和国国家标准 P Code for construction and acceptance of",
+    "rendering": null
+   },
+   "pending": []
+  }
+ ]
+}

@@ -31,7 +31,7 @@ def build_context(item, pages):
             if len(excerpts) < 60:
                 excerpts.append({'text': text[:4000], 'bbox': b, 'physical_page': n, 'verified': False})
         contexts.append({'physical_page': n, 'relation': 'current' if n == number else 'previous' if n < number else 'next',
-                         'source_url': f'/api/v1/documents/doc_{item["sha256"][:16]}/content#page={n}',
+                         'source_url': f'/api/v1/documents/{item["sha256"]}/pages/{n}/image',
                          'extraction_route': page.get('extraction_route', 'unknown'),
                          'page_quality': page.get('decision_status', 'unknown'),
                          'status': 'unverified_canonical_text' if excerpts else 'no_canonical_text_in_window',

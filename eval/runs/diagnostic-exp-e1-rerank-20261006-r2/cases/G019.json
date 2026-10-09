@@ -1,0 +1,331 @@
+{
+  "id": "G019",
+  "question": "对照《城镇分流制排水系统雨污混接调查》征求意见稿与T/CECS 758：前者表5-1给出生活污水中氨氮浓度的灰水/黑水均值大约是多少？后者规定单个混接点或混接源的混接程度可依据哪些要素评估？",
+  "labels": {
+    "repr": [
+      "数值",
+      "表格",
+      "条件"
+    ],
+    "challenge": [
+      "多文档",
+      "表格",
+      "多证据",
+      "相似干扰"
+    ],
+    "modality": [
+      "表格",
+      "正文"
+    ]
+  },
+  "expected_facts": [
+    "征求意见稿表5-1：灰水氨氮均值约6.1 mg/L，黑水氨氮均值约76.8 mg/L",
+    "T/CECS 758：按接入管管径、混接水量、混接水质评估混接程度"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 2,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 2,
+    "recall_at_5": 0.5,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 0.5,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": true,
+    "mrr": 0.25,
+    "latency_ms": 3935.462,
+    "citable_evidence_count": 1,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": 0.0,
+    "citable_recall_at_10": 0.0,
+    "citable_downgraded_at_5": 1,
+    "citable_downgraded_at_10": 1,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 0.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "page": 24,
+      "element_ids": [
+        "e000384"
+      ],
+      "quote": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2 雨水管网混接筛查中，管网节点监测的水质特征因子选取如下：\n表5-1 生活污水中氨氮和电导率的浓度范围\n水量来源 | 氨氮（mg/L) | 氨氮（mg/L) | 电导率（us/cm) | 电导率（us/cm)\n水量来源 | 范围 | 均值 | 范围 | 均值\n灰水 | 3.6~9.6 | 6.1 | 432~1058 | 810\n黑水 | 46.8~109 | 76.8 | 1314~2044 | 1786",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 6,
+      "match_rank": 6,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_4e9cafd610a7ac92f0251c0c7fa7d1ab",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 6,
+      "locator_chunk_id": "chunk_4e9cafd610a7ac92f0251c0c7fa7d1ab",
+      "locator_match_method": "quote_and_ids"
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 28,
+      "element_ids": [
+        "e000544",
+        "e000545"
+      ],
+      "quote": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n7. 2. 1\n单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n水量、1昆接水质进行评估。\n7.2.2\n单个混接点或泪接源的海接程度分级标准应按表7. 2. 2",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 4,
+      "page_rank": 4,
+      "match_rank": 4,
+      "match_method": "page_quote",
+      "matched_chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 4,
+      "locator_chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+      "locator_match_method": "page_quote"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_7b610c7b53ca9a8f0ecce9165d771ef8",
+      "score": 1.0,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        46,
+        47
+      ],
+      "element_ids": [
+        "e000808",
+        "e000809",
+        "e000810",
+        "e000811",
+        "e000812",
+        "e000813",
+        "e000814",
+        "e000815",
+        "e000816",
+        "e000817",
+        "e000818",
+        "e000819",
+        "e000820",
+        "e000821"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n【条文解释】单个混接点的评估根据混接管管径、混接水量和混接水\n质来评价。对于一个确定的管道，当混接的管道管径越大，混接进入\n原有管道的水量就会相对较大，造成的危害也就越大；当混接管的管\n径相对较小，但是混接的流量很大时，也会造成比较严重的混接结果；\n对于雨水管道来说，混接接入的污水浓度越高，就会对雨水管道内的\n水质产生更大的危害，也就是导致严重的混接。因此对于单个混接点\n的判断需要参考混接管管径、混接水量或排放水质作为评判的标准。\n氮浓度均值约为6.0mg/L，因此当氨氮浓度≤6.0 mg/L 时，可以认为\n混接水质为灰水为特点的生活污水，污染程度相对较轻，定义为轻度\n混接；居住小区中灰水和黑水的比例约为灰水：黑水=0.7:0.3，根据\n污水中氨氮浓度均值约为27.3 mg/L。因此可以认为当氨氮浓度≥30.0\nmg/L 时，混接水质为包括黑水的居住区生活污水，污染程度相对较\n严重，定义为重度混接。混接排放口氨氮浓度在此之间的情形，即\n6~30mg/L，定义为中度混接。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_33224dd3397c6f6e83ab9b305a808c09",
+      "score": 0.058824,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        46
+      ],
+      "element_ids": [
+        "e000807"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n表7.1-2   单个混接点混接程度分级标准表\n分级评价 混接程度 | 接入管管径 （mm） | 流入水量（m³/d） | 污水流入水质 （NH3-N数值）\n重度混接（3级） | ≥600 | >600 | >30mg/L\n中度混接（2级） | ≥300且<600 | >200且≤600 | >6且≤30\n轻度混接（1级） | <300 | <200 | ≤6 mg/L",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_3d9fa1af346e673a389df8f80df65c57",
+      "score": 0.102632,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        45,
+        46
+      ],
+      "element_ids": [
+        "e000803",
+        "e000804",
+        "e000805"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n以任一指标高值的原则确定等级，混接点混接程度分级标准见表7.1.2。\n最终考察的都是混接管接入后对于原有管道的危害程度。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_3fba97b64ee509a9366e42def4d66f91",
+      "score": 0.1,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        28
+      ],
+      "element_ids": [
+        "e000546"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "181 的有关规定",
+        "7.2 评估指标与方法",
+        "7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接"
+      ],
+      "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n表7. 2. 2 \n单个混接点或混接源混接程度分级标准\n混接程度与分级 | 接入管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L) | 污水出流水质(mg/L)\n混接程度与分级 | 接入管管径d (mm) | 出流流量q (m³/d) | 氨氮 | COD\n重度混接(3级) | d≥600 | q>600 | >30 | >200",
+      "matched_evidence_indexes": [
+        1
+      ]
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_8914904bf4f39288652d79f16488ef73",
+      "score": 0.111111,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        56
+      ],
+      "element_ids": [
+        "e000991"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 前期调查",
+        "4.3 混接调查",
+        "4.3.4 对预判存在雨污混接的区域，可采用的混接调查手段"
+      ],
+      "text": "4 前期调查 > 4.3 混接调查 > 4.3.4 混接调查时应结合收集的资料，选用合适的混接调查手\n表1\n生活污水水质特征因子浓度\n水质参数 | 以洗涤废水为主要特点的灰水 | 以洗涤废水为主要特点的灰水 | 以粪便污水为特点的黑水 | 以粪便污水为特点的黑水\n水质参数 | 范围 | 均值 | 范围 | 均值\nCODcr (mg/L) | 142~387 | 285 | 426~803 | 575\n氨氮（mg/L） | 3.6~9.6 | 6.1 | 46.8~109.3 | 76.8\n磷酸盐(mg/L) | 0.47~1.36 | 0.89 | 4.16~7.74 | 5.87\n总氮(mg/L) | 12.3~40.0 | 22.4 | 54.2~121.6 | 99.2\n表面活性剂 (mg/L) | 1.86~7.64 | 3.46 | 0.83~1.92 | 1.31\n钾(mg/L) | 12.9~36.7 | 23.6 | 25.0~56.0 | 37.6\n钠（mg/L) | 22.2~68.3 | 38.7 | 16.7~63.7 | 44.4\n氯化物（mg/L) | 26.0~76.0 | 51.9 | 89.0~252 | 153\n电导率(μS/cm) | 432~1058 | 810 | 1314~2044 | 1786\n安赛蜜 (μg/L) | 1.07~1.78 | 1.47 | 27.9~51.2 | 37.2",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_4e9cafd610a7ac92f0251c0c7fa7d1ab",
+      "score": 0.325,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        24
+      ],
+      "element_ids": [
+        "e000384"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.2 雨水管网混接筛查中，管网节点监测的水质特征因子选取如下："
+      ],
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2 雨水管网混接筛查中，管网节点监测的水质特征因子选取如下：\n表5-1 生活污水中氨氮和电导率的浓度范围\n水量来源 | 氨氮（mg/L) | 氨氮（mg/L) | 电导率（us/cm) | 电导率（us/cm)\n水量来源 | 范围 | 均值 | 范围 | 均值\n灰水 | 3.6~9.6 | 6.1 | 432~1058 | 810\n黑水 | 46.8~109 | 76.8 | 1314~2044 | 1786",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_3cd0216d5b694ebd2f36f027fcf10ad5",
+      "score": 0.05,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        29
+      ],
+      "element_ids": [
+        "e000547"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "181 的有关规定",
+        "7.2 评估指标与方法",
+        "7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接"
+      ],
+      "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.2.1 单个氓接点或提接源的1昆接程度可依据接入管管径、混接\n续表7. 2. 2\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L) | 污水出流水质(mg/L)\n混接程度与分级 | 接人管管径d (mm) | 出流流量q (m³/d) | 氨氮 | COD\n中度混接(2级) | 300≤d<600 | 200<q≤600 | >6且≤30 | >100且≤200\n轻度混接(1级) | d<300 | q<200 | ≤6 | ≤100",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_4fc0a22799eb7d3da90072e57b65b1d7",
+      "score": 0.1,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        44
+      ],
+      "element_ids": [
+        "e000769"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.2 单元混接状况可根据混接密度（M）和混接水量比（C）来确定，"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.2 单元混接状况可根据混接密度（M）和混接水量比（C）来确定，\n[公式]\nC污 =\\mathrm{q}/\\mathrm{Q}\\times100\\%",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_1d25ac5853c8ce6168b3b4c3a76af4e2",
+      "score": 0.055556,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        28
+      ],
+      "element_ids": [
+        "e000541",
+        "e000542",
+        "e000543"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "181 的有关规定",
+        "7.2 评估指标与方法",
+        "7.1.4 雨污混接与排水管道功能性、结构性缺陷一并进行探查"
+      ],
+      "text": "181 的有关规定 > 7.2 评估指标与方法 > 7.1.4 雨污混接与排水管道功能性、结构性缺陷一并进行探查\n7. 1. 4\n雨污混接与排水管道功能性、结构性缺陷一并进行探查\n的，缺陷评估可与混接状况评估合并进行，也可单独进行，评估要\n求应符合现行行业标准《城镇排水管道检测与评估技术规程》CJJ",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_57ffccf848d73a3a29f1030433d93d32",
+      "score": 0.047619,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        43
+      ],
+      "element_ids": [
+        "e000755",
+        "e000756",
+        "e000757",
+        "e000758",
+        "e000759",
+        "e000760"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.1 一般规定",
+        "7.1.2 单元混接状况可根据混接密度（M）和混接水量比（C）来确定，"
+      ],
+      "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.2 单元混接状况可根据混接密度（M）和混接水量比（C）来确定，\n[公式]\n\\mathrm{M}=\\mathrm{n}/\\mathrm{N}\\times100\\%\n式中：M—雨水管网中污水混接密度；\nn—雨水管网中污水混接点数、或用户数（混接的居民小区、\n企事业单位等）；\nN—排水管网服务区域内总排水用户数（居民小区、企事业单\n位等）。",
+      "matched_evidence_indexes": []
+    }
+  ],
+  "rerank_latency_ms": 3911.7671999847516
+}

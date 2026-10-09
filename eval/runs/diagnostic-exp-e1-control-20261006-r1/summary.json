@@ -1,0 +1,985 @@
+{
+  "case_count": 50,
+  "eligible_case_count": 47,
+  "macro": {
+    "recall_at_5": 0.721631,
+    "recall_at_10": 0.849291,
+    "mrr": 0.673843,
+    "document_hit_at_5": 0.957447,
+    "document_hit_at_10": 0.994681,
+    "page_hit_at_5": 0.815603,
+    "page_hit_at_10": 0.900709,
+    "citable_recall_at_5": 0.653846,
+    "citable_recall_at_10": 0.807692,
+    "locator_only_recall_at_5": 0.730159,
+    "locator_only_recall_at_10": 0.833333
+  },
+  "micro": {
+    "required_evidence_count": 77,
+    "matched_evidence_at_5": 54,
+    "matched_evidence_at_10": 63,
+    "recall_at_5": 0.701299,
+    "recall_at_10": 0.818182
+  },
+  "by_policy": {
+    "citable": {
+      "evidence_count": 14,
+      "matched_at_5": 9,
+      "matched_at_10": 11,
+      "recall_at_5": 0.642857,
+      "recall_at_10": 0.785714,
+      "downgraded_at_5": 1,
+      "downgraded_at_10": 1
+    },
+    "locator_only": {
+      "evidence_count": 63,
+      "matched_at_5": 44,
+      "matched_at_10": 51,
+      "recall_at_5": 0.698413,
+      "recall_at_10": 0.809524
+    }
+  },
+  "complete_case_rate_at_5": 0.595745,
+  "complete_case_rate_at_10": 0.765957,
+  "latency_ms": {
+    "p50": 25.461,
+    "p95": 46.979,
+    "mean": 28.8383
+  },
+  "by_label": {
+    "challenge:公式": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.895833,
+        "recall_at_10": 0.958333,
+        "mrr": 0.75,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.958333,
+        "page_hit_at_10": 0.958333,
+        "citable_recall_at_5": 0.75,
+        "citable_recall_at_10": 0.75,
+        "locator_only_recall_at_5": 0.854167,
+        "locator_only_recall_at_10": 0.958333
+      },
+      "micro": {
+        "required_evidence_count": 21,
+        "matched_evidence_at_5": 18,
+        "matched_evidence_at_10": 20,
+        "recall_at_5": 0.857143,
+        "recall_at_10": 0.952381
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 3,
+          "matched_at_5": 2,
+          "matched_at_10": 2,
+          "recall_at_5": 0.666667,
+          "recall_at_10": 0.666667,
+          "downgraded_at_5": 1,
+          "downgraded_at_10": 1
+        },
+        "locator_only": {
+          "evidence_count": 18,
+          "matched_at_5": 15,
+          "matched_at_10": 17,
+          "recall_at_5": 0.833333,
+          "recall_at_10": 0.944444
+        }
+      },
+      "complete_case_rate_at_5": 0.625,
+      "complete_case_rate_at_10": 0.875
+    },
+    "challenge:原文定位": {
+      "case_count": 16,
+      "eligible_case_count": 16,
+      "macro": {
+        "recall_at_5": 0.5625,
+        "recall_at_10": 0.8125,
+        "mrr": 0.458581,
+        "document_hit_at_5": 0.9375,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.625,
+        "page_hit_at_10": 0.875,
+        "citable_recall_at_5": 0.5,
+        "citable_recall_at_10": 1.0,
+        "locator_only_recall_at_5": 0.571429,
+        "locator_only_recall_at_10": 0.785714
+      },
+      "micro": {
+        "required_evidence_count": 19,
+        "matched_evidence_at_5": 11,
+        "matched_evidence_at_10": 16,
+        "recall_at_5": 0.578947,
+        "recall_at_10": 0.842105
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 2,
+          "matched_at_5": 1,
+          "matched_at_10": 2,
+          "recall_at_5": 0.5,
+          "recall_at_10": 1.0,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 17,
+          "matched_at_5": 10,
+          "matched_at_10": 14,
+          "recall_at_5": 0.588235,
+          "recall_at_10": 0.823529
+        }
+      },
+      "complete_case_rate_at_5": 0.5625,
+      "complete_case_rate_at_10": 0.8125
+    },
+    "challenge:同义表达": {
+      "case_count": 4,
+      "eligible_case_count": 4,
+      "macro": {
+        "recall_at_5": 0.583333,
+        "recall_at_10": 0.583333,
+        "mrr": 0.583333,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.916667,
+        "page_hit_at_10": 0.916667,
+        "citable_recall_at_5": null,
+        "citable_recall_at_10": null,
+        "locator_only_recall_at_5": 0.583333,
+        "locator_only_recall_at_10": 0.583333
+      },
+      "micro": {
+        "required_evidence_count": 6,
+        "matched_evidence_at_5": 3,
+        "matched_evidence_at_10": 3,
+        "recall_at_5": 0.5,
+        "recall_at_10": 0.5
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 0,
+          "matched_at_5": 0,
+          "matched_at_10": 0,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 6,
+          "matched_at_5": 3,
+          "matched_at_10": 3,
+          "recall_at_5": 0.5,
+          "recall_at_10": 0.5
+        }
+      },
+      "complete_case_rate_at_5": 0.5,
+      "complete_case_rate_at_10": 0.5
+    },
+    "challenge:图片": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.458333,
+        "recall_at_10": 0.708333,
+        "mrr": 0.404514,
+        "document_hit_at_5": 0.875,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.458333,
+        "page_hit_at_10": 0.708333,
+        "citable_recall_at_5": 1.0,
+        "citable_recall_at_10": 1.0,
+        "locator_only_recall_at_5": 0.380952,
+        "locator_only_recall_at_10": 0.666667
+      },
+      "micro": {
+        "required_evidence_count": 11,
+        "matched_evidence_at_5": 5,
+        "matched_evidence_at_10": 8,
+        "recall_at_5": 0.454545,
+        "recall_at_10": 0.727273
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 1,
+          "matched_at_5": 1,
+          "matched_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 10,
+          "matched_at_5": 4,
+          "matched_at_10": 7,
+          "recall_at_5": 0.4,
+          "recall_at_10": 0.7
+        }
+      },
+      "complete_case_rate_at_5": 0.375,
+      "complete_case_rate_at_10": 0.625
+    },
+    "challenge:多文档": {
+      "case_count": 5,
+      "eligible_case_count": 5,
+      "macro": {
+        "recall_at_5": 0.65,
+        "recall_at_10": 0.65,
+        "mrr": 0.85,
+        "document_hit_at_5": 0.8,
+        "document_hit_at_10": 0.95,
+        "page_hit_at_5": 0.7,
+        "page_hit_at_10": 0.7,
+        "citable_recall_at_5": 0.666667,
+        "citable_recall_at_10": 0.666667,
+        "locator_only_recall_at_5": 0.7,
+        "locator_only_recall_at_10": 0.7
+      },
+      "micro": {
+        "required_evidence_count": 12,
+        "matched_evidence_at_5": 7,
+        "matched_evidence_at_10": 7,
+        "recall_at_5": 0.583333,
+        "recall_at_10": 0.583333
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 3,
+          "matched_at_5": 2,
+          "matched_at_10": 2,
+          "recall_at_5": 0.666667,
+          "recall_at_10": 0.666667,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 9,
+          "matched_at_5": 5,
+          "matched_at_10": 5,
+          "recall_at_5": 0.555556,
+          "recall_at_10": 0.555556
+        }
+      },
+      "complete_case_rate_at_5": 0.4,
+      "complete_case_rate_at_10": 0.4
+    },
+    "challenge:多条件": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.6875,
+        "recall_at_10": 0.875,
+        "mrr": 0.739583,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.9375,
+        "page_hit_at_10": 0.9375,
+        "citable_recall_at_5": 0.666667,
+        "citable_recall_at_10": 1.0,
+        "locator_only_recall_at_5": 0.666667,
+        "locator_only_recall_at_10": 0.75
+      },
+      "micro": {
+        "required_evidence_count": 11,
+        "matched_evidence_at_5": 7,
+        "matched_evidence_at_10": 9,
+        "recall_at_5": 0.636364,
+        "recall_at_10": 0.818182
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 3,
+          "matched_at_5": 2,
+          "matched_at_10": 3,
+          "recall_at_5": 0.666667,
+          "recall_at_10": 1.0,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 8,
+          "matched_at_5": 5,
+          "matched_at_10": 6,
+          "recall_at_5": 0.625,
+          "recall_at_10": 0.75
+        }
+      },
+      "complete_case_rate_at_5": 0.5,
+      "complete_case_rate_at_10": 0.75
+    },
+    "challenge:多证据": {
+      "case_count": 13,
+      "eligible_case_count": 13,
+      "macro": {
+        "recall_at_5": 0.705128,
+        "recall_at_10": 0.724359,
+        "mrr": 0.737179,
+        "document_hit_at_5": 0.923077,
+        "document_hit_at_10": 0.980769,
+        "page_hit_at_5": 0.794872,
+        "page_hit_at_10": 0.794872,
+        "citable_recall_at_5": 0.6,
+        "citable_recall_at_10": 0.6,
+        "locator_only_recall_at_5": 0.74359,
+        "locator_only_recall_at_10": 0.769231
+      },
+      "micro": {
+        "required_evidence_count": 33,
+        "matched_evidence_at_5": 22,
+        "matched_evidence_at_10": 23,
+        "recall_at_5": 0.666667,
+        "recall_at_10": 0.69697
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 5,
+          "matched_at_5": 3,
+          "matched_at_10": 3,
+          "recall_at_5": 0.6,
+          "recall_at_10": 0.6,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 28,
+          "matched_at_5": 19,
+          "matched_at_10": 20,
+          "recall_at_5": 0.678571,
+          "recall_at_10": 0.714286
+        }
+      },
+      "complete_case_rate_at_5": 0.384615,
+      "complete_case_rate_at_10": 0.461538
+    },
+    "challenge:库外": {
+      "case_count": 3,
+      "eligible_case_count": 0,
+      "macro": {
+        "recall_at_5": null,
+        "recall_at_10": null,
+        "mrr": null,
+        "document_hit_at_5": null,
+        "document_hit_at_10": null,
+        "page_hit_at_5": null,
+        "page_hit_at_10": null,
+        "citable_recall_at_5": null,
+        "citable_recall_at_10": null,
+        "locator_only_recall_at_5": null,
+        "locator_only_recall_at_10": null
+      },
+      "micro": {
+        "required_evidence_count": 0,
+        "matched_evidence_at_5": 0,
+        "matched_evidence_at_10": 0,
+        "recall_at_5": null,
+        "recall_at_10": null
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 0,
+          "matched_at_5": 0,
+          "matched_at_10": 0,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 0,
+          "matched_at_5": 0,
+          "matched_at_10": 0,
+          "recall_at_5": null,
+          "recall_at_10": null
+        }
+      },
+      "complete_case_rate_at_5": null,
+      "complete_case_rate_at_10": null
+    },
+    "challenge:相似干扰": {
+      "case_count": 24,
+      "eligible_case_count": 22,
+      "macro": {
+        "recall_at_5": 0.852273,
+        "recall_at_10": 0.920455,
+        "mrr": 0.795455,
+        "document_hit_at_5": 0.954545,
+        "document_hit_at_10": 0.988636,
+        "page_hit_at_5": 0.931818,
+        "page_hit_at_10": 0.931818,
+        "citable_recall_at_5": 0.714286,
+        "citable_recall_at_10": 0.857143,
+        "locator_only_recall_at_5": 0.894737,
+        "locator_only_recall_at_10": 0.921053
+      },
+      "micro": {
+        "required_evidence_count": 32,
+        "matched_evidence_at_5": 25,
+        "matched_evidence_at_10": 27,
+        "recall_at_5": 0.78125,
+        "recall_at_10": 0.84375
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 7,
+          "matched_at_5": 5,
+          "matched_at_10": 6,
+          "recall_at_5": 0.714286,
+          "recall_at_10": 0.857143,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 25,
+          "matched_at_5": 20,
+          "matched_at_10": 21,
+          "recall_at_5": 0.8,
+          "recall_at_10": 0.84
+        }
+      },
+      "complete_case_rate_at_5": 0.772727,
+      "complete_case_rate_at_10": 0.863636
+    },
+    "challenge:表格": {
+      "case_count": 19,
+      "eligible_case_count": 19,
+      "macro": {
+        "recall_at_5": 0.745614,
+        "recall_at_10": 0.890351,
+        "mrr": 0.680764,
+        "document_hit_at_5": 0.947368,
+        "document_hit_at_10": 0.986842,
+        "page_hit_at_5": 0.842105,
+        "page_hit_at_10": 0.947368,
+        "citable_recall_at_5": 0.5625,
+        "citable_recall_at_10": 0.6875,
+        "locator_only_recall_at_5": 0.764706,
+        "locator_only_recall_at_10": 0.882353
+      },
+      "micro": {
+        "required_evidence_count": 35,
+        "matched_evidence_at_5": 25,
+        "matched_evidence_at_10": 29,
+        "recall_at_5": 0.714286,
+        "recall_at_10": 0.828571
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 9,
+          "matched_at_5": 5,
+          "matched_at_10": 6,
+          "recall_at_5": 0.555556,
+          "recall_at_10": 0.666667,
+          "downgraded_at_5": 1,
+          "downgraded_at_10": 1
+        },
+        "locator_only": {
+          "evidence_count": 26,
+          "matched_at_5": 19,
+          "matched_at_10": 22,
+          "recall_at_5": 0.730769,
+          "recall_at_10": 0.846154
+        }
+      },
+      "complete_case_rate_at_5": 0.578947,
+      "complete_case_rate_at_10": 0.789474
+    },
+    "challenge:跨页": {
+      "case_count": 7,
+      "eligible_case_count": 7,
+      "macro": {
+        "recall_at_5": 0.797619,
+        "recall_at_10": 0.833333,
+        "mrr": 0.714286,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.880952,
+        "page_hit_at_10": 0.880952,
+        "citable_recall_at_5": 0.5,
+        "citable_recall_at_10": 0.5,
+        "locator_only_recall_at_5": 0.833333,
+        "locator_only_recall_at_10": 0.880952
+      },
+      "micro": {
+        "required_evidence_count": 18,
+        "matched_evidence_at_5": 14,
+        "matched_evidence_at_10": 15,
+        "recall_at_5": 0.777778,
+        "recall_at_10": 0.833333
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 2,
+          "matched_at_5": 1,
+          "matched_at_10": 1,
+          "recall_at_5": 0.5,
+          "recall_at_10": 0.5,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 16,
+          "matched_at_5": 13,
+          "matched_at_10": 14,
+          "recall_at_5": 0.8125,
+          "recall_at_10": 0.875
+        }
+      },
+      "complete_case_rate_at_5": 0.428571,
+      "complete_case_rate_at_10": 0.571429
+    },
+    "modality:公式": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.895833,
+        "recall_at_10": 0.958333,
+        "mrr": 0.75,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.958333,
+        "page_hit_at_10": 0.958333,
+        "citable_recall_at_5": 0.75,
+        "citable_recall_at_10": 0.75,
+        "locator_only_recall_at_5": 0.854167,
+        "locator_only_recall_at_10": 0.958333
+      },
+      "micro": {
+        "required_evidence_count": 21,
+        "matched_evidence_at_5": 18,
+        "matched_evidence_at_10": 20,
+        "recall_at_5": 0.857143,
+        "recall_at_10": 0.952381
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 3,
+          "matched_at_5": 2,
+          "matched_at_10": 2,
+          "recall_at_5": 0.666667,
+          "recall_at_10": 0.666667,
+          "downgraded_at_5": 1,
+          "downgraded_at_10": 1
+        },
+        "locator_only": {
+          "evidence_count": 18,
+          "matched_at_5": 15,
+          "matched_at_10": 17,
+          "recall_at_5": 0.833333,
+          "recall_at_10": 0.944444
+        }
+      },
+      "complete_case_rate_at_5": 0.625,
+      "complete_case_rate_at_10": 0.875
+    },
+    "modality:图片图注": {
+      "case_count": 8,
+      "eligible_case_count": 8,
+      "macro": {
+        "recall_at_5": 0.458333,
+        "recall_at_10": 0.708333,
+        "mrr": 0.404514,
+        "document_hit_at_5": 0.875,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.458333,
+        "page_hit_at_10": 0.708333,
+        "citable_recall_at_5": 1.0,
+        "citable_recall_at_10": 1.0,
+        "locator_only_recall_at_5": 0.380952,
+        "locator_only_recall_at_10": 0.666667
+      },
+      "micro": {
+        "required_evidence_count": 11,
+        "matched_evidence_at_5": 5,
+        "matched_evidence_at_10": 8,
+        "recall_at_5": 0.454545,
+        "recall_at_10": 0.727273
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 1,
+          "matched_at_5": 1,
+          "matched_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 10,
+          "matched_at_5": 4,
+          "matched_at_10": 7,
+          "recall_at_5": 0.4,
+          "recall_at_10": 0.7
+        }
+      },
+      "complete_case_rate_at_5": 0.375,
+      "complete_case_rate_at_10": 0.625
+    },
+    "modality:正文": {
+      "case_count": 6,
+      "eligible_case_count": 6,
+      "macro": {
+        "recall_at_5": 0.625,
+        "recall_at_10": 0.625,
+        "mrr": 0.791667,
+        "document_hit_at_5": 0.833333,
+        "document_hit_at_10": 0.958333,
+        "page_hit_at_5": 0.666667,
+        "page_hit_at_10": 0.666667,
+        "citable_recall_at_5": 0.666667,
+        "citable_recall_at_10": 0.666667,
+        "locator_only_recall_at_5": 0.666667,
+        "locator_only_recall_at_10": 0.666667
+      },
+      "micro": {
+        "required_evidence_count": 14,
+        "matched_evidence_at_5": 8,
+        "matched_evidence_at_10": 8,
+        "recall_at_5": 0.571429,
+        "recall_at_10": 0.571429
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 3,
+          "matched_at_5": 2,
+          "matched_at_10": 2,
+          "recall_at_5": 0.666667,
+          "recall_at_10": 0.666667,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 11,
+          "matched_at_5": 6,
+          "matched_at_10": 6,
+          "recall_at_5": 0.545455,
+          "recall_at_10": 0.545455
+        }
+      },
+      "complete_case_rate_at_5": 0.333333,
+      "complete_case_rate_at_10": 0.333333
+    },
+    "modality:表格": {
+      "case_count": 20,
+      "eligible_case_count": 20,
+      "macro": {
+        "recall_at_5": 0.733333,
+        "recall_at_10": 0.870833,
+        "mrr": 0.696726,
+        "document_hit_at_5": 0.95,
+        "document_hit_at_10": 0.9875,
+        "page_hit_at_5": 0.825,
+        "page_hit_at_10": 0.925,
+        "citable_recall_at_5": 0.5625,
+        "citable_recall_at_10": 0.6875,
+        "locator_only_recall_at_5": 0.75,
+        "locator_only_recall_at_10": 0.861111
+      },
+      "micro": {
+        "required_evidence_count": 37,
+        "matched_evidence_at_5": 26,
+        "matched_evidence_at_10": 30,
+        "recall_at_5": 0.702703,
+        "recall_at_10": 0.810811
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 9,
+          "matched_at_5": 5,
+          "matched_at_10": 6,
+          "recall_at_5": 0.555556,
+          "recall_at_10": 0.666667,
+          "downgraded_at_5": 1,
+          "downgraded_at_10": 1
+        },
+        "locator_only": {
+          "evidence_count": 28,
+          "matched_at_5": 20,
+          "matched_at_10": 23,
+          "recall_at_5": 0.714286,
+          "recall_at_10": 0.821429
+        }
+      },
+      "complete_case_rate_at_5": 0.55,
+      "complete_case_rate_at_10": 0.75
+    },
+    "repr:定义": {
+      "case_count": 16,
+      "eligible_case_count": 16,
+      "macro": {
+        "recall_at_5": 0.583333,
+        "recall_at_10": 0.723958,
+        "mrr": 0.56684,
+        "document_hit_at_5": 0.90625,
+        "document_hit_at_10": 0.984375,
+        "page_hit_at_5": 0.697917,
+        "page_hit_at_10": 0.822917,
+        "citable_recall_at_5": 0.875,
+        "citable_recall_at_10": 0.875,
+        "locator_only_recall_at_5": 0.488095,
+        "locator_only_recall_at_10": 0.666667
+      },
+      "micro": {
+        "required_evidence_count": 26,
+        "matched_evidence_at_5": 14,
+        "matched_evidence_at_10": 18,
+        "recall_at_5": 0.538462,
+        "recall_at_10": 0.692308
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 5,
+          "matched_at_5": 4,
+          "matched_at_10": 4,
+          "recall_at_5": 0.8,
+          "recall_at_10": 0.8,
+          "downgraded_at_5": 1,
+          "downgraded_at_10": 1
+        },
+        "locator_only": {
+          "evidence_count": 21,
+          "matched_at_5": 9,
+          "matched_at_10": 13,
+          "recall_at_5": 0.428571,
+          "recall_at_10": 0.619048
+        }
+      },
+      "complete_case_rate_at_5": 0.5,
+      "complete_case_rate_at_10": 0.6875
+    },
+    "repr:拒答": {
+      "case_count": 4,
+      "eligible_case_count": 1,
+      "macro": {
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0,
+        "mrr": 1.0,
+        "document_hit_at_5": 1.0,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 1.0,
+        "page_hit_at_10": 1.0,
+        "citable_recall_at_5": null,
+        "citable_recall_at_10": null,
+        "locator_only_recall_at_5": 1.0,
+        "locator_only_recall_at_10": 1.0
+      },
+      "micro": {
+        "required_evidence_count": 1,
+        "matched_evidence_at_5": 1,
+        "matched_evidence_at_10": 1,
+        "recall_at_5": 1.0,
+        "recall_at_10": 1.0
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 0,
+          "matched_at_5": 0,
+          "matched_at_10": 0,
+          "recall_at_5": null,
+          "recall_at_10": null,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 1,
+          "matched_at_5": 1,
+          "matched_at_10": 1,
+          "recall_at_5": 1.0,
+          "recall_at_10": 1.0
+        }
+      },
+      "complete_case_rate_at_5": 1.0,
+      "complete_case_rate_at_10": 1.0
+    },
+    "repr:数值": {
+      "case_count": 27,
+      "eligible_case_count": 27,
+      "macro": {
+        "recall_at_5": 0.83642,
+        "recall_at_10": 0.938272,
+        "mrr": 0.738316,
+        "document_hit_at_5": 0.981481,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.876543,
+        "page_hit_at_10": 0.950617,
+        "citable_recall_at_5": 0.666667,
+        "citable_recall_at_10": 0.666667,
+        "locator_only_recall_at_5": 0.858974,
+        "locator_only_recall_at_10": 0.967949
+      },
+      "micro": {
+        "required_evidence_count": 47,
+        "matched_evidence_at_5": 38,
+        "matched_evidence_at_10": 43,
+        "recall_at_5": 0.808511,
+        "recall_at_10": 0.914894
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 6,
+          "matched_at_5": 4,
+          "matched_at_10": 4,
+          "recall_at_5": 0.666667,
+          "recall_at_10": 0.666667,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 41,
+          "matched_at_5": 34,
+          "matched_at_10": 39,
+          "recall_at_5": 0.829268,
+          "recall_at_10": 0.95122
+        }
+      },
+      "complete_case_rate_at_5": 0.703704,
+      "complete_case_rate_at_10": 0.851852
+    },
+    "repr:条件": {
+      "case_count": 23,
+      "eligible_case_count": 23,
+      "macro": {
+        "recall_at_5": 0.746377,
+        "recall_at_10": 0.822464,
+        "mrr": 0.759058,
+        "document_hit_at_5": 0.956522,
+        "document_hit_at_10": 0.98913,
+        "page_hit_at_5": 0.84058,
+        "page_hit_at_10": 0.884058,
+        "citable_recall_at_5": 0.625,
+        "citable_recall_at_10": 0.75,
+        "locator_only_recall_at_5": 0.769841,
+        "locator_only_recall_at_10": 0.809524
+      },
+      "micro": {
+        "required_evidence_count": 47,
+        "matched_evidence_at_5": 33,
+        "matched_evidence_at_10": 36,
+        "recall_at_5": 0.702128,
+        "recall_at_10": 0.765957
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 8,
+          "matched_at_5": 5,
+          "matched_at_10": 6,
+          "recall_at_5": 0.625,
+          "recall_at_10": 0.75,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 39,
+          "matched_at_5": 28,
+          "matched_at_10": 30,
+          "recall_at_5": 0.717949,
+          "recall_at_10": 0.769231
+        }
+      },
+      "complete_case_rate_at_5": 0.521739,
+      "complete_case_rate_at_10": 0.652174
+    },
+    "repr:流程要求": {
+      "case_count": 10,
+      "eligible_case_count": 10,
+      "macro": {
+        "recall_at_5": 0.55,
+        "recall_at_10": 0.75,
+        "mrr": 0.477778,
+        "document_hit_at_5": 0.9,
+        "document_hit_at_10": 1.0,
+        "page_hit_at_5": 0.65,
+        "page_hit_at_10": 0.75,
+        "citable_recall_at_5": 0.5,
+        "citable_recall_at_10": 1.0,
+        "locator_only_recall_at_5": 0.5625,
+        "locator_only_recall_at_10": 0.6875
+      },
+      "micro": {
+        "required_evidence_count": 11,
+        "matched_evidence_at_5": 6,
+        "matched_evidence_at_10": 8,
+        "recall_at_5": 0.545455,
+        "recall_at_10": 0.727273
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 2,
+          "matched_at_5": 1,
+          "matched_at_10": 2,
+          "recall_at_5": 0.5,
+          "recall_at_10": 1.0,
+          "downgraded_at_5": 0,
+          "downgraded_at_10": 0
+        },
+        "locator_only": {
+          "evidence_count": 9,
+          "matched_at_5": 5,
+          "matched_at_10": 6,
+          "recall_at_5": 0.555556,
+          "recall_at_10": 0.666667
+        }
+      },
+      "complete_case_rate_at_5": 0.5,
+      "complete_case_rate_at_10": 0.7
+    },
+    "repr:表格": {
+      "case_count": 19,
+      "eligible_case_count": 19,
+      "macro": {
+        "recall_at_5": 0.745614,
+        "recall_at_10": 0.890351,
+        "mrr": 0.680764,
+        "document_hit_at_5": 0.947368,
+        "document_hit_at_10": 0.986842,
+        "page_hit_at_5": 0.842105,
+        "page_hit_at_10": 0.947368,
+        "citable_recall_at_5": 0.5625,
+        "citable_recall_at_10": 0.6875,
+        "locator_only_recall_at_5": 0.764706,
+        "locator_only_recall_at_10": 0.882353
+      },
+      "micro": {
+        "required_evidence_count": 35,
+        "matched_evidence_at_5": 25,
+        "matched_evidence_at_10": 29,
+        "recall_at_5": 0.714286,
+        "recall_at_10": 0.828571
+      },
+      "by_policy": {
+        "citable": {
+          "evidence_count": 9,
+          "matched_at_5": 5,
+          "matched_at_10": 6,
+          "recall_at_5": 0.555556,
+          "recall_at_10": 0.666667,
+          "downgraded_at_5": 1,
+          "downgraded_at_10": 1
+        },
+        "locator_only": {
+          "evidence_count": 26,
+          "matched_at_5": 19,
+          "matched_at_10": 22,
+          "recall_at_5": 0.730769,
+          "recall_at_10": 0.846154
+        }
+      },
+      "complete_case_rate_at_5": 0.578947,
+      "complete_case_rate_at_10": 0.789474
+    }
+  },
+  "run_id": "diagnostic-exp-e1-control-20261006-r1",
+  "classification": "diagnostic",
+  "corpus_version": "corpus-0b9a1fd84e3d",
+  "collection": "corpus_v2__staging__corpus-0b9a1fd84e3d__bi-d70cf457e0cac3fa3abbce0a",
+  "rerank_enabled": false,
+  "rerank_latency_ms": {
+    "p50": 0.034,
+    "p95": 0.06,
+    "mean": 0.037236
+  }
+}

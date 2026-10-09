@@ -1,0 +1,92 @@
+{
+  "case": "G008",
+  "question": "美国EPA《Illicit Discharge Detection and Elimination》指导手册对住宅小区雨污混接的法定罚款上限是多少美元？",
+  "expected_answerability": "refuse",
+  "request_id": "diagnostic-e2e-20261008-r1-G008",
+  "trace_missing": false,
+  "wall_ms": 5378.731,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.01,
+    "retrieval": 88.786,
+    "generation": 5283.988,
+    "total": 5372.879
+  },
+  "generate_context_evidence_ids": [
+    "chunk_52dd53933a96ca4083ae5c637c16d2f6",
+    "chunk_064a0a780b5c82b45f192c9717ba24d4",
+    "chunk_40a74421df45e3d374bb3a022fa09346",
+    "chunk_fc2e7747e9fa18c9eb0a608a6bf2c2a1",
+    "chunk_15fd52410d69bc6d47f34db91f795b39"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 2431,
+    "output_tokens": 403,
+    "total_tokens": 2834,
+    "estimated_cost": 0.030732,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "美国EPA《Illicit Discharge Detection and Elimination》指导手册对住宅小区雨污混接的法定罚款上限是多少美元？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_52dd53933a96ca4083ae5c637c16d2f6",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          63
+        ],
+        "text": "9 运行管理 > 9.05 通过电视、广播、网络等渠道，宣传雨污混接危害，积极营造\n2 本标准中指明按其他有关标准、规范执行的写法为“应符合……的规\n定”或“应按……执行”。"
+      },
+      {
+        "evidence_id": "chunk_064a0a780b5c82b45f192c9717ba24d4",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "2 术语和符号 > 8.2 Elimination of illicit discharges within the municipal\n8. 2\nElimination of illicit discharges within the municipal\nAppendix A\nTable for on site investigation of\nAppe且“x B\nTable for statistics of illicit discharge\nAppendix C\nTable for record of water quality\nAppendix D\nTable for O且\nsite investigatio日of\nApp巳ndix E\nTable for on site inv巳stigation of\nApp 巳ndix J Table for statistics of illicit discharge\noutfalls\n………………………………………( 26 )\nratmg …………………………………………( 27 )\ndetection ………………………………………( 28 )\ndrainage entities\n……………………………( 29 )\ndrainage pipe flow rate ………………………( 31 )\nstorm inlets …………………………………( 34 )\nconnect10ns or sources ………………………( 35 )\nconnect10ns ……………………………………( 37 )\ndrainage pipes\n…………………………………………( 22 )"
+      },
+      {
+        "evidence_id": "chunk_40a74421df45e3d374bb3a022fa09346",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          76
+        ],
+        "text": "6 施工与验收 > 6.1 一般规定 > 6.1.1 雨污混接改造工程应按批准的设计文件和国家现行标准\n6. 1. 1\n建筑与小区雨污混接改造工程是一项系统性工程，施工\n图审查合格后，建设单位应组织设计单位向施工单位、监理单位\n本条规定施工单位应熟悉设计文件和施工图，理解设计意图\n及要求，严格按照设计文件和相应的技术标准进行施工，不得无\n图纸擅自施工，造成雨污混接改造达不到应有的效果。施工单位\n如发现现场情况与设计文件不相符的，应及时联系建设单位与设"
+      },
+      {
+        "evidence_id": "chunk_fc2e7747e9fa18c9eb0a608a6bf2c2a1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "2 术语和符号 > 2.1.11 泪接治理\nillicit discharge elimination\n2. 1. 11\n泪接治理\nillicit discharge elimination\n为消除混接、外水人渗和水体水倒灌所采取的相关措施。"
+      },
+      {
+        "evidence_id": "chunk_15fd52410d69bc6d47f34db91f795b39",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          62
+        ],
+        "text": "5 混接区域调查 > 1.9 万km ，雨污水检查井和雨水口\n104 万座，查出混接点20076\n1. 9 万km ，雨污水检查井和雨水口\n104 万座，查出混接点20076\n个。其中，市政混接点543 个、居民小区混接点3253 个、公共建筑\n和企事业单位混接点7756 个、沿街商铺了昆接点7171 个、其他混接\n点1353 个。公共建筑、企事业单位和沿街商铺的混接点数占总混\n接数的\n74. 4% ；中心城区住宅小区混接水量最高，占比超60% 。\n因此，需要对雨污混接区域内居民小区、公共建筑、企事业单位、沿\n街商铺及洗车场所等做重点调查。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "correct_refusal",
+  "cumulative_estimated_cost_cny": 0.279304
+}

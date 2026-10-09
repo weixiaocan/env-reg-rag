@@ -157,6 +157,12 @@ def main(argv: list[str] | None = None) -> int:
         "--ocr-tables", action="store_true",
         help="enable expensive table-structure recognition on every OCR page",
     )
+    parser.add_argument(
+        "--recovery-dir", default=None,
+        help="directory of recovery override pages (e.g. data/canonical/recovery, "
+             "written by specialist re-extraction scripts); pages there replace "
+             "extraction results and derive a NEW corpus version",
+    )
     args = parser.parse_args(argv)
 
     if not args.skip_inventory_refresh:
@@ -237,6 +243,8 @@ def main(argv: list[str] | None = None) -> int:
         worker_count=1,
         formula_run_id=resolved_formula_run_id,
         attempted_contents=attempted_contents,
+        recovery_dir=(Path(_REPO_ROOT) / args.recovery_dir)
+        if args.recovery_dir else None,
     ).build()
 
     summary_keys = (

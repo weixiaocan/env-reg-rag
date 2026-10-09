@@ -1,0 +1,348 @@
+{
+  "id": "G022",
+  "question": "依据QX/T 489—2019《降雨过程等级》，单站日降雨量等级如何划分？暴雨与大暴雨对应的日降雨量区间分别是多少？",
+  "labels": {
+    "repr": [
+      "表格",
+      "数值",
+      "定义"
+    ],
+    "challenge": [
+      "表格",
+      "相似干扰"
+    ],
+    "modality": [
+      "表格",
+      "正文"
+    ]
+  },
+  "expected_facts": [
+    "单站日降雨量等级以该站日降雨量为划分依据，见表1",
+    "暴雨日降雨量50.0~99.9 mm",
+    "大暴雨日降雨量100.0~249.9 mm"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 2,
+    "matched_evidence_at_5": 2,
+    "matched_evidence_at_10": 2,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 1.0,
+    "latency_ms": 21.554,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 2,
+    "locator_only_matched_at_5": 2,
+    "locator_only_matched_at_10": 2,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+      "page": 9,
+      "element_ids": [
+        "e000067"
+      ],
+      "quote": "3.2 单站降雨过程等级\n表1单站日降雨量等级划分表\n等级 | 日降雨量 mm\n小雨 | 0.1~9.9\n中雨 | 10.0~24.9\n大雨 | 25.0~49.9\n暴雨 | 50.0~99.9\n大暴雨 | 100.0~249.9\n特大暴雨 | ≥250.0",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 1,
+      "locator_chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+      "locator_match_method": "quote_and_ids"
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+      "page": 9,
+      "element_ids": [
+        "e000063"
+      ],
+      "quote": "3.1 单站日降雨量等级\n单站日降雨量等级以该站日降雨量为划分依据，见表1。",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 2,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 2,
+      "locator_chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_613eb0f8a5152b3b39ee98e808944aa9",
+      "score": 0.833333,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000067"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.2 单站降雨过程等级"
+      ],
+      "text": "3.2 单站降雨过程等级\n表1单站日降雨量等级划分表\n等级 | 日降雨量 mm\n小雨 | 0.1~9.9\n中雨 | 10.0~24.9\n大雨 | 25.0~49.9\n暴雨 | 50.0~99.9\n大暴雨 | 100.0~249.9\n特大暴雨 | ≥250.0",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_cd4ad3447fe818b903b8b02148902b59",
+      "score": 0.666667,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000063"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.1 单站日降雨量等级"
+      ],
+      "text": "3.1 单站日降雨量等级\n单站日降雨量等级以该站日降雨量为划分依据，见表1。",
+      "matched_evidence_indexes": [
+        1
+      ]
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_d342b42872a12f04cd192df8990fbcd6",
+      "score": 0.45,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000073",
+        "e000075",
+        "e000076",
+        "e000077"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.2 区域降雨过程等级"
+      ],
+      "text": "4.2 区域降雨过程等级\n区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。\n区域可分为省（自治区、直辖市）、跨省（自治区、直辖市）或相当面积的地域范围，区域内站点包括县\n级以上国家级地面气象观测站和区域自动站。区域日降雨等级划分以单站日降雨量等级为依据，按照\n区域内达到某等级的站点百分比确定，见表2。若同时满足不同等级标准，则按照最强一级划定区域日",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_4c8d1ba5d6dabdff23acc3f4644f1f9e",
+      "score": 0.383333,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        1,
+        3,
+        5,
+        7,
+        9
+      ],
+      "element_ids": [
+        "e000001",
+        "e000002",
+        "e000003",
+        "e000004",
+        "e000005",
+        "e000006",
+        "e000007",
+        "e000008",
+        "e000009",
+        "e000010",
+        "e000011",
+        "e000012",
+        "e000013",
+        "e000014",
+        "e000015",
+        "e000016",
+        "e000017",
+        "e000018",
+        "e000019",
+        "e000021",
+        "e000022",
+        "e000028",
+        "e000029",
+        "e000030",
+        "e000031",
+        "e000032",
+        "e000033",
+        "e000034",
+        "e000036",
+        "e000037",
+        "e000038",
+        "e000039",
+        "e000040",
+        "e000042",
+        "e000043",
+        "e000044",
+        "e000045",
+        "e000046",
+        "e000047",
+        "e000048",
+        "e000049",
+        "e000050",
+        "e000051"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "ICS 07.060\nA47\n2019-09-18发布\nQX\nQX/T 489—2019\n降雨过程等级\nGrade of rainfall process\n2019-12-01实施\n中国气象局发布\n中华人民共和国气象行业标准\n次\n目\n前言\n引言\n1范围\n2术语和定义\n3单站降雨过程等级\n4区域降雨过程等级\n参考文献…\nⅢ\nV\nT\n前\n言\n本标准按照GB/T1.1一2009给出的规则起草。\n本标准由全国气象防灾减灾标准化技术委员会（SAC/TC345)提出并归口。\n本标准起草单位：国家气象中心。\n本标准主要起草人：鲍媛媛、李勇、康志明、马杰。\nⅢ\n引\n言\n调配水资源和防灾减灾的重要依据。\n效益。\nV\n我国属复杂的季风气候区，降雨具有阶段性、区域性、过程性、集中性等特点。降雨过程的位置、强\n度、持续时间在很大程度上影响着山洪、地质灾害、江河流域洪涝、城市内涝等，其准确预报是各级政府\n本标准旨在统一降雨过程等级标准，促进降雨过程预报服务水平提高，更好地发挥其社会和经济\n降雨过程等级\n1范围\n本标准规定了降雨过程等级及划分方法。\n本标准适用于降雨过程的预报、服务及科学研究。\n2术语和定义\n下列术语和定义适用于本文件。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_e22fd2e5e818104f9223c993392da379",
+      "score": 0.35,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000065"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3.2 单站降雨过程等级"
+      ],
+      "text": "3.2 单站降雨过程等级\n单站降雨过程等级为降雨过程中该站日降雨量等级中的最强等级。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_5291f2807c20a57f5157f70da227f33d",
+      "score": 0.311111,
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000078"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4.2 区域降雨过程等级"
+      ],
+      "text": "4.2 区域降雨过程等级\n表2区域日降雨等级划分表\n等级 | 划分方法\n小雨 | 区域内40%以上站点出现小雨\n中雨 | 区域内有30%以上站点出现中雨\n大雨 | 区域内有20%以上站点出现大雨\n暴雨 | 区域内有10%以上站点出现暴雨\n大暴雨 | 区域内有5%以上站点出现大暴雨\n特大暴雨 | 区域内有5%以上站点出现大暴雨，且有2%以上站点出现特大暴雨",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_7579e97cdb41c250254cd5c16093ee53",
+      "score": 0.277778,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000047",
+        "e000048",
+        "e000049",
+        "e000050",
+        "e000052",
+        "e000053"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "降雨过程 rainfall process\n单站或区域降雨开始到降雨结束。\n3降雨过程强度等级划分\n过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。\n利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨\n强度、覆盖范围、持续时间三个指标，计算单站/区域（需设定）降雨过程强度指数（RSI/RPI），根据降雨",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_02251b6b80c8bbafc300977d7f5a3f44",
+      "score": 0.25,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000062",
+        "e000063",
+        "e000064",
+        "e000065",
+        "e000066"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.2 降雨过程"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.2 降雨过程\n单站降雨过程：单站日雨量达到表3标定区间的第一天计为单站降雨过程开始，最后一天计为单站\n降雨过程结束。\n区域降雨过程：设定区域内5%以上的测站日雨量达到表3标定区间的第一天计为区域降雨过程\n开始，最后一天计为区域降雨过程结束。\n没有达到上述标准的降雨过程为弱降雨过程。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+      "score": 0.209524,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5,
+        6
+      ],
+      "element_ids": [
+        "e000029",
+        "e000031",
+        "e000032",
+        "e000033",
+        "e000034",
+        "e000036"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "text": "3 等级划分\nT/CMSA 0013—2019\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降水。\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\nT/CMSA 0013—2019\n单位：毫米（mm）",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_748119c84fe77d8708d88e528c07d96e",
+      "score": 0.198413,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000069"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 RSI/RPI计算方法",
+        "4.3 降雨过程评价指标计算",
+        "4.3.1 降雨强度（R）计算和指数划分"
+      ],
+      "text": "4 RSI/RPI计算方法 > 4.3 降雨过程评价指标计算 > 4.3.1 降雨强度（R）计算和指数划分\n降雨强度（R）：日雨量达到表3标定区间的测站日最大雨量和过程平均日雨量的加权。",
+      "matched_evidence_indexes": []
+    }
+  ],
+  "rerank_latency_ms": 0.038199941627681255
+}

@@ -1,0 +1,48 @@
+{
+  "classification": "diagnostic",
+  "kind": "smoke (≤5 cases, NOT comparable to baseline or experiment rounds)",
+  "run_id": "diagnostic-exp-e1-smoke-20261006",
+  "model_id": "BAAI/bge-reranker-base",
+  "confirmed_revision": "2cfc18c9415c912f9d8155881c133215df768a70",
+  "model_load_seconds": 2.14,
+  "sanity_scores": {
+    "relevant": 7.64231014251709,
+    "irrelevant": -3.844860553741455
+  },
+  "case_count": 5,
+  "wall_seconds": 15.457,
+  "rerank_latency_ms_per_case": [
+    2015.9,
+    2977.7,
+    3840.4,
+    4715.4,
+    1706.7
+  ],
+  "cases": [
+    {
+      "id": "G001",
+      "recall_at_5": 0.0,
+      "recall_at_10": 0.0
+    },
+    {
+      "id": "G002",
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0
+    },
+    {
+      "id": "G003",
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0
+    },
+    {
+      "id": "G004",
+      "recall_at_5": 0.5,
+      "recall_at_10": 1.0
+    },
+    {
+      "id": "G005",
+      "recall_at_5": 1.0,
+      "recall_at_10": 1.0
+    }
+  ]
+}

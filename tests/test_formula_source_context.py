@@ -17,7 +17,7 @@ class SourceContextTests(unittest.TestCase):
         self.assertEqual(current['excerpts'][0]['physical_page'], 2)
         self.assertEqual(len(current['excerpts'][0]['bbox']), 4)
         self.assertFalse(current['verified'])
-        self.assertTrue(current['source_url'].endswith('#page=2'))
+        self.assertTrue(current['source_url'].endswith('/pages/2/image'))
         pdf.close()
 
     def test_blank_scan_is_not_invented_or_called_missing_definition(self):

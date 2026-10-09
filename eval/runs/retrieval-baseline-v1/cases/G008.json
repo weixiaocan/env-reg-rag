@@ -1,0 +1,278 @@
+{
+  "id": "G008",
+  "question": "美国EPA《Illicit Discharge Detection and Elimination》指导手册对住宅小区雨污混接的法定罚款上限是多少美元？",
+  "labels": {
+    "repr": [
+      "拒答"
+    ],
+    "challenge": [
+      "库外",
+      "相似干扰"
+    ]
+  },
+  "expected_facts": [
+    "应拒答：当前语料未覆盖美国EPA IDDE手册及罚款上限",
+    "不应编造美元罚款数额"
+  ],
+  "metrics": {
+    "retrieval_applicable": false,
+    "required_evidence_count": 0,
+    "matched_evidence_at_5": 0,
+    "matched_evidence_at_10": 0,
+    "recall_at_5": null,
+    "recall_at_10": null,
+    "document_hit_at_5": null,
+    "document_hit_at_10": null,
+    "page_hit_at_5": null,
+    "page_hit_at_10": null,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": null,
+    "latency_ms": 36.691
+  },
+  "evidence_results": [],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_f8521ad46d25f850da89bc82ab847d26",
+      "score": 0.5,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        63
+      ],
+      "element_ids": [
+        "e000969"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "9 运行管理",
+        "9.05 通过电视、广播、网络等渠道，宣传雨污混接危害，积极营造"
+      ],
+      "text": "9 运行管理 > 9.05 通过电视、广播、网络等渠道，宣传雨污混接危害，积极营造\n2 本标准中指明按其他有关标准、规范执行的写法为“应符合……的规\n定”或“应按……执行”。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_11de608a20719e00c66d18276fb6dec3",
+      "score": 0.5,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000130",
+        "e000131",
+        "e000132",
+        "e000133",
+        "e000134",
+        "e000135",
+        "e000136",
+        "e000138",
+        "e000139",
+        "e000140",
+        "e000141",
+        "e000142",
+        "e000143",
+        "e000144",
+        "e000145",
+        "e000146"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "2 术语和符号",
+        "8.2 Elimination of illicit discharges within the municipal"
+      ],
+      "text": "2 术语和符号 > 8.2 Elimination of illicit discharges within the municipal\n8. 2\nElimination of illicit discharges within the municipal\nAppendix A\nTable for on site investigation of\nAppe且“x B\nTable for statistics of illicit discharge\nAppendix C\nTable for record of water quality\nAppendix D\nTable for O且\nsite investigatio日of\nApp巳ndix E\nTable for on site inv巳stigation of\nApp 巳ndix J Table for statistics of illicit discharge\noutfalls\n………………………………………( 26 )\nratmg …………………………………………( 27 )\ndetection ………………………………………( 28 )\ndrainage entities\n……………………………( 29 )\ndrainage pipe flow rate ………………………( 31 )\nstorm inlets …………………………………( 34 )\nconnect10ns or sources ………………………( 35 )\nconnect10ns ……………………………………( 37 )\ndrainage pipes\n…………………………………………( 22 )",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_09f7606cdb352f7c33272086acb63bd1",
+      "score": 0.333333,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        12
+      ],
+      "element_ids": [
+        "e000200",
+        "e000201"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 术语和符号",
+        "2.1.11 泪接治理\nillicit discharge elimination"
+      ],
+      "text": "2 术语和符号 > 2.1.11 泪接治理\nillicit discharge elimination\n2. 1. 11\n泪接治理\nillicit discharge elimination\n为消除混接、外水人渗和水体水倒灌所采取的相关措施。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_2372378de80eece8600af5355570e6f3",
+      "score": 0.333333,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        57
+      ],
+      "element_ids": [
+        "e000928"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "9 运行管理",
+        "9.05 通过电视、广播、网络等渠道，宣传雨污混接危害，积极营造"
+      ],
+      "text": "9 运行管理 > 9.05 通过电视、广播、网络等渠道，宣传雨污混接危害，积极营造\n编号 | 接入管径 | \n混接水量 |  | 混接程度 混接点水质 （氨氮mg/L，\n（m3/d） |  | \n（mm） |  | 早/晚高峰浓 度平均值）",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_5773da818529a886b21f7a59f86a8934",
+      "score": 0.25,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000148",
+        "e000149",
+        "e000150",
+        "e000151",
+        "e000152",
+        "e000153",
+        "e000154"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "2 术语和符号",
+        "8.4 Accepta丑ce of illicit discharges elimination ………………( 24 )"
+      ],
+      "text": "2 术语和符号 > 8.4 1昆接改造验收……………………………………………（24 )\n8. 4\nAccepta丑ce of illicit discharges elimination ………………( 24 )\nAppendix F\nTable for investigation of manholes or\nAppendix G\nTable for investigation of illicit discharge\nAppendix H\nLayers and legends of illicit discharg巳……（36 )\nExplanation of wording in this specification ………………( 38 )\nList of quoted standards ……………………………………( 39 )\nAddi ti on: Exp la丑ation of provisions ………………………( 41 )",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_dda9c67f20d43345c6e6b8c43ffdf8ea",
+      "score": 0.25,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        76
+      ],
+      "element_ids": [
+        "e001394",
+        "e001395",
+        "e001396",
+        "e001397",
+        "e001398",
+        "e001399"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6 施工与验收",
+        "6.1 一般规定",
+        "6.1.1 建筑与小区雨污混接改造工程是一项系统性工程，施工"
+      ],
+      "text": "6 施工与验收 > 6.1 一般规定 > 6.1.1 雨污混接改造工程应按批准的设计文件和国家现行标准\n6. 1. 1\n建筑与小区雨污混接改造工程是一项系统性工程，施工\n图审查合格后，建设单位应组织设计单位向施工单位、监理单位\n本条规定施工单位应熟悉设计文件和施工图，理解设计意图\n及要求，严格按照设计文件和相应的技术标准进行施工，不得无\n图纸擅自施工，造成雨污混接改造达不到应有的效果。施工单位\n如发现现场情况与设计文件不相符的，应及时联系建设单位与设",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_8512acbedf76fce489cec0a52f1be046",
+      "score": 0.2,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        57
+      ],
+      "element_ids": [
+        "e000926",
+        "e000927"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "9 运行管理",
+        "9.05 通过电视、广播、网络等渠道，宣传雨污混接危害，积极营造"
+      ],
+      "text": "9 运行管理 > 9.05 通过电视、广播、网络等渠道，宣传雨污混接危害，积极营造\n附表3 混接点混接程度判定统计表\n所属单元： 所属区块： 调查日期：",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_ad1317f4484246ad39c2e78bce4b29ff",
+      "score": 0.2,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000149",
+        "e000150",
+        "e000151",
+        "e000152",
+        "e000153"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 术\n语",
+        "2.0.4 混接调查\nillicit discharge investigation"
+      ],
+      "text": "2 术\n语 > 2.0.4 混接调查\nillicit discharge investigation\n2. 0. 4\n混接调查\nillicit discharge investigation\n综合运用人工调查、仪器探查、泵站运行配合等方法，查明\n调查区域内混接点、雨污混接源空间位置、流量水质、管道缺陷\n等要素，并通过调查结果的分析和判断，得出雨污混接状况和程\n度的评估结论的过程。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_3b1bc84d5beea17cd4f8fd9944f452c4",
+      "score": 0.166667,
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        12
+      ],
+      "element_ids": [
+        "e000131"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.8.1 排水管道混错接状况应按照调查范围进行评估。泵排系统应按照雨水泵站服务范围为单元进行\n评估，自流排放系统应以单个排放口的服务范围为单元进行评估。建筑以单根立管或者单个建筑为单元\n进行评估。 \n5.8.2 排水管道混错接密度可按市政管道混错接，地块混错接进行定性计算，计算方法如下： \n市政管道混错接密度计算： \n \n𝜌𝜌= 𝑛𝑛1 ÷ 𝐿𝐿× 100% ···································································· (1)"
+      ],
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.8.1 排水管道混错接状况应按照调查范围进行评估。泵排系统应按照雨水泵站服务范围为单元进行\n评估，自流排放系统应以单个排放口的服务范围为单元进行评估。建筑以单根立管或者单个建筑为单元\n进行评估。 \n5.8.2 排水管道混错接密度可按市政管道混错接，地块混错接进行定性计算，计算方法如下： \n市政管道混错接密度计算： \n \n𝜌𝜌= 𝑛𝑛1 ÷ 𝐿𝐿× 100% ···································································· (1)\n[公式 3]\n\\widehat{(M_{ 污 }=n_{ 污 }\\div N\\times100\\%)}\n式中：\nM 污——雨水管道中污水混错接密度；\nn 污——雨水管道中污水混错接点数或用户数（混错接的居民小区、公共建筑等）；\nN——排水管道服务区域内总排水用户数（居民小区、公共建筑等）。\n𝐶𝐶污= 𝑞𝑞÷ 𝑄𝑄× 100% ··································································· (4)",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_b9c16a9ef0e73bf3a4b2707918bda46e",
+      "score": 0.166667,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        104,
+        105
+      ],
+      "element_ids": [
+        "e002104",
+        "e002105",
+        "e002106",
+        "e002107",
+        "e002108",
+        "e002109",
+        "e002110",
+        "e002111",
+        "e002112",
+        "e002113",
+        "e002114",
+        "e002115",
+        "e002116",
+        "e002117",
+        "e002118",
+        "e002119",
+        "e002120",
+        "e002121"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 加强系统谋划",
+        "5.2 推行管网专业运行维护管理机制",
+        "5.2.3 强化居住小区内部排水管网运维管理"
+      ],
+      "text": "2 加强系统谋划 > 5.2 推行管网专业运行维护管理机制 > 5.2.3 强化居住小区内部排水管网运维管理\n化管理向居住小区延伸，有利于提升管网系统的整体效能。有条件的地\n方，业主单位可以通过购买服务等方式，委托专业队伍对小区内部的排\n水设施进行专业化养护。\n案例5-18 开展排水管网养护进小区\n江苏省某城市早年建设的街巷弄堂、老旧小区大部分属于合流制管\n网，为推进小区楼宇排水管理，制定的《××市排水管理条例》规定，\n“新建、改建住宅的，建设单位应当在住宅阳台（露台）设置污水管\n道”、“新建、改建住宅，建设单位未在住宅阳台（露台）设置污水管\n道的，由住房和城乡建设部门责令限期改正；逾期不改正的，处以十万\n- 93 -\n元以上二十万元以下罚款”，并责令限期整改。以此为基础，开展楼宇\n排水立管治理专项工作，减少立管错接混接。经过几轮的补管网空白、\n细化管网改造工作，基本实现了污水主管-支管-入户管的全覆盖。主要开\n展了以下几轮工作：\n一是补齐主干、次干管网空白。启动污水管网到户工程，填补市政\n管网空白，共敷设排水管道603公里，其中污水管437公里，雨水管166公\n里。\n二是补齐街巷、老旧小区支管空白。启动老旧小区综合整治排水工",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

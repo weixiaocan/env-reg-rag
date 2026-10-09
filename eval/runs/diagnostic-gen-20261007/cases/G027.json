@@ -1,0 +1,87 @@
+{
+  "case": "G027",
+  "question": "供水和污水系统资产管理指南第3部分中，图1的图名是什么？该图用于说明什么流程？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_448a7a97dfab2afdeda80b9a8e8476cb",
+    "chunk_f1974ca567957080b35f722fcd4fa1ac",
+    "chunk_66d5f814fa7ea5476332ce581564fa76",
+    "chunk_31362a70136d002c6510820a64e95a34",
+    "chunk_e96f187ca49f9e370734012c45dbe696"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.017,
+    "retrieval": 93.316,
+    "generation": 3489.176,
+    "total": 3582.603
+  },
+  "token_usage": {
+    "input_tokens": 2555,
+    "output_tokens": 302,
+    "total_tokens": 2857,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "供水和污水系统资产管理指南第3部分中，图1的图名是什么？该图用于说明什么流程？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_448a7a97dfab2afdeda80b9a8e8476cb",
+        "usage_policy": "answer_and_citation",
+        "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "4 术语和定义\n资产管理\nasset management\n组织利用资产（3.1）实现价值的协作活动。\n注1：实现价值通常需要权衡成本、风险、机会和绩效收益。\n注2：活动还可指资产管理体系中要素的应用。\n注3：术语“活动”是广义的，例如可包含方法、策划、计划及其实施等。\nGB/Z XXXXX—XXXX/ISO 24516-3:2017\n供水和污水系统资产管理指南 第3 部分：污水管网\n本文件提供了污水管网资产管理的技术方面、工具和良好实践指南，以维持现有资产的价值。\n本文件不适用于污水处理厂资产的管理，虽然这些资产在物理上也是污水系统的组成部分，并可\n注1：以下设施的资产管理由GB/Z XXXXX《供水和污水系统资产管理指南》系列文件的第4 部分涵盖：污水泵\n本文件适用于运营污水管网的各类别、各规模组织和/或单位，也适用于运营单位内部承担资产管\n理工作的各类角色/职能（例如资产所有者/责任方、资产管理者/运营方、服务提供方/运营方）。\n注2：污水处理设施维护运营单位可根据自身的规模和架构，可自行决定采用本文件的程度，但无论如何，本文件\n注1：价值可能是有形的或无形的,可能是财务的或非财务的,而且价值包括对风险和债务的考虑。价值在资产寿命"
+      },
+      {
+        "evidence_id": "chunk_f1974ca567957080b35f722fcd4fa1ac",
+        "usage_policy": "answer_and_citation",
+        "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "11.4 运行计划——更新改造落地实施方案...........................................................................31\n本文件是GB/Z XXXXX《供水和污水系统资产管理指南》的第3 部分。GB/Z XXXXX 已经发布了以下\n本文件等同采用ISO 24516-3:2017《供水和污水系统资产管理指南 第3 部分：污水管网》，文"
+      },
+      {
+        "evidence_id": "chunk_66d5f814fa7ea5476332ce581564fa76",
+        "usage_policy": "answer_and_citation",
+        "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 资产管理工作原则 > 5.4 构建资产管理工作流程 > 5.4.1 概述\n污水管网综合管理是全面掌握既有及规划污水管网情况，并利用相关信息制定管理策略的过程，\n该过程需兼顾未来发展条件与经济效益，保障管网的水力、环境、结构及运行性能满足规定要求。\n污水管网综合管理流程如图 2 所示。"
+      },
+      {
+        "evidence_id": "chunk_31362a70136d002c6510820a64e95a34",
+        "usage_policy": "answer_and_citation",
+        "file_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "5.10 节中，“调查类型确定（见本文件5.5.5 条）”改为“调查类型确定（见本文件5.4\n更新改造、维护及运行提供框架，同时重点关注“污水管网一体化管理”，资产管理是该体系的组成\n本文件给出的方法旨在普遍适用，不受具体污水系统构造形式的限制。文中所列经验性数值仅作\n辅助参考，制定具体实施方案，应当依据运营单位和/或项目对象的专属数值确定。\n有效资产管理的常规预期目标，是以经济高效的方式实现资产寿命与价值最大化。但在部分场景\n下，资产运行需服务于短期目标，此时的目标并非资产寿命最大化，例如可以是在计划时限内满足其\n本文件针对污水运营单位管辖的资产给出指导，该类资产应在较长（跨代）周期内满足用户的需"
+      },
+      {
+        "evidence_id": "chunk_e96f187ca49f9e370734012c45dbe696",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          60
+        ],
+        "text": "4 1昆接预判、资料收集与现场踏勘 > 4.2 现场踏勘与调查大纲编制 > 4.2.4 对污水系统进行分析时，当发现污水系统存在下述问题\n当无法提供排水管线图时，就需要对服务范围内的管线图进行测\n绘，测绘完成后再开展后续的调查工作。排水管线图最好为电子\n版，方便后续进行修正和查找。\n排水管道运行的水质和水量数据是诊断和排查的重要参考资\n料，有利于提高排查效率。\n4.2.7\n收集的排水管线图与实际的管线图可能存在一定的差异，\n需要结合现场情况，安排具有测绘资质的专业人员对管线图进行\n校对复核，主要确定管道的连接关系、流向、管道属性，管径、埋深、\n位置等基本信息，并将复核后的信息补充到管线图中，确保用于调\n查的资料的准确性和完整性。"
+      }
+    ]
+  }
+}

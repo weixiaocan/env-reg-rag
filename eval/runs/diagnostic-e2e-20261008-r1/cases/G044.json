@@ -1,0 +1,96 @@
+{
+  "case": "G044",
+  "question": "GB/T 28592降雨量等级按哪两个时段划分？特大暴雨的24小时阈值是多少？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261008-r1-G044",
+  "trace_missing": false,
+  "wall_ms": 23804.431,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.045,
+    "retrieval": 160.181,
+    "generation": 23635.985,
+    "total": 23796.399
+  },
+  "generate_context_evidence_ids": [
+    "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+    "chunk_ba63bbc6615352674d460e5f366ad577",
+    "chunk_bd6664bf693fe57e55fff4624d4b70e5",
+    "chunk_772a323179004e1893b9a98d07dcf423",
+    "chunk_ad45121b58402582037cc3ce9e7bb47f"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 2261,
+    "output_tokens": 1820,
+    "total_tokens": 4081,
+    "estimated_cost": 0.069048,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "GB/T 28592降雨量等级按哪两个时段划分？特大暴雨的24小时阈值是多少？",
+    "conversation_context": {
+      "statistical_period": "24h"
+    },
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_53bc9cf1cd413c183e4c40c2350faadc",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          5,
+          6
+        ],
+        "text": "3 等级划分\nT/CMSA 0013—2019\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n降雨量 rainfall\n某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上积累的深度。本标准不涉及雪等\n固态降水。\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\nT/CMSA 0013—2019\n单位：毫米（mm）"
+      },
+      {
+        "evidence_id": "chunk_ba63bbc6615352674d460e5f366ad577",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.1 城市总体规划应按气候分区、水文特征、地质条件等确\nq——设计暴雨强度［L/ （s·hn?）］；"
+      },
+      {
+        "evidence_id": "chunk_bd6664bf693fe57e55fff4624d4b70e5",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          51,
+          52
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.5 设计重现期应根据地形特点、气候条件、汇水面积、汇\n5.2.5\n本条规定了雨水系统设计重现期的取值依据。\n本次修订在设计重现期的取值规定中增加了汇水面积及在同\n一排水系统中可采用不同设计重现期，重现期的选择应考虑雨水\n管渠的系统性；主干系统的设计重现期应按总收水面积进行复核\n等内容，目的是强调雨水管渠设计的系统性，及主干系统的重要\n作用。对设计重现期的具体取值建议参考现行国家标准《室外排\n水设计规范》GB 50014 的相关规定执行，主要是避免两个规范\n出现的数值不一致。\n城市排水工程规划设计重现期的取值应从城市的视角出发，"
+      },
+      {
+        "evidence_id": "chunk_772a323179004e1893b9a98d07dcf423",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          51
+        ],
+        "text": "5 雨水系统 > 5.2 雨\n水\n量 > 5.2.2 本条是关于设计降雨历时的确定原则。\n在采用数学模型法计算复核管道规模时，宜采用当地设计暴\n雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水面\n注：根据《澳大利亚降雨与径流》（1998）的建议，城区内修正后的综合径流系数"
+      },
+      {
+        "evidence_id": "chunk_ad45121b58402582037cc3ce9e7bb47f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "2 术语和符号 > 2.1.12 旱天\ndry weather days\n2. 1. 12\n旱天\ndry weather days\n排水系统不受降雨径流影响的时间段，通常为至少雨停48h\n后的不降雨时期。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "generation_refusal",
+  "cumulative_estimated_cost_cny": 1.78908
+}

@@ -1,0 +1,20 @@
+{
+  "case": "G016",
+  "question": "对照GB 50014表4.1.4与GB 55027表3.4.2，超大城市与中等城市/小城市的城镇内涝防治设计重现期分别取多少？两表对道路积水深度的共同表述是什么？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "超大城市内涝防治设计重现期均为100年",
+    "中等城市和小城市均为20~30年",
+    "均要求道路中一条车道积水深度不超过15cm"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.033732
+}

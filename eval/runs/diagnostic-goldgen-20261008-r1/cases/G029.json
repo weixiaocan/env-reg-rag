@@ -1,0 +1,18 @@
+{
+  "case": "G029",
+  "question": "T/CECS 1764标准规范的对象是城镇污水管网的哪类问题监测与评估？",
+  "expected_answerability": "locate",
+  "expected_facts": [
+    "规范城镇污水管网入流入渗的监测与评估"
+  ],
+  "status": "evidence_preparation_insufficient",
+  "model_called": false,
+  "provided_evidence": [],
+  "answer": null,
+  "citation_problems": [],
+  "claim_support_problems": [],
+  "token_usage": {},
+  "generation_ms": null,
+  "failure_class": null,
+  "cumulative_estimated_cost_cny": 0.060464
+}
