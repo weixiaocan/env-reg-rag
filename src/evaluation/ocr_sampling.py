@@ -538,3 +538,130 @@ def verify_sample_sheet(root: Path) -> dict[str, Any]:
         "screenshot_hash_match_count": screenshot_count,
         "status": "verified",
     }
+
+
+_FIDELITY_VALUES = {"exact", "minor", "error", "unjudgeable"}
+_ERROR_TYPE_VALUES = {
+    "char", "number_unit_clause", "truncation_or_missing", "extra_or_order",
+}
+_HEADING_VALUES = {"correct", "wrong", "not_applicable"}
+_STANDALONE_VALUES = {"yes", "fragment"}
+
+
+def _read_jsonl(path: Path) -> list[dict[str, Any]]:
+    rows: list[dict[str, Any]] = []
+    for line_number, line in enumerate(path.read_text(encoding="utf-8").splitlines(), 1):
+        if not line.strip():
+            continue
+        try:
+            value = json.loads(line)
+        except json.JSONDecodeError as exc:
+            raise ValueError(f"invalid JSON at {path}:{line_number}: {exc}") from exc
+        if not isinstance(value, dict):
+            raise ValueError(f"JSONL row is not an object at {path}:{line_number}")
+        rows.append(value)
+    return rows
+
+
+def validate_judgments(sample_sheet_path: Path, judgments_path: Path) -> dict[str, int]:
+    """Validate one blind-review judgment file against its immutable worksheet."""
+    samples = _read_jsonl(sample_sheet_path)
+    judgments = _read_jsonl(judgments_path)
+    sample_by_id = {str(row["sample_id"]): row for row in samples}
+    ids = [str(row.get("sample_id", "")) for row in judgments]
+    if ids != sorted(ids):
+        raise ValueError("judgment rows must be sorted by sample_id")
+    if len(ids) != len(set(ids)):
+        raise ValueError("judgment sample_id values are not unique")
+    if set(ids) != set(sample_by_id):
+        missing = sorted(set(sample_by_id) - set(ids))
+        extra = sorted(set(ids) - set(sample_by_id))
+        raise ValueError(f"judgment sample_id set mismatch: missing={missing}, extra={extra}")
+
+    required = {
+        "sample_id", "judge", "model", "text_fidelity", "error_types",
+        "heading_path", "standalone_usable", "evidence", "unjudgeable_reason",
+        "images_viewed", "notes",
+    }
+    for row in judgments:
+        sample_id = str(row["sample_id"])
+        missing_fields = sorted(required - set(row))
+        if missing_fields:
+            raise ValueError(f"{sample_id}: missing fields {missing_fields}")
+        if row["judge"] != "codex" or not str(row["model"]).strip():
+            raise ValueError(f"{sample_id}: judge/model is invalid")
+        fidelity = row["text_fidelity"]
+        if fidelity not in _FIDELITY_VALUES:
+            raise ValueError(f"{sample_id}: invalid text_fidelity")
+        error_types = row["error_types"]
+        if not isinstance(error_types, list) or not set(error_types) <= _ERROR_TYPE_VALUES:
+            raise ValueError(f"{sample_id}: invalid error_types")
+        if fidelity == "error" and (not error_types or not str(row["evidence"]).strip()):
+            raise ValueError(f"{sample_id}: error requires evidence and error_types")
+        if fidelity == "minor" and not str(row["evidence"]).strip():
+            raise ValueError(f"{sample_id}: minor requires evidence")
+        reason = row["unjudgeable_reason"]
+        if fidelity == "unjudgeable" and not (isinstance(reason, str) and reason.strip()):
+            raise ValueError(f"{sample_id}: unjudgeable requires a reason")
+        if fidelity != "unjudgeable" and reason is not None:
+            raise ValueError(f"{sample_id}: unjudgeable_reason must be null")
+        if row["heading_path"] not in _HEADING_VALUES:
+            raise ValueError(f"{sample_id}: invalid heading_path")
+        if row["standalone_usable"] not in _STANDALONE_VALUES:
+            raise ValueError(f"{sample_id}: invalid standalone_usable")
+        viewed = row["images_viewed"]
+        if not isinstance(viewed, list) or len(viewed) != len(set(viewed)):
+            raise ValueError(f"{sample_id}: images_viewed must be a unique list")
+        expected_contexts = {
+            shot["context"]["path"] for shot in sample_by_id[sample_id]["screenshots"]
+        }
+        if not expected_contexts <= set(viewed):
+            missing = sorted(expected_contexts - set(viewed))
+            raise ValueError(f"{sample_id}: context images not viewed: {missing}")
+    return {"sample_count": len(samples), "judgment_count": len(judgments)}
+
+
+def wilson_interval(successes: int, total: int, z: float = 1.959963984540054) -> list[float | None]:
+    if total == 0:
+        return [None, None]
+    rate = successes / total
+    denominator = 1.0 + z * z / total
+    center = (rate + z * z / (2.0 * total)) / denominator
+    margin = z * ((rate * (1.0 - rate) / total + z * z / (4.0 * total * total)) ** 0.5) / denominator
+    return [max(0.0, center - margin), min(1.0, center + margin)]
+
+
+def build_judgments_summary(sample_sheet_path: Path, judgments_path: Path) -> dict[str, Any]:
+    validate_judgments(sample_sheet_path, judgments_path)
+    samples = {str(row["sample_id"]): row for row in _read_jsonl(sample_sheet_path)}
+    judgments = _read_jsonl(judgments_path)
+    grouped: dict[str, list[dict[str, Any]]] = {}
+    for row in judgments:
+        grouped.setdefault(str(samples[str(row["sample_id"])]["document_name"]), []).append(row)
+    documents = []
+    for document_name, rows in sorted(grouped.items()):
+        judgeable = [row for row in rows if row["text_fidelity"] != "unjudgeable"]
+        errors = sum(row["text_fidelity"] == "error" for row in judgeable)
+        heading_applicable = [row for row in rows if row["heading_path"] != "not_applicable"]
+        heading_wrong = sum(row["heading_path"] == "wrong" for row in heading_applicable)
+        fragments = sum(row["standalone_usable"] == "fragment" for row in rows)
+        documents.append({
+            "document_name": document_name,
+            "sample_count": len(rows),
+            "judgeable_count": len(judgeable),
+            "unjudgeable_count": len(rows) - len(judgeable),
+            "error_count": errors,
+            "error_rate": errors / len(judgeable) if judgeable else None,
+            "error_rate_wilson_95": wilson_interval(errors, len(judgeable)),
+            "heading_applicable_count": len(heading_applicable),
+            "heading_wrong_count": heading_wrong,
+            "heading_wrong_rate": heading_wrong / len(heading_applicable) if heading_applicable else None,
+            "fragment_count": fragments,
+            "fragment_rate": fragments / len(rows),
+        })
+    return {
+        "schema_version": "ocr-judgments-summary-v1",
+        "judge": "codex",
+        "sample_count": len(judgments),
+        "documents": documents,
+    }

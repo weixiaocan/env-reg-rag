@@ -1,0 +1,177 @@
+{
+  "documents": [
+    {
+      "document_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "error_count": 14,
+      "error_rate": 0.56,
+      "error_rate_wilson_95": [
+        0.3706733186979878,
+        0.7333436111893266
+      ],
+      "fragment_count": 15,
+      "fragment_rate": 0.6,
+      "heading_applicable_count": 25,
+      "heading_wrong_count": 20,
+      "heading_wrong_rate": 0.8,
+      "judgeable_count": 25,
+      "sample_count": 25,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "error_count": 14,
+      "error_rate": 0.56,
+      "error_rate_wilson_95": [
+        0.3706733186979878,
+        0.7333436111893266
+      ],
+      "fragment_count": 12,
+      "fragment_rate": 0.48,
+      "heading_applicable_count": 25,
+      "heading_wrong_count": 25,
+      "heading_wrong_rate": 1.0,
+      "judgeable_count": 25,
+      "sample_count": 25,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "GBT 28592-2012降水量等级.pdf",
+      "error_count": 3,
+      "error_rate": 1.0,
+      "error_rate_wilson_95": [
+        0.4385029682449546,
+        1.0
+      ],
+      "fragment_count": 3,
+      "fragment_rate": 1.0,
+      "heading_applicable_count": 0,
+      "heading_wrong_count": 0,
+      "heading_wrong_rate": null,
+      "judgeable_count": 3,
+      "sample_count": 3,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "QXT 489－2019 降雨过程等级.pdf",
+      "error_count": 2,
+      "error_rate": 0.2222222222222222,
+      "error_rate_wilson_95": [
+        0.06322510711784671,
+        0.5474110308930111
+      ],
+      "fragment_count": 3,
+      "fragment_rate": 0.3333333333333333,
+      "heading_applicable_count": 5,
+      "heading_wrong_count": 1,
+      "heading_wrong_rate": 0.2,
+      "judgeable_count": 9,
+      "sample_count": 9,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "error_count": 16,
+      "error_rate": 0.64,
+      "error_rate_wilson_95": [
+        0.44518497748164865,
+        0.7975211922554178
+      ],
+      "fragment_count": 17,
+      "fragment_rate": 0.68,
+      "heading_applicable_count": 24,
+      "heading_wrong_count": 24,
+      "heading_wrong_rate": 1.0,
+      "judgeable_count": 25,
+      "sample_count": 25,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "城镇内涝防治技术规范.pdf",
+      "error_count": 18,
+      "error_rate": 0.72,
+      "error_rate_wilson_95": [
+        0.5242339480963842,
+        0.8571614614904344
+      ],
+      "fragment_count": 18,
+      "fragment_rate": 0.72,
+      "heading_applicable_count": 25,
+      "heading_wrong_count": 14,
+      "heading_wrong_rate": 0.56,
+      "judgeable_count": 25,
+      "sample_count": 25,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "error_count": 20,
+      "error_rate": 0.8,
+      "error_rate_wilson_95": [
+        0.6086904963045967,
+        0.9113941531319742
+      ],
+      "fragment_count": 13,
+      "fragment_rate": 0.52,
+      "heading_applicable_count": 25,
+      "heading_wrong_count": 20,
+      "heading_wrong_rate": 0.8,
+      "judgeable_count": 25,
+      "sample_count": 25,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "error_count": 11,
+      "error_rate": 0.44,
+      "error_rate_wilson_95": [
+        0.26665638881067344,
+        0.6293266813020123
+      ],
+      "fragment_count": 16,
+      "fragment_rate": 0.64,
+      "heading_applicable_count": 24,
+      "heading_wrong_count": 23,
+      "heading_wrong_rate": 0.9583333333333334,
+      "judgeable_count": 25,
+      "sample_count": 25,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "error_count": 16,
+      "error_rate": 0.64,
+      "error_rate_wilson_95": [
+        0.44518497748164865,
+        0.7975211922554178
+      ],
+      "fragment_count": 17,
+      "fragment_rate": 0.68,
+      "heading_applicable_count": 25,
+      "heading_wrong_count": 17,
+      "heading_wrong_rate": 0.68,
+      "judgeable_count": 25,
+      "sample_count": 25,
+      "unjudgeable_count": 0
+    },
+    {
+      "document_name": "降雨过程强度等级标准.pdf",
+      "error_count": 6,
+      "error_rate": 0.42857142857142855,
+      "error_rate_wilson_95": [
+        0.21380798904474121,
+        0.6740935542034926
+      ],
+      "fragment_count": 5,
+      "fragment_rate": 0.35714285714285715,
+      "heading_applicable_count": 10,
+      "heading_wrong_count": 2,
+      "heading_wrong_rate": 0.2,
+      "judgeable_count": 14,
+      "sample_count": 14,
+      "unjudgeable_count": 0
+    }
+  ],
+  "judge": "codex",
+  "sample_count": 201,
+  "schema_version": "ocr-judgments-summary-v1"
+}

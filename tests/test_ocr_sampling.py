@@ -4,6 +4,7 @@ from types import SimpleNamespace
 
 from src.evaluation.ocr_sampling import (
     bbox_to_pixel_rect,
+    build_judgments_summary,
     chunk_exclusion_reasons,
     context_clip,
     sample_record,
@@ -11,6 +12,8 @@ from src.evaluation.ocr_sampling import (
     split_chunk_fields,
     split_sampling_population,
     union_bboxes_by_page,
+    validate_judgments,
+    wilson_interval,
 )
 
 
@@ -151,3 +154,61 @@ def test_chunk_fields_keep_body_when_structural_prefix_was_cap_dropped():
         "body_text": "独立正文。",
         "heading_prefix_in_chunk": False,
     }
+
+
+def _write_review_fixture(tmp_path):
+    context = "eval/audits/ocr_sampling/crops/a/context.png"
+    sample = {
+        "sample_id": "ocr-a-001", "document_name": "scan.pdf",
+        "screenshots": [{"context": {"path": context}}],
+    }
+    judgment = {
+        "sample_id": "ocr-a-001", "judge": "codex", "model": "test-model",
+        "text_fidelity": "error", "error_types": ["char"],
+        "heading_path": "wrong", "standalone_usable": "fragment",
+        "evidence": "OCR『甲』 vs 原图『乙』", "unjudgeable_reason": None,
+        "images_viewed": [context], "notes": "",
+    }
+    sheet = tmp_path / "sheet.jsonl"
+    judgments = tmp_path / "judgments.jsonl"
+    import json
+    sheet.write_text(json.dumps(sample, ensure_ascii=False) + "\n", encoding="utf-8")
+    judgments.write_text(json.dumps(judgment, ensure_ascii=False) + "\n", encoding="utf-8")
+    return sheet, judgments
+
+
+def test_validate_judgments_requires_all_context_images(tmp_path):
+    sheet, judgments = _write_review_fixture(tmp_path)
+    assert validate_judgments(sheet, judgments) == {"sample_count": 1, "judgment_count": 1}
+    text = judgments.read_text(encoding="utf-8").replace(
+        '"images_viewed": ["eval/audits/ocr_sampling/crops/a/context.png"]',
+        '"images_viewed": []',
+    )
+    judgments.write_text(text, encoding="utf-8")
+    import pytest
+    with pytest.raises(ValueError, match="context images not viewed"):
+        validate_judgments(sheet, judgments)
+
+
+def test_validate_judgments_rejects_error_without_evidence(tmp_path):
+    sheet, judgments = _write_review_fixture(tmp_path)
+    text = judgments.read_text(encoding="utf-8").replace(
+        '"evidence": "OCR\\u300e\\u7532\\u300f vs \\u539f\\u56fe\\u300e\\u4e59\\u300f"',
+        '"evidence": ""',
+    )
+    # ensure_ascii=False leaves the Chinese text literal.
+    text = text.replace('"evidence": "OCR『甲』 vs 原图『乙』"', '"evidence": ""')
+    judgments.write_text(text, encoding="utf-8")
+    import pytest
+    with pytest.raises(ValueError, match="requires evidence"):
+        validate_judgments(sheet, judgments)
+
+
+def test_judgment_summary_reports_wilson_and_independent_rates(tmp_path):
+    sheet, judgments = _write_review_fixture(tmp_path)
+    summary = build_judgments_summary(sheet, judgments)
+    row = summary["documents"][0]
+    assert row["error_rate"] == 1.0
+    assert row["heading_wrong_rate"] == 1.0
+    assert row["fragment_rate"] == 1.0
+    assert row["error_rate_wilson_95"] == wilson_interval(1, 1)
