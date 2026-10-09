@@ -1,0 +1,2176 @@
+{
+  "schema_version": "t6c-recompute-v1",
+  "corpus_version": "corpus-966c89b264cc",
+  "method": {
+    "mode": "offline in-memory",
+    "writes_formal_artifacts": false,
+    "formula_run_id": "5d3264515515e228",
+    "independent_ocr_run_id": "ocrv6-ef06411e1606ba35",
+    "before": "existing candidate Canonical assembled before T6c",
+    "after": "same page-intermediate and caches assembled with working-tree T6c code",
+    "half_sentence_definition": "chunk body lacks terminal punctuation and its last text element is followed by another text element with the same section_path"
+  },
+  "totals": {
+    "documents": 23,
+    "before": {
+      "item_like_distinct_root_nodes": 94,
+      "headings_ending_sentence_punctuation": 234,
+      "chunk_bodies_containing_breadcrumb_separator": 194,
+      "ocr_text_elements": 14709,
+      "ocr_source_lines": 14709,
+      "half_sentence_chunks_followed_by_same_section": 1085,
+      "chunks": 4510,
+      "ocr_average_lines_per_text_element": 1.0
+    },
+    "after": {
+      "item_like_distinct_root_nodes": 0,
+      "headings_ending_sentence_punctuation": 0,
+      "chunk_bodies_containing_breadcrumb_separator": 0,
+      "ocr_text_elements": 9326,
+      "ocr_source_lines": 14924,
+      "half_sentence_chunks_followed_by_same_section": 945,
+      "chunks": 4568,
+      "ocr_average_lines_per_text_element": 1.600257
+    }
+  },
+  "samples": [
+    {
+      "sample_id": "ocr-1e4f99290e1e-013",
+      "document_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        22
+      ],
+      "old_heading_path": "3 进行源头减排设施设计； > 4.2 渗透设施 > 4.2.24 生物滞留设施宜设置雨水径流预处理设施",
+      "old_body": "4.2.24生物滞留设施宜设置雨水径流预处理设施\nS\n留设施的溢流高度\n顶端的高度应高于生",
+      "new_chunk_id": "chunk_c7e75df5b756f3bb66d08632a9e0728e",
+      "new_element_id": "e000559",
+      "new_element_role": "clause",
+      "new_element_text": "4.2.24生物滞留设施宜设置雨水径流预处理设施",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.572692,
+      "new_heading_path": "4.2.24",
+      "new_body": "4.2.24生物滞留设施宜设置雨水径流预处理设施\nS\n留设施的溢流高度\n顶端的高度应高于生",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82/ocr-1e4f99290e1e-013__p0022__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-1e4f99290e1e-024",
+      "document_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        34,
+        35
+      ],
+      "old_heading_path": "4 进口设计应考虑分散消能措施； > 7.3 应急管 > 7.3.3 城镇内涝防治应急系统应包括源头减排设施、排水管渠设",
+      "old_body": "7.3.3 城镇内涝防治应急系统应包括源头减排设施、排水管渠设\n施和排涝除险设施的事故应急以及超过内涝防治设计重现期情况\n下的应急，应建立应急联动管理和应急预案，并应由内涝防治设施\n管理单位共同参与，分工协作，并应符合下列规定：\n1当周边发生污染事故，污染物质汇流入具有渗透功能的源\n头减排设施并可能影响地下水时，应及时启动应急预案，清除污染\n源和污染土壤，修复地下水；\n2当排水泵站等排水管渠设施和排涝泵站等排涝除险设施\n发生突然失电等事故时，应及时启动应急预案，采取立即检查抢\n修、防止泵站自身受淹、启动临时发电设施和启动移动排涝泵车等\n措施；\n3当城镇河道堤防（墙）等排涝除险设施发生损坏和倒塌等\n事故时，应及时启动应急预案，采取立即检查抢修、临时加固、临时\n堆筑围堰和防水挡板等措施：\n4当降雨超过内涝防治设计重现期情况时，应及时启动应急\n预案，按照统一应急调度指令执行应急抢险，疏散危险区域人员。",
+      "new_chunk_id": "chunk_47245d4702334c6bcfa80f2a691427f6",
+      "new_element_id": "e000773",
+      "new_element_role": "clause",
+      "new_element_text": "7.3.3 城镇内涝防治应急系统应包括源头减排设施、排水管渠设\n施和排涝除险设施的事故应急以及超过内涝防治设计重现期情况\n下的应急，应建立应急联动管理和应急预案，并应由内涝防治设施\n管理单位共同参与，分工协作，并应符合下列规定：",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.349629,
+      "new_heading_path": "7 运行维护 > 7.3 应急管 > 7.3.3",
+      "new_body": "7.3.3 城镇内涝防治应急系统应包括源头减排设施、排水管渠设\n施和排涝除险设施的事故应急以及超过内涝防治设计重现期情况\n下的应急，应建立应急联动管理和应急预案，并应由内涝防治设施\n管理单位共同参与，分工协作，并应符合下列规定：\n1当周边发生污染事故，污染物质汇流入具有渗透功能的源\n头减排设施并可能影响地下水时，应及时启动应急预案，清除污染\n源和污染土壤，修复地下水；\n2当排水泵站等排水管渠设施和排涝泵站等排涝除险设施\n发生突然失电等事故时，应及时启动应急预案，采取立即检查抢\n修、防止泵站自身受淹、启动临时发电设施和启动移动排涝泵车等\n措施；\n3当城镇河道堤防（墙）等排涝除险设施发生损坏和倒塌等\n事故时，应及时启动应急预案，采取立即检查抢修、临时加固、临时\n堆筑围堰和防水挡板等措施：\n4当降雨超过内涝防治设计重现期情况时，应及时启动应急\n预案，按照统一应急调度指令执行应急抢险，疏散危险区域人员。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82/ocr-1e4f99290e1e-024__p0034__context.png",
+        "eval/audits/ocr_sampling/v2/crops/remapped/1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82/ocr-1e4f99290e1e-024__p0035__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-4336797dedd1-011",
+      "document_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        17
+      ],
+      "old_heading_path": "3.2 评价指标及评价方法 > 3.2.7 评价对象根据总得分按表3.2.7判定评价结果",
+      "old_body": "4地块项目评价",
+      "new_chunk_id": null,
+      "new_element_id": "e000181",
+      "new_element_role": "heading",
+      "new_element_text": "4地块项目评价",
+      "source_span_overlap_ratio": 0.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "4 地块项目评价",
+      "new_body": null,
+      "projection_status": "heading_prefix_only",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed/ocr-4336797dedd1-011__p0017__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-4336797dedd1-024",
+      "document_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        37
+      ],
+      "old_heading_path": "5.1 评分项 > 5.1.1 市政道路项目在雨污分流改造方案论证时，应统筹考虑",
+      "old_body": "5.1 评分项 > 5.1.1 建设方案评价总分值为10分\n5.1.1市政道路项目在雨污分流改造方案论证时，应统筹考虑\n街巷、上下游排水分区的设计，对项目范围内管网过流能力进行\n充分论证，如上游或周边地块设置有截流设施时，需考虑截流量\n以及下游过流能力匹配度，统筹考虑周边地块、区域排水需求，并\n合理设置预留管，保障雨水、污水能顺畅排放。",
+      "new_chunk_id": "chunk_309bc26d1d40a41e00c36e2754da64f1",
+      "new_element_id": "e000439",
+      "new_element_role": "clause",
+      "new_element_text": "5.1.1市政道路项目在雨污分流改造方案论证时，应统筹考虑\n街巷、上下游排水分区的设计，对项目范围内管网过流能力进行\n充分论证，如上游或周边地块设置有截流设施时，需考虑截流量\n以及下游过流能力匹配度，统筹考虑周边地块、区域排水需求，并\n合理设置预留管，保障雨水、污水能顺畅排放。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "5.1 评分项 > 5.1.1",
+      "new_body": "5.1.1市政道路项目在雨污分流改造方案论证时，应统筹考虑\n街巷、上下游排水分区的设计，对项目范围内管网过流能力进行\n充分论证，如上游或周边地块设置有截流设施时，需考虑截流量\n以及下游过流能力匹配度，统筹考虑周边地块、区域排水需求，并\n合理设置预留管，保障雨水、污水能顺畅排放。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed/ocr-4336797dedd1-024__p0037__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-60bfe78380e9-005",
+      "document_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        6
+      ],
+      "old_heading_path": "1 总则… > 2.1 规模和布局 > 2.1.10 乡村污水系统应以县级行政区域",
+      "old_body": "应实行统一规划，\n并应因地制宜开展建设和运行。",
+      "new_chunk_id": "chunk_0333adabb28d478ad8e09da8a3c1f69b",
+      "new_element_id": "e000078",
+      "new_element_role": "paragraph",
+      "new_element_text": "应实行统一规划，\n并应因地制宜开展建设和运行。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "2 基本规定 > 2.1 规模和布局 > 2.1.10",
+      "new_body": "2.1.10乡村污水系统应以县级行政区域\n应实行统一规划，\n并应因地制宜开展建设和运行。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f/ocr-60bfe78380e9-005__p0006__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-60bfe78380e9-011",
+      "document_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        8
+      ],
+      "old_heading_path": "1 总则… > 2.3 运行维护 > 2.3.2 城市和有条件的建制镇，雨水管渠和污水管道应建立地",
+      "old_body": "2.3.2城市和有条件的建制镇，雨水管渠和污水管道应建立地\n理信息系统，并应进行动态更新。\n根据评估结果进行维护保养、整改或更新。",
+      "new_chunk_id": "chunk_56a1476e8f73e91c6ee67109797131ad",
+      "new_element_id": "e000105",
+      "new_element_role": "clause",
+      "new_element_text": "2.3.2城市和有条件的建制镇，雨水管渠和污水管道应建立地\n理信息系统，并应进行动态更新。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.696536,
+      "new_heading_path": "2 基本规定 > 2.3 运行维护 > 2.3.2",
+      "new_body": "2.3.2城市和有条件的建制镇，雨水管渠和污水管道应建立地\n理信息系统，并应进行动态更新。\n根据评估结果进行维护保养、整改或更新。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f/ocr-60bfe78380e9-011__p0008__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-60bfe78380e9-024",
+      "document_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        18
+      ],
+      "old_heading_path": "1 总则… > 4.3 污水和再生水处 > 4.3.13 城镇再生水储存设施的排空管道、溢流管道严禁直接和",
+      "old_body": "4.3.13 城镇再生水储存设施的排空管道、溢流管道严禁直接和\n污水管道或雨水管渠连接，并应做好卫生防护工作，保障再生水\n水质安全。\n/\n装置直接连接。",
+      "new_chunk_id": "chunk_5fc7d3297bf90be88f958920b0098eeb",
+      "new_element_id": "e000253",
+      "new_element_role": "clause",
+      "new_element_text": "4.3.13 城镇再生水储存设施的排空管道、溢流管道严禁直接和\n污水管道或雨水管渠连接，并应做好卫生防护工作，保障再生水\n水质安全。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.913929,
+      "new_heading_path": "4 污水系统 > 4.3.13",
+      "new_body": "4.3.13 城镇再生水储存设施的排空管道、溢流管道严禁直接和\n污水管道或雨水管渠连接，并应做好卫生防护工作，保障再生水\n水质安全。\n/\n装置直接连接。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f/ocr-60bfe78380e9-024__p0018__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-adf038d73f82-005",
+      "document_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        15,
+        16
+      ],
+      "old_heading_path": "5 重点排水户接入市政管网的位置 > 4.1.8 污水管网入流入渗监测方案应符合下列规定：",
+      "old_body": "4.1.8 污水管网入流入渗监测方案应符合下列规定：\n1 同一监测点的降雨量、水量指标、水质指标应同步监测；\n2 同一监测分区的各个监测点应同步监测；\n3 旱天入流入渗应在旱季、雨季分别开展监测，旱季监测\n.7\n时间应覆盖至少7个连续旱天的监测数据，雨季监测时间应覆盖\n至少7个旱天的监测数据；旱天入流入渗监测应覆盖工作日和节\n假日，但应避开长假期间；\n4 降雨入流入渗应在雨季开展监测，监测时间应覆盖至少\n3场次中雨或大雨的监测数据，单场次累积降雨量不应小\n于10mm;\n5 监测方案应从时间或空间上避开污水管网特殊或异常运\n行工况。",
+      "new_chunk_id": "chunk_5f0965d35a99db508572b195b460a505",
+      "new_element_id": "e000259",
+      "new_element_role": "paragraph",
+      "new_element_text": "时间应覆盖至少7个连续旱天的监测数据，雨季监测时间应覆盖\n至少7个旱天的监测数据；旱天入流入渗监测应覆盖工作日和节\n假日，但应避开长假期间；",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.279425,
+      "new_heading_path": "4.1 监测方案 > 4.1.8",
+      "new_body": "4.1.8 污水管网入流入渗监测方案应符合下列规定：\n1 同一监测点的降雨量、水量指标、水质指标应同步监测；\n2 同一监测分区的各个监测点应同步监测；\n3 旱天入流入渗应在旱季、雨季分别开展监测，旱季监测\n.7\n时间应覆盖至少7个连续旱天的监测数据，雨季监测时间应覆盖\n至少7个旱天的监测数据；旱天入流入渗监测应覆盖工作日和节\n假日，但应避开长假期间；\n4 降雨入流入渗应在雨季开展监测，监测时间应覆盖至少\n3场次中雨或大雨的监测数据，单场次累积降雨量不应小\n于10mm;\n5 监测方案应从时间或空间上避开污水管网特殊或异常运\n行工况。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f/ocr-adf038d73f82-005__p0015__context.png",
+        "eval/audits/ocr_sampling/v2/crops/remapped/adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f/ocr-adf038d73f82-005__p0016__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-adf038d73f82-022",
+      "document_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        47,
+        48
+      ],
+      "old_heading_path": "5 重点排水户接入市政管网的位置 > 5.3 降雨入流入渗计算 > 5.3.2 污水管网中发生的降雨入流入渗是由降雨直接引起，因",
+      "old_body": "5 重点排水户接入市政管网的位置 > 5.3 降雨入流入渗计算 > 5.3.2 应根据降雨量与流量同步监测数据计算污水管网的场次\n5.3.2污水管网中发生的降雨入流入渗是由降雨直接引起，因\n此与降雨时间密切相关。由于管道网汇流关系的复杂性，降雨发\n生后，直接入流到管网中的雨水和降雨引发的入渗增量在管网中\n的汇流过程需要一定的时间，管网中出现流量变化的时间段会滞\n后于降雨时间。因此，在计算场次雨水入流量时，不仅要计算降\n雨发生时间段内的流量变化，也要考虑到场次降雨对管网流量产\n生滞后影响的时间，将降雨开始时刻到降雨不再对管网流量产生\n影响的时刻定义为场次计算期。在场次雨水入流量的计算中，污\n水管道的累积流量（Q）和对应的旱天累积流量（AQ）均需对\n应场次计算期。\n场次计算期的选择在不同情况下差别较大，在工程实践中可\n根据监测数据或实际情况进行判断，本标准不作严格要求。",
+      "new_chunk_id": "chunk_5b05e2e5a54a27721a3543ccad49cb7e",
+      "new_element_id": "e000637",
+      "new_element_role": "clause",
+      "new_element_text": "5.3.2污水管网中发生的降雨入流入渗是由降雨直接引起，因\n此与降雨时间密切相关。由于管道网汇流关系的复杂性，降雨发\n生后，直接入流到管网中的雨水和降雨引发的入渗增量在管网中\n的汇流过程需要一定的时间，管网中出现流量变化的时间段会滞\n后于降雨时间。因此，在计算场次雨水入流量时，不仅要计算降",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.441638,
+      "new_heading_path": "5.3 降雨入流入渗计算 > 5.3.2",
+      "new_body": "5.3.2污水管网中发生的降雨入流入渗是由降雨直接引起，因\n此与降雨时间密切相关。由于管道网汇流关系的复杂性，降雨发\n生后，直接入流到管网中的雨水和降雨引发的入渗增量在管网中\n的汇流过程需要一定的时间，管网中出现流量变化的时间段会滞\n后于降雨时间。因此，在计算场次雨水入流量时，不仅要计算降\n雨发生时间段内的流量变化，也要考虑到场次降雨对管网流量产\n生滞后影响的时间，将降雨开始时刻到降雨不再对管网流量产生\n影响的时刻定义为场次计算期。在场次雨水入流量的计算中，污\n水管道的累积流量（Q）和对应的旱天累积流量（AQ）均需对\n应场次计算期。\n场次计算期的选择在不同情况下差别较大，在工程实践中可\n根据监测数据或实际情况进行判断，本标准不作严格要求。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f/ocr-adf038d73f82-022__p0047__context.png",
+        "eval/audits/ocr_sampling/v2/crops/remapped/adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f/ocr-adf038d73f82-022__p0048__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-adf038d73f82-023",
+      "document_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        47
+      ],
+      "old_heading_path": "5 重点排水户接入市政管网的位置 > 5.2 旱天入流入渗计算 > 5.2.7 对于模型评估法，可利用模型对待评估区域进行连续多",
+      "old_body": "5 重点排水户接入市政管网的位置 > 5.2 旱天入流入渗计算 > 5.2.7 采用模型评估法计算旱天入流入渗量时，应按下式计算：\n5.2.7 对于模型评估法，可利用模型对待评估区域进行连续多\n日的旱天模拟，模拟输出该区域在旱天情景下的逐日累积流量，\n然后根据模拟结果计算旱天日均流量值（M)。",
+      "new_chunk_id": "chunk_ac1c7202376177f39db65373bd1d8766",
+      "new_element_id": "e000633",
+      "new_element_role": "clause",
+      "new_element_text": "5.2.7 对于模型评估法，可利用模型对待评估区域进行连续多\n日的旱天模拟，模拟输出该区域在旱天情景下的逐日累积流量，\n然后根据模拟结果计算旱天日均流量值（M)。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "5.2 旱天入流入渗计算 > 5.2.7",
+      "new_body": "5.2.7 对于模型评估法，可利用模型对待评估区域进行连续多\n日的旱天模拟，模拟输出该区域在旱天情景下的逐日累积流量，\n然后根据模拟结果计算旱天日均流量值（M)。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f/ocr-adf038d73f82-023__p0047__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-c3c3df5ae9ca-009",
+      "document_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        33
+      ],
+      "old_heading_path": "3 明渠超高不得小于0.2m > 5.3 管道 > 5.4.7 在管道转弯处，检查井内流槽中心线的弯曲半径应按转角",
+      "old_body": "5.4.7在管道转弯处，检查井内流槽中心线的弯曲半径应按转角\n大小和管径大小确定，但不宜小于大管管径。",
+      "new_chunk_id": "chunk_c0a31b0ee492b25d69aea463fe5a01b1",
+      "new_element_id": "e000782",
+      "new_element_role": "clause",
+      "new_element_text": "5.4.7在管道转弯处，检查井内流槽中心线的弯曲半径应按转角\n大小和管径大小确定，但不宜小于大管管径。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "5.4.7",
+      "new_body": "5.4.7在管道转弯处，检查井内流槽中心线的弯曲半径应按转角\n大小和管径大小确定，但不宜小于大管管径。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1/ocr-c3c3df5ae9ca-009__p0033__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-c3c3df5ae9ca-016",
+      "document_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        74
+      ],
+      "old_heading_path": "4 池中应设立式桨叶分离机 > 7.8 生物膜法 > 7.8.3 生物膜法的处理构筑物应根据当地气温和环境等条件，采",
+      "old_body": "7.8.3生物膜法的处理构筑物应根据当地气温和环境等条件，采\n取防冻、防臭和灭蝇等措施。\nⅡ生物接触氧化池",
+      "new_chunk_id": "chunk_3fb558606840582bd6b676be09fbccff",
+      "new_element_id": "e001578",
+      "new_element_role": "clause",
+      "new_element_text": "7.8.3生物膜法的处理构筑物应根据当地气温和环境等条件，采\n取防冻、防臭和灭蝇等措施。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.789178,
+      "new_heading_path": "7 污水和再生水处理 > 7.8 生物膜法 > 7.8.3",
+      "new_body": "7.8.3生物膜法的处理构筑物应根据当地气温和环境等条件，采\n取防冻、防臭和灭蝇等措施。\nⅡ生物接触氧化池",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1/ocr-c3c3df5ae9ca-016__p0074__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-c3c3df5ae9ca-018",
+      "document_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        79
+      ],
+      "old_heading_path": "4 池中应设立式桨叶分离机 > 7.9 供氧设施 > 7.9.7 廊道式生物反应池中的曝气器，可满池布置或沿池侧布置，",
+      "old_body": "7.9.7廊道式生物反应池中的曝气器，可满池布置或沿池侧布置，\n或沿池长分段渐减布置。",
+      "new_chunk_id": "chunk_78d6d2da5cb2922f8cf4c48302208289",
+      "new_element_id": "e001685",
+      "new_element_role": "clause",
+      "new_element_text": "7.9.7廊道式生物反应池中的曝气器，可满池布置或沿池侧布置，\n或沿池长分段渐减布置。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "7 污水和再生水处理 > 7.9 供氧设施 > 7.9.7",
+      "new_body": "7.9.7廊道式生物反应池中的曝气器，可满池布置或沿池侧布置，\n或沿池长分段渐减布置。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1/ocr-c3c3df5ae9ca-018__p0079__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-c3c3df5ae9ca-019",
+      "document_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        85
+      ],
+      "old_heading_path": "4 池中应设立式桨叶分离机 > 7.12 自然处理 > 7.12.1 污水量较小的城镇，在环境影响评价和技术经济比较合",
+      "old_body": "7.12.1污水量较小的城镇，在环境影响评价和技术经济比较合",
+      "new_chunk_id": "chunk_3166de647353949af2f7418067845755",
+      "new_element_id": "e001803",
+      "new_element_role": "clause",
+      "new_element_text": "7.12.1污水量较小的城镇，在环境影响评价和技术经济比较合\n理时，可采用污水自然处理。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "7.12.1",
+      "new_body": "7.12.1污水量较小的城镇，在环境影响评价和技术经济比较合\n理时，可采用污水自然处理。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1/ocr-c3c3df5ae9ca-019__p0085__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-c3c3df5ae9ca-024",
+      "document_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        98
+      ],
+      "old_heading_path": "1 风量宜按下式计算： > 8.5 污泥机械脱水",
+      "old_body": "I一般规定",
+      "new_chunk_id": "chunk_5cce9e0574a7175af60473f60d254066",
+      "new_element_id": "e002049",
+      "new_element_role": "paragraph",
+      "new_element_text": "I一般规定",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "8 污泥处理和处置 > 8.5 污泥机械脱水",
+      "new_body": "I一般规定",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1/ocr-c3c3df5ae9ca-024__p0098__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-fd10712cb0f7-004",
+      "document_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        32,
+        33
+      ],
+      "old_heading_path": "1 采用土回填时，应符合下列规定： > 4.6 质量验收标准 > 4.6.2 沟槽支护应符合现行国家标准《建筑地基基础工程施工",
+      "old_body": "4.6.2沟槽支护应符合现行国家标准《建筑地基基础工程施工\n质量验收规范》GB50202的相关规定，对于撑板、钢板桩支撑\n还应符合下列规定：\n主控项目\n1支撑方式、支撑材料符合设计要求；\n检查方法：观察，检查施工方案。\n2支护结构强度、刚度、稳定性符合设计要求；\n检查方法：观察，检查施工方案、施工记录。\n一般项目\n3横撑不得妨碍下管和稳管；\n检查方法：观察。\n4支撑构件安装应牢固、安全可靠，位置正确；\n检查方法：观察。\n5支撑后，沟槽中心线每侧的净宽不应小于施工方案设计\n要求；\n检查方法：观察，用钢尺量测。\n6钢板桩的轴线位移不得大于50mm；垂直度不得大\n于1.5%；\n检查方法：观察，用小线、垂球量测。",
+      "new_chunk_id": "chunk_ddb15cfe6ae2ad5678d27ded52f4e2fe",
+      "new_element_id": "e000560",
+      "new_element_role": "clause",
+      "new_element_text": "4.6.2沟槽支护应符合现行国家标准《建筑地基基础工程施工\n质量验收规范》GB50202的相关规定，对于撑板、钢板桩支撑\n还应符合下列规定：",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.228938,
+      "new_heading_path": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.2",
+      "new_body": "4.6.2沟槽支护应符合现行国家标准《建筑地基基础工程施工\n质量验收规范》GB50202的相关规定，对于撑板、钢板桩支撑\n还应符合下列规定：\n主控项目\n1支撑方式、支撑材料符合设计要求；\n检查方法：观察，检查施工方案。\n2支护结构强度、刚度、稳定性符合设计要求；\n检查方法：观察，检查施工方案、施工记录。\n一般项目\n3横撑不得妨碍下管和稳管；\n检查方法：观察。\n4支撑构件安装应牢固、安全可靠，位置正确；\n检查方法：观察。\n5支撑后，沟槽中心线每侧的净宽不应小于施工方案设计\n要求；\n检查方法：观察，用钢尺量测。\n6钢板桩的轴线位移不得大于50mm；垂直度不得大\n于1.5%；\n检查方法：观察，用小线、垂球量测。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed/ocr-fd10712cb0f7-004__p0032__context.png",
+        "eval/audits/ocr_sampling/v2/crops/remapped/fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed/ocr-fd10712cb0f7-004__p0033__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-fd10712cb0f7-008",
+      "document_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        72
+      ],
+      "old_heading_path": "3 管端面应平齐、无毛刺等缺陷； > 5.10 质量验收标准 > 5.10.7 钢筋混凝土管、预（自）应力混凝土管、预应力钢筒混",
+      "old_body": "5.10.7钢筋混凝土管、预（自）应力混凝土管、预应力钢筒混\n凝土管接口连接应符合下列规定：\n主控项目\n1管及管件、橡胶圈的产品质量应符合本规范第5.6.1、",
+      "new_chunk_id": "chunk_7bfb0b5273c2ba2de340e7e06ee9b966",
+      "new_element_id": "e001188",
+      "new_element_role": "clause",
+      "new_element_text": "5.10.7钢筋混凝土管、预（自）应力混凝土管、预应力钢筒混\n凝土管接口连接应符合下列规定：",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.527575,
+      "new_heading_path": "5.10.7",
+      "new_body": "5.10.7钢筋混凝土管、预（自）应力混凝土管、预应力钢筒混\n凝土管接口连接应符合下列规定：\n主控项目\n1管及管件、橡胶圈的产品质量应符合本规范第5.6.1、\n5.6.2、5.6.5和5.7.1条的规定；\n检查方法：检查产品质量保证资料；检查成品管进场验收\n记录。\n2柔性接口的橡胶圈位置正确，无扭曲、外露现象；承口、\n插口无破损、开裂；双道橡胶圈的单口水压试验合格；\n检查方法：观察，用探尺检查；检查单口水压试验记录。\n3刚性接口的强度符合设计要求，不得有开裂、空鼓、脱\n落现象；\n检查方法：观察；检查水泥砂浆、混凝土试块的抗压强度试\n验报告。\n一般项目\n4柔性接口的安装位置正确，其纵向间隙应符合本规范第\n5.6.9、5.7.2条的相关规定；\n检查方法：逐个检查，用钢尺量测；检查施工记录。\n5刚性接口的宽度、厚度符合设计要求；其相邻管接口错\n口允许偏差：Di小于700mm时，应在施工中自检；Di大于\n700mm，小于或等于1000mm时，应不大于3mm；Di大于\n1000mm时，应不大于5mm；\n检查方法：两井之间取3点，用钢尺、塞尺量测；检查施工\n记录。\n6管道沿曲线安装时，接口转角应符合本规范第5.6.9、",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed/ocr-fd10712cb0f7-008__p0072__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-fd10712cb0f7-016",
+      "document_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        163
+      ],
+      "old_heading_path": "第5章 的有关规定执行； > 8.3 支墩 > 8.3.4 支墩施工前，应将支墩部位的管节、管件表面清理干净",
+      "old_body": "8.3.4支墩施工前，应将支墩部位的管节、管件表面清理干净。",
+      "new_chunk_id": "chunk_85301580dba0da8341b8d5e6f9579b45",
+      "new_element_id": "e002916",
+      "new_element_role": "clause",
+      "new_element_text": "8.3.4支墩施工前，应将支墩部位的管节、管件表面清理干净。",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 1.0,
+      "new_heading_path": "8 管道附属构筑物 > 8.3 支墩 > 8.3.4",
+      "new_body": "8.3.4支墩施工前，应将支墩部位的管节、管件表面清理干净。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed/ocr-fd10712cb0f7-016__p0163__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-fd10712cb0f7-017",
+      "document_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        164,
+        165
+      ],
+      "old_heading_path": "第5章 的有关规定执行； > 8.5 质量验收标准 > 8.5.1 井室应符合下列要求：",
+      "old_body": "主控项目\n1所用的原材料、预制构件的质量应符合国家有关标准的\n规定和设计要求；\n检查方法：检查产品质量合格证明书、各项性能检验报告、\n进场验收记录。\n2砌筑水泥砂浆强度、结构混凝土强度符合设计要求；\n检查方法：检查水泥砂浆强度、混凝土抗压强度试块试验报告。\n检查数量：每50m3砌体或混凝土每浇筑1个台班一组试块。\n3砌筑结构应灰浆饱满、灰缝平直，不得有通缝、瞎缝；\n预制装配式结构应坐浆、灌浆饱满密实，无裂缝；混凝土结构无\n严重质量缺陷；井室无渗水、水珠现象；\n检查方法：逐个观察。\n一般项目\n4井壁抹面应密实平整，不得有空鼓，裂缝等现象；混凝\n土无明显一般质量缺陷；井室无明显湿渍现象；\n检查方法：逐个观察。\n5井内部构造符合设计和水力工艺要求，且部位位置及尺\n寸正确，无建筑垃圾等杂物；检查井流槽应平顺、圆滑、光洁；\n检查方法：逐个观察。\n6井室内踏步位置正确、牢固；\n检查方法：逐个观察，用钢尺量测。\n7井盖、座规格符合设计要求，安装稳固；\n检查方法：逐个观察。\n8井室的允许偏差应符合表8.5.1的规定。",
+      "new_chunk_id": "chunk_9da193370326c891c7da24cda0fb83c9",
+      "new_element_id": "e002958",
+      "new_element_role": "paragraph",
+      "new_element_text": "5井内部构造符合设计和水力工艺要求，且部位位置及尺\n寸正确，无建筑垃圾等杂物；检查井流槽应平顺、圆滑、光洁；",
+      "source_span_overlap_ratio": 1.0,
+      "element_source_span_overlap_ratio": 0.123451,
+      "new_heading_path": "8 管道附属构筑物 > 8.5 质量验收标准 > 8.5.1",
+      "new_body": "8.5.1井室应符合下列要求：\n主控项目\n1所用的原材料、预制构件的质量应符合国家有关标准的\n规定和设计要求；\n检查方法：检查产品质量合格证明书、各项性能检验报告、\n进场验收记录。\n2砌筑水泥砂浆强度、结构混凝土强度符合设计要求；\n检查方法：检查水泥砂浆强度、混凝土抗压强度试块试验报告。\n检查数量：每50m3砌体或混凝土每浇筑1个台班一组试块。\n3砌筑结构应灰浆饱满、灰缝平直，不得有通缝、瞎缝；\n预制装配式结构应坐浆、灌浆饱满密实，无裂缝；混凝土结构无\n严重质量缺陷；井室无渗水、水珠现象；\n检查方法：逐个观察。\n一般项目\n4井壁抹面应密实平整，不得有空鼓，裂缝等现象；混凝\n土无明显一般质量缺陷；井室无明显湿渍现象；\n检查方法：逐个观察。\n5井内部构造符合设计和水力工艺要求，且部位位置及尺\n寸正确，无建筑垃圾等杂物；检查井流槽应平顺、圆滑、光洁；\n检查方法：逐个观察。\n6井室内踏步位置正确、牢固；\n检查方法：逐个观察，用钢尺量测。\n7井盖、座规格符合设计要求，安装稳固；\n检查方法：逐个观察。\n8井室的允许偏差应符合表8.5.1的规定。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed/ocr-fd10712cb0f7-017__p0164__context.png",
+        "eval/audits/ocr_sampling/v2/crops/remapped/fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed/ocr-fd10712cb0f7-017__p0165__context.png"
+      ]
+    },
+    {
+      "sample_id": "ocr-fd10712cb0f7-024",
+      "document_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        242,
+        243
+      ],
+      "old_heading_path": "4 土石方与地基处理 > 9.1 一般规定 > 9.1.1 管道功能性试验作为给排水管道施工质量验收的主控项",
+      "old_body": "4）试验方法应尽可能避免繁琐和不必要的资源浪费。\n本规范规定试验合格的判定依据应根据设计要求来确定，通\n常工程设计文件都对管道试验作出具体规定；设计无要求时，应\n根据工程实际情况，选用允许压力降值和允许渗水量值中一项值\n或同时采用两项值作为试验合格的最终判定依据。\n本条第2款规定无压管道的严密性试验分为闭水试验和闭气\n试验，也是基于天津、北京、石家庄、太原、西安等城市或地区\n的工程实践经验。鉴于通常工程设计文件都对管道试验作出具体\n要求，本规范规定无压管道的严密性试验由设计要求确定；设计\n无要求时，有关方面应根据实际情况选择闭水试验或闭气试验进\n行管道功能性试验。\n本条第3款规定压力管道水压试验进行实际渗水量测定时，\n采用附录C注水法；根据各城市或地区的工程实践经验，取消\n了原“规范”放水法试验的规定，主要考虑其操作性较差，不便\n应用。",
+      "new_chunk_id": "chunk_d5e78a0576fe1c8d11d6ec3ee82a29e8",
+      "new_element_id": "e003963",
+      "new_element_role": "paragraph",
+      "new_element_text": "本条第2款规定无压管道的严密性试验分为闭水试验和闭气\n试验，也是基于天津、北京、石家庄、太原、西安等城市或地区\n的工程实践经验。鉴于通常工程设计文件都对管道试验作出具体\n要求，本规范规定无压管道的严密性试验由设计要求确定；设计\n无要求时，有关方面应根据实际情况选择闭水试验或闭气试验进\n行管道功能性试验。",
+      "source_span_overlap_ratio": 0.947517,
+      "element_source_span_overlap_ratio": 0.454587,
+      "new_heading_path": "9 管道功能性试验 > 9.1 一般规定 > 9.1.1",
+      "new_body": "本规范规定试验合格的判定依据应根据设计要求来确定，通\n常工程设计文件都对管道试验作出具体规定；设计无要求时，应\n根据工程实际情况，选用允许压力降值和允许渗水量值中一项值\n或同时采用两项值作为试验合格的最终判定依据。\n本条第2款规定无压管道的严密性试验分为闭水试验和闭气\n试验，也是基于天津、北京、石家庄、太原、西安等城市或地区\n的工程实践经验。鉴于通常工程设计文件都对管道试验作出具体\n要求，本规范规定无压管道的严密性试验由设计要求确定；设计\n无要求时，有关方面应根据实际情况选择闭水试验或闭气试验进\n行管道功能性试验。\n本条第3款规定压力管道水压试验进行实际渗水量测定时，\n采用附录C注水法；根据各城市或地区的工程实践经验，取消\n了原“规范”放水法试验的规定，主要考虑其操作性较差，不便\n应用。",
+      "projection_status": "retrieval_chunk",
+      "context_images": [
+        "eval/audits/ocr_sampling/v2/crops/remapped/fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed/ocr-fd10712cb0f7-024__p0242__context.png",
+        "eval/audits/ocr_sampling/v2/crops/remapped/fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed/ocr-fd10712cb0f7-024__p0243__context.png"
+      ]
+    }
+  ],
+  "documents": [
+    {
+      "document_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+      "document_name": "城镇内涝防治技术规范.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 3,
+        "item_like_root_values": [
+          "1 排水系统总平面图；",
+          "3 进行源头减排设施设计；",
+          "4 进口设计应考虑分散消能措施；"
+        ],
+        "headings_ending_sentence_punctuation": 5,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 1219,
+        "ocr_source_lines": 1219,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 63,
+        "chunks": 224
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 843,
+        "ocr_source_lines": 1233,
+        "ocr_average_lines_per_text_element": 1.462633,
+        "half_sentence_chunks_followed_by_same_section": 50,
+        "chunks": 223
+      }
+    },
+    {
+      "document_sha256": "25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7",
+      "document_name": "“十四五”全国城市基础设施建设规划.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 34,
+        "chunks": 48
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 33,
+        "chunks": 47
+      }
+    },
+    {
+      "document_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "document_name": "降雨过程强度等级标准.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 167,
+        "ocr_source_lines": 167,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 11,
+        "chunks": 34
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 142,
+        "ocr_source_lines": 177,
+        "ocr_average_lines_per_text_element": 1.246479,
+        "half_sentence_chunks_followed_by_same_section": 11,
+        "chunks": 37
+      }
+    },
+    {
+      "document_sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+      "document_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 12,
+        "chunk_bodies_containing_breadcrumb_separator": 12,
+        "breadcrumb_body_samples": [
+          {
+            "chunk_id": "chunk_52179d1062aebe18011ea80dfa1b7c48",
+            "body": "5.1 评分项 > 5.1.5 错混接点消除评价总分值为30分\n5.1.5指标调整为45分，存在一处未整改扣3分，最多扣45分\n（若改造前错混接点总数量n小于15，则发现一处扣45/n分）。\nⅢ 管理能力（20分）",
+            "section_path": [
+              {
+                "label": "5.1",
+                "title": "评分项"
+              },
+              {
+                "label": "5.1.5",
+                "title": "指标调整为45分，存在一处未整改扣3分，最多扣45分"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_e48a221bcb1ac75fb7543b6580cc8a0a",
+            "body": "2.1 术语 > 2.1.10 排水分区污水接出口（Thesewage outletofthe drainage\n2.1.10 若评价对象为下图A分区，A分区为完整独立排水分\n区，评价时，以A1节点水质浓度作为该评价对象污水排水水质浓\n度评价依据；\n若评价对象为下图B、C区域，B、C区域均为排水分区的部分\n区域，因B区域位于排水分区上游，评价时以B1节点水质浓度作\n为该评价对象污水排水水质浓度评价依据：C区域位于排水分区\n中下游，评价时，以cl、c2、c3三个支管接入口水质加权平均浓度\n作为评价对象污水接出口水质浓度评价依据。选取接入口对应\n区域总面积（c1十c2十c3）需大于C区域总面积的60%及以上。\n干管\n干管\n分区B\nB1\n分区A\n分区C\ncl\nc3\nc2\n重\n污水主干管接入口A1\n主干管\n污水厂\n3基本规定",
+            "section_path": [
+              {
+                "label": "2.1",
+                "title": "术语"
+              },
+              {
+                "label": "2.1.10",
+                "title": "若评价对象为下图A分区，A分区为完整独立排水分"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_d5c8ce71716fb57b8dfa35a3b9f524e8",
+            "body": "3.2 评价指标及评价方法 > 3.2.7 评价对象根据总得分按表3.2.7判定评价结果\n3.2.7雨污分流改造效果评价总得分划分为四个等级。\n1评价结果效果显著的项目，应做好常态化运维管理，确保\n雨污分流效果持续保持。同时，该项目可作为成功案例进行示范\n推广；\n2评价结果效果良好的项目，仍然存在影响分流效果的问\n题，在做好常态化运维管理的同时，持续开展管网排查和问题整\n改，稳步提升雨污分流效果：\n3 评价结果效果一般的项目，仍然存在影响分流效果的问\n题，结合扣分项有针对性开展问题排查整改，提升雨污分流效果；\n4评价结果效果较差的项目，未达到雨污分流预期目标，应\n在项目实施范围内，立即开展问题再排查、再整治，并重新组织开\n重\n展雨污分流效果评价，确保达到实效。\n地块项目评价\n公",
+            "section_path": [
+              {
+                "label": "3.2",
+                "title": "评价指标及评价方法"
+              },
+              {
+                "label": "3.2.7",
+                "title": "雨污分流改造效果评价总得分划分为四个等级"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_171ade88e4246df649b527d81485cf0f",
+            "body": "4.1 评分项 > 4.1.1 建设方案评价总分值为10分\n4.1.1雨污分流改造工程是一项系统性工作，摸清本底是基础，\n问题分析是重点，改造方案是核心。通过本指标设置促进改造前\n摸清地块内部排水系统底数和存在问题，充分分析项目改造需\n求、改造条件，制定科学合理的改造方案。项目应按照“能分尽\n分，难分必截”的原则，优先开展雨污分流改造，对短期内确无法\n实现完全分流改造的，要合理开展源头截流，设计截流倍数、截流\n方式的论证应充分、合理。",
+            "section_path": [
+              {
+                "label": "4.1",
+                "title": "评分项"
+              },
+              {
+                "label": "4.1.1",
+                "title": "雨污分流改造工程是一项系统性工作，摸清本底是基础，"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_638fdbe2b6e54e337d75b186a446497e",
+            "body": "4.1 评分项 > 4.1.5 地块雨水接出口晴天出流评价总分值为20分\n4.1.5正常运行中的雨污分流系统，在晴天时雨水井应无出流\n现象，由于排水管道可能存在破损、变形等缺陷，或受高地下水位\n影响，地下水渗入排水管道，导致雨水井在晴天有出流。根据《重\n庆市入河排污口整治指导技术标准(试行)》的相关规定，经综合\n治理后，雨水直排排水口主要指标基本达到V类水平，其中氨氮\n浓度不大于2mg/L，出水清澈透明无异味。本条款以及5.2.1、",
+            "section_path": [
+              {
+                "label": "4.1",
+                "title": "评分项"
+              },
+              {
+                "label": "4.1.5",
+                "title": "正常运行中的雨污分流系统，在晴天时雨水井应无出流"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_8805f751e93162f594956035a5dd83af",
+            "body": "4.1 评分项 > 4.1.6 地块污水接出口晴雨天水质变化评价总分值为20分\n4.1.6本指标评价改造后雨水混入污水管网的严重程度，根据\n《重庆市城市建成区排水管网排查技术导则（试行）》第5.3.7-4：\n“雨天，区块内上游支管接入口水质BOD5浓度或COD浓度较晴\n天降低30%及以上的，确定为问题污水区块”。本条款按照此规\n定确定扣分标准。",
+            "section_path": [
+              {
+                "label": "4.1",
+                "title": "评分项"
+              },
+              {
+                "label": "4.1.6",
+                "title": "本指标评价改造后雨水混入污水管网的严重程度，根据"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_cac1298394c259e6a032d0f6ba12382c",
+            "body": "4.1 评分项 > 4.1.7 地块污水接出口晴天COD浓度评价总分值为20分\n4.1.7本指标参考我市城市生活污水处理厂的进水COD数据\n（某课题调研数据显示2024年全市平均值为254.6mg/L），确定\n污水接出口晴天COD浓度值标准。\n5市政道路项目评价\n公",
+            "section_path": [
+              {
+                "label": "4.1",
+                "title": "评分项"
+              },
+              {
+                "label": "4.1.7",
+                "title": "本指标参考我市城市生活污水处理厂的进水COD数据"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_9342c2e1a66891d72bff9e0d7f60e59a",
+            "body": "5.1 评分项 > 5.1.1 建设方案评价总分值为10分\n5.1.1市政道路项目在雨污分流改造方案论证时，应统筹考虑\n街巷、上下游排水分区的设计，对项目范围内管网过流能力进行\n充分论证，如上游或周边地块设置有截流设施时，需考虑截流量\n以及下游过流能力匹配度，统筹考虑周边地块、区域排水需求，并\n合理设置预留管，保障雨水、污水能顺畅排放。",
+            "section_path": [
+              {
+                "label": "5.1",
+                "title": "评分项"
+              },
+              {
+                "label": "5.1.1",
+                "title": "市政道路项目在雨污分流改造方案论证时，应统筹考虑"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_52f6514004e6454c2c004f10b30448c8",
+            "body": "5.1 评分项 > 5.1.10 排水设施日常巡查、养护情况评价总分值8分\n5.1.10雨污分流项目改造后需加强排水设施日常运行维护，严\n格按照《城镇排水管渠与泵站运行、维护及安全技术规程》CJJ68、\n《城镇排水管道维护安全技术规程》CJJ6等国家及重庆市相关标\n准要求，督促运维单位制定实施排水管网巡查、养护、维修方案，\n对巡查发现的问题及时整改、动态清零。",
+            "section_path": [
+              {
+                "label": "5.1",
+                "title": "评分项"
+              },
+              {
+                "label": "5.1.10",
+                "title": "雨污分流项目改造后需加强排水设施日常运行维护，严"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_c3236f2d22ac21ee8f8e29d0c09f33f7",
+            "body": "6.1 评分项 > 6.1.1 建设方案评价总分值为10分\n6.1.1排水分区项目在雨污分流改造方案论证时，应明确排水\n管网改造原则，合理采用管渠设计重现期等设计参数，选用全生\n命周期经济适用技术先进的管材，对于暂无法完全分流的区域应\n采用合理的截流、快速处理等污染控制措施。",
+            "section_path": [
+              {
+                "label": "6.1",
+                "title": "评分项"
+              },
+              {
+                "label": "6.1.1",
+                "title": "排水分区项目在雨污分流改造方案论证时，应明确排水"
+              }
+            ]
+          }
+        ],
+        "ocr_text_elements": 721,
+        "ocr_source_lines": 721,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 36,
+        "chunks": 118
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 443,
+        "ocr_source_lines": 723,
+        "ocr_average_lines_per_text_element": 1.632054,
+        "half_sentence_chunks_followed_by_same_section": 30,
+        "chunks": 120
+      }
+    },
+    {
+      "document_sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "document_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 5,
+        "item_like_root_values": [
+          "1 施工图、竣工图及变更文件；",
+          "3 隐蔽工程验收记录；",
+          "3 雨水应采用雨水沟（渠）排放",
+          "4 截流设施内宜设流量控制设施",
+          "5 管道功能性试验记录；"
+        ],
+        "headings_ending_sentence_punctuation": 13,
+        "chunk_bodies_containing_breadcrumb_separator": 72,
+        "breadcrumb_body_samples": [
+          {
+            "chunk_id": "chunk_8955e2b3fe792bdddce5a6272cdb483e",
+            "body": "1 总\n则 > 1.0.1 为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n1. 0. 1\n本条阐明了编制本标准的宗旨。为贯彻党中央、国务院关\n于全面推进美丽中国建设有关部署，落实《中共中央国务院关于\n深入打好污染防治攻坚战的意见》《国家发展改革委住房城乡建\n设部关于印发“十四五”城镇污水处理及资源化利用发展规划的\n通知》《住房城乡建设部生态环境部国家发展改革委水利部关\n于印发深入打好城市黑臭水体治理攻坚战实施方案的通知》《国\n家发展改革委住房城乡建设部生态环境部联合印发关于推进污\n水处理减污降碳协同增效的实施意见》《中共福建省委福建省人\n民政府关于印发福建省深入打好污染防治攻坚战实施方案的通\n知》，推进实施《住房和城乡建设部等5 部门关于加强城市生活\n污水管网建设和运行维护的通知》《福建省住房和城乡建设厅等\n7 部门关于印发福建省城市生活污水处理提质增效和黑臭水体治\n理攻坚战实施方案（2024-2025 年）的通知》，加快实施建筑与小\n区的雨污混接改造工作，保障调查、设计和施工质量，规范验收\n和运维管理，提升城镇污水收集与处理系统效能，改善城市水环\n境。\n本标准所称的建筑与小区是指用地性质和使用权属确定的建\n设工程项目使用场所、场地和场地内的建筑，本标准适用于民用",
+            "section_path": [
+              {
+                "label": "1",
+                "title": "总\n则"
+              },
+              {
+                "label": "1.0.1",
+                "title": "本条阐明了编制本标准的宗旨。为贯彻党中央、国务院关"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_2d1a4afd0ff4f0d912227972688921de",
+            "body": "1 总\n则 > 1.0.1 为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n建筑项目。",
+            "section_path": [
+              {
+                "label": "1",
+                "title": "总\n则"
+              },
+              {
+                "label": "1.0.1",
+                "title": "本条阐明了编制本标准的宗旨。为贯彻党中央、国务院关"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_47efd7851e08ef2c6ad993ab192d2a2e",
+            "body": "1 总\n则 > 1.0.2 本标准适用于福建省既有建筑与小区排水管网及配套设\n1. 0. 2\n本标准所表述的建筑与小区均指既有建筑与小区。根据省\n内已开展雨污混接改造城市的工作经验来看，建筑与小区排水管\n网及配套设施的雨污混接点约占70%，市政排水管网及配套设施\n的混接点约占30%，且建筑与小区内的混接形式更为复杂多样，\n是城镇污水处理提质增效应重点关注的对象。因此，本标准主要\n针对的是既有建筑与小区排水管网及配套设施的雨污混接改造工\n程。",
+            "section_path": [
+              {
+                "label": "1",
+                "title": "总\n则"
+              },
+              {
+                "label": "1.0.2",
+                "title": "本标准所表述的建筑与小区均指既有建筑与小区。根据省"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_10f71cad24f2be3e53fe1cc81caa397a",
+            "body": "1 总\n则 > 1.0.3 建筑与小区雨污混接改造工程，除应符合本标准外，尚\n1. 0. 3\n涉及排水管网及配套设施混接改造设计应符合国家现行\n标准《建筑给水排水设计标准》GB 50015、《室外排水设计标准》\nGB 50014、《城市工程管线综合规划规范》GB 50289、《建筑与\n小区雨水控制与利用工程技术规范》GB 50400、《建筑给水排水\n与节水相关规定通用规范》GB 55020、《建筑屋面雨水排水系统\n技术规程》CJJ 142、《埋地塑料排水管道工程技术规程》CJJ 143、\n《城镇排水管道非开挖修复更新工程技术规程》CJJ/T 210 等的规\n定。\n涉及屋面改造设计应符合现行国家标准《屋面工程技术规范》\nGB 50345、《坡屋面工程技术规范》GB 50693、《建筑与市政工\n程防水通用规范》GB 55030、《种植屋面工程技术规程》JGJ 155\n等的规定。\n涉及道路改造设计应符合现行行业标准《城市道路工程设计\n规范》CJJ 37、《透水水泥混凝土路面技术规程》CJJ/T 135、《城\n镇道路路面设计规范》CJJ 169、\n《透水砖路面技术规程》CJJ/T 188、\n《透水沥青路面技术规程》CJJ/T 190 和《城市道路路基设计规范》\nCJJ 194 等的规定。\n截流设施应符合现行国家标准《室外排水设计标准》GB",
+            "section_path": [
+              {
+                "label": "1",
+                "title": "总\n则"
+              },
+              {
+                "label": "1.0.3",
+                "title": "涉及排水管网及配套设施混接改造设计应符合国家现行"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_15d5d2ec6781e823839fb70423da81de",
+            "body": "3 基本规定 > 3.0.1 雨污混接改造工程应以批准的上位规划、可行性研究报\n3. 0. 1\n本条阐述了建筑与小区雨污混接改造工程的总体原则，强\n调因地制宜、统筹建设、技术先进、经济合理和档案完整。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.1",
+                "title": "本条阐述了建筑与小区雨污混接改造工程的总体原则，强"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_7a8543e3792c2589e689b96df01cc6b0",
+            "body": "3 基本规定 > 3.0.2 雨污混接改造宜结合黑臭水体整治、老旧小区改造和海\n3. 0. 2\n建筑与小区的雨污混接改造工作与黑臭水体整治、污水处\n理提质增效、雨水系统提标、老旧小区改造和海绵城市建设等城\n市更新工程息息相关，为避免重复施工、减小影响城市正常运转、\n造成投资浪费，相关单位宜统筹考虑、合并实施。\n此外，雨污混接改造工程原则上对海绵城市控制指标不做具\n体要求。但考虑到许多城市已逐步开展海绵城市建设，如福州、\n厦门、龙岩、南平、漳州等城市已有相关的海绵城市建设指标要\n求，鼓励有条件的地区在雨污混接改造时，按照省、市海绵城市\n相关规划或系统化方案同步落实海绵管控指标。在改造过程中，\n融入海绵城市建设理念，能够有效减少雨水排放总量和峰值流量，\n降低雨污混接率和合流排水区雨水流量，减轻对污水管网、中途\n污水提升泵站和末端污水处理厂的压力，减少下游溢流污染的程\n度和频次。建筑与小区雨污混接改造过程中“海绵化”做法有很\n多，例如将新增或改造的雨水立管末端断接至下游改造的下沉绿\n地、雨水花园等进行雨水渗透、调蓄；建筑屋面可结合立管改造，\n设置为绿色屋面，减少雨水径流排放量；室外管网改造过程中，\n破损路面恢复可结合道路使用功能，在不影响通行及荷载要求下，",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.2",
+                "title": "建筑与小区的雨污混接改造工作与黑臭水体整治、污水处"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_5c1c9d96d7d5cb5119545669953eb429",
+            "body": "3 基本规定 > 3.0.2 雨污混接改造宜结合黑臭水体整治、老旧小区改造和海\n采用透水路面，减少地面雨水径流量等。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.2",
+                "title": "建筑与小区的雨污混接改造工作与黑臭水体整治、污水处"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_f71efa720f2f972c3fd0af63b39c9fe2",
+            "body": "3 基本规定 > 3.0.3 运维管理单位应建立巡查和养护机制，对雨水、污水管\n3. 0. 3\n运维管理单位应建立巡查和养护机制，发现问题及时处理。\n“三分建设、七分管理”，良好的管理维护可以保障排水管网的\n畅通无阻，有效防止污水漫溢，保障雨水排放能力，也可以延长\n排水设施的使用寿命。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.3",
+                "title": "运维管理单位应建立巡查和养护机制，发现问题及时处理"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_584b94b94e4a507b1b6a4ad758ad7e80",
+            "body": "3 基本规定 > 3.0.4 雨污混接改造工程应在工程验收后的试运行阶段或运行\n3. 0. 4\n根据工程实践经验，建筑与小区雨污混接改造工程不同于\n传统新建工程，基底条件复杂，流程环节较多，容易存在各方推\n诿扯皮现象，经常难以彻底解决雨污混流问题，而效果评估可以\n暴露出其中存在问题。需要注意的是，效果评估不能替代工程验\n收，应坚持目标导向、问题导向、结果导向，验证改造工程是否\n解决雨污混接的问题，达到工程建设目标。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.4",
+                "title": "根据工程实践经验，建筑与小区雨污混接改造工程不同于"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_344d65c28411e44692758a22bea75fa7",
+            "body": "3 基本规定 > 3.0.5 雨污混接改造工程前期调查文件、设计文件与施工过程\n3. 0. 5\n建筑与小区雨污混接改造全过程的内业资料应归档管理，\n方便后期调阅。当条件具备时，收集的改造内业资料可纳入信息\n化排水管理平台管理。\n运行维护单位应对建设单位移交的竣工资料及时归档，应制\n订运行管理制度、岗位操作手册、设备维护保养手册和应急预案，\n并应适时开展评估和修订。运行维护单位应制订巡视检查、检测\n评估计划，建立作业记录及管理台账，巡查记录应归档保存不少\n于3 年。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.5",
+                "title": "建筑与小区雨污混接改造全过程的内业资料应归档管理，"
+              }
+            ]
+          }
+        ],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 76,
+        "chunks": 304
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 73,
+        "chunks": 332
+      }
+    },
+    {
+      "document_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "document_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 39,
+        "chunks": 140
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 35,
+        "chunks": 84
+      }
+    },
+    {
+      "document_sha256": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "document_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 2,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 14,
+        "chunks": 19
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 16,
+        "chunks": 19
+      }
+    },
+    {
+      "document_sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+      "document_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 2,
+        "chunk_bodies_containing_breadcrumb_separator": 1,
+        "breadcrumb_body_samples": [
+          {
+            "chunk_id": "chunk_de10304d6ecf515f010faf9e6841a45c",
+            "body": "1 总则… > 4.3 污水和再生水处理\n保障出水达标排放，\n记\n并应促进资源的回收利用。",
+            "section_path": [
+              {
+                "label": "1",
+                "title": "总则…"
+              },
+              {
+                "label": "4.3",
+                "title": "污水和再生水处"
+              }
+            ]
+          }
+        ],
+        "ocr_text_elements": 527,
+        "ocr_source_lines": 527,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 11,
+        "chunks": 147
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 290,
+        "ocr_source_lines": 529,
+        "ocr_average_lines_per_text_element": 1.824138,
+        "half_sentence_chunks_followed_by_same_section": 7,
+        "chunks": 154
+      }
+    },
+    {
+      "document_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "document_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 3,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 50,
+        "chunks": 186
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 51,
+        "chunks": 186
+      }
+    },
+    {
+      "document_sha256": "76b7035435a3dd5d51104c77a5996e47a4deabe9fbfe0d8b6b504fbd4844cada",
+      "document_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 3,
+        "chunks": 5
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 3,
+        "chunks": 6
+      }
+    },
+    {
+      "document_sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+      "document_name": "QXT 489－2019 降雨过程等级.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 101,
+        "ocr_source_lines": 101,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 0,
+        "chunks": 10
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 78,
+        "ocr_source_lines": 101,
+        "ocr_average_lines_per_text_element": 1.294872,
+        "half_sentence_chunks_followed_by_same_section": 0,
+        "chunks": 10
+      }
+    },
+    {
+      "document_sha256": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+      "document_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 17,
+        "ocr_source_lines": 17,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 115,
+        "chunks": 219
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 15,
+        "ocr_source_lines": 17,
+        "ocr_average_lines_per_text_element": 1.133333,
+        "half_sentence_chunks_followed_by_same_section": 112,
+        "chunks": 218
+      }
+    },
+    {
+      "document_sha256": "a9ce88d538f5f2c5df3bacb6527db134baef2123d4e98e7ca06dee1125718106",
+      "document_name": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 65,
+        "chunks": 189
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 65,
+        "chunks": 187
+      }
+    },
+    {
+      "document_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+      "document_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 8,
+        "item_like_root_values": [
+          "1 待测区域的概况和现状分析；",
+          "2 重要排水设施的进水管、出水管；",
+          "3 待测区域边界流量资料；",
+          "3 监测布点及监测方法；",
+          "4 合流制溢流排口；",
+          "5 监测数据采集、管理及应用方法；",
+          "6 入流入渗定量评估；",
+          "6 工作量清单及投资估算；"
+        ],
+        "headings_ending_sentence_punctuation": 11,
+        "chunk_bodies_containing_breadcrumb_separator": 40,
+        "breadcrumb_body_samples": [
+          {
+            "chunk_id": "chunk_f0856812dce9a78d749b8142eb541f01",
+            "body": "5 重点排水户接入市政管网的位置 > 4.2 监测方法 > 4.2.2 在密闭空间安装的在线监测仪器和设备，应满足防水、\n4.2.2 根据现行协会标准《城镇排水管网在线监测技术规程》\nT/CECS869的有关规定，安装于井下、可能被水淹没的污水管\n网监测设备，设备防水等级需达到现行国家标准《外壳防护等级\n（IP代码）》GB/T4208中规定的IP68等级，设备室外安装部分\n的防护等级应当达到IP65；在检查井等存在爆炸风险的密闭空\n间内安装的在线监测设备需采用防爆型，建议达到本质安全防爆\n等级；在含有腐蚀气体环境下安装的在线监测设备需满足防腐\n要求。\n设备的防水、防爆、防腐要求可通过第三方机构的检测和认\n可进行确认，从而保障在线监测设备的可靠性和安全性。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "4.2",
+                "title": "监测方法"
+              },
+              {
+                "label": "4.2.2",
+                "title": "根据现行协会标准《城镇排水管网在线监测技术规程》"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_5019b40e8f8c9224fd9cf579f030b72b",
+            "body": "5 重点排水户接入市政管网的位置 > 4.2 监测方法 > 4.2.5 在开展水质监测时，应根据数据要求、运维成本、数据\n4.2.5本条对水质监测方法和指标进行了规定。水质监测是人\n流入渗评估工作的重要基础，提高水质监测频率、增加水质数据\n•\n量，有助于提升评估结果的可靠性。相比于人工监测法，在线监\n测法具有更低的成本和更高的监测频率，可以获取更多的数据，\n能及时反馈偷排、事故、暴雨等导致的水质突然恶化情况，是将\n来的发展趋势，但水质在线监测易受干扰，安装维护成本较高。\n针对入流入渗分析，在各种水质监测指标中，电导率具有成本\n低、测量方法简单、测量结果准确等优点，适合用于人流入渗分\n析的水质指标。有研究指出，相对于COD、氨氮、磷酸盐等指\n标，电导率在入流入渗分析模型中的敏感性更高，更适用于入流\n渗的分析。电导率可作为定性指标，分析流渗是否发生。\n在水质监测数据量需求较高、需要长期监测点位，可以采用光学\n法的UV254探头监测有机物（代替COD)，使用离子选择性电\n极法监测氨氮，实现在线监测。但评估中需要注意方法差异导致\n的监测数据与实验室化验结果不一致的问题，同时要注意维护工\n作量和数据的代表性问题。所以在开展水质监测时，需根据数据",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "4.2",
+                "title": "监测方法"
+              },
+              {
+                "label": "4.2.5",
+                "title": "本条对水质监测方法和指标进行了规定。水质监测是人"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_4f588843a9d5ea76e35b40088afbfa8b",
+            "body": "5 重点排水户接入市政管网的位置 > 4.2 监测方法 > 4.2.5 在开展水质监测时，应根据数据要求、运维成本、数据\n要求、运维成本、数据有效性等因素综合考虑，选择合适的监测\n方法。在采样化验中，可借助采样器实现水样的自动定时或定量\n采集，以便降低采样成本，提高水样的代表性，更好的辅助人工\n监测工作。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "4.2",
+                "title": "监测方法"
+              },
+              {
+                "label": "4.2.5",
+                "title": "本条对水质监测方法和指标进行了规定。水质监测是人"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_a9b897989764871e000ef721eb5e3fdc",
+            "body": "5 重点排水户接入市政管网的位置 > 4.2 监测方法 > 4.2.6 在线监测设备安装前应对监测点位的安装和监测条件进\n4.2.6在线监测设备需要一定的安装条件。例如，降雨监测设\n备安装在平坦避风场所，仪器口部30°仰角范围内不得有障碍\n物。流量监测设备探头安装在流速稳定的位置，探头表面不能存\n在淤积物。安装前对监测点位的安装条件进行复核和确认，确保\n在线监测数据的准确性和有效性。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "4.2",
+                "title": "监测方法"
+              },
+              {
+                "label": "4.2.6",
+                "title": "在线监测设备需要一定的安装条件。例如，降雨监测设"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_a117ee925c67f50df0f4125760b33889",
+            "body": "5 重点排水户接入市政管网的位置 > 4.2 监测方法 > 4.2.7 各类监测指标的数据采集应符合下列规定：\n4.2.7 入流入渗评估需要足够数量的监测数据才能保证分析的\n可靠性，避免偶然性因素对评估结果的影响。应用在线监测设备\n采集降雨量、流量和液位数据时，需充分发挥在线监测设备的优\n势，提高数据采集频率，确保监测数据的时间代表性。在线设备\n的数据采集时间间隔一般设置的较短，为1min～5min。水质在\n线监测过程中，数据采集时间间隔需根据指标特点、仪器设备性\n能、每次监测成本等情况综合考虑进行调整优化，在线监测设备\n的采集时间间隔一般设置的较长，为5min～15min。\n在管网运行过程中，水质指标在一天内会发生较大的变化，\n因此水质监测数据的时间代表性具有重要意义。开展水质人工监\n测数据采样时，在现场获取定时采集的混和样会大幅提高水质监\n测数据的代表性。流量等比例自动采样法是应用自动采样器根据\n采样时刻的流量监测数据确定采样水量的采样方法，用这种方法\n采集的24h（或降雨历时）混合水样的水质浓度可看作是根据流\n量的加权平均浓度，具有较好的代表性。同时，由于每24h（或\n降雨历时）只取一个混合样，实验室化验成本也显著降低。另",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "4.2",
+                "title": "监测方法"
+              },
+              {
+                "label": "4.2.7",
+                "title": "入流入渗评估需要足够数量的监测数据才能保证分析的"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_87f7ef57ed5a959db04dff57df9b6d14",
+            "body": "5 重点排水户接入市政管网的位置 > 4.2 监测方法 > 4.2.7 各类监测指标的数据采集应符合下列规定：\n外，流量等比例自动采样法获得的混合样浓度数据可直接作为平\n均浓度参与计算，减少了计算工作量。\n如果不具备开展流量等比例自动采样的条件，采用瞬时样\n时，需要对采样情况做明确记录，以便后续分析过程参考。旱季\n水质人工监测水样采集考虑早、中、晚3次采集，降雨过程考虑\n按照前密后疏的原则进行采集，以便更好地反映污水管网水质变\n化特征。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "4.2",
+                "title": "监测方法"
+              },
+              {
+                "label": "4.2.7",
+                "title": "入流入渗评估需要足够数量的监测数据才能保证分析的"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_1e7a7c151eb2dea790fafaa7938d3b1d",
+            "body": "5 重点排水户接入市政管网的位置 > 4.2 监测方法 > 4.2.8 监测实施过程中，应对评估监测数据进行质量控制。在\n4.2.8监测数据质量控制包含异常数据筛查、异常原因识别、\n异常监测点位整改等环节可以参考现行协会标准《城镇排水管网\n在线监测技术规程》T/CECS869的有关规定，确保达到监测目\n标要求。发现监测数据质量未达分析要求时，需要及时进行现场\n整改，确保监测数据满足分析需要。必要时需当延长监测持续时\n间，以获得充足的、满足质量要求的监测数据用于评估工作。\n赵",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "4.2",
+                "title": "监测方法"
+              },
+              {
+                "label": "4.2.8",
+                "title": "监测数据质量控制包含异常数据筛查、异常原因识别、"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_cc28bfc36f965da95ee52dc5b8c64b54",
+            "body": "5 重点排水户接入市政管网的位置 > 5.1 评估标准 > 5.1.2 城镇污水管网的降雨入流入渗量水平应使用单位降雨单\n5.1.2本条规定了城镇污水收集系统的降雨入流入渗（RDII)\n水平的评估方法。对于RDII量，常见的评估方法有以下3种：\n3）单位管长单位降雨量的RDII量。\n对于排水系统管理而言，第一种方法忽略了重要的降雨量因\n素，缺乏实际物理意义；第二种方法虽然直观，但是由于污水系\n统片区的服务范围并不能直接对应雨水的汇集区域，而计算降雨\n总水量时又必须考虑雨水汇集区域面积，导致计算结果不匹配；\n第三种方法不仅综合了人渗量、系统大小、雨量三方面信息，也\n便于监测，更适合作为允许RDII量的评估标准，建议单位为\nm^³/(km·mm)",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "5.1",
+                "title": "评估标准"
+              },
+              {
+                "label": "5.1.2",
+                "title": "本条规定了城镇污水收集系统的降雨入流入渗（RDII)"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_6ec2a0b8e87240d296874f4026c63ff1",
+            "body": "5 重点排水户接入市政管网的位置 > 5.1 评估标准 > 5.1.3 城镇污水管网的旱天入流入渗标准不宜大于150L/(d·\n5.1.3本条规定了城镇污管网的旱天流渗（DII）标准\n值，即单位时间单位管长单位管径的允许入渗量。美国环保署\n(USEPA)对于管道入渗标准进行了多年的探索，在1982年发\n布了《美国环保署手册：设施规划》（USEPAHandbook：Facil-\nitiesPlanning)，其中规定了表1的入渗评估标准：",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "5.1",
+                "title": "评估标准"
+              },
+              {
+                "label": "5.1.3",
+                "title": "本条规定了城镇污管网的旱天流渗（DII）标准"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_ab3addf91e37bd0ffb2ae77a31e22f10",
+            "body": "5 重点排水户接入市政管网的位置 > 5.1 评估标准 > 5.1.3 城镇污水管网的旱天入流入渗标准不宜大于150L/(d·\n美国土木工程协会与水环境协会（ASCE/WEF）总结了美\n国128座城市的排水管道设计标准对于设计使用年限内的管道入\n渗量规定如表2所示。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "重点排水户接入市政管网的位置"
+              },
+              {
+                "label": "5.1",
+                "title": "评估标准"
+              },
+              {
+                "label": "5.1.3",
+                "title": "本条规定了城镇污管网的旱天流渗（DII）标准"
+              }
+            ]
+          }
+        ],
+        "ocr_text_elements": 1178,
+        "ocr_source_lines": 1178,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 59,
+        "chunks": 227
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 619,
+        "ocr_source_lines": 1197,
+        "ocr_average_lines_per_text_element": 1.933764,
+        "half_sentence_chunks_followed_by_same_section": 37,
+        "chunks": 219
+      }
+    },
+    {
+      "document_sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "document_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 3,
+        "chunks": 8
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 4,
+        "chunks": 6
+      }
+    },
+    {
+      "document_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "document_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 10,
+        "item_like_root_values": [
+          "1 风量宜按下式计算：",
+          "2 便于污泥集中处理和处置；",
+          "2 有机物含量不宜低于40%；",
+          "2 过滤周期不应大于4h；",
+          "3 在城镇夏季主导风向的下风侧；",
+          "3 明渠超高不得小于0.2m",
+          "4 有良好的工程地质条件；",
+          "4 池中应设立式桨叶分离机",
+          "5 天桥宽度不宜小于1.0m；",
+          "8 有方便的交通、运输和水电条件；"
+        ],
+        "headings_ending_sentence_punctuation": 42,
+        "chunk_bodies_containing_breadcrumb_separator": 2,
+        "breadcrumb_body_samples": [
+          {
+            "chunk_id": "chunk_0196bb828eff5de91a5c8d7ec65ab2a1",
+            "body": "4.1 设计流量 > 4.1.5 内涝防治设计重现期下的最大允许退水时间应符合表\n4.1.5的规定。人口密集、内涝易发、特别重要且经济条件较好的\n城区，最大允许退水时间应采用规定的下限。交通枢纽的最大允\n许退水时间应为0.5h。",
+            "section_path": [
+              {
+                "label": "4.1",
+                "title": "设计流量"
+              },
+              {
+                "label": "4.1.5",
+                "title": "的规定。人口密集、内涝易发、特别重要且经济条件较好的"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_b2d322e3bd8e548f8753ab416ae03509",
+            "body": "4.1 设计流量 > 4.1.5 内涝防治设计重现期下的最大允许退水时间应符合表\n注：本标准规定的最大允许退水时间为雨停后的地面积水的最大允许排干时间。",
+            "section_path": [
+              {
+                "label": "4.1",
+                "title": "设计流量"
+              },
+              {
+                "label": "4.1.5",
+                "title": "的规定。人口密集、内涝易发、特别重要且经济条件较好的"
+              }
+            ]
+          }
+        ],
+        "ocr_text_elements": 3353,
+        "ocr_source_lines": 3353,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 169,
+        "chunks": 897
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 2245,
+        "ocr_source_lines": 3420,
+        "ocr_average_lines_per_text_element": 1.523385,
+        "half_sentence_chunks_followed_by_same_section": 111,
+        "chunks": 910
+      }
+    },
+    {
+      "document_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "document_name": "城市排水工程规划规范.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 3,
+        "chunk_bodies_containing_breadcrumb_separator": 27,
+        "breadcrumb_body_samples": [
+          {
+            "chunk_id": "chunk_034fab5ef854821f679ee547cc66f657",
+            "body": "2017 年1 月21 日 > 6.5 合流制溢流污染控制\n16\n7\n监控与预警\n17\n6.5\nCombined Sewer Overflow Control\n16\n7\nMonitoring and Early Warning\n17\nExplanation of Wording in This Code\n18\nList of Quoted Standards\n19\nAddition：Explanation of Provisions\n21",
+            "section_path": [
+              {
+                "label": "2017",
+                "title": "年1 月21 日"
+              },
+              {
+                "label": "6.5",
+                "title": "Combined Sewer Overflow Control\n16\n7\nMonitoring and Early Warning\n17"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_5c64e116ea4159acb233663035af6854",
+            "body": "2 术\n语 > 2.0.2 源头减排系统\nsource control drainage system\n源头减排系统主要通过竖向、景观和园林绿化设计。满足径\n流总量控制率要求的滞蓄空间，可由植草沟、下沉式绿地、生物\n滞留设施等源头、分散的生态设施和小型人工设施组成，其设置\n的核心目的是维持场地开发前后水文特征基本不变，但该系统通\n常兼有维持水文循环状态、控制径流污染、促进雨水资源化利\n用、缓解内涝风险等综合效益。\n源头减排系统一般是在场地开发过程中分散构建的，它从雨\n水形成的第一时间即通过渗、滞、蓄、净、用等源头减排措施加\n以控制，不同场地的源头减排系统通常互不影响，一般以城市道\n路、建筑小区、公园绿地、广场、开放式运动场等空间为主要\n场地。\n2.0.3\n本条是雨水排放系统的定义。\n雨水排放系统即目前所说的“雨水管渠系统”。雨水排放系\n统是城市雨水系统的组成部分之一，主要用于收集、输送和处置\n该系统设计排水能力以内的降雨、融雪径流等，其设置目的是为\n了减少因低强度降雨事件所带来的不便，降低经常重复出现的破\n坏及频繁的街道维护需求。国外比较常见的术语为“Minor\n（Drainage）System（小排水系统）\" 或\"Initial（Drainage）Sys¬\ntem（基本排水系统）\n雨水排放系统的组成部分包括道路街沟（偏沟）、边沟、雨",
+            "section_path": [
+              {
+                "label": "2",
+                "title": "术\n语"
+              },
+              {
+                "label": "2.0.2",
+                "title": "本条是源头减排系统的定义"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_ec0712836fcd094b07c4e55a13a0f071",
+            "body": "2 术\n语 > 2.0.2 源头减排系统\nsource control drainage system\n水口、雨水管、暗渠、检查井、泵站以及相关的雨水利用设施、\n污染控制设施等。\n2.0.4\n本条是防涝系统的定义。\n防涝系统是城市雨水系统中重要的组成部分，主要用于应对\n内涝防治设计重现期对应的强降雨径流，其设置的目的是为了提\n高城市排水防涝能力，减少强降雨径流可能导致的重大破坏和生\n命损失，国外比较常见的术语为“Major（Drainage）System\n（大排水系统\n防涝系统主要由强排设施、滞蓄设施和行泄通道组成，组成\n部分包括河道、明渠、隧道（存蓄和输送雨水的）、泵站以及承\n担防涝功能的道路、绿地、广场、开放式运动场、湿地、坑塘、\n生态用地和防涝调蓄设施等。其中，道路、绿地主要承担强降雨\n径流的汇集功能，明渠、隧道、河道等行泄通道主要承担对所汇\n集强降雨径流的输送和排放功能，湿地、洼地主要起蓄滞作用，\n防涝调蓄设施的主要作用是削减峰值流量，减轻下游的排水压力\n和致灾风险。",
+            "section_path": [
+              {
+                "label": "2",
+                "title": "术\n语"
+              },
+              {
+                "label": "2.0.2",
+                "title": "本条是源头减排系统的定义"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_6b1d1442da0e771b0cde7ee51806984c",
+            "body": "2 术\n语 > 2.0.2 源头减排系统\nsource control drainage system\n从功能上来看，防涝系统是雨水排放系统的救援系统：当雨\n水径流量超过了雨水排放系统的排水能力时，剩余径流将通过道\n路、绿地表面汇集到明渠等行泄通道进行排放，或汇集到防涝调\n蓄空间进行临时储存，以避免内涝灾害的产生。因此，防涝系统\n与雨水排放系统既紧密联系，又相对独立。应高度重视防涝系统\n的布局，在城市用地规划布局时，需结合生态安全格局构建，合\n理设计防涝系统，预留用地空间。",
+            "section_path": [
+              {
+                "label": "2",
+                "title": "术\n语"
+              },
+              {
+                "label": "2.0.2",
+                "title": "本条是源头减排系统的定义"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_a0c12f756f98065022c3309dd494c66b",
+            "body": "3 基本规定 > 3.3 排水体制 > 3.3.2 除干旱地区外，城市新建地区和旧城改造地区的排水系\n3. 3. 2\n本条规定排水体制选择的原则。\n我国地域广阔，气候分区差异大，应因地制宜地选择排水体\n制。鉴于我国目前的城市水环境状况，排水体制宜采用雨污分\n流。因此，本条规定除降雨量少的干旱地区（降雨量年均\n200mm 以下的地区）夕卜，城市新建和旧城改造地区的排水系统\n应采用分流制。考虑到部分城市旧城区已采用合流制，暂不具备\n分流制改造条件，因此，提出在不具备分流制改造条件的地区可\n采用截流式合流制，但应采用调蓄和处理相结合的措施，以尽可\n能减少合流制溢流污染。在混接问题严重的地区或对环境质量要\n求高的城市，对已经采用雨污分流的已建城区可通过技术经济比\n较采用截流式分流制排水体制，可将旱季雨水管道的错接污水和\n雨季的初期雨水均送至污水处理厂进行处理，以适应现代城市发\n展的更高要求。即在城镇区域内部采用分流制为主的基础上，对\n晴天有污水排入城镇水体的雨水排出口，沿城镇水体两岸布设截\n污干管系统，在其排入点进行末端截污；条件良好地区，可利用\n截污干管系统截流初期雨水；但非干旱地区不允许新建区域采用\n合流制。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.3",
+                "title": "排水体制"
+              },
+              {
+                "label": "3.3.2",
+                "title": "本条规定排水体制选择的原则。\n我国地域广阔，气候分区差异大，应因地制宜地选择排水体"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_e1cab14c2dd180ac7a370fb14ace0c8d",
+            "body": "3 基本规定 > 3.4 排水受纳水体 > 3.4.1 城市排水受纳水体应有足够的容量和排泄能力，其环境\n3. 4.1\n本条规定了城市排水受纳体应符合的基本条件。\n明确了城市雨水和达标排放的污水排入受纳水体的条件是必\n须满足受纳水体的环境容量和排泄能力。沿海、沿江城市，污水\n选择深海排放或排江时，必须经技术经济比较论证及环境影响评\n价（包括生物影响评价），并对污水水质、水体功能、水环境容\n量和水文水动力条件等进行综合分析后合理确定。污水排放前应\n根据环境评价的要求进行处理，排人受纳水体的污水处理厂出厂\n水水质应满足国家和地方相关排放标准。湿地、坑、塘、淀、洼\n等水体因容量有限，需要进行科学地分析论证。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.4",
+                "title": "排水受纳水体"
+              },
+              {
+                "label": "3.4.1",
+                "title": "本条规定了城市排水受纳体应符合的基本条件"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_ff29abd703809bdea29aeca2d50fb6bb",
+            "body": "3 基本规定 > 3.6 排水系统的安全性 > 3.6.1 排水工程中的厂站不应设置在不良地质地段和洪水淹没\n3.6.1\n本条是排水工程中厂、站选址的规定。\n城市排水工程是城市的重要基础设施之一，在选择用地时必\n须注意地质条件和洪水淹没或排水困难的问题，尽量避开易出现\n问题的区域，实在无法避开的应采用可靠的防护措施，保证排水\n设施在安全条件下正常使用。\n3.6.4\n本条是关于雨水管道系统与合流管道系统之间连接的\n规定。\n由于雨水管道系统的汇水面积、集水时间均不相同，峰值流\n量不会同时发生。为充分发挥各系统的排水能力，本条规定可在\n两个系统间的关键节点设置连通管，互相调剂水量，提高地区整\n体雨水排除能力。为了防止合流污水进入雨水管道直排水体，合\n流制管道不应直接接入雨水管道系统，合流管道系统的溢流管与\n雨水管道系统之间可根据需要设置连通管。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.6",
+                "title": "排水系统的安全性"
+              },
+              {
+                "label": "3.6.1",
+                "title": "本条是排水工程中厂、站选址的规定"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_b4c38bc24e80ebe4d85ecdcb91d497dd",
+            "body": "4 污水系统 > 4.1 排水分区与系统布局 > 4.1.1 城市污水分区与系统布局应根据城市的规模、用地规划\n4. 1.1\n本条是关于城市污水分区与系统布局方面的规定。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "污水系统"
+              },
+              {
+                "label": "4.1",
+                "title": "排水分区与系统布局"
+              },
+              {
+                "label": "4.1.1",
+                "title": "本条是关于城市污水分区与系统布局方面的规定"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_c9d7eaa7f5251dd94da18803febec1a8",
+            "body": "4 污水系统 > 4.2 污水量 > 4.2.1 城市污水量应包括城市综合生活污水量和工业废水量\n4.2.1\n本条说明城市污水量的组成。\n城市污水量指城市给水工程统一供水的用户和自备水源供水\n用户排出的污水量，由综合生活污水量、工业废水量组成。综合\n生活污水量由居民生活污水量和公共设施污水量组成。居民生活\n污水量指居民日常生活中洗涤、冲厕、洗浴等产生的污水量。公\n共设施污水量指娱乐场所、宾馆、浴室、商业网点、学校和办公\n楼等产生的污水量。工业废水量包括生产废水和生产污水，指工\n业生产过程中产生的废水和废液。在地下水水位较高的地区，还\n应包括地下水渗入量。\n不同城市可根据实际情况选择平均日污水量或最高日污水\n量，本次修编不再仅限于平均日污水量。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "污水系统"
+              },
+              {
+                "label": "4.2",
+                "title": "污\n水\n量"
+              },
+              {
+                "label": "4.2.1",
+                "title": "本条说明城市污水量的组成。\n城市污水量指城市给水工程统一供水的用户和自备水源供水\n用户排出的污水量，由综合生活污水量、工业废水量组成。综合"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_2c5ab083d2f026d377f9968ea2f11f1f",
+            "body": "4 污水系统 > 4.3 万水泵站 > 4.3.1 污水泵站规模应根据服务范围内远期最高日最高时污水\n4. 3.1\n本条规定污水泵站规模确定的原则。\n未处理的污水溢流会对环境造成极大污染，因此污水提升泵\n站的规模，应按最不利水量计算，即采用最高日最高时流量作为\n污水泵站的设计流量。\n4.3.2\n本条是关于污水泵站防护距离及其确定原则的规定。\n由于污水泵站产生的臭味、噪声会对周围居民的健康和居住\n质量产生不利影响，因此，污水泵站应当与周围建筑物保持一定\n的防护距离。污水泵站运行及栅渣外运时，必须满足环境保护部\n门的要求。当受条件限制不能满足时，应采取相应措施，保证周\n围环境质量。在保护范围内，有关单位从事爆破、钻探、打桩、\n顶进、挖掘、取土等可能影响污水泵站安全的活动时，应与泵站\n维护运营单位等共同制定保护方案，并采取相应的安全防护\n措施。\n目前，量化的防护距离尚缺乏科研成果支撑，不宜在本规范\n中作统一规定，建议在编制排水工程规划时，结合当地的具体条\n件和技术经济水平，经论证后确定。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "污水系统"
+              },
+              {
+                "label": "4.3",
+                "title": "污水泵站"
+              },
+              {
+                "label": "4.3.1",
+                "title": "本条规定污水泵站规模确定的原则。\n未处理的污水溢流会对环境造成极大污染，因此污水提升泵"
+              }
+            ]
+          }
+        ],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 83,
+        "chunks": 196
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 76,
+        "chunks": 234
+      }
+    },
+    {
+      "document_sha256": "d4fc5f9bbe645bc5dd3ef53aa14a3b8620b015123f214ab266608cd17b687766",
+      "document_name": "GBT+47884-2026.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 2,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 26,
+        "chunks": 127
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 27,
+        "chunks": 125
+      }
+    },
+    {
+      "document_sha256": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+      "document_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 5,
+        "chunks": 6
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 5,
+        "chunks": 6
+      }
+    },
+    {
+      "document_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+      "document_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 5,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 905,
+        "ocr_source_lines": 905,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 29,
+        "chunks": 132
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 693,
+        "ocr_source_lines": 908,
+        "ocr_average_lines_per_text_element": 1.310245,
+        "half_sentence_chunks_followed_by_same_section": 23,
+        "chunks": 143
+      }
+    },
+    {
+      "document_sha256": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
+      "document_name": "GBT 28592-2012降水量等级.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 77,
+        "ocr_source_lines": 77,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 2,
+        "chunks": 6
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 58,
+        "ocr_source_lines": 81,
+        "ocr_average_lines_per_text_element": 1.396552,
+        "half_sentence_chunks_followed_by_same_section": 2,
+        "chunks": 6
+      }
+    },
+    {
+      "document_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "document_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 19,
+        "item_like_root_values": [
+          "1 区域水体存在黑臭现象；",
+          "1 调查单位提交的成果资料齐全；",
+          "1 调查目的、任务、范围；",
+          "1 验收目的；",
+          "2 技术路线、技术方法；",
+          "3 各项原始记录通过检查程序；",
+          "3 验收时间及地点；",
+          "4 分流制雨水管道旱天元明显水流；",
+          "4 成果概述；",
+          "4 评估方法和结论；",
+          "4 质量安全保证体系与具体措施；",
+          "5 工作量预估与工作进度安排；",
+          "5 质量保证措施；",
+          "5 验收结论；",
+          "6 人员组织、设备、材料计划；",
+          "6 意见和建议；",
+          "7 各类统计汇总表；",
+          "7 污水管呈满管状态；",
+          "8 1昆接点或1昆接源分布总图等；"
+        ],
+        "headings_ending_sentence_punctuation": 27,
+        "chunk_bodies_containing_breadcrumb_separator": 33,
+        "breadcrumb_body_samples": [
+          {
+            "chunk_id": "chunk_21400771d4940c086989b70c8818c1dc",
+            "body": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.3 根据水泵运行记录确定相应服务区域的流量时，需要根据\n5. 4. 3\n雨污水管道末端流量，可根据雨、污水泵站或污水处理厂\n的流量计、水泵运行记录确定相应服务区域的流量。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "1昆接区域调查"
+              },
+              {
+                "label": "5.4",
+                "title": "管道流量测量"
+              },
+              {
+                "label": "5.4.3",
+                "title": "雨污水管道末端流量，可根据雨、污水泵站或污水处理厂"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_805386c43c2c413be39bd762ff27c8c0",
+            "body": "3 基本规定 > 3.0.1 城镇分流制排水系统的雨污泪接调查与治理工作宜与外\n3. 0.1\n因排水管道存在接口错位、脱节、变形、橡胶圈损坏（缺\n失）、管体存在破裂、塌陷等缺陷，埋设在高地下水地区、地表水体\n和自来水管附近的排水管道会受到地下水、水体侧渗水和自来水\n渗漏水入渗影响，这就是外水入渗。由于很多城市水体水位高于\n雨水排水口，加之为减少雨水排水口旱天？昆接污水出流对水体的\n影响，很多城市在分流制排水系统末端加设了截流管等设施，水体\n水高水位时，水体水就会倒灌进入雨水口，并进入雨水管道，再经\n棍接点进入污水管道或直接经截流管道进入污水管道和污水处理\n厂。这些入渗的外水和倒灌的水体水造成污水系统清污不分，清\n水占据了污水管道容积、稀释了污染物浓度、降低了污水处理厂污\n染物削减效果。这些问题与雨污混接一样，不但发生在市政系统，\n也发生在居民小区、公共建筑和企事业单位区内部排水系统中，所\n以在雨污混接调查和治理的同时，根据当地实际情况和需要，一并\n开展外水入渗和水体水倒灌调查和治理，会更加有效提高排水系\n统质量，促进污水处理提质增效工作。\n3.0.2\n城镇分流制地区的雨污混接、外水入渗和水体水倒灌调查",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.1",
+                "title": "因排水管道存在接口错位、脱节、变形、橡胶圈损坏（缺"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_adf052143af776a68f91163e682f8d8c",
+            "body": "3 基本规定 > 3.0.1 城镇分流制排水系统的雨污泪接调查与治理工作宜与外\n是一个系统的工程。对于雨水收集系统而言，查明的内容是所有\n进入雨水系统的污水来源，具体的调查范围包括市政雨水管道、雨\n水口、检查井及排水口，小区及企事业单位内部雨水管道、雨水口、\n检查井及排水口；对于污水收集系统而言，查明的内容是所有进入\n污水系统的雨水及外水来源，具体的调查范围包括市政污水管道\n及检查井、小区及企事业单位内部的污水管道及检查井。在开展\n调查中，要确保所有可能导致雨污水混接和外水入渗、水体水倒灌\n的因素，如地下水水位、水体水水位等因素都能够调查清楚，保证\n调查范围和内容的全覆盖。\n3.0.3\n城镇排水系统雨污泪接调查与治理工作是一项专业性强、\n质量和安全要求高的工作。涉及排水管道的系统调查、排水口位\n置调查、管道测绘、水质采样与检测、水量测量、？昆接分布图绘制、\ni昆接报告编制以及提接治理等方面的内容。在调查的过程中需要\n用到各种专业仪器设备，如测绘用仪器、电视和声呐检测设备、流\n量计、水质测量仪表等，所以要求受委托进行调查的公司必须拥有\n相关专业设备，具备调查和治理的能力。同时，还要具有高度的责",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.1",
+                "title": "因排水管道存在接口错位、脱节、变形、橡胶圈损坏（缺"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_d1ca0fa4c8663bd4e28c048e7170856a",
+            "body": "3 基本规定 > 3.0.1 城镇分流制排水系统的雨污泪接调查与治理工作宜与外\n任心，确保调查真实，治理措施有效和高质量。只有承担调查的单\n位专业性强，人员受到过专业培训，才能够有效杜绝安全事故的发\n生。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.1",
+                "title": "因排水管道存在接口错位、脱节、变形、橡胶圈损坏（缺"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_1efc25d05536625670ca803c34ba4fb6",
+            "body": "3 基本规定 > 3.0.1 城镇分流制排水系统的雨污泪接调查与治理工作宜与外\n3. o. 4\n雨污？昆接调查与治理工作不但系统性强，而且也很烦琐，\n采用“点、线、面”相结合的方法开展工作，可以减少工作量，避免重\n复劳动，提高调查和治理的质量。首先通过水体是否黑臭、旱天雨\n水排水口是否有污水排出、污水提升泵站（污水处理厂）的进水水\n质浓度是否异常偏低，进水水量是否异常增加等现象预判区域内\n是否存在雨污氓接；如存在雨污混接现象则就需要系统性调查，分\n析区域排水系统资料，结合水量与水质调查，进一步调查可能出现\n氓接、外水入渗和水体水倒灌的区域、位置；并结合定点探查，为j昆\n接治理工程方案研究、设计及实施提供基础资料。治理完成后要\n及时进行效果评估，建立长效动态管理机制体制，巩固并保障雨污\n由接、外水入渗和水体水倒灌治理工程效益。在具体实施过程中，\n需要根据提接程度的轻重情况，采取相应的工程措施或非工程措\n施。对于1昆接程度较轻、混接治理工作比较容易实施并能取得良\n好效果的情况，在征得委托单位及相关主管部门同意后，可以精简\n如“编制氓接调查工作大纲、混接水量与水质测定、编制评估报告”\n等环节，直接进行治理方案编制，开展治理工作，及早发挥效益。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.1",
+                "title": "因排水管道存在接口错位、脱节、变形、橡胶圈损坏（缺"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_a6999ceec54ff2deef0b3f92f1a34149",
+            "body": "3 基本规定 > 3.0.1 城镇分流制排水系统的雨污泪接调查与治理工作宜与外\n针对混接情况普遍、混接治理工作在短时间内难以取得良好效果\n的区域，需要根据混接调查结果，按照子区域混接污染程度并综合\n考虑治理工程的实施难度，制订优先治理方案。能够根据调查采\n取措施的，及时采取治理措施。",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "基本规定"
+              },
+              {
+                "label": "3.0.1",
+                "title": "因排水管道存在接口错位、脱节、变形、橡胶圈损坏（缺"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_cf10029e8782bb7d23d7bbe1ad9577b4",
+            "body": "4 1昆接预判、资料收集与现场踏勘 > 4.1 混接预判与资料收集 > 4.1.1 雨污也接调查宜首先进行？昆接预判。有下列现象之二者，\n4. 1. 1\n通过对表观现象的判断，可以及时抓住重点，减少调查和\n治理工作量，或不必要的后续调查工作。出现上述现象之一，则表\n明该区域内部可能存在雨污混接、外水入渗、水体水倒灌。要采取\n溯源调查法进一步调查，查找混接区域。如上述现象均不存在，则\n可预判该区域内部雨污泪接、外水入渗和水体水倒灌现象不存在\n或不明显，暂不调查该区域。\n1\n城市水体黑臭既包括旱天黑臭也包括雨天黑臭。旱天黑\n臭与雨水管道内污水氓接排放有关；雨天黑臭还与雨水排水系统\n雨天排水污染有关，如雨水管道中的污泥没有及时清理出来，雨天\n管道污泥被冲到水体中。\n2\n对于重力自排式雨水系统，当系统运行正常时，早天通常\n情况下是没有水流流出的，当发现旱天雨水排水口或雨水管道中\n有污水排出或污水流动时，则可以预判该区域内存在污水混接雨\n水管道问题n\n3\n对于采用水泵提升排放雨水的泵排雨水系统，雨水无法直\n接通过排水口排入水体，当发现旱天雨水泵站或雨水集水井中有\n污水流入时，则可以预判该区域存在污水混接雨水管道问题。\n4\n针对泵排雨水系统和污水系统，当某一泵站运行时，如发",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "1昆接预判、资料收集与现场踏勘"
+              },
+              {
+                "label": "4.1",
+                "title": "混接预判与资料收集"
+              },
+              {
+                "label": "4.1.1",
+                "title": "通过对表观现象的判断，可以及时抓住重点，减少调查和"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_9b6e9f5cf6e9ba38ec595be4954c23cb",
+            "body": "4 1昆接预判、资料收集与现场踏勘 > 4.1 混接预判与资料收集 > 4.1.1 雨污也接调查宜首先进行？昆接预判。有下列现象之二者，\n现临近的雨水管道或污水管道中水位出现波动时，则预判该区域\n内存在雨污水管道相连通的情况。\n5\n雨天时当发现污水检查井内的水位明显高于旱天水位或\n污水处理厂进厂水质浓度发生明显波动，则预判该区域存在雨水\ni昆接污水管问题。\n6\n当河道等水位升高时，雨水排水口可能被淹没导致水体水\n倒灌进入雨水系统中，水体水倒灌的水体水可能通过截流设施或\n混接的管道进入污水系统，导致污水检查井水位升高，污水处理厂\n进厂浓度波动，则可以预判存在水体水倒灌。\n7\n重力流污水管是非满流，当其处于满流状态，又是在外水\n入渗的地区，则可以预判有外水入渗污水管道。\n8\n污水处理厂进水CODe，浓度正常值为\n300mg/L ～\n400mg/L 左右，如果旱天低于此值，就可以预判区域内污水管道\n中有外水入渗或水体水倒灌；如果雨天发生变动，则可以判定系统\n内还存在雨水混接污水管道。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "1昆接预判、资料收集与现场踏勘"
+              },
+              {
+                "label": "4.1",
+                "title": "混接预判与资料收集"
+              },
+              {
+                "label": "4.1.1",
+                "title": "通过对表观现象的判断，可以及时抓住重点，减少调查和"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_08e3864e7e4f5b936d51da0fe57ee50a",
+            "body": "5 1昆接区域调查 > 5.1 一般规定 > 5.1.2 1昆接调查应符合下列规定：\n5. 1. 2\n1昆接调查中的溯源调查法如图\n1 所示。首先从雨水管网\n的排水口或污水管网末端的污水处理厂、污水提升泵站开始，沿着\n干管向上游布设检测点位，采用流量、水质检测的方法调查存在提\n接的雨水或污水管段。针对雨污水干管上存在混接的管段，进一\n步加密监测点位，缩小调查范围。对确定为支管存在氓接的情形，\n则进一步沿接入的支管向上游溯源。对经过1昆接调查判定不存在\n1昆接的区域，不需进一步开展现场提接点探查。另外，需要根据混\n接调查判断不同区域的混接程度，制订分阶段的棍接探查和改造\n方案，优先探查和改造混接严重区域。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "混接区域调查"
+              },
+              {
+                "label": "5.1",
+                "title": "一般规定"
+              },
+              {
+                "label": "5.1.2",
+                "title": "1昆接调查中的溯源调查法如图\n1 所示。首先从雨水管网"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_31272d357ffa66d3b48bf98a1a1cf32b",
+            "body": "5 1昆接区域调查 > 5.1 一般规定 > 5.1.2 1昆接调查应符合下列规定：\n。\n监测点\n〈排水口或管网末端、提升泵站\n－－雨水或污水干管\n一一雨水或污水支管\nS1\n咐＋←存在混接的雨水或者污水管线\n污水管道中的外水入掺和水体水倒灌调查要在旱天开展，污\n水管道中的雨水混接调查要在雨天开展。两方面的调查都是旨在\n解决污水处理厂进水水质浓度低和实际污染物截污效率不高的问\n题，故在针对污水管道开展混接调查时一并考虑。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "混接区域调查"
+              },
+              {
+                "label": "5.1",
+                "title": "一般规定"
+              },
+              {
+                "label": "5.1.2",
+                "title": "1昆接调查中的溯源调查法如图\n1 所示。首先从雨水管网"
+              }
+            ]
+          }
+        ],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 64,
+        "chunks": 253
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 0,
+        "ocr_source_lines": 0,
+        "ocr_average_lines_per_text_element": 0.0,
+        "half_sentence_chunks_followed_by_same_section": 64,
+        "chunks": 273
+      }
+    },
+    {
+      "document_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "document_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "before": {
+        "item_like_distinct_root_nodes": 49,
+        "item_like_root_values": [
+          "1 全部设备经过检查、试运转；",
+          "1 施工平面布置图及剖面图；",
+          "1 材质应符合相关规范的规定；",
+          "1 构件的规格尺寸经计算确定；",
+          "1 监控量测包括下列主要项目：",
+          "1 盾构基座应符合下列规定：",
+          "1 管壁不得有线流、滴漏现象；",
+          "1 采用土回填时，应符合下列规定：",
+          "1 钢筋数量、规格应符合设计要求；",
+          "1 顶管机前方遇到障碍；",
+          "2 后背墙变形严重；",
+          "2 地下水位高于管道顶部；",
+          "2 应由管材厂配套供应；",
+          "2 沟槽内不得有积水；",
+          "2 沟槽形式、开挖方法及堆土要求；",
+          "2 盾构安装应符合下列规定：",
+          "2 管片严重碎裂和渗漏水；",
+          "2 采取措施保护防水层完好；",
+          "2 钢筋网安装应符合下列规定：",
+          "3 不允许在管道转折处合拢；",
+          "3 不得在短节上或管件上开孔；",
+          "3 内防腐层施工应符合下列规定：",
+          "3 刚性接口作业宜避开雨天",
+          "3 吊装前地上管节组对拼装方法；",
+          "3 按施工方案确定入土角、出土角；",
+          "3 水压试验前应清除管道内的杂物",
+          "3 管端面应平齐、无毛刺等缺陷；",
+          "3 管道支架安装应符合下列规定：",
+          "3 顶铁发生扭曲现象；",
+          "4 每个橡胶圈的接头不得超过2个",
+          "4 水下成槽、管道基础施工方法；",
+          "4 硬质保温结构，应留伸缩缝；",
+          "4 管位偏差过大且纠偏无效；",
+          "4 管片拼装接缝应进行嵌缝处理；",
+          "5 施工期间，不得使保温材料受潮；",
+          "5 钢筋网安装应符合下列规定：",
+          "5 防水卷材铺设时应符合下列规定：",
+          "5 顶力超过管材的允许顶力；",
+          "6 安装时接头和管端应保持清洁；",
+          "6 干拌混合料应符合下列规定：",
+          "6 油泵、油路发生异常现象；",
+          "6 泵送混凝土应符合下列规定：",
+          "6 管道吊装测量控制方法；",
+          "6 铺管船法施工应符合下列规定：",
+          "7 施工机械设备数量与型号的配备；",
+          "7 雨期应采取措施防止管道漂浮",
+          "8 喷射混凝土设备应符合下列规定：",
+          "9 承担检测的单位应具有相应资质；",
+          "9 施工机械设备数量与型号的配备；"
+        ],
+        "headings_ending_sentence_punctuation": 107,
+        "chunk_bodies_containing_breadcrumb_separator": 7,
+        "breadcrumb_body_samples": [
+          {
+            "chunk_id": "chunk_4e109e5ff96a0e71ac02ef4c1f7566ed",
+            "body": "5 施工期间，不得使保温材料受潮； > 5.3 钢管安装 > 5.3.7 管节组对焊接时应先修口、清根，管端端面的坡口角\n5.3.7的规定；不得在对口间隙夹焊帮条或用加热法缩小间隙\n施焊。",
+            "section_path": [
+              {
+                "label": "5",
+                "title": "施工期间，不得使保温材料受潮；"
+              },
+              {
+                "label": "5.3",
+                "title": "钢管安装"
+              },
+              {
+                "label": "5.3.7",
+                "title": "的规定；不得在对口间隙夹焊帮条或用加热法缩小间隙"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_605372ea993bfcba003de89cd02410e0",
+            "body": "3 管端面应平齐、无毛刺等缺陷； > 5.10 质量验收标准 > 5.10.4 钢管外防腐层应符合下列规定：\n粘结力验收标准",
+            "section_path": [
+              {
+                "label": "3",
+                "title": "管端面应平齐、无毛刺等缺陷；"
+              },
+              {
+                "label": "5.10",
+                "title": "质量验收标准"
+              },
+              {
+                "label": "5.10.4",
+                "title": "的规定"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_6fda17abe98b5a8505989271c55c07a4",
+            "body": "4 土石方与地基处理 > 5.1 一般规定 > 5.1.4 本条规定了不同管材的管节堆放层数与层高，本规范表\n5.1.4管节堆放层数与层高的规定取自工程实践的经验资料，供\n无具体规定时参照执行。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "土石方与地基处理"
+              },
+              {
+                "label": "5.1",
+                "title": "一般规定"
+              },
+              {
+                "label": "5.1.4",
+                "title": "管节堆放层数与层高的规定取自工程实践的经验资料，供"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_2e2b09f2ffd6ad27ebeebec34846b428",
+            "body": "4 土石方与地基处理 > 5.10 质量验收标准 > 5.10.1 本条第2款规定混凝土基础的混凝土验收批及试块的留\n5.10.1中分为无压管道和压力管道采用了不同的标准，主要是\n考虑到无压管道重力流对高程控制的要求较高一些；相对而言采\n用混凝土基础，管道的高程比较好掌握：弧形土基类的高程较难\n掌握。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "土石方与地基处理"
+              },
+              {
+                "label": "5.10",
+                "title": "质量验收标准"
+              },
+              {
+                "label": "5.10.1",
+                "title": "中分为无压管道和压力管道采用了不同的标准，主要是"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_9436c926926203734adfc3535bc71c4f",
+            "body": "4 管片拼装接缝应进行嵌缝处理； > 6.5 浅埋暗挖 > 6.5.1 按工程结构、水文地质、周围环境情况选择施工方案\n6.5.1本条规定浅埋暗挖法施工应按工程结构、水文地质、周\n围环境情况选择正确的施工方案。本次修编过程中，对暗挖法\n（含浅埋暗挖）施工给排水管道是有不同见解的；争论所在是暗\n挖法的初次衬砌不能计入结构永久性受力，因此暗挖法施工的给\n排水管道的工程投资将会增加。但考虑到各地采用暗挖法施工给\n排水管道工程已很普遍，为控制暗挖法施工给排水管道工程的施\n工质量，本规范在各地实践基础上给出具体的规定。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "土石方与地基处理"
+              },
+              {
+                "label": "6.5",
+                "title": "浅埋暗挖"
+              },
+              {
+                "label": "6.5.1",
+                "title": "本条规定浅埋暗挖法施工应按工程结构、水文地质、周"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_52372327a3c40cdd8e2da01622175a02",
+            "body": "4 管片拼装接缝应进行嵌缝处理； > 6.5 浅埋暗挖 > 6.5.3 开挖前的土层加固应符合下列规定：\n6.5.3本条第1款给出超前小导管加固注浆规定，在砂卵石中\n超前小导管长度宜为2～3m，管径也应小些；采用双排小导管\n时，第2排管的外插角应大于15°；当现场不具备注浆量试验条\n件时，砂层注浆量每延米导管注浆液宜控制在30～50L范围。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "土石方与地基处理"
+              },
+              {
+                "label": "6.5",
+                "title": "浅埋暗挖"
+              },
+              {
+                "label": "6.5.3",
+                "title": "本条第1款给出超前小导管加固注浆规定，在砂卵石中"
+              }
+            ]
+          },
+          {
+            "chunk_id": "chunk_73d641e179f46baee8e3d574afe025d1",
+            "body": "4 管片拼装接缝应进行嵌缝处理； > 6.5 浅埋暗挖 > 6.5.5 初期衬砌施工应符合下列规定：\n6.5.5本条中第7款喷射混凝土作业规定，分层喷射混凝土作\n业时，应在前一层喷混凝土终凝后进行；若在终凝1h后再进行\n喷射时，喷层表面应用水汽清洗。\n本条第10款初次衬砌结构背后注浆应符合下列要求：\n背后注浆作业距开挖面的距离不宜小于5m；\n2 注浆管宜在拱顶至两侧起拱线以上的范围内布置；\n3浆液材料、配合比和注浆压力应符合设计或施工方案的\n要求。\n本条第11款规定大断面开挖时应根据施工需要施作临时仰\n拱或横隔板等临时性支护措施，并应在初期衬砌完成后拆除。",
+            "section_path": [
+              {
+                "label": "4",
+                "title": "土石方与地基处理"
+              },
+              {
+                "label": "6.5",
+                "title": "浅埋暗挖"
+              },
+              {
+                "label": "6.5.5",
+                "title": "本条中第7款喷射混凝土作业规定，分层喷射混凝土作"
+              }
+            ]
+          }
+        ],
+        "ocr_text_elements": 6444,
+        "ocr_source_lines": 6444,
+        "ocr_average_lines_per_text_element": 1.0,
+        "half_sentence_chunks_followed_by_same_section": 128,
+        "chunks": 1015
+      },
+      "after": {
+        "item_like_distinct_root_nodes": 0,
+        "item_like_root_values": [],
+        "headings_ending_sentence_punctuation": 0,
+        "chunk_bodies_containing_breadcrumb_separator": 0,
+        "breadcrumb_body_samples": [],
+        "ocr_text_elements": 3900,
+        "ocr_source_lines": 6538,
+        "ocr_average_lines_per_text_element": 1.67641,
+        "half_sentence_chunks_followed_by_same_section": 110,
+        "chunks": 1023
+      }
+    }
+  ]
+}

@@ -518,6 +518,100 @@ class TocSectionPathTest(unittest.TestCase):
 
 
 class OcrReadingOrderRegressionTest(unittest.TestCase):
+    def test_ocr_bare_chapter_without_space_remains_a_heading(self):
+        page_doc = {
+            "sha256": "d" * 64,
+            "file_name": "synthetic-no-space-heading.pdf",
+            "pages": [{
+                "physical_page": 1, "width": 420.0, "height": 595.0,
+                "rotation": 0, "extraction_route": "full_ocr",
+                "decision_status": "quarantine", "regions": [],
+                "elements": [
+                    {"element_id": "chapter", "text": "4地块项目评价",
+                     "bbox": [140, 90, 280, 105]},
+                    {"element_id": "section", "text": "4.1评分项",
+                     "bbox": [150, 125, 270, 140]},
+                ],
+            }],
+        }
+        doc = assemble_document(page_doc, formula_pages={})
+        texts = {e["content"]["text"]: e for e in doc["elements"]
+                 if e["type"] == "text"}
+        self.assertEqual(texts["4地块项目评价"]["role"], "heading")
+        self.assertEqual(texts["4地块项目评价"]["section_path"], [
+            {"label": "4", "title": "地块项目评价"},
+        ])
+
+    def test_ocr_clause_lines_reconstruct_with_spans_and_versioned_provenance(self):
+        page_doc = {
+            "sha256": "e" * 64,
+            "file_name": "synthetic-ocr-paragraphs.pdf",
+            "pages": [{
+                "physical_page": 1, "width": 420.0, "height": 595.0,
+                "rotation": 0, "extraction_route": "full_ocr",
+                "decision_status": "quarantine", "regions": [{
+                    "region_id": "text-region", "kind": "text",
+                    "bbox": [40, 90, 360, 210],
+                    "quality_status": "needs_review", "issues": [],
+                }], "elements": [
+                    {"element_id": "heading", "text": "5.10 质量验收标准",
+                     "bbox": [130, 70, 290, 84]},
+                    {"element_id": "clause", "text": "5.10.7 钢筋混凝土管接口连接应符合下列规定：",
+                     "bbox": [48, 100, 345, 112]},
+                    {"element_id": "item", "text": "1 管及管件质量应符合本规范第5.6.1、",
+                     "bbox": [65, 120, 345, 132]},
+                    {"element_id": "numeric-cont", "text": "5.6.2、5.6.5 和 5.7.1 条的规定；",
+                     "bbox": [48, 136, 300, 148]},
+                    {"element_id": "next-item", "text": "2 接口材料应符合设计要求；",
+                     "bbox": [65, 164, 300, 176]},
+                ],
+            }],
+        }
+        doc = assemble_document(page_doc, formula_pages={})
+        texts = [e for e in doc["elements"] if e["type"] == "text"]
+        by_text = {e["content"]["text"]: e for e in texts}
+        merged_text = "1 管及管件质量应符合本规范第5.6.1、\n5.6.2、5.6.5 和 5.7.1 条的规定；"
+        self.assertIn(merged_text, by_text)
+        merged = by_text[merged_text]
+        self.assertEqual([span["role"] for span in merged["source_spans"]],
+                         ["primary", "continuation"])
+        self.assertEqual(len(merged["source_spans"]), 2)
+        self.assertEqual(
+            [span["bbox"] for span in merged["source_spans"]],
+            [[65.0, 120.0, 345.0, 132.0], [48.0, 136.0, 300.0, 148.0]],
+        )
+        self.assertIn({
+            "operation": "merge", "method": "ocr",
+            "engine_id": "ocr-paragraph-reconstruction-1", "confidence": None,
+        }, merged["provenance"])
+        self.assertIn(
+            {"engine_id": "ocr-paragraph-reconstruction-1",
+             "name": "ocr-paragraph-reconstruction", "version": "t6c-1"},
+            doc["generation"]["engines"],
+        )
+        self.assertIn("2 接口材料应符合设计要求；", by_text)
+
+    def test_native_page_lines_are_not_reconstructed(self):
+        page_doc = {
+            "sha256": "f" * 64,
+            "file_name": "synthetic-native-lines.pdf",
+            "pages": [{
+                "physical_page": 1, "width": 420.0, "height": 595.0,
+                "rotation": 0, "extraction_route": "native",
+                "decision_status": "approved", "regions": [], "elements": [
+                    {"element_id": "a", "text": "2.1.10 条文首行",
+                     "bbox": [48, 100, 345, 112]},
+                    {"element_id": "b", "text": "条文续行。",
+                     "bbox": [48, 116, 220, 128]},
+                ],
+            }],
+        }
+        doc = assemble_document(page_doc, formula_pages={})
+        self.assertEqual(
+            [e["content"]["text"] for e in doc["elements"] if e["type"] == "text"],
+            ["2.1.10 条文首行", "条文续行。"],
+        )
+
     def test_indented_list_continuations_remain_adjacent_and_inherit_clause(self):
         page_doc = {
             "sha256": "c" * 64,
@@ -556,16 +650,17 @@ class OcrReadingOrderRegressionTest(unittest.TestCase):
         texts = [e["content"]["text"] for e in text_elements]
         expected = [
             "6.1 评分项", "6.1.8 排水口评价总分值为10分。",
-            "1雨水排放口晴天无出流，指标不大于", "2mg/L，不扣分；",
-            "2雨水排放口晴天有出流，存在一处", "扣2分，最多扣4分；",
+            "1雨水排放口晴天无出流，指标不大于\n2mg/L，不扣分；",
+            "2雨水排放口晴天有出流，存在一处\n扣2分，最多扣4分；",
         ]
         self.assertEqual(texts, expected)
         by_text = {e["content"]["text"]: e for e in text_elements}
-        for continuation in ("2mg/L，不扣分；", "扣2分，最多扣4分；"):
+        for continuation in expected[2:]:
             self.assertEqual(
                 [entry["label"] for entry in by_text[continuation]["section_path"]],
                 ["6.1", "6.1.8"],
             )
+            self.assertIsNone(by_text[continuation]["section_path"][-1]["title"])
             self.assertEqual(by_text[continuation]["source_region_ids"], ["list-region"])
 
     def test_page_boundary_preserves_page_then_vertical_order(self):
@@ -590,7 +685,7 @@ class OcrReadingOrderRegressionTest(unittest.TestCase):
         doc = assemble_document(page_doc, formula_pages={})
         self.assertEqual(
             [e["content"]["text"] for e in doc["elements"] if e["type"] == "text"],
-            ["1 第一款首行", "第一页续行", "第二页续行", "2 第二款首行"],
+            ["1 第一款首行\n第一页续行", "第二页续行", "2 第二款首行"],
         )
 
 

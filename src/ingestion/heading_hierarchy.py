@@ -59,6 +59,10 @@ _DOTTED_RE = re.compile(r"^(\d+(?:\.\d+)*)(?:\.)?(?=[\s一-鿿]|$)")
 # Element labels that must NOT be mistaken for section headings: table /
 # figure / formula captions ("表7.2.2 ...", "图3 ...", "式5.4.2-2 ...").
 _ELEMENT_LABEL_RE = re.compile(r"^(?:表|图|式|公式)\s*\d")
+_BODY_END_RE = re.compile(r"[。；;：:，,]\s*$")
+_NORMATIVE_VERB_RE = re.compile(
+    r"(?:应|宜|不得|不应|必须|可|按下式|符合下列|有关规定执行)"
+)
 
 
 # ---------------------------------------------------------------------------
@@ -209,7 +213,6 @@ def infer_headings(items: list[HeadingInput]) -> list[HeadingNode]:
     """
     median_font = _median_font_size(items)
     nodes: list[HeadingNode] = []
-
     for item in items:
         text = (item.text or "").strip()
         if not text:
@@ -221,6 +224,24 @@ def infer_headings(items: list[HeadingInput]) -> list[HeadingNode]:
 
         node = _match_numbered(text, item)
         if node is not None:
+            # A numbered body line is not a structural heading merely because
+            # OCR placed it in its own box.  Terminal sentence punctuation is
+            # decisive; normative verbs are decisive once the trailing text
+            # is longer than an ordinary short title.
+            if _looks_like_numbered_body(text, node):
+                if node.level == 1:
+                    continue
+                # A numbered clause remains a structural anchor, but its body
+                # is not a heading title.  Keeping only the label prevents the
+                # clause's first line from being synthesized into breadcrumbs
+                # while preserving useful clause-level section_path metadata.
+                node = HeadingNode(
+                    label=node.label,
+                    title=None,
+                    level=node.level,
+                    confidence=HIGH_CONFIDENCE,
+                    source_index=node.source_index,
+                )
             nodes.append(node)
             continue
 
@@ -234,6 +255,20 @@ def infer_headings(items: list[HeadingInput]) -> list[HeadingNode]:
         continue
 
     return nodes
+
+
+def _looks_like_numbered_body(text: str, node: HeadingNode) -> bool:
+    title = node.title or ""
+    # OCR paragraph reconstruction deliberately preserves the source line
+    # boundaries.  A numbered multi-line block is clause/body content even
+    # when it crosses a page before reaching terminal punctuation.
+    if "\n" in text:
+        return True
+    if _BODY_END_RE.search(text):
+        return True
+    if node.level == 1 and re.search(r"[。；;：:，,]", title):
+        return True
+    return bool(title and len(title) > 8 and _NORMATIVE_VERB_RE.search(title))
 
 
 def _match_numbered(text: str, item: HeadingInput) -> HeadingNode | None:
@@ -328,6 +363,16 @@ def build_section_path(
 
     stack: list[HeadingNode] = []
     for h in active:
+        if "." in h.label and all(part.isdigit() for part in h.label.split(".")):
+            # A dotted clause/section can inherit only numeric ancestors that
+            # are real prefixes of its label.  This prevents a short list item
+            # misread as root ("1 …") or a stale sibling ("4.4") from
+            # contaminating an explicit path such as 5.10.7 or 4.3.13.
+            stack = [ancestor for ancestor in stack if (
+                not ancestor.label.replace(".", "").isdigit()
+                or h.label == ancestor.label
+                or h.label.startswith(ancestor.label + ".")
+            )]
         # Pop anything at the same or deeper level so the stack stays a
         # strictly increasing level chain (1 -> 2 -> 3 ...).
         while stack and stack[-1].level >= h.level:

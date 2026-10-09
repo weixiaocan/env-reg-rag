@@ -79,6 +79,15 @@ _CHINESE_RE = re.compile(r"[一-鿿]")
 _TABLE_CAPTION_RE = re.compile(r"^(续)?表\s*\d")
 _FIGURE_CAPTION_RE = re.compile(r"^图\s*\d")
 _LIST_NUM_RE = re.compile(r"^(\d+)\s*[\n]")
+_OCR_PARAGRAPH_RULE_ENGINE_ID = "ocr-paragraph-reconstruction-1"
+_OCR_PARAGRAPH_RULE_VERSION = "t6c-1"
+_SECTION_PREFIX_RULE_ENGINE_ID = "section-prefix-rendering-1"
+_SECTION_PREFIX_RULE_VERSION = "t6c-1"
+_OCR_SENTENCE_END_RE = re.compile(r"[。！？；;：:]\s*$")
+_OCR_DOTTED_START_RE = re.compile(r"^\d+(?:\.\d+)+\s*[一-鿿]")
+_OCR_LIST_START_RE = re.compile(
+    r"^(?:\d+\s*[一-鿿]|[（(]\d+[）)]\s*|\d+[）)]\s*)"
+)
 
 _CJK = "[一-鿿]"
 
@@ -392,11 +401,17 @@ def assemble_document(
                     region, failure_reason="invalid_detection_coordinates"),
                 selection_basis=None, admissible_ids=[],
                 selected_result_id=None, selected_attempt_id=None))
+        # OCR line elements still follow the upstream page stream here.  Join
+        # lines inside a paragraph before column detection: once a page is
+        # (even legitimately) reordered column-major, adjacent lines from one
+        # source region may no longer be neighbours and cannot be recovered.
+        if route in ("full_ocr", "hybrid"):
+            items = _reconstruct_ocr_paragraphs(items)
         layout = detect_columns(
             [it.bbox for it in items], page_width=width, page_height=height
         )
-        for order_idx in layout.reading_order:
-            global_slots.append(items[order_idx])
+        ordered_items = [items[order_idx] for order_idx in layout.reading_order]
+        global_slots.extend(ordered_items)
 
     # Assign global source_index (= position in logical reading order).
     for i, slot in enumerate(global_slots):
@@ -437,7 +452,10 @@ def assemble_document(
             continue
         if slot.page in toc_pages:
             continue
-        candidate = _heading_candidate_text(slot.text)
+        candidate = _heading_candidate_text(
+            slot.text, bbox=slot.bbox,
+            page_width=float(page_by_number.get(slot.page, {}).get("width") or 0.0),
+        )
         if candidate is not None:
             heading_inputs.append(
                 HeadingInput(
@@ -864,6 +882,8 @@ def assemble_document(
     generation = _build_generation(
         page_document, formula_pages, ocr_engine_order, needs_unknown_engine,
         formula_engine_order, fusion_summary,
+        paragraph_reconstruction=any(
+            slot.extra.get("paragraph_reconstruction") for slot in global_slots),
     )
 
     return {
@@ -1979,6 +1999,98 @@ def _collect_page_items(
     return items
 
 
+def _reconstruct_ocr_paragraphs(items: list[_PageItem]) -> list[_PageItem]:
+    """Merge OCR line boxes into paragraph/clause elements on one page.
+
+    The function runs only after reading-order resolution and only for OCR
+    routes.  It never changes line text: joined lines are separated by a
+    literal newline, and every source bbox is retained for later span emission.
+    Structured elements break a text flow and are never merged.
+    """
+    out: list[_PageItem] = []
+    pending: _PageItem | None = None
+
+    def seal() -> None:
+        nonlocal pending
+        if pending is not None:
+            out.append(pending)
+            pending = None
+
+    for item in items:
+        if item.kind != "text" or not (item.text or "").strip():
+            seal()
+            out.append(item)
+            continue
+        if pending is None:
+            pending = item
+            pending.extra.setdefault("source_line_bboxes", [list(item.bbox)])
+            continue
+        if not _ocr_lines_share_flow(pending, item):
+            seal()
+            pending = item
+            pending.extra.setdefault("source_line_bboxes", [list(item.bbox)])
+            continue
+        previous = (pending.text or "").rstrip()
+        current = (item.text or "").strip()
+        if (_OCR_SENTENCE_END_RE.search(previous)
+                or _is_ocr_paragraph_start(current)):
+            seal()
+            pending = item
+            pending.extra.setdefault("source_line_bboxes", [list(item.bbox)])
+            continue
+        source_line_bboxes = pending.extra.setdefault(
+            "source_line_bboxes", [list(pending.bbox)]
+        )
+        pending.text = pending.text + "\n" + item.text
+        pending.bbox = [
+            min(pending.bbox[0], item.bbox[0]),
+            min(pending.bbox[1], item.bbox[1]),
+            max(pending.bbox[2], item.bbox[2]),
+            max(pending.bbox[3], item.bbox[3]),
+        ]
+        source_line_bboxes.append(list(item.bbox))
+        pending.extra["paragraph_reconstruction"] = _OCR_PARAGRAPH_RULE_VERSION
+        fusions = pending.extra.setdefault("ocr_fusions", [])
+        for fusion in (pending.extra.get("ocr_fusion"), item.extra.get("ocr_fusion")):
+            if fusion and fusion not in fusions:
+                fusions.append(fusion)
+        for value in item.source_region_ids:
+            if value not in pending.source_region_ids:
+                pending.source_region_ids.append(value)
+        pending.region_qualities.extend(
+            value for value in item.region_qualities
+            if value not in pending.region_qualities)
+        pending.region_issues.extend(
+            value for value in item.region_issues
+            if value not in pending.region_issues)
+        pending.region_processing_config_ids.extend(
+            value for value in item.region_processing_config_ids
+            if value not in pending.region_processing_config_ids)
+    seal()
+    return out
+
+
+def _is_ocr_paragraph_start(text: str) -> bool:
+    return bool(
+        re.match(r"^第[一二三四五六七八九十百千零〇两\d]+[章节]", text)
+        or _OCR_DOTTED_START_RE.match(text)
+        or _OCR_LIST_START_RE.match(text)
+    )
+
+
+def _ocr_lines_share_flow(first: _PageItem, second: _PageItem) -> bool:
+    if first.page != second.page:
+        return False
+    if first.source_region_ids and second.source_region_ids:
+        if not set(first.source_region_ids).intersection(second.source_region_ids):
+            return False
+    line_boxes = first.extra.get("source_line_bboxes") or [first.bbox]
+    last = line_boxes[-1]
+    height = max(1.0, last[3] - last[1], second.bbox[3] - second.bbox[1])
+    gap = second.bbox[1] - last[3]
+    return -0.25 * height <= gap <= 2.5 * height
+
+
 def _match_text_regions(
     elem_bbox: list[float],
     region_bboxes: list[tuple[list[float], dict[str, Any]]],
@@ -2023,14 +2135,27 @@ def _build_text_element(
     role = _infer_text_role(slot, heading_by_index.get(slot.source_index))
     label = _text_label(slot, heading_by_index.get(slot.source_index))
     section_path = build_section_path(headings, slot.source_index)
-    primary_span = _make_span(span_counter, "primary", slot.page, slot.bbox)
+    line_bboxes = slot.extra.get("source_line_bboxes") or [slot.bbox]
+    source_spans = [
+        _make_span(
+            span_counter, "primary" if index == 0 else "continuation",
+            slot.page, bbox,
+        )
+        for index, bbox in enumerate(line_bboxes)
+    ]
     method, engine_id, confidence = _route_provenance(slot)
     provenance = [_provenance("extract", method, engine_id, confidence)]
-    quality_status, policy_reasons = _derive_text_quality(slot, text)
-    fusion = slot.extra.get("ocr_fusion")
-    if fusion:
+    if slot.extra.get("paragraph_reconstruction"):
         provenance.append(_provenance(
-            "merge", "ocr", "ocr-fusion-1", fusion.get("independent_score")))
+            "merge", "ocr", _OCR_PARAGRAPH_RULE_ENGINE_ID, None))
+    quality_status, policy_reasons = _derive_text_quality(slot, text)
+    fusions = list(slot.extra.get("ocr_fusions") or [])
+    fusion = slot.extra.get("ocr_fusion")
+    if fusion and fusion not in fusions:
+        fusions.append(fusion)
+    if fusions:
+        provenance.append(_provenance(
+            "merge", "ocr", "ocr-fusion-1", fusions[0].get("independent_score")))
         quality_status = "needs_review"
         if "independent_ocr_fusion_unreviewed" not in policy_reasons:
             policy_reasons.append("independent_ocr_fusion_unreviewed")
@@ -2041,7 +2166,7 @@ def _build_text_element(
         "label": label,
         "section_path": section_path,
         "content": {"text": text, "list": _list_info(slot.text)},
-        "source_spans": [primary_span],
+        "source_spans": source_spans,
         "provenance": provenance,
         "links": [],
         "quality_status": quality_status,
@@ -2049,7 +2174,7 @@ def _build_text_element(
         "source_region_ids": list(slot.source_region_ids),
         "processing_config_ids": list(slot.region_processing_config_ids),
         "quality_issues": list(slot.region_issues),
-        **({"ocr_fusion": [dict(fusion)]} if fusion else {}),
+        **({"ocr_fusion": [dict(value) for value in fusions]} if fusions else {}),
     }
 
 
@@ -2116,6 +2241,8 @@ def _infer_text_role(slot: _PageItem, heading: HeadingNode | None) -> str:
     if heading is not None:
         # Short title -> heading; long body -> clause (条文 that anchors a path).
         title = heading.title or ""
+        if not title and "." in heading.label:
+            return "clause"
         if len(title) <= 15:
             return "heading"
         return "clause"
@@ -3452,6 +3579,7 @@ def _build_generation(
     needs_unknown_engine: bool = False,
     formula_engine_order: list[tuple[str, str, str]] | None = None,
     fusion_summary: dict[str, Any] | None = None,
+    paragraph_reconstruction: bool = False,
 ) -> dict[str, Any]:
     config_hash = (page_document.get("config_hash") or "").lower()
     if not config_hash or len(config_hash) != 64:
@@ -3464,6 +3592,8 @@ def _build_generation(
         {"engine_id": "native-1", "name": "pymupdf", "version": "1.24"},
         {"engine_id": "layout-1", "name": "PP-DocLayout_plus-L", "version": "paddleocr-3.7.0"},
         {"engine_id": "image-1", "name": "image-crop", "version": "1.0"},
+        {"engine_id": _SECTION_PREFIX_RULE_ENGINE_ID,
+         "name": "section-prefix-rendering", "version": _SECTION_PREFIX_RULE_VERSION},
     ]
     # T04-R2: formula engines are REGISTERED from the cache run provenance the
     # document actually consumed (formula_engine_order, built by
@@ -3481,6 +3611,12 @@ def _build_generation(
     if fusion_summary and (fusion_summary.get("inserted") or fusion_summary.get("replaced")):
         engines.append({"engine_id": "ocr-fusion-1", "name": "RapidOCR/PP-OCRv6_rec_small",
                         "version": str(fusion_summary.get("run_id") or "unknown")})
+    if paragraph_reconstruction:
+        engines.append({
+            "engine_id": _OCR_PARAGRAPH_RULE_ENGINE_ID,
+            "name": "ocr-paragraph-reconstruction",
+            "version": _OCR_PARAGRAPH_RULE_VERSION,
+        })
     # T02 P1a: a page with a missing/unknown extraction route gets an honest
     # ``unknown-1`` engine (never guessed as native-1) so its provenance
     # engine_id resolves (invariant 16).
@@ -3767,7 +3903,9 @@ def _normalise_text(text: str) -> str:
     return s.strip()
 
 
-def _heading_candidate_text(text: str) -> str | None:
+def _heading_candidate_text(
+    text: str, *, bbox: list[float] | None = None, page_width: float = 0.0
+) -> str | None:
     """Return a normalised heading-candidate string, or None if not a candidate.
 
     Keeps the heading hierarchy detector honest by pre-filtering list items and
@@ -3787,8 +3925,18 @@ def _heading_candidate_text(text: str) -> str | None:
     dotted = _DOTTED_NUM_RE.match(norm)
     if dotted:
         return norm
-    bare = _BARE_NUM_RE.match(norm)
+    # OCR often removes the visual gap after a chapter number ("4地块…").
+    # Admit that shape here; the hierarchy detector still rejects body-like
+    # numbered lines by punctuation/normative-language rules.
+    bare = re.match(r"^(\d+)(?=\s|[一-鿿]|$)\s*", norm)
     if bare:
+        # In this corpus real bare-number chapter titles are centred; left
+        # aligned bare numbers are paragraph/list items.  This geometry gate
+        # prevents short fragments such as "1 层或立放" from becoming roots
+        # even when they contain no normative verb or terminal punctuation.
+        if (bbox is not None and page_width > 0
+                and bbox[0] < 0.25 * page_width):
+            return None
         rest = norm[bare.end():].strip()
         if (
             rest

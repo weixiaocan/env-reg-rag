@@ -16,6 +16,7 @@ import unittest
 from src.ingestion.heading_hierarchy import (
     HIGH_CONFIDENCE,
     HeadingInput,
+    HeadingNode,
     build_section_path,
     detect_toc_pages,
     infer_headings,
@@ -69,7 +70,8 @@ class TocDetectionTests(unittest.TestCase):
         ]
         self.assertEqual(detect_toc_pages(items), set())
         nodes = infer_headings(items)
-        self.assertEqual(nodes[0].label, "4.3.10")
+        self.assertEqual([node.label for node in nodes], ["4.3.10"])
+        self.assertIsNone(nodes[0].title)
 
     def test_late_body_ellipsis_does_not_anchor_toc(self) -> None:
         items = [
@@ -145,8 +147,45 @@ class ConfidenceTests(unittest.TestCase):
         ])
         self.assertEqual(nodes, [])
 
+    def test_clause_and_numbered_list_item_are_not_headings(self) -> None:
+        nodes = infer_headings([
+            _inp("7 污水处理", 0),
+            _inp("4 池中应设立式桨叶分离机", 1),
+            _inp("7.12.1 污水量较小的城镇应进行技术经济比较。", 2),
+            _inp("5.3.2 污水管网中发生的降雨入流入渗是由降雨直接引起，因\n"
+                 "此与降雨时间密切相关", 3),
+            _inp("1 采用土回填时，应符合下列规定：", 4),
+            _inp("第5章 的有关规定执行；", 5),
+            _inp("1 个截面，每", 6),
+            _inp("1 根。测管两端", 7),
+        ])
+        self.assertEqual([node.label for node in nodes], ["7", "7.12.1", "5.3.2"])
+        self.assertIsNone(nodes[1].title)
+        self.assertIsNone(nodes[2].title)
+
+    def test_real_short_chapter_titles_survive_body_filter(self) -> None:
+        nodes = infer_headings([
+            _inp("3 雨水系统", 0),
+            _inp("4 RSI/RPI计算方法", 1),
+            _inp("4地块项目评价", 2),
+        ])
+        self.assertEqual([node.title for node in nodes], [
+            "雨水系统", "RSI/RPI计算方法", "地块项目评价",
+        ])
+
 
 class SectionPathTests(unittest.TestCase):
+    def test_dotted_heading_drops_inconsistent_numeric_ancestors(self) -> None:
+        headings = [
+            HeadingNode("1", "错误分项", 1, 0.9, 0),
+            HeadingNode("5.10", "质量验收标准", 2, 0.9, 1),
+            HeadingNode("5.10.7", None, 3, 0.9, 2),
+        ]
+        self.assertEqual(build_section_path(headings, 2), [
+            {"label": "5.10", "title": "质量验收标准"},
+            {"label": "5.10.7", "title": None},
+        ])
+
     def _cecs758_p24_headings(self) -> list:
         # Headings appearing at/before the p24 formula element, in reading
         # order. Titles inferred from the formula context (浮标法 / 流量).

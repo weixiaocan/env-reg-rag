@@ -140,7 +140,13 @@ def test_canonical_text_carries_fusion_provenance_and_stays_needs_review(tmp_pat
     }
     doc = assemble_document(
         page_doc, formula_pages={}, independent_ocr_run_dir=str(run))
-    inserted = next(e for e in doc["elements"] if e["content"]["text"] == "补入正文")
+    inserted = next(
+        e for e in doc["elements"]
+        if e["content"]["text"] == "已有正文\n补入正文"
+    )
+    assert [span["role"] for span in inserted["source_spans"]] == [
+        "primary", "continuation",
+    ]
     assert inserted["quality_status"] == "needs_review"
     assert inserted["policy_reasons"][-1] == "independent_ocr_fusion_unreviewed"
     assert inserted["provenance"][-1] == {

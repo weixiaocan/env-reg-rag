@@ -293,6 +293,43 @@ class SectionPathPrefixTest(unittest.TestCase):
         self.assertTrue(chunks)
         self.assertTrue(chunks[0].text.startswith("5 调查 > 5.4 流量 > 5.4.2\n"))
 
+    def test_path_change_flushes_before_new_body(self):
+        old = [{"label": "4", "title": "旧章"}]
+        new = [{"label": "5", "title": "新章"}]
+        doc = _canonical([
+            _text_element("e1", "paragraph", "旧章正文。", section_path=old),
+            _text_element("e2", "paragraph", "新章正文。", section_path=new),
+        ])
+        chunks = _chunk(doc)
+        self.assertEqual(len(chunks), 2)
+        self.assertEqual(chunks[0].metadata["section_path"], old)
+        self.assertEqual(chunks[0].text, "4 旧章\n旧章正文。")
+        self.assertEqual(chunks[1].metadata["section_path"], new)
+        self.assertEqual(chunks[1].text, "5 新章\n新章正文。")
+        self.assertNotIn("4 旧章 >", chunks[1].text)
+
+    def test_same_labels_with_changed_titles_do_not_reuse_stale_prefix(self):
+        first = [{"label": "5.3", "title": "旧标题"},
+                 {"label": "5.3.2", "title": "旧条文标题"}]
+        second = [{"label": "5.3", "title": "新标题"},
+                  {"label": "5.3.2", "title": None}]
+        doc = _canonical([
+            _text_element("e1", "paragraph", "旧正文。", section_path=first),
+            _text_element("e2", "paragraph", "新正文。", section_path=second),
+        ])
+        doc["generation"]["engines"].append({
+            "engine_id": "section-prefix-rendering-1",
+            "name": "section-prefix-rendering",
+            "version": "t6c-1",
+        })
+        chunks = _chunk(doc)
+        self.assertEqual([chunk.text for chunk in chunks], [
+            "5.3 旧标题 > 5.3.2 旧条文标题\n旧正文。",
+            "5.3 新标题 > 5.3.2\n新正文。",
+        ])
+        self.assertEqual(chunks[1].metadata["section_path"], second)
+        self.assertNotIn("旧标题", chunks[1].text)
+
 
 class ChunkIdDeterminismAndTraceTest(unittest.TestCase):
     def test_deterministic_and_unique(self):

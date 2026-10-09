@@ -317,6 +317,10 @@ class _ChunkBuilder:
         self._chunks: list[V2Chunk] = []
         self._pending: list[_PendingUnit] = []
         self._prefix_cache: dict[str, str] = {}
+        self._t6c_prefix_cache = any(
+            engine.get("engine_id") == "section-prefix-rendering-1"
+            for engine in (canonical.get("generation") or {}).get("engines", [])
+        )
         # T09 closure round 4: chunk_id -> emitted projection fingerprint,
         # feeding the deterministic identical-projection dedupe in
         # _emit_chunk (the single choke point, like the token gate).
@@ -333,7 +337,20 @@ class _ChunkBuilder:
     # -- prefix helpers ----------------------------------------------------- #
 
     def _prefix_for(self, section_path: list[dict[str, Any]]) -> str:
-        key = " | ".join((e.get("label") or "") for e in section_path)
+        # A label can legitimately recur with a different title (and OCR
+        # corrections can change a title while retaining the label).  Caching
+        # by labels alone reused a stale rendered breadcrumb, so chunk text
+        # disagreed with metadata.section_path and looked like a breadcrumb in
+        # the body after consumers stripped the actual path.
+        if self._t6c_prefix_cache:
+            key = " | ".join(
+                f"{e.get('label') or ''}\0{e.get('title') or ''}"
+                for e in section_path
+            )
+        else:
+            # Published pre-T6c Canonical artifacts must remain byte-for-byte
+            # re-projectable so their chunk IDs and golden bindings stay valid.
+            key = " | ".join((e.get("label") or "") for e in section_path)
         if key not in self._prefix_cache:
             self._prefix_cache[key] = _format_section_path(section_path)
         return self._prefix_cache[key]
@@ -412,6 +429,9 @@ class _ChunkBuilder:
           cap, improving retrieval granularity);
         * any text that would breach the 512 hard cap -> must split.
         """
+        if (self._pending
+                and self._pending[0].section_path != unit.section_path):
+            self.flush()
         prefix = self._prefix_for(unit.section_path)
         if self._pending:
             body = "\n".join(u.text for u in self._pending) + "\n" + unit.text
