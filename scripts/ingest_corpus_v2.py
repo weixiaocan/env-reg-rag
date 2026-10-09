@@ -378,7 +378,9 @@ def _build_collection(
     }
 
     embedder = BgeSmallZhEmbedder(local_files_only=True, device="cpu")
-    client = QdrantClient(url=qdrant_url)
+    # Same 60s budget as the read client above: the default (~5s) times out
+    # on full-batch upserts of a 4.5k-chunk corpus.
+    client = QdrantClient(url=qdrant_url, timeout=60)
     target, mode, verified = resolve_staging_target(
         client,
         target_name=collection_name,

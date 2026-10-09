@@ -1,0 +1,16 @@
+{
+  "corpus_version": "corpus-966c89b264cc",
+  "judgments_included": false,
+  "native_reclassified_document_count": 12,
+  "native_reclassified_page_count": 152,
+  "native_sample_count": 30,
+  "native_sample_seed": "t6a-native-v2-20261010",
+  "native_sample_sheet_sha256": "c38267197e21301fe2653507212683809e320c00cb4a30b628190728d743859f",
+  "old_sample_count": 201,
+  "published_reference_corpus": "corpus-0b9a1fd84e3d",
+  "remapped_sample_count": 201,
+  "sample_sheet_sha256": "9d5c995e281fca2013d42423b06e0591a2bea4b4ecc923aac4b5fe01b4f21b15",
+  "schema_version": "ocr-sample-sheet-v2-summary-1",
+  "screenshot_file_count": 586,
+  "screenshots_aggregate_sha256": "235cefabca79cdd4d4e70e398a24328a2ee194ff55867c4307945f343f9f1b43"
+}

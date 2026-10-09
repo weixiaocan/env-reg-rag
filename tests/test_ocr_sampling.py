@@ -15,6 +15,7 @@ from src.evaluation.ocr_sampling import (
     validate_judgments,
     wilson_interval,
 )
+from src.evaluation.ocr_sampling_v2 import match_chunks_by_page_bboxes
 
 
 def _chunk(
@@ -80,6 +81,29 @@ def test_union_bboxes_by_page():
         {"physical_page": 2, "bbox": [5.0, 20.0, 35.0, 40.0]},
         {"physical_page": 3, "bbox": [1.0, 2.0, 3.0, 4.0]},
     ]
+
+
+def test_v2_position_mapping_ranks_overlap_and_records_all_matches():
+    old_boxes = [
+        {"physical_page": 2, "bbox": [0.0, 0.0, 10.0, 10.0]},
+        {"physical_page": 3, "bbox": [0.0, 0.0, 10.0, 10.0]},
+    ]
+    partial = _chunk(1, 2, spans=[(2, [0.0, 0.0, 10.0, 10.0])])
+    best = _chunk(
+        2,
+        2,
+        spans=[
+            (2, [0.0, 0.0, 10.0, 10.0]),
+            (3, [0.0, 0.0, 5.0, 10.0]),
+        ],
+    )
+    unrelated = _chunk(3, 4, spans=[(4, [0.0, 0.0, 10.0, 10.0])])
+
+    matches = match_chunks_by_page_bboxes(old_boxes, [partial, unrelated, best])
+
+    assert [row[1].chunk_id for row in matches] == [best.chunk_id, partial.chunk_id]
+    assert matches[0][0] == 0.75
+    assert matches[1][0] == 0.5
 
 
 def test_cross_page_record_has_one_crop_per_page():
