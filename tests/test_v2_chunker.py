@@ -254,6 +254,27 @@ class StructuredOverlongSplitTest(unittest.TestCase):
         for c in chunks:
             self.assertEqual(c.metadata["element_types"], ["table"])
 
+    def test_atomic_pieces_recurses_below_newline_with_absolute_offsets(self):
+        # A line longer than chunk_size (no newline inside it) forces the
+        # separator ladder to recurse from "\n" into "。". Regression for the
+        # recursive _atomic_pieces call (signature + offset shift).
+        from src.application.v2_chunker import _ChunkBuilder
+        builder = _ChunkBuilder.__new__(_ChunkBuilder)
+        builder._count = len
+        long_line = "。".join(f"第{i}句运行维护要求" for i in range(20)) + "。"
+        text = "短行\n" + long_line + "\n尾行"
+        pieces = builder._atomic_pieces(text, chunk_size=40)
+        # pieces tile the text contiguously, in order, with absolute offsets
+        self.assertEqual(pieces[0][0], 0)
+        self.assertEqual(pieces[-1][1], len(text))
+        for (s1, e1), (s2, _) in zip(pieces, pieces[1:]):
+            self.assertEqual(e1, s2)
+        self.assertEqual("".join(text[s:e] for s, e in pieces), text)
+        # the long line was broken at sentence level, each piece within budget
+        self.assertGreater(len(pieces), 3)
+        for s, e in pieces:
+            self.assertLessEqual(len(text[s:e]), 40)
+
     def test_table_under_cap_stays_atomic(self):
         # a normal 2-row table fits the cap -> single atomic chunk (no split)
         doc = _canonical([_table_element("e2")])

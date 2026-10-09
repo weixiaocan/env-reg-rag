@@ -589,7 +589,8 @@ class _ChunkBuilder:
         return taken
 
     def _atomic_pieces(
-        self, text: str, *, chunk_size: int
+        self, text: str, separators: tuple[str, ...] | list[str] | None = None,
+        *, chunk_size: int,
     ) -> list[tuple[int, int]]:
         """Atomic [start, end) pieces of ``text`` via the separator ladder.
 
@@ -600,8 +601,9 @@ class _ChunkBuilder:
         """
         if not text:
             return []
+        ladder = list(_SEPARATORS if separators is None else separators)
         sep_i = None
-        for i, s in enumerate(_SEPARATORS):
+        for i, s in enumerate(ladder):
             if s == "":
                 break
             if s in text:
@@ -609,8 +611,8 @@ class _ChunkBuilder:
                 break
         if sep_i is None:
             return [(0, len(text))]
-        sep = _SEPARATORS[sep_i]
-        rest = _SEPARATORS[sep_i + 1:]
+        sep = ladder[sep_i]
+        rest = ladder[sep_i + 1:]
         ranges: list[tuple[int, int]] = []
         start = 0
         n = len(text)
@@ -621,12 +623,14 @@ class _ChunkBuilder:
                 break
             ranges.append((start, idx + len(sep)))
             start = idx + len(sep)
-        if sep_i + 1 < len(_SEPARATORS):
+        if sep_i + 1 < len(ladder):
             out: list[tuple[int, int]] = []
             for s, e in ranges:
                 if self._count(text[s:e]) > chunk_size:
-                    out.extend(self._atomic_pieces(text[s:e], rest,
-                                                   chunk_size=chunk_size))
+                    # Recurse on the next separator level; sub-ranges are
+                    # relative to text[s:e], so shift them back by ``s``.
+                    out.extend((s + ss, s + se) for ss, se in self._atomic_pieces(
+                        text[s:e], rest, chunk_size=chunk_size))
                 else:
                     out.append((s, e))
             ranges = out
