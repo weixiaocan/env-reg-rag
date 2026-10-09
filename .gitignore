@@ -18,12 +18,10 @@ data/observability/*.jsonl
 data/backups/
 tmp/
 
-# The public repository intentionally bundles source PDFs. The global PDF rule
-# still protects PDFs created elsewhere; only data/raw is explicitly included.
+# Do not add new PDF binaries. Existing tracked PDFs require a separate,
+# Existing PDFs were explicitly removed from the Git index with `git rm --cached`;
+# the local source files remain available to the page-viewing service.
 *.pdf
-!data/raw/
-!data/raw/**/
-!data/raw/**/*.pdf
 *.docx
 
 # Large, rebuildable parsing outputs and local evaluation runs.
