@@ -30,6 +30,7 @@ __all__ = [
     "HeadingNode",
     "infer_headings",
     "build_section_path",
+    "detect_toc_pages",
     "HIGH_CONFIDENCE",
 ]
 
@@ -78,6 +79,7 @@ class HeadingInput:
     bbox: tuple[float, float, float, float] | list[float]
     source_index: int = 0
     font_size: float | None = None
+    physical_page: int | None = None
 
 
 @dataclass(frozen=True)
@@ -89,6 +91,77 @@ class HeadingNode:
     level: int
     confidence: float
     source_index: int
+
+
+# A TOC is a page-level structure. OCR commonly splits one printed entry into
+# two blocks ("4.3 Trench support" and "12"), so matching individual lines is
+# insufficient and is precisely how TOC entries used to enter the heading
+# stack. These patterns are deliberately conservative; a page needs a TOC
+# title, two dot-leader entries, or three title/page-number pairs.
+_TOC_TITLE_RE = re.compile(r"^(?:目\s*录|目\s*次|contents?)$", re.IGNORECASE)
+_TOC_DOT_LEADER_RE = re.compile(
+    r"(?:\.{2,}|…{1,}|\u00b7{3,}|_{3,})\s*[（(]?\s*\d{1,4}\s*[）)]?\s*$"
+)
+_TOC_PAGE_NUMBER_RE = re.compile(r"^[（(]?\s*\d{1,4}\s*[）)]?\s*$")
+_TOC_ENTRY_START_RE = re.compile(
+    r"^(?:第[一-鿿\d]+章|第[一-鿿\d]+节|\d+(?:\s*\.\s*\d+)*\.?)\s*\S+"
+)
+
+
+def detect_toc_pages(items: Sequence[HeadingInput]) -> set[int]:
+    """Return physical pages whose text stream is a table of contents.
+
+    The detector handles both intact entries (dot leaders followed by a page
+    number) and the split-block output produced by the OCR pipeline. It does
+    not classify a normal numbered heading on its own as TOC content.
+    """
+    by_page: dict[int, list[str]] = {}
+    for item in items:
+        if item.physical_page is None:
+            continue
+        text = re.sub(r"\s+", " ", (item.text or "").strip())
+        if text:
+            by_page.setdefault(item.physical_page, []).append(text)
+
+    signals: dict[int, tuple[bool, int, int]] = {}
+    for page, texts in by_page.items():
+        has_title = any(_TOC_TITLE_RE.fullmatch(text) for text in texts)
+        if not has_title:
+            has_title = any(
+                _TOC_TITLE_RE.fullmatch(texts[index] + texts[index + 1])
+                for index in range(len(texts) - 1)
+            )
+        leader_entries = sum(bool(_TOC_DOT_LEADER_RE.search(text)) for text in texts)
+        paired_entries = 0
+        for index, text in enumerate(texts[:-1]):
+            if not _TOC_ENTRY_START_RE.match(text) or len(text) > 120:
+                continue
+            # OCR may insert one small fragment between a title and its page
+            # number, so accept either of the next two blocks.
+            if any(_TOC_PAGE_NUMBER_RE.fullmatch(candidate)
+                   for candidate in texts[index + 1:index + 3]):
+                paired_entries += 1
+        signals[page] = (has_title, leader_entries, paired_entries)
+
+    # Start from explicit evidence, then admit only adjacent continuation
+    # pages. Without this adjacency rule, ordinary body pages containing a
+    # numbered clause followed by numbered list items look like split TOC
+    # entries (the false-positive that this gate is designed to avoid).
+    toc_pages = {
+        page for page, (has_title, leader_entries, _pairs) in signals.items()
+        if has_title or (page <= 20 and leader_entries >= 2)
+    }
+    changed = True
+    while changed:
+        changed = False
+        for page, (_title, leader_entries, paired_entries) in signals.items():
+            if page in toc_pages:
+                continue
+            if (page - 1 in toc_pages or page + 1 in toc_pages) and (
+                    leader_entries >= 1 or paired_entries >= 3):
+                toc_pages.add(page)
+                changed = True
+    return toc_pages
 
 
 # ---------------------------------------------------------------------------

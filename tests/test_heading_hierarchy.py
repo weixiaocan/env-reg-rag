@@ -17,6 +17,7 @@ from src.ingestion.heading_hierarchy import (
     HIGH_CONFIDENCE,
     HeadingInput,
     build_section_path,
+    detect_toc_pages,
     infer_headings,
 )
 
@@ -24,6 +25,58 @@ from src.ingestion.heading_hierarchy import (
 def _inp(text: str, idx: int, *, x0: float = 60.0, font: float | None = None) -> HeadingInput:
     return HeadingInput(text=text, bbox=[x0, 100.0 + idx * 20, 360, 118 + idx * 20],
                         source_index=idx, font_size=font)
+
+
+def _page_inp(text: str, idx: int, page: int = 3) -> HeadingInput:
+    return HeadingInput(text=text, bbox=[60, 100 + idx * 20, 360, 118 + idx * 20],
+                        source_index=idx, physical_page=page)
+
+
+class TocDetectionTests(unittest.TestCase):
+    def test_chinese_dot_leader_and_parenthesized_page_numbers(self) -> None:
+        items = [
+            _page_inp("目 次", 0),
+            _page_inp("4.3 沟槽开挖与支护……（12）", 1),
+            _page_inp("5 管道施工........48", 2),
+        ]
+        self.assertEqual(detect_toc_pages(items), {3})
+
+    def test_english_contents_with_split_page_numbers(self) -> None:
+        items = [
+            _page_inp("Contents", 0, 6),
+            _page_inp("3.1 General requirements", 1, 6),
+            _page_inp("8", 2, 6),
+        ]
+        self.assertEqual(detect_toc_pages(items), {6})
+
+    def test_split_chinese_toc_title(self) -> None:
+        items = [_page_inp("目", 0, 7), _page_inp("次", 1, 7)]
+        self.assertEqual(detect_toc_pages(items), {7})
+
+    def test_continuation_page_with_three_split_entries(self) -> None:
+        items = [
+            _page_inp("Contents", 0, 6),
+            _page_inp("6.1 General requirements", 1, 7), _page_inp("（35）", 2, 7),
+            _page_inp("6.2 Design flow and head", 3, 7), _page_inp("36", 4, 7),
+            _page_inp("6.3 Wet wells", 5, 7), _page_inp("37", 6, 7),
+        ]
+        self.assertEqual(detect_toc_pages(items), {6, 7})
+
+    def test_normal_clause_is_not_toc(self) -> None:
+        items = [
+            _page_inp("4.3.10 沟槽支护应符合以下规定：", 0, 20),
+            _page_inp("1 支护结构应安全可靠。", 1, 20),
+        ]
+        self.assertEqual(detect_toc_pages(items), set())
+        nodes = infer_headings(items)
+        self.assertEqual(nodes[0].label, "4.3.10")
+
+    def test_late_body_ellipsis_does_not_anchor_toc(self) -> None:
+        items = [
+            _page_inp("5.2.1 说明……48", 0, 46),
+            _page_inp("5.2.2 说明……49", 1, 46),
+        ]
+        self.assertEqual(detect_toc_pages(items), set())
 
 
 class NumberingFormatTests(unittest.TestCase):

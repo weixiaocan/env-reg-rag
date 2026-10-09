@@ -42,6 +42,7 @@ from src.ingestion.heading_hierarchy import (
     HeadingNode,
     HIGH_CONFIDENCE,
     build_section_path,
+    detect_toc_pages,
     infer_headings,
 )
 from src.ingestion.text_quality import is_answerable_text, score_text
@@ -402,9 +403,33 @@ def assemble_document(
     _mark_recurring_header_footer(global_slots, page_by_number)
 
     # 2. Heading detection over the global text stream. -----------------------
+    # Detect TOC pages from the complete text stream before pre-filtering
+    # heading candidates. OCR frequently separates an entry's title and page
+    # number into distinct blocks; page-level evidence is therefore required.
+    # Use the upstream line/block elements, not the later region-combined
+    # slots: title/page-number pairs are often separate OCR blocks and would
+    # otherwise be hidden by region aggregation before TOC detection.
+    toc_inputs: list[HeadingInput] = []
+    toc_index = 0
+    for page_row in page_document.get("pages") or []:
+        for raw_element in page_row.get("elements") or []:
+            raw_text = str(raw_element.get("text") or "").strip()
+            raw_bbox = _coerce_bbox(raw_element.get("bbox"))
+            if not raw_text or raw_bbox is None:
+                continue
+            toc_inputs.append(HeadingInput(
+                text=raw_text,
+                bbox=tuple(raw_bbox),
+                source_index=toc_index,
+                physical_page=int(page_row["physical_page"]),
+            ))
+            toc_index += 1
+    toc_pages = detect_toc_pages(toc_inputs)
     heading_inputs: list[HeadingInput] = []
     for slot in global_slots:
         if slot.kind != "text":
+            continue
+        if slot.page in toc_pages:
             continue
         candidate = _heading_candidate_text(slot.text)
         if candidate is not None:
@@ -413,6 +438,7 @@ def assemble_document(
                     text=candidate,
                     bbox=tuple(slot.bbox),
                     source_index=slot.source_index,
+                    physical_page=slot.page,
                 )
             )
     headings = infer_headings(heading_inputs)

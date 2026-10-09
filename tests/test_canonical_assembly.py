@@ -481,6 +481,42 @@ class HeaderFooterRecurringDetectionTest(unittest.TestCase):
         self.assertNotEqual(roles.get("仅此一页的脚注"), "footer")
 
 
+class TocSectionPathTest(unittest.TestCase):
+    def test_toc_text_is_retained_but_never_enters_heading_stack(self):
+        page_doc = {
+            "sha256": "b" * 64,
+            "file_name": "synthetic-toc.pdf",
+            "pages": [
+                {"physical_page": 1, "width": 400.0, "height": 600.0,
+                 "rotation": 0, "extraction_route": "native",
+                 "decision_status": "approved", "regions": [], "elements": [
+                     {"element_id": "toc-title", "text": "目 次", "bbox": [170, 40, 230, 60]},
+                     {"element_id": "toc-entry", "text": "4.3 沟槽开挖与支护……（12）",
+                      "bbox": [60, 100, 340, 120]},
+                     {"element_id": "toc-entry-2", "text": "5 管道施工…… 48",
+                      "bbox": [60, 130, 340, 150]},
+                 ]},
+                {"physical_page": 2, "width": 400.0, "height": 600.0,
+                 "rotation": 0, "extraction_route": "native",
+                 "decision_status": "approved", "regions": [], "elements": [
+                     {"element_id": "body-heading", "text": "4 土石方与地基处理",
+                      "bbox": [120, 80, 300, 100]},
+                     {"element_id": "body-clause", "text": "4.3.10 沟槽支护应符合以下规定：",
+                      "bbox": [60, 150, 340, 170]},
+                 ]},
+            ],
+        }
+        doc = assemble_document(page_doc, formula_pages={})
+        text_elements = {e["content"]["text"]: e for e in doc["elements"]
+                         if e["type"] == "text"}
+        self.assertIn("4.3 沟槽开挖与支护……（12）", text_elements)
+        self.assertNotEqual(text_elements["4.3 沟槽开挖与支护……（12）"]["role"], "heading")
+        body_path = text_elements["4.3.10 沟槽支护应符合以下规定："]["section_path"]
+        self.assertEqual([entry["label"] for entry in body_path], ["4", "4.3.10"])
+        self.assertNotIn("沟槽开挖与支护……（12）",
+                         [entry.get("title") for entry in body_path])
+
+
 class _CharCountTokenizer:
     def count(self, text: str) -> int:
         return len(text)
