@@ -27,6 +27,7 @@ tmp/
 # Large, rebuildable parsing outputs and local evaluation runs.
 data/canonical/
 data/eval_results/
+eval/audits/ocr_sampling/crops/
 
 # Local databases, vector stores, logs, model caches and other runtime state.
 data/qdrant/
