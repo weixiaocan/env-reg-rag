@@ -3,9 +3,12 @@ from __future__ import annotations
 from types import SimpleNamespace
 
 from src.evaluation.ocr_sampling import (
+    bbox_to_pixel_rect,
     chunk_exclusion_reasons,
+    context_clip,
     sample_record,
     select_document_samples,
+    split_chunk_fields,
     split_sampling_population,
     union_bboxes_by_page,
 )
@@ -18,14 +21,17 @@ def _chunk(
     reasons: list[str] | None = None,
     element_types: list[str] | None = None,
     spans: list[tuple[int, list[float]]] | None = None,
+    section_path: list[dict[str, str | None]] | None = None,
+    text: str | None = None,
 ):
     return SimpleNamespace(
         chunk_id=f"chunk_{index:032x}",
-        text=f"text {index}",
+        text=text or f"text {index}",
         metadata={
             "usage_policy": "source_locator_only",
             "policy_reasons": reasons or ["ocr_source_review", "needs_review_source"],
             "element_types": element_types or ["text"],
+            "section_path": section_path or [],
         },
         source_spans=[
             SimpleNamespace(physical_page=p, bbox=bbox)
@@ -88,6 +94,7 @@ def test_cross_page_record_has_one_crop_per_page():
     assert record["physical_pages"] == [4, 5]
     assert [row["physical_page"] for row in record["screenshots"]] == [4, 5]
     assert record["page_bboxes"][1]["bbox"] == [4.0, 6.0, 9.0, 10.0]
+    assert all(set(row) >= {"context", "page_thumbnail"} for row in record["screenshots"])
 
 
 def test_population_smaller_than_25_is_all_selected_in_stable_order():
@@ -98,3 +105,49 @@ def test_population_smaller_than_25_is_all_selected_in_stable_order():
         chunks[2].chunk_id,
         chunks[0].chunk_id,
     ]
+
+
+def test_context_clip_uses_body_width_and_clamps_vertical_page_edges():
+    page_rect = [0.0, 0.0, 600.0, 800.0]
+    assert context_clip(page_rect, [10.0, 5.0, 590.0, 20.0]) == [
+        24.0, 0.0, 576.0, 60.0,
+    ]
+    assert context_clip(page_rect, [250.0, 780.0, 300.0, 799.0]) == [
+        24.0, 740.0, 576.0, 800.0,
+    ]
+
+
+def test_thumbnail_bbox_coordinate_conversion_scales_and_clamps():
+    assert bbox_to_pixel_rect(
+        [0.0, 0.0, 600.0, 800.0],
+        [-5.0, 72.0, 610.0, 144.0],
+        dpi=100,
+    ) == [0, 100, 834, 200]
+
+
+def test_chunk_fields_are_split_from_structural_section_path():
+    section_path = [
+        {"label": "3", "title": "一般规定"},
+        {"label": "3.2.3", "title": None},
+    ]
+    prefix = "3 一般规定 > 3.2.3\n"
+    chunk = _chunk(1, 1, section_path=section_path, text=prefix + "内涝防治正文。")
+    assert split_chunk_fields(chunk) == {
+        "heading_path_text": "3 一般规定 > 3.2.3",
+        "body_text": "内涝防治正文。",
+        "heading_prefix_in_chunk": True,
+    }
+
+
+def test_chunk_fields_keep_body_when_structural_prefix_was_cap_dropped():
+    chunk = _chunk(
+        1,
+        1,
+        section_path=[{"label": "9", "title": "管道功能性试验"}],
+        text="独立正文。",
+    )
+    assert split_chunk_fields(chunk) == {
+        "heading_path_text": "9 管道功能性试验",
+        "body_text": "独立正文。",
+        "heading_prefix_in_chunk": False,
+    }

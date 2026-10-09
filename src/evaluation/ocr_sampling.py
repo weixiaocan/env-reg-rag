@@ -17,39 +17,41 @@ from typing import Any, Iterable, Sequence
 import pymupdf
 
 from src.application.publish_state import build_chunk_manifest
-from src.application.v2_chunker import chunk_document
+from src.application.v2_chunker import _format_section_path, chunk_document
 
 
 SAMPLE_VERSION = "ocr-sample-v1"
 SAMPLE_SIZE = 25
 OCR_SOURCE_REASONS = frozenset({"ocr_source_review", "needs_review_source"})
 ALLOWED_REASONS = OCR_SOURCE_REASONS | {"too_short"}
-_DPI = 200
-_MARGIN_POINTS = 8.0
+_CONTEXT_DPI = 200
+_THUMBNAIL_DPI = 100
+_PAGE_SIDE_MARGIN_POINTS = 24.0
+_CONTEXT_VERTICAL_MARGIN_POINTS = 40.0
 _MAX_CROP_PIXELS = 12_000_000
 
 _REVIEW_README = """# OCR 文本抽样核对表
 
-本目录是 T2 独立核对的工作表，不包含任何 OCR 质量判定，也不改变正式语料的准入状态。`sample_sheet.jsonl` 每行是一条样本；跨页样本在 `screenshots` 中每页对应一张 200dpi 原图裁剪。截图位于被 Git 忽略的 `crops/`，可用仓库根目录下的命令重建：
+本目录是 T2 独立核对的工作表，不包含任何 OCR 质量判定，也不改变正式语料的准入状态。`sample_sheet.jsonl` 每行是一条样本；跨页样本在 `screenshots` 中每页都有上下文裁剪和红框整页缩略图。截图位于被 Git 忽略的 `crops/`，可用仓库根目录下的命令重建：
 
 ```powershell
 .venv\\Scripts\\python.exe scripts\\build_ocr_sample_sheet.py
 ```
 
-## 判定标准
+## 多维判定标准
 
-- `exact`：与原图一致（忽略空白、换行）。
-- `minor`：仅标点、全半角、空格或版式差异，不影响任何数字、单位、条款号、术语与语义。
-- `error`：任何数字、单位、符号、条款编号或关键词错误；错字导致词义变化；漏字或多字超过一个短语；串行或串栏导致语义错误。
-- `unjudgeable`：截图不清或裁剪错误，必须记录原因。
+- `text_fidelity`：对 `body_text` 与原图判定 `exact` / `minor` / `error` / `unjudgeable`。`exact` 允许忽略空白和换行；`minor` 仅限不影响数字、单位、条款号、术语和语义的标点、全半角、空格或版式差异；任何数字、单位、符号、条款编号或关键词错误，词义变化，漏/多超过一个短语，以及上下文图中可见的漏行、行尾截断、串行/串栏均为 `error`；截图不清或裁剪错误为 `unjudgeable` 并记录原因。
+- `error_types`（可多选）：`char`、`number_unit_clause`、`truncation_or_missing`、`extra_or_order`。
+- `heading_path`：对 `heading_path_text` 判定 `correct` / `wrong` / `not_applicable`。
+- `standalone_usable`：判定 `yes` / `fragment`。`body_text` 脱离上下文无法构成可引用信息（如“水 □”或半句话）时为 `fragment`。
 
 ## 文档准入门槛（仅供 T2 汇总使用）
 
-在可判定样本中，`error` 占比不超过 `1/25`，并报告 Wilson 95% 下界。`unjudgeable` 超过 3 条的文档不作结论。Codex 与 Claude 应分别独立判定；本工作表本身不预填结论。
+在可判定样本中，`text_fidelity=error` 占比不超过 `1/25`，并报告 Wilson 95% 下界。`unjudgeable` 超过 3 条的文档不作结论。`heading_path=wrong` 与 `standalone_usable=fragment` 比例单独报告，T2 不据此下准入结论，留给 T3 决定是否额外过滤。Codex 与 Claude 应分别独立判定；本工作表本身不预填结论。
 
 ## 字段与校验
 
-`chunk_text` 来自当前正式 pointer 对应 Canonical 的确定性分块结果；生成前会把完整重算 chunk stream 与已发布 `chunk_manifest.json` 比较。`page_bboxes` 是每页 `source_spans` 的并集；`screenshots[].sha256` 绑定对应 PNG。裁剪失败会写入 `failure_reason`，不会静默跳过。
+`chunk_text` 来自当前正式 pointer 对应 Canonical 的确定性分块结果；生成前会把完整重算 chunk stream 与已发布 `chunk_manifest.json` 比较。`heading_path_text` 由 chunk metadata 的 `section_path` 按 `src/application/v2_chunker.py::_format_section_path` 的规则格式化；`body_text` 按同一前缀的实际拼接规则从 `chunk_text` 中精确去除，不使用“第一行”启发式。`page_bboxes` 是每页 `source_spans` 的并集；`context` 为 200dpi、页面左右各 24pt 内全宽、bbox 上下各扩 40pt 的上下文图；`page_thumbnail` 为 100dpi 整页红框图。每张图均绑定 SHA-256，失败会写入 `failure_reason`，不会静默跳过。
 """
 
 
@@ -185,22 +187,74 @@ def union_bboxes_by_page(source_spans: Iterable[Any]) -> list[dict[str, Any]]:
     return result
 
 
+def split_chunk_fields(chunk: Any) -> dict[str, Any]:
+    """Split structural heading context from body using the chunker contract."""
+    prefix = _format_section_path(_metadata(chunk).get("section_path") or [])
+    has_prefix = bool(prefix and chunk.text.startswith(prefix))
+    return {
+        "heading_path_text": prefix.rstrip("\n"),
+        "body_text": chunk.text[len(prefix):] if has_prefix else chunk.text,
+        "heading_prefix_in_chunk": has_prefix,
+    }
+
+
+def context_clip(
+    page_rect: Sequence[float], bbox: Sequence[float]
+) -> list[float]:
+    """Return full body-width context with 40pt vertical expansion."""
+    px0, py0, px1, py1 = (float(value) for value in page_rect)
+    _, by0, _, by1 = (float(value) for value in bbox)
+    left = min(px1, px0 + _PAGE_SIDE_MARGIN_POINTS)
+    right = max(left, px1 - _PAGE_SIDE_MARGIN_POINTS)
+    return [
+        left,
+        max(py0, by0 - _CONTEXT_VERTICAL_MARGIN_POINTS),
+        right,
+        min(py1, by1 + _CONTEXT_VERTICAL_MARGIN_POINTS),
+    ]
+
+
+def bbox_to_pixel_rect(
+    page_rect: Sequence[float], bbox: Sequence[float], *, dpi: int
+) -> list[int]:
+    """Map PDF point coordinates to a clamped full-page pixmap rectangle."""
+    import math
+
+    px0, py0, px1, py1 = (float(value) for value in page_rect)
+    bx0, by0, bx1, by1 = (float(value) for value in bbox)
+    scale = dpi / 72.0
+    width = math.ceil((px1 - px0) * scale)
+    height = math.ceil((py1 - py0) * scale)
+    return [
+        max(0, min(width, math.floor((bx0 - px0) * scale))),
+        max(0, min(height, math.floor((by0 - py0) * scale))),
+        max(0, min(width, math.ceil((bx1 - px0) * scale))),
+        max(0, min(height, math.ceil((by1 - py0) * scale))),
+    ]
+
+
+def _image_slot(path: str) -> dict[str, Any]:
+    return {"path": path, "sha256": None, "failure_reason": None}
+
+
 def sample_record(
     chunk: Any, *, document_name: str, document_sha256: str, sample_id: str
 ) -> dict[str, Any]:
     page_bboxes = union_bboxes_by_page(chunk.source_spans)
-    screenshots = [
-        {
-            "physical_page": row["physical_page"],
-            "path": (
-                f"eval/audits/ocr_sampling/crops/{document_sha256}/"
-                f"{sample_id}__p{row['physical_page']:04d}.png"
-            ),
-            "sha256": None,
-            "failure_reason": None,
-        }
-        for row in page_bboxes
-    ]
+    screenshots = []
+    for row in page_bboxes:
+        base = (
+            f"eval/audits/ocr_sampling/crops/{document_sha256}/"
+            f"{sample_id}__p{row['physical_page']:04d}"
+        )
+        screenshots.append(
+            {
+                "physical_page": row["physical_page"],
+                "context": _image_slot(base + "__context.png"),
+                "page_thumbnail": _image_slot(base + "__page.png"),
+            }
+        )
+    fields = split_chunk_fields(chunk)
     return {
         "sample_id": sample_id,
         "document_name": document_name,
@@ -209,27 +263,46 @@ def sample_record(
         "physical_pages": [row["physical_page"] for row in page_bboxes],
         "page_bboxes": page_bboxes,
         "chunk_text": chunk.text,
+        **fields,
         "screenshots": screenshots,
         "blocking_reasons": list(_metadata(chunk).get("policy_reasons") or []),
     }
 
 
-def _render_crop(pdf_path: Path, physical_page: int, bbox: list[float]) -> bytes:
+def _draw_red_box(pixmap: pymupdf.Pixmap, bbox: Sequence[int]) -> None:
+    x0, y0, x1, y1 = (int(value) for value in bbox)
+    if x1 <= x0 or y1 <= y0:
+        raise ValueError("thumbnail bbox is empty after coordinate conversion")
+    width = min(3, x1 - x0)
+    height = min(3, y1 - y0)
+    red = (255, 0, 0)
+    pixmap.set_rect(pymupdf.IRect(x0, y0, x1, y0 + height), red)
+    pixmap.set_rect(pymupdf.IRect(x0, y1 - height, x1, y1), red)
+    pixmap.set_rect(pymupdf.IRect(x0, y0, x0 + width, y1), red)
+    pixmap.set_rect(pymupdf.IRect(x1 - width, y0, x1, y1), red)
+
+
+def _render_page_evidence(
+    pdf_path: Path, physical_page: int, bbox: list[float]
+) -> tuple[bytes, bytes, list[float], list[int]]:
     with pymupdf.open(pdf_path) as pdf:
         if not 1 <= physical_page <= len(pdf):
             raise ValueError(f"physical page {physical_page} is outside PDF page range")
         page = pdf[physical_page - 1]
         page_rect = page.rect
-        clip = pymupdf.Rect(
-            max(page_rect.x0, bbox[0] - _MARGIN_POINTS),
-            max(page_rect.y0, bbox[1] - _MARGIN_POINTS),
-            min(page_rect.x1, bbox[2] + _MARGIN_POINTS),
-            min(page_rect.y1, bbox[3] + _MARGIN_POINTS),
-        )
-        scale = _DPI / 72.0
+        page_box = [page_rect.x0, page_rect.y0, page_rect.x1, page_rect.y1]
+        clip_box = context_clip(page_box, bbox)
+        clip = pymupdf.Rect(*clip_box)
+        scale = _CONTEXT_DPI / 72.0
         if clip.is_empty or clip.width * scale * clip.height * scale > _MAX_CROP_PIXELS:
             raise ValueError("crop is empty or exceeds the 12,000,000 pixel limit")
-        return page.get_pixmap(dpi=_DPI, clip=clip, alpha=False).tobytes("png")
+        context_data = page.get_pixmap(
+            dpi=_CONTEXT_DPI, clip=clip, alpha=False
+        ).tobytes("png")
+        thumbnail = page.get_pixmap(dpi=_THUMBNAIL_DPI, alpha=False)
+        pixel_bbox = bbox_to_pixel_rect(page_box, bbox, dpi=_THUMBNAIL_DPI)
+        _draw_red_box(thumbnail, pixel_bbox)
+        return context_data, thumbnail.tobytes("png"), clip_box, pixel_bbox
 
 
 def render_record_crops(root: Path, pdf_path: Path, record: dict[str, Any]) -> None:
@@ -238,18 +311,46 @@ def render_record_crops(root: Path, pdf_path: Path, record: dict[str, Any]) -> N
         for row in record["page_bboxes"]
     }
     for screenshot in record["screenshots"]:
-        output = root / screenshot["path"]
         try:
-            data = _render_crop(
+            context_data, thumbnail_data, clip_box, pixel_bbox = _render_page_evidence(
                 pdf_path,
                 int(screenshot["physical_page"]),
                 bbox_by_page[int(screenshot["physical_page"])],
             )
-            output.parent.mkdir(parents=True, exist_ok=True)
-            output.write_bytes(data)
-            screenshot["sha256"] = hashlib.sha256(data).hexdigest()
+            screenshot["context"]["clip_bbox"] = clip_box
+            screenshot["page_thumbnail"]["span_bbox_pixels"] = pixel_bbox
+            for slot, data in (
+                (screenshot["context"], context_data),
+                (screenshot["page_thumbnail"], thumbnail_data),
+            ):
+                output = root / slot["path"]
+                output.parent.mkdir(parents=True, exist_ok=True)
+                output.write_bytes(data)
+                slot["sha256"] = hashlib.sha256(data).hexdigest()
         except Exception as exc:  # failure is evidence and must remain in the sheet
-            screenshot["failure_reason"] = f"{type(exc).__name__}: {exc}"
+            reason = f"{type(exc).__name__}: {exc}"
+            screenshot["context"]["failure_reason"] = reason
+            screenshot["page_thumbnail"]["failure_reason"] = reason
+            for slot in (screenshot["context"], screenshot["page_thumbnail"]):
+                path = root / slot["path"]
+                if path.is_file():
+                    path.unlink()
+
+
+def _remove_stale_crops(root: Path, records: Sequence[dict[str, Any]]) -> None:
+    """Keep the rebuildable crop directory aligned with the current sheet."""
+    crop_root = root / "eval/audits/ocr_sampling/crops"
+    expected = {
+        (root / slot["path"]).resolve()
+        for record in records
+        for screenshot in record["screenshots"]
+        for slot in (screenshot["context"], screenshot["page_thumbnail"])
+    }
+    if not crop_root.is_dir():
+        return
+    for path in crop_root.rglob("*.png"):
+        if path.resolve() not in expected:
+            path.unlink()
 
 
 def _git_commit(root: Path) -> str:
@@ -316,7 +417,11 @@ def build_sample_sheet(root: Path) -> dict[str, Any]:
                 sample_id=f"ocr-{document_sha[:12]}-{index:03d}",
             )
             render_record_crops(root, root / asset["canonical_rel_path"], record)
-            crop_failures += sum(bool(row["failure_reason"]) for row in record["screenshots"])
+            crop_failures += sum(
+                bool(slot["failure_reason"])
+                for row in record["screenshots"]
+                for slot in (row["context"], row["page_thumbnail"])
+            )
             records.append(record)
         document_summaries.append(
             {
@@ -331,6 +436,7 @@ def build_sample_sheet(root: Path) -> dict[str, Any]:
         )
 
     output_dir.mkdir(parents=True, exist_ok=True)
+    _remove_stale_crops(root, records)
     (output_dir / "README.md").write_text(_REVIEW_README, encoding="utf-8")
     sheet_path = output_dir / "sample_sheet.jsonl"
     sheet_bytes = b"".join(
@@ -339,7 +445,7 @@ def build_sample_sheet(root: Path) -> dict[str, Any]:
     )
     sheet_path.write_bytes(sheet_bytes)
     summary = {
-        "schema_version": "ocr-sample-sheet-summary-v1",
+        "schema_version": "ocr-sample-sheet-summary-v2",
         "corpus_version": corpus_version,
         "generated_at": _stable_generated_at(summary_path, corpus_version),
         "script_git_commit": _git_commit(root),
@@ -347,8 +453,11 @@ def build_sample_sheet(root: Path) -> dict[str, Any]:
         "sample_limit_per_document": SAMPLE_SIZE,
         "document_count": len(document_summaries),
         "sample_count": len(records),
-        "screenshot_count": sum(len(row["screenshots"]) for row in records),
+        "screenshot_count": sum(2 * len(row["screenshots"]) for row in records),
         "crop_failure_count": crop_failures,
+        "sample_id_set_sha256": hashlib.sha256(
+            ("\n".join(sorted(row["sample_id"] for row in records)) + "\n").encode("utf-8")
+        ).hexdigest(),
         "chunk_stream_verification": {
             "status": "matched_published_chunk_manifest",
             "total_chunks": recomputed_manifest["total_chunks"],
@@ -399,20 +508,25 @@ def verify_sample_sheet(root: Path) -> dict[str, Any]:
             raise ValueError(f"sample chunk is absent from current canonical stream: {key}")
         if row["chunk_text"] != chunk.text:
             raise ValueError(f"chunk text differs byte-for-byte: {row['sample_id']}")
+        expected_fields = split_chunk_fields(chunk)
+        if any(row.get(key) != value for key, value in expected_fields.items()):
+            raise ValueError(f"split chunk fields differ: {row['sample_id']}")
         if chunk_exclusion_reasons(chunk):
             raise ValueError(f"sample is outside OCR population: {row['sample_id']}")
         for screenshot in row["screenshots"]:
-            screenshot_count += 1
-            if screenshot.get("failure_reason"):
-                raise ValueError(
-                    f"sample crop recorded a failure: {row['sample_id']} "
-                    f"{screenshot['failure_reason']}"
-                )
-            path = root / screenshot["path"]
-            if not path.is_file():
-                raise FileNotFoundError(f"sample crop is missing: {path}")
-            if sha256_file(path) != screenshot.get("sha256"):
-                raise ValueError(f"sample crop hash mismatch: {path}")
+            for slot_name in ("context", "page_thumbnail"):
+                screenshot_count += 1
+                slot = screenshot[slot_name]
+                if slot.get("failure_reason"):
+                    raise ValueError(
+                        f"sample crop recorded a failure: {row['sample_id']} "
+                        f"{slot['failure_reason']}"
+                    )
+                path = root / slot["path"]
+                if not path.is_file():
+                    raise FileNotFoundError(f"sample crop is missing: {path}")
+                if sha256_file(path) != slot.get("sha256"):
+                    raise ValueError(f"sample crop hash mismatch: {path}")
     if screenshot_count != int(summary["screenshot_count"]):
         raise ValueError("screenshot count does not match summary")
     return {
