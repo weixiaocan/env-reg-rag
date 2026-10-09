@@ -41,6 +41,13 @@ FULL_WIDTH_RATIO = 0.60
 # two-column page leaves a gutter of ~5-15% of page width.
 GUTTER_MIN_RATIO = 0.08
 
+# A centre-point gap alone is not evidence of two physical columns. Indented
+# first lines, short continuations and centred subheadings can form two centre
+# clusters even though their boxes overlap horizontally. Require a real empty
+# strip between the right edge of every left-column box and the left edge of
+# every right-column box before column-major ordering is allowed.
+COLUMN_EDGE_GUTTER_MIN_RATIO = 0.02
+
 # Central band within which a gutter must fall to count as a column seam.
 CENTER_LO = 0.30
 CENTER_HI = 0.70
@@ -161,6 +168,14 @@ def _try_two_column(
     left_count = sum(1 for i in body_indices if _center_x(bboxes[i]) < best_split)
     right_count = len(body_indices) - left_count
     if left_count < MIN_PER_COLUMN or right_count < MIN_PER_COLUMN:
+        return None
+
+    left_indices = [i for i in body_indices if _center_x(bboxes[i]) < best_split]
+    right_indices = [i for i in body_indices if _center_x(bboxes[i]) >= best_split]
+    edge_gutter = min(bboxes[i][0] for i in right_indices) - max(
+        bboxes[i][2] for i in left_indices
+    )
+    if edge_gutter < COLUMN_EDGE_GUTTER_MIN_RATIO * page_width:
         return None
 
     return best_split, best_gap

@@ -517,6 +517,83 @@ class TocSectionPathTest(unittest.TestCase):
                          [entry.get("title") for entry in body_path])
 
 
+class OcrReadingOrderRegressionTest(unittest.TestCase):
+    def test_indented_list_continuations_remain_adjacent_and_inherit_clause(self):
+        page_doc = {
+            "sha256": "c" * 64,
+            "file_name": "synthetic-indented-list.pdf",
+            "pages": [{
+                "physical_page": 1, "width": 420.0, "height": 595.0,
+                "rotation": 0, "extraction_route": "full_ocr",
+                "decision_status": "quarantine", "regions": [{
+                    "region_id": "list-region", "kind": "text",
+                    "bbox": [40, 95, 350, 195],
+                    "quality_status": "needs_review", "issues": [],
+                }], "elements": [
+                    {"element_id": "section", "text": "6.1 评分项",
+                     "bbox": [145, 70, 243, 83]},
+                    # A non-text layout box with a right-shifted centre used to
+                    # combine with short continuation lines and cause a false
+                    # two-column classification.
+                    {"element_id": "layout", "text": "",
+                     "bbox": [214, 90, 335, 210]},
+                    {"element_id": "clause", "text": "6.1.8 排水口评价总分值为10分。",
+                     "bbox": [48, 100, 338, 112]},
+                    {"element_id": "item-1", "text": "1雨水排放口晴天无出流，指标不大于",
+                     "bbox": [67, 116, 339, 128]},
+                    {"element_id": "cont-1", "text": "2mg/L，不扣分；",
+                     "bbox": [48, 132, 120, 144]},
+                    {"element_id": "item-2", "text": "2雨水排放口晴天有出流，存在一处",
+                     "bbox": [67, 160, 340, 172]},
+                    {"element_id": "cont-2", "text": "扣2分，最多扣4分；",
+                     "bbox": [48, 176, 157, 188]},
+                ],
+            }],
+        }
+        doc = assemble_document(page_doc, formula_pages={})
+        text_elements = [e for e in doc["elements"]
+                         if e["type"] == "text" and e["content"]["text"]]
+        texts = [e["content"]["text"] for e in text_elements]
+        expected = [
+            "6.1 评分项", "6.1.8 排水口评价总分值为10分。",
+            "1雨水排放口晴天无出流，指标不大于", "2mg/L，不扣分；",
+            "2雨水排放口晴天有出流，存在一处", "扣2分，最多扣4分；",
+        ]
+        self.assertEqual(texts, expected)
+        by_text = {e["content"]["text"]: e for e in text_elements}
+        for continuation in ("2mg/L，不扣分；", "扣2分，最多扣4分；"):
+            self.assertEqual(
+                [entry["label"] for entry in by_text[continuation]["section_path"]],
+                ["6.1", "6.1.8"],
+            )
+            self.assertEqual(by_text[continuation]["source_region_ids"], ["list-region"])
+
+    def test_page_boundary_preserves_page_then_vertical_order(self):
+        page_doc = {
+            "sha256": "d" * 64,
+            "file_name": "synthetic-cross-page.pdf",
+            "pages": [
+                {"physical_page": 1, "width": 420.0, "height": 595.0,
+                 "rotation": 0, "extraction_route": "full_ocr",
+                 "decision_status": "quarantine", "regions": [], "elements": [
+                     {"element_id": "p1-a", "text": "1 第一款首行", "bbox": [67, 500, 339, 512]},
+                     {"element_id": "p1-b", "text": "第一页续行", "bbox": [48, 516, 157, 528]},
+                 ]},
+                {"physical_page": 2, "width": 420.0, "height": 595.0,
+                 "rotation": 0, "extraction_route": "full_ocr",
+                 "decision_status": "quarantine", "regions": [], "elements": [
+                     {"element_id": "p2-a", "text": "第二页续行", "bbox": [48, 70, 157, 82]},
+                     {"element_id": "p2-b", "text": "2 第二款首行", "bbox": [67, 86, 339, 98]},
+                 ]},
+            ],
+        }
+        doc = assemble_document(page_doc, formula_pages={})
+        self.assertEqual(
+            [e["content"]["text"] for e in doc["elements"] if e["type"] == "text"],
+            ["1 第一款首行", "第一页续行", "第二页续行", "2 第二款首行"],
+        )
+
+
 class _CharCountTokenizer:
     def count(self, text: str) -> int:
         return len(text)

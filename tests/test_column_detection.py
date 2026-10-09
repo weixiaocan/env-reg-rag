@@ -54,6 +54,29 @@ class SingleColumnTests(unittest.TestCase):
         # All by ascending y, header first, footer last.
         self.assertEqual(layout.reading_order, [0, 1, 2, 3, 4, 5])
 
+    def test_indented_list_heads_and_short_continuations_stay_top_down(self) -> None:
+        # Real OCR pages often emit an indented first line and a shorter
+        # continuation at the body margin.  Different centres/widths do not
+        # make those lines separate columns.
+        bboxes = [
+            _box(48, 70, 338, 82),    # ordinary full body line
+            _box(145, 84, 243, 97),   # centred subheading
+            _box(214, 98, 335, 210),  # overlapping non-text/layout box
+            _box(67, 100, 339, 112),   # item 1, indented first line
+            _box(48, 116, 120, 128),   # short continuation
+            _box(67, 145, 340, 157),   # item 2, indented first line
+            _box(48, 161, 338, 173),   # long continuation
+            _box(48, 177, 157, 189),   # short continuation
+            _box(67, 206, 339, 218),   # item 3, indented first line
+            _box(48, 222, 154, 234),   # short continuation
+        ]
+        layout = detect_columns(bboxes, page_width=PAGE_W, page_height=PAGE_H)
+        self.assertEqual(layout.column_count, 1)
+        self.assertEqual(
+            layout.reading_order,
+            sorted(range(len(bboxes)), key=lambda i: (bboxes[i][1], bboxes[i][0])),
+        )
+
 
 class TwoColumnTests(unittest.TestCase):
     def test_two_column_reading_order(self) -> None:
