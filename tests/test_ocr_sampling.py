@@ -182,16 +182,21 @@ def test_chunk_fields_keep_body_when_structural_prefix_was_cap_dropped():
 
 def _write_review_fixture(tmp_path):
     context = "eval/audits/ocr_sampling/crops/a/context.png"
+    thumbnail = "eval/audits/ocr_sampling/crops/a/page.png"
     sample = {
         "sample_id": "ocr-a-001", "document_name": "scan.pdf",
-        "screenshots": [{"context": {"path": context}}],
+        "chunk_text": "甲候选正文可核对锚点文字",
+        "screenshots": [{
+            "context": {"path": context},
+            "page_thumbnail": {"path": thumbnail},
+        }],
     }
     judgment = {
         "sample_id": "ocr-a-001", "judge": "codex", "model": "test-model",
         "text_fidelity": "error", "error_types": ["char"],
         "heading_path": "wrong", "standalone_usable": "fragment",
         "evidence": "OCR『甲』 vs 原图『乙』", "unjudgeable_reason": None,
-        "images_viewed": [context], "notes": "",
+        "images_viewed": [context, thumbnail], "notes": "",
     }
     sheet = tmp_path / "sheet.jsonl"
     judgments = tmp_path / "judgments.jsonl"
@@ -204,11 +209,10 @@ def _write_review_fixture(tmp_path):
 def test_validate_judgments_requires_all_context_images(tmp_path):
     sheet, judgments = _write_review_fixture(tmp_path)
     assert validate_judgments(sheet, judgments) == {"sample_count": 1, "judgment_count": 1}
-    text = judgments.read_text(encoding="utf-8").replace(
-        '"images_viewed": ["eval/audits/ocr_sampling/crops/a/context.png"]',
-        '"images_viewed": []',
-    )
-    judgments.write_text(text, encoding="utf-8")
+    import json
+    row = json.loads(judgments.read_text(encoding="utf-8"))
+    row["images_viewed"] = ["eval/audits/ocr_sampling/crops/a/page.png"]
+    judgments.write_text(json.dumps(row, ensure_ascii=False) + "\n", encoding="utf-8")
     import pytest
     with pytest.raises(ValueError, match="context images not viewed"):
         validate_judgments(sheet, judgments)
@@ -225,6 +229,58 @@ def test_validate_judgments_rejects_error_without_evidence(tmp_path):
     judgments.write_text(text, encoding="utf-8")
     import pytest
     with pytest.raises(ValueError, match="requires evidence"):
+        validate_judgments(sheet, judgments)
+
+
+def test_validate_judgments_rejects_missing_thumbnail(tmp_path):
+    sheet, judgments = _write_review_fixture(tmp_path)
+    import json
+    row = json.loads(judgments.read_text(encoding="utf-8"))
+    row["images_viewed"] = ["eval/audits/ocr_sampling/crops/a/context.png"]
+    judgments.write_text(json.dumps(row, ensure_ascii=False) + "\n", encoding="utf-8")
+    import pytest
+    with pytest.raises(ValueError, match="page thumbnails not viewed"):
+        validate_judgments(sheet, judgments)
+
+
+def test_validate_judgments_rejects_boilerplate_and_duplicate_evidence(tmp_path):
+    sheet, judgments = _write_review_fixture(tmp_path)
+    boilerplate = judgments.read_text(encoding="utf-8").replace(
+        "原图『乙』", "原图『同一红框中的对应原文含完整字符』"
+    )
+    judgments.write_text(boilerplate, encoding="utf-8")
+    import pytest
+    with pytest.raises(ValueError, match="banned boilerplate"):
+        validate_judgments(sheet, judgments)
+
+    sample = __import__("json").loads(sheet.read_text(encoding="utf-8"))
+    judgment = __import__("json").loads(_write_review_fixture(tmp_path)[1].read_text(encoding="utf-8"))
+    second_sample = dict(sample, sample_id="ocr-a-002")
+    second_judgment = dict(judgment, sample_id="ocr-a-002")
+    sheet.write_text(
+        "\n".join(__import__("json").dumps(row, ensure_ascii=False) for row in [sample, second_sample]) + "\n",
+        encoding="utf-8",
+    )
+    judgments.write_text(
+        "\n".join(__import__("json").dumps(row, ensure_ascii=False) for row in [judgment, second_judgment]) + "\n",
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="evidence duplicates sample"):
+        validate_judgments(sheet, judgments)
+
+
+def test_validate_judgments_exact_requires_real_unique_anchor(tmp_path):
+    sheet, judgments = _write_review_fixture(tmp_path)
+    import json
+    row = json.loads(judgments.read_text(encoding="utf-8"))
+    row.update(text_fidelity="exact", error_types=[], evidence="原图『候选正文可核对锚点文字』一致")
+    judgments.write_text(json.dumps(row, ensure_ascii=False) + "\n", encoding="utf-8")
+    assert validate_judgments(sheet, judgments)["judgment_count"] == 1
+
+    row["evidence"] = "原图『图中另一个不存在的锚点』一致"
+    judgments.write_text(json.dumps(row, ensure_ascii=False) + "\n", encoding="utf-8")
+    import pytest
+    with pytest.raises(ValueError, match="absent from candidate chunk"):
         validate_judgments(sheet, judgments)
 
 

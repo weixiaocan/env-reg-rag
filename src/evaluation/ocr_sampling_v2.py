@@ -9,10 +9,13 @@ from typing import Any, Iterable, Sequence
 
 from src.application.v2_chunker import chunk_document
 from src.evaluation.ocr_sampling import (
+    _read_jsonl as _read_judgment_jsonl,
     is_scanned_document,
     render_record_crops,
     sample_record,
     sha256_file,
+    validate_judgments,
+    wilson_interval,
 )
 from src.ingestion import column_detection
 
@@ -355,4 +358,91 @@ def verify_v2_sample_sheets(root: Path, *, corpus_version: str) -> dict[str, Any
         "native_sample_count": len(native),
         "screenshot_file_count": summary["screenshot_file_count"],
         "screenshots_aggregate_sha256": screenshot_sha,
+    }
+
+
+def _judgment_metrics(rows: Sequence[dict[str, Any]]) -> dict[str, Any]:
+    judgeable = [row for row in rows if row["text_fidelity"] != "unjudgeable"]
+    errors = [row for row in judgeable if row["text_fidelity"] == "error"]
+    heading_applicable = [row for row in rows if row["heading_path"] != "not_applicable"]
+    heading_wrong = [row for row in heading_applicable if row["heading_path"] == "wrong"]
+    fragments = [row for row in rows if row["standalone_usable"] == "fragment"]
+    error_types: dict[str, int] = defaultdict(int)
+    for row in errors:
+        for error_type in row["error_types"]:
+            error_types[str(error_type)] += 1
+    return {
+        "sample_count": len(rows),
+        "judgeable_count": len(judgeable),
+        "unjudgeable_count": len(rows) - len(judgeable),
+        "error_count": len(errors),
+        "error_rate": len(errors) / len(judgeable) if judgeable else None,
+        "error_rate_wilson_95": wilson_interval(len(errors), len(judgeable)),
+        "error_types": dict(sorted(error_types.items())),
+        "heading_applicable_count": len(heading_applicable),
+        "heading_wrong_count": len(heading_wrong),
+        "heading_wrong_rate": (
+            len(heading_wrong) / len(heading_applicable) if heading_applicable else None
+        ),
+        "fragment_count": len(fragments),
+        "fragment_rate": len(fragments) / len(rows) if rows else None,
+    }
+
+
+def build_v2_judgments_summary(
+    scanned_sheet_path: Path,
+    native_sheet_path: Path,
+    judgments_path: Path,
+    t2_summary_path: Path,
+) -> dict[str, Any]:
+    """Build the T6b comparison only after all 231 judgments validate."""
+    scanned = _read_judgment_jsonl(scanned_sheet_path)
+    native = _read_judgment_jsonl(native_sheet_path)
+    combined_path = judgments_path.parent / ".judgments_combined_samples.tmp.jsonl"
+    try:
+        combined_path.write_text(
+            "".join(
+                json.dumps(row, ensure_ascii=False, sort_keys=True) + "\n"
+                for row in sorted(scanned + native, key=lambda item: item["sample_id"])
+            ),
+            encoding="utf-8",
+        )
+        validate_judgments(combined_path, judgments_path)
+    finally:
+        combined_path.unlink(missing_ok=True)
+
+    samples = {str(row["sample_id"]): row for row in scanned + native}
+    judgments = _read_judgment_jsonl(judgments_path)
+    t2 = json.loads(t2_summary_path.read_text(encoding="utf-8"))
+    t2_by_document = {row["document_name"]: row for row in t2["documents"]}
+    scanned_ids = {str(row["sample_id"]) for row in scanned}
+    scanned_groups: dict[str, list[dict[str, Any]]] = defaultdict(list)
+    native_rows: list[dict[str, Any]] = []
+    for row in judgments:
+        sample_id = str(row["sample_id"])
+        if sample_id in scanned_ids:
+            scanned_groups[str(samples[sample_id]["document_name"])].append(row)
+        else:
+            native_rows.append(row)
+
+    scanned_documents = [
+        {
+            "document_name": document_name,
+            "t6b": _judgment_metrics(rows),
+            "t2": t2_by_document.get(document_name),
+        }
+        for document_name, rows in sorted(scanned_groups.items())
+    ]
+    native_errors = [
+        row["sample_id"] for row in native_rows if row["text_fidelity"] == "error"
+    ]
+    return {
+        "schema_version": "ocr-judgments-v2-summary-1",
+        "judge": "codex",
+        "sample_count": len(judgments),
+        "scanned": {"sample_count": len(scanned), "documents": scanned_documents},
+        "native": {
+            **_judgment_metrics(native_rows),
+            "error_sample_ids": native_errors,
+        },
     }

@@ -8,6 +8,7 @@ from __future__ import annotations
 import hashlib
 import json
 import random
+import re
 import subprocess
 from collections import Counter, defaultdict
 from datetime import datetime, timezone
@@ -563,7 +564,64 @@ def _read_jsonl(path: Path) -> list[dict[str, Any]]:
     return rows
 
 
-def validate_judgments(sample_sheet_path: Path, judgments_path: Path) -> dict[str, int]:
+_EVIDENCE_BOILERPLATE = (
+    "同一红框中的对应原文",
+    "对应原文含完整字符",
+    "对应原文含完整",
+    "红框中的对应原文",
+)
+
+
+def _compact_text(value: str) -> str:
+    return re.sub(r"\s+", "", value)
+
+
+def _validate_evidence(row: dict[str, Any], sample: dict[str, Any]) -> None:
+    sample_id = str(row["sample_id"])
+    fidelity = str(row["text_fidelity"])
+    evidence = str(row["evidence"] or "").strip()
+    if fidelity == "unjudgeable":
+        if evidence:
+            raise ValueError(f"{sample_id}: unjudgeable evidence must be empty")
+        return
+    if not evidence:
+        raise ValueError(f"{sample_id}: {fidelity} requires evidence")
+    if any(phrase in evidence for phrase in _EVIDENCE_BOILERPLATE):
+        raise ValueError(f"{sample_id}: evidence contains banned boilerplate")
+
+    candidate_text = _compact_text(str(sample.get("chunk_text") or ""))
+    if fidelity == "exact":
+        match = re.fullmatch(r"原图『(.{8,})』一致", evidence, flags=re.DOTALL)
+        if not match:
+            raise ValueError(
+                f"{sample_id}: exact evidence must be 原图『<at least 8 chars>』一致"
+            )
+        anchor = _compact_text(match.group(1))
+        if len(anchor) < 8 or anchor not in candidate_text:
+            raise ValueError(f"{sample_id}: exact anchor is absent from candidate chunk")
+        return
+
+    match = re.fullmatch(
+        r"OCR『(.+?)』\s*vs\s*原图『(.+?)』", evidence, flags=re.DOTALL
+    )
+    if not match:
+        raise ValueError(
+            f"{sample_id}: {fidelity} evidence must be OCR『...』 vs 原图『...』"
+        )
+    candidate_excerpt = _compact_text(match.group(1))
+    source_excerpt = _compact_text(match.group(2))
+    if not candidate_excerpt or candidate_excerpt not in candidate_text:
+        raise ValueError(f"{sample_id}: OCR excerpt is absent from candidate chunk")
+    if not source_excerpt:
+        raise ValueError(f"{sample_id}: original-image excerpt is empty")
+
+
+def validate_judgments(
+    sample_sheet_path: Path,
+    judgments_path: Path,
+    *,
+    require_complete: bool = True,
+) -> dict[str, int]:
     """Validate one blind-review judgment file against its immutable worksheet."""
     samples = _read_jsonl(sample_sheet_path)
     judgments = _read_jsonl(judgments_path)
@@ -573,16 +631,19 @@ def validate_judgments(sample_sheet_path: Path, judgments_path: Path) -> dict[st
         raise ValueError("judgment rows must be sorted by sample_id")
     if len(ids) != len(set(ids)):
         raise ValueError("judgment sample_id values are not unique")
-    if set(ids) != set(sample_by_id):
-        missing = sorted(set(sample_by_id) - set(ids))
+    if not set(ids) <= set(sample_by_id):
         extra = sorted(set(ids) - set(sample_by_id))
-        raise ValueError(f"judgment sample_id set mismatch: missing={missing}, extra={extra}")
+        raise ValueError(f"judgment sample_id set mismatch: extra={extra}")
+    if require_complete and set(ids) != set(sample_by_id):
+        missing = sorted(set(sample_by_id) - set(ids))
+        raise ValueError(f"judgment sample_id set mismatch: missing={missing}, extra=[]")
 
     required = {
         "sample_id", "judge", "model", "text_fidelity", "error_types",
         "heading_path", "standalone_usable", "evidence", "unjudgeable_reason",
         "images_viewed", "notes",
     }
+    evidence_to_id: dict[str, str] = {}
     for row in judgments:
         sample_id = str(row["sample_id"])
         missing_fields = sorted(required - set(row))
@@ -596,10 +657,17 @@ def validate_judgments(sample_sheet_path: Path, judgments_path: Path) -> dict[st
         error_types = row["error_types"]
         if not isinstance(error_types, list) or not set(error_types) <= _ERROR_TYPE_VALUES:
             raise ValueError(f"{sample_id}: invalid error_types")
-        if fidelity == "error" and (not error_types or not str(row["evidence"]).strip()):
-            raise ValueError(f"{sample_id}: error requires evidence and error_types")
-        if fidelity == "minor" and not str(row["evidence"]).strip():
-            raise ValueError(f"{sample_id}: minor requires evidence")
+        if fidelity == "error" and not error_types:
+            raise ValueError(f"{sample_id}: error requires error_types")
+        if fidelity != "error" and error_types:
+            raise ValueError(f"{sample_id}: only error may have error_types")
+        _validate_evidence(row, sample_by_id[sample_id])
+        normalized_evidence = _compact_text(str(row["evidence"] or ""))
+        if normalized_evidence:
+            duplicate = evidence_to_id.get(normalized_evidence)
+            if duplicate is not None:
+                raise ValueError(f"{sample_id}: evidence duplicates sample {duplicate}")
+            evidence_to_id[normalized_evidence] = sample_id
         reason = row["unjudgeable_reason"]
         if fidelity == "unjudgeable" and not (isinstance(reason, str) and reason.strip()):
             raise ValueError(f"{sample_id}: unjudgeable requires a reason")
@@ -618,6 +686,13 @@ def validate_judgments(sample_sheet_path: Path, judgments_path: Path) -> dict[st
         if not expected_contexts <= set(viewed):
             missing = sorted(expected_contexts - set(viewed))
             raise ValueError(f"{sample_id}: context images not viewed: {missing}")
+        expected_thumbnails = {
+            shot["page_thumbnail"]["path"]
+            for shot in sample_by_id[sample_id]["screenshots"]
+        }
+        if not expected_thumbnails <= set(viewed):
+            missing = sorted(expected_thumbnails - set(viewed))
+            raise ValueError(f"{sample_id}: page thumbnails not viewed: {missing}")
     return {"sample_count": len(samples), "judgment_count": len(judgments)}
 
 
