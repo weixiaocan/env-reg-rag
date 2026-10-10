@@ -77,6 +77,7 @@ def classify_page_furniture(
     text: str,
     bbox: list[float],
     page_height: float,
+    page_width: float | None = None,
     watermarks: Iterable[str] = (),
     recurring: dict[tuple[str, str], set[int]] | None = None,
     physical_page: int | None = None,
@@ -91,7 +92,11 @@ def classify_page_furniture(
     stripped = (text or "").strip()
     norm = normalize_line(stripped)
     watermark_norms = watermark_line_variants(watermarks)
-    if norm and norm in watermark_norms:
+    # Exact watermark phrases can also occur as legitimate right-aligned
+    # signatures. Known overlay watermarks occupy the page body, while a
+    # signature starts in the far-right third.
+    right_aligned_signature = bool(page_width and bbox[0] >= 0.65 * page_width)
+    if norm and norm in watermark_norms and not right_aligned_signature:
         return FurnitureMatch("watermark", "watermark:exact_line")
 
     band = _band(bbox, page_height, band_ratio)

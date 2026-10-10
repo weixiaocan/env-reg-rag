@@ -1,0 +1,256 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+  "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+  "source_pdf": "data/raw/标准和规范&参考资料/《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_359e21344f140faf41125f6d397d5188",
+      "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "section_path": "4 污水系统 > 4.1 一 般规定 > 4.1.8",
+      "section_labels": [
+        "4",
+        "4.1",
+        "4.1.8"
+      ],
+      "body": "4.1.8 臭气处理设施的运行维护，应符合下列规定：\n1 臭气处理设施的防护范围内，严禁明火作业；\n2 当进入臭气收集和处理系统的封闭空间进行检修维护时，\n应佩戴防毒面具，并应进行自然通风或强制通风；\n3 更换除臭用活性炭时，应停机断电，关闭进气和出气阀\n门，佩戴防毒面具方可打开卸料口。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        15
+      ],
+      "bboxes": [
+        {
+          "physical_page": 15,
+          "bbox": [
+            51.0,
+            422.0,
+            293.0,
+            433.0
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            70.96135265700484,
+            436.5,
+            293.5,
+            449.5
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            70.48188405797102,
+            452.5,
+            346.0,
+            464.5
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            51.5,
+            468.44741235392326,
+            277.5,
+            480.0
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            70.96135265700484,
+            484.5,
+            346.5,
+            496.0
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            51.5,
+            500.0,
+            215.0,
+            511.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/60bfe78380e9-p0015.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_90bfe0eb8204d8b47f7dd7cbf3f9969f",
+      "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "section_path": "4 污水系统 > 4.4 污泥处理和处置 > 4.4.18",
+      "section_labels": [
+        "4",
+        "4.4",
+        "4.4.18"
+      ],
+      "body": "4.4.18污泥焚烧过程中，应保证污泥的充分燃烧。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        20
+      ],
+      "bboxes": [
+        {
+          "physical_page": 20,
+          "bbox": [
+            49.5,
+            59.5,
+            289.0,
+            72.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/60bfe78380e9-p0020.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_48d03c7b6c657cda1c50d7eee00a6666",
+      "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "section_path": "3 雨水系统 > 3.1 一般规定 > 3.1.8",
+      "section_labels": [
+        "3",
+        "3.1",
+        "3.1.8"
+      ],
+      "body": "3.1.8 应采取工程性和非工程性措施增强雨水系统应对超过内\n涝防治设计重现期降雨的韧性，并应避免人员伤亡。灾后应迅速\n恢复城镇正常秩序。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        10
+      ],
+      "bboxes": [
+        {
+          "physical_page": 10,
+          "bbox": [
+            50.5,
+            422.0,
+            346.0,
+            433.0
+          ]
+        },
+        {
+          "physical_page": 10,
+          "bbox": [
+            51.5,
+            437.5,
+            346.0,
+            449.0
+          ]
+        },
+        {
+          "physical_page": 10,
+          "bbox": [
+            51.0,
+            453.0,
+            142.0,
+            464.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/60bfe78380e9-p0010.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_b79360c1447b2a5de1ad69250f72f7ca",
+      "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "section_path": "2 基本规定 > 2.2 建设要求 > 2.2.4",
+      "section_labels": [
+        "2",
+        "2.2",
+        "2.2.4"
+      ],
+      "body": "2.2.4轨道交通、地下空间、道路等建设项目不应影响既有排\n水工程设施的功能、蓄排能力和安全运行。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        6
+      ],
+      "bboxes": [
+        {
+          "physical_page": 6,
+          "bbox": [
+            51.5,
+            343.0,
+            346.5,
+            354.5
+          ]
+        },
+        {
+          "physical_page": 6,
+          "bbox": [
+            51.5,
+            358.0,
+            247.0,
+            371.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/60bfe78380e9-p0006.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_350e4783a6e8876b3f2cad132917b7cf",
+      "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "section_path": "4 污水系统 > 4.1 一 般规定 > 4.1.2",
+      "section_labels": [
+        "4",
+        "4.1",
+        "4.1.2"
+      ],
+      "body": "4.1.2 污水处理厂及其配套的污水管网、污水处理设施和污泥\n处理处置设施应同步规划、同步建设和同步运行管理。城镇污水\n系统输送、处理等设施的规模应相互匹配。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        15
+      ],
+      "bboxes": [
+        {
+          "physical_page": 15,
+          "bbox": [
+            50.5,
+            184.5,
+            346.5,
+            197.5
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            51.0,
+            200.5,
+            346.5,
+            213.5
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            52.0,
+            217.0,
+            246.0,
+            229.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/60bfe78380e9-p0015.png"
+      ]
+    }
+  ]
+}

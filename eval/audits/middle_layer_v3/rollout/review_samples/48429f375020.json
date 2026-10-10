@@ -1,0 +1,188 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+  "document": "武汉市排水管道混错接改造技术规程.pdf",
+  "source_pdf": "data/raw/_official_verification/DB4201-T651-2021-official.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_94c83fcb8eda81a8f44466606de7918d",
+      "document": "武汉市排水管道混错接改造技术规程.pdf",
+      "section_path": "8 成果验收与工程后期评估 > 8.4.1",
+      "section_labels": [
+        "8",
+        "8.4.1"
+      ],
+      "body": "8.4.1 系统评估工作应由第三方评估单位编制系统评估方案，需对评估范围、评估周期、评估内容等进行具体说明。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        19
+      ],
+      "bboxes": [
+        {
+          "physical_page": 19,
+          "bbox": [
+            67.67062300736897,
+            366.5822108713205,
+            538.709640363666,
+            423.5503741448547
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/48429f375020-p0019.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_03997f5fa76ddb448d686fd5a0bf7294",
+      "document": "武汉市排水管道混错接改造技术规程.pdf",
+      "section_path": "5 资料收集、现场踏勘与混错接判定 > 5.5.4",
+      "section_labels": [
+        "5",
+        "5.5.4"
+      ],
+      "body": "5.5.4 当确认某个检查井或者雨水口处为混错接点时，在混错接点位置实地标注可识别记号，拍摄混错接点井内照片和周边参考物照片，并填写混错接点调查表，详见附录C。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        10
+      ],
+      "bboxes": [
+        {
+          "physical_page": 10,
+          "bbox": [
+            75.85519402870118,
+            694.6612043854434,
+            240.88415003751047,
+            704.7894187948071
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/48429f375020-p0010.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_15a74309a0ea495af30e15eb8b6bbca2",
+      "document": "武汉市排水管道混错接改造技术规程.pdf",
+      "section_path": "5 资料收集、现场踏勘与混错接判定 > 5.5.5",
+      "section_labels": [
+        "5",
+        "5.5.5"
+      ],
+      "body": "5.5.5 混错接预判发现某区域内存在混错接现象，但是人工目视探查无法判断或者无法确认混错接点位置时，需要借助仪器探查来查找混错接点可能存在位置。\n—— 雨水检查井或雨水口中有污水管或合流管接入；—— 污水检查井中有雨水管接入；—— 建筑雨水立管旱天有污水流出。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        10
+      ],
+      "bboxes": [
+        {
+          "physical_page": 10,
+          "bbox": [
+            53.52263361106693,
+            709.6172217944204,
+            524.3393434807298,
+            736.0552596489032
+          ]
+        },
+        {
+          "physical_page": 10,
+          "bbox": [
+            53.705497143725935,
+            741.3480696031913,
+            524.0591167600909,
+            766.901614403001
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/48429f375020-p0010.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_159f088baccbacc666367b6874f56ee7",
+      "document": "武汉市排水管道混错接改造技术规程.pdf",
+      "section_path": "7 混错接改造施工 > 7.2.5",
+      "section_labels": [
+        "7",
+        "7.2.5"
+      ],
+      "body": "7.2.5 路面恢复施工技术要求应满足GB 50092 和GBJ 97 的要求。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        17
+      ],
+      "bboxes": [
+        {
+          "physical_page": 17,
+          "bbox": [
+            68.8128665316948,
+            358.7153855229769,
+            384.85515322078567,
+            370.0492215260143
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/48429f375020-p0017.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_3d775e1ca3ab6beb751ce5e183f59a2e",
+      "document": "武汉市排水管道混错接改造技术规程.pdf",
+      "section_path": "8 成果验收与工程后期评估 > 8.2.2",
+      "section_labels": [
+        "8",
+        "8.2.2"
+      ],
+      "body": "1) 全部非压力污水管道、截流管道均进行闭水试验；2) 埋设深度低于地下水标高的雨水管道（与截流系统连通）需进行闭水试验；3) 试验管段应按井间距分隔，带井进行闭水试验；4) 进行闭水试验的管道需未回填土且沟槽内无积水；5) 闭水试验及压力试验相关技术要求参见GB 50268 的要求。b) 表观工程质量水平：管道上方路面沉降裂缝积水等、检查井冒溢淤积等、井盖完好情况、井\n1) 全部非压力污水管道、截流管道均进行闭水试验；2) 埋设深度低于地下水标高的雨水管道（与截流系统连通）需进行闭水试验；3) 试验管段应按井间距分隔，带井进行闭水试验；4) 进行闭水试验的管道需未回填土且沟槽内无积水；5) 闭水试验及压力试验相关技术要求参见GB 50268 的要求。b) 表观工程质量水平：管道上方路面沉降裂缝积水等、检查井冒溢淤积等、井盖完好情况、井\n盖标识正确性、井壁变形、破损渗漏等、雨水篦子跳动声响。相关技术要求参见GB 50268 的\n规定。\nc) 隐蔽工程抽查：对于管径300 mm 以上管道进行内窥检查，提供有资质单位的检测报告。对混",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        18
+      ],
+      "bboxes": [
+        {
+          "physical_page": 18,
+          "bbox": [
+            96.53608418309649,
+            273.29264568402255,
+            346.0966079696707,
+            283.50823289215526
+          ]
+        },
+        {
+          "physical_page": 18,
+          "bbox": [
+            96.37554037042565,
+            288.83566681698903,
+            383.02498011821217,
+            299.0719053781121
+          ]
+        },
+        {
+          "physical_page": 18,
+          "bbox": [
+            77.8695068359375,
+            321.00555419921875,
+            524.5151977539062,
+            364.70281982421875
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/48429f375020-p0018.png"
+      ]
+    }
+  ]
+}

@@ -120,19 +120,28 @@ def _metrics(document: dict[str, Any], chunks: list[Any]) -> dict[str, Any]:
     roots: set[str] = set()
     page_heights = {int(page["physical_page"]): float(page["height"])
                     for page in document.get("pages") or []}
+    page_widths = {int(page["physical_page"]): float(page["width"])
+                   for page in document.get("pages") or []}
     for element in document.get("elements") or []:
         if element.get("type") != "text":
             continue
         text = str((element.get("content") or {}).get("text") or "")
-        if element.get("role") not in {"header", "footer", "page_number", "watermark", "unknown"}:
+        is_toc = "toc_navigation_only" in (element.get("policy_reasons") or [])
+        if (not is_toc and element.get("role") not in
+                {"header", "footer", "page_number", "watermark", "unknown"}):
             spans = element.get("source_spans") or []
+            whole_is_page_number = bool(_PAGE_NUMBER.fullmatch(text.strip()))
             for index, line in enumerate(text.splitlines()):
                 norm = re.sub(r"\s+", "", line)
                 span = spans[index] if index < len(spans) else (spans[0] if spans else {})
-                height = page_heights.get(int(span.get("physical_page") or 0), 0.0)
+                physical_page = int(span.get("physical_page") or 0)
+                height = page_heights.get(physical_page, 0.0)
+                width = page_widths.get(physical_page, 0.0)
                 bbox = span.get("bbox") or [0, 0, 0, 0]
                 in_band = bool(height and (bbox[1] <= 0.12 * height or bbox[3] >= 0.88 * height))
-                if (_PAGE_NUMBER.fullmatch(line.strip()) and in_band) or norm in watermarks:
+                right_aligned_signature = bool(width and bbox[0] >= 0.65 * width)
+                if ((whole_is_page_number and in_band)
+                        or (norm in watermarks and not right_aligned_signature)):
                     body_furniture.append({"element_id": element["element_id"], "line": line})
         if element.get("role") in {"heading", "document_title"} and re.search(r"[。！？；;：:]\s*$", text):
             sentence_headings.append(text)
@@ -146,8 +155,9 @@ def _metrics(document: dict[str, Any], chunks: list[Any]) -> dict[str, Any]:
             if title and len(title) > 60:
                 long_titles.add(title)
     rows = [_chunk_row(document, chunk) for chunk in chunks]
-    bodies = [normalize(row["body"]) for row in rows]
-    short = [row["chunk_id"] for row, body in zip(rows, bodies) if len(body) < 15]
+    text_rows = [row for row in rows if "text" in row["element_types"]]
+    bodies = [normalize(row["body"]) for row in text_rows]
+    short = [row["chunk_id"] for row, body in zip(text_rows, bodies) if len(body) < 15]
     ocr_source_elements = [element for element in document.get("elements") or []
                            if element.get("ocr_text_sources")]
     ocr_source_counts = Counter(
@@ -159,17 +169,18 @@ def _metrics(document: dict[str, Any], chunks: list[Any]) -> dict[str, Any]:
         "element_count": len(document.get("elements") or []),
         "element_type_counts": dict(Counter(element.get("type") for element in document.get("elements") or [])),
         "chunk_count": len(chunks),
+        "text_body_chunk_count": len(text_rows),
         "body_page_number_footer_watermark_lines": len(body_furniture),
         "body_furniture_examples": body_furniture,
         "sentence_ended_heading_count": len(sentence_headings),
         "sentence_ended_heading_examples": sentence_headings,
-        "body_breadcrumb_count": sum(" > " in row["body"] for row in rows),
+        "body_breadcrumb_count": sum(" > " in row["body"] for row in text_rows),
         "section_title_over_60_count": len(long_titles),
         "section_title_over_60_examples": sorted(long_titles),
         "list_item_root_count": len(roots),
         "list_item_root_labels": sorted(roots),
         "short_body_chunk_lt15_count": len(short),
-        "short_body_chunk_lt15_ratio": round(len(short) / len(chunks), 6) if chunks else 0.0,
+        "short_body_chunk_lt15_ratio": round(len(short) / len(text_rows), 6) if text_rows else 0.0,
         "short_body_chunk_ids": short,
         "ocr_text_source_element_count": len(ocr_source_elements),
         "ocr_text_source_counts": dict(ocr_source_counts),

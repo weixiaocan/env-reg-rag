@@ -1,0 +1,202 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+  "document": "城市排水工程规划规范.pdf",
+  "source_pdf": "data/raw/标准和规范&参考资料/城市排水工程规划规范.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_43fa546db800e1fd053bbd4ef0be73ed",
+      "document": "城市排水工程规划规范.pdf",
+      "section_path": "5 > 5.2 > 5.2.2",
+      "section_labels": [
+        "5",
+        "5.2",
+        "5.2.2"
+      ],
+      "body": "5.2.2\n本条是关于设计降雨历时的确定原则。\n在采用数学模型法计算复核管道规模时，宜采用当地设计暴\n雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水面\n积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历时\n降雨，防涝系统宜采用不同历时的降雨进行校核。\n5.2.3\n本条是关于暴雨强度公式的规定。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        50
+      ],
+      "bboxes": [
+        {
+          "physical_page": 50,
+          "bbox": [
+            48.65705871582031,
+            217.042236328125,
+            344.8662109375,
+            260.0804443359375
+          ]
+        },
+        {
+          "physical_page": 50,
+          "bbox": [
+            48.66705322265625,
+            264.8160400390625,
+            344.802734375,
+            307.1122741699219
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c72e84549163-p0050.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_2c6e38ef8763c4a77cf82dac6df44b21",
+      "document": "城市排水工程规划规范.pdf",
+      "section_path": "4 > 4.1 > 4.1.2 本条是关于污水集中与分散处理的规定。城市采用集中还是分散的方式布置污水处理厂，应综合考虑自然、环境、经济和管理等多方面的",
+      "section_labels": [
+        "4",
+        "4.1",
+        "4.1.2"
+      ],
+      "body": "理，总占地面积大等问题。\n4.1.4\n本条是关于污水收集系统的相关规定。\n城市污水收集系统包括污水管网和泵站等设施。充分利用地\n形、地势布置，并与城市场地竖向相协调，可以减小管道埋深、\n少设提升泵站、降低工程造价、减少运行费用、提高城市抗灾能\n力。污水管道一般为重力流排水。\n理，总占地面积大等问题。4.1.4本条是关于污水收集系统的相关规定。城市污水收集系统包括污水管网和泵站等设施。充分利用地形、地势布置，并与城市场地竖向相协调，可以减小管道埋深、少设提升泵站、降低工程造价、减少运行费用、提高城市抗灾能力。污水管道一般为重力流排水。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        41
+      ],
+      "bboxes": [
+        {
+          "physical_page": 41,
+          "bbox": [
+            44.867156982421875,
+            328.35406494140625,
+            346.546630859375,
+            417.8320007324219
+          ]
+        },
+        {
+          "physical_page": 41,
+          "bbox": [
+            42.623083265126766,
+            343.83506563964875,
+            255.61362446181928,
+            353.53683615334
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c72e84549163-p0041.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_185c80a23e8d0a2ab5fc25069dc55efa",
+      "document": "城市排水工程规划规范.pdf",
+      "section_path": "5 > 5.2 雨水量 > 5.2.5",
+      "section_labels": [
+        "5",
+        "5.2",
+        "5.2.5"
+      ],
+      "body": "F——汇水面积(hm2)o",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        21
+      ],
+      "bboxes": [
+        {
+          "physical_page": 21,
+          "bbox": [
+            86.53759765625,
+            58.50293731689453,
+            196.39645385742188,
+            73.05866241455078
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c72e84549163-p0021.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_c5376cb5456a0b91d6322976c67ca6a8",
+      "document": "城市排水工程规划规范.pdf",
+      "section_path": "3 > 3.4 > 3.4.1",
+      "section_labels": [
+        "3",
+        "3.4",
+        "3.4.1"
+      ],
+      "body": "3.4.1\n城市排水受纳水体应有足够的容量和排泄能力，其环境\n容量应能保证水体的环境保护要求。\n3.4.2\n城市排水受纳水体应根据城市的自然条件、环境保护要\n求、用地布局，统筹兼顾上下游城市需求，经综合分析比较后\n确定。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        13
+      ],
+      "bboxes": [
+        {
+          "physical_page": 13,
+          "bbox": [
+            52.674285888671875,
+            235.17054748535156,
+            348.24371337890625,
+            246.20327758789062
+          ]
+        },
+        {
+          "physical_page": 13,
+          "bbox": [
+            52.9364013671875,
+            251.0305633544922,
+            348.3441467285156,
+            293.4775390625
+          ]
+        },
+        {
+          "physical_page": 13,
+          "bbox": [
+            53.22076416015625,
+            298.2202453613281,
+            84.99857330322266,
+            308.5537109375
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c72e84549163-p0013.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_b02a93df42b7599bd9ad70c4452a1380",
+      "document": "城市排水工程规划规范.pdf",
+      "section_path": "6 > 6.3 > 6.3.1",
+      "section_labels": [
+        "6",
+        "6.3",
+        "6.3.1"
+      ],
+      "body": "6. 3. 1合流泵站的规模应按规划远期的合流水量确定。6. 3. 2合流泵站的规划用地指标可按表5. 4. 2 的规定取值。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        23
+      ],
+      "bboxes": [
+        {
+          "physical_page": 23,
+          "bbox": [
+            55.252352982627755,
+            440.1209972830987,
+            330.01730726290486,
+            450.0869381816961
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c72e84549163-p0023.png"
+      ]
+    }
+  ]
+}

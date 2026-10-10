@@ -1,0 +1,216 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+  "document": "降雨过程强度等级标准.pdf",
+  "source_pdf": "data/raw/标准和规范&参考资料/降雨过程强度等级标准.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_e4692c552fe4b0b38106031fa020f0e7",
+      "document": "降雨过程强度等级标准.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "2017-03-01 实施\n中国气象局发布",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        1
+      ],
+      "bboxes": [
+        {
+          "physical_page": 1,
+          "bbox": [
+            449.0,
+            708.0,
+            554.5,
+            726.0
+          ]
+        },
+        {
+          "physical_page": 1,
+          "bbox": [
+            205.0,
+            753.4925774429652,
+            412.5,
+            773.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0001.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_9754e18b2c66223fe8e5d60255816a44",
+      "document": "降雨过程强度等级标准.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "本标准按照 GB/T 1.1—2009 给出的规则起草。\n本标准由全国气象防灾减灾标准化技术委员会(SAC/TC345)提出并归口。\n本标准起草单位：国家气象中心。\n本标准主要起草人：王莉萍、王秀荣、王维国、张立生。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        4
+      ],
+      "bboxes": [
+        {
+          "physical_page": 4,
+          "bbox": [
+            86.5,
+            156.5,
+            302.0,
+            169.5
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            86.0,
+            171.0,
+            425.5,
+            185.5
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            86.0,
+            187.0,
+            235.5,
+            201.0
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            86.0,
+            203.5,
+            324.5,
+            216.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0004.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_7df5d715203caa90fa84e324c141cca7",
+      "document": "降雨过程强度等级标准.pdf",
+      "section_path": "4 RSI/ RPI 计算方法 > 4.4 RSI/ RPI计算 > 4.4.2",
+      "section_labels": [
+        "4",
+        "4.4",
+        "4.4.2"
+      ],
+      "body": "4.4.2 区域降雨过程强度指数(RPI)\n情况1：当降雨区处于所分四类降雨区中的一个降雨区时：",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        8
+      ],
+      "bboxes": [
+        {
+          "physical_page": 8,
+          "bbox": [
+            64.5,
+            486.0,
+            236.0,
+            498.5
+          ]
+        },
+        {
+          "physical_page": 8,
+          "bbox": [
+            86.5,
+            510.5,
+            350.5,
+            522.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0008.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_6fe671622e326ccdda3731fa7282c985",
+      "document": "降雨过程强度等级标准.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "2016-09-29 发布\nQX/T 341—2016",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        1
+      ],
+      "bboxes": [
+        {
+          "physical_page": 1,
+          "bbox": [
+            68.0,
+            708.5,
+            173.0,
+            726.5
+          ]
+        },
+        {
+          "physical_page": 1,
+          "bbox": [
+            435.0,
+            167.97605229620243,
+            540.0000110749276,
+            186.69338383777927
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0001.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_2207baa3fb7d1ab26ad22748a5a37e8d",
+      "document": "降雨过程强度等级标准.pdf",
+      "section_path": "2 术语和定义 > 2.1",
+      "section_labels": [
+        "2",
+        "2.1"
+      ],
+      "body": "从天空降到地面上的雨，未经蒸发、渗透、流失而在水平面上积聚的深度。\n注：以毫米(mm)为单位。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        5
+      ],
+      "bboxes": [
+        {
+          "physical_page": 5,
+          "bbox": [
+            86.5,
+            314.3551835828931,
+            412.5,
+            325.5
+          ]
+        },
+        {
+          "physical_page": 5,
+          "bbox": [
+            84.0,
+            329.0,
+            180.5,
+            340.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0005.png"
+      ]
+    }
+  ]
+}

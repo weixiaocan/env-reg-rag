@@ -1,0 +1,209 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+  "document": "QXT 489－2019 降雨过程等级.pdf",
+  "source_pdf": "data/raw/_official_verification/QXT-489-2019-official.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_801333fed9b21f3d0f7ebf87a3ec2597",
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "section_path": "4 区域降雨过程等级 > 4.2 区域降雨过程等级",
+      "section_labels": [
+        "4",
+        "4.2"
+      ],
+      "body": "区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        10
+      ],
+      "bboxes": [
+        {
+          "physical_page": 10,
+          "bbox": [
+            87.0,
+            435.0,
+            387.0,
+            446.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0010.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_68c0e9af66368cd7ff3139a2dbb0cfa5",
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "section_path": "2 术语和定义 > 2.1",
+      "section_labels": [
+        "2",
+        "2.1"
+      ],
+      "body": "某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上累积的深度。\n2.3",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        9
+      ],
+      "bboxes": [
+        {
+          "physical_page": 9,
+          "bbox": [
+            85.5,
+            376.0,
+            439.5,
+            389.0
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            63.5,
+            392.0,
+            84.5,
+            405.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0009.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_c5fffc97f440fd14d77843d941a44950",
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "section_path": "2 术语和定义 > 2.1",
+      "section_labels": [
+        "2",
+        "2.1"
+      ],
+      "body": "降雨的发生、发展和结束的全部演变过程。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        9
+      ],
+      "bboxes": [
+        {
+          "physical_page": 9,
+          "bbox": [
+            86.5,
+            329.0,
+            277.0,
+            340.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0009.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_e28c3b43958809011b1078b778144d1f",
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "2019-12-01 实施\n中国气象局发布",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        1
+      ],
+      "bboxes": [
+        {
+          "physical_page": 1,
+          "bbox": [
+            449.0,
+            708.0,
+            554.5,
+            726.0
+          ]
+        },
+        {
+          "physical_page": 1,
+          "bbox": [
+            205.0,
+            752.5327142869869,
+            412.5,
+            773.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0001.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_c481c3ff1ddef8e11fc2f5fe4b23c6a1",
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "我国属复杂的季风气候区，降雨具有阶段性、区域性、过程性、集中性等特点。降雨过程的位置、强\n度、持续时间在很大程度上影响着山洪、地质灾害、江河流域洪涝、城市内涝等，其准确预报是各级政府\n调配水资源和防灾减灾的重要依据。\n本标准旨在统一降雨过程等级标准，促进降雨过程预报服务水平提高，更好地发挥其社会和经济\n效益。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        7
+      ],
+      "bboxes": [
+        {
+          "physical_page": 7,
+          "bbox": [
+            86.88000178183279,
+            166.536257562235,
+            528.5,
+            178.0546154339746
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            65.5,
+            182.0,
+            529.5,
+            195.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            65.0,
+            197.0,
+            230.0,
+            210.5
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            86.5,
+            213.0896206271825,
+            529.0,
+            226.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            64.32000131914693,
+            227.96749954484616,
+            96.000001968876,
+            243.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0007.png"
+      ]
+    }
+  ]
+}

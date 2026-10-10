@@ -1,0 +1,438 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "source_pdf": "data/raw/标准和规范&参考资料/GB50014-2021+室外排水设计标准+预览.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_40a8fb07b5e2349863b830a3fa640149",
+      "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "section_path": "9 检测和控制 > 9.6 智慧排水系统 > Ⅱ 年多个样法取样",
+      "section_labels": [
+        "9",
+        "9.6",
+        "Ⅱ"
+      ],
+      "body": "B.0.6 本方法适用于具有10年以上自记雨量记录的地区。\nB.0.7 计算降雨历时宜采用5min、10min、15min、20min、30min、\n45min、60min、90min、120min共9个历时。计算降雨重现期宜按\n0.25年、0.33年、0.5年、1年、2年、3年、5年、10年统计。资料条\n件较好时(资料年数≥20年、子样点的排列比较规律)，也可统计\n高于10年的重现期。\nB.0.8 取样方法宜采用年多个样法，每年每个历时选择6个～8\n个最大值，然后不论年次，将每个历时子样按大小次序排列，再从\n中选择资料年数的3倍～4倍的最大值，作为统计的基础资料。\nB.0.9选取的各历时降雨资料，可采用频率曲线加以调整。当\n精度要求不太高时，可采用经验频率曲线；当精度要求较高时，可\n采用皮尔逊Ⅲ型分布曲线或指数分布曲线等理论频率曲线。根据\n确定的频率曲线，得出重现期、降雨强度和降雨历时三者的关系，\n即 P、i、t 关系值。\nB.0.10 根据P、it关系值求得b、n、A1、C各个参数，可用解析\n法、图解与计算结合法或图解法等方法进行。将求得的各参数代入本标准公式(4.1.9)计算暴雨强度。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        112,
+        113
+      ],
+      "bboxes": [
+        {
+          "physical_page": 112,
+          "bbox": [
+            47.0,
+            505.0,
+            317.5,
+            516.5
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            55.0,
+            61.5,
+            350.5,
+            73.5
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            55.5,
+            77.0,
+            350.5,
+            89.0
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.0,
+            93.0,
+            350.0,
+            104.5
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.0,
+            108.0,
+            350.5,
+            121.0
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.5,
+            124.32000421901064,
+            152.0,
+            136.0
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            55.5,
+            139.5,
+            351.0,
+            152.5
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.0,
+            155.0,
+            350.0,
+            168.0
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.5,
+            170.88000579910343,
+            337.5,
+            183.0
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            55.0,
+            186.0,
+            351.0,
+            199.5
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.0,
+            203.0,
+            349.5,
+            214.5
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.5,
+            219.0,
+            350.5,
+            230.5
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.0,
+            234.0,
+            350.5,
+            247.0
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            56.5,
+            250.5,
+            191.0,
+            268.0
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            55.199999154332176,
+            264.9600089918682,
+            350.39999463184773,
+            277.92000943168784
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            55.5,
+            280.80000952942555,
+            351.0,
+            294.2400099855348
+          ]
+        },
+        {
+          "physical_page": 113,
+          "bbox": [
+            54.5,
+            289.5,
+            271.0,
+            312.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c3c3df5ae9ca-p0112.png",
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c3c3df5ae9ca-p0113.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_0d60a0ef67944709cc446a666a9f8d12",
+      "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "section_path": "5 排水管渠和附属构筑物 > 5.1 一 般规定 > 5.1.10",
+      "section_labels": [
+        "5",
+        "5.1",
+        "5.1.10"
+      ],
+      "body": "5.1.10 排水管渠系统的设计应以重力流为主，不设或少设提升\n泵站。当无法采用重力流或重力流不经济时，可采用压力流。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        27
+      ],
+      "bboxes": [
+        {
+          "physical_page": 27,
+          "bbox": [
+            55.5,
+            204.0,
+            350.0,
+            215.5
+          ]
+        },
+        {
+          "physical_page": 27,
+          "bbox": [
+            56.0,
+            220.0,
+            331.0,
+            231.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c3c3df5ae9ca-p0027.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_bdaea486c213889fa5263ee1a2734f02",
+      "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "section_path": "5 排水管渠和附属构筑物 > 5.15 管道综合 > 5.15.8",
+      "section_labels": [
+        "5",
+        "5.15",
+        "5.15.8"
+      ],
+      "body": "5.15.8 利用综合管廊结构本体排除雨水时，雨水舱室不应和其\n他舱室连通。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        42
+      ],
+      "bboxes": [
+        {
+          "physical_page": 42,
+          "bbox": [
+            47.5,
+            408.5,
+            342.0,
+            418.5
+          ]
+        },
+        {
+          "physical_page": 42,
+          "bbox": [
+            47.5,
+            423.5,
+            107.5,
+            435.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c3c3df5ae9ca-p0042.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_ca63611959a0abda1fb402dfed4e1841",
+      "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "section_path": "9 检测和控制 > 9.4 信息化 > 9.4.4",
+      "section_labels": [
+        "9",
+        "9.4",
+        "9.4.4"
+      ],
+      "body": "9.4.4 信息化系统应采取工业控制网络信息安全防护措施。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        109
+      ],
+      "bboxes": [
+        {
+          "physical_page": 109,
+          "bbox": [
+            55.5,
+            77.5,
+            330.0,
+            89.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c3c3df5ae9ca-p0109.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_913a44005ba19a44622b66fc9f13bc66",
+      "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "section_path": "8 污泥处理和处置 > 8.11 除臭 > 8.11.7",
+      "section_labels": [
+        "8",
+        "8.11",
+        "8.11.7"
+      ],
+      "body": "8.11.7 臭气源加盖时，应符合下列规定：\n1 正常运行时，加盖不应影响构筑物内部和相关设备的观察\n和采光要求；\n2 应设检修通道，加盖不应妨碍设备的操作和维护检修；\n3 盖和支撑的材质应具有良好的物理性能，耐腐蚀、抗紫外\n老化，并在不同温度条件下有足够的抗拉、抗剪和抗压强度，承受\n台风和雪荷载，定期进行检测，且不应有和臭气源直接接触的金属\n构件；\n4 盖上宜设置透明观察窗、观察孔、取样孔和人孔，并应设置\n防起雾措施，窗和孔应开启方便且密封性良好；\n5 禁止踩踏的盖应设置栏杆或醒目的警示标识：\n6 臭气源加盖设施应和构筑物(设备)匹配，提高密封性，减\n少臭气逸出。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        105
+      ],
+      "bboxes": [
+        {
+          "physical_page": 105,
+          "bbox": [
+            55.0,
+            109.0,
+            245.5,
+            120.5
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            75.0,
+            123.0,
+            350.5,
+            138.5
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            54.5,
+            139.5,
+            116.0,
+            154.0
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            74.87999885283321,
+            156.0,
+            334.5,
+            169.0
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            74.5,
+            172.0,
+            350.5,
+            185.0
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            56.5,
+            189.0,
+            350.0,
+            200.5
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            56.0,
+            204.0,
+            350.0,
+            216.5
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            54.5,
+            219.0,
+            85.0,
+            233.5
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            74.5,
+            235.5,
+            351.0,
+            248.5
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            56.0,
+            252.5,
+            266.5,
+            264.0
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            75.35999884547958,
+            268.32000910589556,
+            297.0,
+            278.5
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            74.0,
+            282.0,
+            351.5,
+            297.0
+          ]
+        },
+        {
+          "physical_page": 105,
+          "bbox": [
+            56.0,
+            300.0,
+            115.5,
+            312.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/c3c3df5ae9ca-p0105.png"
+      ]
+    }
+  ]
+}

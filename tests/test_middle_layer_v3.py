@@ -37,6 +37,9 @@ def test_page_furniture_patterns_and_body_counterexamples() -> None:
     assert classify_page_furniture(model_label="text",
         text="住房城乡建设部发布了本规范。", bbox=[50, 300, 350, 320],
         page_height=842, watermarks=["住房城乡建设部"]) is None
+    assert classify_page_furniture(model_label="text", text="住房城乡建设部",
+        bbox=[410, 130, 512, 150], page_height=842, page_width=560,
+        watermarks=["住房城乡建设部"]) is None
 
 
 def test_watermark_fragments_match_only_as_complete_lines() -> None:
@@ -59,6 +62,44 @@ def test_clause_split_requires_continuity_and_keeps_numeric_continuation() -> No
     continuation = [_line("5.6.1 第一条正文。", 100),
                     _line("5.6.2、5.6.5 和 5.7.1 条的规定", 115)]
     assert len(split_clause_lines(continuation)) == 1
+
+
+def test_spaced_and_letter_o_clause_prefixes_are_normalized_for_structure() -> None:
+    blocks = build_page_blocks({
+        "physical_page": 1, "width": 397, "height": 575,
+        "extraction_route": "native",
+        "elements": [_line("1. o. 1 条文正文。", 100)],
+        "regions": [{
+            "region_id": "r1", "model_label": "text", "bbox": [45, 95, 350, 130],
+        }],
+    })
+    assert blocks[0]["_v3_role"] == "clause"
+    assert blocks[0]["_v3_heading"]["label"] == "1.0.1"
+
+
+def test_sentence_ended_numbered_title_is_not_heading() -> None:
+    blocks = build_page_blocks({
+        "physical_page": 1, "width": 397, "height": 575,
+        "elements": [_line("（九）持续推进专业化运行维护。", 100)],
+        "regions": [{
+            "region_id": "r1", "model_label": "paragraph_title",
+            "bbox": [45, 95, 350, 130],
+        }],
+    })
+    assert blocks[0]["_v3_role"] == "paragraph"
+    assert blocks[0]["_v3_heading"] == {"label": "（九）", "title": "持续推进专业化运行维护", "level": 2}
+
+
+def test_body_region_chinese_item_number_anchors_section_path() -> None:
+    blocks = build_page_blocks({
+        "physical_page": 1, "width": 560, "height": 842,
+        "elements": [_line("（九）持续推进专业化运行维护。\n后续正文。", 100)],
+        "regions": [{
+            "region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 130],
+        }],
+    })
+    assert blocks[0]["_v3_role"] == "paragraph"
+    assert blocks[0]["_v3_heading"]["label"] == "（九）"
 
 
 def test_heading_rules_exclude_text_blocks_and_keep_roman_and_prefixes() -> None:
@@ -98,3 +139,38 @@ def test_region_blocks_use_labels_and_extract_embedded_watermark() -> None:
     roles = [block["_v3_role"] for block in blocks]
     assert roles == ["clause", "watermark", "page_number"]
     assert "住房城乡建设部" not in blocks[0]["text"]
+
+
+def test_native_region_deduplicates_overlapping_fake_bold_text() -> None:
+    page = {
+        "physical_page": 1, "width": 397, "height": 575,
+        "extraction_route": "native",
+        "elements": [
+            {**_line("1.0.1 伪粗体不应重复。", 100), "bbox": [50, 100, 260, 114]},
+            {**_line("1.0.1 伪粗体不应重复。", 100.2), "bbox": [50.2, 100.2, 260.2, 114.2]},
+        ],
+        "regions": [{
+            "region_id": "r1", "model_label": "text", "bbox": [45, 95, 350, 130],
+        }],
+    }
+
+    blocks = build_page_blocks(page)
+
+    assert len(blocks) == 1
+    assert blocks[0]["text"] == "1.0.1 伪粗体不应重复。"
+
+
+def test_native_region_preserves_legitimate_repeated_text_on_separate_rows() -> None:
+    page = {
+        "physical_page": 1, "width": 397, "height": 575,
+        "extraction_route": "native",
+        "elements": [_line("同意", 100), _line("同意", 140)],
+        "regions": [{
+            "region_id": "r1", "model_label": "text", "bbox": [45, 95, 350, 165],
+        }],
+    }
+
+    blocks = build_page_blocks(page)
+
+    assert len(blocks) == 1
+    assert blocks[0]["text"] == "同意\n同意"

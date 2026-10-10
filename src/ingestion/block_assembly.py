@@ -28,8 +28,11 @@ from src.ingestion.page_furniture import (
 
 
 _CONFIG = Path(__file__).resolve().parents[2] / "config" / "middle_layer_v3.json"
-_CLAUSE = re.compile(r"^\s*(\d+(?:\.\d+){1,2})(?=\s|[一-鿿])")
-_DOTTED = re.compile(r"^\s*(\d+(?:\.\d+){0,2})(?:[.．])?\s*(.*)$")
+_NUMBER_COMPONENT = r"(?:\d+|[oO])"
+_CLAUSE = re.compile(
+    rf"^\s*({_NUMBER_COMPONENT}(?:\s*[.．]\s*{_NUMBER_COMPONENT}){{1,2}})(?=\s|[一-鿿])")
+_DOTTED = re.compile(
+    rf"^\s*({_NUMBER_COMPONENT}(?:\s*[.．]\s*{_NUMBER_COMPONENT}){{0,2}})(?:\s*[.．])?\s*(.*)$")
 _CHAPTER = re.compile(r"^(第[一二三四五六七八九十百千零〇两\d]+章)\s*(.*)$")
 _CHINESE_ONE = re.compile(r"^([一二三四五六七八九十]+、)\s*(.*)$")
 _CHINESE_PAREN = re.compile(r"^([（(][一二三四五六七八九十]+[）)])\s*(.*)$")
@@ -56,7 +59,8 @@ def split_clause_lines(lines: list[dict[str, Any]]) -> list[list[dict[str, Any]]
     for index, line in enumerate(lines):
         match = _CLAUSE.match(str(line.get("text") or ""))
         if match:
-            starts.append((index, tuple(int(value) for value in match.group(1).split("."))))
+            label = _normalize_number_label(match.group(1))
+            starts.append((index, tuple(int(value) for value in label.split("."))))
     if not starts:
         return [lines] if lines else []
     # A single leading clause still gets clause semantics, but there is no cut.
@@ -87,7 +91,7 @@ def heading_descriptor(text: str, *, is_title: bool = False, is_clause: bool = F
         return _heading(match.group(1), match.group(2), 1)
     match = _DOTTED.match(first)
     if match and (is_title or is_clause):
-        label = match.group(1)
+        label = _normalize_number_label(match.group(1))
         title = None if is_clause else match.group(2)
         return _heading(label, title, label.count(".") + 1)
     if is_title:
@@ -222,6 +226,7 @@ def build_page_blocks(
             match = classify_page_furniture(
                 model_label="text", text=str(line.get("text") or ""),
                 bbox=_bbox(line.get("bbox")), page_height=float(page.get("height") or 0),
+                page_width=float(page.get("width") or 0),
                 watermarks=cfg.get("watermark_exact_lines") or [], recurring=recurring,
                 physical_page=int(page.get("physical_page") or 0),
             )
@@ -239,6 +244,7 @@ def build_page_blocks(
         furniture = classify_page_furniture(
             model_label=label, text=whole_text, bbox=whole_bbox,
             page_height=float(page.get("height") or 0),
+            page_width=float(page.get("width") or 0),
             watermarks=cfg.get("watermark_exact_lines") or [], recurring=recurring,
             physical_page=int(page.get("physical_page") or 0),
         )
@@ -255,13 +261,26 @@ def build_page_blocks(
         # participate in the section hierarchy.
         first_text = str(body_lines[0].get("text") or "").strip()
         clause_match = _CLAUSE.match(first_text)
-        clause_like = bool(clause_match and clause_match.group(1).count(".") >= 2)
+        clause_like = bool(
+            clause_match and _normalize_number_label(clause_match.group(1)).count(".") >= 2)
         groups = split_clause_lines(body_lines) if (mapped == "body" or clause_like) else [body_lines]
         for group in groups:
             text = _join_lines(group)
             clause = bool(_CLAUSE.match(text)) and (mapped == "body" or clause_like)
-            role = "clause" if clause else ("heading" if is_title else "paragraph")
-            descriptor = heading_descriptor(text, is_title=is_title, is_clause=clause)
+            first_line = next(
+                (line.strip() for line in text.splitlines() if line.strip()), "")
+            chinese_item = bool(
+                mapped == "body"
+                and (_CHINESE_ONE.match(first_line) or _CHINESE_PAREN.match(first_line)))
+            descriptor = heading_descriptor(
+                text, is_title=is_title or chinese_item, is_clause=clause)
+            sentence_ended = bool(re.search(r"[。！？；;：:]\s*$", text))
+            sentence_title = bool(is_title and descriptor and sentence_ended)
+            numbered_clause_title = bool(
+                sentence_title and re.fullmatch(
+                    r"\d+\.\d+\.\d+", str((descriptor or {}).get("label") or "")))
+            role = "clause" if clause or numbered_clause_title else (
+                "heading" if is_title and not sentence_ended else "paragraph")
             blocks.append(_make_block(group, label, region, role=role,
                                       heading=descriptor))
 
@@ -305,7 +324,11 @@ def _make_block(lines: list[dict[str, Any]], label: str, region: dict[str, Any] 
 
 
 def _fallback_groups(elements: Iterable[dict[str, Any]]) -> list[list[dict[str, Any]]]:
-    lines = [deepcopy(item) for item in elements if str(item.get("text") or "").strip() and item.get("bbox")]
+    lines = _deduplicate_overlapping_lines(
+        deepcopy(item)
+        for item in elements
+        if str(item.get("text") or "").strip() and item.get("bbox")
+    )
     lines.sort(key=lambda item: (_bbox(item.get("bbox"))[1], _bbox(item.get("bbox"))[0]))
     if not lines:
         return []
@@ -335,7 +358,24 @@ def _lines_in_region(
         if bbox and _containment(region, bbox) >= 0.5 and str(element.get("text") or "").strip():
             selected.append(deepcopy(element))
     selected.sort(key=lambda item: (_bbox(item["bbox"])[1], _bbox(item["bbox"])[0], str(item.get("element_id") or "")))
-    return selected
+    return _deduplicate_overlapping_lines(selected)
+
+
+def _deduplicate_overlapping_lines(elements: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Drop native-PDF fake-bold echoes without removing real repeated rows."""
+    kept: list[dict[str, Any]] = []
+    for element in elements:
+        text = normalize_line(str(element.get("text") or ""))
+        bbox = _bbox(element.get("bbox"))
+        duplicate = any(
+            text == normalize_line(str(previous.get("text") or ""))
+            and min(_containment(_bbox(previous.get("bbox")), bbox),
+                    _containment(bbox, _bbox(previous.get("bbox")))) >= 0.8
+            for previous in kept
+        )
+        if not duplicate:
+            kept.append(element)
+    return kept
 
 
 def _containment(outer: list[float], inner: list[float]) -> float:
@@ -399,7 +439,12 @@ def _bbox(raw: Any) -> list[float]:
 
 
 def _heading(label: str, title: str | None, level: int) -> dict[str, Any]:
-    clean = (title or "").strip().rstrip("。.．") or None
+    clean = (title or "").strip().rstrip("。.．！？；;：:") or None
     if clean and len(clean) > 60:
         clean = clean[:60]
-    return {"label": label.strip(), "title": clean, "level": level}
+    return {"label": _normalize_number_label(label), "title": clean, "level": level}
+
+
+def _normalize_number_label(label: str) -> str:
+    value = re.sub(r"\s+", "", label.strip()).replace("．", ".")
+    return re.sub(r"(?i)o", "0", value)

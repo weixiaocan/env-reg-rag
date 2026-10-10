@@ -77,6 +77,18 @@ class SingleColumnTests(unittest.TestCase):
             sorted(range(len(bboxes)), key=lambda i: (bboxes[i][1], bboxes[i][0])),
         )
 
+    def test_staggered_heading_clusters_are_not_columns(self) -> None:
+        bboxes = [
+            _box(240, 60, 360, 75),
+            _box(45, 100, 150, 115),
+            _box(45, 180, 155, 195),
+            _box(250, 260, 365, 275),
+            _box(250, 340, 365, 355),
+        ]
+        layout = detect_columns(bboxes, page_width=PAGE_W, page_height=PAGE_H)
+        self.assertEqual(layout.column_count, 1)
+        self.assertEqual(layout.reading_order, [0, 1, 2, 3, 4])
+
 
 class TwoColumnTests(unittest.TestCase):
     def test_two_column_reading_order(self) -> None:

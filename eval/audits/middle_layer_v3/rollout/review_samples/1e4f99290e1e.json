@@ -1,0 +1,274 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+  "document": "城镇内涝防治技术规范.pdf",
+  "source_pdf": "data/raw/标准和规范&参考资料/城镇内涝防治技术规范.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_1f64c167a3d8be9339fd99c9061958e5",
+      "document": "城镇内涝防治技术规范.pdf",
+      "section_path": "3 城镇内涝防治系统 > 3.3.6",
+      "section_labels": [
+        "3",
+        "3.3.6"
+      ],
+      "body": "[公式]\nf_{\\mathrm{m}}=f_{\\mathrm{c}}+\\left(f_{0}-f_{\\mathrm{c}}\\right)\\mathrm{e}^{\\frac{-k_{0}t_{\\mathrm{x}}}{3600}}\n式中： fc稳定入渗率(mm/h)；\nf。初始入渗率(mm/h)；\n下渗时间(s)。",
+      "element_types": [
+        "formula",
+        "text"
+      ],
+      "pages": [
+        15
+      ],
+      "bboxes": [
+        {
+          "physical_page": 15,
+          "bbox": [
+            139.25819649207824,
+            429.7107212638275,
+            259.0729505755261,
+            444.71527039919874
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            53.0,
+            454.5,
+            208.5,
+            468.0
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            78.0,
+            471.1577114840166,
+            207.5,
+            484.11214957980934
+          ]
+        },
+        {
+          "physical_page": 15,
+          "bbox": [
+            79.0,
+            501.5,
+            174.0,
+            516.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0015.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_bb71a15ecb61109b0e005222875664b9",
+      "document": "城镇内涝防治技术规范.pdf",
+      "section_path": "2 术语和符号 > 2.1 术语 > 2.1.11",
+      "section_labels": [
+        "2",
+        "2.1",
+        "2.1.11"
+      ],
+      "body": "2.1.11 源头减排source control\n雨水降落下垫面形成径流，在排入市政排水管渠系统之前，通之前，通\n过渗透、净化和滞蓄等措施，控制雨水径流产生、减排雨水径流污\n染、收集利用雨水和削减峰值流量。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        9
+      ],
+      "bboxes": [
+        {
+          "physical_page": 9,
+          "bbox": [
+            53.5,
+            125.0,
+            225.0,
+            137.0
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            75.5,
+            141.0,
+            348.5,
+            152.5
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            308.5529127201694,
+            142.4988190537199,
+            346.9420775998172,
+            151.13511111758172
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            53.5,
+            155.5,
+            349.5,
+            169.0
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            54.5,
+            173.5,
+            213.0,
+            183.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0009.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_696135cd9681f0096dbb2ec6efaa27b2",
+      "document": "城镇内涝防治技术规范.pdf",
+      "section_path": "7 运行维护 > 7.3 应急管理 > 7.3.1",
+      "section_labels": [
+        "7",
+        "7.3",
+        "7.3.1"
+      ],
+      "body": "7.3.1 城镇内涝防治应急管理体系应包括城镇内涝防治预警系\n统、应急系统和评价系统。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        34
+      ],
+      "bboxes": [
+        {
+          "physical_page": 34,
+          "bbox": [
+            45.5,
+            202.5,
+            342.5,
+            217.0
+          ]
+        },
+        {
+          "physical_page": 34,
+          "bbox": [
+            47.0,
+            220.0,
+            165.5,
+            231.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0034.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_a7b0abc6d7934029ad7e6679328aec19",
+      "document": "城镇内涝防治技术规范.pdf",
+      "section_path": "2 术语和符号 > 2.1 术语 > 2.1.2",
+      "section_labels": [
+        "2",
+        "2.1",
+        "2.1.2"
+      ],
+      "body": "2.1.2 城镇内涝urban flooding\n城镇范围内的强降雨或连续性降雨超过城镇雨水设施消纳能\n力，导致城镇地面产生积水的现象。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        8
+      ],
+      "bboxes": [
+        {
+          "physical_page": 8,
+          "bbox": [
+            46.0,
+            203.0,
+            215.0,
+            216.0
+          ]
+        },
+        {
+          "physical_page": 8,
+          "bbox": [
+            68.0,
+            219.5,
+            342.0,
+            231.5
+          ]
+        },
+        {
+          "physical_page": 8,
+          "bbox": [
+            47.0,
+            234.5,
+            213.0,
+            247.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0008.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_07d2aab4158beb898aecba3da7da193b",
+      "document": "城镇内涝防治技术规范.pdf",
+      "section_path": "4 源头减排设施 > 4.1 一般规定 > 4.1.4",
+      "section_labels": [
+        "4",
+        "4.1",
+        "4.1.4"
+      ],
+      "body": "4.1.4 源头减排设施的类型，应根据该地区的地理位置、水系特\n征和场地条件等因素确定。同一地区或项目，可采用单一形式或\n多种形式组合的源头减排设施。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        16
+      ],
+      "bboxes": [
+        {
+          "physical_page": 16,
+          "bbox": [
+            47.0,
+            235.5,
+            342.0,
+            247.0
+          ]
+        },
+        {
+          "physical_page": 16,
+          "bbox": [
+            46.0,
+            249.0,
+            343.0,
+            264.5
+          ]
+        },
+        {
+          "physical_page": 16,
+          "bbox": [
+            47.5,
+            266.5,
+            190.5,
+            279.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0016.png"
+      ]
+    }
+  ]
+}

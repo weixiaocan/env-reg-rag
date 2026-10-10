@@ -1,0 +1,407 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "source_pdf": "data/raw/标准和规范&参考资料/GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_a4de4d5b3a8124e6ba1c938ea193505d",
+      "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "section_path": "9 管道功能性试验 > 9.2 压力管道水压试验 > 9.2.10",
+      "section_labels": [
+        "9",
+        "9.2",
+        "9.2.10"
+      ],
+      "body": "第2款规定预试验程序和要求，参考国外相关标准，预试验\n主要目的是在试验压力下检查管道接口、配件等处有无漏水、损\n坏现象；发现有无漏水、损坏现象应停止试压；并查明原因采取\n相应措施后重新试压。预试验对于保证主试验成功是完全必\n要的。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        244
+      ],
+      "bboxes": [
+        {
+          "physical_page": 244,
+          "bbox": [
+            84.0,
+            418.5,
+            358.0,
+            430.5
+          ]
+        },
+        {
+          "physical_page": 244,
+          "bbox": [
+            64.5,
+            433.5,
+            358.0,
+            445.5
+          ]
+        },
+        {
+          "physical_page": 244,
+          "bbox": [
+            63.311228577519806,
+            449.10020019117803,
+            357.5,
+            460.0
+          ]
+        },
+        {
+          "physical_page": 244,
+          "bbox": [
+            62.5,
+            464.0,
+            358.5,
+            476.5
+          ]
+        },
+        {
+          "physical_page": 244,
+          "bbox": [
+            62.0,
+            478.36848246859455,
+            92.0,
+            492.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/fd10712cb0f7-p0244.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_936d2b4a5974a75b215ef5331c822aa1",
+      "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "section_path": "4 土石方与地基处理 > 4.2 施工降排水 > 4.2.7",
+      "section_labels": [
+        "4",
+        "4.2",
+        "4.2.7"
+      ],
+      "body": "4.2.7 施工单位应采取有效措施控制施工降排水对周边环境的\n影响。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        22
+      ],
+      "bboxes": [
+        {
+          "physical_page": 22,
+          "bbox": [
+            60.5,
+            337.0,
+            358.0,
+            352.0
+          ]
+        },
+        {
+          "physical_page": 22,
+          "bbox": [
+            60.0,
+            352.1790031413725,
+            93.0,
+            368.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/fd10712cb0f7-p0022.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_5b98896f19848260033e812146b68bab",
+      "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "section_path": "6.6 定向钻及夯管 > 6.6.4",
+      "section_labels": [
+        "6.6",
+        "6.6.4"
+      ],
+      "body": "6.6.4 定向钻施工应符合下列规定：\n1 导向孔钻进应符合下列规定：\n1）钻机必须先进行试运转，确定各部分运转正常后方\n可钻进；\n2）第一根钻杆入土钻进时，应采取轻压慢转的方式，\n稳定钻进导入位置和保证入土角；且入土段和出土\n段应为直线钻进，其直线长度宜控制在20m左右；\n3）钻孔时应匀速钻进，并严格控制钻进给进力和钻进\n方向；\n4）每进一根钻杆应进行钻进距离、深度、侧向位移等\n的导向探测，曲线段和有相邻管线段应加密探测；\n5）保持钻头正确姿态，发生偏差应及时纠正，且采用\n小角度逐步纠偏；钻孔的轨迹偏差不得大于终孔直\n径，超出误差允许范围宜退回进行纠偏；\n6）绘制钻孔轨迹平面、剖面图；",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        110
+      ],
+      "bboxes": [
+        {
+          "physical_page": 110,
+          "bbox": [
+            56.5,
+            172.0,
+            227.0,
+            185.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            77.0,
+            188.0,
+            227.0,
+            200.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            96.5,
+            202.0,
+            353.5,
+            216.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            113.0,
+            218.5,
+            153.5,
+            232.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            96.5,
+            233.0,
+            353.5,
+            247.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            114.0,
+            248.5,
+            354.5,
+            262.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            114.0,
+            264.0,
+            344.0,
+            278.0
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            97.5,
+            279.72800930711196,
+            354.5,
+            293.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            113.0,
+            296.0,
+            144.0,
+            310.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            98.5,
+            310.5,
+            355.5,
+            324.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            115.0,
+            326.0,
+            342.0,
+            339.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            99.0,
+            341.5,
+            355.5,
+            355.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            115.5,
+            356.9770822032441,
+            356.0,
+            370.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            115.5,
+            372.5,
+            300.5,
+            386.5
+          ]
+        },
+        {
+          "physical_page": 110,
+          "bbox": [
+            99.0,
+            388.1645961054092,
+            248.5,
+            401.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/fd10712cb0f7-p0110.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_689694c4af4f927aee1651156c031c47",
+      "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "section_path": "3 基本规定 > 3.2 质量验收基本规定 > 3.2.13",
+      "section_labels": [
+        "3",
+        "3.2",
+        "3.2.13"
+      ],
+      "body": "3.2.13 参加验收各方对工程质量验收意见不一致时，可由工程\n所在地建设行政主管部门或工程质量监督机构协调解决。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        19
+      ],
+      "bboxes": [
+        {
+          "physical_page": 19,
+          "bbox": [
+            45.0,
+            320.0,
+            342.5,
+            336.0
+          ]
+        },
+        {
+          "physical_page": 19,
+          "bbox": [
+            45.5,
+            335.0,
+            305.5,
+            351.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/fd10712cb0f7-p0019.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_ba6b560ef275decf6b4fedc2dd01720f",
+      "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "section_path": "5.5 球墨铸铁管安装 > 5.5.1",
+      "section_labels": [
+        "5.5",
+        "5.5.1"
+      ],
+      "body": "5.5.1 管节及管件的规格、尺寸公差、性能应符合国家有关标\n准规定和设计要求，进入施工现场时其外观质量应符合下列\n规定：\n1 管节及管件表面不得有裂纹，不得有妨碍使用的凹凸不\n平的缺陷；\n2 采用橡胶圈柔性接口的球墨铸铁管，承口的内工作面和\n插口的外工作面应光滑、轮廓清晰，不得有影响接口密封性的\n缺陷。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        55
+      ],
+      "bboxes": [
+        {
+          "physical_page": 55,
+          "bbox": [
+            45.0,
+            317.5,
+            342.5,
+            336.5
+          ]
+        },
+        {
+          "physical_page": 55,
+          "bbox": [
+            45.0,
+            333.0,
+            342.0,
+            352.5
+          ]
+        },
+        {
+          "physical_page": 55,
+          "bbox": [
+            44.0,
+            348.0,
+            76.0,
+            364.0
+          ]
+        },
+        {
+          "physical_page": 55,
+          "bbox": [
+            64.0,
+            364.0,
+            342.0,
+            384.0
+          ]
+        },
+        {
+          "physical_page": 55,
+          "bbox": [
+            43.5,
+            378.5,
+            96.0,
+            395.5
+          ]
+        },
+        {
+          "physical_page": 55,
+          "bbox": [
+            63.0,
+            394.5,
+            341.5,
+            415.0
+          ]
+        },
+        {
+          "physical_page": 55,
+          "bbox": [
+            43.0,
+            409.5,
+            342.0,
+            430.0
+          ]
+        },
+        {
+          "physical_page": 55,
+          "bbox": [
+            42.0,
+            423.5,
+            75.5,
+            441.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/fd10712cb0f7-p0055.png"
+      ]
+    }
+  ]
+}

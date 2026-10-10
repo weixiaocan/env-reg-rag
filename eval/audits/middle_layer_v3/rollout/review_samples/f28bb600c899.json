@@ -1,0 +1,379 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
+  "document": "GBT 28592-2012降水量等级.pdf",
+  "source_pdf": "data/raw/_official_verification/GBT-28592-2012-official.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_a061cdd37c22233b41e4e0d07142d841",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "5 降雪量等级划分",
+      "section_labels": [
+        "5"
+      ],
+      "body": "[1]《大气科学辞典》编委会.大气科学辞典.北京：气象出版社，1994.b√\n[2]地面气象观测规范.北京：气象出版社，2003.\n[3]朱炳海，王鹏飞，束家鑫主编.气象学词典.上海：上海辞书出版社，1985.\n[4]中国气象局第16号令.气象灾害预警信号发布与传播办法.北京，2007年6月12日发布.\n中华人民共和国\n国家标准\n降水量等级\nGB/T 285922012\n中国标准出版社出版发行\n北京市朝阳区和平里西街甲2号(100013)\n北京市西城区三里河北街16号(100045）\n网址 www.spc.net.cn\n总编室：(010)64275323 发行中心：(010)51780235\n读者服务部：(010)68523946\n中国标准出版社秦皇岛印刷厂印刷\n各地新华书店经销\n开本 880 ×1230 1/16 印张 0.5 字数 7 千字\n2012年8月第一版2012年8月第一次印刷\n书号：155066·1-45386 定价 14.00 元\n如有印装差错由本社发行中心调换\n版权专有侵权必究\n举报电话：(010)68510107",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        6,
+        7
+      ],
+      "bboxes": [
+        {
+          "physical_page": 6,
+          "bbox": [
+            109.5,
+            139.5,
+            428.5,
+            155.5
+          ]
+        },
+        {
+          "physical_page": 6,
+          "bbox": [
+            132.00000270720452,
+            144.4799970672503,
+            142.08000291393648,
+            150.23999695033004
+          ]
+        },
+        {
+          "physical_page": 6,
+          "bbox": [
+            109.5,
+            156.5,
+            339.0,
+            170.5
+          ]
+        },
+        {
+          "physical_page": 6,
+          "bbox": [
+            109.44000224451864,
+            171.8399965118791,
+            458.5,
+            186.5
+          ]
+        },
+        {
+          "physical_page": 6,
+          "bbox": [
+            108.96000223467426,
+            187.0,
+            539.5,
+            203.5
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            373.0,
+            469.0,
+            493.0,
+            481.5
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            394.0,
+            484.0,
+            473.0,
+            497.5
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            390.0,
+            499.1999898669113,
+            477.0,
+            513.5
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            393.5,
+            515.0,
+            473.0,
+            528.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            371.0,
+            544.0,
+            495.0,
+            556.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            351.0,
+            556.0,
+            515.0,
+            568.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            354.0,
+            569.0,
+            512.0,
+            579.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            382.0,
+            584.5,
+            483.5,
+            595.1999879182405
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            334.5,
+            596.0,
+            532.5,
+            607.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            379.0,
+            608.0,
+            488.0,
+            618.2399874505594
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            364.5,
+            621.5,
+            501.5,
+            633.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            396.0,
+            633.5,
+            470.5,
+            645.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            337.0,
+            661.5,
+            529.5,
+            673.5
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            343.5,
+            673.0,
+            522.0,
+            685.5
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            351.5,
+            700.0,
+            511.5,
+            712.5
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            348.0,
+            731.5,
+            517.5,
+            744.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            383.5,
+            743.5,
+            481.5,
+            758.0
+          ]
+        },
+        {
+          "physical_page": 7,
+          "bbox": [
+            374.0,
+            757.5,
+            492.5,
+            770.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0006.png",
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0007.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_3e4eeab1bb5d91d3dcbc7d2b5f885579",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "2 术语与定义",
+      "section_labels": [
+        "2"
+      ],
+      "body": "下列术语和定义适用于本文件。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        4
+      ],
+      "bboxes": [
+        {
+          "physical_page": 4,
+          "bbox": [
+            102.72000210669732,
+            275.03999441705787,
+            247.0,
+            292.79999405655377
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0004.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_79fa998c91c8ca0d6b400310087bdad9",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "GB/T 28592—2012",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        1
+      ],
+      "bboxes": [
+        {
+          "physical_page": 1,
+          "bbox": [
+            422.4000086630544,
+            168.0,
+            543.5,
+            184.79999624880853
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0001.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_8b887ab97a28070bee5a5ca3aceda0dc",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "4 降雨量等级划分",
+      "section_labels": [
+        "4"
+      ],
+      "body": "降雨分为微量降雨（零星小雨)、小雨、中雨、大雨、暴雨、大暴雨、特大暴雨共个等级。具体划分见\n表1。\n单位为毫米",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        4
+      ],
+      "bboxes": [
+        {
+          "physical_page": 4,
+          "bbox": [
+            102.0,
+            464.0,
+            545.0,
+            481.5
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            81.5,
+            482.5,
+            110.5,
+            497.5
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            497.0,
+            507.5,
+            544.5,
+            519.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0004.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_fb1acabf54533c2c2a2f674f6135cbec",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "ICS 07.060\nA 47",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        1
+      ],
+      "bboxes": [
+        {
+          "physical_page": 1,
+          "bbox": [
+            73.0,
+            25.5,
+            129.5,
+            38.5
+          ]
+        },
+        {
+          "physical_page": 1,
+          "bbox": [
+            73.44000150619014,
+            36.0,
+            99.84000204763105,
+            49.43999899643449
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0001.png"
+      ]
+    }
+  ]
+}

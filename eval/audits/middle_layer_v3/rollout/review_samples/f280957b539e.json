@@ -1,0 +1,218 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+  "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+  "source_pdf": "data/raw/标准和规范&参考资料/多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_6799b24e2e48d6ce491cf9205174f153",
+      "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "section_path": "5 试验条件和方法 > 5.4.3",
+      "section_labels": [
+        "5",
+        "5.4.3"
+      ],
+      "body": "(5)",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        12
+      ],
+      "bboxes": [
+        {
+          "physical_page": 12,
+          "bbox": [
+            503.5,
+            611.0,
+            529.5,
+            623.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f280957b539e-p0012.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_b641806a28683e2344aafa2125ca8d2b",
+      "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "section_path": "5 试验条件和方法 > 5.5 影响量影响试验 > 5.5.3",
+      "section_labels": [
+        "5",
+        "5.5",
+        "5.5.3"
+      ],
+      "body": "5.5.3 抗振性能试验\n(CSGPC)\n按GB/T 2423.43 中有关规定进行试验，结果应符合4.4.3的要求。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        14
+      ],
+      "bboxes": [
+        {
+          "physical_page": 14,
+          "bbox": [
+            69.0,
+            638.5,
+            172.0,
+            651.0
+          ]
+        },
+        {
+          "physical_page": 14,
+          "bbox": [
+            445.5,
+            655.5,
+            540.0,
+            713.0
+          ]
+        },
+        {
+          "physical_page": 14,
+          "bbox": [
+            90.0,
+            657.0,
+            400.0,
+            671.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f280957b539e-p0014.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_37bc782f693b41cf69309d3dadcf32ff",
+      "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "section_path": "5 试验条件和方法 > 5.4.1",
+      "section_labels": [
+        "5",
+        "5.4.1"
+      ],
+      "body": "(2)",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        12
+      ],
+      "bboxes": [
+        {
+          "physical_page": 12,
+          "bbox": [
+            508.0,
+            314.0,
+            529.5,
+            327.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f280957b539e-p0012.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_69e2eb697abf8b7f9f0d3e6dc7235175",
+      "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "section_path": "5 试验条件和方法 > 5.1 试验条件 > 5.1.2",
+      "section_labels": [
+        "5",
+        "5.1",
+        "5.1.2"
+      ],
+      "body": "5.1.2其他环境条件应符合下列规定：\na)外界磁场应小到对流量仪的影响可忽略不计；\nb）机械振动和噪声应小到对流量仪的影响可忽略不计；\nc)试验时要避开或消除所有与流量仪工作频率接近的其他干扰。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        10
+      ],
+      "bboxes": [
+        {
+          "physical_page": 10,
+          "bbox": [
+            68.5,
+            548.5,
+            249.5,
+            561.5
+          ]
+        },
+        {
+          "physical_page": 10,
+          "bbox": [
+            106.50373588273067,
+            564.0,
+            335.5,
+            576.5
+          ]
+        },
+        {
+          "physical_page": 10,
+          "bbox": [
+            105.5,
+            579.0,
+            366.5,
+            593.0
+          ]
+        },
+        {
+          "physical_page": 10,
+          "bbox": [
+            106.0,
+            595.0,
+            409.5,
+            608.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f280957b539e-p0010.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_da84e1de29a18dacc7dec7cd6452aa25",
+      "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "section_path": "5 试验条件和方法 > 5.2 外观及功能检查 > 5.2.8",
+      "section_labels": [
+        "5",
+        "5.2",
+        "5.2.8"
+      ],
+      "body": "5.2.8 长时间稳定工作\n流量仪90天的连续运行无故障。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        11
+      ],
+      "bboxes": [
+        {
+          "physical_page": 11,
+          "bbox": [
+            68.5,
+            248.0,
+            182.5,
+            261.5
+          ]
+        },
+        {
+          "physical_page": 11,
+          "bbox": [
+            90.5,
+            267.5,
+            240.0,
+            280.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f280957b539e-p0011.png"
+      ]
+    }
+  ]
+}

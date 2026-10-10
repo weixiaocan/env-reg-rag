@@ -178,6 +178,18 @@ def _try_two_column(
     if edge_gutter < COLUMN_EDGE_GUTTER_MIN_RATIO * page_width:
         return None
 
+    # Two columns must coexist vertically. Staggered short headings on a
+    # single-column page can leave a real horizontal gap but never form two
+    # parallel reading streams.
+    overlapping_pairs = sum(
+        max(bboxes[left][1], bboxes[right][1])
+        < min(bboxes[left][3], bboxes[right][3])
+        for left in left_indices
+        for right in right_indices
+    )
+    if overlapping_pairs < 2:
+        return None
+
     return best_split, best_gap
 
 

@@ -1,0 +1,224 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+  "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+  "source_pdf": "data/raw/标准和规范&参考资料/短时气象服务降雨量等级TCMSA-2019.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_de0ae1d73b4cdff8192ff3eefe475b31",
+      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "section_path": "1 范围",
+      "section_labels": [
+        "1"
+      ],
+      "body": "本标准规定了短时气象服务相关的降雨量的等级划分。本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。\n本标准规定了短时气象服务相关的降雨量的等级划分。本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        5
+      ],
+      "bboxes": [
+        {
+          "physical_page": 5,
+          "bbox": [
+            89.1088843097783,
+            211.24058066426994,
+            338.16317773466204,
+            221.3248340551936
+          ]
+        },
+        {
+          "physical_page": 5,
+          "bbox": [
+            89.33080735241661,
+            226.84283163517478,
+            442.4290466761034,
+            237.34092495831104
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0005.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_1da38ec29e2cf3704b9447114a25dbed",
+      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "section_path": "3 等级划分",
+      "section_labels": [
+        "3"
+      ],
+      "body": "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        5,
+        6
+      ],
+      "bboxes": [
+        {
+          "physical_page": 5,
+          "bbox": [
+            70.8239974975586,
+            508.7989501953125,
+            538.8845825195312,
+            534.9589233398438
+          ]
+        },
+        {
+          "physical_page": 6,
+          "bbox": [
+            452.5,
+            145.5290069580078,
+            529.0,
+            154.5290069580078
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0005.png",
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0006.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_a24fa682940bb98eae64c0cbdf6e829f",
+      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "2019 - 11 - 06 发布2019 - 11 - 06 实施\n2019 - 11 - 06 发布\n2019 - 11 - 06 实施\n2019 - 11 - 06 发布2019 - 11 - 06 实施\n中国气象服务协会 发布",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        1
+      ],
+      "bboxes": [
+        {
+          "physical_page": 1,
+          "bbox": [
+            436.6534237010537,
+            712.9220973586154,
+            553.4392495892464,
+            726.1002090313161
+          ]
+        },
+        {
+          "physical_page": 1,
+          "bbox": [
+            70.94400024414062,
+            712.9903564453125,
+            557.77001953125,
+            728.5326538085938
+          ]
+        },
+        {
+          "physical_page": 1,
+          "bbox": [
+            69.14053913347982,
+            713.109892853681,
+            185.96410643795173,
+            726.1528919509661
+          ]
+        },
+        {
+          "physical_page": 1,
+          "bbox": [
+            234.41000366210938,
+            750.5396118164062,
+            388.4499816894531,
+            764.57958984375
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0001.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_284049e82344403b25cc4bcb524fa2a2",
+      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "本标准按照GB/T 1.1－2009 给出的规则起草。本标准由中国气象服务协会提出并归口。本标准起草单位：中国气象局公共气象服务中心。本标准主要起草人：王曙东、张国平、惠建忠、高金兵、胡骏楠、何佳、何险峰。\n本标准按照GB/T 1.1－2009 给出的规则起草。本标准由中国气象服务协会提出并归口。本标准起草单位：中国气象局公共气象服务中心。本标准主要起草人：王曙东、张国平、惠建忠、高金兵、胡骏楠、何佳、何险峰。\n本标准按照GB/T 1.1－2009 给出的规则起草。本标准由中国气象服务协会提出并归口。本标准起草单位：中国气象局公共气象服务中心。本标准主要起草人：王曙东、张国平、惠建忠、高金兵、胡骏楠、何佳、何险峰。\n本标准按照GB/T 1.1－2009 给出的规则起草。本标准由中国气象服务协会提出并归口。本标准起草单位：中国气象局公共气象服务中心。本标准主要起草人：王曙东、张国平、惠建忠、高金兵、胡骏楠、何佳、何险峰。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        4
+      ],
+      "bboxes": [
+        {
+          "physical_page": 4,
+          "bbox": [
+            75.25479685625359,
+            188.2739253998481,
+            287.07294325362506,
+            198.74207426114833
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            75.27251423240561,
+            203.9312979076177,
+            260.8989854770225,
+            214.28990671997104
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            75.30101251661296,
+            219.82457916901572,
+            303.36743725640775,
+            230.13966635341808
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            75.23896874773835,
+            235.31676282238672,
+            449.06938305486807,
+            245.85064450086483
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0004.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_67458c2cd6515c067d244da9928c7a7d",
+      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "ICS 29.050\nK10",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        1
+      ],
+      "bboxes": [
+        {
+          "physical_page": 1,
+          "bbox": [
+            70.8239974975586,
+            47.688968658447266,
+            128.66000366210938,
+            90.14094543457031
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0001.png"
+      ]
+    }
+  ]
+}

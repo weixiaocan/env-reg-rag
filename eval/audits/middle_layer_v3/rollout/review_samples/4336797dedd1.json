@@ -1,0 +1,306 @@
+{
+  "schema_version": "middle-layer-v3-review-samples/1",
+  "seed": "middle-layer-v3-r2-review-samples-v1",
+  "sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+  "document": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+  "source_pdf": "data/raw/_official_verification/Chongqing-rain-sewage-guide-official.pdf",
+  "requested_sample_count": 5,
+  "sample_count": 5,
+  "samples": [
+    {
+      "chunk_id": "chunk_f162881ee408922ca5ab0a6a31050b59",
+      "document": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "袁江 刘恋秋 翁江 向 翌谭金强翁文江向\n杨帆刘云苗张\n李俊池郑荐升欧泽天娟李\n杨丽莉周华皮璐磊\n审查专家：王峰青 盛国荣 圃 蒲贵兵白静",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        5
+      ],
+      "bboxes": [
+        {
+          "physical_page": 5,
+          "bbox": [
+            114.0,
+            230.5,
+            315.7524836954211,
+            246.5
+          ]
+        },
+        {
+          "physical_page": 5,
+          "bbox": [
+            115.0,
+            231.5,
+            295.5,
+            246.0
+          ]
+        },
+        {
+          "physical_page": 5,
+          "bbox": [
+            114.0,
+            246.5,
+            232.5,
+            264.5
+          ]
+        },
+        {
+          "physical_page": 5,
+          "bbox": [
+            114.0,
+            262.0,
+            315.5,
+            280.5
+          ]
+        },
+        {
+          "physical_page": 5,
+          "bbox": [
+            114.0,
+            277.0,
+            315.5,
+            297.0
+          ]
+        },
+        {
+          "physical_page": 5,
+          "bbox": [
+            68.5,
+            295.5,
+            315.5,
+            310.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/4336797dedd1-p0005.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_24bf0fd4cf9ccb30a521021528cba145",
+      "document": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "section_path": "5 市政道路项目评价 > 5.1 评分项 > 5.1.4",
+      "section_labels": [
+        "5",
+        "5.1",
+        "5.1.4"
+      ],
+      "body": "5.1.4 雨污管网分流评价总分值为10分。\n项目改造范围内应有两套独立完整的雨水、污水管网系统，\n不应存在雨污合流区域。若项目改造范围内仅具备一套管网系\n统，或存在雨污合流区域，扣10分。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        21
+      ],
+      "bboxes": [
+        {
+          "physical_page": 21,
+          "bbox": [
+            46.0,
+            261.5,
+            242.5,
+            274.0
+          ]
+        },
+        {
+          "physical_page": 21,
+          "bbox": [
+            68.14111350265927,
+            278.6908594418878,
+            339.0,
+            289.0
+          ]
+        },
+        {
+          "physical_page": 21,
+          "bbox": [
+            47.98669964976005,
+            295.0,
+            339.0,
+            305.5
+          ]
+        },
+        {
+          "physical_page": 21,
+          "bbox": [
+            47.0,
+            311.0,
+            205.5,
+            322.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/4336797dedd1-p0021.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_360e09120d645eaa44509ffe605c932d",
+      "document": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "section_path": "3 基本规定 > 3.2 评价指标及评价方法 > 3.2.5",
+      "section_labels": [
+        "3",
+        "3.2",
+        "3.2.5"
+      ],
+      "body": "3.2.5排水分区项目评价指标见表3.2.5。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        15
+      ],
+      "bboxes": [
+        {
+          "physical_page": 15,
+          "bbox": [
+            45.0,
+            518.0,
+            244.5,
+            531.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/4336797dedd1-p0015.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_5f31bfd09914101348a5997ee222258d",
+      "document": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "section_path": "2 术语和符号 > 2.2 符号 > 2.2.1",
+      "section_labels": [
+        "2",
+        "2.2",
+        "2.2.1"
+      ],
+      "body": "M1—分流改造前后水质浓度提升率；\nC1——分流改造前污水关键节点(检查井)COD浓度(mg/\nL);\nC——分流改造后污水关键节点(检查井)COD浓度(mg/\nL)。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        13
+      ],
+      "bboxes": [
+        {
+          "physical_page": 13,
+          "bbox": [
+            66.22164551666887,
+            84.42270440924658,
+            247.0,
+            99.5
+          ]
+        },
+        {
+          "physical_page": 13,
+          "bbox": [
+            66.5,
+            100.0,
+            340.5,
+            115.5
+          ]
+        },
+        {
+          "physical_page": 13,
+          "bbox": [
+            101.0,
+            117.5,
+            122.5,
+            131.5
+          ]
+        },
+        {
+          "physical_page": 13,
+          "bbox": [
+            65.5,
+            132.0,
+            340.5,
+            149.0
+          ]
+        },
+        {
+          "physical_page": 13,
+          "bbox": [
+            100.5,
+            149.5,
+            123.5,
+            164.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/4336797dedd1-p0013.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_ce974a38e97e6ba14f258c4a9933fddd",
+      "document": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "section_path": "5 市政道路项目评价 > 5.1 评分项 > 5.1.10",
+      "section_labels": [
+        "5",
+        "5.1",
+        "5.1.10"
+      ],
+      "body": "5.1.10 雨污分流项目改造后需加强排水设施日常运行维护，严\n格按照《城镇排水管渠与泵站运行、维护及安全技术规程》CJJ68、\n《城镇排水管道维护安全技术规程》CJ6等国家及重庆市相关标\n准要求，督促运维单位制定实施排水管网巡查、养护、维修方案，\n对巡查发现的问题及时整改、动态清零。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        37
+      ],
+      "bboxes": [
+        {
+          "physical_page": 37,
+          "bbox": [
+            46.0,
+            249.43071757277397,
+            340.0,
+            262.5
+          ]
+        },
+        {
+          "physical_page": 37,
+          "bbox": [
+            46.0,
+            266.5,
+            340.0,
+            278.5
+          ]
+        },
+        {
+          "physical_page": 37,
+          "bbox": [
+            47.0,
+            283.0079295537243,
+            339.5,
+            293.5
+          ]
+        },
+        {
+          "physical_page": 37,
+          "bbox": [
+            47.0,
+            298.83718663045806,
+            339.0,
+            310.0
+          ]
+        },
+        {
+          "physical_page": 37,
+          "bbox": [
+            47.0,
+            315.5,
+            226.5,
+            327.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/4336797dedd1-p0037.png"
+      ]
+    }
+  ]
+}
