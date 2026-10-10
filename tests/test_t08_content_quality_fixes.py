@@ -145,7 +145,8 @@ class RerouteShrinkGuardTest(unittest.TestCase):
         self.assertEqual(page["decision_status"], "approved")
 
     def test_config_id_is_bumped_for_the_new_gate_semantics(self):
-        # stale v7 caches must never be reused under the amended gates
+        # R2b routing is applied to existing artifacts during v3 preparation;
+        # the extractor config stays stable so unrelated cached pages are not rebuilt.
         ex = AutomaticPageExtractor(project_root=self.root, enable_ocr=True)
         self.assertIn("auto-page-v9", ex.config_id)
         self.assertIn("native-quality=mojibake-v2", ex.config_id)

@@ -136,7 +136,9 @@ def prepare_page_document_v3(
         }
         ocr_pages = 0
         for page_index, page in enumerate(doc.get("pages") or []):
-            if page.get("extraction_route") not in {"full_ocr", "hybrid"}:
+            if page.get("extraction_route") not in {
+                "full_ocr", "hybrid", "scanned_with_text_layer",
+            }:
                 continue
             physical_page = int(page.get("physical_page") or page_index + 1)
             independent_page = load_independent_ocr_page(
@@ -355,7 +357,13 @@ def _lines_in_region(
         if assigned and assigned != region_id:
             continue
         bbox = _bbox(element.get("bbox"))
-        if bbox and _containment(region, bbox) >= 0.5 and str(element.get("text") or "").strip():
+        # Three-source assembly already assigns boundary-spanning OCR lines by
+        # their centre point.  Trust that explicit assignment: applying the
+        # 50% containment gate again can drop the final line of one region
+        # when its OCR bbox slightly overlaps the following region.
+        belongs = bool(assigned and assigned == region_id)
+        if (bbox and (belongs or _containment(region, bbox) >= 0.5)
+                and str(element.get("text") or "").strip()):
             selected.append(deepcopy(element))
     selected.sort(key=lambda item: (_bbox(item["bbox"])[1], _bbox(item["bbox"])[0], str(item.get("element_id") or "")))
     return _deduplicate_overlapping_lines(selected)

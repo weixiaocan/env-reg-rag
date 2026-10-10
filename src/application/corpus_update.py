@@ -375,6 +375,12 @@ class AutomaticPageExtractor:
         path = self.project_root / asset.canonical_rel_path
         native = self.native.parse_page(path, physical_page=physical_page)
         count = native["quality"]["metrics"]["non_whitespace_characters"]
+        if native["extraction_route"] == "scanned_with_text_layer":
+            return self._page(
+                native,
+                status="quarantine",
+                reasons=["scanned_with_text_layer_requires_ocr_vote"],
+            )
         if native["quality"]["status"] == "pass" and count >= self.minimum_native_characters:
             return self._page(native, status="approved", reasons=[])
         reasons = list(native["quality"]["reasons"])

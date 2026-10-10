@@ -26,6 +26,7 @@ from src.ingestion.ocr_preprocessing import (  # noqa: E402
     PreprocessConfig,
     preprocess_ocr_image,
 )
+from src.ingestion.native_pdf import scanned_text_layer_pages  # noqa: E402
 
 MODEL_DIR = ROOT / "data/model_runtime/independent_ocr/rapidocr-3.9.2-ppocrv6"
 MODEL_FILES = (
@@ -112,10 +113,12 @@ def main() -> int:
         "confidence_threshold": CONFIDENCE, "model_hashes": model_hashes,
         "region_alignment": "unique-contiguous-exact-subset-v2",
         "selection": (
-            "page.extraction_route in {full_ocr, hybrid}"
+            "page.extraction_route in {full_ocr, hybrid, scanned_with_text_layer} "
+            "OR current PDF route rule detects scanned_with_text_layer"
             if args.ocr_routed_only else
-            "page.extraction_route == full_ocr OR page has an unresolved "
-            "original_full_page_image_layout_semantics_not_independently_verified signal"
+            "page.extraction_route in {full_ocr, hybrid, scanned_with_text_layer} OR "
+            "current PDF route rule detects scanned_with_text_layer OR page has an "
+            "unresolved original_full_page_image_layout_semantics_not_independently_verified signal"
         ),
         "structure_audit_sha256": sha256_file(structure_audit_path),
         "max_pages": args.max_pages,
@@ -130,11 +133,29 @@ def main() -> int:
     pages_dir.mkdir(parents=True, exist_ok=True)
     engine = RapidOCR(params={"Global.model_root_dir": str(MODEL_DIR.resolve()),
                               "Global.log_level": "warning"})
+    scanned_keys: set[tuple[str, int]] = set()
+    for doc in documents:
+        sha = str(doc["sha256"])
+        if selected_hashes and sha.lower() not in selected_hashes:
+            continue
+        candidate_pages = {
+            int(page.get("physical_page") or index + 1)
+            for index, page in enumerate(doc.get("pages") or [])
+            if not selected_pages or int(page.get("physical_page") or index + 1) in selected_pages
+        }
+        pdf_path = ROOT / str(assets[sha]["canonical_rel_path"])
+        scanned_keys.update(
+            (sha, physical_page)
+            for physical_page in scanned_text_layer_pages(
+                pdf_path, physical_pages=candidate_pages).keys()
+        )
     selected = [
         (doc, page)
         for doc in documents
         for page in doc.get("pages") or []
-        if (page.get("extraction_route") in {"full_ocr", "hybrid"} or
+        if (page.get("extraction_route") in {
+                "full_ocr", "hybrid", "scanned_with_text_layer"} or
+            (str(doc["sha256"]), int(page["physical_page"])) in scanned_keys or
             (not args.ocr_routed_only and
              (str(doc["sha256"]), int(page["physical_page"])) in full_page_signal_keys))
         and (not selected_hashes or str(doc["sha256"]).lower() in selected_hashes)

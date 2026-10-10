@@ -41,7 +41,9 @@ CellRole = Literal["header", "stub", "data", "unknown"]
 # fields are OPTIONAL (absent on pre-T02 artifacts) and EXCLUDED from the
 # content/canonical digests (see _DIGEST_EXCLUDED_*_FIELDS) so that adding them
 # never changes the identity of already-published artifacts.
-ExtractionRoute = Literal["native", "full_ocr", "hybrid", "failed"]
+ExtractionRoute = Literal[
+    "native", "full_ocr", "hybrid", "scanned_with_text_layer", "failed",
+]
 PageDecisionStatus = Literal["approved", "quarantine", "failed"]
 QualityStatus = Literal["passed", "needs_review", "quarantined"]
 

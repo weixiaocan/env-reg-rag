@@ -8,7 +8,7 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_801333fed9b21f3d0f7ebf87a3ec2597",
+      "chunk_id": "chunk_e59d0dae3c4cb526c898f033c43df705",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "4 区域降雨过程等级 > 4.2 区域降雨过程等级",
       "section_labels": [
@@ -38,12 +38,12 @@
       ]
     },
     {
-      "chunk_id": "chunk_68c0e9af66368cd7ff3139a2dbb0cfa5",
+      "chunk_id": "chunk_1cbf8d5294314b97a0db67ac20d2de49",
       "document": "QXT 489－2019 降雨过程等级.pdf",
-      "section_path": "2 术语和定义 > 2.1",
+      "section_path": "2 术语和定义 > 2.2",
       "section_labels": [
         "2",
-        "2.1"
+        "2.2"
       ],
       "body": "某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上累积的深度。\n2.3",
       "element_types": [
@@ -77,7 +77,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_c5fffc97f440fd14d77843d941a44950",
+      "chunk_id": "chunk_80e94cf29757523a52888349321e4f4c",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "2 术语和定义 > 2.1",
       "section_labels": [
@@ -107,7 +107,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_e28c3b43958809011b1078b778144d1f",
+      "chunk_id": "chunk_c8d0e04563547e208725ab9ff6cdae9f",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "",
       "section_labels": [],
@@ -143,7 +143,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_c481c3ff1ddef8e11fc2f5fe4b23c6a1",
+      "chunk_id": "chunk_922185d009f004043f8b227c84a18bfd",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "",
       "section_labels": [],

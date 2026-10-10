@@ -11,6 +11,74 @@ from typing import Any
 import pymupdf
 
 
+SCANNED_IMAGE_COVERAGE_THRESHOLD = 0.80
+
+
+def scanned_text_layer_evidence(page: pymupdf.Page) -> dict[str, Any]:
+    """Return evidence for a scan image carrying an invisible OCR text layer.
+
+    A full-page decorative/background image is not sufficient: visible vector
+    text keeps the page on the native route.  Third-party OCR layers in the M2
+    corpus use PDF text rendering mode 3 (invisible text).
+    """
+    page_area = float(page.rect.get_area())
+    coverages = []
+    for image in page.get_image_info(xrefs=True):
+        bbox = pymupdf.Rect(image.get("bbox") or (0, 0, 0, 0))
+        if page.rotation:
+            bbox = bbox * page.rotation_matrix
+        bbox &= page.rect
+        coverages.append(float(bbox.get_area()) / page_area if page_area else 0.0)
+    text = page.get_text("text", flags=pymupdf.TEXTFLAGS_TEXT & ~pymupdf.TEXT_PRESERVE_IMAGES)
+    traces = [trace for trace in page.get_texttrace() if trace.get("chars")]
+    invisible_only = bool(traces) and all(int(trace.get("type", -1)) == 3 for trace in traces)
+    maximum = max(coverages, default=0.0)
+    return {
+        "matched": bool(text.strip()) and maximum >= SCANNED_IMAGE_COVERAGE_THRESHOLD and invisible_only,
+        "maximum_image_coverage": round(maximum, 8),
+        "image_count": len(coverages),
+        "has_text_layer": bool(text.strip()),
+        "invisible_text_layer": invisible_only,
+        "threshold": SCANNED_IMAGE_COVERAGE_THRESHOLD,
+    }
+
+
+def scanned_text_layer_pages(
+    pdf_path: Path | str, *, physical_pages: set[int] | None = None,
+) -> dict[int, dict[str, Any]]:
+    """Inspect a PDF once and return matching physical pages with evidence."""
+    matches: dict[int, dict[str, Any]] = {}
+    with pymupdf.open(pdf_path) as document:
+        requested = physical_pages or set(range(1, document.page_count + 1))
+        for physical_page in sorted(requested):
+            if not 1 <= physical_page <= document.page_count:
+                continue
+            evidence = scanned_text_layer_evidence(document[physical_page - 1])
+            if evidence["matched"]:
+                matches[physical_page] = evidence
+    return matches
+
+
+def apply_scanned_text_layer_routes(
+    page_document: dict[str, Any], pdf_path: Path | str,
+) -> dict[int, dict[str, Any]]:
+    """Mark legacy page-intermediate rows using the current generic route rule."""
+    matches = scanned_text_layer_pages(pdf_path)
+    for index, page in enumerate(page_document.get("pages") or []):
+        physical_page = int(page.get("physical_page") or index + 1)
+        evidence = matches.get(physical_page)
+        if evidence is None:
+            continue
+        page["extraction_route"] = "scanned_with_text_layer"
+        page["decision_status"] = "quarantine"
+        page["decision_reasons"] = list(dict.fromkeys(
+            list(page.get("decision_reasons") or [])
+            + ["scanned_with_text_layer_requires_ocr_vote"]
+        ))
+        page["scanned_text_layer_evidence"] = evidence
+    return matches
+
+
 def _native_text_quality(text: str) -> dict[str, Any]:
     """Score native PDF text; symbol-only mojibake must fail so OCR can run."""
     return score_text(text)
@@ -41,6 +109,7 @@ class NativePdfParser:
             text = page.get_text("text", flags=text_flags)
             native_blocks = page.get_text("blocks", flags=block_flags)
             raw_dict = page.get_text("rawdict", flags=raw_flags)
+            scan_evidence = scanned_text_layer_evidence(page)
             rectangle = page.rect
             rotation = page.rotation
             rotation_matrix = page.rotation_matrix
@@ -87,7 +156,9 @@ class NativePdfParser:
             "width": float(rectangle.width),
             "height": float(rectangle.height),
             "rotation": int(rotation),
-            "extraction_route": "native",
+            "extraction_route": (
+                "scanned_with_text_layer" if scan_evidence["matched"] else "native"
+            ),
             "coordinate_origin": "top_left",
             "coordinate_normalizations": ([{'kind': 'pdf_rotation_matrix', 'rotation': int(rotation),
                                              'matrix': list(rotation_matrix)}] if rotation else []),
@@ -98,5 +169,6 @@ class NativePdfParser:
                 "text": text,
                 "blocks": raw_blocks,
                 "raw_dict": raw_dict,
+                "scanned_text_layer_evidence": scan_evidence,
             },
         }

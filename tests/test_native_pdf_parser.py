@@ -1,7 +1,12 @@
 import unittest
+import tempfile
+import hashlib
 from pathlib import Path
 
-from src.ingestion.native_pdf import NativePdfParser
+import pymupdf
+
+from src.application.corpus_update import AutomaticPageExtractor, ContentAsset
+from src.ingestion.native_pdf import NativePdfParser, apply_scanned_text_layer_routes
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -67,6 +72,86 @@ class NativePdfParserContractTest(unittest.TestCase):
             parser.parse_page(READABLE_NATIVE_PDF, physical_page=0)
         with self.assertRaisesRegex(ValueError, "physical_page"):
             parser.parse_page(READABLE_NATIVE_PDF, physical_page=10_000)
+
+
+class ScannedTextLayerRoutingTest(unittest.TestCase):
+    def setUp(self):
+        self.tmp = tempfile.TemporaryDirectory()
+        self.addCleanup(self.tmp.cleanup)
+        self.root = Path(self.tmp.name)
+        (self.root / "data" / "raw").mkdir(parents=True)
+
+    def _asset(self, name: str, *, image_rect, render_mode: int) -> ContentAsset:
+        image_pdf = pymupdf.open()
+        image_page = image_pdf.new_page(width=300, height=400)
+        image_page.draw_rect((0, 0, 300, 400), color=(0, 0, 0), fill=(0.95, 0.95, 0.95))
+        pixmap = image_page.get_pixmap()
+        image_pdf.close()
+
+        pdf = pymupdf.open()
+        page = pdf.new_page(width=300, height=400)
+        page.insert_image(image_rect, pixmap=pixmap)
+        page.insert_text(
+            (30, 80),
+            "embedded OCR text layer with enough characters",
+            render_mode=render_mode,
+        )
+        path = self.root / "data" / "raw" / name
+        pdf.save(path)
+        pdf.close()
+        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        return ContentAsset(digest, f"data/raw/{name}", name, 1, (), {})
+
+    def test_full_page_scan_with_invisible_text_layer_routes_for_three_source_ocr(self):
+        asset = self._asset(
+            "scan-with-text.pdf", image_rect=(0, 0, 300, 400), render_mode=3)
+        parser = AutomaticPageExtractor(project_root=self.root, enable_ocr=False)
+
+        page = parser.extract(asset, physical_page=1)
+
+        self.assertEqual(page["extraction_route"], "scanned_with_text_layer")
+        self.assertEqual(page["decision_status"], "quarantine")
+        self.assertIn("scanned_with_text_layer_requires_ocr_vote", page["decision_reasons"])
+
+    def test_small_embedded_image_does_not_change_native_route(self):
+        asset = self._asset(
+            "native-small-image.pdf", image_rect=(20, 150, 140, 270), render_mode=3)
+
+        page = NativePdfParser().parse_page(
+            self.root / asset.canonical_rel_path, physical_page=1)
+
+        self.assertEqual(page["extraction_route"], "native")
+
+    def test_full_page_background_with_visible_vector_text_stays_native(self):
+        asset = self._asset(
+            "native-background.pdf", image_rect=(0, 0, 300, 400), render_mode=0)
+
+        page = NativePdfParser().parse_page(
+            self.root / asset.canonical_rel_path, physical_page=1)
+
+        self.assertEqual(page["extraction_route"], "native")
+
+    def test_existing_page_intermediate_is_reclassified_without_reextracting(self):
+        asset = self._asset(
+            "legacy-scan-with-text.pdf", image_rect=(0, 0, 300, 400), render_mode=3)
+        page_document = {
+            "pages": [{
+                "physical_page": 1,
+                "extraction_route": "native",
+                "decision_status": "approved",
+                "decision_reasons": [],
+            }],
+        }
+
+        evidence = apply_scanned_text_layer_routes(
+            page_document, self.root / asset.canonical_rel_path)
+
+        self.assertEqual(list(evidence), [1])
+        self.assertEqual(
+            page_document["pages"][0]["extraction_route"],
+            "scanned_with_text_layer",
+        )
+        self.assertEqual(page_document["pages"][0]["decision_status"], "quarantine")
 
 
 if __name__ == "__main__":

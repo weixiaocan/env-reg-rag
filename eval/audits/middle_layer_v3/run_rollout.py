@@ -3,10 +3,12 @@
 from __future__ import annotations
 
 from collections import Counter
+from copy import deepcopy
 import hashlib
 import json
 from pathlib import Path
 import random
+import re
 import sys
 from typing import Any
 
@@ -16,7 +18,9 @@ sys.path.insert(0, str(ROOT))
 
 from scripts.assemble_corpus_v2 import _assemble_one, _iter_page_documents  # noqa: E402
 from src.application.v2_chunker import chunk_document  # noqa: E402
+from src.evaluation.gold_anchor_exam import chunks_from_v2, grade  # noqa: E402
 from src.ingestion.block_assembly import prepare_page_document_v3  # noqa: E402
+from src.ingestion.native_pdf import apply_scanned_text_layer_routes  # noqa: E402
 from eval.audits.middle_layer_v3.run_pilot_gb55027 import (  # noqa: E402
     _chunk_row,
     _metrics,
@@ -27,16 +31,22 @@ CORPUS_VERSION = "corpus-0ae8a9423e2f"
 FORMULA_RUN = "5d3264515515e228"
 CLEAN_OCR_RUN = "ocrv6-fe621f3631762fd6"
 RAW_OCR_RUN = "ocrv6-ef06411e1606ba35"
+SCANNED_TEXT_CLEAN_OCR_RUN = "ocrv6-232ae585c76c8403"
+SCANNED_TEXT_RAW_OCR_RUN = "ocrv6-9873a4b3ba7ce25b"
 SAMPLE_SEED = "middle-layer-v3-r2-review-samples-v1"
 OUT = ROOT / "eval" / "audits" / "middle_layer_v3" / "rollout"
 
 
 def main() -> int:
     documents = _iter_page_documents(CORPUS_VERSION)
-    clean_dir = _ocr_dir(CLEAN_OCR_RUN)
-    raw_dir = _ocr_dir(RAW_OCR_RUN)
-    clean_manifest = _read_json(clean_dir / "run_manifest.json")
-    raw_manifest = _read_json(raw_dir / "run_manifest.json")
+    clean_manifests = {
+        run_id: _read_json(_ocr_dir(run_id) / "run_manifest.json")
+        for run_id in (CLEAN_OCR_RUN, SCANNED_TEXT_CLEAN_OCR_RUN)
+    }
+    raw_manifests = {
+        run_id: _read_json(_ocr_dir(run_id) / "run_manifest.json")
+        for run_id in (RAW_OCR_RUN, SCANNED_TEXT_RAW_OCR_RUN)
+    }
     registry_manifest = _read_json(ROOT / "data" / "registry" / f"{CORPUS_VERSION}.json")
     source_paths = {
         str(asset["sha256"]): ROOT / str(asset["canonical_rel_path"])
@@ -50,6 +60,7 @@ def main() -> int:
     image_dir.mkdir(parents=True, exist_ok=True)
 
     rows: list[dict[str, Any]] = []
+    exam_chunks = []
     metrics_rows: list[dict[str, Any]] = []
     failures: list[dict[str, str]] = []
     render_failures: list[dict[str, Any]] = []
@@ -59,16 +70,28 @@ def main() -> int:
         name = str(page_doc.get("file_name") or sha)
         print(f"[{index:02d}/{len(documents)}] {name}", flush=True)
         try:
+            legacy_page_doc = deepcopy(page_doc)
+            source_pdf = source_paths.get(sha)
+            if source_pdf is None:
+                raise FileNotFoundError(f"source PDF unavailable for routing: {name}")
+            route_evidence = apply_scanned_text_layer_routes(page_doc, source_pdf)
+            clean_run_id = (
+                SCANNED_TEXT_CLEAN_OCR_RUN if route_evidence else CLEAN_OCR_RUN
+            )
+            raw_run_id = SCANNED_TEXT_RAW_OCR_RUN if route_evidence else RAW_OCR_RUN
+            clean_dir = _ocr_dir(clean_run_id)
+            raw_dir = _ocr_dir(raw_run_id)
             prepared = prepare_page_document_v3(
                 page_doc,
                 independent_ocr_run_dir=str(clean_dir),
                 raw_independent_ocr_run_dir=str(raw_dir),
             )
             v3 = _assemble_one(
-                page_doc, FORMULA_RUN, CLEAN_OCR_RUN,
-                raw_independent_ocr_run_id=RAW_OCR_RUN, middle_layer="v3",
+                page_doc, FORMULA_RUN, clean_run_id,
+                raw_independent_ocr_run_id=raw_run_id, middle_layer="v3",
             )
             v3_chunks = chunk_document(v3)
+            exam_chunks.extend(chunks_from_v2(name, v3_chunks))
             document_rows = [_chunk_row(v3, chunk) for chunk in v3_chunks]
             rows.extend(document_rows)
         except Exception as exc:  # keep a complete, explicit failure ledger
@@ -80,7 +103,7 @@ def main() -> int:
         legacy_metrics: dict[str, Any] | None = None
         try:
             legacy = _assemble_one(
-                page_doc, FORMULA_RUN, RAW_OCR_RUN, middle_layer="legacy")
+                legacy_page_doc, FORMULA_RUN, RAW_OCR_RUN, middle_layer="legacy")
             legacy_chunks = chunk_document(legacy)
             legacy_metrics = _metrics(legacy, legacy_chunks)
         except Exception as exc:
@@ -90,6 +113,7 @@ def main() -> int:
             print(f"  FAILED legacy: {type(exc).__name__}: {exc}", flush=True)
 
         v3_metrics = _metrics(v3, v3_chunks)
+        _attach_continuity_source_evidence(v3_metrics, prepared)
         metrics_rows.append({
             "sha256": sha,
             "document": name,
@@ -98,6 +122,10 @@ def main() -> int:
                 str(page.get("extraction_route") or "unknown")
                 for page in page_doc.get("pages") or []
             )),
+            "scanned_with_text_layer_pages": {
+                str(page): evidence for page, evidence in sorted(route_evidence.items())
+            },
+            "ocr_runs": {"pp_clean": clean_run_id, "pp_raw": raw_run_id},
             "canonical_validation": "passed",
             "v3_preparation": prepared.get("_v3_stats"),
             "three_source_vote": prepared.get("_v3_ocr_summary") or {
@@ -115,12 +143,28 @@ def main() -> int:
         "".join(json.dumps(row, ensure_ascii=False) + "\n" for row in rows),
         encoding="utf-8",
     )
+    anchors = _read_json(ROOT / "data" / "registry" / "m2-anchor-review-v0.json")["anchors"]
+    exam = grade(anchors, exam_chunks)
+    (OUT / "exam.json").write_text(
+        json.dumps({
+            "source": chunks_path.relative_to(ROOT).as_posix(),
+            "summary": exam.summary(),
+            "results": [result.__dict__ for result in exam.results],
+        }, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8",
+    )
     payload = {
         "schema_version": "middle-layer-v3-rollout-metrics/1",
         "corpus_version": CORPUS_VERSION,
         "formula_run_id": FORMULA_RUN,
-        "clean_ocr_run": _ocr_manifest_summary(clean_manifest, clean_dir),
-        "raw_ocr_run": _ocr_manifest_summary(raw_manifest, raw_dir),
+        "clean_ocr_runs": [
+            _ocr_manifest_summary(manifest, _ocr_dir(run_id))
+            for run_id, manifest in clean_manifests.items()
+        ],
+        "raw_ocr_runs": [
+            _ocr_manifest_summary(manifest, _ocr_dir(run_id))
+            for run_id, manifest in raw_manifests.items()
+        ],
         "document_count": len(documents),
         "canonical_validation": {
             "passed": len(metrics_rows), "total": len(documents),
@@ -166,6 +210,8 @@ def _aggregate(documents: list[dict[str, Any]], key: str) -> dict[str, Any]:
         (Counter(value.get("ocr_text_source_counts") or {}) for value in values), Counter()))
     continuity = {
         "missing": [], "duplicates": [], "illegal": [], "illegal_jumps": [],
+        "excluded_non_clause_numbers": [],
+        "corrected_ocr_joined_clause_labels": [],
         "summary": Counter(),
     }
     for row in documents:
@@ -173,7 +219,11 @@ def _aggregate(documents: list[dict[str, Any]], key: str) -> dict[str, Any]:
         if not value:
             continue
         checks = value.get("clause_number_continuity") or {}
-        for issue_key in ("missing", "duplicates", "illegal", "illegal_jumps"):
+        for issue_key in (
+            "missing", "duplicates", "illegal", "illegal_jumps",
+            "excluded_non_clause_numbers",
+            "corrected_ocr_joined_clause_labels",
+        ):
             continuity[issue_key].extend(
                 {"document": row["document"], "sha256": row["sha256"], **issue}
                 if isinstance(issue, dict)
@@ -185,6 +235,56 @@ def _aggregate(documents: list[dict[str, Any]], key: str) -> dict[str, Any]:
     continuity["summary"] = dict(continuity["summary"])
     result["clause_number_continuity"] = continuity
     return result
+
+
+def _attach_continuity_source_evidence(
+    metrics: dict[str, Any], prepared: dict[str, Any],
+) -> None:
+    continuity = metrics.get("clause_number_continuity") or {}
+    pages = {
+        int(page.get("physical_page") or index + 1): page
+        for index, page in enumerate(prepared.get("pages") or [])
+    }
+    for missing in continuity.get("missing") or []:
+        bounds = [int(value) for value in missing.get("between_pages") or [] if int(value) > 0]
+        candidate_pages = sorted(set(bounds))
+        missing["source_evidence"] = [
+            _clause_source_evidence(pages[number], missing["label"])
+            for number in candidate_pages if number in pages
+        ]
+
+
+def _clause_source_evidence(page: dict[str, Any], label: str) -> dict[str, Any]:
+    sources: dict[str, list[str]] = {"pp_clean": [], "pp_raw": [], "primary": []}
+    for audit in page.get("_v3_ocr_line_audit") or []:
+        for source, text in (audit.get("source_texts") or {}).items():
+            if source in sources and text:
+                sources[source].append(str(text))
+    if not sources["primary"]:
+        sources["primary"].append(str(page.get("text") or ""))
+    return {
+        "physical_page": int(page.get("physical_page") or 0),
+        "extraction_route": page.get("extraction_route"),
+        "pp_clean": {
+            "available": bool(sources["pp_clean"]),
+            "contains_label": _contains_clause_label(sources["pp_clean"], label),
+        },
+        "pp_raw": {
+            "available": bool(sources["pp_raw"]),
+            "contains_label": _contains_clause_label(sources["pp_raw"], label),
+        },
+        "primary": {
+            "available": bool(sources["primary"]),
+            "contains_label": _contains_clause_label(sources["primary"], label),
+        },
+    }
+
+
+def _contains_clause_label(texts: list[str], label: str) -> bool:
+    pattern = re.compile(
+        r"(?<!\d)" + r"\s*\.\s*".join(map(re.escape, label.split("."))) + r"(?!\d)"
+    )
+    return any(pattern.search(text) for text in texts)
 
 
 def _compact_summary(metrics: dict[str, Any]) -> dict[str, Any]:

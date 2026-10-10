@@ -236,7 +236,9 @@ def fuse_page_text(
 ) -> tuple[dict[str, Any], dict[str, int]]:
     """Apply T5's conservative rule to one OCR page and return a deep copy."""
     page = deepcopy(page_row)
-    if page.get("extraction_route") not in {"full_ocr", "hybrid"}:
+    if page.get("extraction_route") not in {
+        "full_ocr", "hybrid", "scanned_with_text_layer",
+    }:
         return page, {"inserted": 0, "replaced": 0}
     rows = align_page(page.get("elements") or [], independent_page.get("lines") or [], page.get("regions") or [])
     primary_by_id = {id(r["primary"]): r for r in rows if r.get("primary") is not None}
@@ -333,7 +335,9 @@ def fuse_document_pages(
     counts = {"inserted": 0, "replaced": 0}
     page_count = 0
     for idx, page in enumerate(doc.get("pages") or []):
-        if page.get("extraction_route") not in {"full_ocr", "hybrid"}:
+        if page.get("extraction_route") not in {
+            "full_ocr", "hybrid", "scanned_with_text_layer",
+        }:
             continue
         pno = int(page.get("physical_page") or idx + 1)
         independent_page = load_independent_ocr_page(

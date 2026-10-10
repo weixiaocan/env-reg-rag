@@ -8,7 +8,7 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_e4692c552fe4b0b38106031fa020f0e7",
+      "chunk_id": "chunk_c4e157affcf80f6208563d55296e1095",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "",
       "section_labels": [],
@@ -44,7 +44,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_9754e18b2c66223fe8e5d60255816a44",
+      "chunk_id": "chunk_2c5fff3bc4073d13b1cd9f0459e61808",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "",
       "section_labels": [],
@@ -98,16 +98,17 @@
       ]
     },
     {
-      "chunk_id": "chunk_7df5d715203caa90fa84e324c141cca7",
+      "chunk_id": "chunk_3117962391fd79e2125f079063f38d33",
       "document": "降雨过程强度等级标准.pdf",
-      "section_path": "4 RSI/ RPI 计算方法 > 4.4 RSI/ RPI计算 > 4.4.2",
+      "section_path": "4 RSI/ RPI 计算方法 > 4.4 RSI/ RPI计算 > 4.4.1",
       "section_labels": [
         "4",
         "4.4",
-        "4.4.2"
+        "4.4.1"
       ],
-      "body": "4.4.2 区域降雨过程强度指数(RPI)\n情况1：当降雨区处于所分四类降雨区中的一个降雨区时：",
+      "body": "[公式]\nR S I=I\\times T\n式中：\nI—降雨强度指数，利用公式(1)计算降雨强度(R)，对照表3查出对应指数；\nT——持续时间指数，根据公式(3)计算降雨持续时间（T。），对照表5查出对应指数。",
       "element_types": [
+        "formula",
         "text"
       ],
       "pages": [
@@ -117,19 +118,37 @@
         {
           "physical_page": 8,
           "bbox": [
-            64.5,
-            486.0,
-            236.0,
-            498.5
+            265.3887750922264,
+            415.3867367229824,
+            328.25499204245534,
+            425.11653094429744
           ]
         },
         {
           "physical_page": 8,
           "bbox": [
-            86.5,
-            510.5,
-            350.5,
-            522.0
+            84.5,
+            430.0186938782782,
+            115.5,
+            444.5
+          ]
+        },
+        {
+          "physical_page": 8,
+          "bbox": [
+            86.0,
+            447.5,
+            437.5,
+            458.5
+          ]
+        },
+        {
+          "physical_page": 8,
+          "bbox": [
+            85.5,
+            461.0,
+            464.5,
+            475.5
           ]
         }
       ],
@@ -138,7 +157,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_6fe671622e326ccdda3731fa7282c985",
+      "chunk_id": "chunk_4168755ba235fb00c4facfef1e230fa3",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "",
       "section_labels": [],
@@ -174,7 +193,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_2207baa3fb7d1ab26ad22748a5a37e8d",
+      "chunk_id": "chunk_738fadc424d4b57c7449fc82009214b5",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "2 术语和定义 > 2.1",
       "section_labels": [

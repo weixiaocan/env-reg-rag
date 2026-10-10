@@ -1,11 +1,11 @@
 {
-  "source": "eval\\audits\\middle_layer_v3\\rollout\\chunks.jsonl",
+  "source": "eval/audits/middle_layer_v3/rollout/chunks.jsonl",
   "summary": {
     "text_or_clause": {
       "total": 20,
-      "text_pass": 16,
+      "text_pass": 17,
       "structure_graded": 19,
-      "structure_pass": 15
+      "structure_pass": 16
     },
     "table_or_numeric": {
       "total": 10,
@@ -13,7 +13,6 @@
     },
     "failed": [
       "TXT-06",
-      "TXT-07",
       "TXT-15",
       "TXT-16"
     ]
@@ -84,10 +83,10 @@
       "anchor_type": "text_or_clause",
       "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
       "pdf_page": 67,
-      "text_pass": false,
-      "structure_pass": false,
-      "matched_section": null,
-      "detail": "truth absent from document chunks"
+      "text_pass": true,
+      "structure_pass": true,
+      "matched_section": "5 > 5.3 > 5.3.4",
+      "detail": ""
     },
     {
       "anchor_id": "TXT-08",
@@ -156,7 +155,7 @@
       "pdf_page": 14,
       "text_pass": true,
       "structure_pass": true,
-      "matched_section": "4.1 > 4.1.1",
+      "matched_section": "4 > 4.1 > 4.1.1",
       "detail": ""
     },
     {

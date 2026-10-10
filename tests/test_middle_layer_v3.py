@@ -174,3 +174,24 @@ def test_native_region_preserves_legitimate_repeated_text_on_separate_rows() -> 
 
     assert len(blocks) == 1
     assert blocks[0]["text"] == "同意\n同意"
+
+
+def test_explicit_ocr_region_assignment_keeps_boundary_spanning_line() -> None:
+    page = {
+        "physical_page": 63, "width": 397, "height": 575,
+        "extraction_route": "scanned_with_text_layer",
+        "_v3_ocr_region_text": True,
+        "elements": [{
+            **_line("对雨水接入污水管道进行判定。", 254.5),
+            "bbox": [41.0, 254.5, 336.0, 283.0],
+            "_v3_assigned_region_id": "r-next",
+        }],
+        "regions": [{
+            "region_id": "r-next", "model_label": "text",
+            "bbox": [40.0, 270.8, 337.0, 329.5],
+        }],
+    }
+
+    blocks = build_page_blocks(page)
+
+    assert [block["text"] for block in blocks] == ["对雨水接入污水管道进行判定。"]

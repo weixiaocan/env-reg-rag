@@ -292,7 +292,7 @@ def assemble_document(
     ocr_engine_order: list[tuple[str, str, str]] = []  # (engine_id, name, version)
     for page_row in page_rows:
         route = (page_row.get("extraction_route") or "").strip()
-        if route not in ("full_ocr", "hybrid"):
+        if route not in ("full_ocr", "hybrid", "scanned_with_text_layer"):
             continue
         name = (page_row.get("parser_name") or "").strip() or "paddleocr-text"
         version = (page_row.get("engine_version") or "").strip()
@@ -326,7 +326,9 @@ def assemble_document(
         # digest-excluded (see canonical_document._DIGEST_EXCLUDED_PAGE_FIELDS),
         # so carrying them does not change the identity of published artifacts.
         route = (page_row.get("extraction_route") or "").strip() or None
-        if route not in ("native", "full_ocr", "hybrid", "failed"):
+        if route not in (
+            "native", "full_ocr", "hybrid", "scanned_with_text_layer", "failed",
+        ):
             route = None
         decision = (page_row.get("decision_status") or "").strip() or None
         if decision not in ("approved", "quarantine", "failed"):
@@ -345,7 +347,7 @@ def assemble_document(
         # failed -> None (no engine produced text); missing/unknown route ->
         # unknown-1 (honest: do NOT guess native). Only an explicit route value
         # maps to a real engine.
-        if route in ("full_ocr", "hybrid"):
+        if route in ("full_ocr", "hybrid", "scanned_with_text_layer"):
             ver = engine_version or "unknown"
             page_engine_id = ocr_engine_ids.get((engine_name or "paddleocr-text", ver))
         elif route == "native":
@@ -424,7 +426,7 @@ def assemble_document(
         # lines inside a paragraph before column detection: once a page is
         # (even legitimately) reordered column-major, adjacent lines from one
         # source region may no longer be neighbours and cannot be recovered.
-        if route in ("full_ocr", "hybrid") and not page_document.get("_middle_layer_v3"):
+        if route in ("full_ocr", "hybrid", "scanned_with_text_layer") and not page_document.get("_middle_layer_v3"):
             items = _reconstruct_ocr_paragraphs(items)
         layout = detect_columns(
             [it.bbox for it in items], page_width=width, page_height=height
@@ -3912,7 +3914,7 @@ def _derive_text_quality(slot: _PageItem, text: str) -> tuple[str, list[str]]:
     elif decision == "failed":
         votes.append("quarantined")
         reasons.append("failed_extraction_source")
-    elif route in ("full_ocr", "hybrid"):
+    elif route in ("full_ocr", "hybrid", "scanned_with_text_layer"):
         votes.append("needs_review")
         reasons.append("ocr_source_review")
     elif route == "native" and decision == "approved":
