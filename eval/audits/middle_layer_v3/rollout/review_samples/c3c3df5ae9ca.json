@@ -8,15 +8,14 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_a7ad223d15d4de9c1e0aa394240cd3ef",
+      "chunk_id": "chunk_c1668972e3dfee912040b23af03b026a",
       "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-      "section_path": "9 检测和控制 > 9.6 智慧排水系统 > 9.6.5",
+      "section_path": "附录B 暴雨强度公式的编制方法 > B.0.2",
       "section_labels": [
-        "9",
-        "9.6",
-        "9.6.5"
+        "附录B",
+        "B.0.2"
       ],
-      "body": "B.0.5计算抽样误差和暴雨公式均方差，宜按绝对均方差计算，\n也可辅以相对均方差计算。计算重现期在2年～20年时，在一般\n强度的地方，平均绝对方差不宜大于0.05mm/min；在强度较大的\n地方，平均相对方差不宜大于5%。",
+      "body": "B.0.2 计算降雨历时宜采用min、10min、15min、20min、30min、\n45mn、60min、90min、120min、150min、180mn共11个历时。计\n算降雨重现期宜按2年、3年、年、10年、20年、30年、50年、10\n年统计。",
       "element_types": [
         "text"
       ],
@@ -27,37 +26,37 @@
         {
           "physical_page": 112,
           "bbox": [
-            47.5,
-            426.5,
-            341.0,
-            436.5
+            46.0,
+            218.0,
+            342.5,
+            232.5
           ]
         },
         {
           "physical_page": 112,
           "bbox": [
-            48.5,
-            441.5,
-            342.0,
-            453.0
+            46.5,
+            234.5,
+            342.5,
+            248.0
           ]
         },
         {
           "physical_page": 112,
           "bbox": [
-            47.5,
-            457.5,
-            342.0,
-            469.0
+            47.0,
+            250.5,
+            342.5,
+            263.5
           ]
         },
         {
           "physical_page": 112,
           "bbox": [
-            48.0,
-            473.0,
-            202.5,
-            484.5
+            46.5,
+            266.0,
+            87.0,
+            279.5
           ]
         }
       ],
@@ -66,7 +65,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_292e8071803f565ac5fdaa2bd21a6090",
+      "chunk_id": "chunk_2eaa0e3ed2e3eb0c55f5fe0ffae4588d",
       "document": "GB50014-2021+室外排水设计标准+预览.pdf",
       "section_path": "5 排水管渠和附属构筑物 > 5.1 一 般规定 > 5.1.8",
       "section_labels": [
@@ -115,7 +114,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_cd26107f3342be19801e47d48e8e9873",
+      "chunk_id": "chunk_67019828021a9fb162f12ff037f353b6",
       "document": "GB50014-2021+室外排水设计标准+预览.pdf",
       "section_path": "5.15 管道综合 > 5.15.6",
       "section_labels": [
@@ -163,7 +162,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_501c24304b28e7ef1308157b3c204039",
+      "chunk_id": "chunk_90c84fae8bd89e84a916f3461c9e7947",
       "document": "GB50014-2021+室外排水设计标准+预览.pdf",
       "section_path": "9 检测和控制 > 9.4 信息化 > 9.4.3",
       "section_labels": [
@@ -205,7 +204,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_88e31312231e2ef2c4a6b0a2475ec54a",
+      "chunk_id": "chunk_40dcaf11bef8a5922764a5d5683ae9b0",
       "document": "GB50014-2021+室外排水设计标准+预览.pdf",
       "section_path": "8 污泥处理和处置 > 8.11 除臭 > 8.11.6",
       "section_labels": [

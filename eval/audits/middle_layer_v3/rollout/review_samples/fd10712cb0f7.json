@@ -8,65 +8,65 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_775588da2fb3b1a981d0e3a2b83ed373",
+      "chunk_id": "chunk_fac181c0595333c912dc5d7823aeb06b",
       "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-      "section_path": "9 管道功能性试验 > 9.2 压力管道水压试验 > 9.2.9",
+      "section_path": "7 沉管和桥管施工主体结构 > 7.3 桥管 > 7.3.2",
       "section_labels": [
-        "9",
-        "9.2",
-        "9.2.9"
+        "7",
+        "7.3",
+        "7.3.2"
       ],
-      "body": "9.2.9 本条规定了待试验管道的浸泡时间（见表9.2.9)，系在\n原“规范”第10.2.8条内容基础上的修订补充；据工程实践将\n有水泥砂浆衬里的球墨铸铁管、钢管的浸泡时间由“≥48h”降\n低到“≥24h”。",
+      "body": "7.3.7~7.3.10 条文参考了工业管道桥管的施工要求，对支架\n和支座施工作出规定；支架主要承重，支座强调固定方式。管道\n安装按整体吊装、分段悬臂拼装、在搭设的临时支架上拼装等不\n同施工方式作出规定。",
       "element_types": [
         "text"
       ],
       "pages": [
-        244
+        239
       ],
       "bboxes": [
         {
-          "physical_page": 244,
+          "physical_page": 239,
           "bbox": [
-            61.0,
-            279.5,
-            358.5,
-            291.5
+            50.5,
+            228.5,
+            347.5,
+            245.0
           ]
         },
         {
-          "physical_page": 244,
+          "physical_page": 239,
           "bbox": [
-            62.0,
-            295.0,
-            358.0,
-            307.5
+            51.0,
+            243.5,
+            347.5,
+            260.5
           ]
         },
         {
-          "physical_page": 244,
+          "physical_page": 239,
           "bbox": [
-            62.5,
-            311.3953311154643,
-            358.0,
-            322.0
+            50.5,
+            258.5,
+            347.0,
+            275.5
           ]
         },
         {
-          "physical_page": 244,
+          "physical_page": 239,
           "bbox": [
-            62.5,
-            325.78956830107893,
-            133.0,
-            338.0
+            50.5,
+            274.5,
+            152.5,
+            288.5
           ]
         }
       ],
       "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/fd10712cb0f7-p0244.png"
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/fd10712cb0f7-p0239.png"
       ]
     },
     {
-      "chunk_id": "chunk_27a866d535097c82cc5d8a24ba4b0bf3",
+      "chunk_id": "chunk_8bc04a47d8091a7c6d0cdcc617463813",
       "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
       "section_path": "4 土石方与地基处理 > 4.2 施工降排水 > 4.2.7",
       "section_labels": [
@@ -106,7 +106,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_8ad170dfc6eb1dcdd42286a436c26125",
+      "chunk_id": "chunk_2b5ecb1b282e9f85f92cb8228da5fc5d",
       "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
       "section_path": "6.6 定向钻及夯管 > 6.6.4",
       "section_labels": [
@@ -262,7 +262,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_9e05f54aee0bdef13ffecf5c2be12d16",
+      "chunk_id": "chunk_c38bb2eb27818bd3b26148ed7e1db276",
       "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
       "section_path": "3 基本规定 > 3.2 质量验收基本规定 > 3.2.13",
       "section_labels": [
@@ -302,7 +302,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_ed2b7cf021730433b503204014c60c9e",
+      "chunk_id": "chunk_34e57d50770c25cb3db553c0b25c517f",
       "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
       "section_path": "5.5 球墨铸铁管安装 > 5.5.1",
       "section_labels": [

@@ -8,7 +8,7 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_b0d70068332802d42f67d278d61eea35",
+      "chunk_id": "chunk_03a3072e3333ae2ea0b4db30da40362a",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "5 降雪量等级划分",
       "section_labels": [
@@ -237,7 +237,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_fac59cd708a8fd2f4bc7b5b450c8cf2d",
+      "chunk_id": "chunk_28e5da14d735f0950332c1d803d162c7",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "2 术语与定义",
       "section_labels": [
@@ -266,7 +266,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_36d7fa2d53ed3bc9f427b9ef3fe6f9a1",
+      "chunk_id": "chunk_d54df1411279277bb481c53ffbe23efb",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "",
       "section_labels": [],
@@ -293,13 +293,13 @@
       ]
     },
     {
-      "chunk_id": "chunk_e5f9e339a9ee36e4db0e626f64a58e1f",
+      "chunk_id": "chunk_4eb2ff7c9fbd0b002ea863c4b824dab6",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "4 降雨量等级划分",
       "section_labels": [
         "4"
       ],
-      "body": "降雨分为微量降雨（零星小雨)、小雨、中雨、大雨、暴雨、大暴雨、特大暴雨共个等级。具体划分见\n表1。\n单位为毫米",
+      "body": "降雨分为微量降雨（零星小雨)、小雨、中雨、大雨、暴雨、大暴雨、特大暴雨共7个等级。具体划分见\n表1。\n单位为毫米",
       "element_types": [
         "text"
       ],
@@ -340,7 +340,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_fa03ecb71909c858bda92a97cfed48cb",
+      "chunk_id": "chunk_386b8452d968192c030e22d8e104a786",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "",
       "section_labels": [],

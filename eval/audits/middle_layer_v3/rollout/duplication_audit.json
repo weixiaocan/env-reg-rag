@@ -1,0 +1,1401 @@
+{
+  "schema_version": "middle-layer-v3-duplication-audit/1",
+  "baseline_ref": "0f209d9",
+  "rule": "([一-鿿，、。；：]{3,12})\\1",
+  "legal_judgement": "matched repetition exists in at least one single source text",
+  "before": {
+    "count": 36,
+    "pipeline_introduced_count": 17,
+    "occurrences": [
+      {
+        "document": "城镇内涝防治技术规范.pdf",
+        "chunk_id": "chunk_8258611bfce8520f7749163354949912",
+        "pages": [
+          9
+        ],
+        "fragment": "之前，通",
+        "matched_text": "之前，通之前，通",
+        "context": "ontrol\n雨水降落下垫面形成径流，在排入市政排水管渠系统之前，通之前，通\n过渗透、净化和滞蓄等措施，控制雨水径流产生、减排雨水径流污",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城镇内涝防治技术规范.pdf",
+        "chunk_id": "chunk_fe8803feade6d4ce6bcfddf5cb04add5",
+        "pages": [
+          10,
+          11
+        ],
+        "fragment": "透水路面面积之比；",
+        "matched_text": "透水路面面积之比；透水路面面积之比；",
+        "context": "路面平均孔隙率；\nQ设计流量；\nr透水路面周边地面汇水面积与透水路面面积之比；透水路面面积之比；\nR横断面的水力半径；\n渗透时间；\n放空时间；\nT与设计降雨",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城镇内涝防治技术规范.pdf",
+        "chunk_id": "chunk_ce9d4e49579a126b585a25e06caa3477",
+        "pages": [
+          12
+        ],
+        "fragment": "排涝除险",
+        "matched_text": "排涝除险排涝除险",
+        "context": "3.1.1 城镇内涝防治系统应包括源头减排、排水管渠和排涝除险排涝除险\n等工程性设施，以及应急管理等非工程性措施，并与防洪设施相\n",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城镇内涝防治技术规范.pdf",
+        "chunk_id": "chunk_d08de3049323f0e3f3cabd4209a8da0d",
+        "pages": [
+          25
+        ],
+        "fragment": "防倒灌",
+        "matched_text": "防倒灌防倒灌",
+        "context": "5.1.4易受河水或潮水顶托的排水管渠出水口应设置防倒灌防倒灌\n设施。",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城镇内涝防治技术规范.pdf",
+        "chunk_id": "chunk_8ed349fb4da957455b129eb989903a56",
+        "pages": [
+          36
+        ],
+        "fragment": "收项目可",
+        "matched_text": "收项目可收项目可",
+        "context": "A.1.1 内涝防治设计报告应为独立文件，可采纳和吸收项目可收项目可\n行性研究、设计等阶段产生的成果，但不应由工程设计各阶段的报",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "chunk_id": "chunk_47c7ba9270f42584b8f20ffc4ac2f8ad",
+        "pages": [
+          6
+        ],
+        "fragment": "唐兰贵",
+        "matched_text": "唐兰贵唐兰贵",
+        "context": "王磊磊郭效琛\n蔡舒恬张素琼杨雪张李春鞠剑\n刘旭辉柯杭李萌周超唐兰贵唐兰贵\n韩成铁吕永鹏林淦蔡敏刘淑雅刘淑雅\n主要审查人：赵乐军信昆仑",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "chunk_id": "chunk_47c7ba9270f42584b8f20ffc4ac2f8ad",
+        "pages": [
+          6
+        ],
+        "fragment": "刘淑雅",
+        "matched_text": "刘淑雅刘淑雅",
+        "context": "春鞠剑\n刘旭辉柯杭李萌周超唐兰贵唐兰贵\n韩成铁吕永鹏林淦蔡敏刘淑雅刘淑雅\n主要审查人：赵乐军信昆仑杨红郭涛黄俊\n高静思冯江",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "chunk_id": "chunk_3bdacea0ddc72ca8aa2b123061166f8e",
+        "pages": [
+          16,
+          17
+        ],
+        "fragment": "氮、总",
+        "matched_text": "氮、总氮、总",
+        "context": "：\n1 水质监测指标宜包括电导率、化学需氧量（COD）、氨\n氮、总氮、总磷等；\n2电导率监测宜采用在线监测法，COD、氨氮、总氮、总",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "chunk_id": "chunk_3bdacea0ddc72ca8aa2b123061166f8e",
+        "pages": [
+          16,
+          17
+        ],
+        "fragment": "氮、总",
+        "matched_text": "氮、总氮、总",
+        "context": "氮、总氮、总磷等；\n2电导率监测宜采用在线监测法，COD、氨氮、总氮、总\n磷等宜采用自动采样人工监测法；\n3 采用人工监测法时，采样",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_ddbbe8f19e388c57de9aae7fa97dcaa5",
+        "pages": [
+          11
+        ],
+        "fragment": "一定方式组",
+        "matched_text": "一定方式组一定方式组",
+        "context": "msystem\n收集、输送、处理、再生和处置城镇污水的设施以一定方式组一定方式组\n合成的总体。",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_a02a69c74a2904289ac5c6e58583785a",
+        "pages": [
+          17
+        ],
+        "fragment": "城镇排水工程的影",
+        "matched_text": "城镇排水工程的影城镇排水工程的影",
+        "context": "3.2.7 雨水系统设计应采取措施防止洪水对城镇排水工程的影城镇排水工程的影\n响。",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_8f42b81d3b109bcb972b4dcc7fea6794",
+        "pages": [
+          18
+        ],
+        "fragment": "处理及污泥",
+        "matched_text": "处理及污泥处理及污泥",
+        "context": "3.3.11 排水工程设计应妥善处理污水与再生水处理及污泥处理及污泥处理\n过程中产生的固体废弃物，应防止对环境的之次污染。",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_82c6f848f92a1d8dc64bfa909b17b58f",
+        "pages": [
+          26
+        ],
+        "fragment": "一布置，",
+        "matched_text": "一布置，一布置，",
+        "context": "5.1.1 排水管渠系统应根据城镇总体规划和建设情况统一布置，一布置，\n分期建设。排水管渠断面尺寸应按远期规划设计流量设计，按现\n",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_dd5296604ed8cb520185378b3fc7eb99",
+        "pages": [
+          72
+        ],
+        "fragment": "均通量的取值范围宜为",
+        "matched_text": "均通量的取值范围宜为均通量的取值范围宜为",
+        "context": "7.6.44浸没式膜生物反应器平均通量的取值范围宜为均通量的取值范围宜为\n15L/(m·h)～25L/(mh)，外置式膜生物反应器平",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_5202c17bdea7283bcf46d3525ed99067",
+        "pages": [
+          90
+        ],
+        "fragment": "氧消化、好",
+        "matched_text": "氧消化、好氧消化、好",
+        "context": "济条件、污泥处置出路、占地面积等因素合理选择，包括浓缩、厌\n氧消化、好氧消化、好氧发酵、脱水、石灰稳定、于化和焚烧等。",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_c5e0164a3707513c96b93b66d9221766",
+        "pages": [
+          96
+        ],
+        "fragment": "率、有机",
+        "matched_text": "率、有机率、有机",
+        "context": "8.4.6污泥、辅料和返混料的配比应根据三者的含水率、有机率、有机\n物含量和碳氮比等经计算确定，冬季可适当提高辅料投加比\n例。",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_d23b92837adb9242db1ae4fac71e10b5",
+        "pages": [
+          111
+        ],
+        "fragment": "下列步骤计",
+        "matched_text": "下列步骤计下列步骤计",
+        "context": "A.0.1 年径流总量控制率对应的设计降雨量值应按下列步骤计下列步骤计\n算：\n1 选取至少30年的日降水资料，剔除小于或等于2mm",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城市排水工程规划规范.pdf",
+        "chunk_id": "chunk_670e21a0941c637c624874b451663345",
+        "pages": [
+          29
+        ],
+        "fragment": "准、发布。",
+        "matched_text": "准、发布。准、发布。",
+        "context": "城乡建设部2017 年1 月21 日以第1447 号公告批\n准、发布。准、发布。\n本规范是在《城市排水工程规划规范》GB 50318-200",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "城市排水工程规划规范.pdf",
+        "chunk_id": "chunk_9e814596d0221624cc05abaad87b2ce0",
+        "pages": [
+          44,
+          45
+        ],
+        "fragment": "除磷脱氮工艺的用地需求。",
+        "matched_text": "除磷脱氮工艺的用地需求。除磷脱氮工艺的用地需求。",
+        "context": "\n已建成的污水处理厂主流技术确定，能满足目前国内污水处理厂\n除磷脱氮工艺的用地需求。除磷脱氮工艺的用地需求。",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "GBT+47884-2026.pdf",
+        "chunk_id": "chunk_9c0526b02419a0921af4775919791847",
+        "pages": [
+          10
+        ],
+        "fragment": "满流、",
+        "matched_text": "满流、满流、",
+        "context": "防腐等性能要求,具备时\n钟自动同步功能;\nc) 满足浅流、非满流、满流、管道压力过载、低流速、逆流等各种工况的要求,测量准确度满足管",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_510a2120a003d031404c444fcaf99c3f",
+        "pages": [
+          1,
+          3,
+          4
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "国测绘学会2-12 发布\n发布\n(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体II前言\n引言III\n1 范围..1\n2 规",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_510a2120a003d031404c444fcaf99c3f",
+        "pages": [
+          1,
+          3,
+          4
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "面.14 .14(CSGPC)(CSGPC)5参考文献..\n中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n团体标准前P团体标准团体",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_25b0292f368ab5e81fa0759eaf7527d6",
+        "pages": [
+          4,
+          5
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "兰贵、黄秋惠、黄建平、赵冬泉。\n(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n(C",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_de8523331e1739f82fe2ebb16f1e69b1",
+        "pages": [
+          5
+        ],
+        "fragment": "满流、",
+        "matched_text": "满流、满流、",
+        "context": "、合流制系统中各类排水管道或渠道的流量在线监测，满足浅流、非满流、满流、管道压力过载、\n低流速、逆流等各种工况的定量监测要求，满足防",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_b8862f4271ec0c40476a374008d3919a",
+        "pages": [
+          5
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_bd0ebc4e5918e90d3461b7ba478bc308",
+        "pages": [
+          7
+        ],
+        "fragment": "团体标准",
+        "matched_text": "团体标准团体标准",
+        "context": "团体标准团体标准学会团体描式排水管道在线监测流量仪的设备要求、试验条件和方法",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_1188dc5007bc64ba8876bcdca6f0143d",
+        "pages": [
+          7,
+          8
+        ],
+        "fragment": "中国测绘",
+        "matched_text": "中国测绘中国测绘",
+        "context": "数计算过水断面面积，利用过水断面面积与平均流速的乘积计算流\n中国测绘中国测绘学中国测绘学会\n3.5\n(CSGPC)\n流动剖面 flow ",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_0d1709cf0ceba3defb90daa744f14a01",
+        "pages": [
+          11
+        ],
+        "fragment": "测绘学会团体",
+        "matched_text": "测绘学会团体测绘学会团体",
+        "context": "5.3.3 防爆性能试验\n测绘学会团体测绘学会团体1和GB/T 3836.1中有关规定进行试验，结果应符个1.",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_fd89e75dbc1c7557d1f21c2a4f9183a4",
+        "pages": [
+          15
+        ],
+        "fragment": "中国测绘",
+        "matched_text": "中国测绘中国测绘",
+        "context": "6.1.2 中国测绘中国测绘检验项目进行检验，检验合格后，由检验部门出6.1.2 出厂检",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_1e9a7debbec1537bb76e0dd46b69e7b6",
+        "pages": [
+          17,
+          18,
+          19
+        ],
+        "fragment": "团体标准",
+        "matched_text": "团体标准团体标准",
+        "context": "故障维修等工作成效，并对巡检计划和维护保养计\n划进行调整。\n团体标准团体标准（CSGPC）学会团体缓。垃圾异物少的排水管道环境，同时需要",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_3ded324608fa33314b9b31b82e630977",
+        "pages": [
+          20,
+          21
+        ],
+        "fragment": "中国测绘",
+        "matched_text": "中国测绘中国测绘",
+        "context": "横向分5段，见图B.1，从横向校验点a开始到e，依次完成每个中国测绘中国测绘\nB.2 根据实测数据，绘制排水管道的流动剖面，见图B.2。",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_3ded324608fa33314b9b31b82e630977",
+        "pages": [
+          20,
+          21
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "测绘学会团体标准CSGPC）中国测绘学会团体标准CSGPC）中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n中国测绘学会团体标准CSGPC）中国测绘学",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_3ded324608fa33314b9b31b82e630977",
+        "pages": [
+          20,
+          21
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "测绘学会团体标准CSGPC）中国测绘学会团体标准CSGPC）中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "chunk_id": "chunk_c7790df93baee310a10b04e8f6db24b7",
+        "pages": [
+          5
+        ],
+        "fragment": "翟月娇",
+        "matched_text": "翟月娇翟月娇",
+        "context": "向平何伶俊张杰许光明杨宪云陈萌蓉\n解铭王捷樊雪莲严瞿飞樊雪莲翟月娇翟月娇\n潘冉徐连军\n艺张悦杨向平何伶俊\n钱禤榻倩红静",
+        "judgement": "pipeline_introduced"
+      },
+      {
+        "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "chunk_id": "chunk_01f69b3d17fa806b6e34f4369ae01b55",
+        "pages": [
+          94,
+          95
+        ],
+        "fragment": "径、管",
+        "matched_text": "径、管径、管",
+        "context": "弯曲轴线内侧\n可进行超挖；超挖量的大小应考虑弯曲段的曲率半\n径、管径、管长度等因素，满足地层变形控制和设\n计要求，并应经现场试验确定",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "chunk_id": "chunk_4b1bad223186b08b797f2fa5f87819ed",
+        "pages": [
+          233
+        ],
+        "fragment": "浆装置、注",
+        "matched_text": "浆装置、注浆装置、注",
+        "context": "6.3.12 触变泥浆注浆系统应由拌浆装置、注浆装置、注浆管道\n系统等组成，本条给出其布置、安装和运行的基本规定；制",
+        "judgement": "source_present_legal"
+      }
+    ]
+  },
+  "after": {
+    "count": 19,
+    "pipeline_introduced_count": 0,
+    "occurrences": [
+      {
+        "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "chunk_id": "chunk_1a0aa2c294d8d00c86d210d0eb22fb42",
+        "pages": [
+          16,
+          17
+        ],
+        "fragment": "氮、总",
+        "matched_text": "氮、总氮、总",
+        "context": "：\n1 水质监测指标宜包括电导率、化学需氧量（COD）、氨\n氮、总氮、总磷等；\n2电导率监测宜采用在线监测法，COD、氨氮、总氮、总",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "chunk_id": "chunk_1a0aa2c294d8d00c86d210d0eb22fb42",
+        "pages": [
+          16,
+          17
+        ],
+        "fragment": "氮、总",
+        "matched_text": "氮、总氮、总",
+        "context": "氮、总氮、总磷等；\n2电导率监测宜采用在线监测法，COD、氨氮、总氮、总\n磷等宜采用自动采样人工监测法；\n3 采用人工监测法时，采样",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "chunk_id": "chunk_a5fc7c5f5dc8fa885f4868fd6f6ca256",
+        "pages": [
+          90
+        ],
+        "fragment": "氧消化、好",
+        "matched_text": "氧消化、好氧消化、好",
+        "context": "济条件、污泥处置出路、占地面积等因素合理选择，包括浓缩、厌\n氧消化、好氧消化、好氧发酵、脱水、石灰稳定、于化和焚烧等。",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "GBT+47884-2026.pdf",
+        "chunk_id": "chunk_ff66559eced861bb1aa6b66b6009bb05",
+        "pages": [
+          10
+        ],
+        "fragment": "满流、",
+        "matched_text": "满流、满流、",
+        "context": "防腐等性能要求,具备时\n钟自动同步功能;\nc) 满足浅流、非满流、满流、管道压力过载、低流速、逆流等各种工况的要求,测量准确度满足管",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_caa64323f73358f3a1dfcbec0bb333ce",
+        "pages": [
+          1,
+          3,
+          4
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "国测绘学会2-12 发布\n发布\n(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体II前言\n引言III\n1 范围..1\n2 规",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_caa64323f73358f3a1dfcbec0bb333ce",
+        "pages": [
+          1,
+          3,
+          4
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "面.14 .14(CSGPC)(CSGPC)5参考文献..\n中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n团体标准前P团体标准团体",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_e7dfd831874cfa6db424a5dc180969cc",
+        "pages": [
+          4,
+          5
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "兰贵、黄秋惠、黄建平、赵冬泉。\n(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n(C",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_239330018ff184e3ef9423cb8c14887a",
+        "pages": [
+          5
+        ],
+        "fragment": "满流、",
+        "matched_text": "满流、满流、",
+        "context": "、合流制系统中各类排水管道或渠道的流量在线监测，满足浅流、非满流、满流、管道压力过载、\n低流速、逆流等各种工况的定量监测要求，满足防",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_9a3a41a2e18365d3bbc8e9970539435f",
+        "pages": [
+          5
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_891e201a8cfaf0cb76b5194a559824d2",
+        "pages": [
+          7
+        ],
+        "fragment": "团体标准",
+        "matched_text": "团体标准团体标准",
+        "context": "团体标准团体标准学会团体描式排水管道在线监测流量仪的设备要求、试验条件和方法",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_723ef766bf2e1810953c4e08d4a162e4",
+        "pages": [
+          7,
+          8
+        ],
+        "fragment": "中国测绘",
+        "matched_text": "中国测绘中国测绘",
+        "context": "数计算过水断面面积，利用过水断面面积与平均流速的乘积计算流\n中国测绘中国测绘学中国测绘学会\n3.5\n(CSGPC)\n流动剖面 flow ",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_047779c4daa60f2f780e0e1dfadd33de",
+        "pages": [
+          11
+        ],
+        "fragment": "测绘学会团体",
+        "matched_text": "测绘学会团体测绘学会团体",
+        "context": "5.3.3 防爆性能试验\n测绘学会团体测绘学会团体1和GB/T 3836.1中有关规定进行试验，结果应符个1.",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_4391509ce67f3ebd9bc63213832aa360",
+        "pages": [
+          15
+        ],
+        "fragment": "中国测绘",
+        "matched_text": "中国测绘中国测绘",
+        "context": "6.1.2 中国测绘中国测绘检验项目进行检验，检验合格后，由检验部门出6.1.2 出厂检",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_bdaff07260ea3c44273a14efcf18e8d7",
+        "pages": [
+          17,
+          18,
+          19
+        ],
+        "fragment": "团体标准",
+        "matched_text": "团体标准团体标准",
+        "context": "故障维修等工作成效，并对巡检计划和维护保养计\n划进行调整。\n团体标准团体标准（CSGPC）学会团体缓。垃圾异物少的排水管道环境，同时需要",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_22c6c848699850452ee6b6545c26953d",
+        "pages": [
+          20,
+          21
+        ],
+        "fragment": "中国测绘",
+        "matched_text": "中国测绘中国测绘",
+        "context": "横向分5段，见图B.1，从横向校验点a开始到e，依次完成每个中国测绘中国测绘\nB.2 根据实测数据，绘制排水管道的流动剖面，见图B.2。",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_22c6c848699850452ee6b6545c26953d",
+        "pages": [
+          20,
+          21
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "测绘学会团体标准CSGPC）中国测绘学会团体标准CSGPC）中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n中国测绘学会团体标准CSGPC）中国测绘学",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "chunk_id": "chunk_22c6c848699850452ee6b6545c26953d",
+        "pages": [
+          20,
+          21
+        ],
+        "fragment": "中国测绘学会团体标准",
+        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
+        "context": "测绘学会团体标准CSGPC）中国测绘学会团体标准CSGPC）中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "chunk_id": "chunk_7b026b844ffa09b424d8acd99923e6f1",
+        "pages": [
+          94,
+          95
+        ],
+        "fragment": "径、管",
+        "matched_text": "径、管径、管",
+        "context": "弯曲轴线内侧\n可进行超挖；超挖量的大小应考虑弯曲段的曲率半\n径、管径、管长度等因素，满足地层变形控制和设\n计要求，并应经现场试验确定",
+        "judgement": "source_present_legal"
+      },
+      {
+        "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "chunk_id": "chunk_0bafb7651fce07cc50f8c58f22e0f664",
+        "pages": [
+          233
+        ],
+        "fragment": "浆装置、注",
+        "matched_text": "浆装置、注浆装置、注",
+        "context": "6.3.12 触变泥浆注浆系统应由拌浆装置、注浆装置、注浆管道\n系统等组成，本条给出其布置、安装和运行的基本规定；制",
+        "judgement": "source_present_legal"
+      }
+    ]
+  },
+  "body_clause_duplicates_by_document": [
+    {
+      "document": "城镇内涝防治技术规范.pdf",
+      "before": 1,
+      "after": 1
+    },
+    {
+      "document": "“十四五”全国城市基础设施建设规划.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "降雨过程强度等级标准.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "武汉市排水管道混错接改造技术规程.pdf",
+      "before": 85,
+      "after": 0
+    },
+    {
+      "document": "“十四五”城镇污水处理及资源化利用.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "城市排水工程规划规范.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "GBT+47884-2026.pdf",
+      "before": 11,
+      "after": 0
+    },
+    {
+      "document": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "before": 2,
+      "after": 2
+    },
+    {
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "before": 0,
+      "after": 0
+    },
+    {
+      "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "before": 1,
+      "after": 1
+    }
+  ],
+  "appendix_attachment": {
+    "before": {
+      "clause_chunk_count": 0,
+      "attached_count": 0,
+      "misattached_count": 0,
+      "occurrences": []
+    },
+    "after": {
+      "clause_chunk_count": 47,
+      "attached_count": 46,
+      "misattached_count": 1,
+      "occurrences": [
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_3cbd8301dd4bb42bb9c343cfc9689e57",
+          "pages": [
+            38
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_c9fe55c865be48d490e780a2795778fb",
+          "pages": [
+            38
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_87a724ef8eb20d5391c9db69867bc900",
+          "pages": [
+            38
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.3"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_5dbff613f55f22b1d52e46fc55f550cf",
+          "pages": [
+            38
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.4"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_d6d44baa2368b802335ecc65c7858ff5",
+          "pages": [
+            38
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.5"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_ae456087bb3014f91e69a4b75a0b2df1",
+          "pages": [
+            38,
+            39
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.6"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_b7b21cd953ad00a26cde66a756bd59bb",
+          "pages": [
+            39
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.7"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_af2019d6f894a69d301e5bdf6ca1a543",
+          "pages": [
+            39
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.8"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_ab38c5161fcd6986f124febf9e5f1c20",
+          "pages": [
+            39
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.9"
+          ],
+          "attached": true
+        },
+        {
+          "document": "城镇内涝防治技术规范.pdf",
+          "chunk_id": "chunk_be97f1816ed4004bb80d554124b4eb79",
+          "pages": [
+            40
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.10"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_243fba96d25e82e76d4d034f5fac5c95",
+          "pages": [
+            111
+          ],
+          "expected_appendix": "附录A",
+          "section_labels": [
+            "附录A",
+            "A.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_dcc58000cf2ca781b616519269f6aefc",
+          "pages": [
+            112
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_c1668972e3dfee912040b23af03b026a",
+          "pages": [
+            112
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_bcdc9b44a2f3ac8e86920b13012e8751",
+          "pages": [
+            112
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.3"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_f29322aecc79ed3dac748bfdcb42460b",
+          "pages": [
+            112
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.4"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_c703f65a66d05a739d90b174b1d238bb",
+          "pages": [
+            112
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.5"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_7026a9758036bfcf72244b38c6265b02",
+          "pages": [
+            112
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.6"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_d0d63caf7e61e616ff048ab76dddc4aa",
+          "pages": [
+            113
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.7"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_ddda561ef26c6d0a0fa74b18afcdf450",
+          "pages": [
+            113
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.8"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_6a7d1b43c43235775908d727d77dcfc8",
+          "pages": [
+            113
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.9"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_caa52bb01243cb576e02efad0adcbf34",
+          "pages": [
+            113
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.10"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+          "chunk_id": "chunk_e07a331e9dfaced70b4f22e523978360",
+          "pages": [
+            113
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.11"
+          ],
+          "attached": true
+        },
+        {
+          "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+          "chunk_id": "chunk_e0ce4fada40e3c3cbabeeabcaaf8899c",
+          "pages": [
+            38
+          ],
+          "expected_appendix": "附录D",
+          "section_labels": [
+            "附录D",
+            "D.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+          "chunk_id": "chunk_4bb269df971985eb4ffc9d51fbc71444",
+          "pages": [
+            39,
+            40
+          ],
+          "expected_appendix": "附录D",
+          "section_labels": [
+            "附录D",
+            "D.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+          "chunk_id": "chunk_d95db61e5856b35f1e199e4536786f26",
+          "pages": [
+            40
+          ],
+          "expected_appendix": "附录E",
+          "section_labels": [
+            "附录E",
+            "E.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+          "chunk_id": "chunk_f6f60e59bdbfc207c07b85bc7967f33c",
+          "pages": [
+            41
+          ],
+          "expected_appendix": "附录E",
+          "section_labels": [
+            "附录E",
+            "E.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+          "chunk_id": "chunk_c2fc8d4c4fced9cebd2fe8274e6f4019",
+          "pages": [
+            42
+          ],
+          "expected_appendix": "附录E",
+          "section_labels": [
+            "附录E",
+            "E.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+          "chunk_id": "chunk_5514eede2808f3cd43867433a9de1929",
+          "pages": [
+            42
+          ],
+          "expected_appendix": "附录E",
+          "section_labels": [
+            "附录E",
+            "E.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_be8943b215202e9b2002046572c102cc",
+          "pages": [
+            183
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_0900f7f95dd4c2de27a3cfe89cac8c6c",
+          "pages": [
+            184
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_b4423ea84c2ae66dc541e26b289c2043",
+          "pages": [
+            185
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.3"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_4100bfbd46bc0ec2fdeb07f695b928bb",
+          "pages": [
+            185,
+            186
+          ],
+          "expected_appendix": "附录B",
+          "section_labels": [
+            "附录B",
+            "B.0.4"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_ad500be3d1fff61a4468b736f5994f2c",
+          "pages": [
+            190
+          ],
+          "expected_appendix": "附录C",
+          "section_labels": [
+            "附录C",
+            "C.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_3fa681b6ef7d24f546fd738fa4e0f0ff",
+          "pages": [
+            190
+          ],
+          "expected_appendix": "附录C",
+          "section_labels": [
+            "附录C",
+            "C.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_ec59a49950328a7e81b16c3918c83d7e",
+          "pages": [
+            190
+          ],
+          "expected_appendix": "附录C",
+          "section_labels": [
+            "附录C",
+            "C.0.3"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_900379386e9769f141c4ef2740b90fa9",
+          "pages": [
+            191
+          ],
+          "expected_appendix": "附录D",
+          "section_labels": [
+            "附录D",
+            "D.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_f1ac9f4c3e1b957ed66e9387d033f637",
+          "pages": [
+            191
+          ],
+          "expected_appendix": "附录D",
+          "section_labels": [
+            "附录D",
+            "D.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_05f28ab187b74c07dcb914110544255c",
+          "pages": [
+            193
+          ],
+          "expected_appendix": "附录E",
+          "section_labels": [
+            "附录E",
+            "E.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_655e3b0003b9862b928ebbca159f616e",
+          "pages": [
+            193,
+            194
+          ],
+          "expected_appendix": "附录E",
+          "section_labels": [
+            "附录E",
+            "E.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_d9ccfc3997e6e8dec0d1f3a3e0e81f70",
+          "pages": [
+            194,
+            195
+          ],
+          "expected_appendix": "附录E",
+          "section_labels": [
+            "附录E",
+            "E.0.3"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_2fdd6836ddfb2c6742203d8209a6b227",
+          "pages": [
+            196
+          ],
+          "expected_appendix": "附录F",
+          "section_labels": [
+            "附录F",
+            "F.0.1"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_62b087a34bc124a089369207d82d6420",
+          "pages": [
+            196
+          ],
+          "expected_appendix": "附录F",
+          "section_labels": [
+            "附录F",
+            "F.0.2"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_49d3fed6e41d858ed7846de474bad030",
+          "pages": [
+            196
+          ],
+          "expected_appendix": "附录F",
+          "section_labels": [
+            "附录F",
+            "F.0.3"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_9f1cd7d4327c5b17faa829941dc7516e",
+          "pages": [
+            197
+          ],
+          "expected_appendix": "附录F",
+          "section_labels": [
+            "附录F",
+            "F.0.4"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_25ecb9ffda5d4b537fc756e0bf769aa8",
+          "pages": [
+            197
+          ],
+          "expected_appendix": "附录F",
+          "section_labels": [
+            "附录F",
+            "F.0.5"
+          ],
+          "attached": true
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_0f3badae937b1c54ad34e8f104a2d2a4",
+          "pages": [
+            198
+          ],
+          "expected_appendix": "附录F",
+          "section_labels": [
+            "3",
+            "F.0.6"
+          ],
+          "attached": false
+        },
+        {
+          "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+          "chunk_id": "chunk_1ed4c7fc6267e03df91a343a1b4f986c",
+          "pages": [
+            199
+          ],
+          "expected_appendix": "附录G",
+          "section_labels": [
+            "附录G",
+            "G.0.1"
+          ],
+          "attached": true
+        }
+      ]
+    }
+  }
+}

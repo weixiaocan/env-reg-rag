@@ -34,6 +34,10 @@ _CLAUSE = re.compile(
 _DOTTED = re.compile(
     rf"^\s*({_NUMBER_COMPONENT}(?:\s*[.．]\s*{_NUMBER_COMPONENT}){{0,2}})(?:\s*[.．])?\s*(.*)$")
 _CHAPTER = re.compile(r"^(第[一二三四五六七八九十百千零〇两\d]+章)\s*(.*)$")
+_APPENDIX = re.compile(r"^(附录\s*([A-ZＡ-Ｚ]))\s*(.*)$", re.IGNORECASE)
+_APPENDIX_CLAUSE = re.compile(r"^\s*([A-ZＡ-Ｚ]\s*[.．]\s*\d+\s*[.．]\s*\d+)(?=\s|[一-鿿])", re.IGNORECASE)
+_SPLIT_NUMBER_PREFIX = re.compile(
+    r"^\s*(\d+)\s*[.．]\s*\n\s*(\d+)(?:\s*[.．]\s*\n\s*(\d+))?(?=\s|[一-鿿])")
 _CHINESE_ONE = re.compile(r"^([一二三四五六七八九十]+、)\s*(.*)$")
 _CHINESE_PAREN = re.compile(r"^([（(][一二三四五六七八九十]+[）)])\s*(.*)$")
 _ROMAN = re.compile(r"^([ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+)[、.．\s]*(.*)$")
@@ -55,12 +59,12 @@ def map_model_label(label: str, config: dict[str, Any] | None = None) -> str:
 
 def split_clause_lines(lines: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
     """Split only at continuous dotted clause starts; keep numeric prose intact."""
-    starts: list[tuple[int, tuple[int, ...]]] = []
+    starts: list[tuple[int, tuple[str | int, ...]]] = []
     for index, line in enumerate(lines):
-        match = _CLAUSE.match(str(line.get("text") or ""))
+        match = _clause_match(str(line.get("text") or ""))
         if match:
             label = _normalize_number_label(match.group(1))
-            starts.append((index, tuple(int(value) for value in label.split("."))))
+            starts.append((index, _clause_sequence(label)))
     if not starts:
         return [lines] if lines else []
     # A single leading clause still gets clause semantics, but there is no cut.
@@ -70,7 +74,9 @@ def split_clause_lines(lines: list[dict[str, Any]]) -> list[list[dict[str, Any]]
     for candidate in starts[1:]:
         previous = accepted[-1][1]
         current = candidate[1]
-        if len(previous) == len(current) and previous[:-1] == current[:-1] and current[-1] == previous[-1] + 1:
+        if (len(previous) == len(current) and previous[:-1] == current[:-1]
+                and isinstance(previous[-1], int) and isinstance(current[-1], int)
+                and current[-1] == previous[-1] + 1):
             accepted.append(candidate)
         else:
             return [lines]
@@ -89,11 +95,20 @@ def heading_descriptor(text: str, *, is_title: bool = False, is_clause: bool = F
     match = _CHAPTER.match(first)
     if match:
         return _heading(match.group(1), match.group(2), 1)
+    match = _APPENDIX.match(first)
+    if match:
+        label = "附录" + _normalize_appendix_letter(match.group(2))
+        return _heading(label, match.group(3), 1)
     match = _DOTTED.match(first)
     if match and (is_title or is_clause):
         label = _normalize_number_label(match.group(1))
         title = None if is_clause else match.group(2)
         return _heading(label, title, label.count(".") + 1)
+    match = _APPENDIX_CLAUSE.match(first)
+    if match and (is_title or is_clause):
+        label = _normalize_number_label(match.group(1))
+        title = None if is_clause else first[match.end():]
+        return _heading(label, title, 3)
     if is_title:
         for pattern, level in ((_CHINESE_ONE, 1), (_CHINESE_PAREN, 2), (_ROMAN, 3)):
             match = pattern.match(first)
@@ -133,6 +148,8 @@ def prepare_page_document_v3(
             "merge_invariant_violation_count": 0,
             "noise_lines": 0, "orphan_line_groups": 0,
             "number_prefixes_preserved": 0,
+            "repaired_adjacent_duplicate_count": 0,
+            "source_supported_occlusion_repair_count": 0,
         }
         ocr_pages = 0
         for page_index, page in enumerate(doc.get("pages") or []):
@@ -171,7 +188,8 @@ def prepare_page_document_v3(
             "ocr_page_count": ocr_pages, **totals,
         }
     recurring = recurring_band_texts(doc.get("pages") or [])
-    stats = {"region_pages": 0, "fallback_pages": 0, "furniture": 0, "toc": 0}
+    stats = {"region_pages": 0, "fallback_pages": 0, "furniture": 0, "toc": 0,
+             "split_number_prefix_merged": 0}
     for page_index, page in enumerate(doc.get("pages") or []):
         blocks = build_page_blocks(page, cfg, recurring=recurring)
         if page.get("regions"):
@@ -180,6 +198,8 @@ def prepare_page_document_v3(
             stats["fallback_pages"] += 1
         stats["furniture"] += sum(bool(block.get("_v3_furniture_rule")) for block in blocks)
         stats["toc"] += sum(block.get("_v3_role") == "toc" for block in blocks)
+        stats["split_number_prefix_merged"] += sum(
+            bool(block.get("_v3_split_number_prefix_merged")) for block in blocks)
         for index, block in enumerate(blocks):
             block["element_id"] = f"p{page_index:04d}-v3-{index:04d}"
             block["page_index"] = page_index
@@ -198,23 +218,38 @@ def build_page_blocks(
 ) -> list[dict[str, Any]]:
     cfg = config or load_config()
     regions = list(page.get("regions") or [])
+    page_elements = list(page.get("elements") or [])
     if not regions:
-        raw_groups = _fallback_groups(page.get("elements") or [])
+        raw_groups = _fallback_groups(page_elements)
         candidates = [("text", None, group) for group in raw_groups]
     else:
+        page_elements = _assign_elements_to_regions(page_elements, regions, cfg)
+        has_page_text_elements = any(
+            str(element.get("type") or "text") == "text"
+            and str(element.get("text") or "").strip()
+            for element in page_elements)
         candidates = []
         for region in regions:
             label = str(region.get("model_label") or region.get("kind") or "text").lower()
             if label in _STRUCTURED or map_model_label(label, cfg) == "structured":
                 continue
             lines = _lines_in_region(
-                page.get("elements") or [], region.get("bbox"),
+                page_elements, region.get("bbox"),
                 region_id=str(region.get("region_id") or ""))
-            if not lines and not page.get("_v3_ocr_region_text"):
-                text = str(region.get("normalized_text") or region.get("text") or "").strip()
-                if text:
-                    lines = [{"text": value, "bbox": list(region.get("bbox") or [0, 0, 0, 0])}
-                             for value in text.splitlines() if value.strip()]
+            region_text = str(region.get("normalized_text") or region.get("text") or "").strip()
+            if not lines and _source_supported_variable_definition(region_text):
+                lines = [{
+                    "text": value,
+                    "bbox": list(region.get("bbox") or [0, 0, 0, 0]),
+                    "_v3_region_text_fallback": True,
+                    "_v3_source_supported_region_prefix": True,
+                } for value in region_text.splitlines() if value.strip()]
+            if (not lines and not has_page_text_elements
+                    and not page.get("_v3_ocr_region_text")):
+                if region_text:
+                    lines = [{"text": value, "bbox": list(region.get("bbox") or [0, 0, 0, 0]),
+                              "_v3_region_text_fallback": True}
+                             for value in region_text.splitlines() if value.strip()]
             candidates.append((label, region, lines))
 
     blocks: list[dict[str, Any]] = []
@@ -240,6 +275,10 @@ def build_page_blocks(
         if not body_lines:
             continue
         mapped = map_model_label(label, cfg)
+        body_lines = _restore_source_supported_region_variable_prefix(body_lines, region)
+        body_lines = _merge_split_number_lines(body_lines)
+        body_lines = _normalize_split_number_prefixes(body_lines)
+        body_lines = _expand_embedded_clause_lines(body_lines)
         body_lines = _drop_clause_label_echoes(body_lines)
         whole_text = _join_lines(body_lines)
         whole_bbox = _union_bbox(body_lines)
@@ -262,13 +301,13 @@ def build_page_blocks(
         # lines is a clause, not a giant heading.  Only its first line can
         # participate in the section hierarchy.
         first_text = str(body_lines[0].get("text") or "").strip()
-        clause_match = _CLAUSE.match(first_text)
+        clause_match = _clause_match(first_text)
         clause_like = bool(
             clause_match and _normalize_number_label(clause_match.group(1)).count(".") >= 2)
         groups = split_clause_lines(body_lines) if (mapped == "body" or clause_like) else [body_lines]
         for group in groups:
             text = _join_lines(group)
-            clause = bool(_CLAUSE.match(text)) and (mapped == "body" or clause_like)
+            clause = bool(_clause_match(text)) and (mapped == "body" or clause_like)
             first_line = next(
                 (line.strip() for line in text.splitlines() if line.strip()), "")
             chinese_item = bool(
@@ -293,13 +332,64 @@ def build_page_blocks(
     deduped: list[dict[str, Any]] = []
     seen: set[tuple[str, str, tuple[float, ...]]] = set()
     for block in ordered:
-        key = (str(block.get("_v3_role")), normalize_line(str(block.get("text") or "")),
+        normalized_text = normalize_line(str(block.get("text") or ""))
+        # Native layout sometimes emits a real text-layer element plus one or
+        # more region-text fallbacks for the same content.  The element-backed
+        # block is the source of truth; discard only fallback copies.
+        if block.get("_v3_region_text_fallback"):
+            label = str((block.get("_v3_heading") or {}).get("label") or "")
+            if any(
+                not other.get("_v3_region_text_fallback")
+                and (
+                    normalize_line(str(other.get("text") or "")) == normalized_text
+                    or (label and str((other.get("_v3_heading") or {}).get("label") or "") == label)
+                )
+                for other in ordered
+            ):
+                continue
+        key = (str(block.get("_v3_role")), normalized_text,
                tuple(round(value, 2) for value in _bbox(block.get("bbox"))))
         if key in seen:
             continue
         seen.add(key)
         deduped.append(block)
     return deduped
+
+
+def _source_supported_variable_definition(text: str) -> bool:
+    return bool(re.match(
+        r"^\s*(?:k0|tx)\s*\n+\s*.*[\u4e00-\u9fff].*$",
+        text, re.IGNORECASE | re.DOTALL,
+    ))
+
+
+def _restore_source_supported_region_variable_prefix(
+    lines: list[dict[str, Any]], region: dict[str, Any] | None,
+) -> list[dict[str, Any]]:
+    """Restore only the two R2c variable labels proved by the text region.
+
+    Some pages also classify the tiny ``k0``/``tx`` glyph as a formula region,
+    so the region-first text pass can retain the definition but lose its
+    variable.  The encompassing text region is accepted only when its complete
+    remainder exactly matches the assembled lines; this cannot manufacture a
+    definition from a lone OCR guess.
+    """
+    if not lines or not region:
+        return lines
+    region_text = str(region.get("normalized_text") or region.get("text") or "").strip()
+    match = re.match(r"^\s*(k0|tx)\s*\n+\s*(.+)$", region_text, re.IGNORECASE | re.DOTALL)
+    if not match or normalize_line(_join_lines(lines)) != normalize_line(match.group(2)):
+        return lines
+    token = match.group(1)
+    if normalize_line(_join_lines(lines)).lower().startswith(token.lower()):
+        return lines
+    prefix = {
+        "text": token, "normalized_text": token,
+        "bbox": list(region.get("bbox") or lines[0].get("bbox") or [0, 0, 0, 0]),
+        "_v3_region_text_fallback": True,
+        "_v3_source_supported_region_prefix": True,
+    }
+    return [prefix, *lines]
 
 
 def _make_block(lines: list[dict[str, Any]], label: str, region: dict[str, Any] | None,
@@ -322,6 +412,10 @@ def _make_block(lines: list[dict[str, Any]], label: str, region: dict[str, Any] 
         result["_v3_heading"] = heading
     if text_sources:
         result["_v3_ocr_text_sources"] = text_sources
+    if any(line.get("_v3_region_text_fallback") for line in lines):
+        result["_v3_region_text_fallback"] = True
+    if any(line.get("_v3_split_number_prefix_merged") for line in lines):
+        result["_v3_split_number_prefix_merged"] = True
     return result
 
 
@@ -369,21 +463,155 @@ def _lines_in_region(
     return _deduplicate_overlapping_lines(selected)
 
 
+def _assign_elements_to_regions(
+    elements: list[dict[str, Any]], regions: list[dict[str, Any]], cfg: dict[str, Any],
+) -> list[dict[str, Any]]:
+    """Give each unassigned native text element one authoritative region."""
+    text_regions = [
+        region for region in regions
+        if str(region.get("model_label") or region.get("kind") or "text").lower() not in _STRUCTURED
+        and map_model_label(
+            str(region.get("model_label") or region.get("kind") or "text").lower(), cfg
+        ) != "structured"
+        and _bbox(region.get("bbox"))
+    ]
+    result = deepcopy(elements)
+    for element in result:
+        if element.get("_v3_assigned_region_id") or not str(element.get("text") or "").strip():
+            continue
+        bbox = _bbox(element.get("bbox"))
+        ranked = [
+            (_containment(_bbox(region.get("bbox")), bbox),
+             -((_bbox(region.get("bbox"))[2] - _bbox(region.get("bbox"))[0])
+               * (_bbox(region.get("bbox"))[3] - _bbox(region.get("bbox"))[1])),
+             region)
+            for region in text_regions
+        ]
+        if not ranked:
+            continue
+        coverage, _negative_area, region = max(ranked, key=lambda row: (row[0], row[1]))
+        # A boundary-spanning native block must have one authoritative owner;
+        # otherwise an empty neighbouring layout region can re-emit the same
+        # region text or the block can disappear from its approved anchor.
+        if coverage > 0:
+            element["_v3_assigned_region_id"] = str(region.get("region_id") or "")
+    return result
+
+
 def _deduplicate_overlapping_lines(elements: Iterable[dict[str, Any]]) -> list[dict[str, Any]]:
     """Drop native-PDF fake-bold echoes without removing real repeated rows."""
     kept: list[dict[str, Any]] = []
     for element in elements:
         text = normalize_line(str(element.get("text") or ""))
         bbox = _bbox(element.get("bbox"))
-        duplicate = any(
-            text == normalize_line(str(previous.get("text") or ""))
-            and min(_containment(_bbox(previous.get("bbox")), bbox),
-                    _containment(bbox, _bbox(previous.get("bbox")))) >= 0.8
-            for previous in kept
-        )
+        duplicate = any(_overlapping_text_echo(previous, element) for previous in kept)
         if not duplicate:
             kept.append(element)
     return kept
+
+
+def _overlapping_text_echo(first: dict[str, Any], second: dict[str, Any]) -> bool:
+    a_text = normalize_line(str(first.get("text") or ""))
+    b_text = normalize_line(str(second.get("text") or ""))
+    a, b = _bbox(first.get("bbox")), _bbox(second.get("bbox"))
+    overlap = max(_containment(a, b), _containment(b, a))
+    if a_text == b_text:
+        return overlap >= 0.8
+    # PyMuPDF occasionally returns a multi-line block and its final rendered
+    # line as a second fake-bold block.  Substring + physical overlap is the
+    # evidence; identical text on separate rows remains untouched.
+    shorter, longer = sorted((a_text, b_text), key=len)
+    return len(shorter) >= 3 and shorter in longer and overlap >= 0.25
+
+
+def _normalize_split_number_prefixes(lines: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result = deepcopy(lines)
+    for line in result:
+        text = str(line.get("text") or "")
+        match = _SPLIT_NUMBER_PREFIX.match(text)
+        if not match:
+            continue
+        parts = [match.group(1), match.group(2)]
+        if match.group(3) is not None:
+            parts.append(match.group(3))
+        line["text"] = ".".join(parts) + text[match.end():]
+        line["_v3_split_number_prefix_merged"] = True
+    return result
+
+
+def _merge_split_number_lines(lines: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Merge horizontally adjacent short numbering spans before parsing."""
+    result: list[dict[str, Any]] = []
+    index = 0
+    component = re.compile(r"^\s*(\d+)\s*[.．]\s*$")
+    final = re.compile(r"^\s*(\d+)(?=\s|[一-鿿])(.*)$")
+    while index < len(lines):
+        first = component.match(str(lines[index].get("text") or ""))
+        merged = None
+        for size in (3, 2):
+            if not first or index + size > len(lines):
+                continue
+            prefixes = [first.group(1)]
+            for offset in range(1, size - 1):
+                match = component.match(str(lines[index + offset].get("text") or ""))
+                if not match:
+                    break
+                prefixes.append(match.group(1))
+            else:
+                tail = final.match(str(lines[index + size - 1].get("text") or ""))
+                selected = lines[index:index + size]
+                if tail and _share_baseline(selected):
+                    prefixes.append(tail.group(1))
+                    merged = deepcopy(selected[0])
+                    merged["text"] = ".".join(prefixes) + tail.group(2)
+                    merged["bbox"] = _union_bbox(selected)
+                    merged["_v3_split_number_prefix_merged"] = True
+                    if any(row.get("_v3_region_text_fallback") for row in selected):
+                        merged["_v3_region_text_fallback"] = True
+                    index += size
+                    break
+        if merged is not None:
+            result.append(merged)
+        else:
+            result.append(lines[index])
+            index += 1
+    return result
+
+
+def _share_baseline(lines: list[dict[str, Any]]) -> bool:
+    boxes = [_bbox(line.get("bbox")) for line in lines]
+    heights = [max(1.0, box[3] - box[1]) for box in boxes]
+    centres = [(box[1] + box[3]) / 2 for box in boxes]
+    return max(centres) - min(centres) <= 0.6 * max(heights)
+
+
+def _expand_embedded_clause_lines(lines: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Expose multiple clause starts stored inside one native PDF block."""
+    result: list[dict[str, Any]] = []
+    for line in lines:
+        parts = [part.strip() for part in str(line.get("text") or "").splitlines()
+                 if part.strip()]
+        starts = [index for index, part in enumerate(parts) if _clause_match(part)]
+        if len(parts) <= 1 or not starts or starts[0] != 0 or len(starts) < 2:
+            result.append(line)
+            continue
+        for index, start in enumerate(starts):
+            end = starts[index + 1] if index + 1 < len(starts) else len(parts)
+            result.append({**deepcopy(line), "text": "\n".join(parts[start:end])})
+    return result
+
+
+def _clause_match(text: str) -> re.Match[str] | None:
+    return _CLAUSE.match(text) or _APPENDIX_CLAUSE.match(text)
+
+
+def _clause_sequence(label: str) -> tuple[str | int, ...]:
+    parts = _normalize_number_label(label).split(".")
+    return tuple(int(part) if part.isdigit() else part for part in parts)
+
+
+def _normalize_appendix_letter(value: str) -> str:
+    return chr(ord(value.upper()) - ord("Ａ") + ord("A")) if "Ａ" <= value.upper() <= "Ｚ" else value.upper()
 
 
 def _containment(outer: list[float], inner: list[float]) -> float:
@@ -430,7 +658,7 @@ def _join_lines(lines: list[dict[str, Any]]) -> str:
 def _drop_clause_label_echoes(lines: list[dict[str, Any]]) -> list[dict[str, Any]]:
     if not lines:
         return lines
-    match = _CLAUSE.match(str(lines[0].get("text") or ""))
+    match = _clause_match(str(lines[0].get("text") or ""))
     if not match:
         return lines
     label = match.group(1)

@@ -21,6 +21,7 @@ from src.application.v2_chunker import chunk_document  # noqa: E402
 from src.evaluation.gold_anchor_exam import chunks_from_v2, grade  # noqa: E402
 from src.ingestion.block_assembly import prepare_page_document_v3  # noqa: E402
 from src.ingestion.native_pdf import apply_scanned_text_layer_routes  # noqa: E402
+from src.evaluation.text_duplication import audit_chunk_repetitions  # noqa: E402
 from eval.audits.middle_layer_v3.run_pilot_gb55027 import (  # noqa: E402
     _chunk_row,
     _metrics,
@@ -35,6 +36,10 @@ SCANNED_TEXT_CLEAN_OCR_RUN = "ocrv6-232ae585c76c8403"
 SCANNED_TEXT_RAW_OCR_RUN = "ocrv6-9873a4b3ba7ce25b"
 SAMPLE_SEED = "middle-layer-v3-r2-review-samples-v1"
 OUT = ROOT / "eval" / "audits" / "middle_layer_v3" / "rollout"
+R2B_BASELINE_REF = "0f209d9"
+R2B_BASELINE_SNAPSHOT = (
+    ROOT / "eval" / "audits" / "middle_layer_v3" / "r2b_baseline_snapshot.json"
+)
 
 
 def main() -> int:
@@ -64,6 +69,15 @@ def main() -> int:
     metrics_rows: list[dict[str, Any]] = []
     failures: list[dict[str, str]] = []
     render_failures: list[dict[str, Any]] = []
+    baseline = _read_r2b_baseline_snapshot(R2B_BASELINE_SNAPSHOT)
+    baseline_repetition_rows = baseline["adjacent_repetition_rows"]
+    baseline_appendix_rows = baseline["appendix_clause_rows"]
+    baseline_duplicate_counts = baseline["body_clause_duplicates_by_document"]
+    baseline_by_document: dict[str, list[dict[str, Any]]] = {}
+    for row in baseline_repetition_rows:
+        baseline_by_document.setdefault(str(row.get("document") or ""), []).append(row)
+    duplication_before: list[dict[str, Any]] = []
+    duplication_after: list[dict[str, Any]] = []
 
     for index, page_doc in enumerate(documents, start=1):
         sha = str(page_doc["sha256"])
@@ -113,6 +127,21 @@ def main() -> int:
             print(f"  FAILED legacy: {type(exc).__name__}: {exc}", flush=True)
 
         v3_metrics = _metrics(v3, v3_chunks)
+        source_texts = _source_texts_by_page(page_doc, prepared)
+        before_repetitions = audit_chunk_repetitions(
+            baseline_by_document.get(name, []), source_texts)
+        after_repetitions = audit_chunk_repetitions(document_rows, source_texts)
+        baseline_duplicate_count = int(baseline_duplicate_counts.get(name) or 0)
+        current_duplicate_count = int(((v3_metrics.get("clause_number_continuity") or {})
+            .get("summary") or {}).get("body_duplicate_count") or 0)
+        v3_metrics["text_regression"] = {
+            "body_clause_duplicate_count": current_duplicate_count,
+            "adjacent_repetition": after_repetitions,
+        }
+        duplication_before.extend({"document": name, **row}
+                                  for row in before_repetitions["occurrences"])
+        duplication_after.extend({"document": name, **row}
+                                 for row in after_repetitions["occurrences"])
         _attach_continuity_source_evidence(v3_metrics, prepared)
         metrics_rows.append({
             "sha256": sha,
@@ -132,6 +161,12 @@ def main() -> int:
                 "mode": "not_applicable_native_only", "ocr_page_count": 0,
             },
             "v3": v3_metrics,
+            "r2b_baseline": {
+                "body_clause_duplicate_count": baseline_duplicate_count,
+                "adjacent_repetition_count": before_repetitions["count"],
+                "pipeline_introduced_adjacent_repetition_count":
+                    before_repetitions["pipeline_introduced_count"],
+            },
             "legacy": legacy_metrics,
         })
         sample_result = _write_review_sample(
@@ -180,6 +215,39 @@ def main() -> int:
     }
     (OUT / "metrics.json").write_text(
         json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    duplication_payload = {
+        "schema_version": "middle-layer-v3-duplication-audit/1",
+        "baseline_ref": R2B_BASELINE_REF,
+        "rule": r"([一-鿿，、。；：]{3,12})\1",
+        "legal_judgement": "matched repetition exists in at least one single source text",
+        "before": {
+            "count": len(duplication_before),
+            "pipeline_introduced_count": sum(
+                row["judgement"] == "pipeline_introduced" for row in duplication_before),
+            "occurrences": duplication_before,
+        },
+        "after": {
+            "count": len(duplication_after),
+            "pipeline_introduced_count": sum(
+                row["judgement"] == "pipeline_introduced" for row in duplication_after),
+            "occurrences": duplication_after,
+        },
+        "body_clause_duplicates_by_document": [
+            {
+                "document": row["document"],
+                "before": row["r2b_baseline"]["body_clause_duplicate_count"],
+                "after": row["v3"]["text_regression"]["body_clause_duplicate_count"],
+            }
+            for row in metrics_rows
+        ],
+        "appendix_attachment": {
+            "before": _appendix_attachment(baseline_appendix_rows),
+            "after": _appendix_attachment(rows),
+        },
+    }
+    (OUT / "duplication_audit.json").write_text(
+        json.dumps(duplication_payload, ensure_ascii=False, indent=2) + "\n",
+        encoding="utf-8")
     print(json.dumps({
         "documents": payload["canonical_validation"],
         "chunks": len(rows),
@@ -234,7 +302,77 @@ def _aggregate(documents: list[dict[str, Any]], key: str) -> dict[str, Any]:
         continuity["summary"].update(checks.get("summary") or {})
     continuity["summary"] = dict(continuity["summary"])
     result["clause_number_continuity"] = continuity
+    if key == "v3":
+        result["text_regression"] = {
+            "body_clause_duplicate_count": sum(
+                int(((value.get("text_regression") or {})
+                     .get("body_clause_duplicate_count") or 0)) for value in values),
+            "adjacent_repetition_count": sum(
+                int((((value.get("text_regression") or {}).get("adjacent_repetition") or {})
+                     .get("count") or 0)) for value in values),
+            "pipeline_introduced_adjacent_repetition_count": sum(
+                int((((value.get("text_regression") or {}).get("adjacent_repetition") or {})
+                     .get("pipeline_introduced_count") or 0)) for value in values),
+        }
     return result
+
+
+def _source_texts_by_page(
+    page_doc: dict[str, Any], prepared: dict[str, Any],
+) -> dict[int, list[str]]:
+    result: dict[int, list[str]] = {}
+    for page in page_doc.get("pages") or []:
+        physical_page = int(page.get("physical_page") or 0)
+        values = [str(item.get("text") or "") for item in page.get("elements") or []]
+        values.extend(str(item.get("text") or item.get("normalized_text") or "")
+                      for item in page.get("regions") or [])
+        result.setdefault(physical_page, []).extend(value for value in values if value)
+    for page in prepared.get("pages") or []:
+        physical_page = int(page.get("physical_page") or 0)
+        for audit in page.get("_v3_ocr_line_audit") or []:
+            result.setdefault(physical_page, []).extend(
+                str(value) for value in (audit.get("source_texts") or {}).values() if value)
+    return result
+
+
+def _appendix_attachment(rows: list[dict[str, Any]]) -> dict[str, Any]:
+    pattern = re.compile(r"^\s*([A-Z])\.0\.\d+(?=\s|[一-鿿])")
+    occurrences = []
+    for row in rows:
+        match = pattern.match(str(row.get("body") or ""))
+        if not match:
+            continue
+        expected = f"附录{match.group(1)}"
+        labels = [str(value) for value in row.get("section_labels") or []]
+        attached = expected in labels
+        occurrences.append({
+            "document": row.get("document"), "chunk_id": row.get("chunk_id"),
+            "pages": row.get("pages"), "expected_appendix": expected,
+            "section_labels": labels, "attached": attached,
+        })
+    return {
+        "clause_chunk_count": len(occurrences),
+        "attached_count": sum(row["attached"] for row in occurrences),
+        "misattached_count": sum(not row["attached"] for row in occurrences),
+        "occurrences": occurrences,
+    }
+
+
+def _read_r2b_baseline_snapshot(path: Path) -> dict[str, Any]:
+    payload = _read_json(path)
+    if payload.get("schema_version") != "middle-layer-v3-r2b-baseline-snapshot/1":
+        raise ValueError(f"unsupported R2b baseline snapshot schema: {path}")
+    if payload.get("source_commit") != R2B_BASELINE_REF:
+        raise ValueError(
+            f"R2b baseline snapshot source_commit must be {R2B_BASELINE_REF}: {path}")
+    required = {
+        "adjacent_repetition_rows", "appendix_clause_rows",
+        "body_clause_duplicates_by_document",
+    }
+    missing = sorted(required - payload.keys())
+    if missing:
+        raise ValueError(f"R2b baseline snapshot missing fields {missing}: {path}")
+    return payload
 
 
 def _attach_continuity_source_evidence(

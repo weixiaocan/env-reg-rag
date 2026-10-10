@@ -1965,6 +1965,7 @@ def _collect_page_items(
                 "v3_model_label": elem.get("_v3_model_label"),
                 "v3_heading": elem.get("_v3_heading"),
                 "v3_furniture_rule": elem.get("_v3_furniture_rule"),
+                "v3_region_text_fallback": elem.get("_v3_region_text_fallback"),
             })
         items.append(_PageItem(
             kind="text", page=pno, bbox=bbox, text=text, ref=elem,

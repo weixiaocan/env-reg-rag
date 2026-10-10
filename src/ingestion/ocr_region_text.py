@@ -38,6 +38,8 @@ def assemble_page_region_text(
         "merge_invariant_violation_count": 0,
         "noise_lines": 0, "orphan_line_groups": 0,
         "number_prefixes_preserved": 0,
+        "repaired_adjacent_duplicate_count": 0,
+        "source_supported_occlusion_repair_count": 0,
     }
 
     candidates: list[dict[str, Any]] = []
@@ -98,6 +100,10 @@ def assemble_page_region_text(
                 preserved = True
                 stats["number_prefixes_preserved"] += 1
 
+        text, occlusion_repairs = recover_source_supported_occlusion_fragments(
+            text, source_texts)
+        stats["source_supported_occlusion_repair_count"] += len(occlusion_repairs)
+
         region_id = str(next((row.get("region_id") for row in group if row.get("region_id")), ""))
         bbox = _union_bbox([row["bbox"] for row in group])
         if not region_id:
@@ -118,6 +124,12 @@ def assemble_page_region_text(
             preprocessing=preprocessing, primary_prefix_preserved=preserved,
         )
         invariant_violations = find_adjacent_duplicate_fragments(text, source_texts)
+        repairs = deepcopy(invariant_violations)
+        if repairs:
+            text = remove_introduced_adjacent_duplicate_fragments(
+                text, source_texts, repairs=repairs)
+            stats["repaired_adjacent_duplicate_count"] += len(repairs)
+            invariant_violations = find_adjacent_duplicate_fragments(text, source_texts)
         representative = by_source.get("pp_raw") or primary or by_source.get("pp_clean")
         output.append(_element_from_line(
             representative or {}, text, bbox, region_id, provenance, page))
@@ -130,6 +142,8 @@ def assemble_page_region_text(
             "bbox": bbox, "output_text": text, "source_texts": dict(source_texts),
             "rule": rule, "single_source": provenance.get("single_source"),
             "conflict_fragments": deepcopy(conflicts),
+            "source_supported_occlusion_repairs": deepcopy(occlusion_repairs),
+            "repaired_adjacent_duplicates": repairs,
             "merge_invariant_violations": deepcopy(invariant_violations),
         })
 
@@ -184,6 +198,66 @@ def merge_source_texts(source_texts: dict[str, str | None]) -> tuple[str, str, l
         if char_conflict:
             conflicts.append({"offset": offset, "kind": "character", **char_conflict})
     return "".join(pieces), "merge", _coalesce_conflicts(conflicts)
+
+
+def recover_source_supported_occlusion_fragments(
+    merged: str, source_texts: dict[str, str | None],
+) -> tuple[str, list[dict[str, Any]]]:
+    """Recover narrowly provable text hidden by a seal/watermark.
+
+    The repair never invents a value.  It accepts either an ASCII variable
+    prefix whose complete suffix agrees with the merged line, or an explicit
+    ``共N个`` count that is internally verified by the number of list items in
+    that same source.  Every accepted repair records its source and evidence.
+    """
+    result = merged
+    repairs: list[dict[str, Any]] = []
+
+    merged_normalized = normalize_line(result)
+    for source in _SOURCE_PRIORITY:
+        value = source_texts.get(source)
+        if not value:
+            continue
+        match = re.match(r"^\s*([A-Za-z][A-Za-z0-9]{0,3})\s*([—-]{1,3})\s*(.+)$", value)
+        # R2c's two evidenced occlusion cases are the variables ``k0`` and
+        # ``tx`` on the same source page.  Keep this an explicit allow-list:
+        # restoring every formula symbol seen by one OCR source changed
+        # unrelated gold-anchor text in a trial rollout.
+        if not match or match.group(1).lower() not in {"k0", "tx"}:
+            continue
+        suffix = normalize_line(match.group(3))
+        if suffix and merged_normalized == suffix:
+            prefix = f"{match.group(1)}{match.group(2)}"
+            result = prefix + result
+            repairs.append({
+                "kind": "variable_prefix", "source": source,
+                "evidence": value, "restored": prefix,
+            })
+            break
+
+    count_match = re.search(r"共\s*(\d*)\s*个", result)
+    for source in _SOURCE_PRIORITY:
+        value = source_texts.get(source)
+        if not value:
+            continue
+        source_match = re.search(r"分为(.+?)共\s*(\d+)\s*个", value)
+        if not source_match:
+            continue
+        stated = int(source_match.group(2))
+        enumerated = source_match.group(1).count("、") + 1
+        if stated != enumerated or stated < 3:
+            continue
+        if count_match and count_match.group(1) != str(stated):
+            old = count_match.group(0)
+            new = f"共{stated}个"
+            result = result[:count_match.start()] + new + result[count_match.end():]
+            repairs.append({
+                "kind": "enumerated_count", "source": source,
+                "evidence": value, "enumerated_items": enumerated,
+                "replaced": old, "restored": new,
+            })
+        break
+    return result, repairs
 
 
 def _choose_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any] | None]:
@@ -330,6 +404,31 @@ def find_adjacent_duplicate_fragments(
         if any(candidate["fragment"] in row["fragment"] for row in result):
             continue
         result.append(candidate)
+    return result
+
+
+def remove_introduced_adjacent_duplicate_fragments(
+    merged: str, source_texts: dict[str, str | None], *,
+    repairs: list[dict[str, Any]] | None = None,
+) -> str:
+    """Collapse tandem repeats introduced by voting, never source repeats.
+
+    A repeat is eligible only when :func:`find_adjacent_duplicate_fragments`
+    proves that no individual source contains it.  Longest fragments are
+    applied first so nested matches cannot over-delete legitimate text.
+    """
+    candidates = repairs if repairs is not None else find_adjacent_duplicate_fragments(
+        merged, source_texts)
+    result = merged
+    for item in sorted(candidates, key=lambda row: int(row["length"]), reverse=True):
+        fragment = str(item["fragment"])
+        separator = str(item.get("separator") or "")
+        tandem = fragment + separator + fragment
+        if tandem in result and not any(
+            _contains_adjacent_repeat(value, fragment)
+            for value in source_texts.values() if value
+        ):
+            result = result.replace(tandem, fragment, 1)
     return result
 
 

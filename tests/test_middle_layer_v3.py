@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import pytest
+
 from src.ingestion.block_assembly import (
     build_page_blocks,
     heading_descriptor,
@@ -7,7 +9,13 @@ from src.ingestion.block_assembly import (
     prepare_page_document_v3,
     split_clause_lines,
 )
+from src.ingestion.ocr_region_text import (
+    find_adjacent_duplicate_fragments,
+    recover_source_supported_occlusion_fragments,
+    remove_introduced_adjacent_duplicate_fragments,
+)
 from src.ingestion.page_furniture import classify_page_furniture, watermark_line_variants
+from eval.audits.middle_layer_v3.run_rollout import _read_r2b_baseline_snapshot
 
 
 def _line(text: str, y: float, x: float = 50.0) -> dict:
@@ -195,3 +203,169 @@ def test_explicit_ocr_region_assignment_keeps_boundary_spanning_line() -> None:
     blocks = build_page_blocks(page)
 
     assert [block["text"] for block in blocks] == ["对雨水接入污水管道进行判定。"]
+
+
+def test_native_region_fallback_does_not_duplicate_element_backed_clause() -> None:
+    text = "5.1.1 第一条正文。\n5.1.2 第二条正文。"
+    page = {
+        "physical_page": 8, "width": 560, "height": 842,
+        "extraction_route": "native",
+        "elements": [{**_line(text, 220), "bbox": [55, 220, 525, 293]}],
+        "regions": [
+            {"region_id": "r-full", "model_label": "text", "bbox": [53, 218, 524, 261], "text": text},
+            {"region_id": "r-echo", "model_label": "text", "bbox": [53, 264, 524, 293], "text": text},
+        ],
+    }
+    blocks = build_page_blocks(page)
+    assert [block["text"] for block in blocks] == ["5.1.1 第一条正文。", "5.1.2 第二条正文。"]
+
+
+def test_single_region_keeps_normal_native_grouping() -> None:
+    page = {
+        "physical_page": 8, "width": 560, "height": 842,
+        "elements": [_line("正文第一行。", 220), _line("正文第二行。", 238)],
+        "regions": [
+            {"region_id": "r-body", "model_label": "text",
+             "bbox": [45, 215, 530, 260]},
+        ],
+    }
+    assert [block["text"] for block in build_page_blocks(page)] == [
+        "正文第一行。\n正文第二行。"]
+
+
+def test_embedded_clause_split_keeps_continuation_lines_with_their_clause() -> None:
+    page = {
+        "physical_page": 8, "width": 560, "height": 842,
+        "elements": [{**_line(
+            "5.1.1 第一条正文。\n第一条续行。\n5.1.2 第二条正文。\n第二条续行。", 220),
+            "bbox": [55, 220, 525, 293]}],
+        "regions": [
+            {"region_id": "r", "model_label": "text", "bbox": [53, 218, 530, 300]},
+        ],
+    }
+    assert [block["text"] for block in build_page_blocks(page)] == [
+        "5.1.1 第一条正文。\n第一条续行。", "5.1.2 第二条正文。\n第二条续行。"]
+
+
+def test_native_overlapping_suffix_echo_is_removed_but_separate_row_is_kept() -> None:
+    page = {
+        "physical_page": 5, "width": 560, "height": 842,
+        "elements": [
+            {**_line("本文件按照规则的规定起草。", 168), "bbox": [71, 168, 532, 193]},
+            {**_line("定起草。", 184), "bbox": [71, 184, 113, 207]},
+            {**_line("定起草。", 230), "bbox": [71, 230, 113, 253]},
+        ],
+        "regions": [{"region_id": "r", "model_label": "text", "bbox": [60, 160, 540, 260]}],
+    }
+    blocks = build_page_blocks(page)
+    assert blocks[0]["text"] == "本文件按照规则的规定起草。\n定起草。"
+
+
+def test_vote_repairs_only_repeat_absent_from_each_source() -> None:
+    sources = {"primary": "在系统之前，通过渗透", "pp_raw": "在系统之前，通过渗透", "pp_clean": "在系统之前，通过渗透"}
+    merged = "在系统之前，通之前，通过渗透"
+    defects = find_adjacent_duplicate_fragments(merged, sources)
+    assert defects
+    assert remove_introduced_adjacent_duplicate_fragments(merged, sources) == "在系统之前，通过渗透"
+    legal_sources = {"primary": "氨氮、总氮、总磷", "pp_raw": None, "pp_clean": None}
+    assert remove_introduced_adjacent_duplicate_fragments("氨氮、总氮、总磷", legal_sources) == "氨氮、总氮、总磷"
+
+
+def test_vote_recovers_only_source_supported_occluded_fragments() -> None:
+    text, repairs = recover_source_supported_occlusion_fragments(
+        "下渗时间(s)。",
+        {"primary": "下渗时间（s）。", "pp_clean": "下渗时间(s)。",
+         "pp_raw": "tx——下渗时间(s)。"},
+    )
+    assert text == "tx——下渗时间(s)。"
+    assert repairs[0]["kind"] == "variable_prefix"
+
+    text, repairs = recover_source_supported_occlusion_fragments(
+        "衰减常数(h-1)，可取2~7；",
+        {"primary": "衰减常数(h-1)，可取2~7；", "pp_clean": None,
+         "pp_raw": "k0——衰减常数(h-1)，可取2~7；"},
+    )
+    assert text == "k0——衰减常数(h-1)，可取2~7；"
+    assert repairs[0]["restored"] == "k0——"
+
+    text, repairs = recover_source_supported_occlusion_fragments(
+        "降雨分为小雨、中雨、大雨、暴雨、大暴雨、特大暴雨、微量降雨共4个等级。",
+        {"primary": "降雨分为小雨、中雨、大雨、暴雨、大暴雨、特大暴雨、微量降雨共个等级。",
+         "pp_clean": None,
+         "pp_raw": "降雨分为小雨、中雨、大雨、暴雨、大暴雨、特大暴雨、微量降雨共7个等级。"},
+    )
+    assert "共7个等级" in text
+    assert repairs[0]["kind"] == "enumerated_count"
+
+    unchanged, repairs = recover_source_supported_occlusion_fragments(
+        "共个等级", {"primary": "共个等级", "pp_clean": None, "pp_raw": None})
+    assert unchanged == "共个等级"
+    assert repairs == []
+
+
+def test_region_text_restores_evidenced_k0_prefix_hidden_by_formula_region() -> None:
+    page = {
+        "physical_page": 15, "width": 400, "height": 600,
+        "regions": [{
+            "region_id": "text-definition", "kind": "text", "model_label": "text",
+            "bbox": [70, 480, 240, 500],
+            "text": "k0\n衰减常数(h-1)，可取2~7；",
+        }],
+        "elements": [{
+            "element_id": "merged-suffix", "type": "text",
+            "text": "衰减常数(h-1)，可取2~7；",
+            "bbox": [110, 488, 235, 498],
+            "_v3_assigned_region_id": "text-definition",
+        }],
+    }
+    blocks = build_page_blocks(page)
+    assert blocks[0]["text"] == "k0衰减常数(h-1)，可取2~7；"
+    assert blocks[0]["_v3_region_text_fallback"] is True
+
+    page["elements"] = []
+    page["_v3_ocr_region_text"] = True
+    blocks = build_page_blocks(page)
+    assert blocks[0]["text"] == "k0衰减常数(h-1)，可取2~7；"
+
+
+def test_split_native_number_prefix_and_appendix_hierarchy() -> None:
+    page = {
+        "physical_page": 13, "width": 560, "height": 842,
+        "elements": [{**_line("9.\n3.\n4 应利用排水管网监测数据。", 150), "bbox": [68, 150, 532, 182]}],
+        "regions": [{"region_id": "r", "model_label": "text", "bbox": [60, 145, 540, 190]}],
+    }
+    blocks = build_page_blocks(page)
+    assert blocks[0]["text"] == "9.3.4 应利用排水管网监测数据。"
+    assert blocks[0]["_v3_heading"]["label"] == "9.3.4"
+    span_page = {
+        "physical_page": 13, "width": 560, "height": 842,
+        "elements": [_line("9.", 150, 68), _line("3.", 150, 82),
+                     _line("4 应利用排水管网监测数据。", 150, 96)],
+        "regions": [{"region_id": "r", "model_label": "text", "bbox": [60, 145, 540, 170]}],
+    }
+    span_blocks = build_page_blocks(span_page)
+    assert span_blocks[0]["text"] == "9.3.4 应利用排水管网监测数据。"
+    assert heading_descriptor("附录B 暴雨强度公式的编制方法", is_title=True) == {
+        "label": "附录B", "title": "暴雨强度公式的编制方法", "level": 1}
+    assert heading_descriptor("B.0.1 本方法适用于自记雨量记录。", is_clause=True) == {
+        "label": "B.0.1", "title": None, "level": 3}
+
+
+def test_r2b_baseline_snapshot_is_explicit_and_validated(tmp_path) -> None:
+    snapshot = tmp_path / "baseline.json"
+    snapshot.write_text(
+        '{"schema_version":"middle-layer-v3-r2b-baseline-snapshot/1",'
+        '"source_commit":"0f209d9","adjacent_repetition_rows":[],'
+        '"appendix_clause_rows":[],"body_clause_duplicates_by_document":{}}',
+        encoding="utf-8",
+    )
+    assert _read_r2b_baseline_snapshot(snapshot)["source_commit"] == "0f209d9"
+
+    snapshot.write_text(
+        '{"schema_version":"middle-layer-v3-r2b-baseline-snapshot/1",'
+        '"source_commit":"wrong","adjacent_repetition_rows":[],'
+        '"appendix_clause_rows":[],"body_clause_duplicates_by_document":{}}',
+        encoding="utf-8",
+    )
+    with pytest.raises(ValueError, match="source_commit"):
+        _read_r2b_baseline_snapshot(snapshot)
