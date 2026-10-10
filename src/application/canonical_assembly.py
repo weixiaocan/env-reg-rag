@@ -192,7 +192,7 @@ def assemble_document(
     """
     _formula_ledger_produced = formula_pages is not None
     formula_pages = formula_pages or {}
-    fusion_summary = page_document.get("_v3_fusion_summary")
+    fusion_summary = page_document.get("_v3_ocr_summary")
     if independent_ocr_run_dir is not None:
         page_document, fusion_summary = fuse_document_pages(
             page_document, run_dir=independent_ocr_run_dir)
@@ -1954,6 +1954,7 @@ def _collect_page_items(
         if elem.get("_v3_block"):
             extra.update({
                 "ocr_fusions": list(elem.get("_v3_ocr_fusions") or []),
+                "ocr_text_sources": list(elem.get("_v3_ocr_text_sources") or []),
                 "source_line_bboxes": list(elem.get("_v3_source_line_bboxes") or []),
                 "v3_block": True,
                 "v3_role": elem.get("_v3_role"),
@@ -2218,6 +2219,16 @@ def _build_text_element(
         quality_status = "needs_review"
         if "independent_ocr_fusion_unreviewed" not in policy_reasons:
             policy_reasons.append("independent_ocr_fusion_unreviewed")
+    ocr_text_sources = list(slot.extra.get("ocr_text_sources") or [])
+    if ocr_text_sources:
+        confidence_values = [value.get("score") for value in ocr_text_sources
+                             if isinstance(value.get("score"), (int, float))]
+        provenance.append(_provenance(
+            "recognize", "ocr", "ocr-region-1",
+            min(confidence_values) if confidence_values else None))
+        quality_status = "needs_review"
+        if "preprocessed_independent_ocr_unreviewed" not in policy_reasons:
+            policy_reasons.append("preprocessed_independent_ocr_unreviewed")
     return {
         "element_id": elem_counter.next(),
         "type": "text",
@@ -2234,6 +2245,8 @@ def _build_text_element(
         "processing_config_ids": list(slot.region_processing_config_ids),
         "quality_issues": list(slot.region_issues),
         **({"ocr_fusion": [dict(value) for value in fusions]} if fusions else {}),
+        **({"ocr_text_sources": [dict(value) for value in ocr_text_sources]}
+           if ocr_text_sources else {}),
     }
 
 
@@ -3679,7 +3692,10 @@ def _build_generation(
     # missing engine_version on an old cache is "unknown", never a guess.
     for eid, name, version in (ocr_engine_order or []):
         engines.append({"engine_id": eid, "name": name, "version": version})
-    if fusion_summary and (fusion_summary.get("inserted") or fusion_summary.get("replaced")):
+    if fusion_summary and fusion_summary.get("mode") == "preprocessed-region-text-v1":
+        engines.append({"engine_id": "ocr-region-1", "name": "RapidOCR/PP-OCRv6_rec_small",
+                        "version": str(fusion_summary.get("run_id") or "unknown")})
+    elif fusion_summary and (fusion_summary.get("inserted") or fusion_summary.get("replaced")):
         engines.append({"engine_id": "ocr-fusion-1", "name": "RapidOCR/PP-OCRv6_rec_small",
                         "version": str(fusion_summary.get("run_id") or "unknown")})
     if paragraph_reconstruction:

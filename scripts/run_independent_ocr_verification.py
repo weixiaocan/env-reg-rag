@@ -22,6 +22,10 @@ from src.evaluation.independent_ocr_verifier import (  # noqa: E402
     sha256_file,
     verify_text_region,
 )
+from src.ingestion.ocr_preprocessing import (  # noqa: E402
+    PreprocessConfig,
+    preprocess_ocr_image,
+)
 
 MODEL_DIR = ROOT / "data/model_runtime/independent_ocr/rapidocr-3.9.2-ppocrv6"
 MODEL_FILES = (
@@ -60,10 +64,28 @@ def main() -> int:
     parser.add_argument("--corpus-version", required=True)
     parser.add_argument("--max-pages", type=int)
     parser.add_argument("--render-scale", type=float, default=DEFAULT_SCALE)
+    parser.add_argument("--file-sha256", action="append", default=[],
+                        help="limit to one or more document hashes")
+    parser.add_argument("--physical-pages",
+                        help="comma-separated physical pages, applied to selected documents")
+    parser.add_argument("--ocr-routed-only", action="store_true",
+                        help="exclude native pages selected only by structure-audit signals")
+    parser.add_argument("--preprocess", action="store_true",
+                        help="remove light-gray watermark and red stamp pixels before OCR")
+    parser.add_argument("--gray-threshold", type=int, default=120)
+    parser.add_argument("--red-min", type=int, default=140)
+    parser.add_argument("--red-delta", type=int, default=60)
     args = parser.parse_args()
     if args.render_scale < 1.0 or args.render_scale > 4.0:
         raise SystemExit("--render-scale must be between 1.0 and 4.0")
     scale = float(args.render_scale)
+    selected_hashes = {value.lower() for value in args.file_sha256}
+    selected_pages = ({int(value.strip()) for value in args.physical_pages.split(",") if value.strip()}
+                      if args.physical_pages else set())
+    preprocess_config = PreprocessConfig(
+        enabled=bool(args.preprocess), gray_threshold=args.gray_threshold,
+        red_min=args.red_min, red_delta=args.red_delta,
+    )
 
     manifest_path = ROOT / "data/registry" / f"{args.corpus_version}.json"
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
@@ -90,11 +112,16 @@ def main() -> int:
         "confidence_threshold": CONFIDENCE, "model_hashes": model_hashes,
         "region_alignment": "unique-contiguous-exact-subset-v2",
         "selection": (
+            "page.extraction_route in {full_ocr, hybrid}"
+            if args.ocr_routed_only else
             "page.extraction_route == full_ocr OR page has an unresolved "
             "original_full_page_image_layout_semantics_not_independently_verified signal"
         ),
         "structure_audit_sha256": sha256_file(structure_audit_path),
         "max_pages": args.max_pages,
+        "file_sha256": sorted(selected_hashes),
+        "physical_pages": sorted(selected_pages),
+        "preprocessing": preprocess_config.to_dict(),
     }
     run_hash = hashlib.sha256(json.dumps({"config": config, "page_intermediate_sha256": sha256_file(pi_path)},
                                         sort_keys=True).encode("utf-8")).hexdigest()
@@ -107,8 +134,11 @@ def main() -> int:
         (doc, page)
         for doc in documents
         for page in doc.get("pages") or []
-        if (page.get("extraction_route") == "full_ocr" or
-            (str(doc["sha256"]), int(page["physical_page"])) in full_page_signal_keys)
+        if (page.get("extraction_route") in {"full_ocr", "hybrid"} or
+            (not args.ocr_routed_only and
+             (str(doc["sha256"]), int(page["physical_page"])) in full_page_signal_keys))
+        and (not selected_hashes or str(doc["sha256"]).lower() in selected_hashes)
+        and (not selected_pages or int(page["physical_page"]) in selected_pages)
     ]
     if args.max_pages is not None:
         selected = selected[:args.max_pages]
@@ -131,7 +161,8 @@ def main() -> int:
                 if (candidate.get("file_sha256") == sha and
                         candidate.get("physical_page") == number and
                         candidate.get("model_hashes") == model_hashes and
-                        (candidate.get("render") or {}).get("scale") == scale):
+                        (candidate.get("render") or {}).get("scale") == scale and
+                        candidate.get("preprocessing") == preprocess_config.to_dict()):
                     reusable = candidate
                     break
             if reusable is not None:
@@ -144,6 +175,8 @@ def main() -> int:
                 image = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n)
                 rotation_k = 3 if int(page.get("rotation") or 0) == 270 else 0
                 ocr_image = np.rot90(image, rotation_k) if rotation_k else image
+                ocr_image, preprocessing_stats = preprocess_ocr_image(
+                    ocr_image, preprocess_config)
                 result = engine(ocr_image)
                 lines = []
                 boxes = result.boxes if result.boxes is not None else ()
@@ -163,6 +196,8 @@ def main() -> int:
                     "page_rotation": int(page.get("rotation") or 0), "numpy_rotation_k": rotation_k,
                     "render": {"scale": scale, "width_px": pix.width, "height_px": pix.height,
                                "samples_sha256": hashlib.sha256(bytes(pix.samples)).hexdigest()},
+                    "preprocessing": preprocess_config.to_dict(),
+                    "preprocessing_stats": preprocessing_stats,
                     "model_hashes": model_hashes, "lines": lines,
                 }
                 _atomic_write(output, _json_bytes(payload))

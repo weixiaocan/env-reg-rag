@@ -76,6 +76,7 @@ _DIGEST_EXCLUDED_ELEMENT_FIELDS = {
     # fused text itself remains content-addressed; this record explains how it
     # was selected without changing the established ID inputs.
     "ocr_fusion",
+    "ocr_text_sources",
 }
 
 
@@ -208,6 +209,34 @@ def _validate_ocr_fusion(records: Any, where: str) -> None:
         if not isinstance(record["source_region_ids"], list) or not all(
                 isinstance(v, str) for v in record["source_region_ids"]):
             raise SchemaError(f"{where}[].source_region_ids must be a string list")
+
+
+def _validate_ocr_text_sources(records: Any, where: str) -> None:
+    """Validate PP-first and primary-fallback line provenance records."""
+    if not isinstance(records, list):
+        raise SchemaError(f"{where} must be a list")
+    required = {
+        "source", "line_id", "score", "run_id", "run_manifest_sha256",
+        "preprocessing", "primary_prefix_preserved",
+    }
+    for record in records:
+        if not isinstance(record, dict):
+            raise SchemaError(f"{where} entries must be objects")
+        _require_keys(record, required, f"{where}[]")
+        if record["source"] not in {"pp_clean", "primary_fallback"}:
+            raise SchemaError(f"{where}[].source is invalid")
+        for key in ("line_id", "run_id"):
+            if not isinstance(record[key], str) or not record[key]:
+                raise SchemaError(f"{where}[].{key} must be a non-empty string")
+        _sha256_hex(record["run_manifest_sha256"], f"{where}[].run_manifest_sha256")
+        score = record["score"]
+        if score is not None and (not isinstance(score, (int, float))
+                                  or isinstance(score, bool) or not 0 <= score <= 1):
+            raise SchemaError(f"{where}[].score must be in [0,1] or null")
+        if not isinstance(record["preprocessing"], dict):
+            raise SchemaError(f"{where}[].preprocessing must be an object")
+        if not isinstance(record["primary_prefix_preserved"], bool):
+            raise SchemaError(f"{where}[].primary_prefix_preserved must be bool")
 
 
 def _validate_relation_records(relations: Any, where: str) -> None:
@@ -864,6 +893,9 @@ class Element:
     # currently has at most one record, but a list keeps the provenance chain
     # explicit and avoids hiding a future staged merge.
     ocr_fusion: list[dict[str, Any]] = field(default_factory=list)
+    # R1c PP-first OCR line provenance; immutable run and preprocessing
+    # configuration remain audit metadata rather than content identity.
+    ocr_text_sources: list[dict[str, Any]] = field(default_factory=list)
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> "Element":
@@ -881,6 +913,7 @@ class Element:
                 "crop_assets", "cross_page_relations",
                 "explanation_bindings",
                 "ocr_fusion",
+                "ocr_text_sources",
             },
         )
         etype = data["type"]
@@ -922,6 +955,9 @@ class Element:
         fusion = data.get("ocr_fusion")
         if fusion is not None:
             _validate_ocr_fusion(fusion, "element.ocr_fusion")
+        text_sources = data.get("ocr_text_sources")
+        if text_sources is not None:
+            _validate_ocr_text_sources(text_sources, "element.ocr_text_sources")
         return cls(
             element_id=data["element_id"],
             type=etype,
@@ -943,6 +979,8 @@ class Element:
             cross_page_relations=[dict(r) for r in data["cross_page_relations"]] if data.get("cross_page_relations") is not None else [],
             explanation_bindings=[dict(b) for b in data["explanation_bindings"]] if data.get("explanation_bindings") is not None else [],
             ocr_fusion=[dict(f) for f in data["ocr_fusion"]] if data.get("ocr_fusion") is not None else [],
+            ocr_text_sources=[dict(s) for s in data["ocr_text_sources"]]
+            if data.get("ocr_text_sources") is not None else [],
         )
 
 

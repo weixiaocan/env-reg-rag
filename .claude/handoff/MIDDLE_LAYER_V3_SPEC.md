@@ -25,7 +25,7 @@ PP-StructureV3 已给出**完整段落级版面块**（regions）及类型标签
    | `table`/`formula`/`formula_number`/`figure_title`/`image`/`chart` | 结构化元素，交给既有组装 |
    | `reference*` | 参考文献段落 |
 3. **页面家具兜底规则**（`src/ingestion/page_furniture.py`，单一模块）：PP 标签之外，顶/底带内页码模式（`· 7 ·`、`- 12 -`、纯数字、`第N页`）、跨页复现版眉、配置文件中的水印文字清单（仅整块/整行命中）。**只标记不删除**，记录命中规则 id。
-4. **OCR 页文字纠正**：region 内按行用 PP-OCRv6 纠正/补行，复用 `independent_ocr_fusion.py` 的 `t5-calibrated-v1` 规则；补入行必须落在该 region bbox 内。原生页不做。
+4. **OCR 页文字来源**：页面经去浅灰水印/红章预处理后，用本地 PP-OCRv6 重新识别；region 文本取中心点落在该 region bbox 内的 PP 行，主 OCR 仅补无 PP 纵向覆盖的行。v3 不再调用逐行 replace/insert 融合；原生页不做。
 5. **阅读顺序**：region 级排序；复用 T4 修正后的列检测（真实列缝判据）；同栏内自上而下。
 6. **条文切分**：一个 text region 内若含多个条文起点（行首 `N.N.N`、`N.N` 且序号与上下文连续），在起点处切成多个 clause 元素；以数字开头的续行（如 `5.6.2、5.6.5 和 5.7.1 条的规定`）不切。
 7. **标题层级**：仅 `paragraph_title`/`doc_title` 与条文编号可成为 section 节点。层级由编号决定（`N`→章、`N.N`→节、`N.N.N`→条；`第N章`；`一、`/`（一）`；`Ⅰ/Ⅱ` 小节挂在所属节下）。**`text` 标签的块永不成为章/节标题**；标题文本只取标题行本身（≤ 60 字），不得收纳正文。编号前缀一致性：`5.10.7` 只能挂在 `5.10`/`5` 下。

@@ -15,7 +15,11 @@ from statistics import median
 from typing import Any, Iterable
 
 from src.ingestion.column_detection import detect_columns
-from src.ingestion.independent_ocr_fusion import fuse_document_pages
+from src.ingestion.independent_ocr_fusion import (
+    load_independent_ocr_page,
+    load_independent_ocr_run,
+)
+from src.ingestion.ocr_region_text import assemble_page_region_text
 from src.ingestion.page_furniture import (
     classify_page_furniture,
     normalize_line,
@@ -101,9 +105,43 @@ def prepare_page_document_v3(
     """Return a deep-copied page document whose text elements are region blocks."""
     cfg = config or load_config()
     doc = deepcopy(page_document)
-    fusion_summary = None
+    ocr_summary = None
     if independent_ocr_run_dir is not None:
-        doc, fusion_summary = fuse_document_pages(doc, run_dir=independent_ocr_run_dir)
+        manifest, manifest_sha = load_independent_ocr_run(independent_ocr_run_dir)
+        preprocessing = dict((manifest.get("config") or {}).get("preprocessing") or {})
+        if not preprocessing.get("enabled"):
+            raise ValueError("middle-layer v3 requires a preprocessed independent OCR run")
+        run_id = str(manifest["run_id"])
+        source_sha = str(doc.get("sha256") or "").lower()
+        totals = {"pp_clean_lines": 0, "primary_fallback_lines": 0,
+                  "noise_lines": 0, "orphan_pp_lines": 0,
+                  "number_prefixes_preserved": 0}
+        ocr_pages = 0
+        for page_index, page in enumerate(doc.get("pages") or []):
+            if page.get("extraction_route") not in {"full_ocr", "hybrid"}:
+                continue
+            physical_page = int(page.get("physical_page") or page_index + 1)
+            independent_page = load_independent_ocr_page(
+                independent_ocr_run_dir, source_sha, physical_page,
+                page_width=float(page.get("width") or 0.0),
+                page_height=float(page.get("height") or 0.0),
+            )
+            assembled, page_stats = assemble_page_region_text(
+                page, independent_page, run_id=run_id,
+                run_manifest_sha256=manifest_sha, preprocessing=preprocessing,
+                watermarks=list(cfg.get("watermark_exact_lines") or []),
+                bbox_tolerance=float(cfg.get("ocr_region_bbox_tolerance") or 2.0),
+                single_char_score=float(cfg.get("ocr_single_char_min_score") or 0.85),
+            )
+            doc["pages"][page_index] = assembled
+            ocr_pages += 1
+            for key in totals:
+                totals[key] += page_stats[key]
+        ocr_summary = {
+            "mode": "preprocessed-region-text-v1", "run_id": run_id,
+            "run_manifest_sha256": manifest_sha, "preprocessing": preprocessing,
+            "ocr_page_count": ocr_pages, **totals,
+        }
     recurring = recurring_band_texts(doc.get("pages") or [])
     stats = {"region_pages": 0, "fallback_pages": 0, "furniture": 0, "toc": 0}
     for page_index, page in enumerate(doc.get("pages") or []):
@@ -121,8 +159,8 @@ def prepare_page_document_v3(
         page["elements"] = blocks
     doc["_middle_layer_v3"] = True
     doc["_v3_stats"] = stats
-    if fusion_summary is not None:
-        doc["_v3_fusion_summary"] = fusion_summary
+    if ocr_summary is not None:
+        doc["_v3_ocr_summary"] = ocr_summary
     return doc
 
 
@@ -141,8 +179,10 @@ def build_page_blocks(
             label = str(region.get("model_label") or region.get("kind") or "text").lower()
             if label in _STRUCTURED or map_model_label(label, cfg) == "structured":
                 continue
-            lines = _lines_in_region(page.get("elements") or [], region.get("bbox"))
-            if not lines:
+            lines = _lines_in_region(
+                page.get("elements") or [], region.get("bbox"),
+                region_id=str(region.get("region_id") or ""))
+            if not lines and not page.get("_v3_ocr_region_text"):
                 text = str(region.get("normalized_text") or region.get("text") or "").strip()
                 if text:
                     lines = [{"text": value, "bbox": list(region.get("bbox") or [0, 0, 0, 0])}
@@ -223,7 +263,7 @@ def _make_block(lines: list[dict[str, Any]], label: str, region: dict[str, Any] 
                 *, role: str, furniture_rule: str | None = None,
                 heading: dict[str, Any] | None = None) -> dict[str, Any]:
     text = _join_lines(lines)
-    fusions = [line.get("_ocr_fusion") for line in lines if line.get("_ocr_fusion")]
+    text_sources = [line.get("_ocr_text_source") for line in lines if line.get("_ocr_text_source")]
     result = {
         "type": "text", "text": text, "normalized_text": text,
         "bbox": _union_bbox(lines), "coordinate_origin": "top_left",
@@ -237,8 +277,8 @@ def _make_block(lines: list[dict[str, Any]], label: str, region: dict[str, Any] 
         result["_v3_furniture_rule"] = furniture_rule
     if heading:
         result["_v3_heading"] = heading
-    if fusions:
-        result["_v3_ocr_fusions"] = fusions
+    if text_sources:
+        result["_v3_ocr_text_sources"] = text_sources
     return result
 
 
@@ -260,10 +300,15 @@ def _fallback_groups(elements: Iterable[dict[str, Any]]) -> list[list[dict[str, 
     return groups
 
 
-def _lines_in_region(elements: Iterable[dict[str, Any]], raw_bbox: Any) -> list[dict[str, Any]]:
+def _lines_in_region(
+    elements: Iterable[dict[str, Any]], raw_bbox: Any, *, region_id: str = "",
+) -> list[dict[str, Any]]:
     region = _bbox(raw_bbox)
     selected = []
     for element in elements:
+        assigned = str(element.get("_v3_assigned_region_id") or "")
+        if assigned and assigned != region_id:
+            continue
         bbox = _bbox(element.get("bbox"))
         if bbox and _containment(region, bbox) >= 0.5 and str(element.get("text") or "").strip():
             selected.append(deepcopy(element))

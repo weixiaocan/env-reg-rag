@@ -15,13 +15,14 @@ sys.path.insert(0, str(ROOT))
 from scripts.assemble_corpus_v2 import _assemble_one, _iter_page_documents  # noqa: E402
 from src.application.v2_chunker import _format_section_path, chunk_document  # noqa: E402
 from src.evaluation.gold_anchor_exam import chunks_from_v2, grade, normalize  # noqa: E402
+from src.evaluation.clause_continuity import inspect_clause_continuity  # noqa: E402
 from src.ingestion.block_assembly import load_config, prepare_page_document_v3  # noqa: E402
 
 
 CORPUS_VERSION = "corpus-0ae8a9423e2f"
 SHA = "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f"
 FORMULA_RUN = "5d3264515515e228"
-OCR_RUN = "ocrv6-ef06411e1606ba35"
+OCR_RUN = "ocrv6-403f2b876d9911e5"
 OUT = ROOT / "eval" / "audits" / "middle_layer_v3" / "pilot_gb55027"
 _PAGE_NUMBER = re.compile(r"^(?:[·•]\s*\d+\s*[·•]|-\s*\d+\s*-|\d+|第\s*\d+\s*页)$")
 _LIST_ROOT = re.compile(r"^(?:\d+[、）)]|[（(][一二三四五六七八九十\d]+[）)]|[ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+)$")
@@ -66,6 +67,7 @@ def main() -> int:
             "results": [result.__dict__ for result in exam.results],
         },
         "v3_preparation": prepared.get("_v3_stats"),
+        "v3_ocr_text": prepared.get("_v3_ocr_summary"),
         "v3": _metrics(v3, v3_chunks),
         "legacy": _metrics(legacy, legacy_chunks),
     }
@@ -135,6 +137,13 @@ def _metrics(document: dict[str, Any], chunks: list[Any]) -> dict[str, Any]:
     rows = [_chunk_row(document, chunk) for chunk in chunks]
     bodies = [normalize(row["body"]) for row in rows]
     short = [row["chunk_id"] for row, body in zip(rows, bodies) if len(body) < 15]
+    ocr_source_elements = [element for element in document.get("elements") or []
+                           if element.get("ocr_text_sources")]
+    ocr_source_counts = Counter(
+        source.get("source")
+        for element in ocr_source_elements
+        for source in element.get("ocr_text_sources") or []
+    )
     return {
         "element_count": len(document.get("elements") or []),
         "element_type_counts": dict(Counter(element.get("type") for element in document.get("elements") or [])),
@@ -151,6 +160,13 @@ def _metrics(document: dict[str, Any], chunks: list[Any]) -> dict[str, Any]:
         "short_body_chunk_lt15_count": len(short),
         "short_body_chunk_lt15_ratio": round(len(short) / len(chunks), 6) if chunks else 0.0,
         "short_body_chunk_ids": short,
+        "ocr_text_source_element_count": len(ocr_source_elements),
+        "ocr_text_source_counts": dict(ocr_source_counts),
+        "ocr_text_source_missing_run_id_count": sum(
+            not source.get("run_id")
+            for element in ocr_source_elements
+            for source in element.get("ocr_text_sources") or []),
+        "clause_number_continuity": inspect_clause_continuity(document),
     }
 
 

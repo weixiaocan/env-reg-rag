@@ -65,16 +65,34 @@
   "v3_preparation": {
     "region_pages": 20,
     "fallback_pages": 0,
-    "furniture": 21,
+    "furniture": 2,
     "toc": 1
   },
+  "v3_ocr_text": {
+    "mode": "preprocessed-region-text-v1",
+    "run_id": "ocrv6-403f2b876d9911e5",
+    "run_manifest_sha256": "94055fa61b60284b0ebdf35d6f83e03421dde7649edf0b8be8e8c6c0b9f8081e",
+    "preprocessing": {
+      "algorithm": "light-gray-red-v2-preserve-dark-edge",
+      "enabled": true,
+      "gray_threshold": 120,
+      "red_delta": 60,
+      "red_min": 140
+    },
+    "ocr_page_count": 20,
+    "pp_clean_lines": 491,
+    "primary_fallback_lines": 2,
+    "noise_lines": 0,
+    "orphan_pp_lines": 0,
+    "number_prefixes_preserved": 7
+  },
   "v3": {
-    "element_count": 218,
+    "element_count": 203,
     "element_type_counts": {
-      "text": 215,
+      "text": 200,
       "table": 3
     },
-    "chunk_count": 136,
+    "chunk_count": 151,
     "body_page_number_footer_watermark_lines": 0,
     "body_furniture_examples": [],
     "sentence_ended_heading_count": 0,
@@ -84,32 +102,51 @@
     "section_title_over_60_examples": [],
     "list_item_root_count": 0,
     "list_item_root_labels": [],
-    "short_body_chunk_lt15_count": 2,
-    "short_body_chunk_lt15_ratio": 0.014706,
-    "short_body_chunk_ids": [
-      "chunk_7d11131ed4701e8dcb373198971f46b5",
-      "chunk_b69b743ed3049b7804b7f4bf76e70d82"
-    ]
+    "short_body_chunk_lt15_count": 0,
+    "short_body_chunk_lt15_ratio": 0.0,
+    "short_body_chunk_ids": [],
+    "ocr_text_source_element_count": 200,
+    "ocr_text_source_counts": {
+      "pp_clean": 469,
+      "primary_fallback": 2
+    },
+    "ocr_text_source_missing_run_id_count": 0,
+    "clause_number_continuity": {
+      "missing": [],
+      "duplicates": [],
+      "illegal": [],
+      "illegal_jumps": [],
+      "summary": {
+        "missing_count": 0,
+        "duplicate_count": 0,
+        "illegal_count": 0,
+        "illegal_jump_count": 0
+      }
+    }
   },
   "legacy": {
-    "element_count": 293,
+    "element_count": 296,
     "element_type_counts": {
-      "text": 290,
+      "text": 293,
       "table": 3
     },
     "chunk_count": 154,
-    "body_page_number_footer_watermark_lines": 8,
+    "body_page_number_footer_watermark_lines": 9,
     "body_furniture_examples": [
       {
-        "element_id": "e000033",
+        "element_id": "e000034",
         "line": "浏览专用"
       },
       {
-        "element_id": "e000124",
+        "element_id": "e000111",
+        "line": "金"
+      },
+      {
+        "element_id": "e000125",
         "line": "浏览专用"
       },
       {
-        "element_id": "e000124",
+        "element_id": "e000125",
         "line": "6"
       },
       {
@@ -117,19 +154,19 @@
         "line": "8"
       },
       {
-        "element_id": "e000195",
+        "element_id": "e000196",
         "line": "浏览专用"
       },
       {
-        "element_id": "e000291",
+        "element_id": "e000294",
         "line": "住房城乡建设部"
       },
       {
-        "element_id": "e000293",
+        "element_id": "e000296",
         "line": "浏览专用"
       },
       {
-        "element_id": "e000293",
+        "element_id": "e000296",
         "line": "17"
       }
     ],
@@ -140,22 +177,254 @@
     "section_title_over_60_examples": [],
     "list_item_root_count": 0,
     "list_item_root_labels": [],
-    "short_body_chunk_lt15_count": 13,
-    "short_body_chunk_lt15_ratio": 0.084416,
+    "short_body_chunk_lt15_count": 12,
+    "short_body_chunk_lt15_ratio": 0.077922,
     "short_body_chunk_ids": [
-      "chunk_24006c0bb31c872f164c2276aaa61f06",
-      "chunk_5e725e064a4d4fd16cfc685566766987",
-      "chunk_bb1c3d18be25da22aa207e164dab68ba",
-      "chunk_b84fa04061b2fc3b15153abfd2e826d6",
-      "chunk_0d9fd56cd67daf7394dc75897cb64f07",
-      "chunk_3a0f7ae9356de681151539787f6b7beb",
-      "chunk_27adc1e5b1f42974251f0befd6914ecf",
-      "chunk_df271b7aaec4bbb42ff34fb9a63abd77",
-      "chunk_050fb0d9299faba6491136f5f01f9462",
-      "chunk_80db5dbedd08c8bd428a813d2fba6b79",
-      "chunk_4c9a9f3c6188fedb33d64a5ca910a823",
-      "chunk_9a450049d65f011e8949be3cd7bd2c38",
-      "chunk_6ff92fa04d1f7ad27f41d45694b1542f"
-    ]
+      "chunk_fd92f33b5d323d2783d00ab0d1cf60a8",
+      "chunk_40e20a544b1d89102a745003b8b5a31b",
+      "chunk_2fe023df447188dab7fba13358d93947",
+      "chunk_79f850b89e006265aac1d50d4cdd9199",
+      "chunk_4e5f82364a834e7b74b55be401fa5ae4",
+      "chunk_f37ae71f23be1c740c0b1cd1533c4021",
+      "chunk_069b43dfcb6554783a17de98b9c70d9c",
+      "chunk_71bee97ca22e06b2696ed1477fda7881",
+      "chunk_50c050130aff7fbdb3d5b262dd60eb2b",
+      "chunk_8c4d763094fa611ed0cfe05c795ef6de",
+      "chunk_aca92fa013a0a0d5b5fc900dc9b40e2f",
+      "chunk_ce1899a0170ab6cfe2bdf31e1ba80287"
+    ],
+    "ocr_text_source_element_count": 0,
+    "ocr_text_source_counts": {},
+    "ocr_text_source_missing_run_id_count": 0,
+    "clause_number_continuity": {
+      "missing": [
+        {
+          "section": "2.2",
+          "label": "2.2.12"
+        },
+        {
+          "section": "2.3",
+          "label": "2.3.6"
+        },
+        {
+          "section": "3.2",
+          "label": "3.2.6"
+        },
+        {
+          "section": "3.4",
+          "label": "3.4.5"
+        },
+        {
+          "section": "4.3",
+          "label": "4.3.5"
+        },
+        {
+          "section": "4.3",
+          "label": "4.3.14"
+        },
+        {
+          "section": "4.4",
+          "label": "4.4.8"
+        },
+        {
+          "section": "4.4",
+          "label": "4.4.9"
+        },
+        {
+          "section": "4.4",
+          "label": "4.4.12"
+        }
+      ],
+      "duplicates": [
+        {
+          "section": "2.1",
+          "label": "2.1.5",
+          "count": 2,
+          "occurrences": [
+            {
+              "element_id": "e000059",
+              "page": 5
+            },
+            {
+              "element_id": "e000060",
+              "page": 5
+            }
+          ]
+        },
+        {
+          "section": "2.1",
+          "label": "2.1.7",
+          "count": 2,
+          "occurrences": [
+            {
+              "element_id": "e000065",
+              "page": 5
+            },
+            {
+              "element_id": "e000066",
+              "page": 5
+            }
+          ]
+        },
+        {
+          "section": "3.1",
+          "label": "3.1.6",
+          "count": 2,
+          "occurrences": [
+            {
+              "element_id": "e000135",
+              "page": 10
+            },
+            {
+              "element_id": "e000136",
+              "page": 10
+            }
+          ]
+        },
+        {
+          "section": "4.1",
+          "label": "4.1.6",
+          "count": 2,
+          "occurrences": [
+            {
+              "element_id": "e000205",
+              "page": 15
+            },
+            {
+              "element_id": "e000206",
+              "page": 15
+            }
+          ]
+        },
+        {
+          "section": "4.2",
+          "label": "4.2.4",
+          "count": 2,
+          "occurrences": [
+            {
+              "element_id": "e000223",
+              "page": 16
+            },
+            {
+              "element_id": "e000224",
+              "page": 16
+            }
+          ]
+        },
+        {
+          "section": "4.4",
+          "label": "4.4.19",
+          "count": 2,
+          "occurrences": [
+            {
+              "element_id": "e000287",
+              "page": 20
+            },
+            {
+              "element_id": "e000288",
+              "page": 20
+            }
+          ]
+        }
+      ],
+      "illegal": [
+        {
+          "label": "4.2",
+          "element_id": "e000025",
+          "pages": [
+            3
+          ],
+          "reason": "expected_N.N.k"
+        },
+        {
+          "label": "3.1",
+          "element_id": "e000034",
+          "pages": [
+            3
+          ],
+          "reason": "expected_N.N.k"
+        },
+        {
+          "label": "2.2",
+          "element_id": "e000080",
+          "pages": [
+            6
+          ],
+          "reason": "expected_N.N.k"
+        },
+        {
+          "label": "3.3",
+          "element_id": "e000154",
+          "pages": [
+            11
+          ],
+          "reason": "expected_N.N.k"
+        },
+        {
+          "label": "3.45",
+          "element_id": "e000178",
+          "pages": [
+            13
+          ],
+          "reason": "expected_N.N.k"
+        }
+      ],
+      "illegal_jumps": [
+        {
+          "section": "2.2",
+          "from": "2.2.11",
+          "to": "2.2.13",
+          "gap": 1
+        },
+        {
+          "section": "2.3",
+          "from": "2.3.5",
+          "to": "2.3.7",
+          "gap": 1
+        },
+        {
+          "section": "3.2",
+          "from": "3.2.5",
+          "to": "3.2.7",
+          "gap": 1
+        },
+        {
+          "section": "3.4",
+          "from": "3.4.4",
+          "to": "3.4.6",
+          "gap": 1
+        },
+        {
+          "section": "4.3",
+          "from": "4.3.4",
+          "to": "4.3.6",
+          "gap": 1
+        },
+        {
+          "section": "4.3",
+          "from": "4.3.13",
+          "to": "4.3.15",
+          "gap": 1
+        },
+        {
+          "section": "4.4",
+          "from": "4.4.7",
+          "to": "4.4.10",
+          "gap": 2
+        },
+        {
+          "section": "4.4",
+          "from": "4.4.11",
+          "to": "4.4.13",
+          "gap": 1
+        }
+      ],
+      "summary": {
+        "missing_count": 9,
+        "duplicate_count": 6,
+        "illegal_count": 5,
+        "illegal_jump_count": 8
+      }
+    }
   }
 }
