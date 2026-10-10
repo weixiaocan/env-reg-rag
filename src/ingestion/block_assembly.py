@@ -100,6 +100,7 @@ def heading_descriptor(text: str, *, is_title: bool = False, is_clause: bool = F
 
 def prepare_page_document_v3(
     page_document: dict[str, Any], *, independent_ocr_run_dir: str | None = None,
+    raw_independent_ocr_run_dir: str | None = None,
     config: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     """Return a deep-copied page document whose text elements are region blocks."""
@@ -107,15 +108,26 @@ def prepare_page_document_v3(
     doc = deepcopy(page_document)
     ocr_summary = None
     if independent_ocr_run_dir is not None:
+        if raw_independent_ocr_run_dir is None:
+            raise ValueError("middle-layer v3 requires both clean and raw independent OCR runs")
         manifest, manifest_sha = load_independent_ocr_run(independent_ocr_run_dir)
+        raw_manifest, raw_manifest_sha = load_independent_ocr_run(raw_independent_ocr_run_dir)
         preprocessing = dict((manifest.get("config") or {}).get("preprocessing") or {})
         if not preprocessing.get("enabled"):
             raise ValueError("middle-layer v3 requires a preprocessed independent OCR run")
+        raw_preprocessing = dict((raw_manifest.get("config") or {}).get("preprocessing") or {})
+        if raw_preprocessing.get("enabled"):
+            raise ValueError("middle-layer v3 raw independent OCR run must be unpreprocessed")
         run_id = str(manifest["run_id"])
+        raw_run_id = str(raw_manifest["run_id"])
         source_sha = str(doc.get("sha256") or "").lower()
-        totals = {"pp_clean_lines": 0, "primary_fallback_lines": 0,
-                  "noise_lines": 0, "orphan_pp_lines": 0,
-                  "number_prefixes_preserved": 0}
+        totals = {
+            "majority_lines": 0, "merge_lines": 0, "single_source_lines": 0,
+            "single_source_pp_clean_lines": 0, "conflict_fragment_count": 0,
+            "merge_invariant_violation_count": 0,
+            "noise_lines": 0, "orphan_line_groups": 0,
+            "number_prefixes_preserved": 0,
+        }
         ocr_pages = 0
         for page_index, page in enumerate(doc.get("pages") or []):
             if page.get("extraction_route") not in {"full_ocr", "hybrid"}:
@@ -126,9 +138,15 @@ def prepare_page_document_v3(
                 page_width=float(page.get("width") or 0.0),
                 page_height=float(page.get("height") or 0.0),
             )
+            raw_page = load_independent_ocr_page(
+                raw_independent_ocr_run_dir, source_sha, physical_page,
+                page_width=float(page.get("width") or 0.0),
+                page_height=float(page.get("height") or 0.0),
+            )
             assembled, page_stats = assemble_page_region_text(
-                page, independent_page, run_id=run_id,
+                page, independent_page, raw_page, run_id=run_id,
                 run_manifest_sha256=manifest_sha, preprocessing=preprocessing,
+                raw_run_id=raw_run_id, raw_run_manifest_sha256=raw_manifest_sha,
                 watermarks=list(cfg.get("watermark_exact_lines") or []),
                 bbox_tolerance=float(cfg.get("ocr_region_bbox_tolerance") or 2.0),
                 single_char_score=float(cfg.get("ocr_single_char_min_score") or 0.85),
@@ -138,8 +156,10 @@ def prepare_page_document_v3(
             for key in totals:
                 totals[key] += page_stats[key]
         ocr_summary = {
-            "mode": "preprocessed-region-text-v1", "run_id": run_id,
+            "mode": "three-source-region-vote-v1", "run_id": run_id,
             "run_manifest_sha256": manifest_sha, "preprocessing": preprocessing,
+            "raw_run_id": raw_run_id,
+            "raw_run_manifest_sha256": raw_manifest_sha,
             "ocr_page_count": ocr_pages, **totals,
         }
     recurring = recurring_band_texts(doc.get("pages") or [])

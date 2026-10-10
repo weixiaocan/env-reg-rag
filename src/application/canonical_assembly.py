@@ -150,12 +150,14 @@ def assemble_document_v3(
     formula_pages: dict[int, list[dict[str, Any]]] | None = None,
     metadata: dict[str, Any] | None = None,
     independent_ocr_run_dir: str | None = None,
+    raw_independent_ocr_run_dir: str | None = None,
 ) -> dict[str, Any]:
     """Assemble through the region-first v3 middle layer."""
     from src.ingestion.block_assembly import prepare_page_document_v3
 
     prepared = prepare_page_document_v3(
-        page_document, independent_ocr_run_dir=independent_ocr_run_dir)
+        page_document, independent_ocr_run_dir=independent_ocr_run_dir,
+        raw_independent_ocr_run_dir=raw_independent_ocr_run_dir)
     return assemble_document(
         prepared, formula_pages=formula_pages, metadata=metadata,
         independent_ocr_run_dir=None)
@@ -3692,9 +3694,13 @@ def _build_generation(
     # missing engine_version on an old cache is "unknown", never a guess.
     for eid, name, version in (ocr_engine_order or []):
         engines.append({"engine_id": eid, "name": name, "version": version})
-    if fusion_summary and fusion_summary.get("mode") == "preprocessed-region-text-v1":
-        engines.append({"engine_id": "ocr-region-1", "name": "RapidOCR/PP-OCRv6_rec_small",
-                        "version": str(fusion_summary.get("run_id") or "unknown")})
+    if fusion_summary and fusion_summary.get("mode") in {
+            "preprocessed-region-text-v1", "three-source-region-vote-v1"}:
+        version = str(fusion_summary.get("run_id") or "unknown")
+        if fusion_summary.get("raw_run_id"):
+            version += f"+{fusion_summary['raw_run_id']}"
+        engines.append({"engine_id": "ocr-region-1", "name": "three-source OCR region vote",
+                        "version": version})
     elif fusion_summary and (fusion_summary.get("inserted") or fusion_summary.get("replaced")):
         engines.append({"engine_id": "ocr-fusion-1", "name": "RapidOCR/PP-OCRv6_rec_small",
                         "version": str(fusion_summary.get("run_id") or "unknown")})

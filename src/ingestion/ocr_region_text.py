@@ -1,7 +1,9 @@
-"""Assemble OCR-page text from cleaned PP-OCRv6 lines by layout region."""
+"""Assemble OCR-page text by geometry-aligned three-source voting."""
 from __future__ import annotations
 
+from collections import Counter
 from copy import deepcopy
+from difflib import SequenceMatcher
 import re
 from typing import Any
 
@@ -10,97 +12,106 @@ from src.ingestion.page_furniture import normalize_line
 
 _NUMBER_PREFIX = re.compile(r"^\s*(\d+(?:\.\d+){0,2})(?:\s+|(?=[一-鿿])|$)(.*)$")
 _STRUCTURED_KINDS = {"table", "formula", "image", "figure", "chart"}
+_SOURCE_PRIORITY = ("pp_raw", "primary", "pp_clean")
+_DUPLICATE_SEPARATOR = re.compile(r"^[\s，。；：、,.!?！？;:—-]{0,3}$")
 
 
 def assemble_page_region_text(
-    page: dict[str, Any], independent_page: dict[str, Any], *,
+    page: dict[str, Any], clean_page: dict[str, Any], raw_page: dict[str, Any], *,
     run_id: str, run_manifest_sha256: str,
+    raw_run_id: str, raw_run_manifest_sha256: str,
     preprocessing: dict[str, Any], watermarks: list[str],
     bbox_tolerance: float = 2.0, single_char_score: float = 0.85,
 ) -> tuple[dict[str, Any], dict[str, int]]:
-    """Return a page whose text stream is PP-first and region-assigned."""
+    """Return a page whose OCR-region lines are voted across all three sources."""
     result = deepcopy(page)
     regions = deepcopy(page.get("regions") or [])
     text_regions = [r for r in regions if str(r.get("kind") or "text") not in _STRUCTURED_KINDS]
     structured = [r for r in regions if str(r.get("kind") or "") in _STRUCTURED_KINDS]
     watermark_set = {normalize_line(value) for value in watermarks}
-    stats = {"pp_clean_lines": 0, "primary_fallback_lines": 0,
-             "noise_lines": 0, "orphan_pp_lines": 0, "number_prefixes_preserved": 0}
-    pp_output: list[dict[str, Any]] = []
-    accepted_pp: list[dict[str, Any]] = []
+    stats = {
+        "majority_lines": 0, "merge_lines": 0, "single_source_lines": 0,
+        "single_source_pp_clean_lines": 0, "conflict_fragment_count": 0,
+        "merge_invariant_violation_count": 0,
+        "noise_lines": 0, "orphan_line_groups": 0,
+        "number_prefixes_preserved": 0,
+    }
 
-    for index, raw in enumerate(independent_page.get("lines") or []):
-        line = deepcopy(raw)
-        text = str(line.get("text") or "").strip()
-        score = _score(line.get("score"))
-        compact = normalize_line(text)
-        if (not compact or compact in watermark_set
-                or (len(compact) == 1 and (score is None or score < single_char_score))):
-            stats["noise_lines"] += 1
-            continue
-        bbox = _bbox(line.get("bbox"))
-        if bbox is None or any(_center_inside(bbox, r.get("bbox"), 0.0) for r in structured):
-            continue
-        matches = [r for r in text_regions if _center_inside(bbox, r.get("bbox"), bbox_tolerance)]
-        region = min(matches, key=lambda r: _area(_bbox(r.get("bbox")))) if matches else None
-        region_id = str((region or {}).get("region_id") or "")
+    candidates: list[dict[str, Any]] = []
+    candidates.extend(_ocr_candidates(
+        clean_page.get("lines") or [], "pp_clean", text_regions, structured,
+        watermark_set, bbox_tolerance, single_char_score,
+    ))
+    candidates.extend(_ocr_candidates(
+        raw_page.get("lines") or [], "pp_raw", text_regions, structured,
+        watermark_set, bbox_tolerance, single_char_score,
+    ))
+    stats["noise_lines"] = sum(bool(row.pop("_noise", False)) for row in candidates)
+    candidates = [row for row in candidates if row.get("text")]
+    candidates.extend(_primary_candidates(
+        page.get("elements") or [], text_regions, structured,
+        watermark_set, bbox_tolerance,
+    ))
+    candidates = _merge_same_source_fragments(candidates)
+
+    output: list[dict[str, Any]] = []
+    line_audit: list[dict[str, Any]] = []
+    groups = _group_lines(candidates)
+    for index, group in enumerate(groups):
+        by_source = {row["source"]: row for row in group}
+        source_texts = {source: str(by_source[source]["text"]) if source in by_source else None
+                        for source in ("pp_clean", "pp_raw", "primary")}
+        text, rule, conflicts = merge_source_texts(source_texts)
+        primary = by_source.get("primary")
+        preserved = False
+        if primary is not None:
+            primary_match = _NUMBER_PREFIX.match(str(primary.get("text") or ""))
+            merged_match = _NUMBER_PREFIX.match(text)
+            if primary_match and (
+                not merged_match
+                or (not primary_match.group(2).strip()
+                    and merged_match.group(1) != primary_match.group(1))
+            ):
+                remainder = merged_match.group(2) if merged_match else text
+                text = f"{primary_match.group(1)} {remainder}"
+                preserved = True
+                stats["number_prefixes_preserved"] += 1
+
+        region_id = str(next((row.get("region_id") for row in group if row.get("region_id")), ""))
+        bbox = _union_bbox([row["bbox"] for row in group])
         if not region_id:
             region_id = f"ocr-orphan-{int(page.get('physical_page') or 0):04d}-{index + 1:04d}"
             regions.append({
                 "region_id": region_id, "element_id": region_id,
                 "kind": "text", "model_label": "text", "bbox": bbox,
                 "execution_status": "completed", "quality_status": "needs_review",
-                "issues": ["pp_ocr_line_outside_layout_regions"],
-                "relations": [], "processing_config_id": f"{run_id}:orphan-line",
+                "issues": ["ocr_line_group_outside_layout_regions"],
+                "relations": [], "processing_config_id": f"{run_id}:orphan-line-group",
             })
-            stats["orphan_pp_lines"] += 1
-        primary = _best_vertical_match(bbox, page.get("elements") or [])
-        preserved = False
-        if primary is not None:
-            primary_match = _NUMBER_PREFIX.match(str(primary.get("text") or ""))
-            pp_match = _NUMBER_PREFIX.match(text)
-            if primary_match and (
-                not pp_match
-                or (not primary_match.group(2).strip()
-                    and pp_match.group(1) != primary_match.group(1))
-            ):
-                remainder = pp_match.group(2) if pp_match else text
-                text = f"{primary_match.group(1)} {remainder}"
-                preserved = True
-                stats["number_prefixes_preserved"] += 1
-        source = _source_record(
-            "pp_clean", line_id=str(line.get("line_id") or f"l{index + 1:04d}"),
-            score=score, run_id=run_id, manifest_sha=run_manifest_sha256,
+            stats["orphan_line_groups"] += 1
+
+        provenance = _source_record(
+            group, source_texts=source_texts, rule=rule, conflicts=conflicts,
+            run_id=run_id, manifest_sha=run_manifest_sha256,
+            raw_run_id=raw_run_id, raw_manifest_sha=raw_run_manifest_sha256,
             preprocessing=preprocessing, primary_prefix_preserved=preserved,
         )
-        pp_line = _element_from_line(line, text, region_id, source, page)
-        pp_output.append(pp_line)
-        accepted_pp.append(pp_line)
-        stats["pp_clean_lines"] += 1
+        invariant_violations = find_adjacent_duplicate_fragments(text, source_texts)
+        representative = by_source.get("pp_raw") or primary or by_source.get("pp_clean")
+        output.append(_element_from_line(
+            representative or {}, text, bbox, region_id, provenance, page))
+        stats[f"{rule}_lines"] += 1
+        if rule == "single_source" and provenance.get("single_source") == "pp_clean":
+            stats["single_source_pp_clean_lines"] += 1
+        stats["conflict_fragment_count"] += len(conflicts)
+        stats["merge_invariant_violation_count"] += len(invariant_violations)
+        line_audit.append({
+            "bbox": bbox, "output_text": text, "source_texts": dict(source_texts),
+            "rule": rule, "single_source": provenance.get("single_source"),
+            "conflict_fragments": deepcopy(conflicts),
+            "merge_invariant_violations": deepcopy(invariant_violations),
+        })
 
-    fallback: list[dict[str, Any]] = []
-    for index, primary in enumerate(page.get("elements") or []):
-        if str(primary.get("type") or "text") != "text" or not str(primary.get("text") or "").strip():
-            continue
-        bbox = _bbox(primary.get("bbox"))
-        if bbox is None or any(_vertical_overlap(bbox, _bbox(pp.get("bbox"))) > 0 for pp in accepted_pp):
-            continue
-        matches = [r for r in text_regions if _center_inside(bbox, r.get("bbox"), bbox_tolerance)]
-        if not matches:
-            continue
-        region = min(matches, key=lambda r: _area(_bbox(r.get("bbox"))))
-        region_id = str(region.get("region_id") or "")
-        source = _source_record(
-            "primary_fallback", line_id=str(primary.get("element_id") or f"primary-{index + 1}"),
-            score=_score(primary.get("confidence")), run_id=run_id,
-            manifest_sha=run_manifest_sha256, preprocessing=preprocessing,
-            primary_prefix_preserved=False,
-        )
-        clone = _element_from_line(primary, str(primary.get("text") or "").strip(), region_id, source, page)
-        fallback.append(clone)
-        stats["primary_fallback_lines"] += 1
-
-    output = pp_output + fallback
     output.sort(key=lambda row: (_bbox(row.get("bbox"))[1], _bbox(row.get("bbox"))[0],
                                  str(row.get("element_id") or "")))
     for index, row in enumerate(output):
@@ -108,26 +119,305 @@ def assemble_page_region_text(
     result["elements"] = output
     result["regions"] = regions
     result["_v3_ocr_region_text"] = True
+    result["_v3_ocr_line_audit"] = line_audit
     return result, stats
 
 
-def _source_record(source: str, *, line_id: str, score: float | None,
-                   run_id: str, manifest_sha: str, preprocessing: dict[str, Any],
-                   primary_prefix_preserved: bool) -> dict[str, Any]:
-    return {
-        "source": source, "line_id": line_id, "score": score,
-        "run_id": run_id, "run_manifest_sha256": manifest_sha,
-        "preprocessing": dict(preprocessing),
-        "primary_prefix_preserved": primary_prefix_preserved,
+def merge_source_texts(source_texts: dict[str, str | None]) -> tuple[str, str, list[dict[str, Any]]]:
+    """Merge one geometry-aligned line group and return text, rule, conflicts."""
+    present = {key: value for key, value in source_texts.items() if value}
+    if len(present) == 1:
+        return next(iter(present.values())), "single_source", []
+
+    normalized = {key: normalize_line(value) for key, value in present.items()}
+    counts = Counter(normalized.values())
+    majority = next((value for value, count in counts.items() if count >= 2), None)
+    if majority is not None:
+        selected_source = next(source for source in _SOURCE_PRIORITY
+                               if normalized.get(source) == majority)
+        return present[selected_source], "majority", []
+
+    # Use the longest source as the shared coordinate system so that a partial
+    # high-priority OCR line cannot shift a full line. Priority only breaks
+    # length ties and selects values after every source is globally aligned.
+    pivot_source = max(
+        present, key=lambda source: (len(present[source]), -_SOURCE_PRIORITY.index(source)))
+    pivot = present[pivot_source]
+    aligned = {source: _align_to_pivot(pivot, present.get(source))
+               for source in source_texts}
+    pieces: list[str] = []
+    conflicts: list[dict[str, Any]] = []
+    for offset in range(len(pivot) + 1):
+        gap_values = {source: aligned[source][1][offset] for source in source_texts}
+        gap, gap_conflict = _choose_fragment(gap_values)
+        pieces.append(gap)
+        if gap_conflict:
+            conflicts.append({"offset": offset, "kind": "insertion", **gap_conflict})
+        if offset == len(pivot):
+            break
+        char_values = {source: aligned[source][0][offset] for source in source_texts}
+        char, char_conflict = _choose_fragment(char_values)
+        pieces.append(char)
+        if char_conflict:
+            conflicts.append({"offset": offset, "kind": "character", **char_conflict})
+    return "".join(pieces), "merge", _coalesce_conflicts(conflicts)
+
+
+def _choose_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any] | None]:
+    present = {key: value for key, value in values.items() if value}
+    if not present:
+        return "", None
+    counts = Counter(present.values())
+    majority = next((value for value, count in counts.items() if count >= 2), None)
+    if majority is not None:
+        return majority, None
+    selected_source = next(source for source in _SOURCE_PRIORITY if source in present)
+    selected = present[selected_source]
+    if len(present) == 1:
+        return selected, None
+    return selected, {
+        "sources": {source: values.get(source) for source in ("pp_clean", "pp_raw", "primary")},
+        "selected": selected, "selected_source": selected_source,
     }
 
 
-def _element_from_line(raw: dict[str, Any], text: str, region_id: str,
+def _align_to_pivot(pivot: str, text: str | None) -> tuple[list[str | None], list[str]]:
+    """Align a full source line to one shared pivot coordinate system."""
+    if text is None:
+        return [None] * len(pivot), [""] * (len(pivot) + 1)
+    chars: list[str | None] = [None] * len(pivot)
+    inserts: list[str] = [""] * (len(pivot) + 1)
+    matcher = SequenceMatcher(None, pivot, text, autojunk=False)
+    for tag, pivot_start, pivot_end, text_start, text_end in matcher.get_opcodes():
+        source_fragment = text[text_start:text_end]
+        if tag == "equal":
+            for offset, value in enumerate(source_fragment):
+                chars[pivot_start + offset] = value
+        elif tag == "replace":
+            shared = min(pivot_end - pivot_start, len(source_fragment))
+            for offset in range(shared):
+                chars[pivot_start + offset] = source_fragment[offset]
+        elif tag == "insert":
+            inserts[pivot_start] += source_fragment
+        # A delete deliberately leaves None in the pivot columns. It is a
+        # genuine source absence, not an alternative replacement candidate.
+    return chars, inserts
+
+
+def find_adjacent_duplicate_fragments(
+    merged: str, source_texts: dict[str, str | None], *, minimum_length: int = 4,
+) -> list[dict[str, Any]]:
+    """Return tandem repeats introduced by merging but absent from every source."""
+    candidates: list[dict[str, Any]] = []
+    size = len(merged)
+    for start in range(size):
+        for length in range((size - start) // 2, minimum_length - 1, -1):
+            fragment = merged[start:start + length]
+            if (not fragment.strip() or not fragment[0].isalnum()
+                    or not fragment[-1].isalnum()
+                    or all(not char.isalnum() for char in fragment)):
+                continue
+            separator_start = start + length
+            for separator_length in range(4):
+                separator_end = separator_start + separator_length
+                if separator_end + length > size:
+                    break
+                separator = merged[separator_start:separator_end]
+                if not _DUPLICATE_SEPARATOR.fullmatch(separator):
+                    continue
+                if merged[separator_end:separator_end + length] != fragment:
+                    continue
+                repeated_by_source = any(
+                    _contains_adjacent_repeat(value, fragment)
+                    for value in source_texts.values() if value
+                )
+                if not repeated_by_source:
+                    candidates.append({
+                        "fragment": fragment, "separator": separator, "length": length,
+                    })
+                break
+            if candidates and candidates[-1].get("fragment") == fragment:
+                break
+    # Keep the longest description when nested substrings identify the same
+    # tandem repeat; this makes the audit actionable instead of noisy.
+    result: list[dict[str, Any]] = []
+    for candidate in sorted(candidates, key=lambda row: row["length"], reverse=True):
+        if any(candidate["fragment"] in row["fragment"] for row in result):
+            continue
+        result.append(candidate)
+    return result
+
+
+def _contains_adjacent_repeat(text: str, fragment: str) -> bool:
+    first = text.find(fragment)
+    while first >= 0:
+        after = first + len(fragment)
+        for separator_length in range(4):
+            separator = text[after:after + separator_length]
+            if (_DUPLICATE_SEPARATOR.fullmatch(separator)
+                    and text.startswith(fragment, after + separator_length)):
+                return True
+        first = text.find(fragment, first + 1)
+    return False
+
+
+def _coalesce_conflicts(conflicts: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    for conflict in conflicts:
+        if (result and conflict["kind"] == result[-1]["kind"] == "character"
+                and conflict["offset"] == result[-1]["end_offset"] + 1
+                and conflict["selected_source"] == result[-1]["selected_source"]):
+            result[-1]["end_offset"] = conflict["offset"]
+            result[-1]["selected"] += conflict["selected"]
+            for source in result[-1]["sources"]:
+                result[-1]["sources"][source] = (
+                    (result[-1]["sources"][source] or "")
+                    + (conflict["sources"].get(source) or "")) or None
+        else:
+            item = dict(conflict)
+            item["end_offset"] = item["offset"]
+            result.append(item)
+    return result
+
+
+def _ocr_candidates(lines: list[dict[str, Any]], source: str,
+                    text_regions: list[dict[str, Any]], structured: list[dict[str, Any]],
+                    watermarks: set[str], tolerance: float,
+                    single_char_score: float) -> list[dict[str, Any]]:
+    result: list[dict[str, Any]] = []
+    for index, raw in enumerate(lines):
+        text = str(raw.get("text") or "").strip()
+        score = _score(raw.get("score"))
+        compact = normalize_line(text)
+        bbox = _bbox(raw.get("bbox"))
+        if (bbox is None or not compact or compact in watermarks
+                or (len(compact) == 1 and (score is None or score < single_char_score))):
+            result.append({"text": "", "_noise": True})
+            continue
+        if any(_center_inside(bbox, region.get("bbox"), 0.0) for region in structured):
+            continue
+        region = _smallest_region(bbox, text_regions, tolerance)
+        result.append({
+            "source": source, "text": text, "bbox": bbox,
+            "line_id": str(raw.get("line_id") or f"{source}-{index + 1:04d}"),
+            "score": score, "region_id": str((region or {}).get("region_id") or ""),
+        })
+    return result
+
+
+def _primary_candidates(elements: list[dict[str, Any]], text_regions: list[dict[str, Any]],
+                        structured: list[dict[str, Any]], watermarks: set[str],
+                        tolerance: float) -> list[dict[str, Any]]:
+    result = []
+    for index, raw in enumerate(elements):
+        text = str(raw.get("text") or "").strip()
+        bbox = _bbox(raw.get("bbox"))
+        if (str(raw.get("type") or "text") != "text" or bbox is None
+                or not normalize_line(text) or normalize_line(text) in watermarks):
+            continue
+        if any(_center_inside(bbox, region.get("bbox"), 0.0) for region in structured):
+            continue
+        region = _smallest_region(bbox, text_regions, tolerance)
+        if region is None:
+            continue
+        result.append({
+            "source": "primary", "text": text, "bbox": bbox,
+            "line_id": str(raw.get("element_id") or f"primary-{index + 1:04d}"),
+            "score": _score(raw.get("confidence")),
+            "region_id": str(region.get("region_id") or ""),
+        })
+    return result
+
+
+def _group_lines(candidates: list[dict[str, Any]]) -> list[list[dict[str, Any]]]:
+    candidates.sort(key=lambda row: (row["bbox"][1], row["bbox"][0],
+                                     _SOURCE_PRIORITY.index(row["source"])))
+    groups: list[list[dict[str, Any]]] = []
+    for row in candidates:
+        matches: list[tuple[float, list[dict[str, Any]]]] = []
+        for group in groups:
+            if any(item["source"] == row["source"] for item in group):
+                continue
+            score = _geometry_score(row["bbox"], _union_bbox([item["bbox"] for item in group]))
+            if score is not None:
+                matches.append((score, group))
+        if matches:
+            max(matches, key=lambda item: item[0])[1].append(row)
+        else:
+            groups.append([row])
+    return groups
+
+
+def _merge_same_source_fragments(candidates: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Join adjacent fragments emitted by one engine on the same baseline."""
+    pending = sorted(candidates, key=lambda row: (
+        row["source"], row["bbox"][1], row["bbox"][0]))
+    merged: list[dict[str, Any]] = []
+    for row in pending:
+        if not merged:
+            merged.append(row)
+            continue
+        previous = merged[-1]
+        same_stream = previous["source"] == row["source"]
+        a, b = previous["bbox"], row["bbox"]
+        min_height = min(max(0.1, a[3] - a[1]), max(0.1, b[3] - b[1]))
+        vertical = _vertical_overlap(a, b) / min_height
+        horizontal_gap = max(a[0], b[0]) - min(a[2], b[2])
+        same_region = previous.get("region_id") == row.get("region_id")
+        if (same_stream and same_region and vertical >= 0.5
+                and -1.0 * min_height <= horizontal_gap <= 4.0 * min_height):
+            previous_width = a[2] - a[0]
+            row_width = b[2] - b[0]
+            previous["text"] = (previous["text"] + row["text"] if a[0] <= b[0]
+                                else row["text"] + previous["text"])
+            previous["bbox"] = _union_bbox([a, b])
+            if row_width > previous_width and row.get("region_id"):
+                previous["region_id"] = row["region_id"]
+            previous["line_id"] += f"+{row['line_id']}"
+            scores = [value for value in (previous.get("score"), row.get("score"))
+                      if value is not None]
+            previous["score"] = min(scores) if scores else None
+        else:
+            merged.append(row)
+    return merged
+
+
+def _geometry_score(a: list[float], b: list[float]) -> float | None:
+    ah, bh = max(0.1, a[3] - a[1]), max(0.1, b[3] - b[1])
+    vertical = _vertical_overlap(a, b) / min(ah, bh)
+    aw, bw = max(0.1, a[2] - a[0]), max(0.1, b[2] - b[0])
+    horizontal = max(0.0, min(a[2], b[2]) - max(a[0], b[0])) / min(aw, bw)
+    if vertical < 0.25 or horizontal < 0.08:
+        return None
+    return 0.7 * vertical + 0.3 * horizontal
+
+
+def _source_record(group: list[dict[str, Any]], *, source_texts: dict[str, str | None],
+                   rule: str, conflicts: list[dict[str, Any]], run_id: str,
+                   manifest_sha: str, raw_run_id: str, raw_manifest_sha: str,
+                   preprocessing: dict[str, Any],
+                   primary_prefix_preserved: bool) -> dict[str, Any]:
+    by_source = {row["source"]: row for row in group}
+    single_source = next(iter(by_source)) if len(by_source) == 1 else None
+    return {
+        "source": "three_source_vote", "line_id": "|".join(
+            by_source[source]["line_id"] for source in _SOURCE_PRIORITY if source in by_source),
+        "score": min((row["score"] for row in group if row["score"] is not None), default=None),
+        "run_id": run_id, "run_manifest_sha256": manifest_sha,
+        "preprocessing": dict(preprocessing),
+        "primary_prefix_preserved": primary_prefix_preserved,
+        "raw_run_id": raw_run_id, "raw_run_manifest_sha256": raw_manifest_sha,
+        "source_texts": dict(source_texts), "rule": rule,
+        "single_source": single_source, "conflict_fragments": deepcopy(conflicts),
+    }
+
+
+def _element_from_line(raw: dict[str, Any], text: str, bbox: list[float], region_id: str,
                        source: dict[str, Any], page: dict[str, Any]) -> dict[str, Any]:
     return {
         "element_id": str(raw.get("element_id") or f"ocr-{source['line_id']}"),
         "type": "text", "text": text, "normalized_text": text,
-        "page_index": page.get("page_index"), "bbox": list(_bbox(raw.get("bbox"))),
+        "page_index": page.get("page_index"), "bbox": list(bbox),
         "coordinate_origin": "top_left", "reading_order": None,
         "heading_path": [], "clause_path": [], "parent_id": None,
         "children_ids": [], "confidence": source["score"], "source_block_id": None,
@@ -135,18 +425,9 @@ def _element_from_line(raw: dict[str, Any], text: str, region_id: str,
     }
 
 
-def _best_vertical_match(bbox: list[float], primary: list[dict[str, Any]]) -> dict[str, Any] | None:
-    matches = []
-    for row in primary:
-        other = _bbox(row.get("bbox"))
-        if other is None or not str(row.get("text") or "").strip():
-            continue
-        vertical = _vertical_overlap(bbox, other)
-        horizontal = max(0.0, min(bbox[2], other[2]) - max(bbox[0], other[0]))
-        min_width = max(0.1, min(bbox[2] - bbox[0], other[2] - other[0]))
-        if vertical > 0 and horizontal / min_width >= 0.1:
-            matches.append((vertical, horizontal / min_width, row))
-    return max(matches, key=lambda item: (item[0], item[1]))[2] if matches else None
+def _smallest_region(bbox: list[float], regions: list[dict[str, Any]], tolerance: float) -> dict[str, Any] | None:
+    matches = [region for region in regions if _center_inside(bbox, region.get("bbox"), tolerance)]
+    return min(matches, key=lambda region: _area(_bbox(region.get("bbox")))) if matches else None
 
 
 def _vertical_overlap(a: list[float] | None, b: list[float] | None) -> float:
@@ -167,6 +448,11 @@ def _area(bbox: list[float] | None) -> float:
     if bbox is None:
         return float("inf")
     return max(0.0, bbox[2] - bbox[0]) * max(0.0, bbox[3] - bbox[1])
+
+
+def _union_bbox(boxes: list[list[float]]) -> list[float]:
+    return [min(box[0] for box in boxes), min(box[1] for box in boxes),
+            max(box[2] for box in boxes), max(box[3] for box in boxes)]
 
 
 def _bbox(raw: Any) -> list[float] | None:

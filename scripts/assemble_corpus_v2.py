@@ -63,6 +63,7 @@ from src.ingestion.text_quality import document_text_quality  # noqa: E402
 
 _DEFAULT_FORMULA_RUN_ID = "5d3264515515e228"
 _DEFAULT_INDEPENDENT_OCR_RUN_ID = "ocrv6-ef06411e1606ba35"
+_DEFAULT_RAW_INDEPENDENT_OCR_RUN_ID = "ocrv6-ef06411e1606ba35"
 
 
 def _iter_page_documents(corpus_version: str, root: str | None = None) -> list[dict[str, Any]]:
@@ -133,7 +134,8 @@ def _assert_formula_coverage(
 
 def _assemble_one(
     page_doc: dict[str, Any], formula_run_id: str, independent_ocr_run_id: str,
-    *, root: str | None = None, middle_layer: str = "legacy",
+    *, raw_independent_ocr_run_id: str = _DEFAULT_RAW_INDEPENDENT_OCR_RUN_ID,
+    root: str | None = None, middle_layer: str = "legacy",
 ) -> dict[str, Any]:
     sha = page_doc["sha256"]
     page_count = len(page_doc.get("pages") or [])
@@ -156,11 +158,18 @@ def _assemble_one(
         root or _REPO_ROOT, "data", "model_runtime", "independent_ocr", "runs",
         independent_ocr_run_id,
     )
-    assembler = assemble_document_v3 if middle_layer == "v3" else assemble_document
-    doc = assembler(
-        page_doc, formula_pages=formula_pages,
-        independent_ocr_run_dir=independent_run_dir,
+    raw_independent_run_dir = os.path.join(
+        root or _REPO_ROOT, "data", "model_runtime", "independent_ocr", "runs",
+        raw_independent_ocr_run_id,
     )
+    assembler = assemble_document_v3 if middle_layer == "v3" else assemble_document
+    kwargs: dict[str, Any] = {
+        "formula_pages": formula_pages,
+        "independent_ocr_run_dir": independent_run_dir,
+    }
+    if middle_layer == "v3":
+        kwargs["raw_independent_ocr_run_dir"] = raw_independent_run_dir
+    doc = assembler(page_doc, **kwargs)
     ids = compute_ids(doc)
     apply_computed_ids(doc, ids)
     validate_document(doc)
@@ -266,6 +275,11 @@ def main(argv: list[str] | None = None) -> int:
               f"(defaults to {_DEFAULT_INDEPENDENT_OCR_RUN_ID!r}; missing pages hard-fail)"),
     )
     parser.add_argument(
+        "--raw-independent-ocr-run-id", default=_DEFAULT_RAW_INDEPENDENT_OCR_RUN_ID,
+        help=("existing local unpreprocessed PP-OCRv6 run used as the pp_raw vote "
+              f"(defaults to {_DEFAULT_RAW_INDEPENDENT_OCR_RUN_ID!r})"),
+    )
+    parser.add_argument(
         "--middle-layer", choices=("legacy", "v3"), default="legacy",
         help="text middle layer (default: legacy; v3 is region-first)",
     )
@@ -300,6 +314,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[assemble] {total} documents to assemble from {corpus_version}")
     print(f"[assemble] formula run-id: {args.formula_run_id}")
     print(f"[assemble] independent OCR run-id: {args.independent_ocr_run_id}")
+    print(f"[assemble] raw independent OCR run-id: {args.raw_independent_ocr_run_id}")
     print(f"[assemble] middle layer: {args.middle_layer}")
     print(f"[assemble] output dir: {output_dir}")
     print()
@@ -323,6 +338,7 @@ def main(argv: list[str] | None = None) -> int:
             })
             doc = _assemble_one(
                 page_doc, args.formula_run_id, args.independent_ocr_run_id,
+                raw_independent_ocr_run_id=args.raw_independent_ocr_run_id,
                 root=root, middle_layer=args.middle_layer)
             out_path = _write(doc, corpus_version, root)
             quar = _quarantine_count(page_doc)

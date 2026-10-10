@@ -222,8 +222,11 @@ def _validate_ocr_text_sources(records: Any, where: str) -> None:
     for record in records:
         if not isinstance(record, dict):
             raise SchemaError(f"{where} entries must be objects")
-        _require_keys(record, required, f"{where}[]")
-        if record["source"] not in {"pp_clean", "primary_fallback"}:
+        _require_keys(record, required, f"{where}[]", optional={
+            "raw_run_id", "raw_run_manifest_sha256", "source_texts", "rule",
+            "single_source", "conflict_fragments",
+        })
+        if record["source"] not in {"pp_clean", "primary_fallback", "three_source_vote"}:
             raise SchemaError(f"{where}[].source is invalid")
         for key in ("line_id", "run_id"):
             if not isinstance(record[key], str) or not record[key]:
@@ -237,6 +240,26 @@ def _validate_ocr_text_sources(records: Any, where: str) -> None:
             raise SchemaError(f"{where}[].preprocessing must be an object")
         if not isinstance(record["primary_prefix_preserved"], bool):
             raise SchemaError(f"{where}[].primary_prefix_preserved must be bool")
+        if record["source"] == "three_source_vote":
+            for key in ("raw_run_id", "raw_run_manifest_sha256", "source_texts",
+                        "rule", "single_source", "conflict_fragments"):
+                if key not in record:
+                    raise SchemaError(f"{where}[].{key} is required for three_source_vote")
+            if not isinstance(record["raw_run_id"], str) or not record["raw_run_id"]:
+                raise SchemaError(f"{where}[].raw_run_id must be a non-empty string")
+            _sha256_hex(record["raw_run_manifest_sha256"],
+                        f"{where}[].raw_run_manifest_sha256")
+            if (not isinstance(record["source_texts"], dict)
+                    or set(record["source_texts"]) != {"pp_clean", "pp_raw", "primary"}
+                    or any(value is not None and not isinstance(value, str)
+                           for value in record["source_texts"].values())):
+                raise SchemaError(f"{where}[].source_texts is invalid")
+            if record["rule"] not in {"majority", "merge", "single_source"}:
+                raise SchemaError(f"{where}[].rule is invalid")
+            if record["single_source"] not in {None, "pp_clean", "pp_raw", "primary"}:
+                raise SchemaError(f"{where}[].single_source is invalid")
+            if not isinstance(record["conflict_fragments"], list):
+                raise SchemaError(f"{where}[].conflict_fragments must be a list")
 
 
 def _validate_relation_records(relations: Any, where: str) -> None:

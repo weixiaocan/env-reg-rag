@@ -23,6 +23,7 @@ CORPUS_VERSION = "corpus-0ae8a9423e2f"
 SHA = "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f"
 FORMULA_RUN = "5d3264515515e228"
 OCR_RUN = "ocrv6-403f2b876d9911e5"
+RAW_OCR_RUN = "ocrv6-ef06411e1606ba35"
 OUT = ROOT / "eval" / "audits" / "middle_layer_v3" / "pilot_gb55027"
 _PAGE_NUMBER = re.compile(r"^(?:[·•]\s*\d+\s*[·•]|-\s*\d+\s*-|\d+|第\s*\d+\s*页)$")
 _LIST_ROOT = re.compile(r"^(?:\d+[、）)]|[（(][一二三四五六七八九十\d]+[）)]|[ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+)$")
@@ -34,9 +35,13 @@ def main() -> int:
         if row.get("sha256") == SHA
     )
     ocr_dir = ROOT / "data" / "model_runtime" / "independent_ocr" / "runs" / OCR_RUN
+    raw_ocr_dir = ROOT / "data" / "model_runtime" / "independent_ocr" / "runs" / RAW_OCR_RUN
     prepared = prepare_page_document_v3(
-        page_doc, independent_ocr_run_dir=str(ocr_dir))
-    v3 = _assemble_one(page_doc, FORMULA_RUN, OCR_RUN, middle_layer="v3")
+        page_doc, independent_ocr_run_dir=str(ocr_dir),
+        raw_independent_ocr_run_dir=str(raw_ocr_dir))
+    v3 = _assemble_one(
+        page_doc, FORMULA_RUN, OCR_RUN,
+        raw_independent_ocr_run_id=RAW_OCR_RUN, middle_layer="v3")
     legacy = _assemble_one(page_doc, FORMULA_RUN, OCR_RUN, middle_layer="legacy")
     v3_chunks = chunk_document(v3)
     legacy_chunks = chunk_document(legacy)
@@ -68,16 +73,21 @@ def main() -> int:
         },
         "v3_preparation": prepared.get("_v3_stats"),
         "v3_ocr_text": prepared.get("_v3_ocr_summary"),
+        "v3_ocr_audit": _ocr_audit(prepared),
         "v3": _metrics(v3, v3_chunks),
         "legacy": _metrics(legacy, legacy_chunks),
     }
     (OUT / "metrics.json").write_text(
         json.dumps(metrics, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    (OUT / "conflicts.md").write_text(
+        _conflict_review(metrics["v3_ocr_audit"]), encoding="utf-8")
     print(json.dumps({
         "output": str(OUT), "chunks": len(v3_chunks),
         "exam": exam.summary(), "v3": metrics["v3"], "legacy": metrics["legacy"],
     }, ensure_ascii=False, indent=2))
-    return 0
+    invariant_count = int(
+        (metrics.get("v3_ocr_text") or {}).get("merge_invariant_violation_count") or 0)
+    return 1 if invariant_count else 0
 
 
 def _chunk_row(document: dict[str, Any], chunk: Any) -> dict[str, Any]:
@@ -168,6 +178,104 @@ def _metrics(document: dict[str, Any], chunks: list[Any]) -> dict[str, Any]:
             for source in element.get("ocr_text_sources") or []),
         "clause_number_continuity": inspect_clause_continuity(document),
     }
+
+
+def _ocr_audit(prepared: dict[str, Any]) -> dict[str, Any]:
+    single_clean = []
+    conflicts = []
+    decisions = []
+    for page in prepared.get("pages") or []:
+        physical_page = int(page.get("physical_page") or 0)
+        for audit in page.get("_v3_ocr_line_audit") or []:
+            row = {
+                "physical_page": physical_page,
+                "bbox": audit.get("bbox"),
+                "output_text": audit.get("output_text"),
+                "source_texts": audit.get("source_texts"),
+            }
+            decisions.append({
+                **row, "rule": audit.get("rule"),
+                "merge_invariant_violations": audit.get("merge_invariant_violations") or [],
+            })
+            if audit.get("rule") == "single_source" and audit.get("single_source") == "pp_clean":
+                single_clean.append(row)
+            for conflict in audit.get("conflict_fragments") or []:
+                conflicts.append({**row, "conflict": conflict})
+    alignment_defects = _reviewed_alignment_defects(decisions)
+    return {
+        "single_source_pp_clean": single_clean,
+        "conflict_fragments": conflicts,
+        "reviewed_alignment_defects": alignment_defects,
+        "conflict_review_entry_count": len(conflicts) + len(alignment_defects),
+        "line_decisions": decisions,
+    }
+
+
+def _reviewed_alignment_defects(decisions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    cases = [
+        ("2.1.10", "split_primary_tail", "2.1.10 乡村污水系统"),
+        ("2.2.13", "replacement_must_not_move_to_line_end", "2.2.13 排水工程"),
+        ("2.3.5", "overlapping_primary_fragments", "必须在2h内安放护栏和警示"),
+    ]
+    result = []
+    for clause, issue, needle in cases:
+        row = next((item for item in decisions if needle in str(item.get("output_text") or "")), None)
+        if row is None:
+            raise RuntimeError(f"missing reviewed alignment case {clause}")
+        result.append({**row, "clause": clause, "issue": issue})
+    return result
+
+
+def _conflict_review(audit: dict[str, Any]) -> str:
+    conflicts = list(audit.get("conflict_fragments") or [])
+    alignment_defects = list(audit.get("reviewed_alignment_defects") or [])
+    total = len(conflicts) + len(alignment_defects)
+    lines = [
+        "# GB 55027-2022 three-source conflict review",
+        "",
+        f"Review entries: **{total}** (current global-alignment conflict fragments: "
+        f"**{len(conflicts)}**; resolved alignment-defect cases from the 44-item "
+        f"mid-review count: **{len(alignment_defects)}**).",
+        "",
+        "Generated merge evidence only; every item still requires comparison with the original PDF page.",
+        "",
+    ]
+    for index, row in enumerate(conflicts, start=1):
+        source_texts = row.get("source_texts") or {}
+        conflict = row.get("conflict") or {}
+        lines.extend([
+            f"## {index}. Physical page {row.get('physical_page')}",
+            "",
+            f"- bbox: `{json.dumps(row.get('bbox'), ensure_ascii=False)}`",
+            f"- selected source: `{conflict.get('selected_source')}`",
+            f"- selected fragment: `{_inline(conflict.get('selected'))}`",
+            f"- pp_clean: `{_inline(source_texts.get('pp_clean'))}`",
+            f"- pp_raw: `{_inline(source_texts.get('pp_raw'))}`",
+            f"- primary: `{_inline(source_texts.get('primary'))}`",
+            f"- merged line: `{_inline(row.get('output_text'))}`",
+            "",
+        ])
+    for offset, row in enumerate(alignment_defects, start=len(conflicts) + 1):
+        source_texts = row.get("source_texts") or {}
+        lines.extend([
+            f"## {offset}. Physical page {row.get('physical_page')} (resolved alignment defect)",
+            "",
+            f"- clause: `{row.get('clause')}`",
+            f"- defect: `{row.get('issue')}`",
+            f"- bbox: `{json.dumps(row.get('bbox'), ensure_ascii=False)}`",
+            f"- pp_clean: `{_inline(source_texts.get('pp_clean'))}`",
+            f"- pp_raw: `{_inline(source_texts.get('pp_raw'))}`",
+            f"- primary: `{_inline(source_texts.get('primary'))}`",
+            f"- merged line: `{_inline(row.get('output_text'))}`",
+            "",
+        ])
+    return "\n".join(lines).rstrip() + "\n"
+
+
+def _inline(value: Any) -> str:
+    if value is None:
+        return "(missing)"
+    return str(value).replace("`", "\\`").replace("\r", " ").replace("\n", " ")
 
 
 def _page_review(page_doc: dict[str, Any], prepared: dict[str, Any], rows: list[dict[str, Any]]) -> str:
