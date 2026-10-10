@@ -48,7 +48,7 @@ from src.ingestion.heading_hierarchy import (
 from src.ingestion.independent_ocr_fusion import fuse_document_pages
 from src.ingestion.text_quality import is_answerable_text, score_text
 
-__all__ = ["assemble_document", "load_formula_pages", "CECS758_SHA"]
+__all__ = ["assemble_document", "assemble_document_v3", "load_formula_pages", "CECS758_SHA"]
 
 CECS758_SHA = "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941"
 
@@ -144,6 +144,23 @@ class _PageItem:
 # --------------------------------------------------------------------------- #
 
 
+def assemble_document_v3(
+    page_document: dict[str, Any],
+    *,
+    formula_pages: dict[int, list[dict[str, Any]]] | None = None,
+    metadata: dict[str, Any] | None = None,
+    independent_ocr_run_dir: str | None = None,
+) -> dict[str, Any]:
+    """Assemble through the region-first v3 middle layer."""
+    from src.ingestion.block_assembly import prepare_page_document_v3
+
+    prepared = prepare_page_document_v3(
+        page_document, independent_ocr_run_dir=independent_ocr_run_dir)
+    return assemble_document(
+        prepared, formula_pages=formula_pages, metadata=metadata,
+        independent_ocr_run_dir=None)
+
+
 def assemble_document(
     page_document: dict[str, Any],
     *,
@@ -175,7 +192,7 @@ def assemble_document(
     """
     _formula_ledger_produced = formula_pages is not None
     formula_pages = formula_pages or {}
-    fusion_summary = None
+    fusion_summary = page_document.get("_v3_fusion_summary")
     if independent_ocr_run_dir is not None:
         page_document, fusion_summary = fuse_document_pages(
             page_document, run_dir=independent_ocr_run_dir)
@@ -405,7 +422,7 @@ def assemble_document(
         # lines inside a paragraph before column detection: once a page is
         # (even legitimately) reordered column-major, adjacent lines from one
         # source region may no longer be neighbours and cannot be recovered.
-        if route in ("full_ocr", "hybrid"):
+        if route in ("full_ocr", "hybrid") and not page_document.get("_middle_layer_v3"):
             items = _reconstruct_ocr_paragraphs(items)
         layout = detect_columns(
             [it.bbox for it in items], page_width=width, page_height=height
@@ -421,7 +438,8 @@ def assemble_document(
     # A short text recurring in the same top/bottom band across many pages is
     # a running header/footer; mark it so _infer_text_role returns the right
     # role and the chunker drops it via _IGNORED_ROLES.
-    _mark_recurring_header_footer(global_slots, page_by_number)
+    if not page_document.get("_middle_layer_v3"):
+        _mark_recurring_header_footer(global_slots, page_by_number)
 
     # 2. Heading detection over the global text stream. -----------------------
     # Detect TOC pages from the complete text stream before pre-filtering
@@ -447,10 +465,23 @@ def assemble_document(
             toc_index += 1
     toc_pages = detect_toc_pages(toc_inputs)
     heading_inputs: list[HeadingInput] = []
+    explicit_v3_headings: list[HeadingNode] = []
     for slot in global_slots:
         if slot.kind != "text":
             continue
         if slot.page in toc_pages:
+            continue
+        v3_heading = slot.extra.get("v3_heading")
+        if isinstance(v3_heading, dict):
+            explicit_v3_headings.append(HeadingNode(
+                label=str(v3_heading.get("label") or ""),
+                title=v3_heading.get("title"),
+                level=int(v3_heading.get("level") or 1),
+                confidence=0.95,
+                source_index=slot.source_index,
+            ))
+            continue
+        if slot.extra.get("v3_block"):
             continue
         candidate = _heading_candidate_text(
             slot.text, bbox=slot.bbox,
@@ -465,7 +496,10 @@ def assemble_document(
                     physical_page=slot.page,
                 )
             )
-    headings = infer_headings(heading_inputs)
+    headings = sorted(
+        explicit_v3_headings + infer_headings(heading_inputs),
+        key=lambda heading: heading.source_index,
+    )
     heading_by_index = {h.source_index: h for h in headings}
 
     # 3. Build V2 elements. ----------------------------------------------------
@@ -1909,9 +1943,27 @@ def _collect_page_items(
             cfg = m.get("processing_config_id")
             if cfg and cfg not in region_cfgs:
                 region_cfgs.append(cfg)
+        v3_source_region_id = elem.get("_v3_region_id")
+        if v3_source_region_id:
+            matched = [m for m in text_regions if m.get("region_id") == v3_source_region_id]
+            region_ids = [v3_source_region_id]
+            region_qualities = [m.get("quality_status") for m in matched if m.get("quality_status")]
+            region_issues = [issue for m in matched for issue in (m.get("issues") or [])]
+            region_cfgs = [m.get("processing_config_id") for m in matched if m.get("processing_config_id")]
+        extra: dict[str, Any] = {"ocr_fusion": elem.get("_ocr_fusion")}
+        if elem.get("_v3_block"):
+            extra.update({
+                "ocr_fusions": list(elem.get("_v3_ocr_fusions") or []),
+                "source_line_bboxes": list(elem.get("_v3_source_line_bboxes") or []),
+                "v3_block": True,
+                "v3_role": elem.get("_v3_role"),
+                "v3_model_label": elem.get("_v3_model_label"),
+                "v3_heading": elem.get("_v3_heading"),
+                "v3_furniture_rule": elem.get("_v3_furniture_rule"),
+            })
         items.append(_PageItem(
             kind="text", page=pno, bbox=bbox, text=text, ref=elem,
-            extra={"ocr_fusion": elem.get("_ocr_fusion")},
+            extra=extra,
             extraction_route=route, decision_status=decision, decision_reasons=reasons,
             ocr_confidence=ocr_confidence, engine_name=engine_name, engine_version=engine_version,
             engine_id=page_engine_id,
@@ -2149,6 +2201,13 @@ def _build_text_element(
         provenance.append(_provenance(
             "merge", "ocr", _OCR_PARAGRAPH_RULE_ENGINE_ID, None))
     quality_status, policy_reasons = _derive_text_quality(slot, text)
+    if slot.extra.get("v3_role") == "toc":
+        quality_status = "needs_review"
+        if "toc_navigation_only" not in policy_reasons:
+            policy_reasons.append("toc_navigation_only")
+    furniture_rule = slot.extra.get("v3_furniture_rule")
+    if furniture_rule and f"page_furniture:{furniture_rule}" not in policy_reasons:
+        policy_reasons.append(f"page_furniture:{furniture_rule}")
     fusions = list(slot.extra.get("ocr_fusions") or [])
     fusion = slot.extra.get("ocr_fusion")
     if fusion and fusion not in fusions:
@@ -2232,6 +2291,15 @@ def _mark_recurring_header_footer(
 
 
 def _infer_text_role(slot: _PageItem, heading: HeadingNode | None) -> str:
+    v3_role = slot.extra.get("v3_role")
+    if v3_role:
+        if v3_role == "toc":
+            return "paragraph"
+        if v3_role in {
+            "document_title", "heading", "clause", "paragraph", "list_item",
+            "header", "footer", "page_number", "watermark", "unknown",
+        }:
+            return v3_role
     raw = (slot.text or "").strip()
     if _PAGE_NUM_RE.match(raw):
         return "page_number"
@@ -2258,6 +2326,9 @@ def _infer_text_role(slot: _PageItem, heading: HeadingNode | None) -> str:
 
 
 def _text_label(slot: _PageItem, heading: HeadingNode | None) -> str | None:
+    if slot.extra.get("v3_block"):
+        descriptor = slot.extra.get("v3_heading") or {}
+        return descriptor.get("label") or None
     if heading is not None and heading.label:
         return heading.label
     return None

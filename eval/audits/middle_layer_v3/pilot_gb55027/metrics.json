@@ -1,0 +1,161 @@
+{
+  "schema_version": "middle-layer-v3-pilot-metrics/1",
+  "corpus_version": "corpus-0ae8a9423e2f",
+  "source_sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+  "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+  "physical_page_count": 20,
+  "canonical_validation": "passed",
+  "gold_anchor_exam": {
+    "summary": {
+      "text_or_clause": {
+        "total": 3,
+        "text_pass": 3,
+        "structure_graded": 3,
+        "structure_pass": 3
+      },
+      "table_or_numeric": {
+        "total": 1,
+        "text_pass": 1
+      },
+      "failed": []
+    },
+    "results": [
+      {
+        "anchor_id": "TXT-08",
+        "anchor_type": "text_or_clause",
+        "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "pdf_page": 4,
+        "text_pass": true,
+        "structure_pass": true,
+        "matched_section": "1 > 1.0.2",
+        "detail": ""
+      },
+      {
+        "anchor_id": "TXT-09",
+        "anchor_type": "text_or_clause",
+        "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "pdf_page": 9,
+        "text_pass": true,
+        "structure_pass": true,
+        "matched_section": "2 > 2.3 > 2.3.9",
+        "detail": ""
+      },
+      {
+        "anchor_id": "TXT-10",
+        "anchor_type": "text_or_clause",
+        "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "pdf_page": 20,
+        "text_pass": true,
+        "structure_pass": true,
+        "matched_section": "4 > 4.4 > 4.4.22",
+        "detail": ""
+      },
+      {
+        "anchor_id": "TAB-07",
+        "anchor_type": "table_or_numeric",
+        "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "pdf_page": 13,
+        "text_pass": true,
+        "structure_pass": null,
+        "matched_section": null,
+        "detail": ""
+      }
+    ]
+  },
+  "v3_preparation": {
+    "region_pages": 20,
+    "fallback_pages": 0,
+    "furniture": 21,
+    "toc": 1
+  },
+  "v3": {
+    "element_count": 218,
+    "element_type_counts": {
+      "text": 215,
+      "table": 3
+    },
+    "chunk_count": 136,
+    "body_page_number_footer_watermark_lines": 0,
+    "body_furniture_examples": [],
+    "sentence_ended_heading_count": 0,
+    "sentence_ended_heading_examples": [],
+    "body_breadcrumb_count": 0,
+    "section_title_over_60_count": 0,
+    "section_title_over_60_examples": [],
+    "list_item_root_count": 0,
+    "list_item_root_labels": [],
+    "short_body_chunk_lt15_count": 2,
+    "short_body_chunk_lt15_ratio": 0.014706,
+    "short_body_chunk_ids": [
+      "chunk_7d11131ed4701e8dcb373198971f46b5",
+      "chunk_b69b743ed3049b7804b7f4bf76e70d82"
+    ]
+  },
+  "legacy": {
+    "element_count": 293,
+    "element_type_counts": {
+      "text": 290,
+      "table": 3
+    },
+    "chunk_count": 154,
+    "body_page_number_footer_watermark_lines": 8,
+    "body_furniture_examples": [
+      {
+        "element_id": "e000033",
+        "line": "浏览专用"
+      },
+      {
+        "element_id": "e000124",
+        "line": "浏览专用"
+      },
+      {
+        "element_id": "e000124",
+        "line": "6"
+      },
+      {
+        "element_id": "e000160",
+        "line": "8"
+      },
+      {
+        "element_id": "e000195",
+        "line": "浏览专用"
+      },
+      {
+        "element_id": "e000291",
+        "line": "住房城乡建设部"
+      },
+      {
+        "element_id": "e000293",
+        "line": "浏览专用"
+      },
+      {
+        "element_id": "e000293",
+        "line": "17"
+      }
+    ],
+    "sentence_ended_heading_count": 0,
+    "sentence_ended_heading_examples": [],
+    "body_breadcrumb_count": 0,
+    "section_title_over_60_count": 0,
+    "section_title_over_60_examples": [],
+    "list_item_root_count": 0,
+    "list_item_root_labels": [],
+    "short_body_chunk_lt15_count": 13,
+    "short_body_chunk_lt15_ratio": 0.084416,
+    "short_body_chunk_ids": [
+      "chunk_24006c0bb31c872f164c2276aaa61f06",
+      "chunk_5e725e064a4d4fd16cfc685566766987",
+      "chunk_bb1c3d18be25da22aa207e164dab68ba",
+      "chunk_b84fa04061b2fc3b15153abfd2e826d6",
+      "chunk_0d9fd56cd67daf7394dc75897cb64f07",
+      "chunk_3a0f7ae9356de681151539787f6b7beb",
+      "chunk_27adc1e5b1f42974251f0befd6914ecf",
+      "chunk_df271b7aaec4bbb42ff34fb9a63abd77",
+      "chunk_050fb0d9299faba6491136f5f01f9462",
+      "chunk_80db5dbedd08c8bd428a813d2fba6b79",
+      "chunk_4c9a9f3c6188fedb33d64a5ca910a823",
+      "chunk_9a450049d65f011e8949be3cd7bd2c38",
+      "chunk_6ff92fa04d1f7ad27f41d45694b1542f"
+    ]
+  }
+}

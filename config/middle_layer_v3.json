@@ -1,0 +1,24 @@
+{
+  "schema_version": "middle-layer-v3/1",
+  "label_map": {
+    "text": "body",
+    "paragraph_title": "title",
+    "doc_title": "title",
+    "number": "furniture",
+    "header": "furniture",
+    "footer": "furniture",
+    "aside_text": "furniture",
+    "content": "toc",
+    "table": "structured",
+    "formula": "structured",
+    "formula_number": "structured",
+    "figure_title": "structured",
+    "image": "structured",
+    "chart": "structured",
+    "reference": "reference"
+  },
+  "watermark_exact_lines": [
+    "住房城乡建设部",
+    "浏览专用"
+  ]
+}

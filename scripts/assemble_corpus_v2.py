@@ -43,6 +43,7 @@ sys.path.insert(0, _REPO_ROOT)
 
 from src.application.canonical_assembly import (  # noqa: E402
     assemble_document,
+    assemble_document_v3,
     load_formula_pages,
 )
 from src.application.canonical_validation import (  # noqa: E402
@@ -132,7 +133,7 @@ def _assert_formula_coverage(
 
 def _assemble_one(
     page_doc: dict[str, Any], formula_run_id: str, independent_ocr_run_id: str,
-    *, root: str | None = None,
+    *, root: str | None = None, middle_layer: str = "legacy",
 ) -> dict[str, Any]:
     sha = page_doc["sha256"]
     page_count = len(page_doc.get("pages") or [])
@@ -155,7 +156,8 @@ def _assemble_one(
         root or _REPO_ROOT, "data", "model_runtime", "independent_ocr", "runs",
         independent_ocr_run_id,
     )
-    doc = assemble_document(
+    assembler = assemble_document_v3 if middle_layer == "v3" else assemble_document
+    doc = assembler(
         page_doc, formula_pages=formula_pages,
         independent_ocr_run_dir=independent_run_dir,
     )
@@ -264,6 +266,10 @@ def main(argv: list[str] | None = None) -> int:
               f"(defaults to {_DEFAULT_INDEPENDENT_OCR_RUN_ID!r}; missing pages hard-fail)"),
     )
     parser.add_argument(
+        "--middle-layer", choices=("legacy", "v3"), default="legacy",
+        help="text middle layer (default: legacy; v3 is region-first)",
+    )
+    parser.add_argument(
         "--only", nargs="*", default=None,
         help="only assemble these sha256 prefixes (space-separated)",
     )
@@ -294,6 +300,7 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[assemble] {total} documents to assemble from {corpus_version}")
     print(f"[assemble] formula run-id: {args.formula_run_id}")
     print(f"[assemble] independent OCR run-id: {args.independent_ocr_run_id}")
+    print(f"[assemble] middle layer: {args.middle_layer}")
     print(f"[assemble] output dir: {output_dir}")
     print()
 
@@ -315,7 +322,8 @@ def main(argv: list[str] | None = None) -> int:
                 "pages": quality.get("pages"),
             })
             doc = _assemble_one(
-                page_doc, args.formula_run_id, args.independent_ocr_run_id, root=root)
+                page_doc, args.formula_run_id, args.independent_ocr_run_id,
+                root=root, middle_layer=args.middle_layer)
             out_path = _write(doc, corpus_version, root)
             quar = _quarantine_count(page_doc)
             _print_row(idx, total, page_doc, doc, out_path, quar)
