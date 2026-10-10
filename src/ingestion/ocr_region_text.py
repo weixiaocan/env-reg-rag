@@ -7,13 +7,14 @@ from difflib import SequenceMatcher
 import re
 from typing import Any
 
-from src.ingestion.page_furniture import normalize_line
+from src.ingestion.page_furniture import normalize_line, watermark_line_variants
 
 
 _NUMBER_PREFIX = re.compile(r"^\s*(\d+(?:\.\d+){0,2})(?:\s+|(?=[一-鿿])|$)(.*)$")
 _STRUCTURED_KINDS = {"table", "formula", "image", "figure", "chart"}
 _SOURCE_PRIORITY = ("pp_raw", "primary", "pp_clean")
 _DUPLICATE_SEPARATOR = re.compile(r"^[\s，。；：、,.!?！？;:—-]{0,3}$")
+_RAW_CONFLICT_RECOVERY = re.compile(r"^(?:[一-鿿]|[。，；：、！？])$")
 
 
 def assemble_page_region_text(
@@ -28,10 +29,12 @@ def assemble_page_region_text(
     regions = deepcopy(page.get("regions") or [])
     text_regions = [r for r in regions if str(r.get("kind") or "text") not in _STRUCTURED_KINDS]
     structured = [r for r in regions if str(r.get("kind") or "") in _STRUCTURED_KINDS]
-    watermark_set = {normalize_line(value) for value in watermarks}
+    watermark_set = watermark_line_variants(watermarks)
     stats = {
         "majority_lines": 0, "merge_lines": 0, "single_source_lines": 0,
         "single_source_pp_clean_lines": 0, "conflict_fragment_count": 0,
+        "suppressed_pp_raw_single_source_lines": 0,
+        "suppressed_ambiguous_short_lines": 0,
         "merge_invariant_violation_count": 0,
         "noise_lines": 0, "orphan_line_groups": 0,
         "number_prefixes_preserved": 0,
@@ -50,7 +53,7 @@ def assemble_page_region_text(
     candidates = [row for row in candidates if row.get("text")]
     candidates.extend(_primary_candidates(
         page.get("elements") or [], text_regions, structured,
-        watermark_set, bbox_tolerance,
+        watermark_set, bbox_tolerance, single_char_score,
     ))
     candidates = _merge_same_source_fragments(candidates)
 
@@ -61,7 +64,25 @@ def assemble_page_region_text(
         by_source = {row["source"]: row for row in group}
         source_texts = {source: str(by_source[source]["text"]) if source in by_source else None
                         for source in ("pp_clean", "pp_raw", "primary")}
+        if _is_ambiguous_short_noise(source_texts):
+            stats["suppressed_ambiguous_short_lines"] += 1
+            line_audit.append({
+                "bbox": _union_bbox([row["bbox"] for row in group]),
+                "output_text": "", "source_texts": dict(source_texts),
+                "rule": "suppressed_ambiguous_short_line", "single_source": None,
+                "conflict_fragments": [], "merge_invariant_violations": [],
+            })
+            continue
         text, rule, conflicts = merge_source_texts(source_texts)
+        if rule == "suppressed_pp_raw_single_source":
+            stats["suppressed_pp_raw_single_source_lines"] += 1
+            line_audit.append({
+                "bbox": _union_bbox([row["bbox"] for row in group]),
+                "output_text": "", "source_texts": dict(source_texts),
+                "rule": rule, "single_source": "pp_raw",
+                "conflict_fragments": [], "merge_invariant_violations": [],
+            })
+            continue
         primary = by_source.get("primary")
         preserved = False
         if primary is not None:
@@ -127,6 +148,8 @@ def merge_source_texts(source_texts: dict[str, str | None]) -> tuple[str, str, l
     """Merge one geometry-aligned line group and return text, rule, conflicts."""
     present = {key: value for key, value in source_texts.items() if value}
     if len(present) == 1:
+        if "pp_raw" in present:
+            return "", "suppressed_pp_raw_single_source", []
         return next(iter(present.values())), "single_source", []
 
     normalized = {key: normalize_line(value) for key, value in present.items()}
@@ -149,7 +172,7 @@ def merge_source_texts(source_texts: dict[str, str | None]) -> tuple[str, str, l
     conflicts: list[dict[str, Any]] = []
     for offset in range(len(pivot) + 1):
         gap_values = {source: aligned[source][1][offset] for source in source_texts}
-        gap, gap_conflict = _choose_fragment(gap_values)
+        gap, gap_conflict = _choose_gap_fragment(gap_values)
         pieces.append(gap)
         if gap_conflict:
             conflicts.append({"offset": offset, "kind": "insertion", **gap_conflict})
@@ -164,8 +187,47 @@ def merge_source_texts(source_texts: dict[str, str | None]) -> tuple[str, str, l
 
 
 def _choose_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any] | None]:
-    present = {key: value for key, value in values.items() if value}
+    present = {key: value for key, value in values.items() if value is not None}
     if not present:
+        return "", None
+    whitespace = [value for value in present.values() if value and value.isspace()]
+    if whitespace and all(not value or value.isspace() for value in present.values()):
+        return whitespace[0], None
+    raw = present.get("pp_raw")
+    raw_only_against_covered_deletions = (
+        raw
+        and all(source == "pp_raw" or value == ""
+                for source, value in present.items())
+    )
+    if raw_only_against_covered_deletions:
+        return (raw if _RAW_CONFLICT_RECOVERY.fullmatch(raw) else ""), None
+    counts = Counter(present.values())
+    majority = next((value for value, count in counts.items() if count >= 2), None)
+    if majority is not None:
+        return majority, None
+    selected_source = next(source for source in _SOURCE_PRIORITY if source in present)
+    selected = present[selected_source]
+    if len(present) == 1:
+        if selected_source == "pp_raw":
+            return "", None
+        return selected, None
+    return selected, {
+        "sources": {source: values.get(source) for source in ("pp_clean", "pp_raw", "primary")},
+        "selected": selected, "selected_source": selected_source,
+    }
+
+
+def _choose_gap_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any] | None]:
+    """Vote on an insertion gap, treating covered empty gaps as deletion votes."""
+    present = {key: value for key, value in values.items() if value is not None}
+    if not present:
+        return "", None
+    whitespace = [value for value in present.values() if value and value.isspace()]
+    if whitespace and all(not value or value.isspace() for value in present.values()):
+        return whitespace[0], None
+    raw = present.get("pp_raw")
+    if (raw and all(source == "pp_raw" or value == ""
+                    for source, value in present.items())):
         return "", None
     counts = Counter(present.values())
     majority = next((value for value, count in counts.items() if count >= 2), None)
@@ -174,34 +236,57 @@ def _choose_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any]
     selected_source = next(source for source in _SOURCE_PRIORITY if source in present)
     selected = present[selected_source]
     if len(present) == 1:
-        return selected, None
+        return ("" if selected_source == "pp_raw" else selected), None
     return selected, {
         "sources": {source: values.get(source) for source in ("pp_clean", "pp_raw", "primary")},
         "selected": selected, "selected_source": selected_source,
     }
 
 
-def _align_to_pivot(pivot: str, text: str | None) -> tuple[list[str | None], list[str]]:
+def _align_to_pivot(
+    pivot: str, text: str | None,
+) -> tuple[list[str | None], list[str | None]]:
     """Align a full source line to one shared pivot coordinate system."""
     if text is None:
-        return [None] * len(pivot), [""] * (len(pivot) + 1)
+        return [None] * len(pivot), [None] * (len(pivot) + 1)
     chars: list[str | None] = [None] * len(pivot)
-    inserts: list[str] = [""] * (len(pivot) + 1)
+    inserts: list[str | None] = [None] * (len(pivot) + 1)
     matcher = SequenceMatcher(None, pivot, text, autojunk=False)
     for tag, pivot_start, pivot_end, text_start, text_end in matcher.get_opcodes():
         source_fragment = text[text_start:text_end]
         if tag == "equal":
+            for gap in range(pivot_start, pivot_end + 1):
+                inserts[gap] = inserts[gap] or ""
             for offset, value in enumerate(source_fragment):
                 chars[pivot_start + offset] = value
         elif tag == "replace":
+            for gap in range(pivot_start, pivot_end + 1):
+                inserts[gap] = inserts[gap] or ""
             shared = min(pivot_end - pivot_start, len(source_fragment))
             for offset in range(shared):
                 chars[pivot_start + offset] = source_fragment[offset]
+            if not (text_end == len(text) and pivot_end == len(pivot)):
+                for offset in range(pivot_start + shared, pivot_end):
+                    chars[offset] = ""
         elif tag == "insert":
-            inserts[pivot_start] += source_fragment
-        # A delete deliberately leaves None in the pivot columns. It is a
-        # genuine source absence, not an alternative replacement candidate.
+            inserts[pivot_start] = (inserts[pivot_start] or "") + source_fragment
+        elif tag == "delete":
+            if not (text_end == len(text) and pivot_end == len(pivot)):
+                for offset in range(pivot_start, pivot_end):
+                    chars[offset] = ""
     return chars, inserts
+
+
+def _is_ambiguous_short_noise(source_texts: dict[str, str | None]) -> bool:
+    """Reject tiny non-CJK raw/primary disagreements when pp_clean has no line."""
+    if source_texts.get("pp_clean"):
+        return False
+    values = [normalize_line(value) for value in source_texts.values() if value]
+    return bool(
+        len(values) >= 2
+        and max(map(len, values)) <= 4
+        and all(re.fullmatch(r"[A-Za-zⅠ-ⅿ゠-ヿ]+", value) for value in values)
+    )
 
 
 def find_adjacent_duplicate_fragments(
@@ -307,13 +392,16 @@ def _ocr_candidates(lines: list[dict[str, Any]], source: str,
 
 def _primary_candidates(elements: list[dict[str, Any]], text_regions: list[dict[str, Any]],
                         structured: list[dict[str, Any]], watermarks: set[str],
-                        tolerance: float) -> list[dict[str, Any]]:
+                        tolerance: float, single_char_score: float) -> list[dict[str, Any]]:
     result = []
     for index, raw in enumerate(elements):
         text = str(raw.get("text") or "").strip()
         bbox = _bbox(raw.get("bbox"))
+        score = _score(raw.get("confidence"))
         if (str(raw.get("type") or "text") != "text" or bbox is None
-                or not normalize_line(text) or normalize_line(text) in watermarks):
+                or not normalize_line(text) or normalize_line(text) in watermarks
+                or (len(normalize_line(text)) == 1 and not normalize_line(text).isdigit()
+                    and (score is None or score < single_char_score))):
             continue
         if any(_center_inside(bbox, region.get("bbox"), 0.0) for region in structured):
             continue
@@ -323,7 +411,7 @@ def _primary_candidates(elements: list[dict[str, Any]], text_regions: list[dict[
         result.append({
             "source": "primary", "text": text, "bbox": bbox,
             "line_id": str(raw.get("element_id") or f"primary-{index + 1:04d}"),
-            "score": _score(raw.get("confidence")),
+            "score": score,
             "region_id": str(region.get("region_id") or ""),
         })
     return result

@@ -17,6 +17,7 @@ from src.application.v2_chunker import _format_section_path, chunk_document  # n
 from src.evaluation.gold_anchor_exam import chunks_from_v2, grade, normalize  # noqa: E402
 from src.evaluation.clause_continuity import inspect_clause_continuity  # noqa: E402
 from src.ingestion.block_assembly import load_config, prepare_page_document_v3  # noqa: E402
+from src.ingestion.page_furniture import watermark_line_variants  # noqa: E402
 
 
 CORPUS_VERSION = "corpus-0ae8a9423e2f"
@@ -112,7 +113,7 @@ def _chunk_row(document: dict[str, Any], chunk: Any) -> dict[str, Any]:
 
 def _metrics(document: dict[str, Any], chunks: list[Any]) -> dict[str, Any]:
     config = load_config()
-    watermarks = {re.sub(r"\s+", "", value) for value in config["watermark_exact_lines"]}
+    watermarks = watermark_line_variants(config["watermark_exact_lines"])
     body_furniture: list[dict[str, Any]] = []
     sentence_headings: list[str] = []
     long_titles: set[str] = set()

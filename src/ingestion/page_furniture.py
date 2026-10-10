@@ -33,6 +33,22 @@ def normalize_line(text: str) -> str:
     return re.sub(r"\s+", "", text or "")
 
 
+def watermark_line_variants(
+    watermarks: Iterable[str], *, minimum_substring_length: int = 2,
+) -> set[str]:
+    """Return configured watermark phrases and their whole-line fragments."""
+    variants: set[str] = set()
+    for value in watermarks:
+        normalized = normalize_line(value)
+        if not normalized:
+            continue
+        variants.add(normalized)
+        for start in range(len(normalized)):
+            for end in range(start + minimum_substring_length, len(normalized) + 1):
+                variants.add(normalized[start:end])
+    return variants
+
+
 def recurring_band_texts(
     pages: Iterable[dict[str, Any]], *, min_pages: int = 3, band_ratio: float = 0.12
 ) -> dict[tuple[str, str], set[int]]:
@@ -74,7 +90,7 @@ def classify_page_furniture(
 
     stripped = (text or "").strip()
     norm = normalize_line(stripped)
-    watermark_norms = {normalize_line(value) for value in watermarks if value}
+    watermark_norms = watermark_line_variants(watermarks)
     if norm and norm in watermark_norms:
         return FurnitureMatch("watermark", "watermark:exact_line")
 

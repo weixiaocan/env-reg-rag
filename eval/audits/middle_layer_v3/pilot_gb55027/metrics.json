@@ -82,15 +82,17 @@
     "raw_run_id": "ocrv6-ef06411e1606ba35",
     "raw_run_manifest_sha256": "d3141137a3521263b7499f439b2fb5acb20a36c26d5a5bae1e925389158ddc43",
     "ocr_page_count": 20,
-    "majority_lines": 424,
-    "merge_lines": 66,
-    "single_source_lines": 20,
+    "majority_lines": 426,
+    "merge_lines": 59,
+    "single_source_lines": 9,
     "single_source_pp_clean_lines": 5,
-    "conflict_fragment_count": 41,
+    "conflict_fragment_count": 35,
+    "suppressed_pp_raw_single_source_lines": 5,
+    "suppressed_ambiguous_short_lines": 3,
     "merge_invariant_violation_count": 0,
-    "noise_lines": 10,
-    "orphan_line_groups": 3,
-    "number_prefixes_preserved": 4
+    "noise_lines": 15,
+    "orphan_line_groups": 0,
+    "number_prefixes_preserved": 3
   },
   "v3_ocr_audit": {
     "single_source_pp_clean": [
@@ -206,7 +208,7 @@
           348.0,
           324.5
         ],
-        "output_text": "13 13. 污水管网…………………………………………………ε1",
+        "output_text": "13 3. 污水管网…………………………………………………ε1",
         "source_texts": {
           "pp_clean": "31 ……………………………………………………………ε1",
           "pp_raw": "4.2 污水管网",
@@ -233,7 +235,7 @@
           348.0,
           324.5
         ],
-        "output_text": "13 13. 污水管网…………………………………………………ε1",
+        "output_text": "13 3. 污水管网…………………………………………………ε1",
         "source_texts": {
           "pp_clean": "31 ……………………………………………………………ε1",
           "pp_raw": "4.2 污水管网",
@@ -304,33 +306,6 @@
           "selected": "：",
           "selected_source": "pp_raw",
           "end_offset": 19
-        }
-      },
-      {
-        "physical_page": 6,
-        "bbox": [
-          290.5,
-          120.5,
-          327.0,
-          141.0
-        ],
-        "output_text": "LIT",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": "LIT",
-          "primary": "IZ"
-        },
-        "conflict": {
-          "offset": 2,
-          "kind": "character",
-          "sources": {
-            "pp_clean": null,
-            "pp_raw": "T",
-            "primary": "Z"
-          },
-          "selected": "T",
-          "selected_source": "pp_raw",
-          "end_offset": 2
         }
       },
       {
@@ -434,7 +409,7 @@
           "sources": {
             "pp_clean": "I",
             "pp_raw": "工",
-            "primary": null
+            "primary": ""
           },
           "selected": "工",
           "selected_source": "pp_raw",
@@ -449,7 +424,7 @@
           347.0,
           229.0
         ],
-        "output_text": "2.2.12 服务人口大于20)万的城镇排水工程的主要设施抗震设",
+        "output_text": "2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设",
         "source_texts": {
           "pp_clean": "2.2.12 服务人1大于20)万的城镇排水I程的主要设施抗震设",
           "pp_raw": "2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设",
@@ -476,7 +451,34 @@
           347.0,
           229.0
         ],
-        "output_text": "2.2.12 服务人口大于20)万的城镇排水工程的主要设施抗震设",
+        "output_text": "2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设",
+        "source_texts": {
+          "pp_clean": "2.2.12 服务人1大于20)万的城镇排水I程的主要设施抗震设",
+          "pp_raw": "2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设",
+          "primary": null
+        },
+        "conflict": {
+          "offset": 15,
+          "kind": "character",
+          "sources": {
+            "pp_clean": ")",
+            "pp_raw": "",
+            "primary": null
+          },
+          "selected": "",
+          "selected_source": "pp_raw",
+          "end_offset": 15
+        }
+      },
+      {
+        "physical_page": 7,
+        "bbox": [
+          50.5,
+          217.0,
+          347.0,
+          229.0
+        ],
+        "output_text": "2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设",
         "source_texts": {
           "pp_clean": "2.2.12 服务人1大于20)万的城镇排水I程的主要设施抗震设",
           "pp_raw": "2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设",
@@ -739,87 +741,6 @@
         }
       },
       {
-        "physical_page": 9,
-        "bbox": [
-          45.0,
-          68.5,
-          361.0,
-          384.0
-        ],
-        "output_text": "业卫城、环境保护、公然灾害等应急预案，并应定期进行演练。",
-        "source_texts": {
-          "pp_clean": "业卫生、环境保护、自然灾害等应急预案，并应定期进行演练。",
-          "pp_raw": "住房城乡建设部信息公开",
-          "primary": "业卫、环境保护、然灾害等应急预案，并应定期进演练。"
-        },
-        "conflict": {
-          "offset": 2,
-          "kind": "character",
-          "sources": {
-            "pp_clean": "生",
-            "pp_raw": "城",
-            "primary": null
-          },
-          "selected": "城",
-          "selected_source": "pp_raw",
-          "end_offset": 2
-        }
-      },
-      {
-        "physical_page": 9,
-        "bbox": [
-          45.0,
-          68.5,
-          361.0,
-          384.0
-        ],
-        "output_text": "业卫城、环境保护、公然灾害等应急预案，并应定期进行演练。",
-        "source_texts": {
-          "pp_clean": "业卫生、环境保护、自然灾害等应急预案，并应定期进行演练。",
-          "pp_raw": "住房城乡建设部信息公开",
-          "primary": "业卫、环境保护、然灾害等应急预案，并应定期进演练。"
-        },
-        "conflict": {
-          "offset": 9,
-          "kind": "character",
-          "sources": {
-            "pp_clean": "自",
-            "pp_raw": "公",
-            "primary": null
-          },
-          "selected": "公",
-          "selected_source": "pp_raw",
-          "end_offset": 9
-        }
-      },
-      {
-        "physical_page": 11,
-        "bbox": [
-          289.0,
-          118.5517529215359,
-          327.0,
-          142.5
-        ],
-        "output_text": "IV",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": "IV",
-          "primary": "IZ"
-        },
-        "conflict": {
-          "offset": 1,
-          "kind": "character",
-          "sources": {
-            "pp_clean": null,
-            "pp_raw": "V",
-            "primary": "Z"
-          },
-          "selected": "V",
-          "selected_source": "pp_raw",
-          "end_offset": 1
-        }
-      },
-      {
         "physical_page": 11,
         "bbox": [
           49.5,
@@ -839,7 +760,7 @@
           "sources": {
             "pp_clean": "。",
             "pp_raw": "，",
-            "primary": null
+            "primary": ""
           },
           "selected": "，",
           "selected_source": "pp_raw",
@@ -898,6 +819,33 @@
           "selected": "～",
           "selected_source": "pp_raw",
           "end_offset": 23
+        }
+      },
+      {
+        "physical_page": 12,
+        "bbox": [
+          50.5,
+          280.0,
+          346.5,
+          291.5
+        ],
+        "output_text": "3.3.7 湿陷性黄土、膨胀土和流砂地区雨水管渠及其附属构筑",
+        "source_texts": {
+          "pp_clean": "3.3.7湿陷性黄土、膨胀土:和流砂地区雨水管渠及其附属构筑",
+          "pp_raw": "3.3.7 湿陷性黄土、膨胀土和流砂地区雨水管渠及其附属构筑",
+          "primary": null
+        },
+        "conflict": {
+          "offset": 15,
+          "kind": "insertion",
+          "sources": {
+            "pp_clean": ":",
+            "pp_raw": "",
+            "primary": null
+          },
+          "selected": "",
+          "selected_source": "pp_raw",
+          "end_offset": 15
         }
       },
       {
@@ -1006,87 +954,6 @@
           "selected": "涝",
           "selected_source": "pp_raw",
           "end_offset": 9
-        }
-      },
-      {
-        "physical_page": 14,
-        "bbox": [
-          287.5,
-          117.59181969949917,
-          325.5,
-          142.5
-        ],
-        "output_text": "IV",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": "IV",
-          "primary": "Z"
-        },
-        "conflict": {
-          "offset": 0,
-          "kind": "character",
-          "sources": {
-            "pp_clean": null,
-            "pp_raw": "I",
-            "primary": "Z"
-          },
-          "selected": "I",
-          "selected_source": "pp_raw",
-          "end_offset": 0
-        }
-      },
-      {
-        "physical_page": 14,
-        "bbox": [
-          44.0,
-          215.0,
-          345.2173913043478,
-          385.5
-        ],
-        "output_text": "住房城乡建警进入工作模式后，应及时疏散人员和车辆，做好交",
-        "source_texts": {
-          "pp_clean": "通组织",
-          "pp_raw": "住房城乡建",
-          "primary": "件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交"
-        },
-        "conflict": {
-          "offset": 0,
-          "kind": "character",
-          "sources": {
-            "pp_clean": "通组织",
-            "pp_raw": "住房城乡建",
-            "primary": "件；启动预"
-          },
-          "selected": "住房城乡建",
-          "selected_source": "pp_raw",
-          "end_offset": 4
-        }
-      },
-      {
-        "physical_page": 14,
-        "bbox": [
-          51.5,
-          217.5,
-          346.5,
-          229.0
-        ],
-        "output_text": "件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交",
-        "source_texts": {
-          "pp_clean": "件；启动预警进入工作模式后：应及时疏散人员和车辆，做好交",
-          "pp_raw": "件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交",
-          "primary": null
-        },
-        "conflict": {
-          "offset": 13,
-          "kind": "character",
-          "sources": {
-            "pp_clean": "：",
-            "pp_raw": "，",
-            "primary": null
-          },
-          "selected": "，",
-          "selected_source": "pp_raw",
-          "end_offset": 13
         }
       },
       {
@@ -1250,33 +1117,6 @@
           "selected_source": "pp_raw",
           "end_offset": 25
         }
-      },
-      {
-        "physical_page": 20,
-        "bbox": [
-          290.5,
-          119.51168614357263,
-          326.0,
-          141.5
-        ],
-        "output_text": "IVT",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": "IVT",
-          "primary": "ハZ"
-        },
-        "conflict": {
-          "offset": 0,
-          "kind": "character",
-          "sources": {
-            "pp_clean": null,
-            "pp_raw": "IV",
-            "primary": "ハZ"
-          },
-          "selected": "IV",
-          "selected_source": "pp_raw",
-          "end_offset": 1
-        }
       }
     ],
     "reviewed_alignment_defects": [
@@ -1338,7 +1178,7 @@
         "issue": "overlapping_primary_fragments"
       }
     ],
-    "conflict_review_entry_count": 44,
+    "conflict_review_entry_count": 38,
     "line_decisions": [
       {
         "physical_page": 1,
@@ -1365,7 +1205,7 @@
           346.5,
           136.0
         ],
-        "output_text": "为适应国际技术法规与技术标准通行规则，20)16年以来，",
+        "output_text": "为适应国际技术法规与技术标准通行规则，2016年以来，",
         "source_texts": {
           "pp_clean": "为适应国际技术法规与技术标准通行规则，20)16年以来，",
           "pp_raw": "为适应国际技术法规与技术标准通行规则，2016年以来，",
@@ -1474,23 +1314,6 @@
           "primary": "成的“技术法规”体系。"
         },
         "rule": "majority",
-        "merge_invariant_violations": []
-      },
-      {
-        "physical_page": 1,
-        "bbox": [
-          226.78864734299518,
-          217.42487479131887,
-          231.10386473429952,
-          221.2646076794658
-        ],
-        "output_text": "-",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": null,
-          "primary": "-"
-        },
-        "rule": "single_source",
         "merge_invariant_violations": []
       },
       {
@@ -2287,7 +2110,7 @@
         "source_texts": {
           "pp_clean": "目次",
           "pp_raw": "目次",
-          "primary": "目次"
+          "primary": null
         },
         "rule": "majority",
         "merge_invariant_violations": []
@@ -2521,7 +2344,7 @@
           347.0,
           291.0
         ],
-        "output_text": "2 ",
+        "output_text": "2",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "12",
@@ -2555,13 +2378,13 @@
           347.0,
           306.5
         ],
-        "output_text": "12",
+        "output_text": "",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "12",
           "primary": null
         },
-        "rule": "single_source",
+        "rule": "suppressed_pp_raw_single_source",
         "merge_invariant_violations": []
       },
       {
@@ -2589,7 +2412,7 @@
           348.0,
           324.5
         ],
-        "output_text": "13 13. 污水管网…………………………………………………ε1",
+        "output_text": "13 3. 污水管网…………………………………………………ε1",
         "source_texts": {
           "pp_clean": "31 ……………………………………………………………ε1",
           "pp_raw": "4.2 污水管网",
@@ -2606,13 +2429,13 @@
           346.5,
           322.0
         ],
-        "output_text": "13",
+        "output_text": "",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "13",
           "primary": null
         },
-        "rule": "single_source",
+        "rule": "suppressed_pp_raw_single_source",
         "merge_invariant_violations": []
       },
       {
@@ -2712,7 +2535,7 @@
         "source_texts": {
           "pp_clean": "1总则",
           "pp_raw": "1总则",
-          "primary": "1总则"
+          "primary": "1总"
         },
         "rule": "majority",
         "merge_invariant_violations": []
@@ -2885,23 +2708,6 @@
           "primary": "处理和污泥的安全处理处置；"
         },
         "rule": "majority",
-        "merge_invariant_violations": []
-      },
-      {
-        "physical_page": 4,
-        "bbox": [
-          291.0374396135266,
-          250.542570951586,
-          296.79106280193236,
-          256.30217028380633
-        ],
-        "output_text": "-",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": null,
-          "primary": "-"
-        },
-        "rule": "single_source",
         "merge_invariant_violations": []
       },
       {
@@ -3106,23 +2912,6 @@
           "primary": "1"
         },
         "rule": "majority",
-        "merge_invariant_violations": []
-      },
-      {
-        "physical_page": 5,
-        "bbox": [
-          264.0,
-          59.5,
-          372.5,
-          169.0
-        ],
-        "output_text": "公开",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": "公开",
-          "primary": null
-        },
-        "rule": "single_source",
         "merge_invariant_violations": []
       },
       {
@@ -3677,13 +3466,13 @@
           327.0,
           141.0
         ],
-        "output_text": "LIT",
+        "output_text": "",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "LIT",
           "primary": "IZ"
         },
-        "rule": "merge",
+        "rule": "suppressed_ambiguous_short_line",
         "merge_invariant_violations": []
       },
       {
@@ -4253,13 +4042,13 @@
           50.0,
           168.5,
           346.5,
-          232.78380634390652
+          182.0
         ],
         "output_text": "2.2.11 城镇再生水和雨水利用设施应满足用户对水质、水量、",
         "source_texts": {
           "pp_clean": "2.2.11 城镇再生水和雨水利用设施应满足用户对水质、水量、",
           "pp_raw": "2.2.11 城镇再生水和雨水利用设施应满足用户对水质、水量、",
-          "primary": "音"
+          "primary": null
         },
         "rule": "majority",
         "merge_invariant_violations": []
@@ -4306,7 +4095,7 @@
           347.0,
           229.0
         ],
-        "output_text": "2.2.12 服务人口大于20)万的城镇排水工程的主要设施抗震设",
+        "output_text": "2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设",
         "source_texts": {
           "pp_clean": "2.2.12 服务人1大于20)万的城镇排水I程的主要设施抗震设",
           "pp_raw": "2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设",
@@ -5185,35 +4974,18 @@
       {
         "physical_page": 9,
         "bbox": [
-          45.0,
-          68.5,
-          361.0,
-          384.0
-        ],
-        "output_text": "业卫城、环境保护、公然灾害等应急预案，并应定期进行演练。",
-        "source_texts": {
-          "pp_clean": "业卫生、环境保护、自然灾害等应急预案，并应定期进行演练。",
-          "pp_raw": "住房城乡建设部信息公开",
-          "primary": "业卫、环境保护、然灾害等应急预案，并应定期进演练。"
-        },
-        "rule": "merge",
-        "merge_invariant_violations": []
-      },
-      {
-        "physical_page": 9,
-        "bbox": [
           49.0,
-          74.5,
-          339.5,
+          73.91485809682806,
+          341.5,
           90.0
         ],
         "output_text": "业卫生、环境保护、自然灾害等应急预案，并应定期进行演练。",
         "source_texts": {
-          "pp_clean": null,
+          "pp_clean": "业卫生、环境保护、自然灾害等应急预案，并应定期进行演练。",
           "pp_raw": "业卫生、环境保护、自然灾害等应急预案，并应定期进行演练。",
-          "primary": null
+          "primary": "业卫、环境保护、然灾害等应急预案，并应定期进演练。"
         },
-        "rule": "single_source",
+        "rule": "majority",
         "merge_invariant_violations": []
       },
       {
@@ -5231,23 +5003,6 @@
           "primary": "6"
         },
         "rule": "majority",
-        "merge_invariant_violations": []
-      },
-      {
-        "physical_page": 10,
-        "bbox": [
-          265.0,
-          61.0,
-          371.5,
-          167.5
-        ],
-        "output_text": "公开",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": "公开",
-          "primary": null
-        },
-        "rule": "single_source",
         "merge_invariant_violations": []
       },
       {
@@ -5426,13 +5181,13 @@
           51.0,
           263.5,
           346.0,
-          296.1393989983306
+          276.5
         ],
         "output_text": "城镇竖向、用地布局和道路交通情况，按高水高排、低水低排的",
         "source_texts": {
           "pp_clean": "城镇竖向、用地布局和道路交通情况，按高水高排、低水低排的",
           "pp_raw": "城镇竖向、用地布局和道路交通情况，按高水高排、低水低排的",
-          "primary": "我"
+          "primary": null
         },
         "rule": "majority",
         "merge_invariant_violations": []
@@ -5785,13 +5540,13 @@
           327.0,
           142.5
         ],
-        "output_text": "IV",
+        "output_text": "",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "IV",
           "primary": "IZ"
         },
-        "rule": "merge",
+        "rule": "suppressed_ambiguous_short_line",
         "merge_invariant_violations": []
       },
       {
@@ -5840,7 +5595,7 @@
         "source_texts": {
           "pp_clean": "要求，确保源头减排设施服务范围内的径流能进入相应的设施。",
           "pp_raw": "要求，确保源头减排设施服务范围内的径流能进入相应的设施。",
-          "primary": "要求，确保源头减排设施服务范围内的径流能进入相应的设施L"
+          "primary": "要求，确保源头减排设施服务范围内的径流能进入相应的设施"
         },
         "rule": "majority",
         "merge_invariant_violations": []
@@ -5934,15 +5689,15 @@
         "physical_page": 11,
         "bbox": [
           51.0,
-          234.22370617696163,
-          198.02053140096618,
-          269.74123539232056
+          249.0,
+          145.5,
+          262.0
         ],
         "output_text": "流应单独收集处理。",
         "source_texts": {
           "pp_clean": "流应单独收集处理。",
           "pp_raw": "流应单独收集处理。",
-          "primary": "流应单独收集处理。律"
+          "primary": "流应单独收集处理。"
         },
         "rule": "majority",
         "merge_invariant_violations": []
@@ -6395,13 +6150,13 @@
           50.5,
           280.0,
           346.5,
-          293.2595993322204
+          291.5
         ],
-        "output_text": "3.3.7 湿陷性黄土、膨胀土:和流砂地区雨水管渠及其附属构筑",
+        "output_text": "3.3.7 湿陷性黄土、膨胀土和流砂地区雨水管渠及其附属构筑",
         "source_texts": {
           "pp_clean": "3.3.7湿陷性黄土、膨胀土:和流砂地区雨水管渠及其附属构筑",
           "pp_raw": "3.3.7 湿陷性黄土、膨胀土和流砂地区雨水管渠及其附属构筑",
-          "primary": "-"
+          "primary": null
         },
         "rule": "merge",
         "merge_invariant_violations": []
@@ -7022,17 +6777,17 @@
         "physical_page": 14,
         "bbox": [
           287.5,
-          117.59181969949917,
+          118.5,
           325.5,
           142.5
         ],
-        "output_text": "IV",
+        "output_text": "",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "IV",
-          "primary": "Z"
+          "primary": null
         },
-        "rule": "merge",
+        "rule": "suppressed_pp_raw_single_source",
         "merge_invariant_violations": []
       },
       {
@@ -7140,25 +6895,8 @@
       {
         "physical_page": 14,
         "bbox": [
-          44.0,
-          215.0,
-          345.2173913043478,
-          385.5
-        ],
-        "output_text": "住房城乡建警进入工作模式后，应及时疏散人员和车辆，做好交",
-        "source_texts": {
-          "pp_clean": "通组织",
-          "pp_raw": "住房城乡建",
-          "primary": "件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交"
-        },
-        "rule": "merge",
-        "merge_invariant_violations": []
-      },
-      {
-        "physical_page": 14,
-        "bbox": [
           51.5,
-          217.5,
+          216.46494156928216,
           346.5,
           229.0
         ],
@@ -7166,9 +6904,9 @@
         "source_texts": {
           "pp_clean": "件；启动预警进入工作模式后：应及时疏散人员和车辆，做好交",
           "pp_raw": "件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交",
-          "primary": null
+          "primary": "件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交"
         },
-        "rule": "merge",
+        "rule": "majority",
         "merge_invariant_violations": []
       },
       {
@@ -7181,7 +6919,7 @@
         ],
         "output_text": "通组织。",
         "source_texts": {
-          "pp_clean": null,
+          "pp_clean": "通组织",
           "pp_raw": "通组织。",
           "primary": "通组织。"
         },
@@ -7203,23 +6941,6 @@
           "primary": "11"
         },
         "rule": "majority",
-        "merge_invariant_violations": []
-      },
-      {
-        "physical_page": 15,
-        "bbox": [
-          264.5,
-          59.0,
-          372.5,
-          169.0
-        ],
-        "output_text": "公开",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": "公开",
-          "primary": null
-        },
-        "rule": "single_source",
         "merge_invariant_violations": []
       },
       {
@@ -7736,15 +7457,15 @@
         "physical_page": 16,
         "bbox": [
           51.0,
-          89.75375626043406,
-          335.1485507246377,
-          104.15275459098498
+          91.5,
+          301.0,
+          103.5
         ],
-        "output_text": "后，还应进行气密性试验，试验合格后方可投入运行。V",
+        "output_text": "后，还应进行气密性试验，试验合格后方可投入运行。",
         "source_texts": {
           "pp_clean": "后，还应进行密性试验，试验合格后方可投入运行",
           "pp_raw": "后，还应进行气密性试验，试验合格后方可投入运行。",
-          "primary": "后，还应进密性试验，试验合格后可投运。V"
+          "primary": "后，还应进密性试验，试验合格后可投运。"
         },
         "rule": "merge",
         "merge_invariant_violations": []
@@ -7774,13 +7495,13 @@
           327.5,
           142.0
         ],
-        "output_text": "IT",
+        "output_text": "",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "IT",
           "primary": null
         },
-        "rule": "single_source",
+        "rule": "suppressed_pp_raw_single_source",
         "merge_invariant_violations": []
       },
       {
@@ -8356,7 +8077,7 @@
         "source_texts": {
           "pp_clean": "4.3.1污水处理厂应能有效去除水污染物，保障出水达标排放，",
           "pp_raw": "4.3.1 污水处理厂应能有效去除水污染物，保障出水达标排放，",
-          "primary": "保障出水达标排放，记"
+          "primary": "保障出水达标排放，"
         },
         "rule": "majority",
         "merge_invariant_violations": []
@@ -8501,7 +8222,7 @@
         "physical_page": 17,
         "bbox": [
           50.0,
-          323.4974958263773,
+          325.0,
           347.5,
           340.0
         ],
@@ -8509,26 +8230,9 @@
         "source_texts": {
           "pp_clean": "4.3.5 建设地下或半地下污水处理厂，应进行充分的必要性和",
           "pp_raw": "4.3.5 建设地下或半地下污水处理厂，应进行充分的必要性和",
-          "primary": "-"
-        },
-        "rule": "majority",
-        "merge_invariant_violations": []
-      },
-      {
-        "physical_page": 17,
-        "bbox": [
-          51.78260869565218,
-          328.29716193656094,
-          80.07125603864735,
-          336.93656093489153
-        ],
-        "output_text": "4.3.5",
-        "source_texts": {
-          "pp_clean": null,
-          "pp_raw": null,
           "primary": "4.3.5"
         },
-        "rule": "single_source",
+        "rule": "majority",
         "merge_invariant_violations": []
       },
       {
@@ -8866,7 +8570,7 @@
         "source_texts": {
           "pp_clean": "4.3.14污水处理厂内的给水设施、再生水利用设施严禁和处理",
           "pp_raw": "4.3.14 污水处理厂内的给水设施、再生水利用设施严禁和处理",
-          "primary": "/"
+          "primary": null
         },
         "rule": "majority",
         "merge_invariant_violations": []
@@ -9338,13 +9042,13 @@
           327.5,
           142.0
         ],
-        "output_text": "IV",
+        "output_text": "",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "IV",
           "primary": null
         },
-        "rule": "single_source",
+        "rule": "suppressed_pp_raw_single_source",
         "merge_invariant_violations": []
       },
       {
@@ -9512,7 +9216,7 @@
         "source_texts": {
           "pp_clean": "4.4.9在污泥消化池、污泥气管道、贮罐、污泥燃烧装置",
           "pp_raw": "4.4.9 在污泥消化池、污泥气管道、贮气罐、污泥气燃烧装置",
-          "primary": "-"
+          "primary": null
         },
         "rule": "merge",
         "merge_invariant_violations": []
@@ -9882,13 +9586,13 @@
           326.0,
           141.5
         ],
-        "output_text": "IVT",
+        "output_text": "",
         "source_texts": {
           "pp_clean": null,
           "pp_raw": "IVT",
           "primary": "ハZ"
         },
-        "rule": "merge",
+        "rule": "suppressed_ambiguous_short_line",
         "merge_invariant_violations": []
       },
       {
@@ -10013,9 +9717,9 @@
     ]
   },
   "v3": {
-    "element_count": 202,
+    "element_count": 199,
     "element_type_counts": {
-      "text": 199,
+      "text": 196,
       "table": 3
     },
     "chunk_count": 151,
@@ -10031,9 +9735,9 @@
     "short_body_chunk_lt15_count": 0,
     "short_body_chunk_lt15_ratio": 0.0,
     "short_body_chunk_ids": [],
-    "ocr_text_source_element_count": 199,
+    "ocr_text_source_element_count": 196,
     "ocr_text_source_counts": {
-      "three_source_vote": 481
+      "three_source_vote": 468
     },
     "ocr_text_source_missing_run_id_count": 0,
     "clause_number_continuity": {
@@ -10056,11 +9760,15 @@
       "table": 3
     },
     "chunk_count": 154,
-    "body_page_number_footer_watermark_lines": 9,
+    "body_page_number_footer_watermark_lines": 12,
     "body_furniture_examples": [
       {
         "element_id": "e000034",
         "line": "浏览专用"
+      },
+      {
+        "element_id": "e000049",
+        "line": "公开"
       },
       {
         "element_id": "e000111",
@@ -10075,8 +9783,16 @@
         "line": "6"
       },
       {
+        "element_id": "e000126",
+        "line": "公开"
+      },
+      {
         "element_id": "e000160",
         "line": "8"
+      },
+      {
+        "element_id": "e000195",
+        "line": "住房城乡建"
       },
       {
         "element_id": "e000196",

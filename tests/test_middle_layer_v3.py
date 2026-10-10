@@ -7,7 +7,7 @@ from src.ingestion.block_assembly import (
     prepare_page_document_v3,
     split_clause_lines,
 )
-from src.ingestion.page_furniture import classify_page_furniture
+from src.ingestion.page_furniture import classify_page_furniture, watermark_line_variants
 
 
 def _line(text: str, y: float, x: float = 50.0) -> dict:
@@ -37,6 +37,19 @@ def test_page_furniture_patterns_and_body_counterexamples() -> None:
     assert classify_page_furniture(model_label="text",
         text="住房城乡建设部发布了本规范。", bbox=[50, 300, 350, 320],
         page_height=842, watermarks=["住房城乡建设部"]) is None
+
+
+def test_watermark_fragments_match_only_as_complete_lines() -> None:
+    watermarks = watermark_line_variants(["信息公开", "浏览专用"])
+    assert {"公开", "专用", "浏览"} <= watermarks
+    assert classify_page_furniture(
+        model_label="text", text="公开", bbox=[50, 300, 350, 320],
+        page_height=842, watermarks=watermarks,
+    ).role == "watermark"
+    assert classify_page_furniture(
+        model_label="text", text="本规范向社会公开。", bbox=[50, 300, 350, 320],
+        page_height=842, watermarks=watermarks,
+    ) is None
 
 
 def test_clause_split_requires_continuity_and_keeps_numeric_continuation() -> None:

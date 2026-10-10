@@ -124,6 +124,8 @@ def prepare_page_document_v3(
         totals = {
             "majority_lines": 0, "merge_lines": 0, "single_source_lines": 0,
             "single_source_pp_clean_lines": 0, "conflict_fragment_count": 0,
+            "suppressed_pp_raw_single_source_lines": 0,
+            "suppressed_ambiguous_short_lines": 0,
             "merge_invariant_violation_count": 0,
             "noise_lines": 0, "orphan_line_groups": 0,
             "number_prefixes_preserved": 0,

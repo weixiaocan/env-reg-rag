@@ -183,6 +183,84 @@ def test_only_clean_line_is_marked_single_source_clean() -> None:
     assert stats["single_source_pp_clean_lines"] == 1
 
 
+def test_raw_only_line_and_fragment_are_not_introduced() -> None:
+    page = _page()
+    page["elements"] = [{
+        "element_id": "p1", "type": "text", "text": "服务人口大于20万",
+        "bbox": [50, 100, 230, 114],
+    }]
+    clean = {"lines": [_line("服务人口大于20万", [50, 100, 230, 114])]}
+    raw = {"lines": [
+        _line("服务人口大于20)万", [50, 100, 230, 114], line_id="raw-body"),
+        _line("公开", [50, 150, 90, 164], line_id="raw-watermark"),
+    ]}
+    result, stats = assemble_page_region_text(
+        page, clean, raw, run_id="ocrv6-clean", run_manifest_sha256="a" * 64,
+        raw_run_id="ocrv6-raw", raw_run_manifest_sha256="b" * 64,
+        preprocessing={"enabled": True}, watermarks=[],
+    )
+    assert [row["text"] for row in result["elements"]] == ["服务人口大于20万"]
+    assert stats["suppressed_pp_raw_single_source_lines"] == 1
+
+
+def test_raw_only_insert_fragment_is_not_introduced_during_merge() -> None:
+    merged, rule, _ = merge_source_texts({
+        "pp_clean": "服务人口大于20)万的城镇排水工程",
+        "pp_raw": "服务人口大于20万的城镇排水工程",
+        "primary": None,
+    })
+    assert rule == "merge"
+    assert merged == "服务人口大于20万的城镇排水工程"
+
+
+def test_raw_only_insert_is_rejected_when_clean_source_has_no_character() -> None:
+    merged, rule, _ = merge_source_texts({
+        "pp_clean": "服务人口大于20万的城镇排水工程",
+        "pp_raw": "服务人口大于20)万的城镇排水工程",
+        "primary": "服务人口大于20万的城镇排水",
+    })
+    assert rule == "merge"
+    assert merged == "服务人口大于20万的城镇排水工程"
+
+
+def test_short_raw_primary_watermark_strokes_are_rejected_without_clean_vote() -> None:
+    page = _page()
+    page["elements"] = [{
+        "element_id": "p1", "type": "text", "text": "IZ",
+        "bbox": [50, 100, 80, 114],
+    }]
+    result, stats = assemble_page_region_text(
+        page, {"lines": []}, {"lines": [_line("LIT", [50, 100, 80, 114])]},
+        run_id="ocrv6-clean", run_manifest_sha256="a" * 64,
+        raw_run_id="ocrv6-raw", raw_run_manifest_sha256="b" * 64,
+        preprocessing={"enabled": True}, watermarks=[],
+    )
+    assert result["elements"] == []
+    assert stats["suppressed_ambiguous_short_lines"] == 1
+
+
+def test_watermark_phrase_substrings_are_noise_only_as_whole_lines() -> None:
+    page = _page()
+    page["elements"] = [{
+        "element_id": "p1", "type": "text", "text": "设备应采用专用工具",
+        "bbox": [50, 100, 230, 114],
+    }]
+    clean = {"lines": [
+        _line("设备应采用专用工具", [50, 100, 230, 114], line_id="body"),
+        _line("公开", [50, 130, 90, 144], line_id="public"),
+        _line("浏览", [50, 150, 90, 164], line_id="browse"),
+        _line("专用", [50, 170, 90, 184], line_id="special"),
+    ]}
+    result, stats = assemble_page_region_text(
+        page, clean, {"lines": []}, run_id="ocrv6-clean",
+        run_manifest_sha256="a" * 64, raw_run_id="ocrv6-raw",
+        raw_run_manifest_sha256="b" * 64,
+        preprocessing={"enabled": True}, watermarks=["信息公开", "浏览专用"],
+    )
+    assert [row["text"] for row in result["elements"]] == ["设备应采用专用工具"]
+    assert stats["noise_lines"] == 3
+
+
 def test_review_case_split_primary_tail_does_not_duplicate_planning_phrase() -> None:
     page = _page()
     page["elements"] = [

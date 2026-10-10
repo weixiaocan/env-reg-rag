@@ -1,6 +1,6 @@
 # GB 55027-2022 three-source conflict review
 
-Review entries: **44** (current global-alignment conflict fragments: **41**; resolved alignment-defect cases from the 44-item mid-review count: **3**).
+Review entries: **38** (current global-alignment conflict fragments: **35**; resolved alignment-defect cases from the 44-item mid-review count: **3**).
 
 Generated merge evidence only; every item still requires comparison with the original PDF page.
 
@@ -22,7 +22,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - pp_clean: `31 ……………………………………………………………ε1`
 - pp_raw: `4.2 污水管网`
 - primary: `13`
-- merged line: `13 13. 污水管网…………………………………………………ε1`
+- merged line: `13 3. 污水管网…………………………………………………ε1`
 
 ## 3. Physical page 3
 
@@ -32,7 +32,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - pp_clean: `31 ……………………………………………………………ε1`
 - pp_raw: `4.2 污水管网`
 - primary: `13`
-- merged line: `13 13. 污水管网…………………………………………………ε1`
+- merged line: `13 3. 污水管网…………………………………………………ε1`
 
 ## 4. Physical page 4
 
@@ -56,16 +56,6 @@ Generated merge evidence only; every item still requires comparison with the ori
 
 ## 6. Physical page 6
 
-- bbox: `[290.5, 120.5, 327.0, 141.0]`
-- selected source: `pp_raw`
-- selected fragment: `T`
-- pp_clean: `(missing)`
-- pp_raw: `LIT`
-- primary: `IZ`
-- merged line: `LIT`
-
-## 7. Physical page 6
-
 - bbox: `[50.82367149758454, 247.6627712854758, 278.5, 261.0]`
 - selected source: `pp_raw`
 - selected fragment: `。`
@@ -74,7 +64,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `利用安全、生产安全和职业卫生健康安全的要求`
 - merged line: `利用安全、生产安全和职业卫生健康安全的要求。`
 
-## 8. Physical page 6
+## 7. Physical page 6
 
 - bbox: `[49.5, 262.5, 347.0, 278.0]`
 - selected source: `pp_raw`
@@ -84,7 +74,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `2.2.2 排水工程设施的选址应考虑地质和地形条件，并应符合`
 
-## 9. Physical page 6
+## 8. Physical page 6
 
 - bbox: `[50.5, 295.0, 346.5, 308.0]`
 - selected source: `pp_raw`
@@ -94,7 +84,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `2.2.3 各类建设项目应编制排水设计方案，评估项目对所处地`
 
-## 10. Physical page 7
+## 9. Physical page 7
 
 - bbox: `[50.82367149758454, 137.75041736227047, 346.5, 151.18948247078464]`
 - selected source: `pp_raw`
@@ -104,7 +94,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `材料等应符合国家现相关标准的规定，产品进施现场时应`
 - merged line: `材料等应符合国家现行相关标准的规定，产品进人施工现场时应`
 
-## 11. Physical page 7
+## 10. Physical page 7
 
 - bbox: `[50.5, 217.0, 347.0, 229.0]`
 - selected source: `pp_raw`
@@ -112,7 +102,17 @@ Generated merge evidence only; every item still requires comparison with the ori
 - pp_clean: `2.2.12 服务人1大于20)万的城镇排水I程的主要设施抗震设`
 - pp_raw: `2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设`
 - primary: `(missing)`
-- merged line: `2.2.12 服务人口大于20)万的城镇排水工程的主要设施抗震设`
+- merged line: `2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设`
+
+## 11. Physical page 7
+
+- bbox: `[50.5, 217.0, 347.0, 229.0]`
+- selected source: `pp_raw`
+- selected fragment: ``
+- pp_clean: `2.2.12 服务人1大于20)万的城镇排水I程的主要设施抗震设`
+- pp_raw: `2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设`
+- primary: `(missing)`
+- merged line: `2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设`
 
 ## 12. Physical page 7
 
@@ -122,7 +122,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - pp_clean: `2.2.12 服务人1大于20)万的城镇排水I程的主要设施抗震设`
 - pp_raw: `2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设`
 - primary: `(missing)`
-- merged line: `2.2.12 服务人口大于20)万的城镇排水工程的主要设施抗震设`
+- merged line: `2.2.12 服务人口大于20万的城镇排水工程的主要设施抗震设`
 
 ## 13. Physical page 7
 
@@ -214,37 +214,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `标志，并应在6h内修补恢复`
 - merged line: `标志，并应在6h内修补恢复。`
 
-## 22. Physical page 9
-
-- bbox: `[45.0, 68.5, 361.0, 384.0]`
-- selected source: `pp_raw`
-- selected fragment: `城`
-- pp_clean: `业卫生、环境保护、自然灾害等应急预案，并应定期进行演练。`
-- pp_raw: `住房城乡建设部信息公开`
-- primary: `业卫、环境保护、然灾害等应急预案，并应定期进演练。`
-- merged line: `业卫城、环境保护、公然灾害等应急预案，并应定期进行演练。`
-
-## 23. Physical page 9
-
-- bbox: `[45.0, 68.5, 361.0, 384.0]`
-- selected source: `pp_raw`
-- selected fragment: `公`
-- pp_clean: `业卫生、环境保护、自然灾害等应急预案，并应定期进行演练。`
-- pp_raw: `住房城乡建设部信息公开`
-- primary: `业卫、环境保护、然灾害等应急预案，并应定期进演练。`
-- merged line: `业卫城、环境保护、公然灾害等应急预案，并应定期进行演练。`
-
-## 24. Physical page 11
-
-- bbox: `[289.0, 118.5517529215359, 327.0, 142.5]`
-- selected source: `pp_raw`
-- selected fragment: `V`
-- pp_clean: `(missing)`
-- pp_raw: `IV`
-- primary: `IZ`
-- merged line: `IV`
-
-## 25. Physical page 11
+## 22. Physical page 11
 
 - bbox: `[49.5, 232.5, 347.5, 246.5]`
 - selected source: `pp_raw`
@@ -254,7 +224,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `其雨水径`
 - merged line: `3.2.6 地表污染严重的地区严禁设置源头渗透设施，其雨水径`
 
-## 26. Physical page 11
+## 23. Physical page 11
 
 - bbox: `[49.5, 328.5, 346.5, 341.5]`
 - selected source: `pp_raw`
@@ -264,7 +234,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `3.3.1 雨水管网应包括雨水管渠及其附属构筑物和泵站等设施，`
 
-## 27. Physical page 12
+## 24. Physical page 12
 
 - bbox: `[50.344202898550726, 231.34390651085144, 347.5, 245.26293823038398]`
 - selected source: `pp_raw`
@@ -274,7 +244,17 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `计流量应为雨水管渠设计重现期计算流量的1.5倍一3.0倍，低`
 - merged line: `计流量应为雨水管渠设计重现期计算流量的1.5倍～3.0倍，低`
 
-## 28. Physical page 13
+## 25. Physical page 12
+
+- bbox: `[50.5, 280.0, 346.5, 291.5]`
+- selected source: `pp_raw`
+- selected fragment: ``
+- pp_clean: `3.3.7湿陷性黄土、膨胀土:和流砂地区雨水管渠及其附属构筑`
+- pp_raw: `3.3.7 湿陷性黄土、膨胀土和流砂地区雨水管渠及其附属构筑`
+- primary: `(missing)`
+- merged line: `3.3.7 湿陷性黄土、膨胀土和流砂地区雨水管渠及其附属构筑`
+
+## 26. Physical page 13
 
 - bbox: `[51.5, 165.5, 323.0, 178.5]`
 - selected source: `pp_raw`
@@ -284,7 +264,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `合表3.4.3的规定。 交通枢纽最大允许退水时间应为0.5h。`
 
-## 29. Physical page 13
+## 27. Physical page 13
 
 - bbox: `[51.5, 165.5, 323.0, 178.5]`
 - selected source: `pp_raw`
@@ -294,7 +274,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `合表3.4.3的规定。 交通枢纽最大允许退水时间应为0.5h。`
 
-## 30. Physical page 13
+## 28. Physical page 13
 
 - bbox: `[51.5, 165.5, 323.0, 178.5]`
 - selected source: `pp_raw`
@@ -304,7 +284,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `合表3.4.3的规定。 交通枢纽最大允许退水时间应为0.5h。`
 
-## 31. Physical page 13
+## 29. Physical page 13
 
 - bbox: `[49.5, 307.0, 347.0, 321.5]`
 - selected source: `pp_raw`
@@ -314,37 +294,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `3.4.4`
 - merged line: `3.4.4 城镇排涝除险设施应充分利用河道、湖泊和湿地等城镇`
 
-## 32. Physical page 14
-
-- bbox: `[287.5, 117.59181969949917, 325.5, 142.5]`
-- selected source: `pp_raw`
-- selected fragment: `I`
-- pp_clean: `(missing)`
-- pp_raw: `IV`
-- primary: `Z`
-- merged line: `IV`
-
-## 33. Physical page 14
-
-- bbox: `[44.0, 215.0, 345.2173913043478, 385.5]`
-- selected source: `pp_raw`
-- selected fragment: `住房城乡建`
-- pp_clean: `通组织`
-- pp_raw: `住房城乡建`
-- primary: `件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交`
-- merged line: `住房城乡建警进入工作模式后，应及时疏散人员和车辆，做好交`
-
-## 34. Physical page 14
-
-- bbox: `[51.5, 217.5, 346.5, 229.0]`
-- selected source: `pp_raw`
-- selected fragment: `，`
-- pp_clean: `件；启动预警进入工作模式后：应及时疏散人员和车辆，做好交`
-- pp_raw: `件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交`
-- primary: `(missing)`
-- merged line: `件；启动预警进入工作模式后，应及时疏散人员和车辆，做好交`
-
-## 35. Physical page 15
+## 30. Physical page 15
 
 - bbox: `[50.0, 231.5, 347.0, 246.0]`
 - selected source: `pp_raw`
@@ -354,7 +304,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `4.1.3 城镇污水处理厂及其配套污水管网应一体化、专业化运`
 
-## 36. Physical page 16
+## 31. Physical page 16
 
 - bbox: `[49.0, 168.0, 299.0, 183.0]`
 - selected source: `pp_raw`
@@ -364,7 +314,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `4.1.13 乡村严禁未经处理的粪便污水直接排人环境。`
 
-## 37. Physical page 17
+## 32. Physical page 17
 
 - bbox: `[51.0, 341.0, 110.5, 356.0]`
 - selected source: `pp_raw`
@@ -374,7 +324,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `可行性论证。`
 
-## 38. Physical page 19
+## 33. Physical page 19
 
 - bbox: `[52.0, 280.0, 308.5, 291.5]`
 - selected source: `pp_raw`
@@ -384,7 +334,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `等具有火灾或爆炸风险的场所，必须采取防火防爆措施。`
 
-## 39. Physical page 19
+## 34. Physical page 19
 
 - bbox: `[50.0, 324.5, 278.5, 340.0]`
 - selected source: `pp_raw`
@@ -394,7 +344,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `4.4.11污泥厌氧消化产生的污泥气应综合利用。`
 
-## 40. Physical page 19
+## 35. Physical page 19
 
 - bbox: `[51.0, 342.0, 346.5, 355.0]`
 - selected source: `pp_raw`
@@ -404,17 +354,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `(missing)`
 - merged line: `4.4.12 污泥好氧发酵采用的辅料应具备稳定来源，并应因地制`
 
-## 41. Physical page 20
-
-- bbox: `[290.5, 119.51168614357263, 326.0, 141.5]`
-- selected source: `pp_raw`
-- selected fragment: `IV`
-- pp_clean: `(missing)`
-- pp_raw: `IVT`
-- primary: `ハZ`
-- merged line: `IVT`
-
-## 42. Physical page 6 (resolved alignment defect)
+## 36. Physical page 6 (resolved alignment defect)
 
 - clause: `2.1.10`
 - defect: `split_primary_tail`
@@ -424,7 +364,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `2.1.10乡村污水系统应以县级行政区域应实行统一规划，`
 - merged line: `2.1.10 乡村污水系统应以县级行政区域为单位实行统一规划，`
 
-## 43. Physical page 7 (resolved alignment defect)
+## 37. Physical page 7 (resolved alignment defect)
 
 - clause: `2.2.13`
 - defect: `replacement_must_not_move_to_line_end`
@@ -434,7 +374,7 @@ Generated merge evidence only; every item still requires comparison with the ori
 - primary: `2.2.13排水工程主要构筑物的主体结构和地下干`
 - merged line: `2.2.13 排水工程主要构筑物的主体结构和地下干管，其结构设`
 
-## 44. Physical page 8 (resolved alignment defect)
+## 38. Physical page 8 (resolved alignment defect)
 
 - clause: `2.3.5`
 - defect: `overlapping_primary_fragments`
