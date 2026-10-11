@@ -43,7 +43,7 @@ _CHINESE_PAREN = re.compile(r"^([（(][一二三四五六七八九十]+[）)])\s
 _ROMAN = re.compile(r"^([ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+)[、.．\s]*(.*)$")
 _STRUCTURED = {"table", "formula", "formula_number", "figure_title", "image", "chart"}
 _TOC_LEADER_LINE = re.compile(r"^\s*\S.*?(?:…{4,}|\.{4,}|．{4,})\s*\d+\s*$")
-_STRUCTURAL_START = re.compile(r"^\s*(?:前言|目\s*次|1\s*总\s*则)\s*$")
+_STRUCTURAL_START = re.compile(r"^\s*(?:前\s*言|目\s*次|1\s*总\s*则|1\s*范\s*围)\s*$")
 _VARIABLE_DEFINITION = re.compile(
     r"^\s*([A-Za-zΑ-Ωα-ω][A-Za-z0-9_Α-Ωα-ω]{0,15})\s*"
     r"(?:\n+\s*)?((?:—{2,}|-{2,}))\s*(.+)$",
@@ -419,7 +419,7 @@ def _page_has_toc_leader(
 
 def _front_matter_pages(pages: list[dict[str, Any]]) -> set[int]:
     """Find cover-like pages before the first structural start, without names."""
-    boundary = len(pages)
+    boundary = None
     for index, page in enumerate(pages):
         texts = [str(item.get("text") or item.get("normalized_text") or "")
                  for item in [*(page.get("elements") or []), *(page.get("regions") or [])]]
@@ -428,6 +428,10 @@ def _front_matter_pages(pages: list[dict[str, Any]]) -> set[int]:
             boundary = index
             break
     result: set[int] = set()
+    if boundary is None:
+        # No standard-style structural start (e.g. policy documents): never
+        # classify whole documents as cover pages.
+        return result
     for index, page in enumerate(pages[:boundary]):
         width = float(page.get("width") or 0.0)
         height = float(page.get("height") or 0.0)
@@ -440,7 +444,9 @@ def _front_matter_pages(pages: list[dict[str, Any]]) -> set[int]:
                 and (box[3] - box[1]) >= 0.035 * height
                 and abs((box[0] + box[2]) / 2 - width / 2) <= 0.12 * width
             )
-            if label in {"doc_title", "header"} or centered_large:
+            # ``header`` repeats on body pages (running heads); it is page
+            # furniture, not evidence of a cover page.
+            if label == "doc_title" or centered_large:
                 result.add(index)
                 break
     return result

@@ -28,12 +28,12 @@ from eval.audits.middle_layer_v3.run_pilot_gb55027 import (  # noqa: E402
 )
 
 
-CORPUS_VERSION = "corpus-0ae8a9423e2f"
+CORPUS_VERSION = "corpus-8dcc90d4921b"
 FORMULA_RUN = "5d3264515515e228"
-CLEAN_OCR_RUN = "ocrv6-fe621f3631762fd6"
-RAW_OCR_RUN = "ocrv6-ef06411e1606ba35"
-SCANNED_TEXT_CLEAN_OCR_RUN = "ocrv6-232ae585c76c8403"
-SCANNED_TEXT_RAW_OCR_RUN = "ocrv6-9873a4b3ba7ce25b"
+CLEAN_OCR_RUN = "ocrv6-c454d03f07c7e5c4"
+RAW_OCR_RUN = "ocrv6-ef8e83933c6bd4f3"
+SCANNED_TEXT_CLEAN_OCR_RUN = CLEAN_OCR_RUN
+SCANNED_TEXT_RAW_OCR_RUN = RAW_OCR_RUN
 SAMPLE_SEED = "middle-layer-v3-r2-review-samples-v1"
 OUT = ROOT / "eval" / "audits" / "middle_layer_v3" / "rollout"
 R2B_BASELINE_REF = "0f209d9"

@@ -1,6 +1,6 @@
 {
-  "corpus_version": "corpus-0ae8a9423e2f",
+  "corpus_version": "corpus-8dcc90d4921b",
   "status": "ready",
-  "manifest": "data/registry/corpus-0ae8a9423e2f.json",
-  "manifest_sha256": "75da2f00399a974306b1c9ac7200333efbf4279eb4d25f072a3875888b11f8f9"
+  "manifest": "data/registry/corpus-8dcc90d4921b.json",
+  "manifest_sha256": "d29a6f3a2d228a36b763bcea144d746154d907873271723ae01ea6fd45a14dcc"
 }

@@ -8,44 +8,44 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_e59d0dae3c4cb526c898f033c43df705",
+      "chunk_id": "chunk_34c05c37ac9264e1ece70a32636e2cfc",
       "document": "QXT 489－2019 降雨过程等级.pdf",
-      "section_path": "4 区域降雨过程等级 > 4.2 区域降雨过程等级",
+      "section_path": "3 单站降雨过程等级 > 3.2 单站降雨过程等级",
       "section_labels": [
-        "4",
-        "4.2"
+        "3",
+        "3.2"
       ],
-      "body": "区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。",
+      "body": "单站降雨过程等级为降雨过程中该站日降雨量等级中的最强等级。",
       "element_types": [
         "text"
       ],
       "pages": [
-        10
+        9
       ],
       "bboxes": [
         {
-          "physical_page": 10,
+          "physical_page": 9,
           "bbox": [
             87.0,
-            435.0,
-            387.0,
-            446.5
+            754.0,
+            387.5,
+            765.5
           ]
         }
       ],
       "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0010.png"
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0009.png"
       ]
     },
     {
-      "chunk_id": "chunk_1cbf8d5294314b97a0db67ac20d2de49",
+      "chunk_id": "chunk_38ce3be2dfa93194d6675f1ed00cd6e6",
       "document": "QXT 489－2019 降雨过程等级.pdf",
-      "section_path": "2 术语和定义 > 2.2",
+      "section_path": "3 单站降雨过程等级 > 3.1 单站日降雨量等级",
       "section_labels": [
-        "2",
-        "2.2"
+        "3",
+        "3.1"
       ],
-      "body": "某一时段从天空降落到地面的未蒸发、渗透、流失的雨在水平面上累积的深度。\n2.3",
+      "body": "单站日降雨量等级以该站日降雨量为划分依据，见表1。",
       "element_types": [
         "text"
       ],
@@ -56,19 +56,10 @@
         {
           "physical_page": 9,
           "bbox": [
-            85.5,
-            376.0,
-            439.5,
-            389.0
-          ]
-        },
-        {
-          "physical_page": 9,
-          "bbox": [
-            63.5,
-            392.0,
-            84.5,
-            405.5
+            87.0,
+            513.0468568704011,
+            336.5,
+            525.5
           ]
         }
       ],
@@ -77,73 +68,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_80e94cf29757523a52888349321e4f4c",
-      "document": "QXT 489－2019 降雨过程等级.pdf",
-      "section_path": "2 术语和定义 > 2.1",
-      "section_labels": [
-        "2",
-        "2.1"
-      ],
-      "body": "降雨的发生、发展和结束的全部演变过程。",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        9
-      ],
-      "bboxes": [
-        {
-          "physical_page": 9,
-          "bbox": [
-            86.5,
-            329.0,
-            277.0,
-            340.5
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0009.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_c8d0e04563547e208725ab9ff6cdae9f",
-      "document": "QXT 489－2019 降雨过程等级.pdf",
-      "section_path": "",
-      "section_labels": [],
-      "body": "2019-12-01 实施\n中国气象局发布",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        1
-      ],
-      "bboxes": [
-        {
-          "physical_page": 1,
-          "bbox": [
-            449.0,
-            708.0,
-            554.5,
-            726.0
-          ]
-        },
-        {
-          "physical_page": 1,
-          "bbox": [
-            205.0,
-            752.5327142869869,
-            412.5,
-            773.5
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0001.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_922185d009f004043f8b227c84a18bfd",
+      "chunk_id": "chunk_4fdb85bfab49603ce3b490f6ae8c2a36",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "",
       "section_labels": [],
@@ -203,6 +128,221 @@
       ],
       "rendered_page_paths": [
         "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0007.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_867cb33a6b7b2f329e02d312fd6f46d0",
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "section_path": "2 术语和定义 > 2.1",
+      "section_labels": [
+        "2",
+        "2.1"
+      ],
+      "body": "降雨的发生、发展和结束的全部演变过程。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        9
+      ],
+      "bboxes": [
+        {
+          "physical_page": 9,
+          "bbox": [
+            86.5,
+            329.0,
+            277.0,
+            340.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0009.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_207d6c2430b0ee28841b1db025c8b5c5",
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "section_path": "4 区域降雨过程等级 > 4.2 区域降雨过程等级",
+      "section_labels": [
+        "4",
+        "4.2"
+      ],
+      "body": "[1] GB/T 21984—2017 短期天气预报\n[2《大气科学辞典》编委会.大气科学辞典[M].北京：气象出版社，1994：677，408\n中华人民共和国\n气象行业标准\n降雨过程等级\nQX/T 489—2019\n气象出版社出版发行\n北京市海淀区中关村南大街46号\n邮政编码：100081\n网址:http://www.qxcbs.com\n发行部：010-68408042\n北京中科印刷有限公司印刷\n开本：880 mm×1230 mm 1/16 印张：0.75 字数：22.5千字\n2019年9月第一版2019年9月第一次印刷\n书号：135029-6061 定价：15.00元\n如有印装差错由本社发行部调换\n版权专有侵权必究\n举报电话：(010)68406301",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        11,
+        12
+      ],
+      "bboxes": [
+        {
+          "physical_page": 11,
+          "bbox": [
+            85.92000176214403,
+            143.0,
+            276.5,
+            157.0
+          ]
+        },
+        {
+          "physical_page": 11,
+          "bbox": [
+            85.5,
+            159.5,
+            461.0,
+            174.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            249.0,
+            476.0,
+            346.0,
+            489.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            238.5,
+            490.4900727049111,
+            357.0,
+            505.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            264.5,
+            507.7676095125205,
+            330.5,
+            520.5
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            262.5,
+            523.6053515861624,
+            332.5,
+            534.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            256.0,
+            551.0,
+            340.0,
+            564.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            231.0,
+            566.0,
+            364.0,
+            577.5
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            262.5,
+            580.2372777888821,
+            333.0,
+            592.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            238.0,
+            595.0,
+            358.0,
+            606.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            254.5,
+            608.0,
+            341.0,
+            620.5
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            242.0,
+            623.0,
+            352.5,
+            634.5
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            175.0,
+            651.2671513312763,
+            420.0,
+            663.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            208.32000427246092,
+            665.0,
+            386.5,
+            676.5
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            229.5,
+            693.5,
+            366.5,
+            705.5
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            218.5,
+            723.2568880296487,
+            376.5,
+            735.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            249.0,
+            738.0,
+            346.0,
+            751.0
+          ]
+        },
+        {
+          "physical_page": 12,
+          "bbox": [
+            239.0,
+            753.5,
+            356.5,
+            766.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0011.png",
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/89bb2c0c080e-p0012.png"
       ]
     }
   ]

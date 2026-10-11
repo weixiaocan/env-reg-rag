@@ -4,8 +4,8 @@
   "rule": "([一-鿿，、。；：]{3,12})\\1",
   "legal_judgement": "matched repetition exists in at least one single source text",
   "before": {
-    "count": 36,
-    "pipeline_introduced_count": 17,
+    "count": 33,
+    "pipeline_introduced_count": 15,
     "occurrences": [
       {
         "document": "城镇内涝防治技术规范.pdf",
@@ -198,40 +198,6 @@
         "judgement": "pipeline_introduced"
       },
       {
-        "document": "城市排水工程规划规范.pdf",
-        "chunk_id": "chunk_670e21a0941c637c624874b451663345",
-        "pages": [
-          29
-        ],
-        "fragment": "准、发布。",
-        "matched_text": "准、发布。准、发布。",
-        "context": "城乡建设部2017 年1 月21 日以第1447 号公告批\n准、发布。准、发布。\n本规范是在《城市排水工程规划规范》GB 50318-200",
-        "judgement": "pipeline_introduced"
-      },
-      {
-        "document": "城市排水工程规划规范.pdf",
-        "chunk_id": "chunk_9e814596d0221624cc05abaad87b2ce0",
-        "pages": [
-          44,
-          45
-        ],
-        "fragment": "除磷脱氮工艺的用地需求。",
-        "matched_text": "除磷脱氮工艺的用地需求。除磷脱氮工艺的用地需求。",
-        "context": "\n已建成的污水处理厂主流技术确定，能满足目前国内污水处理厂\n除磷脱氮工艺的用地需求。除磷脱氮工艺的用地需求。",
-        "judgement": "pipeline_introduced"
-      },
-      {
-        "document": "GBT+47884-2026.pdf",
-        "chunk_id": "chunk_9c0526b02419a0921af4775919791847",
-        "pages": [
-          10
-        ],
-        "fragment": "满流、",
-        "matched_text": "满流、满流、",
-        "context": "防腐等性能要求,具备时\n钟自动同步功能;\nc) 满足浅流、非满流、满流、管道压力过载、低流速、逆流等各种工况的要求,测量准确度满足管",
-        "judgement": "source_present_legal"
-      },
-      {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
         "chunk_id": "chunk_510a2120a003d031404c444fcaf99c3f",
         "pages": [
@@ -422,12 +388,12 @@
     ]
   },
   "after": {
-    "count": 19,
+    "count": 16,
     "pipeline_introduced_count": 0,
     "occurrences": [
       {
         "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
-        "chunk_id": "chunk_1a0aa2c294d8d00c86d210d0eb22fb42",
+        "chunk_id": "chunk_46b3800ba5cbf5f76ac5ff914d7e034f",
         "pages": [
           16,
           17
@@ -439,7 +405,7 @@
       },
       {
         "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
-        "chunk_id": "chunk_1a0aa2c294d8d00c86d210d0eb22fb42",
+        "chunk_id": "chunk_46b3800ba5cbf5f76ac5ff914d7e034f",
         "pages": [
           16,
           17
@@ -451,7 +417,7 @@
       },
       {
         "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-        "chunk_id": "chunk_a5fc7c5f5dc8fa885f4868fd6f6ca256",
+        "chunk_id": "chunk_c855eace8a1bd947e2f1ec6e613c4d62",
         "pages": [
           90
         ],
@@ -461,57 +427,20 @@
         "judgement": "source_present_legal"
       },
       {
-        "document": "GBT+47884-2026.pdf",
-        "chunk_id": "chunk_ff66559eced861bb1aa6b66b6009bb05",
-        "pages": [
-          10
-        ],
-        "fragment": "满流、",
-        "matched_text": "满流、满流、",
-        "context": "防腐等性能要求,具备时\n钟自动同步功能;\nc) 满足浅流、非满流、满流、管道压力过载、低流速、逆流等各种工况的要求,测量准确度满足管",
-        "judgement": "source_present_legal"
-      },
-      {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_caa64323f73358f3a1dfcbec0bb333ce",
-        "pages": [
-          1,
-          3,
-          4
-        ],
-        "fragment": "中国测绘学会团体标准",
-        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
-        "context": "国测绘学会2-12 发布\n发布\n(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体II前言\n引言III\n1 范围..1\n2 规",
-        "judgement": "source_present_legal"
-      },
-      {
-        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_caa64323f73358f3a1dfcbec0bb333ce",
-        "pages": [
-          1,
-          3,
-          4
-        ],
-        "fragment": "中国测绘学会团体标准",
-        "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
-        "context": "面.14 .14(CSGPC)(CSGPC)5参考文献..\n中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n团体标准前P团体标准团体",
-        "judgement": "source_present_legal"
-      },
-      {
-        "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_e7dfd831874cfa6db424a5dc180969cc",
+        "chunk_id": "chunk_595108448d299db21b863f906cc42f80",
         "pages": [
           4,
           5
         ],
         "fragment": "中国测绘学会团体标准",
         "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
-        "context": "兰贵、黄秋惠、黄建平、赵冬泉。\n(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n(C",
+        "context": "(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n(C\n对排水管道开展流量在线监测工作，可为",
         "judgement": "source_present_legal"
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_239330018ff184e3ef9423cb8c14887a",
+        "chunk_id": "chunk_5cf2dd4bdb59c7a491ff0af541cf08d3",
         "pages": [
           5
         ],
@@ -522,18 +451,18 @@
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_9a3a41a2e18365d3bbc8e9970539435f",
+        "chunk_id": "chunk_5cf2dd4bdb59c7a491ff0af541cf08d3",
         "pages": [
           5
         ],
         "fragment": "中国测绘学会团体标准",
         "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
-        "context": "(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体",
+        "context": "强、可靠性高、智能报警等特点。\n(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体",
         "judgement": "source_present_legal"
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_891e201a8cfaf0cb76b5194a559824d2",
+        "chunk_id": "chunk_aaf1df607718b365ad889ff168e0a683",
         "pages": [
           7
         ],
@@ -544,7 +473,7 @@
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_723ef766bf2e1810953c4e08d4a162e4",
+        "chunk_id": "chunk_8b76100e343674f3183dd701c314e6af",
         "pages": [
           7,
           8
@@ -556,7 +485,7 @@
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_047779c4daa60f2f780e0e1dfadd33de",
+        "chunk_id": "chunk_0ca042744e5b4958efcc7a481b0a6661",
         "pages": [
           11
         ],
@@ -567,7 +496,7 @@
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_4391509ce67f3ebd9bc63213832aa360",
+        "chunk_id": "chunk_b565d95dedb8d7da2cae52b292ffbc90",
         "pages": [
           15
         ],
@@ -578,7 +507,7 @@
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_bdaff07260ea3c44273a14efcf18e8d7",
+        "chunk_id": "chunk_8ca64b83431b683ea9236c80849f6760",
         "pages": [
           17,
           18,
@@ -591,7 +520,7 @@
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_22c6c848699850452ee6b6545c26953d",
+        "chunk_id": "chunk_914a392fb1946d2b5a7801b0a3956801",
         "pages": [
           20,
           21
@@ -603,7 +532,7 @@
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_22c6c848699850452ee6b6545c26953d",
+        "chunk_id": "chunk_914a392fb1946d2b5a7801b0a3956801",
         "pages": [
           20,
           21
@@ -615,7 +544,7 @@
       },
       {
         "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-        "chunk_id": "chunk_22c6c848699850452ee6b6545c26953d",
+        "chunk_id": "chunk_914a392fb1946d2b5a7801b0a3956801",
         "pages": [
           20,
           21
@@ -627,7 +556,7 @@
       },
       {
         "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-        "chunk_id": "chunk_7b026b844ffa09b424d8acd99923e6f1",
+        "chunk_id": "chunk_c6fcbb51261895510da45478e2c79294",
         "pages": [
           94,
           95
@@ -639,7 +568,7 @@
       },
       {
         "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-        "chunk_id": "chunk_0bafb7651fce07cc50f8c58f22e0f664",
+        "chunk_id": "chunk_6a0df5947c3a1f41bb432ea6b7130034",
         "pages": [
           233
         ],
@@ -712,11 +641,6 @@
       "after": 0
     },
     {
-      "document": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
-      "before": 0,
-      "after": 0
-    },
-    {
       "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
       "before": 0,
       "after": 0
@@ -732,13 +656,8 @@
       "after": 0
     },
     {
-      "document": "城市排水工程规划规范.pdf",
+      "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
       "before": 0,
-      "after": 0
-    },
-    {
-      "document": "GBT+47884-2026.pdf",
-      "before": 11,
       "after": 0
     },
     {
@@ -781,7 +700,7 @@
       "occurrences": [
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_3cbd8301dd4bb42bb9c343cfc9689e57",
+          "chunk_id": "chunk_1e2d003ac9b24c98b3da7934a84a43ea",
           "pages": [
             38
           ],
@@ -794,7 +713,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_c9fe55c865be48d490e780a2795778fb",
+          "chunk_id": "chunk_b3a5b12a0a70adffca56e5614913d22b",
           "pages": [
             38
           ],
@@ -807,7 +726,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_87a724ef8eb20d5391c9db69867bc900",
+          "chunk_id": "chunk_fbf4e5d8d6f3ec19cef4996e0130b696",
           "pages": [
             38
           ],
@@ -820,7 +739,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_5dbff613f55f22b1d52e46fc55f550cf",
+          "chunk_id": "chunk_9148f1872f59a547068598603fad4b2c",
           "pages": [
             38
           ],
@@ -833,7 +752,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_d6d44baa2368b802335ecc65c7858ff5",
+          "chunk_id": "chunk_c659c2a23fff5c0b2b32c4c11f56ad1b",
           "pages": [
             38
           ],
@@ -846,7 +765,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_ae456087bb3014f91e69a4b75a0b2df1",
+          "chunk_id": "chunk_98e142cd3714d8f34181fbdb45b0f245",
           "pages": [
             38,
             39
@@ -860,7 +779,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_b7b21cd953ad00a26cde66a756bd59bb",
+          "chunk_id": "chunk_16501e41ba4834762cb59140526d780b",
           "pages": [
             39
           ],
@@ -873,7 +792,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_af2019d6f894a69d301e5bdf6ca1a543",
+          "chunk_id": "chunk_6656d1e5ddabf8b1167f8c5178aaff7e",
           "pages": [
             39
           ],
@@ -886,7 +805,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_ab38c5161fcd6986f124febf9e5f1c20",
+          "chunk_id": "chunk_9203fcfe75eb28da72cf0f68ac8a385b",
           "pages": [
             39
           ],
@@ -899,7 +818,7 @@
         },
         {
           "document": "城镇内涝防治技术规范.pdf",
-          "chunk_id": "chunk_be97f1816ed4004bb80d554124b4eb79",
+          "chunk_id": "chunk_3d983c1667355181df50e6bed7a8f739",
           "pages": [
             40
           ],
@@ -912,7 +831,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_243fba96d25e82e76d4d034f5fac5c95",
+          "chunk_id": "chunk_92cd6c3878794f13fd80b43470967dc6",
           "pages": [
             111
           ],
@@ -925,7 +844,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_dcc58000cf2ca781b616519269f6aefc",
+          "chunk_id": "chunk_c84ad72d240aaf3631a0777e60e79843",
           "pages": [
             112
           ],
@@ -938,7 +857,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_c1668972e3dfee912040b23af03b026a",
+          "chunk_id": "chunk_ec323b4df06b1c66d195a71f0a9e0076",
           "pages": [
             112
           ],
@@ -951,7 +870,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_bcdc9b44a2f3ac8e86920b13012e8751",
+          "chunk_id": "chunk_eb51f801c525f9de5f228d5425221837",
           "pages": [
             112
           ],
@@ -964,7 +883,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_f29322aecc79ed3dac748bfdcb42460b",
+          "chunk_id": "chunk_59e2ef6d0f622ff9dd150b4aa404d6f6",
           "pages": [
             112
           ],
@@ -977,7 +896,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_c703f65a66d05a739d90b174b1d238bb",
+          "chunk_id": "chunk_a7668f7d649d2e26311dcdf4d7cb2d8a",
           "pages": [
             112
           ],
@@ -990,7 +909,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_7026a9758036bfcf72244b38c6265b02",
+          "chunk_id": "chunk_66c2e8a69e63aa03458b770b7a4d9353",
           "pages": [
             112
           ],
@@ -1003,7 +922,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_d0d63caf7e61e616ff048ab76dddc4aa",
+          "chunk_id": "chunk_227461792d620897251bcc61fe1f1a6a",
           "pages": [
             113
           ],
@@ -1016,7 +935,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_ddda561ef26c6d0a0fa74b18afcdf450",
+          "chunk_id": "chunk_53419a7b54052a879d82202b44a17bf3",
           "pages": [
             113
           ],
@@ -1029,7 +948,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_6a7d1b43c43235775908d727d77dcfc8",
+          "chunk_id": "chunk_31cf817e539b4136124c36ca64d249c7",
           "pages": [
             113
           ],
@@ -1042,7 +961,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_caa52bb01243cb576e02efad0adcbf34",
+          "chunk_id": "chunk_91fd79050594aeef53f909400cc210e0",
           "pages": [
             113
           ],
@@ -1055,7 +974,7 @@
         },
         {
           "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-          "chunk_id": "chunk_e07a331e9dfaced70b4f22e523978360",
+          "chunk_id": "chunk_5a6538a49881dd60ab8ebccb887b3e15",
           "pages": [
             113
           ],
@@ -1068,7 +987,7 @@
         },
         {
           "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-          "chunk_id": "chunk_e0ce4fada40e3c3cbabeeabcaaf8899c",
+          "chunk_id": "chunk_7889ba959c08078ec2af718fcacb758b",
           "pages": [
             38
           ],
@@ -1081,7 +1000,7 @@
         },
         {
           "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-          "chunk_id": "chunk_4bb269df971985eb4ffc9d51fbc71444",
+          "chunk_id": "chunk_7173bf2c216b3eb9f3a7ca6e9509988e",
           "pages": [
             39,
             40
@@ -1095,7 +1014,7 @@
         },
         {
           "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-          "chunk_id": "chunk_d95db61e5856b35f1e199e4536786f26",
+          "chunk_id": "chunk_d49d32467c457f4a945765ac45bffd19",
           "pages": [
             40
           ],
@@ -1108,7 +1027,7 @@
         },
         {
           "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-          "chunk_id": "chunk_f6f60e59bdbfc207c07b85bc7967f33c",
+          "chunk_id": "chunk_3394ef62d90dd9087086f078584d1c56",
           "pages": [
             41
           ],
@@ -1121,7 +1040,7 @@
         },
         {
           "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-          "chunk_id": "chunk_c2fc8d4c4fced9cebd2fe8274e6f4019",
+          "chunk_id": "chunk_4e1679fc358be35baade048c6ecc2d1a",
           "pages": [
             42
           ],
@@ -1134,7 +1053,7 @@
         },
         {
           "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-          "chunk_id": "chunk_5514eede2808f3cd43867433a9de1929",
+          "chunk_id": "chunk_c94b9fcbceb99dfd37ef171723d93cf2",
           "pages": [
             42
           ],
@@ -1147,7 +1066,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_be8943b215202e9b2002046572c102cc",
+          "chunk_id": "chunk_72cee2dedd59d44a7ec1e4b0a2e09da3",
           "pages": [
             183
           ],
@@ -1160,7 +1079,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_0900f7f95dd4c2de27a3cfe89cac8c6c",
+          "chunk_id": "chunk_ff3e6a1113d1ff06c39a4ee3c3d617d6",
           "pages": [
             184
           ],
@@ -1173,7 +1092,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_b4423ea84c2ae66dc541e26b289c2043",
+          "chunk_id": "chunk_ba3dbb5c38a22cb96a9e2e4793618c6b",
           "pages": [
             185
           ],
@@ -1186,7 +1105,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_4100bfbd46bc0ec2fdeb07f695b928bb",
+          "chunk_id": "chunk_31c4e232a77167fa44e19c25ca580aca",
           "pages": [
             185,
             186
@@ -1200,7 +1119,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_ad500be3d1fff61a4468b736f5994f2c",
+          "chunk_id": "chunk_b4796b90ff9754a9c314b2e794414ed9",
           "pages": [
             190
           ],
@@ -1213,7 +1132,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_3fa681b6ef7d24f546fd738fa4e0f0ff",
+          "chunk_id": "chunk_45227af63ea43a8d021111a0c70bdeaf",
           "pages": [
             190
           ],
@@ -1226,7 +1145,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_ec59a49950328a7e81b16c3918c83d7e",
+          "chunk_id": "chunk_bd090e10ae77a135f5e3d25c1bab4139",
           "pages": [
             190
           ],
@@ -1239,7 +1158,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_900379386e9769f141c4ef2740b90fa9",
+          "chunk_id": "chunk_64f8fd1fcf997d7b6a973ca1a6218b04",
           "pages": [
             191
           ],
@@ -1252,7 +1171,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_f1ac9f4c3e1b957ed66e9387d033f637",
+          "chunk_id": "chunk_c1ff56fdceb77a354d30ee915b2c86f4",
           "pages": [
             191
           ],
@@ -1265,7 +1184,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_05f28ab187b74c07dcb914110544255c",
+          "chunk_id": "chunk_551348a18f20d5e352265754a621e604",
           "pages": [
             193
           ],
@@ -1278,7 +1197,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_655e3b0003b9862b928ebbca159f616e",
+          "chunk_id": "chunk_a1dadd0cce04c21c81a395c6661b2141",
           "pages": [
             193,
             194
@@ -1292,7 +1211,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_d9ccfc3997e6e8dec0d1f3a3e0e81f70",
+          "chunk_id": "chunk_c8bcd263a8fa9747083600bc9ee2c454",
           "pages": [
             194,
             195
@@ -1306,7 +1225,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_2fdd6836ddfb2c6742203d8209a6b227",
+          "chunk_id": "chunk_8e3d90cf30e1dc63c1d71e8888533bb5",
           "pages": [
             196
           ],
@@ -1319,7 +1238,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_62b087a34bc124a089369207d82d6420",
+          "chunk_id": "chunk_9f896f33b9ae981282f25509e255e9fa",
           "pages": [
             196
           ],
@@ -1332,7 +1251,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_49d3fed6e41d858ed7846de474bad030",
+          "chunk_id": "chunk_c5ddfe55947661c1821630288036520c",
           "pages": [
             196
           ],
@@ -1345,7 +1264,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_9f1cd7d4327c5b17faa829941dc7516e",
+          "chunk_id": "chunk_2577996a3135f5ac99020417f5d1488e",
           "pages": [
             197
           ],
@@ -1358,7 +1277,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_25ecb9ffda5d4b537fc756e0bf769aa8",
+          "chunk_id": "chunk_4b210a2bace475bafc92395875fdea70",
           "pages": [
             197
           ],
@@ -1371,7 +1290,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_0f3badae937b1c54ad34e8f104a2d2a4",
+          "chunk_id": "chunk_7be60440d996d0247a16201384d76d23",
           "pages": [
             198
           ],
@@ -1384,7 +1303,7 @@
         },
         {
           "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
-          "chunk_id": "chunk_1ed4c7fc6267e03df91a343a1b4f986c",
+          "chunk_id": "chunk_0bd407329fb3df7d0cc4c7ec4643fac9",
           "pages": [
             199
           ],

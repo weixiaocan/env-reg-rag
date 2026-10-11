@@ -8,46 +8,46 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_8ba105f31768b1f5b7598df9978fea6c",
+      "chunk_id": "chunk_4953c349eac2619d027b7b60d4fef29a",
       "document": "城镇内涝防治技术规范.pdf",
-      "section_path": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.6",
+      "section_path": "4 源头减排设施 > 4.1 一般规定 > 4.1.3",
       "section_labels": [
-        "3",
-        "3.3",
-        "3.3.6"
+        "4",
+        "4.1",
+        "4.1.3"
       ],
-      "body": "3.3.6 土壤下渗能力随时间的变化过程，可按下式计算：",
+      "body": "4.1.3 源头减排设施的设置宜保持或模拟自然水文和生态过程。",
       "element_types": [
         "text"
       ],
       "pages": [
-        15
+        16
       ],
       "bboxes": [
         {
-          "physical_page": 15,
+          "physical_page": 16,
           "bbox": [
-            53.5,
-            408.0,
-            311.5,
-            419.5
+            47.0,
+            219.5,
+            342.0,
+            231.0
           ]
         }
       ],
       "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0015.png"
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0016.png"
       ]
     },
     {
-      "chunk_id": "chunk_96137ba949c7a70bc1c455b8d4565b47",
+      "chunk_id": "chunk_97dc4f207f378b53a8f640013a6892f9",
       "document": "城镇内涝防治技术规范.pdf",
-      "section_path": "2 术语和符号 > 2.1 术语 > 2.1.11",
+      "section_path": "2 术语和符号 > 2.1 术语 > 2.1.14",
       "section_labels": [
         "2",
         "2.1",
-        "2.1.11"
+        "2.1.14"
       ],
-      "body": "2.1.11 源头减排source control\n雨水降落下垫面形成径流，在排入市政排水管渠系统之前，通\n过渗透、净化和滞蓄等措施，控制雨水径流产生、减排雨水径流污\n染、收集利用雨水和削减峰值流量。",
+      "body": "用来收集、输送、削减和净化雨水径流的表面覆盖植被的\n明渠。",
       "element_types": [
         "text"
       ],
@@ -58,37 +58,19 @@
         {
           "physical_page": 9,
           "bbox": [
-            53.5,
-            125.0,
-            225.0,
-            137.0
-          ]
-        },
-        {
-          "physical_page": 9,
-          "bbox": [
-            75.5,
-            141.0,
-            348.5,
-            152.5
+            74.5,
+            312.5,
+            350.0,
+            327.0
           ]
         },
         {
           "physical_page": 9,
           "bbox": [
             53.5,
-            155.5,
-            349.5,
-            169.0
-          ]
-        },
-        {
-          "physical_page": 9,
-          "bbox": [
-            54.5,
-            173.5,
-            213.0,
-            183.5
+            330.0,
+            84.0,
+            342.5729185331852
           ]
         }
       ],
@@ -97,112 +79,64 @@
       ]
     },
     {
-      "chunk_id": "chunk_ab38c5161fcd6986f124febf9e5f1c20",
+      "chunk_id": "chunk_0578f4617f0bb39d136ec8dd05b83546",
       "document": "城镇内涝防治技术规范.pdf",
-      "section_path": "附录B 内涝防治设计校核 > B.0.9",
-      "section_labels": [
-        "附录B",
-        "B.0.9"
-      ],
-      "body": "B.0.9 当采用的数学模型只能模拟雨水在地下管道中的一维运\n动，而不能模拟雨水在地表的二维流动时，可运用数学模型模拟出\n各节点的溢流情况，根据地形数据计算溢流雨水的地表积水深度\n以及范围。",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        39
-      ],
-      "bboxes": [
-        {
-          "physical_page": 39,
-          "bbox": [
-            54.5,
-            458.0,
-            348.5,
-            468.5
-          ]
-        },
-        {
-          "physical_page": 39,
-          "bbox": [
-            55.0,
-            474.0,
-            348.0,
-            484.0
-          ]
-        },
-        {
-          "physical_page": 39,
-          "bbox": [
-            54.0,
-            489.0,
-            349.0,
-            500.5
-          ]
-        },
-        {
-          "physical_page": 39,
-          "bbox": [
-            54.0,
-            504.5,
-            103.0,
-            516.5
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0039.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_279f5694354ec3751db34c2b5058315c",
-      "document": "城镇内涝防治技术规范.pdf",
-      "section_path": "7 运行维护 > 7.2 日常维护 > 7.2.6",
+      "section_path": "7 运行维护 > 7.3 应急管理 > 7.3.4",
       "section_labels": [
         "7",
-        "7.2",
-        "7.2.6"
+        "7.3",
+        "7.3.4"
       ],
-      "body": "7.2.6 当遭遇内涝灾害后，应按照原标准或规划的新标准对毁坏\n的内涝防治设施进行修复或重建。",
+      "body": "7.3.4 城镇内涝防治评价系统应建立内涝防治评价体系，对内涝\n防治预警系统、内涝防治应急系统和内涝防治设施运行效果进行\n综合评价，并提出改进建议。",
       "element_types": [
         "text"
       ],
       "pages": [
-        34
+        35
       ],
       "bboxes": [
         {
-          "physical_page": 34,
+          "physical_page": 35,
           "bbox": [
-            46.5,
-            140.5,
-            342.5,
-            153.5
+            52.5,
+            91.5,
+            349.0,
+            107.0
           ]
         },
         {
-          "physical_page": 34,
+          "physical_page": 35,
           "bbox": [
-            47.5,
-            157.0,
-            200.5,
-            168.5
+            53.5,
+            108.0,
+            349.0,
+            123.0
+          ]
+        },
+        {
+          "physical_page": 35,
+          "bbox": [
+            53.0,
+            123.5,
+            181.5,
+            138.0
           ]
         }
       ],
       "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0034.png"
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0035.png"
       ]
     },
     {
-      "chunk_id": "chunk_e5c58a84334030e05a696b89adf87564",
+      "chunk_id": "chunk_1ed8c7091f948c7b272b87e5e76a7e65",
       "document": "城镇内涝防治技术规范.pdf",
-      "section_path": "2 术语和符号 > 2.1 术语 > 2.1.2",
+      "section_path": "2 术语和符号 > 2.1 术语 > 2.1.6",
       "section_labels": [
         "2",
         "2.1",
-        "2.1.2"
+        "2.1.6"
       ],
-      "body": "2.1.2 城镇内涝urban flooding\n城镇范围内的强降雨或连续性降雨超过城镇雨水设施消纳能\n力，导致城镇地面产生积水的现象。",
+      "body": "2.1.6 净雨过程线hyetograph\n降雨事件中，净雨量随时间变化的过程曲线。",
       "element_types": [
         "text"
       ],
@@ -213,33 +147,156 @@
         {
           "physical_page": 8,
           "bbox": [
-            46.0,
-            203.0,
-            215.0,
-            216.0
+            46.546862416572985,
+            409.5,
+            210.0,
+            422.0
           ]
         },
         {
           "physical_page": 8,
           "bbox": [
             68.0,
-            219.5,
-            342.0,
-            231.5
-          ]
-        },
-        {
-          "physical_page": 8,
-          "bbox": [
-            47.0,
-            234.5,
-            213.0,
-            247.5
+            425.5,
+            269.0,
+            437.0
           ]
         }
       ],
       "rendered_page_paths": [
         "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0008.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_640c0393c42e9d5d3e7f51282f78e6e8",
+      "document": "城镇内涝防治技术规范.pdf",
+      "section_path": "4 源头减排设施 > 4.1 一般规定 > 4.1.7",
+      "section_labels": [
+        "4",
+        "4.1",
+        "4.1.7"
+      ],
+      "body": "4.1.7 源头减排设施可用于径流总量控制、降雨初期的污染防\n治、雨水利用和雨水径流峰值削减，设计时应符合下列规定：\n1 当源头减排设施用于径流总量控制时，应按当地相关规划\n确定的年径流总量控制率等目标计算设施规模，并宜采用数学模\n型进行连续模拟校核；当降雨小于规划确定的年径流总量控制要\n求时，源头减排设施的设置应能保证不直接向市政雨水管渠排放\n未经控制的雨水；\n2降雨初期的污染物削减要求，应根据汇水面积、降雨特征、\n地表状况和受纳水体环境容量等因素，经技术经济比较后确定；\n3 雨水利用量应根据降雨特征、用水需求和经济效益等\n确定；\n4 雨水径流峰值流量削减应满足本规范第3.2.2条的要求。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        16,
+        17
+      ],
+      "bboxes": [
+        {
+          "physical_page": 16,
+          "bbox": [
+            47.0,
+            426.0,
+            341.5,
+            436.5
+          ]
+        },
+        {
+          "physical_page": 16,
+          "bbox": [
+            48.0,
+            442.0,
+            315.0,
+            452.0
+          ]
+        },
+        {
+          "physical_page": 16,
+          "bbox": [
+            68.0,
+            457.0,
+            342.0,
+            468.5
+          ]
+        },
+        {
+          "physical_page": 16,
+          "bbox": [
+            47.5,
+            473.0,
+            342.0,
+            484.5
+          ]
+        },
+        {
+          "physical_page": 16,
+          "bbox": [
+            48.0,
+            489.5,
+            341.5,
+            500.0
+          ]
+        },
+        {
+          "physical_page": 16,
+          "bbox": [
+            47.5,
+            505.5,
+            341.5,
+            515.5
+          ]
+        },
+        {
+          "physical_page": 17,
+          "bbox": [
+            54.5,
+            61.5,
+            134.5,
+            73.5
+          ]
+        },
+        {
+          "physical_page": 17,
+          "bbox": [
+            74.37900695431766,
+            77.5,
+            348.5,
+            89.0
+          ]
+        },
+        {
+          "physical_page": 17,
+          "bbox": [
+            54.5,
+            93.0,
+            339.5,
+            104.5
+          ]
+        },
+        {
+          "physical_page": 17,
+          "bbox": [
+            73.5,
+            108.5,
+            349.0,
+            121.0
+          ]
+        },
+        {
+          "physical_page": 17,
+          "bbox": [
+            52.5,
+            123.5,
+            83.5,
+            137.5
+          ]
+        },
+        {
+          "physical_page": 17,
+          "bbox": [
+            72.5,
+            138.5,
+            349.0,
+            153.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0016.png",
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/1e4f99290e1e-p0017.png"
       ]
     }
   ]

@@ -8,7 +8,66 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_99d8e0b4f2aa9e19e9d1e0409bd2d15a",
+      "chunk_id": "chunk_60dcef609ec225d7c683d07258080525",
+      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "section_path": "2 术语和定义",
+      "section_labels": [
+        "2"
+      ],
+      "body": "下列术语和定义适用于本文件。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        5
+      ],
+      "bboxes": [
+        {
+          "physical_page": 5,
+          "bbox": [
+            91.8239974975586,
+            290.37896728515625,
+            244.25,
+            300.93896484375
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0005.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_d0315746a381ae23a4c01643affea936",
+      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "section_path": "2 术语和定义 > 2.2",
+      "section_labels": [
+        "2",
+        "2.2"
+      ],
+      "body": "短时气象服务 short time weather service\n针对发生在较短时间内的天气而进行的监测、预警等气象服务。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        5
+      ],
+      "bboxes": [
+        {
+          "physical_page": 5,
+          "bbox": [
+            91.8239974975586,
+            430.7989501953125,
+            391.2699890136719,
+            456.95892333984375
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0005.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_ad937a1c99ad736f3e1b00739156a619",
       "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
       "section_path": "1 范围",
       "section_labels": [
@@ -37,83 +96,36 @@
       ]
     },
     {
-      "chunk_id": "chunk_9ff2c9300728f74fb0d84bb0664b1f50",
+      "chunk_id": "chunk_6776179c9a582ffe3fa08fb09790c0f2",
       "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
       "section_path": "3 等级划分",
       "section_labels": [
         "3"
       ],
-      "body": "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）",
+      "body": "[1] GB/T 27961－2011 气象服务分类术语\n[2] GB/T 28592－2012 降水量等级\n[3] QX/T 489－2019 降雨过程等级",
       "element_types": [
         "text"
       ],
       "pages": [
-        5,
-        6
+        7
       ],
       "bboxes": [
         {
-          "physical_page": 5,
+          "physical_page": 7,
           "bbox": [
-            70.8239974975586,
-            508.7989501953125,
-            538.8845825195312,
-            534.9589233398438
-          ]
-        },
-        {
-          "physical_page": 6,
-          "bbox": [
-            452.5,
-            145.5290069580078,
-            529.0,
-            154.5290069580078
+            91.8239974975586,
+            155.70892333984375,
+            296.69000244140625,
+            197.46893310546875
           ]
         }
       ],
       "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0005.png",
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0006.png"
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0007.png"
       ]
     },
     {
-      "chunk_id": "chunk_80417142c7d5d9a6f71a922d82cd4032",
-      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
-      "section_path": "",
-      "section_labels": [],
-      "body": "2019 - 11 - 06 发布\n2019 - 11 - 06 实施\n中国气象服务协会 发布",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        1
-      ],
-      "bboxes": [
-        {
-          "physical_page": 1,
-          "bbox": [
-            70.94400024414062,
-            712.9903564453125,
-            557.77001953125,
-            728.5326538085938
-          ]
-        },
-        {
-          "physical_page": 1,
-          "bbox": [
-            234.41000366210938,
-            750.5396118164062,
-            388.4499816894531,
-            764.57958984375
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0001.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_b16edb97fcedee08b08a9c73c2c9869f",
+      "chunk_id": "chunk_5deace012592825f798d9ea9b5841df9",
       "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
       "section_path": "",
       "section_labels": [],
@@ -137,33 +149,6 @@
       ],
       "rendered_page_paths": [
         "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0004.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_d8d4d99bca957dcc07c14ddb03965828",
-      "document": "短时气象服务降雨量等级TCMSA-2019.pdf",
-      "section_path": "",
-      "section_labels": [],
-      "body": "ICS 29.050\nK10",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        1
-      ],
-      "bboxes": [
-        {
-          "physical_page": 1,
-          "bbox": [
-            70.8239974975586,
-            47.688968658447266,
-            128.66000366210938,
-            90.14094543457031
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/be1ed69415dd-p0001.png"
       ]
     }
   ]

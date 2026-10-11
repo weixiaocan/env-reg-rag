@@ -381,6 +381,41 @@ def test_cover_before_first_structural_page_is_front_matter_without_filename_rul
     assert doc["pages"][1]["elements"][0]["_v3_role"] == "heading"
 
 
+def _body_page(number: int, text: str, region_label: str = "text") -> dict:
+    return {
+        "physical_page": number, "width": 560, "height": 842,
+        "elements": [_line(text, 300)],
+        "regions": [
+            {"region_id": f"h{number}", "model_label": "header", "bbox": [45, 20, 520, 40]},
+            {"region_id": f"t{number}", "model_label": region_label, "bbox": [45, 295, 520, 325]},
+        ],
+    }
+
+
+def test_spaced_preface_heading_bounds_front_matter() -> None:
+    doc = prepare_page_document_v3({
+        "sha256": "c" * 64, "file_name": "arbitrary-name.pdf", "pages": [
+            _body_page(1, "某省工程建设地方标准", "doc_title"),
+            _body_page(2, "前 言"),
+            _body_page(3, "本标准适用于新建和改建工程。"),
+        ],
+    })
+    roles = [page["elements"][0]["_v3_role"] for page in doc["pages"]]
+    assert roles[0] == "front_matter"
+    assert "front_matter" not in roles[1:]
+
+
+def test_document_without_structural_start_has_no_front_matter() -> None:
+    doc = prepare_page_document_v3({
+        "sha256": "d" * 64, "file_name": "policy.pdf", "pages": [
+            _body_page(1, "关于加强城市生活污水管网建设的通知", "doc_title"),
+            _body_page(2, "一、总体要求"),
+            _body_page(3, "各地要加快补齐管网短板。"),
+        ],
+    })
+    assert all(page["elements"][0]["_v3_role"] != "front_matter" for page in doc["pages"])
+
+
 def test_isolated_adjacent_formula_number_is_consumed_by_formula() -> None:
     formula = _PageItem(kind="formula", page=7, bbox=[80, 200, 380, 240],
                         extra={"latex": "Q=A v"}, source_index=0)

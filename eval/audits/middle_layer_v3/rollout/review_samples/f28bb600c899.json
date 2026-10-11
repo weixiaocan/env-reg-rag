@@ -8,7 +8,184 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_03a3072e3333ae2ea0b4db30da40362a",
+      "chunk_id": "chunk_bcdfd83686368dab495aff98eff75c6a",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "4 降雨量等级划分",
+      "section_labels": [
+        "4"
+      ],
+      "body": "降雨分为微量降雨（零星小雨)、小雨、中雨、大雨、暴雨、大暴雨、特大暴雨共7个等级。具体划分见\n表1。\n单位为毫米",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        4
+      ],
+      "bboxes": [
+        {
+          "physical_page": 4,
+          "bbox": [
+            102.0,
+            464.0,
+            545.0,
+            481.5
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            81.5,
+            482.5,
+            110.5,
+            497.5
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            497.0,
+            507.5,
+            544.5,
+            519.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0004.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_1e5092a2d795e039438d2592bd5464c7",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "",
+      "section_labels": [],
+      "body": "本标准按照 GB/T1.1—2009 给出的规则起草。\n本标准由中国气象局提出。\n本标准由全国气象防灾减灾标准化技术委员会(SAC/TC345)归口。\n本标准起草单位：国家气象中心。\n本标准的主要起草人：乔林、李延香、符娇兰、田翠英、毕宝贵、周庆亮。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        2
+      ],
+      "bboxes": [
+        {
+          "physical_page": 2,
+          "bbox": [
+            104.0,
+            169.43999656059586,
+            319.5,
+            182.0
+          ]
+        },
+        {
+          "physical_page": 2,
+          "bbox": [
+            104.5,
+            185.0,
+            227.0,
+            198.0
+          ]
+        },
+        {
+          "physical_page": 2,
+          "bbox": [
+            104.0,
+            200.0,
+            411.5,
+            214.0
+          ]
+        },
+        {
+          "physical_page": 2,
+          "bbox": [
+            104.0,
+            216.47999560574712,
+            253.5,
+            230.0
+          ]
+        },
+        {
+          "physical_page": 2,
+          "bbox": [
+            104.0,
+            232.5,
+            414.0,
+            245.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0002.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_3767434aed24187a2364bcbf7f205aab",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "3 降水量等级划分的原则",
+      "section_labels": [
+        "3"
+      ],
+      "body": "降水量按24 h,12 h两个时间段进行划分",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        4
+      ],
+      "bboxes": [
+        {
+          "physical_page": 4,
+          "bbox": [
+            102.5,
+            402.23999183506896,
+            292.5,
+            418.07999151353823
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0004.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_4e86e98bd901dbade8f114627aa9c5af",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "section_path": "5 降雪量等级划分",
+      "section_labels": [
+        "5"
+      ],
+      "body": "降雪分为微量降雪(零星小雪)、小雪、中雪、大雪、暴雪、大暴雪、特大暴雪共7个等级。具体划分见\n表2。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        4
+      ],
+      "bboxes": [
+        {
+          "physical_page": 4,
+          "bbox": [
+            104.0,
+            740.5,
+            544.0,
+            754.5
+          ]
+        },
+        {
+          "physical_page": 4,
+          "bbox": [
+            82.5,
+            757.5,
+            111.0,
+            772.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0004.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_0fd838db297a0a69a6d9bc066647d9e6",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "5 降雪量等级划分",
       "section_labels": [
@@ -234,145 +411,6 @@
       "rendered_page_paths": [
         "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0006.png",
         "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0007.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_28e5da14d735f0950332c1d803d162c7",
-      "document": "GBT 28592-2012降水量等级.pdf",
-      "section_path": "2 术语与定义",
-      "section_labels": [
-        "2"
-      ],
-      "body": "下列术语和定义适用于本文件。",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        4
-      ],
-      "bboxes": [
-        {
-          "physical_page": 4,
-          "bbox": [
-            102.72000210669732,
-            275.03999441705787,
-            247.0,
-            292.79999405655377
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0004.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_d54df1411279277bb481c53ffbe23efb",
-      "document": "GBT 28592-2012降水量等级.pdf",
-      "section_path": "",
-      "section_labels": [],
-      "body": "GB/T 28592—2012",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        1
-      ],
-      "bboxes": [
-        {
-          "physical_page": 1,
-          "bbox": [
-            422.4000086630544,
-            168.0,
-            543.5,
-            184.79999624880853
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0001.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_4eb2ff7c9fbd0b002ea863c4b824dab6",
-      "document": "GBT 28592-2012降水量等级.pdf",
-      "section_path": "4 降雨量等级划分",
-      "section_labels": [
-        "4"
-      ],
-      "body": "降雨分为微量降雨（零星小雨)、小雨、中雨、大雨、暴雨、大暴雨、特大暴雨共7个等级。具体划分见\n表1。\n单位为毫米",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        4
-      ],
-      "bboxes": [
-        {
-          "physical_page": 4,
-          "bbox": [
-            102.0,
-            464.0,
-            545.0,
-            481.5
-          ]
-        },
-        {
-          "physical_page": 4,
-          "bbox": [
-            81.5,
-            482.5,
-            110.5,
-            497.5
-          ]
-        },
-        {
-          "physical_page": 4,
-          "bbox": [
-            497.0,
-            507.5,
-            544.5,
-            519.5
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0004.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_386b8452d968192c030e22d8e104a786",
-      "document": "GBT 28592-2012降水量等级.pdf",
-      "section_path": "",
-      "section_labels": [],
-      "body": "ICS 07.060\nA 47",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        1
-      ],
-      "bboxes": [
-        {
-          "physical_page": 1,
-          "bbox": [
-            73.0,
-            25.5,
-            129.5,
-            38.5
-          ]
-        },
-        {
-          "physical_page": 1,
-          "bbox": [
-            73.44000150619014,
-            36.0,
-            99.84000204763105,
-            49.43999899643449
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/f28bb600c899-p0001.png"
       ]
     }
   ]

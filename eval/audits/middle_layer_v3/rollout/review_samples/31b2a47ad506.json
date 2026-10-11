@@ -8,43 +8,170 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_c4e157affcf80f6208563d55296e1095",
+      "chunk_id": "chunk_b87b6e5d951ca809f5a897918b2bac18",
       "document": "降雨过程强度等级标准.pdf",
-      "section_path": "",
-      "section_labels": [],
-      "body": "2017-03-01 实施\n中国气象局发布",
+      "section_path": "1 范围",
+      "section_labels": [
+        "1"
+      ],
+      "body": "本标准规定了降雨过程强度等级划分及其计算方法。\n本标准适用于单站和区域降雨过程的监测、评估及服务。",
       "element_types": [
         "text"
       ],
       "pages": [
-        1
+        5
       ],
       "bboxes": [
         {
-          "physical_page": 1,
+          "physical_page": 5,
           "bbox": [
-            449.0,
-            708.0,
-            554.5,
-            726.0
+            87.36000179167716,
+            188.6131101497359,
+            323.5200066351121,
+            199.0
           ]
         },
         {
-          "physical_page": 1,
+          "physical_page": 5,
           "bbox": [
-            205.0,
-            753.4925774429652,
-            412.5,
-            773.0
+            86.5,
+            204.0,
+            339.5,
+            215.5
           ]
         }
       ],
       "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0001.png"
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0005.png"
       ]
     },
     {
-      "chunk_id": "chunk_2c5fff3bc4073d13b1cd9f0459e61808",
+      "chunk_id": "chunk_ae8344f8a29c3ac1dbc3bee535fd7469",
+      "document": "降雨过程强度等级标准.pdf",
+      "section_path": "2 术语和定义 > 2.1",
+      "section_labels": [
+        "2",
+        "2.1"
+      ],
+      "body": "从天空降到地面上的雨，未经蒸发、渗透、流失而在水平面上积聚的深度。\n注：以毫米(mm)为单位。",
+      "element_types": [
+        "text"
+      ],
+      "pages": [
+        5
+      ],
+      "bboxes": [
+        {
+          "physical_page": 5,
+          "bbox": [
+            86.5,
+            314.3551835828931,
+            412.5,
+            325.5
+          ]
+        },
+        {
+          "physical_page": 5,
+          "bbox": [
+            84.0,
+            329.0,
+            180.5,
+            340.5
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0005.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_6b2f96f95a21863244e9f12d56f3259d",
+      "document": "降雨过程强度等级标准.pdf",
+      "section_path": "4 RSI/ RPI 计算方法 > 4.4 RSI/ RPI计算 > 4.4.2",
+      "section_labels": [
+        "4",
+        "4.4",
+        "4.4.2"
+      ],
+      "body": "[公式]\n\\overline{T}=\\frac{\\displaystyle\\sum_{j=1}^{n}T_{j}C_{\\mathcal{P}_{j}}}{\\displaystyle\\sum_{j=1}^{n}C_{\\mathcal{P}_{j}}}\n式中：\nn所跨降雨区个数；\n第j类降雨区降雨强度指数，j的取值范围[1，n]，利用公式(1)计算第j类降雨区降雨强\n度(R)，对照表 3查出对应指数；\n第j类降雨区按照4.2区域降雨过程定义选取的测站占设定区域总测站的百分比；\n设定区域内降雨覆盖范围百分比，对照表4查出对应指数C；",
+      "element_types": [
+        "formula",
+        "text"
+      ],
+      "pages": [
+        9
+      ],
+      "bboxes": [
+        {
+          "physical_page": 9,
+          "bbox": [
+            261.1062293763722,
+            86.78124039523365,
+            330.9633482610908,
+            140.49127399568957
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            85.0,
+            141.5,
+            115.2000023626512,
+            155.5
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            86.0,
+            158.5,
+            205.5,
+            170.5
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            125.0,
+            174.21516281006137,
+            529.0,
+            185.5
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            125.5,
+            189.0,
+            271.5,
+            201.5
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            124.5,
+            204.5,
+            499.5,
+            218.0
+          ]
+        },
+        {
+          "physical_page": 9,
+          "bbox": [
+            126.0,
+            221.5,
+            402.5,
+            233.0
+          ]
+        }
+      ],
+      "rendered_page_paths": [
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0009.png"
+      ]
+    },
+    {
+      "chunk_id": "chunk_c6d55269f0ff65ae665e49e8cd4850cb",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "",
       "section_labels": [],
@@ -98,137 +225,51 @@
       ]
     },
     {
-      "chunk_id": "chunk_3117962391fd79e2125f079063f38d33",
+      "chunk_id": "chunk_43e330d031366cbef94ae8a939400c44",
       "document": "降雨过程强度等级标准.pdf",
-      "section_path": "4 RSI/ RPI 计算方法 > 4.4 RSI/ RPI计算 > 4.4.1",
+      "section_path": "4 RSI/ RPI 计算方法 > 4.1 降雨区划分",
       "section_labels": [
         "4",
-        "4.4",
-        "4.4.1"
+        "4.1"
       ],
-      "body": "[公式]\nR S I=I\\times T\n式中：\nI—降雨强度指数，利用公式(1)计算降雨强度(R)，对照表3查出对应指数；\nT——持续时间指数，根据公式(3)计算降雨持续时间（T。），对照表5查出对应指数。",
-      "element_types": [
-        "formula",
-        "text"
-      ],
-      "pages": [
-        8
-      ],
-      "bboxes": [
-        {
-          "physical_page": 8,
-          "bbox": [
-            265.3887750922264,
-            415.3867367229824,
-            328.25499204245534,
-            425.11653094429744
-          ]
-        },
-        {
-          "physical_page": 8,
-          "bbox": [
-            84.5,
-            430.0186938782782,
-            115.5,
-            444.5
-          ]
-        },
-        {
-          "physical_page": 8,
-          "bbox": [
-            86.0,
-            447.5,
-            437.5,
-            458.5
-          ]
-        },
-        {
-          "physical_page": 8,
-          "bbox": [
-            85.5,
-            461.0,
-            464.5,
-            475.5
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0008.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_4168755ba235fb00c4facfef1e230fa3",
-      "document": "降雨过程强度等级标准.pdf",
-      "section_path": "",
-      "section_labels": [],
-      "body": "2016-09-29 发布\nQX/T 341—2016",
+      "body": "利用800mm年平均降水量值(AAR)和百分位数95%对应的日雨量(DP95%)划分全国降雨区。\n800mm年平均降水量界线利用气候标准值30年降水观测值计算；日雨量(≥0.1mm)按百分位法，从\n小到大排序，取百分位数95%对应的值，见表2。",
       "element_types": [
         "text"
       ],
       "pages": [
-        1
+        6
       ],
       "bboxes": [
         {
-          "physical_page": 1,
+          "physical_page": 6,
           "bbox": [
-            68.0,
-            708.5,
-            173.0,
-            726.5
+            86.88000178183279,
+            156.5,
+            528.5,
+            168.5
           ]
         },
         {
-          "physical_page": 1,
+          "physical_page": 6,
           "bbox": [
-            435.0,
-            167.97605229620243,
-            540.0000110749276,
-            186.69338383777927
+            65.76000134868006,
+            172.77536807609394,
+            527.5200108189737,
+            182.85393121386608
+          ]
+        },
+        {
+          "physical_page": 6,
+          "bbox": [
+            65.5,
+            187.0,
+            282.5,
+            200.5
           ]
         }
       ],
       "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0001.png"
-      ]
-    },
-    {
-      "chunk_id": "chunk_738fadc424d4b57c7449fc82009214b5",
-      "document": "降雨过程强度等级标准.pdf",
-      "section_path": "2 术语和定义 > 2.1",
-      "section_labels": [
-        "2",
-        "2.1"
-      ],
-      "body": "从天空降到地面上的雨，未经蒸发、渗透、流失而在水平面上积聚的深度。\n注：以毫米(mm)为单位。",
-      "element_types": [
-        "text"
-      ],
-      "pages": [
-        5
-      ],
-      "bboxes": [
-        {
-          "physical_page": 5,
-          "bbox": [
-            86.5,
-            314.3551835828931,
-            412.5,
-            325.5
-          ]
-        },
-        {
-          "physical_page": 5,
-          "bbox": [
-            84.0,
-            329.0,
-            180.5,
-            340.5
-          ]
-        }
-      ],
-      "rendered_page_paths": [
-        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0005.png"
+        "eval/audits/middle_layer_v3/rollout/review_samples/images/31b2a47ad506-p0006.png"
       ]
     }
   ]
