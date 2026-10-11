@@ -528,3 +528,17 @@ def test_wrapped_cross_reference_is_not_a_clause_start() -> None:
         "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 130]}],
     })
     assert _labels(blocks) == ["5.10.3"]
+
+
+def test_number_only_heading_joins_following_term_heading() -> None:
+    blocks = build_page_blocks({
+        "physical_page": 5, "width": 595, "height": 842,
+        "elements": [_line("2.1", 280), _line("降雨量 rainfall", 298), _line("从天空降到地面上的雨。", 316)],
+        "regions": [
+            {"region_id": "n", "model_label": "paragraph_title", "bbox": [60, 278, 90, 294]},
+            {"region_id": "t", "model_label": "paragraph_title", "bbox": [85, 296, 170, 312]},
+            {"region_id": "b", "model_label": "text", "bbox": [85, 314, 500, 330]},
+        ],
+    })
+    assert blocks[0]["text"] == "2.1 降雨量 rainfall"
+    assert blocks[0]["_v3_heading"]["label"] == "2.1"

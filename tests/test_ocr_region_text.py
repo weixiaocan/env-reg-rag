@@ -358,3 +358,5 @@ def test_pp_raw_full_line_never_overrides_majority() -> None:
     merged, rule, _ = merge_source_texts({
         "pp_clean": "排水管道", "pp_raw": "公开排水管道", "primary": "排水管道"})
     assert (merged, rule) == ("排水管道", "majority")
+
+

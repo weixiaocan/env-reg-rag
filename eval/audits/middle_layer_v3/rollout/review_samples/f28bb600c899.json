@@ -8,7 +8,7 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_a3d69603c47a29a49e38aaaa40ad84d8",
+      "chunk_id": "chunk_94a52532adc09f35629088a682af4421",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "4 降雨量等级划分",
       "section_labels": [
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_bb882ae82abe39adc05d1c94d1b61910",
+      "chunk_id": "chunk_31e012bdff99395a38343841d212112d",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "",
       "section_labels": [],
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_7de99440d5bd000f6cc7d2627534fb05",
+      "chunk_id": "chunk_a7dffb54ded0e9328c57492a652e9ee3",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "3 降水量等级划分的原则",
       "section_labels": [
@@ -147,7 +147,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_7e942f4a08781ac15e898ccadc25eeb5",
+      "chunk_id": "chunk_b18efe2173ed94b54787b67098d3d550",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "5 降雪量等级划分",
       "section_labels": [
@@ -185,7 +185,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_f3678f6ea76a3c051284b52a0a20b08f",
+      "chunk_id": "chunk_79065977ebca1cc14c61c6323c02a4eb",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "5 降雪量等级划分",
       "section_labels": [

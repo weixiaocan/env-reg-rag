@@ -145,6 +145,37 @@ def heading_descriptor(text: str, *, is_title: bool = False, is_clause: bool = F
     return None
 
 
+def _merge_bare_number_headings(blocks: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Join a number-only heading with the unnumbered heading right after it.
+
+    GB/T 1.1 terms print "2.1" on one line and the term ("降雨量 rainfall")
+    on the next; split, the term name never reaches the section path.
+    """
+    result: list[dict[str, Any]] = []
+    index = 0
+    while index < len(blocks):
+        block = blocks[index]
+        following = blocks[index + 1] if index + 1 < len(blocks) else None
+        heading = block.get("_v3_heading") or {}
+        if (following is not None and block.get("_v3_role") == "heading"
+                and heading.get("label") and not heading.get("title")
+                and re.fullmatch(r"\s*\d+(?:\s*[.．]\s*\d+)*\s*", str(block.get("text") or ""))
+                and following.get("_v3_role") == "heading"
+                and not (following.get("_v3_heading") or {}).get("label")):
+            text = f"{str(block.get('text') or '').strip()} {str(following.get('text') or '').strip()}"
+            merged = {**block, "text": text, "normalized_text": text,
+                      "bbox": _union_bbox([block, following]),
+                      "_v3_source_line_bboxes": [*block.get("_v3_source_line_bboxes", []),
+                                                 *following.get("_v3_source_line_bboxes", [])],
+                      "_v3_heading": heading_descriptor(text, is_title=True)}
+            result.append(merged)
+            index += 2
+            continue
+        result.append(block)
+        index += 1
+    return result
+
+
 def prepare_page_document_v3(
     page_document: dict[str, Any], *, independent_ocr_run_dir: str | None = None,
     raw_independent_ocr_run_dir: str | None = None,
@@ -390,7 +421,7 @@ def build_page_blocks(
             continue
         seen.add(key)
         deduped.append(block)
-    return deduped
+    return _merge_bare_number_headings(deduped)
 
 
 def _source_supported_variable_definition(text: str) -> bool:

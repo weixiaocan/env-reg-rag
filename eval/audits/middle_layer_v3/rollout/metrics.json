@@ -92,7 +92,7 @@
   },
   "summary": {
     "v3": {
-      "element_count": 10812,
+      "element_count": 10806,
       "chunk_count": 3886,
       "text_body_chunk_count": 3468,
       "body_page_number_footer_watermark_lines": 0,
@@ -101,17 +101,17 @@
       "section_title_over_60_count": 0,
       "list_item_root_count": 0,
       "short_body_chunk_lt15_count": 82,
-      "ocr_text_source_element_count": 7802,
+      "ocr_text_source_element_count": 7796,
       "ocr_text_source_missing_run_id_count": 0,
       "short_body_chunk_lt15_ratio": 0.023645,
       "element_type_counts": {
-        "text": 10285,
+        "text": 10279,
         "table": 239,
         "formula": 210,
         "figure": 78
       },
       "ocr_text_source_counts": {
-        "three_source_vote": 15706
+        "three_source_vote": 15700
       },
       "clause_number_continuity": {
         "missing": [
@@ -6158,15 +6158,15 @@
             "count": 3,
             "occurrences": [
               {
-                "element_id": "e000205",
+                "element_id": "e000204",
                 "page": 12
               },
               {
-                "element_id": "e000215",
+                "element_id": "e000214",
                 "page": 13
               },
               {
-                "element_id": "e000221",
+                "element_id": "e000220",
                 "page": 13
               }
             ]
@@ -6180,11 +6180,11 @@
             "count": 2,
             "occurrences": [
               {
-                "element_id": "e000233",
+                "element_id": "e000232",
                 "page": 13
               },
               {
-                "element_id": "e000263",
+                "element_id": "e000262",
                 "page": 14
               }
             ]
@@ -6694,7 +6694,7 @@
             "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
             "namespace": "body",
             "label": "7.1",
-            "element_id": "e000330",
+            "element_id": "e000329",
             "pages": [
               16
             ],
@@ -6705,7 +6705,7 @@
             "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
             "namespace": "body",
             "label": "8.23",
-            "element_id": "e000365",
+            "element_id": "e000364",
             "pages": [
               17
             ],
@@ -20925,9 +20925,9 @@
         "source_supported_occlusion_repair_count": 0
       },
       "v3": {
-        "element_count": 117,
+        "element_count": 115,
         "element_type_counts": {
-          "text": 103,
+          "text": 101,
           "table": 5,
           "formula": 9
         },
@@ -20945,12 +20945,12 @@
         "short_body_chunk_lt15_count": 2,
         "short_body_chunk_lt15_ratio": 0.090909,
         "short_body_chunk_ids": [
-          "chunk_bd383923323833913a02e7ce076fb5b0",
-          "chunk_2fb549b6bb9d8e087f663d295668c9ab"
+          "chunk_6570ba71c2cde7e9f3e5dd45c3d05851",
+          "chunk_b8206e07f8be776960489c6dddbfc384"
         ],
-        "ocr_text_source_element_count": 103,
+        "ocr_text_source_element_count": 101,
         "ocr_text_source_counts": {
-          "three_source_vote": 136
+          "three_source_vote": 134
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
@@ -25126,9 +25126,9 @@
         "source_supported_occlusion_repair_count": 0
       },
       "v3": {
-        "element_count": 65,
+        "element_count": 63,
         "element_type_counts": {
-          "text": 63,
+          "text": 61,
           "table": 2
         },
         "chunk_count": 14,
@@ -25145,12 +25145,12 @@
         "short_body_chunk_lt15_count": 2,
         "short_body_chunk_lt15_ratio": 0.166667,
         "short_body_chunk_ids": [
-          "chunk_ea4f87bf9fabdc09dd496af7ce6e4680",
-          "chunk_dca6b69be22b1414a96800e48e8d2d65"
+          "chunk_8bce09573f3a0b38c3fc9755e92320a4",
+          "chunk_e4fc2dabba6e802c8ac7b9daf2f99d4e"
         ],
-        "ocr_text_source_element_count": 63,
+        "ocr_text_source_element_count": 61,
         "ocr_text_source_counts": {
-          "three_source_vote": 94
+          "three_source_vote": 92
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
@@ -32077,9 +32077,9 @@
         "source_supported_occlusion_repair_count": 0
       },
       "v3": {
-        "element_count": 401,
+        "element_count": 400,
         "element_type_counts": {
-          "text": 379,
+          "text": 378,
           "figure": 11,
           "table": 2,
           "formula": 9
@@ -32098,25 +32098,25 @@
         "short_body_chunk_lt15_count": 15,
         "short_body_chunk_lt15_ratio": 0.121951,
         "short_body_chunk_ids": [
-          "chunk_5fd0cd532c3c6924ab01ddc14ed7ef0b",
-          "chunk_b1cc1d9cff23d8a7b1214c4d702b349a",
-          "chunk_776e47850f8083f84a2fd8271e2e3110",
-          "chunk_1f984083f680eb5aae98da2543fd9a75",
-          "chunk_68f0ff43b556b3390705f91dbebe7a15",
-          "chunk_6b04254f2ea4d0aaebe33b457834e4ea",
-          "chunk_ed40e7dee1a3f9f7276a639a09909456",
-          "chunk_d87f27374793bb9c7705f6f68b4d9169",
-          "chunk_76342e5e5317230321b636e221588e7b",
-          "chunk_0f3488bf5a1833050afdc7c6f69131da",
-          "chunk_926bffce95ab20343030e98fccc35615",
-          "chunk_1a3b85c98f50f0e44564f0ed22aa4d37",
-          "chunk_3e0c4f2187f0dee873a20726a83abe5b",
-          "chunk_dfd49b359533416f94d588e18e1e6dc2",
-          "chunk_56f1f2460d26352e8c6b18bfbb586153"
+          "chunk_2857b52fcdd16d21c5e39a54643bba6c",
+          "chunk_ec271d74ad37b37bccf71963894e4411",
+          "chunk_7654277bf877bb23a847b968559133ac",
+          "chunk_f376d10800fd670aac64b6d5675923dc",
+          "chunk_55a3c15791805bb058bfa7426c35079d",
+          "chunk_ad6de5137079521eebb4fdccbb1bb9c0",
+          "chunk_1e1a667278fb33c2010cc7a402d3950e",
+          "chunk_839340f6f0e49b2bcffb7060ea5591ef",
+          "chunk_28d24be8af242478d1ce7bcd634a6231",
+          "chunk_0ff2d4275579e3772c1707ea7f16c03b",
+          "chunk_79a2e7f1a795a14f6ef055cee07bd221",
+          "chunk_6c2f0b25f95d373e40fec4befc7f514f",
+          "chunk_21464a2dd23843742f52fcc3cb584e31",
+          "chunk_931a19034e15667c6d6e0abf09995a99",
+          "chunk_9ee2451da77c1acc3e95990b46fdf24a"
         ],
-        "ocr_text_source_element_count": 379,
+        "ocr_text_source_element_count": 378,
         "ocr_text_source_counts": {
-          "three_source_vote": 550
+          "three_source_vote": 549
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
@@ -32281,15 +32281,15 @@
               "count": 3,
               "occurrences": [
                 {
-                  "element_id": "e000205",
+                  "element_id": "e000204",
                   "page": 12
                 },
                 {
-                  "element_id": "e000215",
+                  "element_id": "e000214",
                   "page": 13
                 },
                 {
-                  "element_id": "e000221",
+                  "element_id": "e000220",
                   "page": 13
                 }
               ]
@@ -32301,11 +32301,11 @@
               "count": 2,
               "occurrences": [
                 {
-                  "element_id": "e000233",
+                  "element_id": "e000232",
                   "page": 13
                 },
                 {
-                  "element_id": "e000263",
+                  "element_id": "e000262",
                   "page": 14
                 }
               ]
@@ -32315,7 +32315,7 @@
             {
               "namespace": "body",
               "label": "7.1",
-              "element_id": "e000330",
+              "element_id": "e000329",
               "pages": [
                 16
               ],
@@ -32324,7 +32324,7 @@
             {
               "namespace": "body",
               "label": "8.23",
-              "element_id": "e000365",
+              "element_id": "e000364",
               "pages": [
                 17
               ],
@@ -32400,7 +32400,7 @@
             "pipeline_introduced_count": 0,
             "occurrences": [
               {
-                "chunk_id": "chunk_89230588ffe179aa7bdd7db0246b1166",
+                "chunk_id": "chunk_86a953fbd95f94fb534ccabb2c16d2de",
                 "pages": [
                   4,
                   5
@@ -32411,7 +32411,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_ac39ef2c5e879238b491d27bb2496ca3",
+                "chunk_id": "chunk_e6d16e7e37685584e98e604af7e360fd",
                 "pages": [
                   5
                 ],
@@ -32421,7 +32421,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_ac39ef2c5e879238b491d27bb2496ca3",
+                "chunk_id": "chunk_e6d16e7e37685584e98e604af7e360fd",
                 "pages": [
                   5
                 ],
@@ -32431,7 +32431,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_ddbc0f29842f8ae05a0cb9fdada49c4d",
+                "chunk_id": "chunk_add63234df27f303197936fdfeebd0de",
                 "pages": [
                   7
                 ],
@@ -32441,7 +32441,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_8d6a2892cd500e80a98c40ba66700578",
+                "chunk_id": "chunk_664972890091badc5af9ccf242877947",
                 "pages": [
                   7,
                   8
@@ -32452,7 +32452,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_78afe6c9acf9dc57b95f73a27dd51241",
+                "chunk_id": "chunk_7fda6e692ed59485e17c2c901839b2f9",
                 "pages": [
                   11
                 ],
@@ -32462,7 +32462,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_973362d23103031b81d24d5b2d9098ae",
+                "chunk_id": "chunk_603b4c4a296cc667502219823caaeff4",
                 "pages": [
                   15
                 ],
@@ -32472,7 +32472,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_b4a70a49ad5970aaa8f0108d669dd113",
+                "chunk_id": "chunk_02fde70c2fd2298b12eff82486e8543b",
                 "pages": [
                   17,
                   18,
@@ -32484,7 +32484,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_32207c7f95e677a2ee947c03955450f9",
+                "chunk_id": "chunk_a421625e3b5b83afe0c6341b84d6ff99",
                 "pages": [
                   20,
                   21
@@ -32495,7 +32495,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_32207c7f95e677a2ee947c03955450f9",
+                "chunk_id": "chunk_a421625e3b5b83afe0c6341b84d6ff99",
                 "pages": [
                   20,
                   21
@@ -32506,7 +32506,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_32207c7f95e677a2ee947c03955450f9",
+                "chunk_id": "chunk_a421625e3b5b83afe0c6341b84d6ff99",
                 "pages": [
                   20,
                   21
@@ -33061,9 +33061,9 @@
         "source_supported_occlusion_repair_count": 1
       },
       "v3": {
-        "element_count": 53,
+        "element_count": 52,
         "element_type_counts": {
-          "text": 49,
+          "text": 48,
           "figure": 2,
           "table": 2
         },
@@ -33081,11 +33081,11 @@
         "short_body_chunk_lt15_count": 1,
         "short_body_chunk_lt15_ratio": 0.125,
         "short_body_chunk_ids": [
-          "chunk_4e5731ee4c2e9fa9091d61d91361b42b"
+          "chunk_803f9cae58c49cb607f3b28f9974da9e"
         ],
-        "ocr_text_source_element_count": 49,
+        "ocr_text_source_element_count": 48,
         "ocr_text_source_counts": {
-          "three_source_vote": 68
+          "three_source_vote": 67
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {

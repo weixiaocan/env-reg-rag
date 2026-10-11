@@ -8,7 +8,7 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_b87b6e5d951ca809f5a897918b2bac18",
+      "chunk_id": "chunk_01aebf69447b2d7a8bdc451345767779",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "1 范围",
       "section_labels": [
@@ -46,9 +46,9 @@
       ]
     },
     {
-      "chunk_id": "chunk_ae8344f8a29c3ac1dbc3bee535fd7469",
+      "chunk_id": "chunk_ab8f9164eab84a917d89279118070537",
       "document": "降雨过程强度等级标准.pdf",
-      "section_path": "2 术语和定义 > 2.1",
+      "section_path": "2 术语和定义 > 2.1 降雨量 rainfall",
       "section_labels": [
         "2",
         "2.1"
@@ -85,7 +85,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_6b2f96f95a21863244e9f12d56f3259d",
+      "chunk_id": "chunk_9cf06056706127cd1aa7402bfb0863c8",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "4 RSI/ RPI 计算方法 > 4.4 RSI/ RPI计算 > 4.4.2",
       "section_labels": [
@@ -171,7 +171,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_c6d55269f0ff65ae665e49e8cd4850cb",
+      "chunk_id": "chunk_ccce9369fd7166d1920fd0f41116b537",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "",
       "section_labels": [],
@@ -225,7 +225,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_43e330d031366cbef94ae8a939400c44",
+      "chunk_id": "chunk_e36001c8be09adc3c6dcbd7085299a10",
       "document": "降雨过程强度等级标准.pdf",
       "section_path": "4 RSI/ RPI 计算方法 > 4.1 降雨区划分",
       "section_labels": [
