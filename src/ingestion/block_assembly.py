@@ -42,6 +42,13 @@ _CHINESE_ONE = re.compile(r"^([一二三四五六七八九十]+、)\s*(.*)$")
 _CHINESE_PAREN = re.compile(r"^([（(][一二三四五六七八九十]+[）)])\s*(.*)$")
 _ROMAN = re.compile(r"^([ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+)[、.．\s]*(.*)$")
 _STRUCTURED = {"table", "formula", "formula_number", "figure_title", "image", "chart"}
+_TOC_LEADER_LINE = re.compile(r"^\s*\S.*?(?:…{4,}|\.{4,}|．{4,})\s*\d+\s*$")
+_STRUCTURAL_START = re.compile(r"^\s*(?:前言|目\s*次|1\s*总\s*则)\s*$")
+_VARIABLE_DEFINITION = re.compile(
+    r"^\s*([A-Za-zΑ-Ωα-ω][A-Za-z0-9_Α-Ωα-ω]{0,15})\s*"
+    r"(?:\n+\s*)?((?:—{2,}|-{2,}))\s*(.+)$",
+    re.DOTALL,
+)
 
 
 def load_config(path: str | Path | None = None) -> dict[str, Any]:
@@ -188,9 +195,12 @@ def prepare_page_document_v3(
             "ocr_page_count": ocr_pages, **totals,
         }
     recurring = recurring_band_texts(doc.get("pages") or [])
+    front_matter_pages = _front_matter_pages(doc.get("pages") or [])
     stats = {"region_pages": 0, "fallback_pages": 0, "furniture": 0, "toc": 0,
-             "split_number_prefix_merged": 0}
+             "front_matter": 0, "split_number_prefix_merged": 0}
     for page_index, page in enumerate(doc.get("pages") or []):
+        if page_index in front_matter_pages:
+            page["_v3_front_matter"] = True
         blocks = build_page_blocks(page, cfg, recurring=recurring)
         if page.get("regions"):
             stats["region_pages"] += 1
@@ -198,6 +208,8 @@ def prepare_page_document_v3(
             stats["fallback_pages"] += 1
         stats["furniture"] += sum(bool(block.get("_v3_furniture_rule")) for block in blocks)
         stats["toc"] += sum(block.get("_v3_role") == "toc" for block in blocks)
+        stats["front_matter"] += sum(
+            block.get("_v3_role") == "front_matter" for block in blocks)
         stats["split_number_prefix_merged"] += sum(
             bool(block.get("_v3_split_number_prefix_merged")) for block in blocks)
         for index, block in enumerate(blocks):
@@ -219,6 +231,7 @@ def build_page_blocks(
     cfg = config or load_config()
     regions = list(page.get("regions") or [])
     page_elements = list(page.get("elements") or [])
+    page_is_toc = _page_has_toc_leader(page_elements, regions)
     if not regions:
         raw_groups = _fallback_groups(page_elements)
         candidates = [("text", None, group) for group in raw_groups]
@@ -293,7 +306,10 @@ def build_page_blocks(
             blocks.append(_make_block(body_lines, label, region, role=furniture.role,
                                       furniture_rule=furniture.rule_id))
             continue
-        if mapped == "toc":
+        if page.get("_v3_front_matter"):
+            blocks.append(_make_block(body_lines, label, region, role="front_matter"))
+            continue
+        if mapped == "toc" or page_is_toc:
             blocks.append(_make_block(body_lines, label, region, role="toc"))
             continue
         is_title = mapped == "title"
@@ -357,16 +373,14 @@ def build_page_blocks(
 
 
 def _source_supported_variable_definition(text: str) -> bool:
-    return bool(re.match(
-        r"^\s*(?:k0|tx)\s*\n+\s*.*[\u4e00-\u9fff].*$",
-        text, re.IGNORECASE | re.DOTALL,
-    ))
+    match = _VARIABLE_DEFINITION.match(text)
+    return bool(match and re.search(r"[\u4e00-\u9fff]", match.group(3)))
 
 
 def _restore_source_supported_region_variable_prefix(
     lines: list[dict[str, Any]], region: dict[str, Any] | None,
 ) -> list[dict[str, Any]]:
-    """Restore only the two R2c variable labels proved by the text region.
+    """Restore a variable-definition prefix proved by the text region.
 
     Some pages also classify the tiny ``k0``/``tx`` glyph as a formula region,
     so the region-first text pass can retain the definition but lose its
@@ -377,10 +391,10 @@ def _restore_source_supported_region_variable_prefix(
     if not lines or not region:
         return lines
     region_text = str(region.get("normalized_text") or region.get("text") or "").strip()
-    match = re.match(r"^\s*(k0|tx)\s*\n+\s*(.+)$", region_text, re.IGNORECASE | re.DOTALL)
-    if not match or normalize_line(_join_lines(lines)) != normalize_line(match.group(2)):
+    match = _VARIABLE_DEFINITION.match(region_text)
+    if not match or normalize_line(_join_lines(lines)) != normalize_line(match.group(3)):
         return lines
-    token = match.group(1)
+    token = match.group(1) + match.group(2)
     if normalize_line(_join_lines(lines)).lower().startswith(token.lower()):
         return lines
     prefix = {
@@ -390,6 +404,46 @@ def _restore_source_supported_region_variable_prefix(
         "_v3_source_supported_region_prefix": True,
     }
     return [prefix, *lines]
+
+
+def _page_has_toc_leader(
+    elements: list[dict[str, Any]], regions: list[dict[str, Any]],
+) -> bool:
+    texts = [str(item.get("text") or item.get("normalized_text") or "")
+             for item in [*elements, *regions]]
+    return any(
+        _TOC_LEADER_LINE.match(line.strip())
+        for text in texts for line in text.splitlines() if line.strip()
+    )
+
+
+def _front_matter_pages(pages: list[dict[str, Any]]) -> set[int]:
+    """Find cover-like pages before the first structural start, without names."""
+    boundary = len(pages)
+    for index, page in enumerate(pages):
+        texts = [str(item.get("text") or item.get("normalized_text") or "")
+                 for item in [*(page.get("elements") or []), *(page.get("regions") or [])]]
+        if any(_STRUCTURAL_START.match(line.strip())
+               for text in texts for line in text.splitlines() if line.strip()):
+            boundary = index
+            break
+    result: set[int] = set()
+    for index, page in enumerate(pages[:boundary]):
+        width = float(page.get("width") or 0.0)
+        height = float(page.get("height") or 0.0)
+        for region in page.get("regions") or []:
+            label = str(region.get("model_label") or region.get("kind") or "").lower()
+            box = _bbox(region.get("bbox"))
+            centered_large = bool(
+                width > 0 and height > 0
+                and (box[2] - box[0]) >= 0.35 * width
+                and (box[3] - box[1]) >= 0.035 * height
+                and abs((box[0] + box[2]) / 2 - width / 2) <= 0.12 * width
+            )
+            if label in {"doc_title", "header"} or centered_large:
+                result.add(index)
+                break
+    return result
 
 
 def _make_block(lines: list[dict[str, Any]], label: str, region: dict[str, Any] | None,

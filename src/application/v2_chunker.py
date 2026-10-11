@@ -61,7 +61,10 @@ _CLAUSE_START = re.compile(
 
 # text roles excluded from retrieval projection (V1 _IGNORED_TYPES equivalent;
 # design §9.2 requires Chunker to drop these by role).
-_IGNORED_ROLES = {"header", "footer", "page_number", "watermark", "unknown"}
+_IGNORED_ROLES = {
+    "header", "footer", "page_number", "watermark", "unknown",
+    "toc_navigation_only", "front_matter",
+}
 
 # Hard cap = bge-small-zh max_length (512). Every emitted chunk's full text
 # (section_path prefix + projected body) stays at or below this so it embeds
@@ -72,6 +75,9 @@ _HARD_CAP_TOKENS = 512
 # Intra-clause recursive splitter separators (plan §2.2 step 4): block, line,
 # full-stop, semicolon, fallback char.
 _SEPARATORS = ["\n\n", "\n", "。", "；", ""]
+_LIST_CONTINUATION_START = re.compile(
+    r"^\s*(?:\d+\s+[一-鿿]|[a-zA-Z]\)|[（(][一二三四五六七八九十\d]+[）)])"
+)
 
 
 class _Tokenizer(Protocol):
@@ -136,6 +142,48 @@ def _resolve_tokenizer(tokenizer: Any) -> _Tokenizer:
 
 def _normalize(text: str) -> str:
     return re.sub(r"\s+", " ", text or "").strip()
+
+
+def _guided_list_section_path(
+    section_path: list[dict[str, Any]], introduction: str,
+) -> list[dict[str, Any]]:
+    """Return a local path whose leaf carries the clause's list introduction."""
+    path = [dict(entry) for entry in section_path]
+    if not path:
+        return path
+    label = str(path[-1].get("label") or "").strip()
+    title = _normalize(introduction)
+    if label and title.startswith(label):
+        title = title[len(label):].strip()
+    if title:
+        path[-1]["title"] = title
+    return path
+
+
+def _guided_list_pairs(
+    elements: list[dict[str, Any]],
+) -> dict[str, tuple[str, str]]:
+    """Pair an adjacent colon-ended clause with its enumerated continuation."""
+    guides: dict[str, tuple[str, str]] = {}
+    for introduction, continuation in zip(elements, elements[1:]):
+        if introduction.get("type") != "text" or continuation.get("type") != "text":
+            continue
+        intro_text = _project_text(introduction) or ""
+        item_text = _project_text(continuation) or ""
+        if not re.search(r"[：:]\s*$", intro_text):
+            continue
+        if not (introduction.get("role") == "clause"
+                or _CLAUSE_START.match(_normalize(intro_text))):
+            continue
+        if not _LIST_CONTINUATION_START.match(item_text):
+            continue
+        if ((introduction.get("section_path") or [])
+                != (continuation.get("section_path") or [])):
+            continue
+        guides[str(continuation["element_id"])] = (
+            str(introduction["element_id"]), intro_text,
+        )
+    return guides
 
 
 def _format_section_path(section_path: list[dict[str, Any]]) -> str:
@@ -317,6 +365,7 @@ class _ChunkBuilder:
         self._chunks: list[V2Chunk] = []
         self._pending: list[_PendingUnit] = []
         self._prefix_cache: dict[str, str] = {}
+        self._prefix_overrides: dict[int, str] = {}
         self._t6c_prefix_cache = any(
             engine.get("engine_id") == "section-prefix-rendering-1"
             for engine in (canonical.get("generation") or {}).get("engines", [])
@@ -337,6 +386,9 @@ class _ChunkBuilder:
     # -- prefix helpers ----------------------------------------------------- #
 
     def _prefix_for(self, section_path: list[dict[str, Any]]) -> str:
+        override = self._prefix_overrides.get(id(section_path))
+        if override is not None:
+            return override
         # A label can legitimately recur with a different title (and OCR
         # corrections can change a title while retaining the label).  Caching
         # by labels alone reused a stale rendered breadcrumb, so chunk text
@@ -354,6 +406,10 @@ class _ChunkBuilder:
         if key not in self._prefix_cache:
             self._prefix_cache[key] = _format_section_path(section_path)
         return self._prefix_cache[key]
+
+    def bind_prefix_override(self, section_path: list[dict[str, Any]]) -> None:
+        """Render one synthetic local path without changing legacy cache keys."""
+        self._prefix_overrides[id(section_path)] = _format_section_path(section_path)
 
     def _prefix_tokens_for(self, section_path: list[dict[str, Any]]) -> int:
         return self._count(self._prefix_for(section_path))
@@ -1141,6 +1197,7 @@ def chunk_document(
         valid_pages=valid_pages,
     )
     builder.bind_elements(elements)
+    list_guides = _guided_list_pairs(elements)
 
     # T09 (ledger docs only): explanation elements that are PRIMARY-bound to a
     # formula leave ordinary text chunking -- they exist once, inside the
@@ -1195,6 +1252,24 @@ def chunk_document(
 
     prev_candidate = False
     for element in elements:
+        guide_pair = list_guides.get(str(element.get("element_id") or ""))
+        if guide_pair:
+            introduction_id, guide = guide_pair
+            introduction = builder._element_lookup[introduction_id]
+            intro_text = _project_text(introduction) or ""
+            item_text = _project_text(element) or ""
+            prefix = builder._prefix_for(element.get("section_path") or [])
+            # A short introduction and its list are ordinary adjacent units:
+            # keep both element identities in one chunk.  Only when the pair
+            # exceeds the configured chunk size do continuation shards carry
+            # the introduction in their local section prefix.
+            if count_fn(prefix + intro_text + "\n" + item_text) > builder._token_budget:
+                builder.flush()
+                element = dict(element)
+                element["section_path"] = _guided_list_section_path(
+                    element.get("section_path") or [], guide)
+                builder.bind_prefix_override(element["section_path"])
+                builder._element_lookup[element["element_id"]] = element
         etype = element.get("type")
         role = element.get("role")
 

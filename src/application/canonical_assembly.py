@@ -74,6 +74,9 @@ _HEADER_FOOTER_MAX_LEN = 60  # only short texts (<=60 chars post-strip)
 _BARE_NUM_RE = re.compile(r"^(\d+)(?:\s|$)")
 _DOTTED_NUM_RE = re.compile(r"^(\d+(?:\.\d+)+)")
 _PAREN_NUM_RE = re.compile(r"\(([0-9][0-9.\-]*)\)")
+_ISOLATED_FORMULA_NUMBER_RE = re.compile(
+    r"^\s*\((\d+|\d+(?:\.\d+){1,3}-\d+)\)\s*$"
+)
 _PAGE_NUM_RE = re.compile(r"^[•·]?\s*\d+\s*[•··]?$")
 _CHINESE_RE = re.compile(r"[一-鿿]")
 _TABLE_CAPTION_RE = re.compile(r"^(续)?表\s*\d")
@@ -438,6 +441,8 @@ def assemble_document(
     for i, slot in enumerate(global_slots):
         slot.source_index = i
 
+    adjacent_formula_number_indices = _associate_adjacent_formula_numbers(global_slots)
+
     # 1b. Header / footer recurring-text detection. ---------------------------
     # A short text recurring in the same top/bottom band across many pages is
     # a running header/footer; mark it so _infer_text_role returns the right
@@ -539,7 +544,7 @@ def assemble_document(
     # consumes text by containment -- text inside a figure bbox stays an
     # independent text element unless the PI caption provides an explicit,
     # uniquely checkable identity for it (see below).
-    consumed_indices: set[int] = set()
+    consumed_indices: set[int] = set(adjacent_formula_number_indices)
     # Consumed-text traceability (REJECT requirement 6): for each consuming
     # structured slot, record the identity of every text element it consumes
     # (upstream element id, page, bbox) so the dedup is traceable, not a
@@ -2312,10 +2317,11 @@ def _infer_text_role(slot: _PageItem, heading: HeadingNode | None) -> str:
     v3_role = slot.extra.get("v3_role")
     if v3_role:
         if v3_role == "toc":
-            return "paragraph"
+            return "toc_navigation_only"
         if v3_role in {
             "document_title", "heading", "clause", "paragraph", "list_item",
             "header", "footer", "page_number", "watermark", "unknown",
+            "front_matter",
         }:
             return v3_role
     raw = (slot.text or "").strip()
@@ -2385,6 +2391,11 @@ def _build_formula_element(
     formula_number = _extract_formula_number(slot, global_slots)
     context_text, context_spans = _gather_formula_context(slot, global_slots, span_counter)
     primary_span = _make_span(span_counter, "primary", slot.page, slot.bbox)
+    number_span = (
+        [_make_span(span_counter, "context", slot.page,
+                    slot.extra["adjacent_formula_number_bbox"])]
+        if slot.extra.get("adjacent_formula_number_bbox") else []
+    )
     section_path = build_section_path(headings, slot.source_index)
     score = slot.extra.get("score")
     region = slot.ref or {}
@@ -2435,7 +2446,7 @@ def _build_formula_element(
             "recognized_formula": None,
             "context_text": context_text,
         },
-        "source_spans": [primary_span] + context_spans + relation_spans,
+        "source_spans": [primary_span] + number_span + context_spans + relation_spans,
         "provenance": provenance,
         "links": [],
         "quality_status": _STRUCTURED_QUALITY,
@@ -2451,6 +2462,9 @@ def _build_formula_element(
 
 def _extract_formula_number(slot: _PageItem, global_slots: list[_PageItem]) -> str | None:
     """Find a ``(N)`` style number in the native text overlapping the formula."""
+    adjacent = slot.extra.get("adjacent_formula_number")
+    if adjacent:
+        return str(adjacent)
     for t in global_slots:
         if t.kind != "text" or t.page != slot.page:
             continue
@@ -2460,6 +2474,43 @@ def _extract_formula_number(slot: _PageItem, global_slots: list[_PageItem]) -> s
         if m:
             return m.group(1)
     return None
+
+
+def _associate_adjacent_formula_numbers(global_slots: list[_PageItem]) -> set[int]:
+    """Attach a geometrically adjacent isolated number to its formula.
+
+    Only the immediately following reading-order slot may qualify.  This keeps
+    ordinary parenthesized list markers untouched while covering numbers set
+    just to the right of, or immediately below, a display formula.
+    """
+    consumed: set[int] = set()
+    for index, formula in enumerate(global_slots[:-1]):
+        number = global_slots[index + 1]
+        if formula.kind != "formula" or number.kind != "text" or formula.page != number.page:
+            continue
+        match = _ISOLATED_FORMULA_NUMBER_RE.match(number.text or "")
+        if not match:
+            continue
+        fx, nb = formula.bbox, number.bbox
+        fh = max(1.0, fx[3] - fx[1])
+        nh = max(1.0, nb[3] - nb[1])
+        horizontal_gap = max(0.0, max(fx[0], nb[0]) - min(fx[2], nb[2]))
+        vertical_gap = max(0.0, max(fx[1], nb[1]) - min(fx[3], nb[3]))
+        horizontal_overlap = min(fx[2], nb[2]) - max(fx[0], nb[0])
+        vertical_overlap = min(fx[3], nb[3]) - max(fx[1], nb[1])
+        scale = 2.0 * max(fh, nh)
+        right_adjacent = (
+            nb[0] >= fx[0] and vertical_overlap >= 0 and horizontal_gap <= scale
+        )
+        below_adjacent = (
+            nb[1] >= fx[1] and horizontal_overlap >= 0 and vertical_gap <= scale
+        )
+        if not (right_adjacent or below_adjacent):
+            continue
+        formula.extra["adjacent_formula_number"] = match.group(1)
+        formula.extra["adjacent_formula_number_bbox"] = list(nb)
+        consumed.add(number.source_index)
+    return consumed
 
 
 def _walk_formula_context(

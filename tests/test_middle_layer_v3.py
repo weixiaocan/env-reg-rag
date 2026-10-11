@@ -9,6 +9,10 @@ from src.ingestion.block_assembly import (
     prepare_page_document_v3,
     split_clause_lines,
 )
+from src.application.canonical_assembly import (
+    _PageItem,
+    _associate_adjacent_formula_numbers,
+)
 from src.ingestion.ocr_region_text import (
     find_adjacent_duplicate_fragments,
     recover_source_supported_occlusion_fragments,
@@ -303,29 +307,95 @@ def test_vote_recovers_only_source_supported_occluded_fragments() -> None:
     assert repairs == []
 
 
-def test_region_text_restores_evidenced_k0_prefix_hidden_by_formula_region() -> None:
+@pytest.mark.parametrize("variable,definition", [
+    ("z1", "糊率系数(m-1)，按试验值确定；"),
+    ("beta", "衰减参数(h-1)，可取0.2～0.8。"),
+])
+def test_region_text_restores_any_evidenced_variable_prefix_hidden_by_formula_region(
+    variable: str, definition: str,
+) -> None:
     page = {
         "physical_page": 15, "width": 400, "height": 600,
         "regions": [{
             "region_id": "text-definition", "kind": "text", "model_label": "text",
             "bbox": [70, 480, 240, 500],
-            "text": "k0\n衰减常数(h-1)，可取2~7；",
+            "text": f"{variable}\n——{definition}",
         }],
         "elements": [{
             "element_id": "merged-suffix", "type": "text",
-            "text": "衰减常数(h-1)，可取2~7；",
+            "text": definition,
             "bbox": [110, 488, 235, 498],
             "_v3_assigned_region_id": "text-definition",
         }],
     }
     blocks = build_page_blocks(page)
-    assert blocks[0]["text"] == "k0衰减常数(h-1)，可取2~7；"
+    assert blocks[0]["text"] == f"{variable}——{definition}"
     assert blocks[0]["_v3_region_text_fallback"] is True
 
     page["elements"] = []
     page["_v3_ocr_region_text"] = True
     blocks = build_page_blocks(page)
-    assert blocks[0]["text"] == "k0衰减常数(h-1)，可取2~7；"
+    assert blocks[0]["text"] == f"{variable}——{definition}"
+
+
+def test_toc_leader_page_is_navigation_only_but_prose_ellipsis_is_body() -> None:
+    toc = build_page_blocks({
+        "physical_page": 5, "width": 560, "height": 842,
+        "elements": [
+            _line("本规程用词说明 …………58", 100),
+            _line("附录A 调查表........61", 130),
+        ],
+        "regions": [
+            {"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 120]},
+            {"region_id": "r2", "model_label": "text", "bbox": [45, 125, 520, 150]},
+        ],
+    })
+    assert {block["_v3_role"] for block in toc} == {"toc"}
+
+    prose = build_page_blocks({
+        "physical_page": 12, "width": 560, "height": 842,
+        "elements": [_line("如果管道堵塞……应及时疏通。", 100)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 125]}],
+    })
+    assert prose[0]["_v3_role"] == "paragraph"
+
+
+def test_cover_before_first_structural_page_is_front_matter_without_filename_rule() -> None:
+    doc = prepare_page_document_v3({
+        "sha256": "b" * 64, "file_name": "arbitrary-name.pdf", "pages": [
+            {
+                "physical_page": 1, "width": 560, "height": 842,
+                "elements": [_line("中 国 工 程 建 设 协 会 标 准", 120)],
+                "regions": [{"region_id": "cover", "model_label": "doc_title",
+                             "bbox": [80, 100, 480, 180]}],
+            },
+            {
+                "physical_page": 2, "width": 560, "height": 842,
+                "elements": [_line("前言", 100)],
+                "regions": [{"region_id": "preface", "model_label": "paragraph_title",
+                             "bbox": [220, 90, 340, 130]}],
+            },
+        ],
+    })
+    assert doc["pages"][0]["elements"][0]["_v3_role"] == "front_matter"
+    assert doc["pages"][1]["elements"][0]["_v3_role"] == "heading"
+
+
+def test_isolated_adjacent_formula_number_is_consumed_by_formula() -> None:
+    formula = _PageItem(kind="formula", page=7, bbox=[80, 200, 380, 240],
+                        extra={"latex": "Q=A v"}, source_index=0)
+    number = _PageItem(kind="text", page=7, bbox=[390, 210, 430, 230],
+                       text="(5.4.1-2)", source_index=1)
+    unrelated = _PageItem(kind="text", page=7, bbox=[80, 300, 120, 320],
+                          text="(3)", source_index=2)
+    consumed = _associate_adjacent_formula_numbers([formula, number, unrelated])
+    assert consumed == {1}
+    assert formula.extra["adjacent_formula_number"] == "5.4.1-2"
+    assert "adjacent_formula_number" not in unrelated.extra
+
+    far_same_row = _PageItem(kind="text", page=7, bbox=[900, 210, 930, 230],
+                             text="(6)", source_index=3)
+    assert _associate_adjacent_formula_numbers([formula, far_same_row]) == set()
 
 
 def test_split_native_number_prefix_and_appendix_hierarchy() -> None:

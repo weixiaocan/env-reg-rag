@@ -130,6 +130,16 @@ class RoleFilterTest(unittest.TestCase):
         for c in chunks:
             self.assertNotIn("• 1 •", c.text)
 
+    def test_navigation_and_front_matter_are_dropped(self):
+        doc = _canonical([
+            _text_element("e1", "toc_navigation_only", "前言........1"),
+            _text_element("e2", "front_matter", "T/CECS 1764-2024"),
+            _text_element("e3", "clause", "1.0.1 正文。"),
+        ])
+        chunks = _chunk(doc)
+        ids = [eid for chunk in chunks for eid in chunk.element_ids]
+        self.assertEqual(ids, ["e3"])
+
 
 class ClauseBreakpointTest(unittest.TestCase):
     def test_clause_start_flushes_previous(self):
@@ -196,6 +206,44 @@ class ShortClauseMergeTest(unittest.TestCase):
         # all three ids appear across chunks
         ids = {eid for c in chunks for eid in c.element_ids}
         self.assertEqual(ids, {"e1", "e2", "e3"})
+
+    def test_clause_introduction_stays_with_items_or_prefixes_overflow_shards(self):
+        sp = [{"label": "8.5.1", "title": None}]
+        intro = _text_element(
+            "e1", "clause", "8.5.1 井室应符合下列要求：", section_path=sp)
+        items = "\n".join(
+            f"{index} 第{index}项应符合设计要求并保留检查记录；"
+            for index in range(1, 45)
+        )
+        doc = _canonical([
+            intro,
+            _text_element("e2", "list_item", items, section_path=sp),
+        ])
+        chunks = chunk_document(
+            doc, tokenizer=_CharTokenizer(), token_budget=80, overlap=8)
+        item_chunks = [chunk for chunk in chunks if "第" in chunk.text]
+        self.assertGreater(len(item_chunks), 1)
+        self.assertTrue(all(
+            "8.5.1 井室应符合下列要求：" in chunk.text
+            for chunk in item_chunks
+        ))
+
+    def test_clause_introduction_and_short_items_share_one_chunk(self):
+        sp = [{"label": "6.2.1", "title": None}]
+        doc = _canonical([
+            _text_element(
+                "e1", "clause", "6.2.1 检查井应符合下列要求：", section_path=sp),
+            _text_element(
+                "e2", "list_item", "1 井盖应完整；\n2 井壁应无渗漏。", section_path=sp),
+        ])
+
+        chunks = chunk_document(
+            doc, tokenizer=_CharTokenizer(), token_budget=120, overlap=8)
+
+        self.assertEqual(len(chunks), 1)
+        self.assertEqual(chunks[0].element_ids, ["e1", "e2"])
+        self.assertIn("6.2.1 检查井应符合下列要求：", chunks[0].text)
+        self.assertIn("1 井盖应完整", chunks[0].text)
 
 
 class IntraClauseSplitTest(unittest.TestCase):

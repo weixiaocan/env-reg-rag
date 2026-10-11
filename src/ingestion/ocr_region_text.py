@@ -218,12 +218,16 @@ def recover_source_supported_occlusion_fragments(
         value = source_texts.get(source)
         if not value:
             continue
-        match = re.match(r"^\s*([A-Za-z][A-Za-z0-9]{0,3})\s*([—-]{1,3})\s*(.+)$", value)
-        # R2c's two evidenced occlusion cases are the variables ``k0`` and
-        # ``tx`` on the same source page.  Keep this an explicit allow-list:
-        # restoring every formula symbol seen by one OCR source changed
-        # unrelated gold-anchor text in a trial rollout.
-        if not match or match.group(1).lower() not in {"k0", "tx"}:
+        match = re.match(
+            r"^\s*([A-Za-zΑ-Ωα-ω][A-Za-z0-9_Α-Ωα-ω]{0,15})\s*"
+            r"((?:—{2,}|-{2,}))\s*(.+)$",
+            value,
+        )
+        # This is deliberately symbol-agnostic.  The exact normalized suffix
+        # equality is the evidence gate: a single OCR source may restore only
+        # the variable-definition prefix that the merged line demonstrably
+        # lost, never arbitrary formula text.
+        if not match:
             continue
         suffix = normalize_line(match.group(3))
         if suffix and merged_normalized == suffix:

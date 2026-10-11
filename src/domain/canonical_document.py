@@ -17,7 +17,8 @@ SCHEMA_VERSION: SchemaVersion = "v2.canonical/1.0"
 ElementType = Literal["text", "table", "formula", "figure"]
 TextRole = Literal[
     "document_title", "heading", "clause", "paragraph", "list_item",
-    "header", "footer", "page_number", "watermark", "unknown",
+    "header", "footer", "page_number", "watermark", "toc_navigation_only",
+    "front_matter", "unknown",
 ]
 SpanRole = Literal["primary", "continuation", "caption", "context", "note"]
 ProvenanceOperation = Literal["detect", "extract", "recognize", "classify", "merge", "crop"]
