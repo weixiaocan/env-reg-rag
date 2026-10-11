@@ -542,3 +542,10 @@ def test_number_only_heading_joins_following_term_heading() -> None:
     })
     assert blocks[0]["text"] == "2.1 降雨量 rainfall"
     assert blocks[0]["_v3_heading"]["label"] == "2.1"
+
+
+def test_unnumbered_back_matter_title_is_a_top_level_heading() -> None:
+    from src.ingestion.block_assembly import heading_descriptor
+    assert heading_descriptor("参 考 文 献", is_title=True) == {
+        "label": "参考文献", "title": None, "level": 1}
+    assert heading_descriptor("参考文献", is_title=False) is None

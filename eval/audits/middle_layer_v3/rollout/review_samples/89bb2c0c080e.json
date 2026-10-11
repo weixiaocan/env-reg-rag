@@ -8,7 +8,7 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_d04f3a789aa44da2ac765f37c931d587",
+      "chunk_id": "chunk_68850dae2e5d011c1424e64f314c8992",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "3 单站降雨过程等级 > 3.2 单站降雨过程等级",
       "section_labels": [
@@ -38,7 +38,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_defc77667945036a1e2ab2b53bd553ac",
+      "chunk_id": "chunk_1ad733b3c3edacb4076ad5f38a7246d6",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "3 单站降雨过程等级 > 3.1 单站日降雨量等级",
       "section_labels": [
@@ -68,7 +68,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_197bfb3bd5b389c1c079f4c238af0b2e",
+      "chunk_id": "chunk_a551e20187f53e04e3d4e4282c80ac03",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "",
       "section_labels": [],
@@ -131,7 +131,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_6cd6eecc7a2839d358c54f0b655f8f6d",
+      "chunk_id": "chunk_d0bad9360638c2e26bf1b1c0faaba8f2",
       "document": "QXT 489－2019 降雨过程等级.pdf",
       "section_path": "2 术语和定义 > 2.1 降雨过程 rainfall process",
       "section_labels": [
@@ -161,12 +161,11 @@
       ]
     },
     {
-      "chunk_id": "chunk_4633bf0cd502c23f1a21cab00735acb0",
+      "chunk_id": "chunk_29d04aa01874223347ccf046c1082517",
       "document": "QXT 489－2019 降雨过程等级.pdf",
-      "section_path": "4 区域降雨过程等级 > 4.2 区域降雨过程等级",
+      "section_path": "参考文献",
       "section_labels": [
-        "4",
-        "4.2"
+        "参考文献"
       ],
       "body": "[1] GB/T 21984—2017 短期天气预报\n[2《大气科学辞典》编委会.大气科学辞典[M].北京：气象出版社，1994：677，408\n中华人民共和国\n气象行业标准\n降雨过程等级\nQX/T 489—2019\n气象出版社出版发行\n北京市海淀区中关村南大街46号\n邮政编码：100081\n网址:http://www.qxcbs.com\n发行部：010-68408042\n北京中科印刷有限公司印刷\n开本：880 mm×1230 mm 1/16 印张：0.75 字数：22.5千字\n2019年9月第一版2019年9月第一次印刷\n书号：135029-6061 定价：15.00元\n如有印装差错由本社发行部调换\n版权专有侵权必究\n举报电话：(010)68406301",
       "element_types": [

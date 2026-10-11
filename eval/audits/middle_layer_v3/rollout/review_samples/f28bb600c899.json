@@ -8,7 +8,7 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_94a52532adc09f35629088a682af4421",
+      "chunk_id": "chunk_6bbafef5e0d4e80f1e55b999818863ec",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "4 降雨量等级划分",
       "section_labels": [
@@ -55,7 +55,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_31e012bdff99395a38343841d212112d",
+      "chunk_id": "chunk_87a41328b761f60d9f9001deeeea47ec",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "",
       "section_labels": [],
@@ -118,7 +118,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_a7dffb54ded0e9328c57492a652e9ee3",
+      "chunk_id": "chunk_7a7ae298e3d7a9088cee892fda731c0a",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "3 降水量等级划分的原则",
       "section_labels": [
@@ -147,7 +147,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_b18efe2173ed94b54787b67098d3d550",
+      "chunk_id": "chunk_7080215fc3786465b08bf3de702d839d",
       "document": "GBT 28592-2012降水量等级.pdf",
       "section_path": "5 降雪量等级划分",
       "section_labels": [
@@ -185,11 +185,11 @@
       ]
     },
     {
-      "chunk_id": "chunk_79065977ebca1cc14c61c6323c02a4eb",
+      "chunk_id": "chunk_0f38def609d1218521a7465f4b648a27",
       "document": "GBT 28592-2012降水量等级.pdf",
-      "section_path": "5 降雪量等级划分",
+      "section_path": "参考文献",
       "section_labels": [
-        "5"
+        "参考文献"
       ],
       "body": "[1]《大气科学辞典》编委会.大气科学辞典.北京：气象出版社，1994.b√\n[2]地面气象观测规范.北京：气象出版社，2003.\n[3]朱炳海，王鹏飞，束家鑫主编.气象学词典.上海：上海辞书出版社，1985.\n[4]中国气象局第16号令.气象灾害预警信号发布与传播办法.北京，2007年6月12日发布.\n中华人民共和国\n国家标准\n降水量等级\nGB/T 285922012\n中国标准出版社出版发行\n北京市朝阳区和平里西街甲2号(100013)\n北京市西城区三里河北街16号(100045）\n网址 www.spc.net.cn\n总编室：(010)64275323 发行中心：(010)51780235\n读者服务部：(010)68523946\n中国标准出版社秦皇岛印刷厂印刷\n各地新华书店经销\n开本 880 ×1230 1/16 印张 0.5 字数 7 千字\n2012年8月第一版2012年8月第一次印刷\n书号：155066·1-45386 定价 14.00 元\n如有印装差错由本社发行中心调换\n版权专有侵权必究\n举报电话：(010)68510107",
       "element_types": [

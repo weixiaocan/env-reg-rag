@@ -93,8 +93,8 @@
   "summary": {
     "v3": {
       "element_count": 10806,
-      "chunk_count": 3886,
-      "text_body_chunk_count": 3468,
+      "chunk_count": 3885,
+      "text_body_chunk_count": 3467,
       "body_page_number_footer_watermark_lines": 0,
       "sentence_ended_heading_count": 0,
       "body_breadcrumb_count": 0,
@@ -103,7 +103,7 @@
       "short_body_chunk_lt15_count": 82,
       "ocr_text_source_element_count": 7796,
       "ocr_text_source_missing_run_id_count": 0,
-      "short_body_chunk_lt15_ratio": 0.023645,
+      "short_body_chunk_lt15_ratio": 0.023652,
       "element_type_counts": {
         "text": 10279,
         "table": 239,
@@ -19951,10 +19951,10 @@
         "short_body_chunk_lt15_count": 4,
         "short_body_chunk_lt15_ratio": 0.020942,
         "short_body_chunk_ids": [
-          "chunk_674f25971168d0331ad42fe146ff5622",
-          "chunk_63ab2eaaaa4f993e740bbb8deaf31f5a",
-          "chunk_26162861d3b4f98eacfb96bea5b99318",
-          "chunk_92d993244453425772221f1a6ca85f53"
+          "chunk_a617aada9fc533b831d024bd85fe0625",
+          "chunk_7520ca5171530592d9fcf6dc0a7d0dca",
+          "chunk_4ac45add12a67f24df18608f8b1d3c2d",
+          "chunk_728bd81665349f3a15e84d7739a2903e"
         ],
         "ocr_text_source_element_count": 545,
         "ocr_text_source_counts": {
@@ -20945,8 +20945,8 @@
         "short_body_chunk_lt15_count": 2,
         "short_body_chunk_lt15_ratio": 0.090909,
         "short_body_chunk_ids": [
-          "chunk_6570ba71c2cde7e9f3e5dd45c3d05851",
-          "chunk_b8206e07f8be776960489c6dddbfc384"
+          "chunk_f0274495745071fa4c763ea24bef8c4d",
+          "chunk_3fbe47ad5ff15f8a875179cdd1685530"
         ],
         "ocr_text_source_element_count": 101,
         "ocr_text_source_counts": {
@@ -21134,7 +21134,7 @@
         "short_body_chunk_lt15_count": 1,
         "short_body_chunk_lt15_ratio": 0.012195,
         "short_body_chunk_ids": [
-          "chunk_c9ecf8bf639321a8cd63b58e6b2b9eaa"
+          "chunk_8a8725b940b34807c2f86bd159d09ec7"
         ],
         "ocr_text_source_element_count": 290,
         "ocr_text_source_counts": {
@@ -22167,9 +22167,9 @@
         "short_body_chunk_lt15_count": 3,
         "short_body_chunk_lt15_ratio": 0.014218,
         "short_body_chunk_ids": [
-          "chunk_5eebf6629f5fc2ca1ff6609dfab6c8a5",
-          "chunk_8eeef7bac59cf3a5ab293fe76a6ad7bc",
-          "chunk_d8fb04bd9d210f51a6c61546871eae90"
+          "chunk_02689cdbdb8652ce57974dc3b9b17d6b",
+          "chunk_b0f58e5d885361aa42091d4359fbc6cf",
+          "chunk_7c07ea7ee114ff916c3a299506f393a8"
         ],
         "ocr_text_source_element_count": 0,
         "ocr_text_source_counts": {},
@@ -24769,12 +24769,12 @@
         "short_body_chunk_lt15_count": 6,
         "short_body_chunk_lt15_ratio": 0.046875,
         "short_body_chunk_ids": [
-          "chunk_3fab46a94f289c3f71a8ad3c17b9dd9b",
-          "chunk_2e60fca082c67126cd11525e06644f28",
-          "chunk_7ce8942434c90973c9398b1d5cf6ca85",
-          "chunk_1dded7f6b3416e7db1369ae7ee8a8df8",
-          "chunk_44093d01d87d8695e7645bbba0cf1ca6",
-          "chunk_b0f551f8bfa368d710163cc6e6265661"
+          "chunk_e11c4a2102243a9f400a4d3028baf5ae",
+          "chunk_b2600ab689a9d69c2466c874aef55899",
+          "chunk_c7ffbc277ecdacb8b960d1bbdf9ba70c",
+          "chunk_072b254febc043a9a6bae9bddb43f0e5",
+          "chunk_4635f049d6c0b5280ea754cebb72c6b7",
+          "chunk_2a4c7b445ec98ba271a05f7154815c25"
         ],
         "ocr_text_source_element_count": 0,
         "ocr_text_source_counts": {},
@@ -25145,8 +25145,8 @@
         "short_body_chunk_lt15_count": 2,
         "short_body_chunk_lt15_ratio": 0.166667,
         "short_body_chunk_ids": [
-          "chunk_8bce09573f3a0b38c3fc9755e92320a4",
-          "chunk_e4fc2dabba6e802c8ac7b9daf2f99d4e"
+          "chunk_4b52b3f929e13a977fcfd65ea4091d27",
+          "chunk_b701a2393277171ee2ce22828adcbe9c"
         ],
         "ocr_text_source_element_count": 61,
         "ocr_text_source_counts": {
@@ -26228,10 +26228,10 @@
         "short_body_chunk_lt15_count": 4,
         "short_body_chunk_lt15_ratio": 0.027778,
         "short_body_chunk_ids": [
-          "chunk_49612559d3191f4ccd3db45214caf709",
-          "chunk_769e5cec6f0ae5c4f0b29133bbb16059",
-          "chunk_76e789c5c6bee4a7514fca80ab513001",
-          "chunk_783c53042818f3421d60344d3651c0e4"
+          "chunk_c34ed100a34655c9fca3e82046d34c41",
+          "chunk_11c61f70abce51ce6a60e05151c56ac6",
+          "chunk_b146015dbf9e3876518551d3690d8921",
+          "chunk_f254120507e62411756e9511ebba2b03"
         ],
         "ocr_text_source_element_count": 406,
         "ocr_text_source_counts": {
@@ -26539,7 +26539,7 @@
             "pipeline_introduced_count": 0,
             "occurrences": [
               {
-                "chunk_id": "chunk_1fe35c2a9e56cc1bd1dd6161ee0b304b",
+                "chunk_id": "chunk_8b01b3ef9b6f93248763d7916feea745",
                 "pages": [
                   16,
                   17
@@ -26550,7 +26550,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_1fe35c2a9e56cc1bd1dd6161ee0b304b",
+                "chunk_id": "chunk_8b01b3ef9b6f93248763d7916feea745",
                 "pages": [
                   16,
                   17
@@ -26901,7 +26901,7 @@
         "short_body_chunk_lt15_count": 1,
         "short_body_chunk_lt15_ratio": 0.142857,
         "short_body_chunk_ids": [
-          "chunk_60dcef609ec225d7c683d07258080525"
+          "chunk_e729cb0e74178c646eb4a65b94909fa3"
         ],
         "ocr_text_source_element_count": 0,
         "ocr_text_source_counts": {},
@@ -27075,18 +27075,18 @@
         "short_body_chunk_lt15_count": 12,
         "short_body_chunk_lt15_ratio": 0.016064,
         "short_body_chunk_ids": [
-          "chunk_c42849d71ca4be119e959aa8a9f49424",
-          "chunk_bb0b4476ea625b0eeff2f79db74a623a",
-          "chunk_86f41e34f6ee4cccfa0cf6d450df3282",
-          "chunk_6cd8c08c4a48103681401c4ca9be74a0",
-          "chunk_7508d8c303b72579b325d2b76f429fb5",
-          "chunk_53a030176ca541b43c4e22287d4c1412",
-          "chunk_cfce8dff7e79ca6bb986e45c4c7fe4d4",
-          "chunk_f8cec09a4d46f4c9fb8e2780d5aadbb2",
-          "chunk_64a810db2604e2d613501102e5fcec50",
-          "chunk_b6cc20c3507ee05697aa5ef0b3e7a09d",
-          "chunk_edb29c95c75967f52d9b3b9fe9fa0dd9",
-          "chunk_8c61612b6baf585dc46539a62e0cce8d"
+          "chunk_0dfb3affff2d432d6ef9a1bb2057d1cb",
+          "chunk_7a9408889e10f0256832100c594cb865",
+          "chunk_829be5e5325e832b4b7162779aaa9cc4",
+          "chunk_9d798c7b42e6262c8108540760387291",
+          "chunk_f28d486cbc0dc74f5baadade435bb1f2",
+          "chunk_82770d3d9bba7fb926f4580c777a71d8",
+          "chunk_e2bd6ed4d7563296d64736e75dc5d604",
+          "chunk_304d43c70359b09f7bababfe36d6d1af",
+          "chunk_cce97cccfbd5d6f45cc2094f3c9e1e22",
+          "chunk_ed95805e2fd2d9f42983e217871a094a",
+          "chunk_9782d03c463be4de2a5d32fd913ea538",
+          "chunk_fecdf6669a70d6d1c9fece028d5ba1a2"
         ],
         "ocr_text_source_element_count": 1576,
         "ocr_text_source_counts": {
@@ -27422,7 +27422,7 @@
             "pipeline_introduced_count": 1,
             "occurrences": [
               {
-                "chunk_id": "chunk_f8a8739e9aadcc08113562921eb5328e",
+                "chunk_id": "chunk_e94b01d4450e8fb9a8b13a4adec2dec1",
                 "pages": [
                   2
                 ],
@@ -27432,7 +27432,7 @@
                 "judgement": "pipeline_introduced"
               },
               {
-                "chunk_id": "chunk_b461531c63787ae6bd7b5de926027526",
+                "chunk_id": "chunk_1589a0bc2129afcc9fffd5d7c03eaad9",
                 "pages": [
                   90
                 ],
@@ -30414,8 +30414,8 @@
           "table": 8,
           "formula": 2
         },
-        "chunk_count": 195,
-        "text_body_chunk_count": 186,
+        "chunk_count": 194,
+        "text_body_chunk_count": 185,
         "body_page_number_footer_watermark_lines": 0,
         "body_furniture_examples": [],
         "sentence_ended_heading_count": 0,
@@ -30426,10 +30426,10 @@
         "list_item_root_count": 0,
         "list_item_root_labels": [],
         "short_body_chunk_lt15_count": 2,
-        "short_body_chunk_lt15_ratio": 0.010753,
+        "short_body_chunk_lt15_ratio": 0.010811,
         "short_body_chunk_ids": [
-          "chunk_9f86d56a59f054c6efc56ddf6d6abc0c",
-          "chunk_2ad0179eb9a3a0310e8ba9fbdbebccc1"
+          "chunk_bc36f920477f37a46f0f76490846912b",
+          "chunk_4ffb42cf74a5e4c0073fd953b6f57014"
         ],
         "ocr_text_source_element_count": 488,
         "ocr_text_source_counts": {
@@ -33081,7 +33081,7 @@
         "short_body_chunk_lt15_count": 1,
         "short_body_chunk_lt15_ratio": 0.125,
         "short_body_chunk_ids": [
-          "chunk_803f9cae58c49cb607f3b28f9974da9e"
+          "chunk_cb2d5d7b25c443189f2492f1b5befb1d"
         ],
         "ocr_text_source_element_count": 48,
         "ocr_text_source_counts": {
@@ -33851,16 +33851,16 @@
         "short_body_chunk_lt15_count": 10,
         "short_body_chunk_lt15_ratio": 0.049751,
         "short_body_chunk_ids": [
-          "chunk_ce27dd5b79f45fb7e028896d04a60e77",
-          "chunk_867e109f8d2881472f72552430012d9a",
-          "chunk_9eb802a812bb8179bee4fdd709daef71",
-          "chunk_7a1264444f8d699f69960bf9912ef91e",
-          "chunk_60fe32bc315d8b7232c3c3a7ab18c948",
-          "chunk_d598b0f9a567b74658a750573d145f54",
-          "chunk_fe7b8d76c292c33bdda5800f305d13c2",
-          "chunk_26bf2e8b93fd5936ef4fc8eb959d1b04",
-          "chunk_a97601ea0767457aec966761c628011b",
-          "chunk_ee00c75ad74f37557d4450c055fb15bb"
+          "chunk_abd965daf0600a52c981bebba8875068",
+          "chunk_fd1dbba15af4fd5681b98ae6083acc29",
+          "chunk_53e77410ddef333609976eba1d936a5b",
+          "chunk_82ca0570e973de1a9492aadf94c1f7af",
+          "chunk_312451edd5f5d689b7b65bf876a04db3",
+          "chunk_5959673abbdb44071766768234545083",
+          "chunk_8310f8984339e64da1d76f0fb0a05d75",
+          "chunk_9cdf97775e852019f1277cccb18dc584",
+          "chunk_e1656038dcd43e2f03d492241da66455",
+          "chunk_e8e5863ab17caf4b54ac5af4e07d21e3"
         ],
         "ocr_text_source_element_count": 580,
         "ocr_text_source_counts": {
@@ -35128,20 +35128,20 @@
         "short_body_chunk_lt15_count": 14,
         "short_body_chunk_lt15_ratio": 0.017435,
         "short_body_chunk_ids": [
-          "chunk_e5cc0cd50079ab21b737310b85ad1e0c",
-          "chunk_605a814b07317c300c12f278c2bf54be",
-          "chunk_1621d16056b8fe105db11c66735633c9",
-          "chunk_2d0a7b48bc6313ebf2dba70c09100cb0",
-          "chunk_b64512a74a37fe09cb5fe63b20ef477c",
-          "chunk_85be9fcba88efdfd8cf9b4a06e759825",
-          "chunk_80b763c88e9f3e895fcf10333ce9d1f6",
-          "chunk_dfe5d1c11e9bb430acd3b37ed46906f5",
-          "chunk_c54330b1f8d32e08eb6a9d395febea2d",
-          "chunk_ef9140b309b417838c5ef2cc91f049c9",
-          "chunk_22655c4d970921713169ced0aeb1f2d6",
-          "chunk_fd6516f8382d53dfb462da3d8e6c6e90",
-          "chunk_83af264b4c571aa97cd8976d08c1a2c9",
-          "chunk_1c87ebbd4b52f473065a829ca3b5a1d2"
+          "chunk_30e94fd4b53f2aaa70391f8edda344ef",
+          "chunk_03f5a8919ecc89fbd731d2721b82ac91",
+          "chunk_c94ac598330564c43f72fac12258ef20",
+          "chunk_1d3fe156c8e8887092e2149d9213662f",
+          "chunk_42cf4ece32bd998a5885e8f829827334",
+          "chunk_01f0847d6cc4948c360c8fde6d2a35fd",
+          "chunk_5bbc5418eb05985d023d4959dc64afcb",
+          "chunk_a4cdebce7087c12aa6ef2154ae067bb5",
+          "chunk_6e5b4ef875cc12e158d812253bd19bdc",
+          "chunk_c0c4e52d3d4dca5312b015f6cbcd20f0",
+          "chunk_cfd2ca2d4412e6cbb8794b98425329da",
+          "chunk_b7bc532c3861041fe03f4bea16fcc257",
+          "chunk_efe8bfdccb6f1181605eb064781a3a7c",
+          "chunk_325fef7091ec78dd4646f71020a28b9d"
         ],
         "ocr_text_source_element_count": 3091,
         "ocr_text_source_counts": {
@@ -39913,7 +39913,7 @@
             "pipeline_introduced_count": 0,
             "occurrences": [
               {
-                "chunk_id": "chunk_e2a625c59a1feb6f2def8c8837f45e06",
+                "chunk_id": "chunk_5930536333f68016ad0324f14ec5e3b4",
                 "pages": [
                   94,
                   95
@@ -39924,7 +39924,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_555327ae8027e1d7dd3567c32b93e620",
+                "chunk_id": "chunk_4c743be28d51c600d55169ef53624268",
                 "pages": [
                   233
                 ],

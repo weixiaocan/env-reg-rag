@@ -52,6 +52,10 @@ _SPLIT_NUMBER_PREFIX = re.compile(
 _CHINESE_ONE = re.compile(r"^([一二三四五六七八九十]+、)\s*(.*)$")
 _CHINESE_PAREN = re.compile(r"^([（(][一二三四五六七八九十]+[）)])\s*(.*)$")
 _ROMAN = re.compile(r"^([ⅠⅡⅢⅣⅤⅥⅦⅧⅨⅩ]+)[、.．\s]*(.*)$")
+_BACK_MATTER_TITLES = {
+    "参考文献", "本标准用词说明", "本规范用词说明", "本规程用词说明", "本导则用词说明",
+    "引用标准名录", "条文说明", "附加说明", "修订说明", "编制说明",
+}
 _STRUCTURED = {"table", "formula", "formula_number", "figure_title", "image", "chart"}
 _TOC_LEADER_LINE = re.compile(r"^\s*\S.*?(?:…{4,}|\.{4,}|．{4,})\s*\d+\s*$")
 _STRUCTURAL_START = re.compile(r"^\s*(?:前\s*言|目\s*次|1\s*总\s*则|1\s*范\s*围)\s*$")
@@ -123,6 +127,10 @@ def heading_descriptor(text: str, *, is_title: bool = False, is_clause: bool = F
     match = _CHAPTER.match(first)
     if match:
         return _heading(match.group(1), match.group(2), 1)
+    if is_title and re.sub(r"\s+", "", first) in _BACK_MATTER_TITLES:
+        # Unnumbered back matter starts a new top-level section; otherwise it
+        # (and the colophon after it) is filed under the last numbered clause.
+        return _heading(re.sub(r"\s+", "", first), None, 1)
     match = _APPENDIX.match(first)
     if match:
         label = "附录" + _normalize_appendix_letter(match.group(2))
