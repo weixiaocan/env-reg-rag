@@ -76,6 +76,51 @@ def test_clause_split_requires_continuity_and_keeps_numeric_continuation() -> No
     assert len(split_clause_lines(continuation)) == 1
 
 
+def test_three_part_clause_split_tolerates_gaps_and_ignores_prose_numbers() -> None:
+    lines = [_line("7.6.31 第一条。", 100), _line("0.5 m/s 时取上限。", 115),
+             _line("7.6.33 第三条。", 130)]
+    assert [len(group) for group in split_clause_lines(lines)] == [2, 1]
+
+
+def _labels(blocks: list[dict]) -> list[str]:
+    return [str((block.get("_v3_heading") or {}).get("label") or "") for block in blocks]
+
+
+def test_clause_glued_to_latin_term_is_a_clause_start() -> None:
+    blocks = build_page_blocks({
+        "physical_page": 9, "width": 560, "height": 842,
+        "elements": [_line("7.6.32 前一条正文。", 100), _line("7.6.33SBR反应池的数量不宜少于2个。", 130)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 150]}],
+    })
+    assert "7.6.33" in _labels(blocks)
+    assert not any(_labels(build_page_blocks({
+        "physical_page": 9, "width": 560, "height": 842,
+        "elements": [_line("1.5m 以下的管道应加强巡查。", 100)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 125]}],
+    })))
+
+
+def test_inline_clause_after_sentence_end_and_after_continuation_splits() -> None:
+    inline = build_page_blocks({
+        "physical_page": 12, "width": 560, "height": 842,
+        "elements": [_line("3.1.1 规划内容包括污水处理要求。3.1.2 规划期限宜与总体规划一致。", 100)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 125]}],
+    })
+    assert _labels(inline)[:2] == ["3.1.1", "3.1.2"]
+    continuation = build_page_blocks({
+        "physical_page": 10, "width": 560, "height": 842,
+        "elements": [_line("建筑雨水立管旱天有污水流出。\n5.5.4 确认混错接点时应实地标注。", 100)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 125]}],
+    })
+    assert "5.5.4" in _labels(continuation)
+    reference = build_page_blocks({
+        "physical_page": 30, "width": 560, "height": 842,
+        "elements": [_line("应按本标准公式(4.1.23)计算，并符合第4.1.24条的规定。", 100)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 125]}],
+    })
+    assert not any(_labels(reference))
+
+
 def test_spaced_and_letter_o_clause_prefixes_are_normalized_for_structure() -> None:
     blocks = build_page_blocks({
         "physical_page": 1, "width": 397, "height": 575,
@@ -474,3 +519,12 @@ def test_r2b_baseline_snapshot_is_explicit_and_validated(tmp_path) -> None:
     )
     with pytest.raises(ValueError, match="source_commit"):
         _read_r2b_baseline_snapshot(snapshot)
+
+
+def test_wrapped_cross_reference_is_not_a_clause_start() -> None:
+    blocks = build_page_blocks({
+        "physical_page": 68, "width": 560, "height": 842,
+        "elements": [_line("5.10.3 防腐层应符合本规范第", 100), _line("5.10.4条的规定。", 115)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 520, 130]}],
+    })
+    assert _labels(blocks) == ["5.10.3"]

@@ -92,58 +92,29 @@
   },
   "summary": {
     "v3": {
-      "element_count": 10766,
-      "chunk_count": 3850,
-      "text_body_chunk_count": 3432,
+      "element_count": 10812,
+      "chunk_count": 3886,
+      "text_body_chunk_count": 3468,
       "body_page_number_footer_watermark_lines": 0,
       "sentence_ended_heading_count": 0,
       "body_breadcrumb_count": 0,
       "section_title_over_60_count": 0,
       "list_item_root_count": 0,
-      "short_body_chunk_lt15_count": 81,
-      "ocr_text_source_element_count": 7789,
+      "short_body_chunk_lt15_count": 82,
+      "ocr_text_source_element_count": 7802,
       "ocr_text_source_missing_run_id_count": 0,
-      "short_body_chunk_lt15_ratio": 0.023601,
+      "short_body_chunk_lt15_ratio": 0.023645,
       "element_type_counts": {
-        "text": 10239,
+        "text": 10285,
         "table": 239,
         "formula": 210,
         "figure": 78
       },
       "ocr_text_source_counts": {
-        "three_source_vote": 15483
+        "three_source_vote": 15706
       },
       "clause_number_continuity": {
         "missing": [
-          {
-            "document": "城镇内涝防治技术规范.pdf",
-            "sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
-            "namespace": "body",
-            "section": "2.1",
-            "label": "2.1.15",
-            "between_pages": [
-              9,
-              9
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 9,
-                "extraction_route": "full_ocr",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
           {
             "document": "城镇内涝防治技术规范.pdf",
             "sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
@@ -1214,276 +1185,6 @@
             ]
           },
           {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "5.5",
-            "label": "5.5.4",
-            "between_pages": [
-              10,
-              11
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 10,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              },
-              {
-                "physical_page": 11,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": false
-                }
-              }
-            ]
-          },
-          {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "5.5",
-            "label": "5.5.5",
-            "between_pages": [
-              10,
-              11
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 10,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              },
-              {
-                "physical_page": 11,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": false
-                }
-              }
-            ]
-          },
-          {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "5.8",
-            "label": "5.8.3",
-            "between_pages": [
-              11,
-              13
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 11,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": false
-                }
-              },
-              {
-                "physical_page": 13,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
-          {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "5.8",
-            "label": "5.8.4",
-            "between_pages": [
-              11,
-              13
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 11,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": false
-                }
-              },
-              {
-                "physical_page": 13,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
-          {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "6.3",
-            "label": "6.3.2",
-            "between_pages": [
-              15,
-              16
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 15,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              },
-              {
-                "physical_page": 16,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": false
-                }
-              }
-            ]
-          },
-          {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "6.3",
-            "label": "6.3.3",
-            "between_pages": [
-              15,
-              16
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 15,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              },
-              {
-                "physical_page": 16,
-                "extraction_route": "native",
-                "pp_clean": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": false,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": false
-                }
-              }
-            ]
-          },
-          {
             "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
             "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
             "namespace": "commentary",
@@ -1735,35 +1436,6 @@
             "document": "GB50014-2021+室外排水设计标准+预览.pdf",
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
-            "section": "5.2",
-            "label": "5.2.9",
-            "between_pages": [
-              30,
-              30
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 30,
-                "extraction_route": "full_ocr",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
             "section": "5.3",
             "label": "5.3.2",
             "between_pages": [
@@ -1785,93 +1457,6 @@
                 "primary": {
                   "available": true,
                   "contains_label": false
-                }
-              }
-            ]
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "section": "7.12",
-            "label": "7.12.16",
-            "between_pages": [
-              87,
-              87
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 87,
-                "extraction_route": "full_ocr",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "section": "7.13",
-            "label": "7.13.4",
-            "between_pages": [
-              88,
-              88
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 88,
-                "extraction_route": "full_ocr",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "section": "7.6",
-            "label": "7.6.33",
-            "between_pages": [
-              69,
-              69
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 69,
-                "extraction_route": "full_ocr",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
                 }
               }
             ]
@@ -1930,64 +1515,6 @@
                 "primary": {
                   "available": true,
                   "contains_label": false
-                }
-              }
-            ]
-          },
-          {
-            "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
-            "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
-            "namespace": "body",
-            "section": "3.1",
-            "label": "3.1.2",
-            "between_pages": [
-              12,
-              12
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 12,
-                "extraction_route": "scanned_with_text_layer",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
-          {
-            "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
-            "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
-            "namespace": "body",
-            "section": "6.1",
-            "label": "6.1.2",
-            "between_pages": [
-              23,
-              23
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 23,
-                "extraction_route": "scanned_with_text_layer",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
                 }
               }
             ]
@@ -2083,51 +1610,6 @@
             "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
             "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
             "namespace": "commentary",
-            "section": "5.2",
-            "label": "5.2.4",
-            "between_pages": [
-              50,
-              51
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 50,
-                "extraction_route": "scanned_with_text_layer",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              },
-              {
-                "physical_page": 51,
-                "extraction_route": "scanned_with_text_layer",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
-          {
-            "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
-            "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
-            "namespace": "commentary",
             "section": "6.1",
             "label": "6.1.2",
             "between_pages": [
@@ -2138,51 +1620,6 @@
               {
                 "physical_page": 57,
                 "extraction_route": "scanned_with_text_layer",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": false
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": false
-                }
-              }
-            ]
-          },
-          {
-            "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-            "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
-            "namespace": "body",
-            "section": "5.2",
-            "label": "5.2.3",
-            "between_pages": [
-              10,
-              11
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 10,
-                "extraction_route": "full_ocr",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              },
-              {
-                "physical_page": 11,
-                "extraction_route": "full_ocr",
                 "pp_clean": {
                   "available": true,
                   "contains_label": false
@@ -2347,80 +1784,6 @@
                 "pp_clean": {
                   "available": true,
                   "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": false
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": false
-                }
-              }
-            ]
-          },
-          {
-            "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-            "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
-            "namespace": "body",
-            "section": "3.0",
-            "label": "3.0.6",
-            "between_pages": [
-              14,
-              14
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 14,
-                "extraction_route": "scanned_with_text_layer",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              }
-            ]
-          },
-          {
-            "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-            "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
-            "namespace": "body",
-            "section": "5.3",
-            "label": "5.3.4",
-            "between_pages": [
-              22,
-              23
-            ],
-            "source_evidence": [
-              {
-                "physical_page": 22,
-                "extraction_route": "scanned_with_text_layer",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "pp_raw": {
-                  "available": true,
-                  "contains_label": true
-                },
-                "primary": {
-                  "available": true,
-                  "contains_label": true
-                }
-              },
-              {
-                "physical_page": 23,
-                "extraction_route": "scanned_with_text_layer",
-                "pp_clean": {
-                  "available": true,
-                  "contains_label": false
                 },
                 "pp_raw": {
                   "available": true,
@@ -5964,6 +5327,64 @@
             "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
             "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
             "namespace": "commentary",
+            "section": "6.7",
+            "label": "6.7.8",
+            "between_pages": [
+              236,
+              236
+            ],
+            "source_evidence": [
+              {
+                "physical_page": 236,
+                "extraction_route": "full_ocr",
+                "pp_clean": {
+                  "available": true,
+                  "contains_label": true
+                },
+                "pp_raw": {
+                  "available": true,
+                  "contains_label": true
+                },
+                "primary": {
+                  "available": true,
+                  "contains_label": true
+                }
+              }
+            ]
+          },
+          {
+            "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+            "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+            "namespace": "commentary",
+            "section": "6.7",
+            "label": "6.7.9",
+            "between_pages": [
+              236,
+              236
+            ],
+            "source_evidence": [
+              {
+                "physical_page": 236,
+                "extraction_route": "full_ocr",
+                "pp_clean": {
+                  "available": true,
+                  "contains_label": false
+                },
+                "pp_raw": {
+                  "available": true,
+                  "contains_label": false
+                },
+                "primary": {
+                  "available": true,
+                  "contains_label": false
+                }
+              }
+            ]
+          },
+          {
+            "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+            "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+            "namespace": "commentary",
             "section": "7.1",
             "label": "7.1.2",
             "between_pages": [
@@ -6711,6 +6132,24 @@
             ]
           },
           {
+            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+            "namespace": "body",
+            "section": "5.2",
+            "label": "5.2.6",
+            "count": 2,
+            "occurrences": [
+              {
+                "element_id": "e000339",
+                "page": 29
+              },
+              {
+                "element_id": "e000343",
+                "page": 29
+              }
+            ]
+          },
+          {
             "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
             "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
             "namespace": "body",
@@ -6765,6 +6204,24 @@
               {
                 "element_id": "e002402",
                 "page": 163
+              }
+            ]
+          },
+          {
+            "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+            "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+            "namespace": "commentary",
+            "section": "5.10",
+            "label": "5.10.1",
+            "count": 2,
+            "occurrences": [
+              {
+                "element_id": "e003014",
+                "page": 228
+              },
+              {
+                "element_id": "e003018",
+                "page": 228
               }
             ]
           }
@@ -7105,7 +6562,7 @@
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
             "label": "A.0.1",
-            "element_id": "e001630",
+            "element_id": "e001634",
             "pages": [
               111
             ],
@@ -7116,50 +6573,6 @@
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
             "label": "B.0.1",
-            "element_id": "e001642",
-            "pages": [
-              112
-            ],
-            "reason": "expected_N.N.k"
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "label": "B.0.2",
-            "element_id": "e001643",
-            "pages": [
-              112
-            ],
-            "reason": "expected_N.N.k"
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "label": "B.0.3",
-            "element_id": "e001644",
-            "pages": [
-              112
-            ],
-            "reason": "expected_N.N.k"
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "label": "B.0.4",
-            "element_id": "e001645",
-            "pages": [
-              112
-            ],
-            "reason": "expected_N.N.k"
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "label": "B.0.5",
             "element_id": "e001646",
             "pages": [
               112
@@ -7170,7 +6583,18 @@
             "document": "GB50014-2021+室外排水设计标准+预览.pdf",
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
-            "label": "B.0.6",
+            "label": "B.0.2",
+            "element_id": "e001647",
+            "pages": [
+              112
+            ],
+            "reason": "expected_N.N.k"
+          },
+          {
+            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+            "namespace": "body",
+            "label": "B.0.3",
             "element_id": "e001648",
             "pages": [
               112
@@ -7181,8 +6605,41 @@
             "document": "GB50014-2021+室外排水设计标准+预览.pdf",
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
-            "label": "B.0.7",
+            "label": "B.0.4",
+            "element_id": "e001649",
+            "pages": [
+              112
+            ],
+            "reason": "expected_N.N.k"
+          },
+          {
+            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+            "namespace": "body",
+            "label": "B.0.5",
             "element_id": "e001650",
+            "pages": [
+              112
+            ],
+            "reason": "expected_N.N.k"
+          },
+          {
+            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+            "namespace": "body",
+            "label": "B.0.6",
+            "element_id": "e001652",
+            "pages": [
+              112
+            ],
+            "reason": "expected_N.N.k"
+          },
+          {
+            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+            "namespace": "body",
+            "label": "B.0.7",
+            "element_id": "e001654",
             "pages": [
               113
             ],
@@ -7193,7 +6650,7 @@
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
             "label": "B.0.8",
-            "element_id": "e001651",
+            "element_id": "e001655",
             "pages": [
               113
             ],
@@ -7204,7 +6661,7 @@
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
             "label": "B.0.9",
-            "element_id": "e001652",
+            "element_id": "e001656",
             "pages": [
               113
             ],
@@ -7215,7 +6672,7 @@
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
             "label": "B.0.10",
-            "element_id": "e001653",
+            "element_id": "e001657",
             "pages": [
               113
             ],
@@ -7226,7 +6683,7 @@
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
             "label": "B.0.11",
-            "element_id": "e001654",
+            "element_id": "e001658",
             "pages": [
               113
             ],
@@ -7645,19 +7102,6 @@
             "document": "城镇内涝防治技术规范.pdf",
             "sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
             "namespace": "body",
-            "section": "2.1",
-            "from": "2.1.14",
-            "to": "2.1.16",
-            "gap": 1,
-            "between_pages": [
-              9,
-              9
-            ]
-          },
-          {
-            "document": "城镇内涝防治技术规范.pdf",
-            "sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
-            "namespace": "body",
             "section": "7.1",
             "from": "7.1.3",
             "to": "7.1.5",
@@ -7837,45 +7281,6 @@
             ]
           },
           {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "5.5",
-            "from": "5.5.3",
-            "to": "5.5.6",
-            "gap": 2,
-            "between_pages": [
-              10,
-              11
-            ]
-          },
-          {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "5.8",
-            "from": "5.8.2",
-            "to": "5.8.5",
-            "gap": 2,
-            "between_pages": [
-              11,
-              13
-            ]
-          },
-          {
-            "document": "武汉市排水管道混错接改造技术规程.pdf",
-            "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
-            "namespace": "body",
-            "section": "6.3",
-            "from": "6.3.1",
-            "to": "6.3.4",
-            "gap": 2,
-            "between_pages": [
-              15,
-              16
-            ]
-          },
-          {
             "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
             "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
             "namespace": "commentary",
@@ -7970,19 +7375,6 @@
             "document": "GB50014-2021+室外排水设计标准+预览.pdf",
             "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
             "namespace": "body",
-            "section": "5.2",
-            "from": "5.2.8",
-            "to": "5.2.10",
-            "gap": 1,
-            "between_pages": [
-              30,
-              30
-            ]
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
             "section": "5.3",
             "from": "5.3.1",
             "to": "5.3.3",
@@ -7990,45 +7382,6 @@
             "between_pages": [
               31,
               31
-            ]
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "section": "7.12",
-            "from": "7.12.15",
-            "to": "7.12.17",
-            "gap": 1,
-            "between_pages": [
-              87,
-              87
-            ]
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "section": "7.13",
-            "from": "7.13.3",
-            "to": "7.13.5",
-            "gap": 1,
-            "between_pages": [
-              88,
-              88
-            ]
-          },
-          {
-            "document": "GB50014-2021+室外排水设计标准+预览.pdf",
-            "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
-            "namespace": "body",
-            "section": "7.6",
-            "from": "7.6.32",
-            "to": "7.6.34",
-            "gap": 1,
-            "between_pages": [
-              69,
-              69
             ]
           },
           {
@@ -8055,32 +7408,6 @@
             "between_pages": [
               102,
               102
-            ]
-          },
-          {
-            "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
-            "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
-            "namespace": "body",
-            "section": "3.1",
-            "from": "3.1.1",
-            "to": "3.1.3",
-            "gap": 1,
-            "between_pages": [
-              12,
-              12
-            ]
-          },
-          {
-            "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
-            "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
-            "namespace": "body",
-            "section": "6.1",
-            "from": "6.1.1",
-            "to": "6.1.3",
-            "gap": 1,
-            "between_pages": [
-              23,
-              23
             ]
           },
           {
@@ -8113,19 +7440,6 @@
             "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
             "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
             "namespace": "commentary",
-            "section": "5.2",
-            "from": "5.2.3",
-            "to": "5.2.5",
-            "gap": 1,
-            "between_pages": [
-              50,
-              51
-            ]
-          },
-          {
-            "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
-            "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
-            "namespace": "commentary",
             "section": "6.1",
             "from": "6.1.1",
             "to": "6.1.3",
@@ -8133,19 +7447,6 @@
             "between_pages": [
               57,
               57
-            ]
-          },
-          {
-            "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-            "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
-            "namespace": "body",
-            "section": "5.2",
-            "from": "5.2.2",
-            "to": "5.2.4",
-            "gap": 1,
-            "between_pages": [
-              10,
-              11
             ]
           },
           {
@@ -8198,32 +7499,6 @@
             "between_pages": [
               17,
               17
-            ]
-          },
-          {
-            "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-            "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
-            "namespace": "body",
-            "section": "3.0",
-            "from": "3.0.5",
-            "to": "3.0.7",
-            "gap": 1,
-            "between_pages": [
-              14,
-              14
-            ]
-          },
-          {
-            "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
-            "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
-            "namespace": "body",
-            "section": "5.3",
-            "from": "5.3.3",
-            "to": "5.3.5",
-            "gap": 1,
-            "between_pages": [
-              22,
-              23
             ]
           },
           {
@@ -8828,6 +8103,19 @@
             "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
             "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
             "namespace": "commentary",
+            "section": "6.7",
+            "from": "6.7.7",
+            "to": "6.7.10",
+            "gap": 2,
+            "between_pages": [
+              236,
+              236
+            ]
+          },
+          {
+            "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+            "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+            "namespace": "commentary",
             "section": "7.1",
             "from": "7.1.1",
             "to": "7.1.11",
@@ -8923,7 +8211,7 @@
             "namespace": "body",
             "label": "7.5.101",
             "normalized_label": "7.5.10",
-            "element_id": "e000763",
+            "element_id": "e000765",
             "pages": [
               58
             ],
@@ -8931,22 +8219,22 @@
           }
         ],
         "summary": {
-          "missing_count": 203,
-          "duplicate_count": 4,
+          "missing_count": 188,
+          "duplicate_count": 6,
           "illegal_count": 79,
-          "illegal_jump_count": 97,
+          "illegal_jump_count": 84,
           "excluded_non_clause_number_count": 0,
           "corrected_ocr_joined_clause_label_count": 2,
-          "body_missing_count": 27,
-          "body_duplicate_count": 4,
-          "commentary_missing_count": 176,
-          "commentary_duplicate_count": 0
+          "body_missing_count": 11,
+          "body_duplicate_count": 5,
+          "commentary_missing_count": 177,
+          "commentary_duplicate_count": 1
         }
       },
       "text_regression": {
-        "body_clause_duplicate_count": 4,
-        "adjacent_repetition_count": 16,
-        "pipeline_introduced_adjacent_repetition_count": 0
+        "body_clause_duplicate_count": 5,
+        "adjacent_repetition_count": 17,
+        "pipeline_introduced_adjacent_repetition_count": 1
       }
     },
     "legacy": {
@@ -20627,7 +19915,7 @@
         "raw_run_id": "ocrv6-ef8e83933c6bd4f3",
         "raw_run_manifest_sha256": "b4048bab4298a7f72988c53ca7eca20a7cfa4d1f9eaf11d1038b1660b95d2249",
         "ocr_page_count": 42,
-        "majority_lines": 771,
+        "majority_lines": 763,
         "merge_lines": 221,
         "single_source_lines": 32,
         "single_source_pp_clean_lines": 14,
@@ -20663,45 +19951,18 @@
         "short_body_chunk_lt15_count": 4,
         "short_body_chunk_lt15_ratio": 0.020942,
         "short_body_chunk_ids": [
-          "chunk_a1ea36e206f00186bdd66d0436afbf1d",
-          "chunk_aedfa92d52199b78e4a4f23a19c424d0",
-          "chunk_b08f68dc47db9afebc0930a660a4e81c",
-          "chunk_638d8015279125574579d7e46fe0486f"
+          "chunk_674f25971168d0331ad42fe146ff5622",
+          "chunk_63ab2eaaaa4f993e740bbb8deaf31f5a",
+          "chunk_26162861d3b4f98eacfb96bea5b99318",
+          "chunk_92d993244453425772221f1a6ca85f53"
         ],
         "ocr_text_source_element_count": 545,
         "ocr_text_source_counts": {
-          "three_source_vote": 993
+          "three_source_vote": 992
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
           "missing": [
-            {
-              "namespace": "body",
-              "section": "2.1",
-              "label": "2.1.15",
-              "between_pages": [
-                9,
-                9
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 9,
-                  "extraction_route": "full_ocr",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
             {
               "namespace": "body",
               "section": "7.1",
@@ -20917,17 +20178,6 @@
           "illegal_jumps": [
             {
               "namespace": "body",
-              "section": "2.1",
-              "from": "2.1.14",
-              "to": "2.1.16",
-              "gap": 1,
-              "between_pages": [
-                9,
-                9
-              ]
-            },
-            {
-              "namespace": "body",
               "section": "7.1",
               "from": "7.1.3",
               "to": "7.1.5",
@@ -20939,13 +20189,13 @@
             }
           ],
           "summary": {
-            "missing_count": 2,
+            "missing_count": 1,
             "duplicate_count": 1,
             "illegal_count": 18,
-            "illegal_jump_count": 2,
+            "illegal_jump_count": 1,
             "excluded_non_clause_number_count": 0,
             "corrected_ocr_joined_clause_label_count": 0,
-            "body_missing_count": 2,
+            "body_missing_count": 1,
             "body_duplicate_count": 1,
             "commentary_missing_count": 0,
             "commentary_duplicate_count": 0
@@ -21884,7 +21134,7 @@
         "short_body_chunk_lt15_count": 1,
         "short_body_chunk_lt15_ratio": 0.012195,
         "short_body_chunk_ids": [
-          "chunk_5e4082080d670259f7ff4cae19abc856"
+          "chunk_c9ecf8bf639321a8cd63b58e6b2b9eaa"
         ],
         "ocr_text_source_element_count": 290,
         "ocr_text_source_counts": {
@@ -24322,15 +23572,15 @@
         "source_supported_occlusion_repair_count": 0
       },
       "v3": {
-        "element_count": 290,
+        "element_count": 323,
         "element_type_counts": {
-          "text": 274,
+          "text": 307,
           "figure": 3,
           "formula": 6,
           "table": 7
         },
-        "chunk_count": 122,
-        "text_body_chunk_count": 112,
+        "chunk_count": 143,
+        "text_body_chunk_count": 133,
         "body_page_number_footer_watermark_lines": 0,
         "body_furniture_examples": [],
         "sentence_ended_heading_count": 0,
@@ -24341,277 +23591,18 @@
         "list_item_root_count": 0,
         "list_item_root_labels": [],
         "short_body_chunk_lt15_count": 4,
-        "short_body_chunk_lt15_ratio": 0.035714,
+        "short_body_chunk_lt15_ratio": 0.030075,
         "short_body_chunk_ids": [
-          "chunk_b59396dc185ce02351bcfefcde39cab8",
-          "chunk_59967f6054e315e6c2de85f5402a3763",
-          "chunk_5498cc8f1dc4dc203d3193eddc9c7278",
-          "chunk_62f2395e3d1951f1fa437692aec555b1"
+          "chunk_596a396772122253434f2c2c071aca2c",
+          "chunk_fba76c24067eb3e89e14e3a265e30a77",
+          "chunk_1523aa0b5da07730176a02d0dcfac3e3",
+          "chunk_635487b94474cf450a6bb485abdda8d6"
         ],
         "ocr_text_source_element_count": 0,
         "ocr_text_source_counts": {},
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
-          "missing": [
-            {
-              "namespace": "body",
-              "section": "5.5",
-              "label": "5.5.4",
-              "between_pages": [
-                10,
-                11
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 10,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                },
-                {
-                  "physical_page": 11,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": false
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "5.5",
-              "label": "5.5.5",
-              "between_pages": [
-                10,
-                11
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 10,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                },
-                {
-                  "physical_page": 11,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": false
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "5.8",
-              "label": "5.8.3",
-              "between_pages": [
-                11,
-                13
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 11,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": false
-                  }
-                },
-                {
-                  "physical_page": 13,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "5.8",
-              "label": "5.8.4",
-              "between_pages": [
-                11,
-                13
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 11,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": false
-                  }
-                },
-                {
-                  "physical_page": 13,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "6.3",
-              "label": "6.3.2",
-              "between_pages": [
-                15,
-                16
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 15,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                },
-                {
-                  "physical_page": 16,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": false
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "6.3",
-              "label": "6.3.3",
-              "between_pages": [
-                15,
-                16
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 15,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                },
-                {
-                  "physical_page": 16,
-                  "extraction_route": "native",
-                  "pp_clean": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": false,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": false
-                  }
-                }
-              ]
-            }
-          ],
+          "missing": [],
           "duplicates": [],
           "illegal": [
             {
@@ -24716,49 +23707,15 @@
           ],
           "excluded_non_clause_numbers": [],
           "corrected_ocr_joined_clause_labels": [],
-          "illegal_jumps": [
-            {
-              "namespace": "body",
-              "section": "5.5",
-              "from": "5.5.3",
-              "to": "5.5.6",
-              "gap": 2,
-              "between_pages": [
-                10,
-                11
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "5.8",
-              "from": "5.8.2",
-              "to": "5.8.5",
-              "gap": 2,
-              "between_pages": [
-                11,
-                13
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "6.3",
-              "from": "6.3.1",
-              "to": "6.3.4",
-              "gap": 2,
-              "between_pages": [
-                15,
-                16
-              ]
-            }
-          ],
+          "illegal_jumps": [],
           "summary": {
-            "missing_count": 6,
+            "missing_count": 0,
             "duplicate_count": 0,
             "illegal_count": 11,
-            "illegal_jump_count": 3,
+            "illegal_jump_count": 0,
             "excluded_non_clause_number_count": 0,
             "corrected_ocr_joined_clause_label_count": 0,
-            "body_missing_count": 6,
+            "body_missing_count": 0,
             "body_duplicate_count": 0,
             "commentary_missing_count": 0,
             "commentary_duplicate_count": 0
@@ -25193,7 +24150,7 @@
         "raw_run_id": "ocrv6-ef8e83933c6bd4f3",
         "raw_run_manifest_sha256": "b4048bab4298a7f72988c53ca7eca20a7cfa4d1f9eaf11d1038b1660b95d2249",
         "ocr_page_count": 20,
-        "majority_lines": 426,
+        "majority_lines": 421,
         "merge_lines": 59,
         "single_source_lines": 9,
         "single_source_pp_clean_lines": 5,
@@ -25203,7 +24160,7 @@
         "merge_invariant_violation_count": 0,
         "noise_lines": 15,
         "orphan_line_groups": 0,
-        "number_prefixes_preserved": 3,
+        "number_prefixes_preserved": 6,
         "repaired_adjacent_duplicate_count": 0,
         "source_supported_occlusion_repair_count": 0
       },
@@ -25229,7 +24186,7 @@
         "short_body_chunk_ids": [],
         "ocr_text_source_element_count": 218,
         "ocr_text_source_counts": {
-          "three_source_vote": 491
+          "three_source_vote": 490
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
@@ -26188,8 +25145,8 @@
         "short_body_chunk_lt15_count": 2,
         "short_body_chunk_lt15_ratio": 0.166667,
         "short_body_chunk_ids": [
-          "chunk_e47ccdbfb91b9297112cdd7003d3b5ea",
-          "chunk_f5164e8e6983c67fae8bfe5bc592eb42"
+          "chunk_ea4f87bf9fabdc09dd496af7ce6e4680",
+          "chunk_dca6b69be22b1414a96800e48e8d2d65"
         ],
         "ocr_text_source_element_count": 63,
         "ocr_text_source_counts": {
@@ -27235,7 +26192,7 @@
         "raw_run_id": "ocrv6-ef8e83933c6bd4f3",
         "raw_run_manifest_sha256": "b4048bab4298a7f72988c53ca7eca20a7cfa4d1f9eaf11d1038b1660b95d2249",
         "ocr_page_count": 52,
-        "majority_lines": 978,
+        "majority_lines": 976,
         "merge_lines": 39,
         "single_source_lines": 27,
         "single_source_pp_clean_lines": 1,
@@ -27245,7 +26202,7 @@
         "merge_invariant_violation_count": 0,
         "noise_lines": 27,
         "orphan_line_groups": 0,
-        "number_prefixes_preserved": 11,
+        "number_prefixes_preserved": 10,
         "repaired_adjacent_duplicate_count": 0,
         "source_supported_occlusion_repair_count": 0
       },
@@ -27271,14 +26228,14 @@
         "short_body_chunk_lt15_count": 4,
         "short_body_chunk_lt15_ratio": 0.027778,
         "short_body_chunk_ids": [
-          "chunk_00a3d21ee522ff5680df1c524ee2c9cc",
-          "chunk_d155bdd9ed6984055b025bd61adb6832",
-          "chunk_4b7d78d3e81a2aa2ffe1b5a5d43020b8",
-          "chunk_d11be6fbed951cd77c2e0562ed0e07c7"
+          "chunk_49612559d3191f4ccd3db45214caf709",
+          "chunk_769e5cec6f0ae5c4f0b29133bbb16059",
+          "chunk_76e789c5c6bee4a7514fca80ab513001",
+          "chunk_783c53042818f3421d60344d3651c0e4"
         ],
         "ocr_text_source_element_count": 406,
         "ocr_text_source_counts": {
-          "three_source_vote": 1015
+          "three_source_vote": 1014
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
@@ -27582,7 +26539,7 @@
             "pipeline_introduced_count": 0,
             "occurrences": [
               {
-                "chunk_id": "chunk_46b3800ba5cbf5f76ac5ff914d7e034f",
+                "chunk_id": "chunk_1fe35c2a9e56cc1bd1dd6161ee0b304b",
                 "pages": [
                   16,
                   17
@@ -27593,7 +26550,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_46b3800ba5cbf5f76ac5ff914d7e034f",
+                "chunk_id": "chunk_1fe35c2a9e56cc1bd1dd6161ee0b304b",
                 "pages": [
                   16,
                   17
@@ -28083,7 +27040,7 @@
         "raw_run_id": "ocrv6-ef8e83933c6bd4f3",
         "raw_run_manifest_sha256": "b4048bab4298a7f72988c53ca7eca20a7cfa4d1f9eaf11d1038b1660b95d2249",
         "ocr_page_count": 117,
-        "majority_lines": 1898,
+        "majority_lines": 1893,
         "merge_lines": 1038,
         "single_source_lines": 114,
         "single_source_pp_clean_lines": 31,
@@ -28098,14 +27055,14 @@
         "source_supported_occlusion_repair_count": 20
       },
       "v3": {
-        "element_count": 1685,
+        "element_count": 1689,
         "element_type_counts": {
-          "text": 1572,
+          "text": 1576,
           "formula": 79,
           "table": 34
         },
-        "chunk_count": 834,
-        "text_body_chunk_count": 743,
+        "chunk_count": 838,
+        "text_body_chunk_count": 747,
         "body_page_number_footer_watermark_lines": 0,
         "body_furniture_examples": [],
         "sentence_ended_heading_count": 0,
@@ -28115,22 +27072,23 @@
         "section_title_over_60_examples": [],
         "list_item_root_count": 0,
         "list_item_root_labels": [],
-        "short_body_chunk_lt15_count": 11,
-        "short_body_chunk_lt15_ratio": 0.014805,
+        "short_body_chunk_lt15_count": 12,
+        "short_body_chunk_lt15_ratio": 0.016064,
         "short_body_chunk_ids": [
-          "chunk_317219d7c96454ac89785ea57e654cea",
-          "chunk_b94ea1a5197442482990de73cbb0ca3e",
-          "chunk_7cbfcd303da1d8607872eb47cd93ae52",
-          "chunk_1dbb2f3a116f69dc651b61c9cf6b8a68",
-          "chunk_4b4f02e55691b092207c9ca10b33757a",
-          "chunk_df5f3d13f342a46bf4b836b4b2503808",
-          "chunk_b60fd66f6c19a63a71ce57a9c1dc081e",
-          "chunk_ce06ee83cef2d22d7f7382fdf9c59a36",
-          "chunk_c74fb9e7f49f4e4743c978e3b0855cea",
-          "chunk_ab17ed684de2ebdca27780766172663b",
-          "chunk_e5348f7f3f867f2ffb9e06c39cc8ce60"
+          "chunk_c42849d71ca4be119e959aa8a9f49424",
+          "chunk_bb0b4476ea625b0eeff2f79db74a623a",
+          "chunk_86f41e34f6ee4cccfa0cf6d450df3282",
+          "chunk_6cd8c08c4a48103681401c4ca9be74a0",
+          "chunk_7508d8c303b72579b325d2b76f429fb5",
+          "chunk_53a030176ca541b43c4e22287d4c1412",
+          "chunk_cfce8dff7e79ca6bb986e45c4c7fe4d4",
+          "chunk_f8cec09a4d46f4c9fb8e2780d5aadbb2",
+          "chunk_64a810db2604e2d613501102e5fcec50",
+          "chunk_b6cc20c3507ee05697aa5ef0b3e7a09d",
+          "chunk_edb29c95c75967f52d9b3b9fe9fa0dd9",
+          "chunk_8c61612b6baf585dc46539a62e0cce8d"
         ],
-        "ocr_text_source_element_count": 1572,
+        "ocr_text_source_element_count": 1576,
         "ocr_text_source_counts": {
           "three_source_vote": 2944
         },
@@ -28148,33 +27106,6 @@
               "source_evidence": [
                 {
                   "physical_page": 24,
-                  "extraction_route": "full_ocr",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "5.2",
-              "label": "5.2.9",
-              "between_pages": [
-                30,
-                30
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 30,
                   "extraction_route": "full_ocr",
                   "pp_clean": {
                     "available": true,
@@ -28214,87 +27145,6 @@
                   "primary": {
                     "available": true,
                     "contains_label": false
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "7.12",
-              "label": "7.12.16",
-              "between_pages": [
-                87,
-                87
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 87,
-                  "extraction_route": "full_ocr",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "7.13",
-              "label": "7.13.4",
-              "between_pages": [
-                88,
-                88
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 88,
-                  "extraction_route": "full_ocr",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "7.6",
-              "label": "7.6.33",
-              "between_pages": [
-                69,
-                69
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 69,
-                  "extraction_route": "full_ocr",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
                   }
                 }
               ]
@@ -28354,12 +27204,29 @@
               ]
             }
           ],
-          "duplicates": [],
+          "duplicates": [
+            {
+              "namespace": "body",
+              "section": "5.2",
+              "label": "5.2.6",
+              "count": 2,
+              "occurrences": [
+                {
+                  "element_id": "e000339",
+                  "page": 29
+                },
+                {
+                  "element_id": "e000343",
+                  "page": 29
+                }
+              ]
+            }
+          ],
           "illegal": [
             {
               "namespace": "body",
               "label": "A.0.1",
-              "element_id": "e001630",
+              "element_id": "e001634",
               "pages": [
                 111
               ],
@@ -28368,42 +27235,6 @@
             {
               "namespace": "body",
               "label": "B.0.1",
-              "element_id": "e001642",
-              "pages": [
-                112
-              ],
-              "reason": "expected_N.N.k"
-            },
-            {
-              "namespace": "body",
-              "label": "B.0.2",
-              "element_id": "e001643",
-              "pages": [
-                112
-              ],
-              "reason": "expected_N.N.k"
-            },
-            {
-              "namespace": "body",
-              "label": "B.0.3",
-              "element_id": "e001644",
-              "pages": [
-                112
-              ],
-              "reason": "expected_N.N.k"
-            },
-            {
-              "namespace": "body",
-              "label": "B.0.4",
-              "element_id": "e001645",
-              "pages": [
-                112
-              ],
-              "reason": "expected_N.N.k"
-            },
-            {
-              "namespace": "body",
-              "label": "B.0.5",
               "element_id": "e001646",
               "pages": [
                 112
@@ -28412,7 +27243,16 @@
             },
             {
               "namespace": "body",
-              "label": "B.0.6",
+              "label": "B.0.2",
+              "element_id": "e001647",
+              "pages": [
+                112
+              ],
+              "reason": "expected_N.N.k"
+            },
+            {
+              "namespace": "body",
+              "label": "B.0.3",
               "element_id": "e001648",
               "pages": [
                 112
@@ -28421,8 +27261,35 @@
             },
             {
               "namespace": "body",
-              "label": "B.0.7",
+              "label": "B.0.4",
+              "element_id": "e001649",
+              "pages": [
+                112
+              ],
+              "reason": "expected_N.N.k"
+            },
+            {
+              "namespace": "body",
+              "label": "B.0.5",
               "element_id": "e001650",
+              "pages": [
+                112
+              ],
+              "reason": "expected_N.N.k"
+            },
+            {
+              "namespace": "body",
+              "label": "B.0.6",
+              "element_id": "e001652",
+              "pages": [
+                112
+              ],
+              "reason": "expected_N.N.k"
+            },
+            {
+              "namespace": "body",
+              "label": "B.0.7",
+              "element_id": "e001654",
               "pages": [
                 113
               ],
@@ -28431,7 +27298,7 @@
             {
               "namespace": "body",
               "label": "B.0.8",
-              "element_id": "e001651",
+              "element_id": "e001655",
               "pages": [
                 113
               ],
@@ -28440,7 +27307,7 @@
             {
               "namespace": "body",
               "label": "B.0.9",
-              "element_id": "e001652",
+              "element_id": "e001656",
               "pages": [
                 113
               ],
@@ -28449,7 +27316,7 @@
             {
               "namespace": "body",
               "label": "B.0.10",
-              "element_id": "e001653",
+              "element_id": "e001657",
               "pages": [
                 113
               ],
@@ -28458,7 +27325,7 @@
             {
               "namespace": "body",
               "label": "B.0.11",
-              "element_id": "e001654",
+              "element_id": "e001658",
               "pages": [
                 113
               ],
@@ -28481,7 +27348,7 @@
               "namespace": "body",
               "label": "7.5.101",
               "normalized_label": "7.5.10",
-              "element_id": "e000763",
+              "element_id": "e000765",
               "pages": [
                 58
               ],
@@ -28502,17 +27369,6 @@
             },
             {
               "namespace": "body",
-              "section": "5.2",
-              "from": "5.2.8",
-              "to": "5.2.10",
-              "gap": 1,
-              "between_pages": [
-                30,
-                30
-              ]
-            },
-            {
-              "namespace": "body",
               "section": "5.3",
               "from": "5.3.1",
               "to": "5.3.3",
@@ -28520,39 +27376,6 @@
               "between_pages": [
                 31,
                 31
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "7.12",
-              "from": "7.12.15",
-              "to": "7.12.17",
-              "gap": 1,
-              "between_pages": [
-                87,
-                87
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "7.13",
-              "from": "7.13.3",
-              "to": "7.13.5",
-              "gap": 1,
-              "between_pages": [
-                88,
-                88
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "7.6",
-              "from": "7.6.32",
-              "to": "7.6.34",
-              "gap": 1,
-              "between_pages": [
-                69,
-                69
               ]
             },
             {
@@ -28579,27 +27402,37 @@
             }
           ],
           "summary": {
-            "missing_count": 8,
-            "duplicate_count": 0,
+            "missing_count": 4,
+            "duplicate_count": 1,
             "illegal_count": 12,
-            "illegal_jump_count": 8,
+            "illegal_jump_count": 4,
             "excluded_non_clause_number_count": 0,
             "corrected_ocr_joined_clause_label_count": 2,
-            "body_missing_count": 8,
-            "body_duplicate_count": 0,
+            "body_missing_count": 4,
+            "body_duplicate_count": 1,
             "commentary_missing_count": 0,
             "commentary_duplicate_count": 0
           }
         },
         "text_regression": {
-          "body_clause_duplicate_count": 0,
+          "body_clause_duplicate_count": 1,
           "adjacent_repetition": {
-            "count": 1,
+            "count": 2,
             "source_present_legal_count": 1,
-            "pipeline_introduced_count": 0,
+            "pipeline_introduced_count": 1,
             "occurrences": [
               {
-                "chunk_id": "chunk_c855eace8a1bd947e2f1ec6e613c4d62",
+                "chunk_id": "chunk_f8a8739e9aadcc08113562921eb5328e",
+                "pages": [
+                  2
+                ],
+                "fragment": "付忠志",
+                "matched_text": "付忠志付忠志",
+                "context": "吕永鹏谭学军任玉辉谭学军\n李春鞠冯凯杨红张德跃\n史春海刘向荣付忠志付忠志张欣\n陆继诚周质炎杨雪\n邹伟国李伦朱文美姚玉健\n杨雪李金龙雷",
+                "judgement": "pipeline_introduced"
+              },
+              {
+                "chunk_id": "chunk_b461531c63787ae6bd7b5de926027526",
                 "pages": [
                   90
                 ],
@@ -31560,29 +30393,29 @@
         "raw_run_id": "ocrv6-ef8e83933c6bd4f3",
         "raw_run_manifest_sha256": "b4048bab4298a7f72988c53ca7eca20a7cfa4d1f9eaf11d1038b1660b95d2249",
         "ocr_page_count": 60,
-        "majority_lines": 1144,
-        "merge_lines": 197,
-        "single_source_lines": 5,
-        "single_source_pp_clean_lines": 4,
-        "conflict_fragment_count": 151,
-        "suppressed_pp_raw_single_source_lines": 6,
+        "majority_lines": 1227,
+        "merge_lines": 121,
+        "single_source_lines": 140,
+        "single_source_pp_clean_lines": 0,
+        "conflict_fragment_count": 103,
+        "suppressed_pp_raw_single_source_lines": 2,
         "suppressed_ambiguous_short_lines": 0,
         "merge_invariant_violation_count": 0,
         "noise_lines": 1,
-        "orphan_line_groups": 6,
-        "number_prefixes_preserved": 1,
+        "orphan_line_groups": 5,
+        "number_prefixes_preserved": 19,
         "repaired_adjacent_duplicate_count": 1,
         "source_supported_occlusion_repair_count": 0
       },
       "v3": {
-        "element_count": 491,
+        "element_count": 498,
         "element_type_counts": {
-          "text": 481,
+          "text": 488,
           "table": 8,
           "formula": 2
         },
-        "chunk_count": 189,
-        "text_body_chunk_count": 180,
+        "chunk_count": 195,
+        "text_body_chunk_count": 186,
         "body_page_number_footer_watermark_lines": 0,
         "body_furniture_examples": [],
         "sentence_ended_heading_count": 0,
@@ -31593,72 +30426,18 @@
         "list_item_root_count": 0,
         "list_item_root_labels": [],
         "short_body_chunk_lt15_count": 2,
-        "short_body_chunk_lt15_ratio": 0.011111,
+        "short_body_chunk_lt15_ratio": 0.010753,
         "short_body_chunk_ids": [
-          "chunk_503d3e6f4e0348eedda9c10dc6210378",
-          "chunk_a95c0477c2283c2d8cb069e645c9d657"
+          "chunk_9f86d56a59f054c6efc56ddf6d6abc0c",
+          "chunk_2ad0179eb9a3a0310e8ba9fbdbebccc1"
         ],
-        "ocr_text_source_element_count": 481,
+        "ocr_text_source_element_count": 488,
         "ocr_text_source_counts": {
-          "three_source_vote": 1306
+          "three_source_vote": 1447
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
           "missing": [
-            {
-              "namespace": "body",
-              "section": "3.1",
-              "label": "3.1.2",
-              "between_pages": [
-                12,
-                12
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 12,
-                  "extraction_route": "scanned_with_text_layer",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "6.1",
-              "label": "6.1.2",
-              "between_pages": [
-                23,
-                23
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 23,
-                  "extraction_route": "scanned_with_text_layer",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
             {
               "namespace": "commentary",
               "section": "3.6",
@@ -31742,49 +30521,6 @@
             },
             {
               "namespace": "commentary",
-              "section": "5.2",
-              "label": "5.2.4",
-              "between_pages": [
-                50,
-                51
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 50,
-                  "extraction_route": "scanned_with_text_layer",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                },
-                {
-                  "physical_page": 51,
-                  "extraction_route": "scanned_with_text_layer",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "commentary",
               "section": "6.1",
               "label": "6.1.2",
               "between_pages": [
@@ -31817,28 +30553,6 @@
           "corrected_ocr_joined_clause_labels": [],
           "illegal_jumps": [
             {
-              "namespace": "body",
-              "section": "3.1",
-              "from": "3.1.1",
-              "to": "3.1.3",
-              "gap": 1,
-              "between_pages": [
-                12,
-                12
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "6.1",
-              "from": "6.1.1",
-              "to": "6.1.3",
-              "gap": 1,
-              "between_pages": [
-                23,
-                23
-              ]
-            },
-            {
               "namespace": "commentary",
               "section": "3.6",
               "from": "3.6.1",
@@ -31862,17 +30576,6 @@
             },
             {
               "namespace": "commentary",
-              "section": "5.2",
-              "from": "5.2.3",
-              "to": "5.2.5",
-              "gap": 1,
-              "between_pages": [
-                50,
-                51
-              ]
-            },
-            {
-              "namespace": "commentary",
               "section": "6.1",
               "from": "6.1.1",
               "to": "6.1.3",
@@ -31884,15 +30587,15 @@
             }
           ],
           "summary": {
-            "missing_count": 7,
+            "missing_count": 4,
             "duplicate_count": 0,
             "illegal_count": 0,
-            "illegal_jump_count": 6,
+            "illegal_jump_count": 3,
             "excluded_non_clause_number_count": 0,
             "corrected_ocr_joined_clause_label_count": 0,
-            "body_missing_count": 2,
+            "body_missing_count": 0,
             "body_duplicate_count": 0,
-            "commentary_missing_count": 5,
+            "commentary_missing_count": 4,
             "commentary_duplicate_count": 0
           }
         },
@@ -33359,7 +32062,7 @@
         "raw_run_id": "ocrv6-ef8e83933c6bd4f3",
         "raw_run_manifest_sha256": "b4048bab4298a7f72988c53ca7eca20a7cfa4d1f9eaf11d1038b1660b95d2249",
         "ocr_page_count": 21,
-        "majority_lines": 355,
+        "majority_lines": 353,
         "merge_lines": 185,
         "single_source_lines": 18,
         "single_source_pp_clean_lines": 15,
@@ -33381,8 +32084,8 @@
           "table": 2,
           "formula": 9
         },
-        "chunk_count": 126,
-        "text_body_chunk_count": 122,
+        "chunk_count": 127,
+        "text_body_chunk_count": 123,
         "body_page_number_footer_watermark_lines": 0,
         "body_furniture_examples": [],
         "sentence_ended_heading_count": 0,
@@ -33393,23 +32096,23 @@
         "list_item_root_count": 0,
         "list_item_root_labels": [],
         "short_body_chunk_lt15_count": 15,
-        "short_body_chunk_lt15_ratio": 0.122951,
+        "short_body_chunk_lt15_ratio": 0.121951,
         "short_body_chunk_ids": [
-          "chunk_d5daa87c22fbc154adec1f88f7a884b5",
-          "chunk_f9a1c5f32562099ac6f61cc939bb670d",
-          "chunk_032e958e482c10ef2f73b3164c4a6746",
-          "chunk_85c01fc878afab46c7c3526b3935e1ea",
-          "chunk_1706b50a4365b04332e8a967a39f427e",
-          "chunk_c4129f4ace70f3251cdb91ea0be1b57c",
-          "chunk_c0ae8ad50e3c19d10bae646ebf224c7c",
-          "chunk_3f3108870025a157c2d4b67e6776f675",
-          "chunk_1910081fe78cbd68bc3d7a9129ef8608",
-          "chunk_f247b8b265c9fc8ff3fe2158d785da55",
-          "chunk_d627301e45679c3c6f6ade31857972a0",
-          "chunk_db91597d9a56112ed9ce384f52324c3b",
-          "chunk_fa8ee1b8612e50b6684ed08f7944e2a7",
-          "chunk_31ff99860893b394808869b2541e7f8b",
-          "chunk_c94766dd61a52ea58b1840782de1a24a"
+          "chunk_5fd0cd532c3c6924ab01ddc14ed7ef0b",
+          "chunk_b1cc1d9cff23d8a7b1214c4d702b349a",
+          "chunk_776e47850f8083f84a2fd8271e2e3110",
+          "chunk_1f984083f680eb5aae98da2543fd9a75",
+          "chunk_68f0ff43b556b3390705f91dbebe7a15",
+          "chunk_6b04254f2ea4d0aaebe33b457834e4ea",
+          "chunk_ed40e7dee1a3f9f7276a639a09909456",
+          "chunk_d87f27374793bb9c7705f6f68b4d9169",
+          "chunk_76342e5e5317230321b636e221588e7b",
+          "chunk_0f3488bf5a1833050afdc7c6f69131da",
+          "chunk_926bffce95ab20343030e98fccc35615",
+          "chunk_1a3b85c98f50f0e44564f0ed22aa4d37",
+          "chunk_3e0c4f2187f0dee873a20726a83abe5b",
+          "chunk_dfd49b359533416f94d588e18e1e6dc2",
+          "chunk_56f1f2460d26352e8c6b18bfbb586153"
         ],
         "ocr_text_source_element_count": 379,
         "ocr_text_source_counts": {
@@ -33418,49 +32121,6 @@
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
           "missing": [
-            {
-              "namespace": "body",
-              "section": "5.2",
-              "label": "5.2.3",
-              "between_pages": [
-                10,
-                11
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 10,
-                  "extraction_route": "full_ocr",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                },
-                {
-                  "physical_page": 11,
-                  "extraction_route": "full_ocr",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": false
-                  }
-                }
-              ]
-            },
             {
               "namespace": "body",
               "section": "5.2",
@@ -33677,17 +32337,6 @@
             {
               "namespace": "body",
               "section": "5.2",
-              "from": "5.2.2",
-              "to": "5.2.4",
-              "gap": 1,
-              "between_pages": [
-                10,
-                11
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "5.2",
               "from": "5.2.5",
               "to": "5.2.7",
               "gap": 1,
@@ -33731,13 +32380,13 @@
             }
           ],
           "summary": {
-            "missing_count": 6,
+            "missing_count": 5,
             "duplicate_count": 2,
             "illegal_count": 2,
-            "illegal_jump_count": 5,
+            "illegal_jump_count": 4,
             "excluded_non_clause_number_count": 0,
             "corrected_ocr_joined_clause_label_count": 0,
-            "body_missing_count": 6,
+            "body_missing_count": 5,
             "body_duplicate_count": 2,
             "commentary_missing_count": 0,
             "commentary_duplicate_count": 0
@@ -33751,18 +32400,18 @@
             "pipeline_introduced_count": 0,
             "occurrences": [
               {
-                "chunk_id": "chunk_595108448d299db21b863f906cc42f80",
+                "chunk_id": "chunk_89230588ffe179aa7bdd7db0246b1166",
                 "pages": [
                   4,
                   5
                 ],
                 "fragment": "中国测绘学会团体标准",
                 "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
-                "context": "(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体\n(C\n对排水管道开展流量在线监测工作，可为",
+                "context": "中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体(CSGPC)(CSGPC)\n(C\n对排水管",
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_5cf2dd4bdb59c7a491ff0af541cf08d3",
+                "chunk_id": "chunk_ac39ef2c5e879238b491d27bb2496ca3",
                 "pages": [
                   5
                 ],
@@ -33772,17 +32421,17 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_5cf2dd4bdb59c7a491ff0af541cf08d3",
+                "chunk_id": "chunk_ac39ef2c5e879238b491d27bb2496ca3",
                 "pages": [
                   5
                 ],
                 "fragment": "中国测绘学会团体标准",
                 "matched_text": "中国测绘学会团体标准中国测绘学会团体标准",
-                "context": "强、可靠性高、智能报警等特点。\n(CSGPC)(CSGPC)中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体",
+                "context": "求，具有易安装维护、稳\n定性强、可靠性高、智能报警等特点。\n中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体(CSGPC)(CSGPC)",
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_aaf1df607718b365ad889ff168e0a683",
+                "chunk_id": "chunk_ddbc0f29842f8ae05a0cb9fdada49c4d",
                 "pages": [
                   7
                 ],
@@ -33792,7 +32441,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_8b76100e343674f3183dd701c314e6af",
+                "chunk_id": "chunk_8d6a2892cd500e80a98c40ba66700578",
                 "pages": [
                   7,
                   8
@@ -33803,7 +32452,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_0ca042744e5b4958efcc7a481b0a6661",
+                "chunk_id": "chunk_78afe6c9acf9dc57b95f73a27dd51241",
                 "pages": [
                   11
                 ],
@@ -33813,17 +32462,17 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_b565d95dedb8d7da2cae52b292ffbc90",
+                "chunk_id": "chunk_973362d23103031b81d24d5b2d9098ae",
                 "pages": [
                   15
                 ],
                 "fragment": "中国测绘",
                 "matched_text": "中国测绘中国测绘",
-                "context": "6.1.2 中国测绘中国测绘检验项目进行检验，检验合格后，由检验部门出6.1.2 出厂检",
+                "context": "6.1.2 出厂检验项目6.1.2 中国测绘中国测绘检验项目进行检验，检验合格后，由检验部门出",
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_8ca64b83431b683ea9236c80849f6760",
+                "chunk_id": "chunk_b4a70a49ad5970aaa8f0108d669dd113",
                 "pages": [
                   17,
                   18,
@@ -33831,11 +32480,11 @@
                 ],
                 "fragment": "团体标准",
                 "matched_text": "团体标准团体标准",
-                "context": "故障维修等工作成效，并对巡检计划和维护保养计\n划进行调整。\n团体标准团体标准（CSGPC）学会团体缓。垃圾异物少的排水管道环境，同时需要",
+                "context": "装固定方式根据现场情况，可分为杆装方式、贴装方式和环装方式。团体标准团体标准（CSGPC）学会团体缓。垃圾异物少的排水管道环境，同时需要",
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_914a392fb1946d2b5a7801b0a3956801",
+                "chunk_id": "chunk_32207c7f95e677a2ee947c03955450f9",
                 "pages": [
                   20,
                   21
@@ -33846,7 +32495,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_914a392fb1946d2b5a7801b0a3956801",
+                "chunk_id": "chunk_32207c7f95e677a2ee947c03955450f9",
                 "pages": [
                   20,
                   21
@@ -33857,7 +32506,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_914a392fb1946d2b5a7801b0a3956801",
+                "chunk_id": "chunk_32207c7f95e677a2ee947c03955450f9",
                 "pages": [
                   20,
                   21
@@ -34432,7 +33081,7 @@
         "short_body_chunk_lt15_count": 1,
         "short_body_chunk_lt15_ratio": 0.125,
         "short_body_chunk_ids": [
-          "chunk_3a78909258c0f83672dc5990c1f26dee"
+          "chunk_4e5731ee4c2e9fa9091d61d91361b42b"
         ],
         "ocr_text_source_element_count": 49,
         "ocr_text_source_counts": {
@@ -35148,7 +33797,7 @@
         "region_pages": 75,
         "fallback_pages": 0,
         "furniture": 72,
-        "toc": 5,
+        "toc": 6,
         "front_matter": 17,
         "split_number_prefix_merged": 0
       },
@@ -35166,18 +33815,18 @@
         "raw_run_id": "ocrv6-ef8e83933c6bd4f3",
         "raw_run_manifest_sha256": "b4048bab4298a7f72988c53ca7eca20a7cfa4d1f9eaf11d1038b1660b95d2249",
         "ocr_page_count": 75,
-        "majority_lines": 1175,
-        "merge_lines": 249,
-        "single_source_lines": 8,
-        "single_source_pp_clean_lines": 4,
-        "conflict_fragment_count": 197,
-        "suppressed_pp_raw_single_source_lines": 10,
+        "majority_lines": 1173,
+        "merge_lines": 252,
+        "single_source_lines": 154,
+        "single_source_pp_clean_lines": 3,
+        "conflict_fragment_count": 182,
+        "suppressed_pp_raw_single_source_lines": 6,
         "suppressed_ambiguous_short_lines": 0,
         "merge_invariant_violation_count": 0,
         "noise_lines": 16,
-        "orphan_line_groups": 23,
-        "number_prefixes_preserved": 9,
-        "repaired_adjacent_duplicate_count": 0,
+        "orphan_line_groups": 22,
+        "number_prefixes_preserved": 11,
+        "repaired_adjacent_duplicate_count": 1,
         "source_supported_occlusion_repair_count": 0
       },
       "v3": {
@@ -35188,8 +33837,8 @@
           "formula": 6,
           "table": 20
         },
-        "chunk_count": 225,
-        "text_body_chunk_count": 198,
+        "chunk_count": 228,
+        "text_body_chunk_count": 201,
         "body_page_number_footer_watermark_lines": 0,
         "body_furniture_examples": [],
         "sentence_ended_heading_count": 0,
@@ -35200,96 +33849,26 @@
         "list_item_root_count": 0,
         "list_item_root_labels": [],
         "short_body_chunk_lt15_count": 10,
-        "short_body_chunk_lt15_ratio": 0.050505,
+        "short_body_chunk_lt15_ratio": 0.049751,
         "short_body_chunk_ids": [
-          "chunk_b4c6f25198441ba87b5318cce7a0efa1",
-          "chunk_ddbff1477238292ebdc5288f774491ad",
-          "chunk_9e64cc29fd808776fc87648d62855bc8",
-          "chunk_35e723935e7c4e2d1ed6b6e83ef595aa",
-          "chunk_5a9e61c058e03b4f5f6887945052c0c5",
-          "chunk_ab7136313650c1c8072aaf208bf02aa8",
-          "chunk_d60a3bd1ed8748c18cfc0f4a820edd59",
-          "chunk_e0c29a15408ada178235d1baa235495b",
-          "chunk_ddab6aea017afb349c8b338906eab719",
-          "chunk_e62ca1c62783023aa3117a6cfcec3e10"
+          "chunk_ce27dd5b79f45fb7e028896d04a60e77",
+          "chunk_867e109f8d2881472f72552430012d9a",
+          "chunk_9eb802a812bb8179bee4fdd709daef71",
+          "chunk_7a1264444f8d699f69960bf9912ef91e",
+          "chunk_60fe32bc315d8b7232c3c3a7ab18c948",
+          "chunk_d598b0f9a567b74658a750573d145f54",
+          "chunk_fe7b8d76c292c33bdda5800f305d13c2",
+          "chunk_26bf2e8b93fd5936ef4fc8eb959d1b04",
+          "chunk_a97601ea0767457aec966761c628011b",
+          "chunk_ee00c75ad74f37557d4450c055fb15bb"
         ],
         "ocr_text_source_element_count": 580,
         "ocr_text_source_counts": {
-          "three_source_vote": 1388
+          "three_source_vote": 1473
         },
         "ocr_text_source_missing_run_id_count": 0,
         "clause_number_continuity": {
           "missing": [
-            {
-              "namespace": "body",
-              "section": "3.0",
-              "label": "3.0.6",
-              "between_pages": [
-                14,
-                14
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 14,
-                  "extraction_route": "scanned_with_text_layer",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                }
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "5.3",
-              "label": "5.3.4",
-              "between_pages": [
-                22,
-                23
-              ],
-              "source_evidence": [
-                {
-                  "physical_page": 22,
-                  "extraction_route": "scanned_with_text_layer",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": true
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": true
-                  }
-                },
-                {
-                  "physical_page": 23,
-                  "extraction_route": "scanned_with_text_layer",
-                  "pp_clean": {
-                    "available": true,
-                    "contains_label": false
-                  },
-                  "pp_raw": {
-                    "available": true,
-                    "contains_label": false
-                  },
-                  "primary": {
-                    "available": true,
-                    "contains_label": false
-                  }
-                }
-              ]
-            },
             {
               "namespace": "commentary",
               "section": "2.1",
@@ -35485,28 +34064,6 @@
           "corrected_ocr_joined_clause_labels": [],
           "illegal_jumps": [
             {
-              "namespace": "body",
-              "section": "3.0",
-              "from": "3.0.5",
-              "to": "3.0.7",
-              "gap": 1,
-              "between_pages": [
-                14,
-                14
-              ]
-            },
-            {
-              "namespace": "body",
-              "section": "5.3",
-              "from": "5.3.3",
-              "to": "5.3.5",
-              "gap": 1,
-              "between_pages": [
-                22,
-                23
-              ]
-            },
-            {
               "namespace": "commentary",
               "section": "2.1",
               "from": "2.1.4",
@@ -35563,13 +34120,13 @@
             }
           ],
           "summary": {
-            "missing_count": 7,
+            "missing_count": 5,
             "duplicate_count": 0,
             "illegal_count": 4,
-            "illegal_jump_count": 7,
+            "illegal_jump_count": 5,
             "excluded_non_clause_number_count": 0,
             "corrected_ocr_joined_clause_label_count": 0,
-            "body_missing_count": 2,
+            "body_missing_count": 0,
             "body_duplicate_count": 0,
             "commentary_missing_count": 5,
             "commentary_duplicate_count": 0
@@ -36535,7 +35092,7 @@
         "raw_run_id": "ocrv6-ef8e83933c6bd4f3",
         "raw_run_manifest_sha256": "b4048bab4298a7f72988c53ca7eca20a7cfa4d1f9eaf11d1038b1660b95d2249",
         "ocr_page_count": 255,
-        "majority_lines": 5463,
+        "majority_lines": 5462,
         "merge_lines": 417,
         "single_source_lines": 105,
         "single_source_pp_clean_lines": 0,
@@ -36550,15 +35107,15 @@
         "source_supported_occlusion_repair_count": 7
       },
       "v3": {
-        "element_count": 3227,
+        "element_count": 3229,
         "element_type_counts": {
-          "text": 3089,
+          "text": 3091,
           "table": 100,
           "formula": 31,
           "figure": 7
         },
-        "chunk_count": 949,
-        "text_body_chunk_count": 802,
+        "chunk_count": 950,
+        "text_body_chunk_count": 803,
         "body_page_number_footer_watermark_lines": 0,
         "body_furniture_examples": [],
         "sentence_ended_heading_count": 0,
@@ -36569,24 +35126,24 @@
         "list_item_root_count": 0,
         "list_item_root_labels": [],
         "short_body_chunk_lt15_count": 14,
-        "short_body_chunk_lt15_ratio": 0.017456,
+        "short_body_chunk_lt15_ratio": 0.017435,
         "short_body_chunk_ids": [
-          "chunk_673a059c28fd6965ac611c6d715e60d7",
-          "chunk_a10bc01807711d3a58263759397d90dc",
-          "chunk_c9f09cb3aef61583d651e8fad16fa887",
-          "chunk_7c5a0d684ad572db3f1fa1b9f13b3e55",
-          "chunk_b0a84a8d038dec0a6778b4010f6840ab",
-          "chunk_61539e9332a3d3d940eea6c874bdb982",
-          "chunk_290c31535341eb225000c08129497f0b",
-          "chunk_bbdc7f156df44a67ccda78978ed4e728",
-          "chunk_d34d5302624bad55e5185163303ba47c",
-          "chunk_69a49172a189f15461312ee8d787c4cc",
-          "chunk_963e7d076f6519aa7bdcccbdee329fd2",
-          "chunk_52afe23d1c0c398a600f216dd02dd1e7",
-          "chunk_22f4732c164e8642535fee54ce530919",
-          "chunk_c39ed1514d4dc5f4ca1266b9e230dbe7"
+          "chunk_e5cc0cd50079ab21b737310b85ad1e0c",
+          "chunk_605a814b07317c300c12f278c2bf54be",
+          "chunk_1621d16056b8fe105db11c66735633c9",
+          "chunk_2d0a7b48bc6313ebf2dba70c09100cb0",
+          "chunk_b64512a74a37fe09cb5fe63b20ef477c",
+          "chunk_85be9fcba88efdfd8cf9b4a06e759825",
+          "chunk_80b763c88e9f3e895fcf10333ce9d1f6",
+          "chunk_dfe5d1c11e9bb430acd3b37ed46906f5",
+          "chunk_c54330b1f8d32e08eb6a9d395febea2d",
+          "chunk_ef9140b309b417838c5ef2cc91f049c9",
+          "chunk_22655c4d970921713169ced0aeb1f2d6",
+          "chunk_fd6516f8382d53dfb462da3d8e6c6e90",
+          "chunk_83af264b4c571aa97cd8976d08c1a2c9",
+          "chunk_1c87ebbd4b52f473065a829ca3b5a1d2"
         ],
-        "ocr_text_source_element_count": 3089,
+        "ocr_text_source_element_count": 3091,
         "ocr_text_source_counts": {
           "three_source_vote": 5840
         },
@@ -39741,6 +38298,60 @@
             },
             {
               "namespace": "commentary",
+              "section": "6.7",
+              "label": "6.7.8",
+              "between_pages": [
+                236,
+                236
+              ],
+              "source_evidence": [
+                {
+                  "physical_page": 236,
+                  "extraction_route": "full_ocr",
+                  "pp_clean": {
+                    "available": true,
+                    "contains_label": true
+                  },
+                  "pp_raw": {
+                    "available": true,
+                    "contains_label": true
+                  },
+                  "primary": {
+                    "available": true,
+                    "contains_label": true
+                  }
+                }
+              ]
+            },
+            {
+              "namespace": "commentary",
+              "section": "6.7",
+              "label": "6.7.9",
+              "between_pages": [
+                236,
+                236
+              ],
+              "source_evidence": [
+                {
+                  "physical_page": 236,
+                  "extraction_route": "full_ocr",
+                  "pp_clean": {
+                    "available": true,
+                    "contains_label": false
+                  },
+                  "pp_raw": {
+                    "available": true,
+                    "contains_label": false
+                  },
+                  "primary": {
+                    "available": true,
+                    "contains_label": false
+                  }
+                }
+              ]
+            },
+            {
+              "namespace": "commentary",
               "section": "7.1",
               "label": "7.1.2",
               "between_pages": [
@@ -40448,6 +39059,22 @@
                 {
                   "element_id": "e002402",
                   "page": 163
+                }
+              ]
+            },
+            {
+              "namespace": "commentary",
+              "section": "5.10",
+              "label": "5.10.1",
+              "count": 2,
+              "occurrences": [
+                {
+                  "element_id": "e003014",
+                  "page": 228
+                },
+                {
+                  "element_id": "e003018",
+                  "page": 228
                 }
               ]
             }
@@ -41189,6 +39816,17 @@
             },
             {
               "namespace": "commentary",
+              "section": "6.7",
+              "from": "6.7.7",
+              "to": "6.7.10",
+              "gap": 2,
+              "between_pages": [
+                236,
+                236
+              ]
+            },
+            {
+              "namespace": "commentary",
               "section": "7.1",
               "from": "7.1.1",
               "to": "7.1.11",
@@ -41255,16 +39893,16 @@
             }
           ],
           "summary": {
-            "missing_count": 128,
-            "duplicate_count": 1,
+            "missing_count": 130,
+            "duplicate_count": 2,
             "illegal_count": 31,
-            "illegal_jump_count": 47,
+            "illegal_jump_count": 48,
             "excluded_non_clause_number_count": 0,
             "corrected_ocr_joined_clause_label_count": 0,
             "body_missing_count": 0,
             "body_duplicate_count": 1,
-            "commentary_missing_count": 128,
-            "commentary_duplicate_count": 0
+            "commentary_missing_count": 130,
+            "commentary_duplicate_count": 1
           }
         },
         "text_regression": {
@@ -41275,7 +39913,7 @@
             "pipeline_introduced_count": 0,
             "occurrences": [
               {
-                "chunk_id": "chunk_c6fcbb51261895510da45478e2c79294",
+                "chunk_id": "chunk_e2a625c59a1feb6f2def8c8837f45e06",
                 "pages": [
                   94,
                   95
@@ -41286,7 +39924,7 @@
                 "judgement": "source_present_legal"
               },
               {
-                "chunk_id": "chunk_6a0df5947c3a1f41bb432ea6b7130034",
+                "chunk_id": "chunk_555327ae8027e1d7dd3567c32b93e620",
                 "pages": [
                   233
                 ],

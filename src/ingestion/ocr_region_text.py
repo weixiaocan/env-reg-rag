@@ -40,6 +40,8 @@ def assemble_page_region_text(
         "number_prefixes_preserved": 0,
         "repaired_adjacent_duplicate_count": 0,
         "source_supported_occlusion_repair_count": 0,
+        "superset_over_fragment_majority_lines": 0,
+        "dropped_fragment_inside_superset_lines": 0,
     }
 
     candidates: list[dict[str, Any]] = []
@@ -147,6 +149,7 @@ def assemble_page_region_text(
             "merge_invariant_violations": deepcopy(invariant_violations),
         })
 
+    output = _drop_fragments_inside_superset_lines(output, line_audit, stats)
     output.sort(key=lambda row: (_bbox(row.get("bbox"))[1], _bbox(row.get("bbox"))[0],
                                  str(row.get("element_id") or "")))
     for index, row in enumerate(output):
@@ -170,6 +173,18 @@ def merge_source_texts(source_texts: dict[str, str | None]) -> tuple[str, str, l
     counts = Counter(normalized.values())
     majority = next((value for value, count in counts.items() if count >= 2), None)
     if majority is not None:
+        # Two engines may agree on a *fragment* of a line that a third engine
+        # read in full ("grass swale" vs "2.1.15 植草沟grass swale").  A
+        # trusted single source (never pp_raw, which carries watermark
+        # residue) that extends the agreed fragment at either end wins.
+        superset = next((
+            source for source in ("pp_clean", "primary")
+            if source in normalized and normalized[source] != majority
+            and len(normalized[source]) >= len(majority) + 2
+            and (normalized[source].startswith(majority) or normalized[source].endswith(majority))
+        ), None)
+        if superset is not None:
+            return present[superset], "superset_over_fragment_majority", []
         selected_source = next(source for source in _SOURCE_PRIORITY
                                if normalized.get(source) == majority)
         return present[selected_source], "majority", []
@@ -511,12 +526,36 @@ def _primary_candidates(elements: list[dict[str, Any]], text_regions: list[dict[
         region = _smallest_region(bbox, text_regions, tolerance)
         if region is None:
             continue
-        result.append({
-            "source": "primary", "text": text, "bbox": bbox,
-            "line_id": str(raw.get("element_id") or f"primary-{index + 1:04d}"),
-            "score": score,
-            "region_id": str(region.get("region_id") or ""),
-        })
+        line_id = str(raw.get("element_id") or f"primary-{index + 1:04d}")
+        rows: list[str] = []
+        for row in (part.strip() for part in text.splitlines()):
+            if not row:
+                continue
+            # A bare clause number on its own text-layer row belongs to the
+            # visual line that follows it ("3.0.3 \n城镇分流制…").
+            if rows and re.fullmatch(r"[\d.．\s]+", rows[-1]):
+                rows[-1] = f"{rows[-1]} {row}"
+            else:
+                rows.append(row)
+        if len(rows) <= 1:
+            text = rows[0] if rows else text
+            result.append({
+                "source": "primary", "text": text, "bbox": bbox, "line_id": line_id,
+                "score": score, "region_id": str(region.get("region_id") or ""),
+            })
+            continue
+        # A multi-line primary element (e.g. an embedded scan text layer)
+        # must vote line by line; as one block it would re-insert the next
+        # line into the current one during the character merge.
+        step = (bbox[3] - bbox[1]) / len(rows)
+        for row_index, row_text in enumerate(rows):
+            row_box = [bbox[0], bbox[1] + step * row_index, bbox[2], bbox[1] + step * (row_index + 1)]
+            row_region = _smallest_region(row_box, text_regions, tolerance) or region
+            result.append({
+                "source": "primary", "text": row_text, "bbox": row_box,
+                "line_id": f"{line_id}#{row_index + 1}", "score": score,
+                "region_id": str(row_region.get("region_id") or ""),
+            })
     return result
 
 
@@ -614,6 +653,84 @@ def _element_from_line(raw: dict[str, Any], text: str, bbox: list[float], region
         "children_ids": [], "confidence": source["score"], "source_block_id": None,
         "_v3_assigned_region_id": region_id, "_ocr_text_source": source,
     }
+
+
+def _drop_fragments_inside_superset_lines(
+        output: list[dict[str, Any]], line_audit: list[dict[str, Any]],
+        stats: dict[str, int]) -> list[dict[str, Any]]:
+    """Remove a single-source partial reading already covered by a superset line.
+
+    When one engine reads a full line that two others split, the other
+    engine's leftover fragment ("2.1.15植工") forms its own single-source
+    group.  Keeping it would repeat the clause number with worse text.
+    """
+    supersets = [row for row in output
+                 if (row.get("_ocr_text_source") or {}).get("rule") == "superset_over_fragment_majority"]
+    if not supersets:
+        return output
+    # If the superset's extra text is already emitted by another agreed line
+    # (the other engines split the line into two groups), the superset would
+    # duplicate it: fall back to the agreed fragment.
+    for big in supersets:
+        outer = _bbox(big.get("bbox"))
+        big_text = normalize_line(str(big.get("text") or ""))
+        for row in output:
+            source = row.get("_ocr_text_source") or {}
+            if row is big or source.get("rule") not in {"majority", "merge"}:
+                continue
+            box = _bbox(row.get("bbox"))
+            text = normalize_line(str(row.get("text") or ""))
+            if not outer or not box or not text:
+                continue
+            vertical = _vertical_overlap(outer, box) / max(0.1, min(outer[3] - outer[1], box[3] - box[1]))
+            shared = sum((Counter(text) & Counter(big_text)).values())
+            if vertical >= 0.5 and shared / len(text) >= 0.6:
+                texts = (big.get("_ocr_text_source") or {}).get("source_texts") or {}
+                normalized = {k: normalize_line(v) for k, v in texts.items() if v}
+                counts = Counter(normalized.values())
+                agreed = next((v for v, n in counts.items() if n >= 2), None)
+                fragment = next((texts[k] for k in _SOURCE_PRIORITY
+                                 if agreed is not None and normalized.get(k) == agreed), None)
+                if fragment is not None:
+                    big["text"] = big["normalized_text"] = fragment
+                    big["_ocr_text_source"]["rule"] = "majority"
+                    stats["superset_over_fragment_majority_lines"] -= 1
+                    stats["majority_lines"] += 1
+                break
+    supersets = [row for row in output
+                 if (row.get("_ocr_text_source") or {}).get("rule") == "superset_over_fragment_majority"]
+    if not supersets:
+        return output
+    kept: list[dict[str, Any]] = []
+    for row in output:
+        source = row.get("_ocr_text_source") or {}
+        box = _bbox(row.get("bbox"))
+        covered = False
+        if source.get("rule") == "single_source" and box:
+            text = normalize_line(str(row.get("text") or ""))
+            for big in supersets:
+                outer = _bbox(big.get("bbox"))
+                area = max(0.0, box[2] - box[0]) * max(0.0, box[3] - box[1])
+                if not outer or area <= 0:
+                    continue
+                inter = (max(0.0, min(box[2], outer[2]) - max(box[0], outer[0]))
+                         * max(0.0, min(box[3], outer[3]) - max(box[1], outer[1])))
+                big_text = normalize_line(str(big.get("text") or ""))
+                shared = sum((Counter(text) & Counter(big_text)).values())
+                if inter / area >= 0.8 and text and shared / len(text) >= 0.6:
+                    covered = True
+                    break
+        if covered:
+            stats["dropped_fragment_inside_superset_lines"] += 1
+            line_audit.append({
+                "bbox": box, "output_text": "", "source_texts": {},
+                "rule": "dropped_fragment_inside_superset_line",
+                "dropped_text": row.get("text"), "single_source": source.get("single_source"),
+                "conflict_fragments": [], "merge_invariant_violations": [],
+            })
+            continue
+        kept.append(row)
+    return kept
 
 
 def _smallest_region(bbox: list[float], regions: list[dict[str, Any]], tolerance: float) -> dict[str, Any] | None:

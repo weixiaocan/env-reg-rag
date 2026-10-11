@@ -8,7 +8,7 @@
   "sample_count": 5,
   "samples": [
     {
-      "chunk_id": "chunk_08c02b4c8665e392fa306c1c4a36e5e1",
+      "chunk_id": "chunk_d78483eefb1132c7f3fbdfa1c195128a",
       "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
       "section_path": "5 试验条件和方法 > 5.4 测量性能试验 > 5.4.3",
       "section_labels": [
@@ -39,7 +39,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_248af9ea6662bbbf120f5f7dfccd6a69",
+      "chunk_id": "chunk_f44dffda3e24fc1d16f0da90851cc023",
       "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
       "section_path": "5 试验条件和方法 > 5.4 测量性能试验 > 5.4.7",
       "section_labels": [
@@ -47,7 +47,7 @@
         "5.4",
         "5.4.7"
       ],
-      "body": "[公式]\n\\left[\\left(\\mathrm{EV_r}\\right)_{\\mathrm{i}}\\right]_{\\max}\n式中：",
+      "body": "[公式]\n\\mathrm{(EV_{r})_{i}}\\leq\\left[\\frac{\\mathrm{(n-1)}}{\\mathrm{(n-1)}}\\times\\sum_{\\mathrm{j}=1}^{\\mathrm{n}}\\left(\\mathrm{EV_{ij}}-\\mathrm{EV_{i}}\\right)^{2}\\right]^{\\frac{1}{2}}\n式中：\n(EVr)i——检池点的流速重复性.\n（15） 计算：\nEVr流量仪的流速重复性。\n中国测绘(15)",
       "element_types": [
         "formula",
         "text"
@@ -59,19 +59,55 @@
         {
           "physical_page": 14,
           "bbox": [
-            303.3907845513636,
-            455.1651933365239,
-            353.65988546924297,
-            468.33686112753855
+            230.3984292546758,
+            377.13521885654103,
+            395.87960818002705,
+            404.6418832795169
           ]
         },
         {
           "physical_page": 14,
           "bbox": [
             89.5,
-            469.5,
+            406.4401518471221,
             119.5,
-            484.5
+            421.5
+          ]
+        },
+        {
+          "physical_page": 14,
+          "bbox": [
+            90.0,
+            423.0,
+            252.5,
+            438.0
+          ]
+        },
+        {
+          "physical_page": 14,
+          "bbox": [
+            69.0,
+            438.0,
+            407.0,
+            453.5
+          ]
+        },
+        {
+          "physical_page": 14,
+          "bbox": [
+            10.0,
+            440.0,
+            228.83910818046184,
+            500.0
+          ]
+        },
+        {
+          "physical_page": 14,
+          "bbox": [
+            411.0,
+            440.0,
+            529.0,
+            496.0
           ]
         }
       ],
@@ -80,7 +116,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_4c871b47176a9fdd8ae0011832001186",
+      "chunk_id": "chunk_bb3d01f9053aee17d90aa2567b26847a",
       "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
       "section_path": "5 试验条件和方法 > 5.4 测量性能试验 > 5.4.1",
       "section_labels": [
@@ -111,7 +147,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_b51dc6ddcefa03b8f51797119bdc73ee",
+      "chunk_id": "chunk_8a03e57611c03bb312382ebd6f539ca8",
       "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
       "section_path": "5 试验条件和方法 > 5.1 试验条件 > 5.1.1",
       "section_labels": [
@@ -169,7 +205,7 @@
       ]
     },
     {
-      "chunk_id": "chunk_7215cd233bccd48b0e65355b1ca24261",
+      "chunk_id": "chunk_8f3310b2ae219825d2f851872238d19c",
       "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
       "section_path": "5 试验条件和方法 > 5.2 外观及功能检查 > 5.2.7",
       "section_labels": [

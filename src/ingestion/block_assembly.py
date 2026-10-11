@@ -31,6 +31,17 @@ _CONFIG = Path(__file__).resolve().parents[2] / "config" / "middle_layer_v3.json
 _NUMBER_COMPONENT = r"(?:\d+|[oO])"
 _CLAUSE = re.compile(
     rf"^\s*({_NUMBER_COMPONENT}(?:\s*[.．]\s*{_NUMBER_COMPONENT}){{1,2}})(?=\s|[一-鿿])")
+# Three-part clause numbers may be glued to a Latin term ("7.6.33SBR反应池").
+# Two-part numbers are excluded so that values such as "1.5m" stay prose.
+_CLAUSE3_LATIN = re.compile(r"^\s*(\d+\s*[.．]\s*\d+\s*[.．]\s*\d+)(?=[A-Za-z])")
+# A three-part clause start inside a text run: at a line start or right after
+# a sentence end.  Cross references ("第4.1.23条", "公式(4.1.23)") never sit there.
+_INLINE_CLAUSE3 = re.compile(
+    r"(?:(?<=[。；;：:]\n)|(?<=[。；;：:] \n)|(?<=[。；;：:]\t\n)|(?<=[。；;]))"
+    r"[ \t]*(\d+\s*[.．]\s*\d+\s*[.．]\s*\d+)"
+    r"(?![ \t]*[条款的和或至、])(?=[ \t　]|[一-鿿A-Za-z])")
+# A wrapped cross reference ("第\n5.10.4条的规定") is not a clause start.
+_REFERENCE_START = re.compile(r"^\s*\d+(?:\s*[.．]\s*\d+){1,2}\s*[条款的和或至、]")
 _DOTTED = re.compile(
     rf"^\s*({_NUMBER_COMPONENT}(?:\s*[.．]\s*{_NUMBER_COMPONENT}){{0,2}})(?:\s*[.．])?\s*(.*)$")
 _CHAPTER = re.compile(r"^(第[一二三四五六七八九十百千零〇两\d]+章)\s*(.*)$")
@@ -68,19 +79,29 @@ def split_clause_lines(lines: list[dict[str, Any]]) -> list[list[dict[str, Any]]
     """Split only at continuous dotted clause starts; keep numeric prose intact."""
     starts: list[tuple[int, tuple[str | int, ...]]] = []
     for index, line in enumerate(lines):
-        match = _clause_match(str(line.get("text") or ""))
-        if match:
+        line_text = str(line.get("text") or "")
+        match = _clause_match(line_text)
+        if match and not _REFERENCE_START.match(line_text):
             label = _normalize_number_label(match.group(1))
             starts.append((index, _clause_sequence(label)))
     if not starts:
         return [lines] if lines else []
     # A single leading clause still gets clause semantics, but there is no cut.
-    if len(starts) == 1:
+    if len(starts) == 1 and (starts[0][0] == 0 or len(starts[0][1]) != 3):
         return [lines]
     accepted = [starts[0]]
+    three_part = len(starts[0][1]) == 3 and all(isinstance(v, int) for v in starts[0][1])
     for candidate in starts[1:]:
         previous = accepted[-1][1]
         current = candidate[1]
+        if three_part:
+            # Clause-level numbers: accept every strictly increasing x.y.z
+            # start (gaps are allowed: a clause may be lost upstream) and
+            # ignore anything else as prose, instead of abandoning all cuts.
+            if (len(current) == 3 and all(isinstance(v, int) for v in current)
+                    and current > previous and current[0] == previous[0]):
+                accepted.append(candidate)
+            continue
         if (len(previous) == len(current) and previous[:-1] == current[:-1]
                 and isinstance(previous[-1], int) and isinstance(current[-1], int)
                 and current[-1] == previous[-1] + 1):
@@ -649,8 +670,22 @@ def _expand_embedded_clause_lines(lines: list[dict[str, Any]]) -> list[dict[str,
     """Expose multiple clause starts stored inside one native PDF block."""
     result: list[dict[str, Any]] = []
     for line in lines:
-        parts = [part.strip() for part in str(line.get("text") or "").splitlines()
-                 if part.strip()]
+        raw = str(line.get("text") or "")
+        cuts = [match.start(1) for match in _INLINE_CLAUSE3.finditer(raw)]
+        if cuts:
+            pieces = [raw[a:b] for a, b in zip([0, *cuts], [*cuts, len(raw)])]
+        else:
+            pieces = [raw]
+        parts = [part.strip() for piece in pieces for part in [piece] if part.strip()]
+        if len(parts) > 1 and cuts:
+            # Re-split the leading continuation by newline only; clause
+            # pieces keep their internal line breaks.
+            head = ([p.strip() for p in parts[0].splitlines() if p.strip()]
+                    if not _clause_match(parts[0]) else [parts[0]])
+            parts = ["\n".join(head)] + parts[1:] if head else parts[1:]
+            result.extend({**deepcopy(line), "text": part} for part in parts)
+            continue
+        parts = [part.strip() for part in raw.splitlines() if part.strip()]
         starts = [index for index, part in enumerate(parts) if _clause_match(part)]
         if len(parts) <= 1 or not starts or starts[0] != 0 or len(starts) < 2:
             result.append(line)
@@ -662,7 +697,7 @@ def _expand_embedded_clause_lines(lines: list[dict[str, Any]]) -> list[dict[str,
 
 
 def _clause_match(text: str) -> re.Match[str] | None:
-    return _CLAUSE.match(text) or _APPENDIX_CLAUSE.match(text)
+    return _CLAUSE.match(text) or _CLAUSE3_LATIN.match(text) or _APPENDIX_CLAUSE.match(text)
 
 
 def _clause_sequence(label: str) -> tuple[str | int, ...]:
@@ -695,24 +730,30 @@ def _union_bbox(lines: Iterable[dict[str, Any]]) -> list[float]:
 
 def _join_lines(lines: list[dict[str, Any]]) -> str:
     """Join same-baseline OCR fragments horizontally, preserve real rows."""
-    values: list[str] = []
+    rows: list[list[tuple[list[float], str]]] = []
     previous_box: list[float] | None = None
     for line in lines:
         text = str(line.get("text") or "").strip()
         if not text:
             continue
         box = _bbox(line.get("bbox"))
-        if not values:
-            values.append(text)
-        else:
-            prev_height = max(1.0, previous_box[3] - previous_box[1]) if previous_box else 1.0
+        same_baseline = False
+        if previous_box is not None and box and previous_box:
+            prev_height = max(1.0, previous_box[3] - previous_box[1])
             height = max(1.0, box[3] - box[1])
-            same_baseline = previous_box is not None and abs(
+            same_baseline = abs(
                 (previous_box[1] + previous_box[3]) / 2 - (box[1] + box[3]) / 2
             ) <= 0.6 * max(prev_height, height)
-            values.append(("" if same_baseline else "\n") + text)
+        if same_baseline and rows:
+            rows[-1].append((box, text))
+        else:
+            rows.append([(box, text)])
         previous_box = box
-    return "".join(values)
+    # Fragments on one baseline read left to right, whatever order the
+    # sources delivered them in ("grass swale" must not precede "2.1.15").
+    return "\n".join(
+        "".join(text for _, text in sorted(row, key=lambda item: item[0][0] if item[0] else 0.0))
+        for row in rows)
 
 
 def _drop_clause_label_echoes(lines: list[dict[str, Any]]) -> list[dict[str, Any]]:

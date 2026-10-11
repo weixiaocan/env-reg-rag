@@ -346,3 +346,15 @@ def test_preprocess_removes_light_gray_and_red_but_keeps_black() -> None:
     assert cleaned[0, 6].tolist() == [255, 255, 255]
     assert stats["gray_pixels_whitened"] == 1
     assert stats["red_pixels_whitened"] == 1
+
+
+def test_trusted_full_line_beats_majority_on_a_fragment() -> None:
+    merged, rule, _ = merge_source_texts({
+        "pp_clean": "2.1.15 植草沟grass swale", "pp_raw": "grass swale", "primary": "grass swale"})
+    assert (merged, rule) == ("2.1.15 植草沟grass swale", "superset_over_fragment_majority")
+
+
+def test_pp_raw_full_line_never_overrides_majority() -> None:
+    merged, rule, _ = merge_source_texts({
+        "pp_clean": "排水管道", "pp_raw": "公开排水管道", "primary": "排水管道"})
+    assert (merged, rule) == ("排水管道", "majority")
