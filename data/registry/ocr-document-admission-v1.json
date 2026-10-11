@@ -1,0 +1,541 @@
+{
+  "schema_version": "1",
+  "admission_id": "ocr-doc-admission-v1",
+  "corpus_version": "corpus-8dcc90d4921b",
+  "rule": "每份含 OCR 文本的文档按固定种子抽 5 个正文 chunk 与原页图对照；无严重错误（数字/单位/条号/关键词错误、漏行、串行、条文错挂、水印混入）则整份放开 OCR 正文为可回答，否则整份保持只能定位，不再返工。",
+  "scope": "仅升级仅因 OCR 来源而待审的正文元素；目录、页面家具、过短文本、区域质量问题、表格/公式/图保持原状。",
+  "documents": [
+    {
+      "sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+      "document": "城镇内涝防治技术规范.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_bebdee25109454afd8893d7b3756afa4",
+          "pages": [
+            16
+          ]
+        },
+        {
+          "chunk_id": "chunk_f5f476afb6b466238cee479f12d29e98",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "chunk_id": "chunk_1eec5ed7bef9c07e6e387bcccec2bd84",
+          "pages": [
+            35
+          ]
+        },
+        {
+          "chunk_id": "chunk_8379eea245b20381fe08a4e7276f5d40",
+          "pages": [
+            8
+          ]
+        },
+        {
+          "chunk_id": "chunk_01dc398b21e17570bed5f1f6a185bbbd",
+          "pages": [
+            16,
+            17
+          ]
+        }
+      ],
+      "note": "5/5 与原图一致（p8/p9/p16/p17/p35）；2.1.15 植草沟行在投票修复后恢复。"
+    },
+    {
+      "sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "document": "降雨过程强度等级标准.pdf",
+      "verdict": "locator_only",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_a66d2e5b660281d0a11bce71a8f457cc",
+          "pages": [
+            5
+          ]
+        },
+        {
+          "chunk_id": "chunk_b7a9b4ebbcba24b67eb6b315d15906f6",
+          "pages": [
+            5
+          ]
+        },
+        {
+          "chunk_id": "chunk_337d0709e631f7f6eaa2c422db078618",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "chunk_id": "chunk_8c96410c0985b03fc1462922f9314278",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "chunk_id": "chunk_9eee0006d7ce7375483f5dab0f5d095c",
+          "pages": [
+            6
+          ]
+        }
+      ],
+      "note": "p5 第3章首段两个 PP-OCRv6 渲染都漏掉“三个指标”的“三”，版面引擎有但被投票丢弃；数字/数量词丢失为严重错误。另：式中变量符号（Ij、Cpj、Tj）丢失。"
+    },
+    {
+      "sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+      "document": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_80eba9c469a24646bf2114894c1b812b",
+          "pages": [
+            10
+          ]
+        },
+        {
+          "chunk_id": "chunk_dd0362b00ffea0c98807548a60d3d69e",
+          "pages": [
+            22
+          ]
+        },
+        {
+          "chunk_id": "chunk_1af569e73024f55dc61fd2f99ce6ff2d",
+          "pages": [
+            17
+          ]
+        },
+        {
+          "chunk_id": "chunk_8136c0cd264a621efe6d0792992c0071",
+          "pages": [
+            14
+          ]
+        },
+        {
+          "chunk_id": "chunk_b53bb02ec1e2039f8f560b171c5140b6",
+          "pages": [
+            24
+          ]
+        }
+      ],
+      "note": "5 个样本无严重错误；p22 5.1.8 逐字一致。"
+    },
+    {
+      "sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+      "document": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_92345f33863df37956f4cf808144870a",
+          "pages": [
+            16
+          ]
+        },
+        {
+          "chunk_id": "chunk_c0289714d1e742b2b3fa4f7837d9fab6",
+          "pages": [
+            20
+          ]
+        },
+        {
+          "chunk_id": "chunk_14a5266311ae803a58bff29cf5eecf07",
+          "pages": [
+            10,
+            11
+          ]
+        },
+        {
+          "chunk_id": "chunk_c76b3f8aa676b467fdf6ec90f623c6cc",
+          "pages": [
+            6
+          ]
+        },
+        {
+          "chunk_id": "chunk_1bd63db63186848419249d84f6ccd84f",
+          "pages": [
+            15
+          ]
+        }
+      ],
+      "note": "5 个样本无严重错误；p10 3.1/3.2 与原图一致（试点文档，R1 已逐页核对）。"
+    },
+    {
+      "sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+      "document": "QXT 489－2019 降雨过程等级.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_68850dae2e5d011c1424e64f314c8992",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "chunk_id": "chunk_1ad733b3c3edacb4076ad5f38a7246d6",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "chunk_id": "chunk_a551e20187f53e04e3d4e4282c80ac03",
+          "pages": [
+            7
+          ]
+        },
+        {
+          "chunk_id": "chunk_d0bad9360638c2e26bf1b1c0faaba8f2",
+          "pages": [
+            9
+          ]
+        },
+        {
+          "chunk_id": "chunk_29d04aa01874223347ccf046c1082517",
+          "pages": [
+            11,
+            12
+          ]
+        }
+      ],
+      "note": "5 个样本文字无严重错误；参考文献与封底原挂在 4.2 下的结构问题已修复（参考文献成为顶级章节）。"
+    },
+    {
+      "sha256": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+      "document": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_143bd99daacd6d4e466779df32adfb13",
+          "pages": [
+            107,
+            108
+          ]
+        },
+        {
+          "chunk_id": "chunk_d942e4058699dd8155a3e0a3d4438cd0",
+          "pages": [
+            89,
+            90
+          ]
+        },
+        {
+          "chunk_id": "chunk_e01d3f30a8d101d5385a44f5c04c592f",
+          "pages": [
+            73
+          ]
+        },
+        {
+          "chunk_id": "chunk_f00280cfd46c58cc620d957b8096b0d1",
+          "pages": [
+            41,
+            42
+          ]
+        },
+        {
+          "chunk_id": "chunk_bad630e73d5adee27a3cd77170466b9b",
+          "pages": [
+            110,
+            111
+          ]
+        }
+      ],
+      "note": "原生文字层为主，仅 14 个 OCR 元素；样本无严重错误。"
+    },
+    {
+      "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+      "document": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_f254120507e62411756e9511ebba2b03",
+          "pages": [
+            20
+          ]
+        },
+        {
+          "chunk_id": "chunk_8220a47ce606ca7bce83503d30b759d4",
+          "pages": [
+            39
+          ]
+        },
+        {
+          "chunk_id": "chunk_15b9698a7bd13ac3ba7b2e407a94d072",
+          "pages": [
+            10
+          ]
+        },
+        {
+          "chunk_id": "chunk_d34d5bca50eb7f52c1878eed2bc6e7cb",
+          "pages": [
+            46,
+            47
+          ]
+        },
+        {
+          "chunk_id": "chunk_ca4ff888ca7393d3b6436d6255c8cab5",
+          "pages": [
+            19
+          ]
+        }
+      ],
+      "note": "p20 核对：变量说明“BI——旱天人流入渗量”与原图字形一致，仅丢“——”（轻微）；无严重错误。"
+    },
+    {
+      "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "document": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_4a81bb573d995b362f977b4909c41a78",
+          "pages": [
+            112
+          ]
+        },
+        {
+          "chunk_id": "chunk_8ddfde258c5874d6a1e7fdd16e04e434",
+          "pages": [
+            27
+          ]
+        },
+        {
+          "chunk_id": "chunk_3d71d8d94b2307abba30d073e89ade53",
+          "pages": [
+            43
+          ]
+        },
+        {
+          "chunk_id": "chunk_3937e718777fa5646ca4555245bf0878",
+          "pages": [
+            109
+          ]
+        },
+        {
+          "chunk_id": "chunk_8a7cacc6d0214a63e6b7a657cc0a61ed",
+          "pages": [
+            105
+          ]
+        }
+      ],
+      "note": "5 个样本无严重错误；5.1.14 第 1 款列项编号“1”缺失（轻微，内容完整）。"
+    },
+    {
+      "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "document": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_ea429dbf928786cf8a9fc19b8e215509",
+          "pages": [
+            39
+          ]
+        },
+        {
+          "chunk_id": "chunk_69dc2bc6cb4752ae8a17c026432a4458",
+          "pages": [
+            24
+          ]
+        },
+        {
+          "chunk_id": "chunk_0be06c3894004f586611f57693d2ed28",
+          "pages": [
+            18
+          ]
+        },
+        {
+          "chunk_id": "chunk_72472ee4ad3a98ad1200c63f11663194",
+          "pages": [
+            52
+          ]
+        },
+        {
+          "chunk_id": "chunk_5dcb5856634ec6e22aa1674a6e0a165a",
+          "pages": [
+            13
+          ]
+        }
+      ],
+      "note": "扫描件+嵌入文字层，经三源投票；5 个样本无严重错误。注意：文件名为 CJJ 61-2018，实际内容为《城市排水工程规划规范》，元数据需更正。"
+    },
+    {
+      "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+      "document": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+      "verdict": "locator_only",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_176dd2a611289a11fa4511ec640c7c28",
+          "pages": [
+            12
+          ]
+        },
+        {
+          "chunk_id": "chunk_a721a9a93ac50a49befbd0ea4c47e3f0",
+          "pages": [
+            14
+          ]
+        },
+        {
+          "chunk_id": "chunk_e76813434b13f1e0c2d2cfa73881f1a4",
+          "pages": [
+            12
+          ]
+        },
+        {
+          "chunk_id": "chunk_b3d4d825498fb311c3b4500c11611519",
+          "pages": [
+            10
+          ]
+        },
+        {
+          "chunk_id": "chunk_d506764620a97162db32b3d430d22840",
+          "pages": [
+            11
+          ]
+        }
+      ],
+      "note": "严重错误：5.4.7 公式说明错乱并混入水印残字“中国测绘”、“检池点”；5.1.1 列项 a) 丢失；四级条号 5.4.2.4 被挂到 5.4.1 下。"
+    },
+    {
+      "sha256": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
+      "document": "GBT 28592-2012降水量等级.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_6bbafef5e0d4e80f1e55b999818863ec",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "chunk_id": "chunk_87a41328b761f60d9f9001deeeea47ec",
+          "pages": [
+            2
+          ]
+        },
+        {
+          "chunk_id": "chunk_7a7ae298e3d7a9088cee892fda731c0a",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "chunk_id": "chunk_7080215fc3786465b08bf3de702d839d",
+          "pages": [
+            4
+          ]
+        },
+        {
+          "chunk_id": "chunk_0f38def609d1218521a7465f4b648a27",
+          "pages": [
+            6,
+            7
+          ]
+        }
+      ],
+      "note": "“共7个等级”已恢复；样本无严重错误；封底版权页 OCR 有少量噪声（b√）。"
+    },
+    {
+      "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "document": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_759c617ffeb4c6803cb85028a9a4e6d4",
+          "pages": [
+            58
+          ]
+        },
+        {
+          "chunk_id": "chunk_5bc3f1f843376c04aba069511dd7903a",
+          "pages": [
+            20,
+            21
+          ]
+        },
+        {
+          "chunk_id": "chunk_d305809c71f6291f4fe62f7fb41cb1cc",
+          "pages": [
+            14
+          ]
+        },
+        {
+          "chunk_id": "chunk_f6196223ab9838142e2acccd93323e97",
+          "pages": [
+            53
+          ]
+        },
+        {
+          "chunk_id": "chunk_e1656038dcd43e2f03d492241da66455",
+          "pages": [
+            46
+          ]
+        }
+      ],
+      "note": "扫描件+嵌入文字层，经三源投票；“浓度/放度”问题已修复；5 个样本无严重错误。"
+    },
+    {
+      "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "document": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "verdict": "admit",
+      "reviewer": "claude-opus-5.5 (R3 sampling vs rendered pages)",
+      "reviewed_at": "2026-10-12",
+      "samples": [
+        {
+          "chunk_id": "chunk_20dc41641f29cdb3cdaa7b58a6a2861f",
+          "pages": [
+            244
+          ]
+        },
+        {
+          "chunk_id": "chunk_360cc99088545f1364d3589e5a4aae99",
+          "pages": [
+            25,
+            26
+          ]
+        },
+        {
+          "chunk_id": "chunk_35aa36ee515a86bce99dde91e37de287",
+          "pages": [
+            114
+          ]
+        },
+        {
+          "chunk_id": "chunk_65a4ff411380717c60dfc9a7a25db4f7",
+          "pages": [
+            20,
+            21
+          ]
+        },
+        {
+          "chunk_id": "chunk_7244ee893ffc67da5ba8b712164ac1af",
+          "pages": [
+            56
+          ]
+        }
+      ],
+      "note": "5 个样本无严重错误；“钻孔灌柱桩”疑为 OCR 或原文用字（轻微）；部分节标题被截断（轻微）。"
+    }
+  ]
+}

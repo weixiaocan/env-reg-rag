@@ -52,6 +52,10 @@ from src.application.canonical_validation import (  # noqa: E402
     validate_document,
 )
 from src.application.corpus_artifacts import resolve_current_corpus  # noqa: E402
+from src.application.ocr_admission import (  # noqa: E402
+    apply_ocr_document_admission,
+    load_admission_registry,
+)
 from src.application.publish_state import (  # noqa: E402
     CandidateConflictError,
     write_artifact_manifest,
@@ -136,6 +140,7 @@ def _assemble_one(
     page_doc: dict[str, Any], formula_run_id: str, independent_ocr_run_id: str,
     *, raw_independent_ocr_run_id: str = _DEFAULT_RAW_INDEPENDENT_OCR_RUN_ID,
     root: str | None = None, middle_layer: str = "legacy",
+    admission: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     sha = page_doc["sha256"]
     page_count = len(page_doc.get("pages") or [])
@@ -170,6 +175,11 @@ def _assemble_one(
     if middle_layer == "v3":
         kwargs["raw_independent_ocr_run_dir"] = raw_independent_run_dir
     doc = assembler(page_doc, **kwargs)
+    admitted = apply_ocr_document_admission(doc, admission)
+    if admitted:
+        print(f"  [admission] {page_doc.get('file_name', '')} sha={sha[:12]}: "
+              f"{admitted} OCR text element(s) admitted by "
+              f"{admission['admission_id']} ({admission['registry_sha256'][:12]})")
     ids = compute_ids(doc)
     apply_computed_ids(doc, ids)
     validate_document(doc)
@@ -284,6 +294,11 @@ def main(argv: list[str] | None = None) -> int:
         help="text middle layer (default: legacy; v3 is region-first)",
     )
     parser.add_argument(
+        "--ocr-admission", default=None,
+        help=("reviewed document-level OCR admission registry (JSON); without it "
+              "every OCR-routed text element stays source_locator_only"),
+    )
+    parser.add_argument(
         "--only", nargs="*", default=None,
         help="only assemble these sha256 prefixes (space-separated)",
     )
@@ -316,6 +331,10 @@ def main(argv: list[str] | None = None) -> int:
     print(f"[assemble] independent OCR run-id: {args.independent_ocr_run_id}")
     print(f"[assemble] raw independent OCR run-id: {args.raw_independent_ocr_run_id}")
     print(f"[assemble] middle layer: {args.middle_layer}")
+    admission = load_admission_registry(args.ocr_admission) if args.ocr_admission else None
+    if admission:
+        print(f"[assemble] OCR admission: {admission['admission_id']} "
+              f"sha256={admission['registry_sha256'][:12]}")
     print(f"[assemble] output dir: {output_dir}")
     print()
 
@@ -339,7 +358,7 @@ def main(argv: list[str] | None = None) -> int:
             doc = _assemble_one(
                 page_doc, args.formula_run_id, args.independent_ocr_run_id,
                 raw_independent_ocr_run_id=args.raw_independent_ocr_run_id,
-                root=root, middle_layer=args.middle_layer)
+                root=root, middle_layer=args.middle_layer, admission=admission)
             out_path = _write(doc, corpus_version, root)
             quar = _quarantine_count(page_doc)
             _print_row(idx, total, page_doc, doc, out_path, quar)
