@@ -1,0 +1,123 @@
+{
+  "case": "G042",
+  "question": "多普勒断面扫描式排水管道在线监测流量仪标准中，图1的图名是什么？流量试验装置由哪几部分组成？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "图1的图名是流量试验装置示意图。",
+        "evidence_ids": [
+          "chunk_391fb8f921d048d516808325a2b2740e"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "流量仪流量试验装置由水流量标准装置和排水管道组成。",
+        "evidence_ids": [
+          "chunk_391fb8f921d048d516808325a2b2740e",
+          "chunk_80500aa14c679dce89cb3a09d21b3060"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_e6d16e7e37685584e98e604af7e360fd",
+    "chunk_91f501d9ced3af979c29dd4974018983",
+    "chunk_2ea677a27fdc23d93c7a189872eaa18c",
+    "chunk_391fb8f921d048d516808325a2b2740e",
+    "chunk_80500aa14c679dce89cb3a09d21b3060",
+    "chunk_68dc45eaf5e76c7c12abe80d71cdd20a",
+    "chunk_add63234df27f303197936fdfeebd0de",
+    "chunk_77e1badd648a3118bd22da4b13b2aa7a",
+    "chunk_bd01fc75d6105f6ad4c7d99fefbe41d8",
+    "chunk_2521d282e13e601afec73a0163267f9d"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_e6d16e7e37685584e98e604af7e360fd",
+    "chunk_91f501d9ced3af979c29dd4974018983",
+    "chunk_2ea677a27fdc23d93c7a189872eaa18c",
+    "chunk_391fb8f921d048d516808325a2b2740e",
+    "chunk_80500aa14c679dce89cb3a09d21b3060"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.017,
+    "retrieval": 72.8,
+    "generation": 5926.671,
+    "validation": 0.065,
+    "total": 5999.667
+  },
+  "token_usage": {
+    "input_tokens": 2141,
+    "output_tokens": 442,
+    "total_tokens": 2583,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "多普勒断面扫描式排水管道在线监测流量仪标准中，图1的图名是什么？流量试验装置由哪几部分组成？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_e6d16e7e37685584e98e604af7e360fd",
+        "usage_policy": "source_locator_only",
+        "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "为了提高流量测量的一致性和准确性，本文件规定了多普勒断面扫描式排水管道在线监测流量仪\n的具体技术要求。多普勒断面扫描式排水管道在线监测流量仪的流速测量应使用超声波多普勒原理，\n采用连续波和脉冲波结合的断面扫描方式，实现传感器前端至水面区域内流速特征的全面扫描与信号\n处理，获取流速分布数据，建立上述数据与流场的匹配关系，计算监测断面的平均流速，提高流速测\n量的代表性和可靠性：使用静压式原理测量液位，测量流体的绝对静压与大气压力之间的差值，通过\n液位压强公式计算液位，提高液位测量的稳定性和精准度；通过液位和平均流速使用面积速度法计算\n流量，实现液位、平均流速、流量的同步测量。排水管道在线监测流量仪适用于城镇污水系统、雨水\n系统、合流制系统中各类排水管道或渠道的流量在线监测，满足浅流、非满流、满流、管道压力过载、\n低流速、逆流等各种工况的定量监测要求，满足防水、防腐、防爆的性能要求，具有易安装维护、稳\n定性强、可靠性高、智能报警等特点。\n中国测绘学会团体标准中国测绘学会团体标准中国测绘学会团体(CSGPC)(CSGPC)"
+      },
+      {
+        "evidence_id": "chunk_91f501d9ced3af979c29dd4974018983",
+        "usage_policy": "source_locator_only",
+        "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "1 范围\n本文件适用于基于超声波多普勒断面扫描方式、采用面积速度法的排水管道在线监测流量仪的生\n产和使用。"
+      },
+      {
+        "evidence_id": "chunk_2ea677a27fdc23d93c7a189872eaa18c",
+        "usage_policy": "source_locator_only",
+        "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "3 术语和定义 > 3.1 流量仪 flow Meter\n基于超声波多普勒断面扫描方式和静压式原理分别连续测定排水管道的平均流速和液位，并采用\n面积速度法计算流量的在线监测设备。"
+      },
+      {
+        "evidence_id": "chunk_391fb8f921d048d516808325a2b2740e",
+        "usage_policy": "source_locator_only",
+        "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "5 试验条件和方法 > 5.4 测量性能试验 > 5.4.1\n[图1流量试验装置示意图]\n5.4.1.2流量仪流量试验装置由水流量标准装置和排水管道组成，见图1。"
+      },
+      {
+        "evidence_id": "chunk_80500aa14c679dce89cb3a09d21b3060",
+        "usage_policy": "source_locator_only",
+        "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "5 试验条件和方法 > 5.4 测量性能试验 > 5.4.1\n5.4.1.2 流量仪流量试验装置由水流量标准装置和排水管道组成，见图1。"
+      }
+    ]
+  }
+}

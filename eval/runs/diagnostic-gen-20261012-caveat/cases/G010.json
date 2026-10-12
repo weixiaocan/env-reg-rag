@@ -1,0 +1,112 @@
+{
+  "case": "G010",
+  "question": "该福建标准主要技术内容大致包含哪些环节？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "该福建标准的主要技术内容包含：总则、术语、基本规定、前期调查、设计、施工与验收、运维管理、效果评估及附录。",
+        "evidence_ids": [
+          "chunk_8143db4faec6d227b2266e074b974911"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_8143db4faec6d227b2266e074b974911",
+    "chunk_88cac6d455588ce44edf7506aa4496f5",
+    "chunk_d2b96fd1756e6cb9ea172c5b41a38af4",
+    "chunk_af6a52ca8e1b89fa81bfe7a1b67a2251",
+    "chunk_f4742044db65b9d3b97c32733730933c",
+    "chunk_34a02c663f6eff93a245f3f8e076093d",
+    "chunk_5ebd8a20c09549920683db681500ce29",
+    "chunk_da313bae8de44db49c85df354c90c053",
+    "chunk_ed36800f72b5fb5e5870f38723709222",
+    "chunk_40a2eeb5462e7ce13c9b3b332cd07fa0"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_8143db4faec6d227b2266e074b974911",
+    "chunk_88cac6d455588ce44edf7506aa4496f5",
+    "chunk_d2b96fd1756e6cb9ea172c5b41a38af4",
+    "chunk_af6a52ca8e1b89fa81bfe7a1b67a2251",
+    "chunk_f4742044db65b9d3b97c32733730933c"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.022,
+    "retrieval": 64.41,
+    "generation": 5221.403,
+    "validation": 0.11,
+    "total": 5286.095
+  },
+  "token_usage": {
+    "input_tokens": 2589,
+    "output_tokens": 293,
+    "total_tokens": 2882,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "该福建标准主要技术内容大致包含哪些环节？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_8143db4faec6d227b2266e074b974911",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          3
+        ],
+        "text": "根据《福建省住房和城乡建设厅关于公布全省住房和城乡建\n设行业2022 年第五批科学技术计划项目的通知》（闽建科\n〔2022〕33 号）的要求，标准编制组经广泛调查研究，认真总结\n实践经验，参考国家及行业相关标准，在广泛征求意见的基础上，\n制定本标准。\n本标准的主要技术内容是：1.总则；2.术语；3.基本规定；\n4.前期调查；5.设计；6.施工与验收；7.运维管理；8.效果评估；\n附录。\n本标准由福建省住房和城乡建设厅负责管理，由厦门市城市\n规划设计研究院有限公司负责具体内容的解释。执行过程中如有\n意见或建议，请寄送福建省住房和城乡建设厅科技与设计处（地\n址：福州市北大路242 号，邮编：350001）和厦门市城市规划设\n计研究院有限公司（地址：厦门市思明区体育路95-17 号，邮编：\n361012），以供今后修订时参考。\n本标准主编单位：厦门市城市规划设计研究院有限公司\n北京市建筑设计研究院股份有限公司\n福建省建筑科学研究院有限责任公司\n本标准参编单位：福建北杭建设工程有限公司\n福建省建科院施工图审查有限公司\n漳州城投市政集团有限公司\n福建祥云科创新型管业科技有限公司\n福建腾鼎鑫市政工程有限公司\n厦门万宾科技有限公司"
+      },
+      {
+        "evidence_id": "chunk_88cac6d455588ce44edf7506aa4496f5",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          76
+        ],
+        "text": "6 > 6.1 > 6.1.2\n6. 1. 2\n施工组织设计的核心是施工方案，本标准重点对施工方案\n作出具体规定；对于施工组织设计和施工方案审批程序，各地市\n规定不同，本标准仅强调其内容要求和按“规定程序”审批后执\n行，执行时若有变更需求时按规定办理变更审批手续。施工方案\n涉及危险性较大的分项、分部工程时应符合现行福建省工程建设\n地方标准《福建省危险性较大的分部分项工程安全管理标准》\nDBJ/T 13-416 的规定。\n施工组织设计应充分考虑好民众的出行路线、出行习惯，合\n理规划交通组织，合理布置施工场地。"
+      },
+      {
+        "evidence_id": "chunk_d2b96fd1756e6cb9ea172c5b41a38af4",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          37
+        ],
+        "text": "4 监测 > 4.2 监测方法 > 4.2.8\n4.2.8监测数据质量控制包含异常数据筛查、异常原因识别、\n异常监测点位整改等环节可以参考现行协会标准《城镇排水管网\n在线监测技术规程》T/CECS869的有关规定，确保达到监测目\n标要求。发现监测数据质量未达分析要求时，需要及时进行现场\n整改，确保监测数据满足分析需要。必要时需当延长监测持续时\n间，以获得充足的、满足质量要求的监测数据用于评估工作。"
+      },
+      {
+        "evidence_id": "chunk_af6a52ca8e1b89fa81bfe7a1b67a2251",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "为适应国际技术法规与技术标准通行规则，2016年以来，\n住房和城乡建设部陆续印发《深化工程建设标准化工作改革的意\n见》等文件，提出政府制定强制性标准、社会团体制定自愿采用\n性标准的长远目标，明确了逐步用全文强制性工程建设规范取代\n现行标准中分散的强制性条文的改革任务，逐步形成由法律、行\n政法规、部门规章中的技术性规定与全文强制性工程建设规范构\n成的“技术法规”体系。\n关于规范种类。强制性工程建设规范体系覆盖工程建设领域\n各类建设工程项目，分为工程项目类规范（简称项目规范）和通\n用技术类规范（简称通用规范）两种类型。项目规范以工程建设\n项目整体为对象，以项目的规模、布局、功能、性能和关键技术\n措施等五大要素为主要内容。通用规范以实现工程建设项目功能\n性能要求的各专业通用技术为对象，以勘察、设计、施工、维\n修、养护等通用技术要求为主要内容。在全文强制性工程建设规\n范体系中，项目规范为主干，通用规范是对各类项目共性的、通\n用的专业性关键技术措施的规定。"
+      },
+      {
+        "evidence_id": "chunk_f4742044db65b9d3b97c32733730933c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 > 1.0.1\n1. 0. 1\n为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n污混接改造工作，制定本标准。"
+      }
+    ]
+  }
+}

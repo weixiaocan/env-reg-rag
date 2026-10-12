@@ -1,0 +1,87 @@
+{
+  "case": "G009",
+  "question": "福建省建筑与小区雨污混接改造技术标准附录示意图中，图1《雨水立管断接示意图（一）》的图注包含哪些主要部件？",
+  "expected_answerability": "answer",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_b9c51c898884ca5cc330eebafc07e64f",
+    "chunk_4e6f40c608f33c9110019f2bc0d30ea6",
+    "chunk_b4942a00bfddff1676dbbbddad5352c5",
+    "chunk_7c8806bb8cff259337de48e40c2e4ad1",
+    "chunk_f4742044db65b9d3b97c32733730933c"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.016,
+    "retrieval": 62.164,
+    "generation": 5321.34,
+    "total": 5383.625
+  },
+  "token_usage": {
+    "input_tokens": 2325,
+    "output_tokens": 338,
+    "total_tokens": 2663,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "福建省建筑与小区雨污混接改造技术标准附录示意图中，图1《雨水立管断接示意图（一）》的图注包含哪些主要部件？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_b9c51c898884ca5cc330eebafc07e64f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          62
+        ],
+        "text": "5 > 5.1 > 5.1.5\n5. 1. 5\n对于建筑周边有绿地的建筑与小区，建筑屋面为外排水，\n在进行雨水立管混接改造的同时，宜将分流后的屋面雨水立管进\n行断接，将屋面雨水引至周边海绵设施进行入渗和滞蓄。\n建筑雨水管的断接指排水口将径流连接到绿地等透水区域。\n断接时无论雨水立管外落或室内设置都应把出水管口暴露于大气\n中，保证雨水管的水自由出流。\n雨水资源化利用生态设施有下沉绿地、雨水花园、高位花池\n等。当排向建筑散水面进入下沉绿地时，散水面应采取消能防冲\n刷措施。\n雨水立管断接改造设计示意如图1～图3 所示。"
+      },
+      {
+        "evidence_id": "chunk_4e6f40c608f33c9110019f2bc0d30ea6",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 > 1.0.2\n1. 0. 2\n本标准适用于福建省既有建筑与小区排水管网及配套设\n施雨污混接改造工程的调查、设计、施工与验收、运维管理和效\n果评估。"
+      },
+      {
+        "evidence_id": "chunk_b4942a00bfddff1676dbbbddad5352c5",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 > 1.0.3\n1. 0. 3\n建筑与小区雨污混接改造工程，除应符合本标准外，尚\n应符合国家、行业和福建省现行有关技术标准的规定。"
+      },
+      {
+        "evidence_id": "chunk_7c8806bb8cff259337de48e40c2e4ad1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          45
+        ],
+        "text": "编制说明\n《福建省建筑与小区雨污混接改造技术标准》DBJ/T\n13-477-2024，经福建省住房和城乡建设厅2024 年12 月31 日以\n闽建科〔2024〕63 号文批准发布，并经住房和城乡建设部备案，\n备案号为J 17963-2025。\n本标准制订过程中，编制组进行了广泛的调查研究，总结了\n我省雨污混接改造的实践经验，参考了国内先进技术法规、技术\n标准，并对雨污混接改造开展了专题研究。\n为便于广大设计、施工、科研、学校等单位有关人员在使用\n本标准时能正确理解和执行条文规定，《福建省建筑与小区雨污\n混接改造技术标准》编制组按章、节、条顺序编制了本标准的条\n文说明，对条文规定的目的、依据以及执行中需要注意的有关事\n项进行说明。但是，本条文说明不具备与标准正文同等的法律效\n力，仅供使用者作为理解和把握标准规定的参考。"
+      },
+      {
+        "evidence_id": "chunk_f4742044db65b9d3b97c32733730933c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 > 1.0.1\n1. 0. 1\n为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n污混接改造工作，制定本标准。"
+      }
+    ]
+  }
+}

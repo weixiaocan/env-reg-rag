@@ -1,0 +1,87 @@
+{
+  "case": "G012",
+  "question": "武汉市排水管道混错接改造技术规程的地方标准号是什么？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_dbf1bfa11d0112c09e6bb10e3ba15795",
+    "chunk_95f699a155a991e3feb21b5920615f6b",
+    "chunk_575faa6a281d264b68ce58cce7ee8ee0",
+    "chunk_36a3cfd8c570e987da77b2c246219e5c",
+    "chunk_750dd4f9c1a51af7c6da970ae76305cb"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.026,
+    "retrieval": 63.453,
+    "generation": 4976.542,
+    "total": 5040.142
+  },
+  "token_usage": {
+    "input_tokens": 2579,
+    "output_tokens": 342,
+    "total_tokens": 2921,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "武汉市排水管道混错接改造技术规程的地方标准号是什么？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_dbf1bfa11d0112c09e6bb10e3ba15795",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。"
+      },
+      {
+        "evidence_id": "chunk_95f699a155a991e3feb21b5920615f6b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          4
+        ],
+        "text": "根据中国工程建设标准化协会《关于印发〈2017年第一批工\n程建设协会标准制订、修订计划>的通知》(建标协字〔2017〕014\n号)的要求，规程编制组经过深入调查研究，认真总结实践经验，参\n考了国内外相关标准和资料，并在广泛征求意见的基础上，制定本\n规程。\n本规程共分8章和9个附录，主要技术内容包括：总则，术语\n和符号，基本规定，混接预判、资料收集与现场踏勘，混接区域调\n查，混接点或混接源探查，雨污混接状况评估，雨污混接治理与验\n收等。\n请注意本规程的某些内容可能直接或间接涉及专利，本规程\n的发布机构不承担识别这些专利的责任。\n本规程由中国工程建设标准化协会城市给水排水专业委员会\n归口管理，由上海市城市建设设计研究总院(集团)有限公司负责\n具体技术内容的解释。本规程在使用过程中如有需要修改或补充\n之处，请将有关资料和建议寄送解释单位(地址：上海市浦东新区\n东方路3447号，邮编：200125），以供修订时参考。\n主编单位：上海市城市建设设计研究总院(集团)有限公司\n同济大学\n参编单位：上海市排水管理处\n上海誉帆环境科技有限公司\n中国市政工程华北设计研究总院有限公司\n西安市政设计研究院有限公司\n常州市排水管理处\n天津市排水管理处"
+      },
+      {
+        "evidence_id": "chunk_575faa6a281d264b68ce58cce7ee8ee0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求\n承担城市排水管道混错接改造工作的主管部门应委托有专业能力和相应资质的单位，进行分区、分\n块混错接调查，在调查的基础上，科学合理制定混错接改造方案，有序开展混错接改造工作，并严格执\n行国家、行业相关安全和质量规定，确保安全和质量达标。"
+      },
+      {
+        "evidence_id": "chunk_36a3cfd8c570e987da77b2c246219e5c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "6 混错接改造设计 > 6.2.3\n6.2.3 对于具备雨污分流改造条件的合流制市政排水管道改造，设计应对合流管道实施雨污分流改造。\n截流改造前宜对雨污水系统的运行水位进行监测，确保具有截流条件。"
+      },
+      {
+        "evidence_id": "chunk_750dd4f9c1a51af7c6da970ae76305cb",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          48
+        ],
+        "text": "1 总 > 1.0.3\n1. 0. 3\n涉及排水管网及配套设施混接改造设计应符合国家现行\n标准《建筑给水排水设计标准》GB 50015、《室外排水设计标准》\nGB 50014、《城市工程管线综合规划规范》GB 50289、《建筑与\n小区雨水控制与利用工程技术规范》GB 50400、《建筑给水排水\n与节水相关规定通用规范》GB 55020、《建筑屋面雨水排水系统\n技术规程》CJJ 142、《埋地塑料排水管道工程技术规程》CJJ 143、\n《城镇排水管道非开挖修复更新工程技术规程》CJJ/T 210 等的规\n定。\n涉及屋面改造设计应符合现行国家标准《屋面工程技术规范》\nGB 50345、《坡屋面工程技术规范》GB 50693、《建筑与市政工\n程防水通用规范》GB 55030、《种植屋面工程技术规程》JGJ 155\n等的规定。\n涉及道路改造设计应符合现行行业标准《城市道路工程设计\n规范》CJJ 37、《透水水泥混凝土路面技术规程》CJJ/T 135、《城\n镇道路路面设计规范》CJJ 169、\n《透水砖路面技术规程》CJJ/T 188、\n《透水沥青路面技术规程》CJJ/T 190 和《城市道路路基设计规范》\nCJJ 194 等的规定。\n截流设施应符合现行国家标准《室外排水设计标准》GB\n50014 和现行行业标准等的规定。"
+      }
+    ]
+  }
+}

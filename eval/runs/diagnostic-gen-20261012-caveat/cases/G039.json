@@ -1,0 +1,88 @@
+{
+  "case": "G039",
+  "question": "GB/T 47884—2026中图1的图名是什么？它表示什么逻辑关系？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_d0820ce129b8df223b6c7ca1d50dbf53",
+    "chunk_9cdf97775e852019f1277cccb18dc584",
+    "chunk_65adb45e598a0203932674d094e7433b",
+    "chunk_664972890091badc5af9ccf242877947",
+    "chunk_11af99f457fdb2c980a3f195d4a0fe6b"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.015,
+    "retrieval": 53.833,
+    "generation": 5818.898,
+    "total": 5872.818
+  },
+  "token_usage": {
+    "input_tokens": 2084,
+    "output_tokens": 339,
+    "total_tokens": 2423,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "GB/T 47884—2026中图1的图名是什么？它表示什么逻辑关系？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_d0820ce129b8df223b6c7ca1d50dbf53",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          33
+        ],
+        "text": "4 监测 > 4.1 监测方案 > 4.1.5\n4.1.5 本条规定了入流入渗监测的布点位置。对于重要排水设\n施，如果进水管不具备监测条件，可以在出水管设置监测点位。\n重点排水户是指入流入渗问题严重的、用水量与排水量显著差异\n且不符合逻辑关系的、混接严重的排水户。雨污分流改造较好的\n小区也可以适当进行布点监测，可以作为分析过程的本底数据。\n具有潜在入流入渗风险的污水管道主要包括截洪沟附近的管道、\n结构缺陷严重的管道、倒虹管、截流井附近管道、沿河铺设的管\n道等。"
+      },
+      {
+        "evidence_id": "chunk_9cdf97775e852019f1277cccb18dc584",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          45
+        ],
+        "text": "附录H 混接图层和图例\n注：括号内的数字为颜色的索引号。"
+      },
+      {
+        "evidence_id": "chunk_65adb45e598a0203932674d094e7433b",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          25
+        ],
+        "text": "引用标准名录\nT/CECS 1764 - 2024\n条文说明"
+      },
+      {
+        "evidence_id": "chunk_664972890091badc5af9ccf242877947",
+        "usage_policy": "source_locator_only",
+        "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+        "physical_pages": [
+          7,
+          8
+        ],
+        "text": "3 术语和定义 > 3.4\n面积速度法 velocity-area method\n利用液位和监测断面的形状参数计算过水断面面积，利用过水断面面积与平均流速的乘积计算流\n中国测绘中国测绘学中国测绘学会\n3.5\n(CSGPC)\n流动剖面 flow profile\n速度分布的图解表示法。\n[来源:GB/T 17611-1998,1.4”\n4 设备要求\n中国测 外观及功能"
+      },
+      {
+        "evidence_id": "chunk_11af99f457fdb2c980a3f195d4a0fe6b",
+        "usage_policy": "source_locator_only",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          74
+        ],
+        "text": "5 > 5.4 > 5.4.10\n[图12 格栅安装示意图]\n栅安装如图12 所示："
+      }
+    ]
+  }
+}

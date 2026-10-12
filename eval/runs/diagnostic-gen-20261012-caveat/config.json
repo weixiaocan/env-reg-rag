@@ -1,0 +1,18 @@
+{
+  "classification": "diagnostic",
+  "run_id": "diagnostic-gen-20261012-caveat",
+  "dataset": "eval\\golden_v3.jsonl",
+  "dataset_sha256": "69544ef6a49b95773a73046c5d1a00a54951ef2fd56ecf8af4a0033f0054eef7",
+  "dataset_cases": 50,
+  "corpus_version": "corpus-8dcc90d4921b",
+  "provider": "zhipu",
+  "model": "glm-5.2",
+  "temperature": 0.1,
+  "llm_base_url": "https://open.bigmodel.cn/api/paas/v4/",
+  "retrieval": {
+    "profile": "production answer profile (verified + caveated unverified evidence)",
+    "retrieve_limit": 10,
+    "generate_context_limit": 5
+  },
+  "note": "real LLM run, authorized by the owner for the already-wired provider"
+}

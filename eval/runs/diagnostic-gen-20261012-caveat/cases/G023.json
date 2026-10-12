@@ -1,0 +1,131 @@
+{
+  "case": "G023",
+  "question": "对照GB/T 28592与T/CMSA 0013：前者降雨量等级按哪两个时段划分？后者把哪些历时划分为六个短时等级？QX/T 489—2019如何规定区域降雨过程等级？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "T/CMSA 0013将10分钟、30分钟、1小时的降雨量划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大暴雨、短时特大暴雨共6个等级。",
+        "evidence_ids": [
+          "chunk_388ccda10b328fd65adb746222b291ab"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "QX/T 489—2019规定区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。",
+        "evidence_ids": [
+          "chunk_27dcb41cceec96516f6c007555cc8c17"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "QX/T 489—2019的区域日降雨等级按区域内出现各等级降雨的站点比例划分：小雨需40%以上站点出现小雨，中雨需30%以上站点出现中雨，大雨需20%以上站点出现大雨，暴雨需10%以上站点出现暴雨，大暴雨需5%以上站点出现大暴雨，特大暴雨需5%以上站点出现大暴雨且有2%以上站点出现特大暴雨。",
+        "evidence_ids": [
+          "chunk_6b9921aa2c64ef6a4901e08c6b413051"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_69fe543473ebaf48c51980e43eac2b10",
+    "chunk_388ccda10b328fd65adb746222b291ab",
+    "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+    "chunk_6b9921aa2c64ef6a4901e08c6b413051",
+    "chunk_27dcb41cceec96516f6c007555cc8c17",
+    "chunk_10ba83d8f4ddd218be8f754a13888dc8",
+    "chunk_64e54436e997e6adc10cbe263182c2c2",
+    "chunk_4fd8749b63ebb4688661110c66974806",
+    "chunk_e62787760d14282210534d066d79efb0",
+    "chunk_6d8bcddbed12cdcf93aff25a56a83109"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_69fe543473ebaf48c51980e43eac2b10",
+    "chunk_388ccda10b328fd65adb746222b291ab",
+    "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+    "chunk_6b9921aa2c64ef6a4901e08c6b413051",
+    "chunk_27dcb41cceec96516f6c007555cc8c17"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.02,
+    "retrieval": 78.759,
+    "generation": 26342.806,
+    "validation": 0.072,
+    "total": 26421.763
+  },
+  "token_usage": {
+    "input_tokens": 2163,
+    "output_tokens": 2233,
+    "total_tokens": 4396,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "对照GB/T 28592与T/CMSA 0013：前者降雨量等级按哪两个时段划分？后者把哪些历时划分为六个短时等级？QX/T 489—2019如何规定区域降雨过程等级？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_69fe543473ebaf48c51980e43eac2b10",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          6
+        ],
+        "text": "3 等级划分\n表1 短时气象服务降雨量等级划分表\n等级 | 时段 | 时段 | 时段\n等级 | 10分钟 | 30分钟 | 1小时\n短时小雨 | <0.5 | <1.0 | <2.0\n短时中雨 | 0.5~0.9 | 1.0~1.9 | 2.0~3.9\n短时大雨 | 1.0~1.9 | 2.0~3.9 | 4.0~7.9\n短时暴雨 | 2.0~4.9 | 4.0~9.9 | 8.0~19.9\n短时大暴雨 | 5.0~15.0 | 10.0~30.0 | 20.0~50.0\n短时特大暴雨 | >15.0 | >30.0 | >50.0"
+      },
+      {
+        "evidence_id": "chunk_388ccda10b328fd65adb746222b291ab",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          5,
+          6
+        ],
+        "text": "3 等级划分\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）"
+      },
+      {
+        "evidence_id": "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "参考文献\n[1] GB/T 27961－2011 气象服务分类术语\n[2] GB/T 28592－2012 降水量等级\n[3] QX/T 489－2019 降雨过程等级"
+      },
+      {
+        "evidence_id": "chunk_6b9921aa2c64ef6a4901e08c6b413051",
+        "usage_policy": "source_locator_only",
+        "file_name": "QXT 489－2019 降雨过程等级.pdf",
+        "physical_pages": [
+          10
+        ],
+        "text": "4 区域降雨过程等级 > 4.1 区域日降雨等级\n表2区域日降雨等级划分表\n等级 | 划分方法\n小雨 | 区域内40%以上站点出现小雨\n中雨 | 区域内有30%以上站点出现中雨\n大雨 | 区域内有20%以上站点出现大雨\n暴雨 | 区域内有10%以上站点出现暴雨\n大暴雨 | 区域内有5%以上站点出现大暴雨\n特大暴雨 | 区域内有5%以上站点出现大暴雨，且有2%以上站点出现特大暴雨"
+      },
+      {
+        "evidence_id": "chunk_27dcb41cceec96516f6c007555cc8c17",
+        "usage_policy": "answer_and_citation",
+        "file_name": "QXT 489－2019 降雨过程等级.pdf",
+        "physical_pages": [
+          10
+        ],
+        "text": "4 区域降雨过程等级 > 4.2 区域降雨过程等级\n区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。"
+      }
+    ]
+  }
+}

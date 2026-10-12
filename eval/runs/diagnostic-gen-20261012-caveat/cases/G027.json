@@ -1,0 +1,89 @@
+{
+  "case": "G027",
+  "question": "供水和污水系统资产管理指南第3部分中，图1的图名是什么？该图用于说明什么流程？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_56d46b240155901aaf8868e0e62299d4",
+    "chunk_fdf3451df7aca52574fe5cbc0c67f0dc",
+    "chunk_63a7b7e890678f40f074b840f17ab976",
+    "chunk_43270a56b4785ea742393a8f26889672",
+    "chunk_f24d5b4a753285deaca865ef9a2673e5"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.014,
+    "retrieval": 118.14,
+    "generation": 5863.52,
+    "total": 5981.782
+  },
+  "token_usage": {
+    "input_tokens": 2358,
+    "output_tokens": 342,
+    "total_tokens": 2700,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "供水和污水系统资产管理指南第3部分中，图1的图名是什么？该图用于说明什么流程？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_56d46b240155901aaf8868e0e62299d4",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          11,
+          12
+        ],
+        "text": "3 基本规定 > 3.0.6\n[图3.0.5城镇污水管网入流入渗检测与评估工作流程图]\n识别、报告编制等内容（图3.0.5）。监测开展前应编制完整的"
+      },
+      {
+        "evidence_id": "chunk_fdf3451df7aca52574fe5cbc0c67f0dc",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          101
+        ],
+        "text": "2 建立污水处理费价调整机制\n该省某试点城市，位于黄淮平原，水资源紧缺，工矿企业用水量\n大。2023年，市政府按照“统筹推进、整体移交、分步实施”的思路，\n逐步完成涉水业务的投资、建设、运营和管理工作整合，实现“供排一\n体”专业化运作，通过行业的整合挖潜和一体化管理，实现城市供排水\n行业的良性循环和高质量发展。\n一是做好资产整合。明确市水务公司为主要载体，对资产权属清晰\n的国有供排水设施资产以无偿划转到市水务公司，包括城市水源、供水\n厂网、污水处理厂网、二次供水、污泥处置、再生水利用等；对资产权\n属不明晰等暂不具备移交条件的国有供排水设施资产，先行移交管理\n权，同步启动相关资产移交划转工作。\n二是主动降本增效。建设城市供排水一体化运行管理平台，通过智\n慧化手段实施供水厂和污水处理厂的精细化管理，供水厂和污水处理厂\n运行费用由2023年的6248万元减少到5168万元。通过加强水费征收管\n理，将水费回收率由86%提升到93%，水费和污水处理费增收10%。通过\n实施11个供排水改造项目，降漏损、挤外水、排雨水，供水管网漏损率\n有所下降，污水收集效能有所提升。"
+      },
+      {
+        "evidence_id": "chunk_63a7b7e890678f40f074b840f17ab976",
+        "usage_policy": "source_locator_only",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          3,
+          4
+        ],
+        "text": "本指南的主要内容包括：总体要求、加强系统谋划、实施\n排查检测、完善管网体系、健全长效机制、强化政策保障。指\n南定位为推进污水管网全覆盖和运行维护长效机制建设工作的\n“工具箱”，其中的“专栏”主要是对相关技术性内容的解释\n说明，“案例”是对地方典型做法的梳理凝练，受篇幅所限没\n有具体阐明城市特点和实施背景，仅注明省份以方便区分南北\n方。考虑到不同城市情况差异较大，各地在学习借鉴时应结合\n当地实际。\n本指南主要起草单位：中国市政工程华北设计研究总院有\n限公司、中规院（北京）规划设计有限公司以及有关城市排水\n主管部门。\n本指南由住房城乡建设部城市建设司负责管理，请各单位\n在使用过程中，总结实践经验，提出意见和建议。"
+      },
+      {
+        "evidence_id": "chunk_43270a56b4785ea742393a8f26889672",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          17
+        ],
+        "text": "3 排水工程 > 3.3 污水系统 > 3.3.1\n3.3.1 污水系统应包括收集管网、污水处理、深度和再生处理与\n污泥处理处置设施。"
+      },
+      {
+        "evidence_id": "chunk_f24d5b4a753285deaca865ef9a2673e5",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          16
+        ],
+        "text": "3 排水工程 > 3.1 一般规定 > 3.1.1\n3.1.1 排水工程包括雨水系统和污水系统，应遵循从源头到末端原头到末端\n的全过程管理和控制。雨水系统和污水系统应相互配合、有效衔\n接。"
+      }
+    ]
+  }
+}

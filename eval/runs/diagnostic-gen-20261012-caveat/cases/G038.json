@@ -1,0 +1,119 @@
+{
+  "case": "G038",
+  "question": "《城市排水工程规划规范》表4.2.3规范的是哪类系数？在资料缺乏时该表用于什么场景？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "表4.2.3规范的是各类污水排放系数，具体为城市分类污水排放系数。",
+        "evidence_ids": [
+          "chunk_cb48e1ca6c4eb5d009b01adff132c0c3"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "当资料缺乏时，表4.2.3用于根据城市居住和公共设施水平以及工业类型等确定城市分类污水排放系数的取值。",
+        "evidence_ids": [
+          "chunk_cb48e1ca6c4eb5d009b01adff132c0c3"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_bdcd02d616250bb6d2eecb2e7e470641",
+    "chunk_88144d747f5d13d0befa4a98730f34fb",
+    "chunk_82d94847f1706b90efd02e24cc0507ab",
+    "chunk_cb48e1ca6c4eb5d009b01adff132c0c3",
+    "chunk_44a0349db4699de30a83c005fa0cf219",
+    "chunk_3b3ca0785354e7c61fb69205983a23d2",
+    "chunk_222ba690e558f92a2ff4eb8c61404fcb",
+    "chunk_c4de9f1e92c3193ea8ba0003c9e8eaf5",
+    "chunk_68c565f4b1064cbd1c057c6a0819dd7b",
+    "chunk_5a580e53c3ad1040958fbfdda23ad8cc"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_bdcd02d616250bb6d2eecb2e7e470641",
+    "chunk_88144d747f5d13d0befa4a98730f34fb",
+    "chunk_82d94847f1706b90efd02e24cc0507ab",
+    "chunk_cb48e1ca6c4eb5d009b01adff132c0c3",
+    "chunk_44a0349db4699de30a83c005fa0cf219"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.027,
+    "retrieval": 63.539,
+    "generation": 14709.979,
+    "validation": 0.025,
+    "total": 14773.671
+  },
+  "token_usage": {
+    "input_tokens": 2598,
+    "output_tokens": 1010,
+    "total_tokens": 3608,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "《城市排水工程规划规范》表4.2.3规范的是哪类系数？在资料缺乏时该表用于什么场景？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_bdcd02d616250bb6d2eecb2e7e470641",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          248
+        ],
+        "text": "附录B 分项、分部、单位工程质量验收记录\n给排水管道工程的验收在设验收批时，验收批的验收是工程\n质量验收的最小单位，是分项工程乃至整个给水排水管道工程质\n量验收的基础。\n各分项工程检查项目合格以外，还应对该分部工程进行外观\n质量评价、以及对涉及结构安全和使用功能的分部工程进行施工\n检测和试验。\n本规范中“子分部”、“子单位”工程，主要是针对一些大型\n的、综合性、多专业施工队伍、多工种的给水排水管道工程，这\n类工程可能同时包含了多种施工方式和部位（如有开槽敷设、顶\n管、沉管、泵站工程等)，为了便于施工质量的过程控制和质量\n管理而设置的。\n单位工程验收也称竣工验收，是在其所含的各分部工程验收\n合格的基础上进行，是给排水管道工程投入使用前的最后一次验\n收，也是最重要的验收。\n本规范给出了验收批、分项工程、分部工程、单位工程的质\n量验收记录表，以统一记录表的格式、内容和方式；其中各分项\n工程验收批验收记录表根据附录B的通用表式，还可根据该通\n用表样，结合本规范各章节的质量验收要求，制订不同分项工程\n验收批的专用表样，以便于施工检验与验收使用。"
+      },
+      {
+        "evidence_id": "chunk_88144d747f5d13d0befa4a98730f34fb",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "3 基本规定 > 3.1 一般规定 > 3.1.3\n3.1.3 城市排水工程规划应与城市道路、竖向、防洪、河湖水\n系、给水、绿地系统、环境保护、管线综合、综合管廊、地下空\n间等规划相协调。"
+      },
+      {
+        "evidence_id": "chunk_82d94847f1706b90efd02e24cc0507ab",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+        "physical_pages": [
+          29
+        ],
+        "text": "修订说明\n《城市排水工程规划规范》GB50318-2017（以下简称本规\n范)，经住房和城乡建设部2017 年1 月21 日以第1447 号公告批\n准、发布。\n本规范是在《城市排水工程规划规范》GB 50318-2000\n(以下简称原规范)的基础上修订而成，上一版的主编单位是陕\n西省城乡规划设计研究院，参编单位是浙江省城乡规划设计研究\n院、大连市规划设计研究院、昆明市规划设计研究院，主要起草人景是韩文斌张明生、李少林、潘伯堂、赵萍、曹世法付文\n清区乘华标刘结治李美本次修订的主要技内容：\n1 总则；2 术语；3 基本规定；4 污水系统；5 雨水系统；\n最新标范制组参分源亮有必应关6合流制排水系统； 监控与预警。雨水系统；\n最新%球髓蒯僦麻遍最嬴有\n应\n规、技术标准，征求了专家、相关部门和社会各界对于原规范以\n及规范修订的意见，并与相关国家标准、规范相衔接。\n为便于广大规划设计、管理、科研、学校等有关单位人员在\n使用本规范时能正确理解和执行条文规定，《城市排水工程规划\n规范》编制组按章、节、条顺序编制了本规范的条文说明，对条\n文规定的目的、依据以及执行中需注意的有关事项进行了说明，\n还着重对强制性条文的强制性理由做出了解释。但是，条文说明\n不具备与标准正文同等的法律效力，仅供使用者作为理解和把握\n标准规定的参考。"
+      },
+      {
+        "evidence_id": "chunk_cb48e1ca6c4eb5d009b01adff132c0c3",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "4 污水系统 > 4.2 污水量 > 4.2.3\n4.2.3 各类污水排放系数应根据城市历年供水量和污水量资料\n确定。当资料缺乏时，城市分类污水排放系数可根据城市居住和\n公共设施水平以及工业类型等，按表4.2.3的规定取值。"
+      },
+      {
+        "evidence_id": "chunk_44a0349db4699de30a83c005fa0cf219",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1 总则则 > 1.0.4\n1.0.4 城市排水工程规划除应符合本规范外，尚应符合国家现\n行有关标准的规定。\n最新标准官方首发群：141160466\n最新标准定期更新资源共享有求必应I 资源共享有求必应"
+      }
+    ]
+  }
+}

@@ -1,0 +1,144 @@
+{
+  "case": "G040",
+  "question": "GB/T 47884表1规定的是什么内容？感知数据章节对在线监测点位布设提出了哪些原则？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "流量在线监测的布点密度应保证每个监测分区至少有1个布点，宜布置在监测分区的进、出口位置，可根据数据需求选择固定监测或临时监测方式。",
+        "evidence_ids": [
+          "chunk_7cbf064134a03665d4fb16e5561989de"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "流量监测点至少需达到1个/km²；对于排水情况复杂、入流入渗问题突出的区域，建议适当提高密度，如每1km～3km管线布设一个流量监测点。",
+        "evidence_ids": [
+          "chunk_4cc52370b57c608c6fdb69525d4e019d"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "对于污水管网的分支关系、汇集流向比较清晰的监测分区，流量监测点需设置在监测分区的总出口处及与其他分区的连接处，需根据地形、污水管网拓扑关系确定。",
+        "evidence_ids": [
+          "chunk_4cc52370b57c608c6fdb69525d4e019d"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-4",
+        "text": "降雨监测建议每个一级监测分区的分析采用区域内布设的降雨监测点位的数据，数据来源可以是单独布设的降雨监测点数据，也可以是气象部门提供的满足评估要求的监测数据。",
+        "evidence_ids": [
+          "chunk_8def2de82de7361f9ac544adc9d90e44"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-5",
+        "text": "在线监测设备安装前应对监测点位的安装和监测条件进行现场确认，不满足条件的监测点位应予以调整。",
+        "evidence_ids": [
+          "chunk_48c79427d6924f56453a5f77d5dc1d96"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_8def2de82de7361f9ac544adc9d90e44",
+    "chunk_7cbf064134a03665d4fb16e5561989de",
+    "chunk_48c79427d6924f56453a5f77d5dc1d96",
+    "chunk_4cc52370b57c608c6fdb69525d4e019d",
+    "chunk_e731b48ce70eb061af7d483668804bb0",
+    "chunk_51a96548221125870dcc636a38ff2c81",
+    "chunk_6fe7047b090708033811a425810f3ac9",
+    "chunk_d2b96fd1756e6cb9ea172c5b41a38af4",
+    "chunk_4c39055bf1fb3325bf7c9933f7b7504e",
+    "chunk_784cbcd87624d7bd1d6b8f37a76bf4ad"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_8def2de82de7361f9ac544adc9d90e44",
+    "chunk_7cbf064134a03665d4fb16e5561989de",
+    "chunk_48c79427d6924f56453a5f77d5dc1d96",
+    "chunk_4cc52370b57c608c6fdb69525d4e019d",
+    "chunk_e731b48ce70eb061af7d483668804bb0"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.015,
+    "retrieval": 55.705,
+    "generation": 40731.076,
+    "validation": 0.033,
+    "total": 40786.897
+  },
+  "token_usage": {
+    "input_tokens": 2529,
+    "output_tokens": 2629,
+    "total_tokens": 5158,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "GB/T 47884表1规定的是什么内容？感知数据章节对在线监测点位布设提出了哪些原则？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_8def2de82de7361f9ac544adc9d90e44",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          33,
+          34
+        ],
+        "text": "4 监测 > 4.1 监测方案 > 4.1.6\n4.1.6 本条对降雨监测点的设置进行了规定。入流入渗评估计\n算需要应用降雨数据，降雨数据的监测时间、监测频次等需与流\n量监测数据一致。由于降雨分布的不均匀性，建议每个一级监测\n分区的分析采用区域内布设的降雨监测点位的数据，数据来源可\n以是单独布设的降雨监测点数据，也可以是气象部门提供的满足\n评估要求的监测数据。"
+      },
+      {
+        "evidence_id": "chunk_7cbf064134a03665d4fb16e5561989de",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "4 监测 > 4.1 监测方案 > 4.1.7\n4.1.7 流量在线监测的布点密度，应保证每个监测分区至少有\n1个布点，宜布置在监测分区的进、出口位置，可根据数据需求\n选择固定监测或临时监测方式。"
+      },
+      {
+        "evidence_id": "chunk_48c79427d6924f56453a5f77d5dc1d96",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          17
+        ],
+        "text": "4 监测 > 4.2 监测方法 > 4.2.6\n4.2.6 在线监测设备安装前应对监测点位的安装和监测条件进\n行现场确认，不满足条件的监测点位应予以调整。在线监测设备\n的安装和维护应符合现行协会标准《城镇排水管网在线监测技术\n规程》T/CECS869的有关规定。"
+      },
+      {
+        "evidence_id": "chunk_4cc52370b57c608c6fdb69525d4e019d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          34
+        ],
+        "text": "4 监测 > 4.1 监测方案 > 4.1.7\n4.1.7 本条对流量监测点的布设密度进行了规定。流量在线监\n测是管网入流入渗监测的重点，因此需保证流量监测点达到一定\n的密度。根据本标准第4.1.4条的规定，对于待监测区域需至少\n划分两级监测分区，二级监测分区的面积不大于1km²，所以流\n量监测点至少需达到1个/km²。对于排水情况复杂、入流入渗\n问题突出的区域，流量监测点的密度建议适当提高，一般根据管\n线长度布设，如每1km～3km管线布设一个流量监测点。对于\n污水管网的分支关系、汇集流向比较清晰的监测分区，流量监测\n点需设置在监测分区的总出口处及与其他分区的连接处；同时，\n流量监测点需根据地形、污水管网拓扑关系确定。此外，由于管\n网入流入渗是一个动态过程，随着管网使用时间的增加，管网入\n流入渗问题会发生变化。在有条件的地区，需建立雨量和流量的\n固定监测方式，长期持续运行，跟踪动态计算与评估不同时期的\n人流入渗情况，支持污水管网常态化评估管理。在实际应用中，\n需要综合考虑需求、成本、运维代价、数据价值等多方面因素，\n选择长期固定监测或短期临时监测的方式，开展监测工作，从而\n为排水管理提供有效、充足的监测依据。"
+      },
+      {
+        "evidence_id": "chunk_e731b48ce70eb061af7d483668804bb0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          36
+        ],
+        "text": "4 监测 > 4.2 监测方法 > 4.2.6\n4.2.6在线监测设备需要一定的安装条件。例如，降雨监测设\n备安装在平坦避风场所，仪器口部30°仰角范围内不得有障碍\n物。流量监测设备探头安装在流速稳定的位置，探头表面不能存\n在淤积物。安装前对监测点位的安装条件进行复核和确认，确保\n在线监测数据的准确性和有效性。"
+      }
+    ]
+  }
+}
