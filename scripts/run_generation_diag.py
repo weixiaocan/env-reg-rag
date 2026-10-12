@@ -60,8 +60,8 @@ REFUSE_EXPECTED = {"refuse"}
 ANSWER_EXPECTED = {"answer"}
 
 
-def _dataset_sha256() -> str:
-    return hashlib.sha256(DATASET.read_bytes()).hexdigest()
+def _dataset_sha256(dataset: Path = DATASET) -> str:
+    return hashlib.sha256(dataset.read_bytes()).hexdigest()
 
 
 def _binding_problems(cases: list[dict], pointer: dict) -> list[str]:
@@ -221,6 +221,7 @@ async def run_case(service, case: dict, corpus_version: str, run_id: str) -> dic
                         "claim_id": c.claim_id,
                         "text": c.text,
                         "evidence_ids": list(c.evidence_ids),
+                        "verified": c.verified,
                     }
                     for c in result.answer.claims
                 ],
@@ -343,9 +344,25 @@ def build_summary(cases: list[dict], records: list[dict], judgments: list[dict])
     tokens_out = sum(
         (r.get("token_usage") or {}).get("output_tokens") or 0 for r in records
     )
+    claims = [c for r in records for c in ((r.get("answer") or {}).get("claims") or [])]
+    source_removed = sorted({
+        case["id"] for case in cases
+        for ev in case.get("evidence") or []
+        if "source_document_removed" in (ev.get("pending") or [])
+    })
     return {
         "classification": "diagnostic (generation layer, real LLM, NOT formal)",
         "status_distribution": status_counts,
+        "claim_tiers": {
+            "verified": sum(1 for c in claims if c.get("verified", True)),
+            "unverified_caveat": sum(1 for c in claims if c.get("verified") is False),
+            "answers_with_unverified_claims": sum(
+                1 for r in records
+                if any(c.get("verified") is False
+                       for c in ((r.get("answer") or {}).get("claims") or []))
+            ),
+        },
+        "cases_with_removed_source_documents": source_removed,
         "refusal": {
             "denominator": len(refuse_j),
             "refuse_correct": sum(1 for j in refuse_j if j.get("refuse_correct")),
@@ -406,7 +423,10 @@ def build_summary(cases: list[dict], records: list[dict], judgments: list[dict])
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-id", required=True)
+    parser.add_argument("--dataset", type=Path, default=DATASET,
+                        help="golden JSONL (default: eval/golden_v2.jsonl)")
     args = parser.parse_args()
+    dataset = args.dataset if args.dataset.is_absolute() else ROOT / args.dataset
 
     started = time.perf_counter()
     from dotenv import load_dotenv
@@ -414,7 +434,7 @@ def main() -> None:
     load_dotenv(ROOT / ".env")  # ZAI_API_KEY etc. live in .env (not committed)
     cases = [
         json.loads(line)
-        for line in DATASET.read_text(encoding="utf-8").splitlines()
+        for line in dataset.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
     pointer = json.loads(POINTER.read_text(encoding="utf-8"))
@@ -447,7 +467,8 @@ def main() -> None:
     run_config = {
         "classification": "diagnostic",
         "run_id": args.run_id,
-        "dataset_sha256": _dataset_sha256(),
+        "dataset": str(dataset.relative_to(ROOT)),
+        "dataset_sha256": _dataset_sha256(dataset),
         "dataset_cases": len(cases),
         "corpus_version": corpus_version,
         "provider": settings.provider,
