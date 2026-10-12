@@ -76,7 +76,10 @@ class LangChainAnswerGenerator:
                     "文件层级不同造成的普通差异不是冲突，也不要替用户裁决。"
                     "verified 为 false 的证据是未经人工核对的识别结果（表格、公式或扫描件），"
                     "可以引用，但同一内容有 verified 为 true 的证据时优先引用后者；"
-                    "conflicts 只能引用 verified 为 true 的证据。\n"
+                    "conflicts 只能引用 verified 为 true 的证据。"
+                    "若问题点名了某个文件、标准或文号，而证据中没有该文件，不得用其他文件的"
+                    "内容冒充它的规定：要么返回空 claims，要么在主张中写明内容出自哪个文件，"
+                    "并说明证据中没有所问文件。\n"
                     "{format_instructions}",
                 ),
                 (
