@@ -6,7 +6,11 @@ from src.adapters.langchain_answer_generator import (
     AnswerGenerationError,
     LangChainAnswerGenerator,
 )
-from src.application.query_service import CitationValidationError, QueryApplicationService
+from src.application.query_service import (
+    UNVERIFIED_WARNING,
+    CitationValidationError,
+    QueryApplicationService,
+)
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.answer_generation import InMemoryAnswerGenerator
 from src.application.scope_resolution import RuleBasedScopeResolver
@@ -336,6 +340,116 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             conversation_context={},
             corpus_version="formal-corpus-v1",
             caller_type="web",
+        )
+
+        with self.assertRaises(CitationValidationError):
+            await service.execute(request)
+
+    def _caveat_fixture(self):
+        verified = EvidenceItem(
+            evidence_id="ev_verified",
+            text="可引用的条款正文。",
+            document_version_id="doc_a",
+            file_name="现行规范.pdf",
+            physical_pages=[5],
+            heading_path=["5.1"],
+            usage_policy="answer_and_citation",
+            source_uri="https://example.org/a.pdf",
+        )
+        unverified = EvidenceItem(
+            evidence_id="ev_unverified",
+            text="表1 单一测站 1≤RSI≤4 为一级。",
+            document_version_id="doc_b",
+            file_name="降雨过程强度等级标准.pdf",
+            physical_pages=[5],
+            heading_path=["3"],
+            usage_policy="source_locator_only",
+            source_uri="https://example.org/b.pdf",
+        )
+        request = QueryRequest(
+            request_id="query-caveat",
+            question="降雨过程强度等级如何划分？",
+            conversation_context={},
+            corpus_version="formal-corpus-v1",
+            caller_type="web",
+        )
+        return verified, unverified, request
+
+    async def test_unverified_evidence_answers_with_per_claim_caveat_when_enabled(self):
+        verified, unverified, request = self._caveat_fixture()
+        draft = Answer(
+            claims=[
+                Claim(claim_id="c1", text="条款正文。", evidence_ids=["ev_verified"]),
+                Claim(claim_id="c2", text="RSI 1~4 为一级。", evidence_ids=["ev_unverified"]),
+            ]
+        )
+        service = QueryApplicationService(
+            scope_resolver=RuleBasedScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([verified, unverified]),
+            answer_generator=InMemoryAnswerGenerator(draft),
+            allow_unverified_evidence=True,
+        )
+
+        result = await service.execute(request)
+
+        self.assertEqual(result.status, QueryStatus.ANSWERED)
+        self.assertEqual([c.verified for c in result.answer.claims], [True, False])
+        self.assertIn(UNVERIFIED_WARNING, result.warnings)
+
+    async def test_all_unverified_evidence_still_generates_when_enabled(self):
+        _, unverified, request = self._caveat_fixture()
+        draft = Answer(
+            claims=[Claim(claim_id="c1", text="一级。", evidence_ids=["ev_unverified"])]
+        )
+        service = QueryApplicationService(
+            scope_resolver=RuleBasedScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([unverified]),
+            answer_generator=InMemoryAnswerGenerator(draft),
+            allow_unverified_evidence=True,
+        )
+
+        result = await service.execute(request)
+
+        self.assertEqual(result.status, QueryStatus.ANSWERED)
+        self.assertFalse(result.answer.claims[0].verified)
+
+    async def test_verified_only_answer_carries_no_caveat(self):
+        verified, unverified, request = self._caveat_fixture()
+        draft = Answer(
+            claims=[Claim(claim_id="c1", text="条款正文。", evidence_ids=["ev_verified"])]
+        )
+        service = QueryApplicationService(
+            scope_resolver=RuleBasedScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([verified, unverified]),
+            answer_generator=InMemoryAnswerGenerator(draft),
+            allow_unverified_evidence=True,
+        )
+
+        result = await service.execute(request)
+
+        self.assertTrue(result.answer.claims[0].verified)
+        self.assertNotIn(UNVERIFIED_WARNING, result.warnings)
+
+    async def test_conflict_cannot_rest_on_unverified_evidence(self):
+        verified, unverified, request = self._caveat_fixture()
+        draft = Answer(
+            claims=[
+                Claim(claim_id="c1", text="甲。", evidence_ids=["ev_verified"]),
+                Claim(claim_id="c2", text="乙。", evidence_ids=["ev_unverified"]),
+            ],
+            conflicts=[
+                Conflict(
+                    conflict_id="x1",
+                    description="甲乙不能同时成立",
+                    evidence_ids=["ev_verified", "ev_unverified"],
+                )
+            ],
+        )
+        service = QueryApplicationService(
+            scope_resolver=RuleBasedScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([verified, unverified]),
+            answer_generator=InMemoryAnswerGenerator(draft),
+            allow_unverified_evidence=True,
         )
 
         with self.assertRaises(CitationValidationError):

@@ -73,7 +73,10 @@ class LangChainAnswerGenerator:
                     "若全部证据都不能直接回答问题，返回空 claims 和空 conflicts；"
                     "若证据只能支持部分内容，只生成被直接支持的主张。只有在当前适用范围内，"
                     "不同文档版本的要求不能同时成立时才填写 conflicts；地域、时间、对象或"
-                    "文件层级不同造成的普通差异不是冲突，也不要替用户裁决。\n"
+                    "文件层级不同造成的普通差异不是冲突，也不要替用户裁决。"
+                    "verified 为 false 的证据是未经人工核对的识别结果（表格、公式或扫描件），"
+                    "可以引用，但同一内容有 verified 为 true 的证据时优先引用后者；"
+                    "conflicts 只能引用 verified 为 true 的证据。\n"
                     "{format_instructions}",
                 ),
                 (
@@ -92,10 +95,11 @@ class LangChainAnswerGenerator:
         request: QueryRequest,
         evidence_pack: EvidencePack,
     ) -> AnswerGenerationResult:
+        # The query service has already narrowed the pack to citable policies.
         citable_evidence = [
             item
             for item in evidence_pack.evidence
-            if item.usage_policy == "answer_and_citation"
+            if item.usage_policy in {"answer_and_citation", "source_locator_only"}
         ]
         raw_message = await self._model_chain.ainvoke(
             {
@@ -109,6 +113,7 @@ class LangChainAnswerGenerator:
                     [
                         {
                             "evidence_id": item.evidence_id,
+                            "verified": item.usage_policy == "answer_and_citation",
                             "text": item.text,
                             "document_version_id": item.document_version_id,
                             "file_name": item.file_name,

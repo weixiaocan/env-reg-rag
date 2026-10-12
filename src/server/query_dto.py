@@ -11,6 +11,7 @@ class ClaimDto(BaseModel):
     claim_id: str
     text: str
     evidence_ids: list[str]
+    verified: bool = True
 
 
 class ConflictDto(BaseModel):

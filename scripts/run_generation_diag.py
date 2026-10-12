@@ -455,7 +455,7 @@ def main() -> None:
         "temperature": settings.temperature,
         "llm_base_url": settings.base_url,
         "retrieval": {
-            "profile": "production answer profile (fixed answer_and_citation filter)",
+            "profile": "production answer profile (verified + caveated unverified evidence)",
             "retrieve_limit": 10,
             "generate_context_limit": 5,
         },

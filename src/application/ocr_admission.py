@@ -27,6 +27,11 @@ ADMITTABLE_REASONS = frozenset({
 })
 ADMITTED_REASON = "ocr_document_admitted"
 VERDICTS = frozenset({"admit", "locator_only"})
+# Tables are admitted one by one (keyed by their layout region id), each with
+# its own check evidence; the document-level text verdict never covers them.
+TABLE_ADMITTABLE_REASONS = ADMITTABLE_REASONS | {"structured_default_locator_only"}
+TABLE_ADMITTED_REASON = "table_admitted"
+TABLE_METHODS = frozenset({"text_layer_auto_check"})
 
 
 def load_admission_registry(path: str | Path) -> dict[str, Any]:
@@ -51,6 +56,16 @@ def load_admission_registry(path: str | Path) -> dict[str, Any]:
             raise ValueError(f"{sha[:12]}: verdict must be one of {sorted(VERDICTS)}")
         if not record.get("reviewer") or not record.get("samples"):
             raise ValueError(f"{sha[:12]}: reviewer and samples are required evidence")
+    regions: set[tuple[str, str]] = set()
+    for table in registry.get("table_admissions") or []:
+        key = (str(table.get("sha256") or ""), str(table.get("region_id") or ""))
+        if len(key[0]) != 64 or not key[1]:
+            raise ValueError(f"table admission needs sha256 and region_id: {key!r}")
+        if key in regions:
+            raise ValueError(f"duplicate table admission for {key[1]}")
+        regions.add(key)
+        if table.get("method") not in TABLE_METHODS or not table.get("evidence"):
+            raise ValueError(f"{key[1]}: table admission needs a known method and evidence")
     return {**registry, "registry_sha256": hashlib.sha256(raw).hexdigest()}
 
 
@@ -61,15 +76,41 @@ def admission_for(registry: dict[str, Any] | None, sha256: str) -> dict[str, Any
                  if record["sha256"] == sha256 and record["verdict"] == "admit"), None)
 
 
+def apply_table_admission(document: dict[str, Any],
+                          registry: dict[str, Any] | None) -> int:
+    """Upgrade individually checked tables in place; return the count."""
+    if not registry:
+        return 0
+    sha = str((document.get("source") or {}).get("sha256") or "")
+    admitted = {table["region_id"] for table in registry.get("table_admissions") or []
+                if table["sha256"] == sha}
+    upgraded = 0
+    for element in document.get("elements") or []:
+        regions = element.get("source_region_ids") or []
+        if (element.get("type") != "table" or element.get("quality_status") == "passed"
+                or len(regions) != 1 or regions[0] not in admitted):
+            continue
+        reasons = set(element.get("policy_reasons") or [])
+        if not reasons <= TABLE_ADMITTABLE_REASONS:
+            continue
+        assertion = f"review_assertion:{registry['admission_id']}:{regions[0]}"
+        element["quality_status"] = "passed"
+        element["policy_reasons"] = [*element.get("policy_reasons", []),
+                                     TABLE_ADMITTED_REASON, assertion]
+        element["quality_issues"] = [*element.get("quality_issues", []), assertion]
+        upgraded += 1
+    return upgraded
+
+
 def apply_ocr_document_admission(document: dict[str, Any],
                                  registry: dict[str, Any] | None) -> int:
-    """Upgrade admissible OCR text elements in place; return the count."""
+    """Upgrade admissible OCR text elements and checked tables in place."""
+    upgraded = apply_table_admission(document, registry)
     sha = str((document.get("source") or {}).get("sha256") or "")
     record = admission_for(registry, sha)
     if record is None:
-        return 0
+        return upgraded
     assertion = f"review_assertion:{registry['admission_id']}:{sha[:12]}"
-    upgraded = 0
     for element in document.get("elements") or []:
         if element.get("type") != "text" or element.get("quality_status") == "passed":
             continue

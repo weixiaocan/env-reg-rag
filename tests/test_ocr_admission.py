@@ -60,6 +60,43 @@ def test_registry_requires_review_evidence(tmp_path) -> None:
         _registry(tmp_path, verdict="maybe")
 
 
+def _table(region, reasons=("structured_default_locator_only",)):
+    return {"type": "table", "quality_status": "needs_review", "policy_reasons": list(reasons),
+            "quality_issues": [], "source_region_ids": [region]}
+
+
+def test_checked_table_answers_and_unchecked_table_stays_locator(tmp_path) -> None:
+    from src.application.evidence_policy import ANSWER, LOCATOR, element_usage_policy
+
+    path = tmp_path / "admission.json"
+    path.write_text(json.dumps({
+        "admission_id": "adm-v1",
+        "documents": [{"sha256": "b" * 64, "verdict": "locator_only", "reviewer": "r",
+                       "samples": [{"chunk_id": "c", "pages": [1]}]}],
+        "table_admissions": [{"sha256": SHA, "region_id": "up-1",
+                              "method": "text_layer_auto_check", "evidence": {"prec": 1.0}}],
+    }), encoding="utf-8")
+    registry = load_admission_registry(path)
+    checked, unchecked = _table("up-1"), _table("up-2")
+    quarantined = _table("up-1", ("structured_default_locator_only", "region_quality_quarantined"))
+    assert apply_ocr_document_admission(_doc(checked, unchecked), registry) == 1
+    assert apply_ocr_document_admission(_doc(quarantined), registry) == 0
+    assert element_usage_policy(checked) == ANSWER
+    assert element_usage_policy(unchecked) == LOCATOR
+    assert element_usage_policy(quarantined) == LOCATOR
+
+
+def test_table_admission_requires_method_and_evidence(tmp_path) -> None:
+    path = tmp_path / "admission.json"
+    record = {"sha256": SHA, "verdict": "admit", "reviewer": "r",
+              "samples": [{"chunk_id": "c", "pages": [1]}]}
+    path.write_text(json.dumps({"admission_id": "a", "documents": [record], "table_admissions": [
+        {"sha256": SHA, "region_id": "up-1", "method": "eyeballed", "evidence": {"x": 1}}]}),
+        encoding="utf-8")
+    with pytest.raises(ValueError):
+        load_admission_registry(path)
+
+
 def test_scanned_page_region_quarantine_is_admitted_only_with_its_page_reason(tmp_path) -> None:
     scanned = _text(["quarantined_source", "region_quality_quarantined",
                      "scanned_with_text_layer_requires_ocr_vote",

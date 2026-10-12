@@ -435,9 +435,11 @@ class ChunkerLedgerTest(unittest.TestCase):
         self.assertGreater(len(fchunks), 1)
         # any shard that actually includes the needs_review explanation source
         # can never answer; the formula alone is credentialed
-        answered = [c for c in fchunks
-                    if c.metadata["usage_policy"] == "answer_and_citation"]
-        self.assertEqual(answered, [])
+        for c in fchunks:
+            if "e1" in c.element_ids:
+                self.assertNotEqual(c.metadata["usage_policy"], "answer_and_citation")
+            else:
+                self.assertEqual(c.metadata["usage_policy"], "answer_and_citation")
         self.assertTrue(all(c.metadata["usage_policy"] != "excluded"
                             for c in fchunks))
 

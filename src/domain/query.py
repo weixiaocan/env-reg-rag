@@ -63,6 +63,9 @@ class Claim:
     claim_id: str
     text: str
     evidence_ids: list[str]
+    # False when any cited evidence is an unreviewed transcription
+    # (``source_locator_only``); set by the query service, never by the model.
+    verified: bool = True
 
 
 @dataclass(frozen=True)

@@ -101,9 +101,12 @@ class QdrantEvidenceRetriever:
             ]
         fixed_usage_policy = self._fixed_filters.get("usage_policy")
         if fixed_usage_policy:
-            hits = [
-                hit for hit in hits if hit.usage_policy == fixed_usage_policy
-            ]
+            allowed = (
+                {fixed_usage_policy}
+                if isinstance(fixed_usage_policy, str)
+                else set(fixed_usage_policy)
+            )
+            hits = [hit for hit in hits if hit.usage_policy in allowed]
         hits = hits[: self._limit]
         return EvidencePack(
             corpus_version=corpus_version,

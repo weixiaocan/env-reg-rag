@@ -537,5 +537,380 @@
       ],
       "note": "5 个样本无严重错误；“钻孔灌柱桩”疑为 OCR 或原文用字（轻微）；部分节标题被截断（轻微）。"
     }
+  ],
+  "table_admission_rule": "text_layer_auto_check: every number in the table cells equals the PDF text layer inside the table bbox (multiset), and character-bag precision and recall are both >= 0.95. Rule confirmed by the project owner on 2026-10-12. Does not detect numbers placed in the wrong cell; tables failing the check stay unverified.",
+  "table_admissions": [
+    {
+      "sha256": "25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7",
+      "region_id": "up-c2e878fded63686ab743fcbb",
+      "page": 2,
+      "caption": "表1 “十三五”全国城市基础设施建设主要进展",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7",
+      "region_id": "up-70eed5ec4909811780357407",
+      "page": 6,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-123e3ee4e767b89c9d0baf9e",
+      "page": 30,
+      "caption": "表7. 4. 2\n养护频次",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-46fb8cb536b7fb10005696de",
+      "page": 33,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.988,
+        "char_recall": 0.978,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-7eb81bacd2e21d10204b91af",
+      "page": 34,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-12f332d3201ef632e0674eb6",
+      "page": 37,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-e01b89d183d86a434a08396a",
+      "page": 39,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 0.991,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-410fd38e0caa775e262bf387",
+      "page": 40,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.987,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-24a5510f8f318713a0ff6ff9",
+      "page": 41,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-5dca99208c0c0a03463a062e",
+      "page": 56,
+      "caption": "表1\n生活污水水质特征因子浓度",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.997,
+        "char_recall": 0.997,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-e28f3a7abb3dee79000e724c",
+      "page": 81,
+      "caption": "表4\n管网状况主要检测内容",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-63c2642014ccc91f73ea1981",
+      "page": 83,
+      "caption": "续表5",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-3b0e9417ca0668b9bf30fed8",
+      "page": 83,
+      "caption": "表6\n井盖和雨水箅执行标准",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.975,
+        "char_recall": 0.975,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "region_id": "up-d025ed07a765ca707f8f8330",
+      "page": 83,
+      "caption": "表7\n井盖与井框间的允许高差",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "region_id": "up-d46dff8c7174078ffec820f5",
+      "page": 13,
+      "caption": "表1 区域雨水管道中污水混错接程度分级评估及治理建议表",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.96,
+        "char_recall": 0.96,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "region_id": "up-8a9d99caf80f4a54f3f50117",
+      "page": 22,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "region_id": "up-4e4dd1b2d8843adca96a44a2",
+      "page": 25,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.979,
+        "char_recall": 0.979,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-280698553fc6611c44fb33a2",
+      "page": 24,
+      "caption": "表5-1 生活污水中氨氮和电导率的浓度范围",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-7ddb62dcde1a87b55e62abe1",
+      "page": 24,
+      "caption": "表5-2 判断工业废水接入的参照值",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-727f998fdf18e987a1834260",
+      "page": 41,
+      "caption": "表 6.4-1 混接图层、图例和符号",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.99,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-2615ad63315f6732fde49448",
+      "page": 45,
+      "caption": "表7.1-1  区域混接程度分级评价表",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.951,
+        "char_recall": 0.951,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-ef665c30e6cd93465fb104b2",
+      "page": 46,
+      "caption": "表7.1-2   单个混接点混接程度分级标准表",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-6f621c425ca88234398c5e7b",
+      "page": 57,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-c6780b27603a0fa83c01dc76",
+      "page": 58,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-a232a8bc3b39228660d9a822",
+      "page": 59,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.989,
+        "char_recall": 0.989,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-95f85a0494d353e8455095bc",
+      "page": 60,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.983,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "region_id": "up-2d787bdbe999af2e31780a8b",
+      "page": 61,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 0.961,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+      "region_id": "up-cfcff7ffd7ad2d6250c5aa45",
+      "page": 45,
+      "caption": "",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "region_id": "up-088382d00b447f9165bb5d92",
+      "page": 6,
+      "caption": "表1 短时气象服务降雨量等级划分表",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.962,
+        "char_recall": 0.962,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "region_id": "up-ac132b71703421ae09ebcded",
+      "page": 17,
+      "caption": "表4. 4. 4\n城市污水处理厂卫生防护距离",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 0.951,
+        "char_recall": 0.975,
+        "numbers_equal": true
+      }
+    },
+    {
+      "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "region_id": "up-412a094aa49dd94ae40767fa",
+      "page": 67,
+      "caption": "表3\n地下水含水层和生活污水的硬度值对比（mg/L)",
+      "method": "text_layer_auto_check",
+      "evidence": {
+        "char_precision": 1.0,
+        "char_recall": 1.0,
+        "numbers_equal": true
+      }
+    }
   ]
 }

@@ -21,6 +21,13 @@ from src.domain.query import AnswerResult, EvidencePack, QueryRequest, QueryStat
 logger = logging.getLogger(__name__)
 
 
+VERIFIED_POLICY = "answer_and_citation"
+UNVERIFIED_POLICY = "source_locator_only"
+UNVERIFIED_WARNING = (
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+)
+
+
 class CitationValidationError(Exception):
     """A generated claim is not bound to citable evidence in this query."""
 
@@ -36,7 +43,12 @@ class QueryApplicationService:
         runtime_metadata: dict[str, str] | None = None,
         skip_generation: bool = False,
         generate_context_limit: int | None = None,
+        allow_unverified_evidence: bool = False,
     ) -> None:
+        # When enabled, ``source_locator_only`` evidence may support a claim,
+        # but every such claim is marked ``verified=False`` and the result
+        # carries UNVERIFIED_WARNING. Conflicts always need verified evidence.
+        self._allow_unverified = allow_unverified_evidence
         self._scope_resolver = scope_resolver
         self._evidence_retriever = evidence_retriever
         self._answer_generator = answer_generator
@@ -151,8 +163,8 @@ class QueryApplicationService:
                     **scope.resolved_scope,
                 },
             )
-        if evidence_pack.evidence and all(
-            item.usage_policy == "source_locator_only"
+        if not self._allow_unverified and all(
+            item.usage_policy == UNVERIFIED_POLICY
             for item in evidence_pack.evidence
         ):
             return AnswerResult(
@@ -184,16 +196,22 @@ class QueryApplicationService:
                     **scope.resolved_scope,
                 },
             )
-        generation_pack = evidence_pack
+        context = list(evidence_pack.evidence)
         if self._generate_context_limit is not None:
-            generation_pack = EvidencePack(
-                corpus_version=evidence_pack.corpus_version,
-                evidence=list(evidence_pack.evidence[: self._generate_context_limit]),
-            )
-        observation["generate_context_count"] = len(generation_pack.evidence)
+            context = context[: self._generate_context_limit]
+        citable_policies = (
+            {VERIFIED_POLICY, UNVERIFIED_POLICY}
+            if self._allow_unverified
+            else {VERIFIED_POLICY}
+        )
+        generation_pack = EvidencePack(
+            corpus_version=evidence_pack.corpus_version,
+            evidence=[item for item in context if item.usage_policy in citable_policies],
+        )
+        observation["generate_context_count"] = len(context)
         observation["retrieve_count"] = len(evidence_pack.evidence)
         observation["generate_context_evidence_ids"] = [
-            item.evidence_id for item in generation_pack.evidence
+            item.evidence_id for item in context
         ]
         stage_started = perf_counter()
         generation = await self._answer_generator.generate(
@@ -221,16 +239,24 @@ class QueryApplicationService:
                 },
             )
         stage_started = perf_counter()
-        citable_ids = {
+        citable_ids = {item.evidence_id for item in generation_pack.evidence}
+        verified_ids = {
             item.evidence_id
             for item in generation_pack.evidence
-            if item.usage_policy == "answer_and_citation"
+            if item.usage_policy == VERIFIED_POLICY
         }
         for claim in answer.claims:
             if not claim.evidence_ids or not set(claim.evidence_ids).issubset(citable_ids):
                 raise CitationValidationError(
                     f"claim {claim.claim_id} is not supported by citable evidence"
                 )
+        answer = replace(
+            answer,
+            claims=[
+                replace(claim, verified=set(claim.evidence_ids) <= verified_ids)
+                for claim in answer.claims
+            ],
+        )
         claimed_evidence_ids = {
             evidence_id
             for claim in answer.claims
@@ -239,11 +265,11 @@ class QueryApplicationService:
         evidence_by_id = {
             item.evidence_id: item
             for item in generation_pack.evidence
-            if item.usage_policy == "answer_and_citation"
+            if item.usage_policy == VERIFIED_POLICY
         }
         for conflict in answer.conflicts:
             conflict_ids = set(conflict.evidence_ids)
-            if len(conflict_ids) < 2 or not conflict_ids.issubset(citable_ids):
+            if len(conflict_ids) < 2 or not conflict_ids.issubset(verified_ids):
                 raise CitationValidationError(
                     f"conflict {conflict.conflict_id} is not supported by citable evidence"
                 )
@@ -275,9 +301,18 @@ class QueryApplicationService:
             answer=answer,
             evidence=evidence_pack.evidence,
             corpus_version=evidence_pack.corpus_version,
-            warnings=["applicable sources contain incompatible requirements"]
-            if answer.conflicts
-            else [],
+            warnings=[
+                *(
+                    ["applicable sources contain incompatible requirements"]
+                    if answer.conflicts
+                    else []
+                ),
+                *(
+                    [UNVERIFIED_WARNING]
+                    if any(not claim.verified for claim in answer.claims)
+                    else []
+                ),
+            ],
             continuation_context={
                 "anchor_question": scope.anchor_question or request.question,
                 **scope.resolved_scope,

@@ -108,12 +108,17 @@ def build_query_services(
         evidence_retriever=QdrantEvidenceRetriever(
             index=index,
             embedder=embedder,
-            fixed_filters={"usage_policy": "answer_and_citation"},
+            # Unreviewed transcriptions may answer with a per-claim caveat
+            # (owner decision 2026-10-12); excluded chunks never answer.
+            fixed_filters={
+                "usage_policy": ["answer_and_citation", "source_locator_only"]
+            },
             limit=10,
         ),
         answer_generator=answer_generator,
         trace_recorder=trace_recorder,
         generate_context_limit=5,
+        allow_unverified_evidence=True,
         runtime_metadata={
             "retrieval_profile": "qdrant-bge-small-zh-bm25-rrf",
             "collection": collection,
@@ -121,6 +126,7 @@ def build_query_services(
             "generation": "langchain-zhipu-glm",
             "retrieve_limit": "10",
             "generate_context_limit": "5",
+            "evidence_tiers": "verified+unverified-caveat",
         },
     )
     source_lookup_service = QueryApplicationService(

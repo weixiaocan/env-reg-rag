@@ -167,6 +167,13 @@ def has_review_assertion(element: dict[str, Any]) -> bool:
         value = element.get(field)
         if isinstance(value, str) and value.strip():
             return True
+    # Canonical convention (schema-enforced for formulas): the binding is a
+    # ``review_assertion:<id>`` entry in policy_reasons / quality_issues.
+    for field in ("policy_reasons", "quality_issues"):
+        for entry in element.get(field) or []:
+            if (isinstance(entry, str) and entry.startswith("review_assertion:")
+                    and entry[len("review_assertion:"):].strip()):
+                return True
     return False
 
 
@@ -211,8 +218,11 @@ def element_usage_policy(element: dict[str, Any]) -> str:
     if _has_explicit(element, "usage_policy"):
         candidate = strictest_policy([normalize_policy(explicit), quality_policy])
     else:
-        # No explicit policy: structured types default to locator-only (D3).
-        if element.get("type") in _STRUCTURED_TYPES:
+        # No explicit policy: structured types default to locator-only (D3)
+        # unless a review/assertion binding upgraded their quality to passed.
+        if element.get("type") in _STRUCTURED_TYPES and not (
+            quality_policy == ANSWER and has_review_assertion(element)
+        ):
             return LOCATOR
         candidate = quality_policy
 
