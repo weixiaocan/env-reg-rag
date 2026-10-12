@@ -120,6 +120,9 @@ def normalize_name(name: str) -> str:
 # 来源标注为 manual，盘点时需要人工复核（见 CSV 的 note 列）。
 MANUAL_META: dict[str, tuple[str, str]] = {
     "城镇内涝防治技术规范": ("GB 51222-2017", "城镇内涝防治技术规范"),
+    # Cover page: 中华人民共和国国家标准《城市排水工程规划规范》GB 50318-2017
+    # ("规划" would otherwise classify it as a policy document).
+    "城市排水工程规划规范": ("GB 50318-2017", "城市排水工程规划规范"),
 }
 
 

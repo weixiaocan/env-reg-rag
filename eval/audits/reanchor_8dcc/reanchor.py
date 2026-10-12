@@ -27,12 +27,16 @@ sys.path.insert(0, str(ROOT))
 
 from qdrant_client import QdrantClient  # noqa: E402
 
-NEW_CORPUS = "corpus-8dcc90d4921b"
+NEW_CORPUS = sys.argv[1] if len(sys.argv) > 1 else "corpus-8dcc90d4921b"
+# Optional explicit collection (a staging collection before publish).
+COLLECTION = sys.argv[2] if len(sys.argv) > 2 else None
 SOURCE = ROOT / "eval" / "golden_v2.jsonl"
 TARGET = ROOT / "eval" / "golden_v3.jsonl"
 REPORT = Path(__file__).with_name("reanchor_report.json")
-# The file named after CJJ 61-2018 actually carries 《城市排水工程规划规范》,
-# the document golden_v2 cited under its own (now removed) file name.
+# Owner-requested replacements for cases whose source PDFs were removed.
+REPLACEMENTS = Path(__file__).with_name("replacements.jsonl")
+# Until 2026-10-12 the 《城市排水工程规划规范》 PDF carried the CJJ 61-2018
+# file name; the alias applies only to corpora built before the rename.
 DOC_ALIASES = {"城市排水工程规划规范.pdf": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf"}
 REMOVED_DOCS = {"GBT+47884-2026.pdf",
                 "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf"}
@@ -133,17 +137,28 @@ def locate(evidence: dict, doc: dict) -> tuple[list[str], float]:
 
 
 def main() -> None:
-    pointer = json.load(open(ROOT / "data" / "registry" / "corpus-current.json", encoding="utf-8"))
-    if pointer["corpus_version"] != NEW_CORPUS:
-        raise SystemExit(f"pointer is {pointer['corpus_version']}, expected {NEW_CORPUS}")
+    collection = COLLECTION
+    if collection is None:
+        pointer = json.load(open(ROOT / "data" / "registry" / "corpus-current.json", encoding="utf-8"))
+        if pointer["corpus_version"] != NEW_CORPUS:
+            raise SystemExit(f"pointer is {pointer['corpus_version']}, expected {NEW_CORPUS}")
+        collection = pointer["collection_name"]
+    elif NEW_CORPUS not in collection:
+        raise SystemExit(f"collection {collection} does not belong to {NEW_CORPUS}")
     docs = load_canonical()
-    chunks = load_chunks(pointer["collection_name"])
+    chunks = load_chunks(collection)
     cases = [json.loads(line) for line in SOURCE.read_text(encoding="utf-8").splitlines() if line.strip()]
+    replacements = {}
+    if REPLACEMENTS.is_file():
+        replacements = {r["id"]: r for r in map(json.loads, REPLACEMENTS.read_text(encoding="utf-8").splitlines())}
+    cases = [replacements.get(case["id"], case) for case in cases]
     report, stats = [], Counter()
     for case in cases:
         for evidence in case["evidence"]:
             old = {k: evidence.get(k) for k in ("doc_file", "page", "element_ids", "usage_policy")}
-            doc_file = DOC_ALIASES.get(evidence["doc_file"], evidence["doc_file"])
+            doc_file = evidence["doc_file"]
+            if doc_file not in docs and DOC_ALIASES.get(doc_file) in docs:
+                doc_file = DOC_ALIASES[doc_file]
             row = {"case": case["id"], "old": old}
             if evidence["doc_file"] in REMOVED_DOCS:
                 evidence["element_ids"] = []

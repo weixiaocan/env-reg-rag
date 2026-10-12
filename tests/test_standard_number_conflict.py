@@ -66,12 +66,13 @@ class EffectiveStatusExtractionTest(unittest.TestCase):
 
     def test_other_standard_superseded_is_not_self_repealed(self):
         # "GB 50318-2000 同时废止" on a GB 50318-2017 document means it
-        # supersedes the 2000 revision — the document itself is current.
+        # supersedes the 2000 revision. Metadata "superseded" would claim the
+        # 2017 document itself was replaced, so no status is emitted at all.
         text = "GB 50318-2000 同时废止。"
         findings = _scan_effective_status(text, {"GB 50318-2017"})
         values = [v for _, v in findings]
         self.assertNotIn("repealed", values)
-        self.assertIn("superseded", values)
+        self.assertNotIn("superseded", values)
 
     def test_no_known_std_no_does_not_guess_superseded(self):
         text = "GB 50318-2000 同时废止。"

@@ -278,22 +278,12 @@ def _scan_effective_status(text: str, known_std_nos: set[str]) -> list[tuple[str
     m = _SELF_REPEALED.search(text)
     if m:
         findings.append((m.group(), "repealed"))
-    else:
-        # "...GB 50318-2000 同时废止" means this document SUPERSEDES that one —
-        # only when the cited number is a different revision of this doc's own series.
-        for m in _SUPERSEDES.finditer(text):
-            old_no = m.group(1)
-            if any(_same_std_series(old_no, k) for k in known_std_nos):
-                findings.append((m.group(), "superseded"))
-                break
+    # "...GB 50318-2000 同时废止" means this document SUPERSEDES an older
+    # revision. That says nothing about this document's own status, and the
+    # metadata value "superseded" means "this document was superseded", so no
+    # status claim is emitted (it stays unknown).
     return findings
 
-
-def _same_std_series(a: str, b: str) -> bool:
-    """Two standard numbers are the same series if their number (sans year) match."""
-    def strip_year(s: str) -> str:
-        return re.sub(r"\s*[-—–]\s*\d{4}$", "", re.sub(r"\s+", "", s)).upper()
-    return strip_year(a) == strip_year(b) and a != b
 
 
 def _inspect_pdf(path: Path, expected_inventory_pages: int, fields: dict[str, Any], digest: str) -> dict[str, Any]:
