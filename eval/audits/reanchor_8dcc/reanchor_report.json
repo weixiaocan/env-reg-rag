@@ -1,17 +1,18 @@
 {
  "source": "eval\\golden_v2.jsonl",
  "target": "eval\\golden_v3.jsonl",
- "corpus_version": "corpus-8dcc90d4921b",
+ "corpus_version": "corpus-1d5bd15a34c6",
  "stats": {
-  "resolved": 69,
-  "unresolved": 6,
-  "source_document_removed": 5
+  "resolved": 73,
+  "unresolved": 6
  },
  "policy_shift": {
   "source_locator_only->answer_and_citation": 24,
   "source_locator_only->source_locator_only": 33,
   "answer_and_citation->answer_and_citation": 8,
-  "answer_and_citation->source_locator_only": 4
+  "answer_and_citation->source_locator_only": 4,
+  "None->source_locator_only": 2,
+  "None->answer_and_citation": 2
  },
  "rows": [
   {
@@ -1288,28 +1289,41 @@
   {
    "case": "G027",
    "old": {
-    "doc_file": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
-    "page": 16,
+    "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+    "page": 7,
+    "element_ids": [],
+    "usage_policy": null
+   },
+   "result": "resolved",
+   "coverage": 1.0,
+   "new": {
+    "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+    "page": 7,
     "element_ids": [
-     "e000342"
+     "e000057",
+     "e000058"
     ],
     "usage_policy": "source_locator_only"
-   },
-   "result": "source_document_removed"
+   }
   },
   {
    "case": "G028",
    "old": {
-    "doc_file": "20_WD_SIDS_2026003277_供水和污水系统资产管理指南  第3部分：.pdf",
-    "page": 1,
+    "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+    "page": 16,
+    "element_ids": [],
+    "usage_policy": null
+   },
+   "result": "resolved",
+   "coverage": 1.0,
+   "new": {
+    "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+    "page": 16,
     "element_ids": [
-     "e000001",
-     "e000002",
-     "e000003"
+     "e000051"
     ],
     "usage_policy": "answer_and_citation"
-   },
-   "result": "source_document_removed"
+   }
   },
   {
    "case": "G029",
@@ -1752,7 +1766,7 @@
    "result": "resolved",
    "coverage": 1.0,
    "new": {
-    "doc_file": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+    "doc_file": "城市排水工程规划规范.pdf",
     "page": 20,
     "element_ids": [
      "e000184",
@@ -1775,7 +1789,7 @@
    "result": "resolved",
    "coverage": 0.856,
    "new": {
-    "doc_file": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+    "doc_file": "城市排水工程规划规范.pdf",
     "page": 20,
     "element_ids": [
      "e000159",
@@ -1809,7 +1823,7 @@
    "result": "resolved",
    "coverage": 1.0,
    "new": {
-    "doc_file": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+    "doc_file": "城市排水工程规划规范.pdf",
     "page": 20,
     "element_ids": [
      "e000167",
@@ -1832,7 +1846,7 @@
    "result": "resolved",
    "coverage": 1.0,
    "new": {
-    "doc_file": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+    "doc_file": "城市排水工程规划规范.pdf",
     "page": 20,
     "element_ids": [
      "e000159",
@@ -1857,7 +1871,7 @@
    "result": "resolved",
    "coverage": 1.0,
    "new": {
-    "doc_file": "《城镇排水工程设计规范》（CJJ 61-2018）.pdf",
+    "doc_file": "城市排水工程规划规范.pdf",
     "page": 15,
     "element_ids": [
      "e000103",
@@ -1871,38 +1885,40 @@
   {
    "case": "G039",
    "old": {
-    "doc_file": "GBT+47884-2026.pdf",
-    "page": 9,
+    "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "page": 28,
+    "element_ids": [],
+    "usage_policy": null
+   },
+   "result": "resolved",
+   "coverage": 1.0,
+   "new": {
+    "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "page": 28,
     "element_ids": [
-     "e000122"
+     "e000206"
     ],
     "usage_policy": "source_locator_only"
-   },
-   "result": "source_document_removed"
+   }
   },
   {
    "case": "G040",
    "old": {
-    "doc_file": "GBT+47884-2026.pdf",
-    "page": 10,
+    "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+    "page": 13,
+    "element_ids": [],
+    "usage_policy": null
+   },
+   "result": "resolved",
+   "coverage": 0.612,
+   "new": {
+    "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+    "page": 13,
     "element_ids": [
-     "e000146"
+     "e000160"
     ],
     "usage_policy": "answer_and_citation"
-   },
-   "result": "source_document_removed"
-  },
-  {
-   "case": "G040",
-   "old": {
-    "doc_file": "GBT+47884-2026.pdf",
-    "page": 10,
-    "element_ids": [
-     "e000171"
-    ],
-    "usage_policy": "source_locator_only"
-   },
-   "result": "source_document_removed"
+   }
   },
   {
    "case": "G041",

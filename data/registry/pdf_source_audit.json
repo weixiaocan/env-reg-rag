@@ -1,8 +1,8 @@
 {
   "schema_version": "1",
   "audit_profile": "offline-source-audit-v1",
-  "inventory_content_sha256": "4f6939c3dfd89ffbcc6f7b4526d8d5398c995fb6508bb0726d450c162d7d59b0",
-  "generated_at": "2026-09-22T04:25:11.907911+00:00",
+  "inventory_content_sha256": "efd55194b1137abb32fee1a6ed083909510edaa29adcc13c35dbb26841791d66",
+  "generated_at": "2026-10-12T15:05:35.461266+00:00",
   "files": [
     {
       "file_name": "城镇内涝防治技术规范.pdf",
@@ -2330,8 +2330,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 19,
+                "row": 18,
                 "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "document_kind",
+              "value": "unknown",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f",
+                "row": 19
               },
               "checked_at": "",
               "verification_method": ""
@@ -2400,8 +2414,8 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 19,
-                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f",
+                "row": 19
               },
               "checked_at": "",
               "verification_method": ""
@@ -2416,6 +2430,20 @@
                 "path": "data/registry/inventory.csv",
                 "row": 15,
                 "record_sha256": "e00e5ac9a899dba484889bc3a06d3ad8ef788eadcd515069004d3fab13db87c4"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "effective_status",
+              "value": "unknown",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 18,
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
               },
               "checked_at": "",
               "verification_method": ""
@@ -2449,7 +2477,21 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 19,
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f",
+                "row": 19
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "jurisdiction",
+              "value": "全国",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 18,
                 "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
               },
               "checked_at": "",
@@ -2575,7 +2617,21 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 19,
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f",
+                "row": 19
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "source_review",
+              "value": "needs_review",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 18,
                 "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
               },
               "checked_at": "",
@@ -2671,8 +2727,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 19,
+                "row": 18,
                 "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "document_kind",
+              "value": "unknown",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f",
+                "row": 19
               },
               "checked_at": "",
               "verification_method": ""
@@ -2741,8 +2811,8 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 19,
-                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f",
+                "row": 19
               },
               "checked_at": "",
               "verification_method": ""
@@ -2757,6 +2827,20 @@
                 "path": "data/registry/inventory.csv",
                 "row": 15,
                 "record_sha256": "e00e5ac9a899dba484889bc3a06d3ad8ef788eadcd515069004d3fab13db87c4"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "effective_status",
+              "value": "unknown",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 18,
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
               },
               "checked_at": "",
               "verification_method": ""
@@ -2790,7 +2874,21 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 19,
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f",
+                "row": 19
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "jurisdiction",
+              "value": "全国",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 18,
                 "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
               },
               "checked_at": "",
@@ -2916,7 +3014,21 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 19,
+                "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f",
+                "row": 19
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "source_review",
+              "value": "needs_review",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 18,
                 "record_sha256": "ec7d5dd4ee96cde1310c1c7c28fe213ec64678aceb51f0d3af1df2322c46721f"
               },
               "checked_at": "",
@@ -3138,8 +3250,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 18,
+                "row": 17,
                 "record_sha256": "bfce8f666c54c00e374e628a6d05d32ee7cb536803fdc73643b868cebf358db7"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "document_kind",
+              "value": "policy",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "bfce8f666c54c00e374e628a6d05d32ee7cb536803fdc73643b868cebf358db7",
+                "row": 18
               },
               "checked_at": "",
               "verification_method": ""
@@ -3159,8 +3285,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 18,
+                "row": 17,
                 "record_sha256": "bfce8f666c54c00e374e628a6d05d32ee7cb536803fdc73643b868cebf358db7"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "effective_status",
+              "value": "unknown",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "bfce8f666c54c00e374e628a6d05d32ee7cb536803fdc73643b868cebf358db7",
+                "row": 18
               },
               "checked_at": "",
               "verification_method": ""
@@ -3194,8 +3334,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 18,
+                "row": 17,
                 "record_sha256": "bfce8f666c54c00e374e628a6d05d32ee7cb536803fdc73643b868cebf358db7"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "jurisdiction",
+              "value": "全国",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "bfce8f666c54c00e374e628a6d05d32ee7cb536803fdc73643b868cebf358db7",
+                "row": 18
               },
               "checked_at": "",
               "verification_method": ""
@@ -3341,8 +3495,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 18,
+                "row": 17,
                 "record_sha256": "bfce8f666c54c00e374e628a6d05d32ee7cb536803fdc73643b868cebf358db7"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "source_review",
+              "value": "needs_review",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "bfce8f666c54c00e374e628a6d05d32ee7cb536803fdc73643b868cebf358db7",
+                "row": 18
               },
               "checked_at": "",
               "verification_method": ""
@@ -4126,8 +4294,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 17,
+                "row": 16,
                 "record_sha256": "072fa923dd6467fa2601400df3c4f8f559801b770ca4ae52bed6dc4471f12527"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "document_kind",
+              "value": "policy",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "072fa923dd6467fa2601400df3c4f8f559801b770ca4ae52bed6dc4471f12527",
+                "row": 17
               },
               "checked_at": "",
               "verification_method": ""
@@ -4147,8 +4329,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 17,
+                "row": 16,
                 "record_sha256": "072fa923dd6467fa2601400df3c4f8f559801b770ca4ae52bed6dc4471f12527"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "effective_status",
+              "value": "unknown",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "072fa923dd6467fa2601400df3c4f8f559801b770ca4ae52bed6dc4471f12527",
+                "row": 17
               },
               "checked_at": "",
               "verification_method": ""
@@ -4168,8 +4364,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 17,
+                "row": 16,
                 "record_sha256": "072fa923dd6467fa2601400df3c4f8f559801b770ca4ae52bed6dc4471f12527"
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "jurisdiction",
+              "value": "全国",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "record_sha256": "072fa923dd6467fa2601400df3c4f8f559801b770ca4ae52bed6dc4471f12527",
+                "row": 17
               },
               "checked_at": "",
               "verification_method": ""
@@ -4189,7 +4399,21 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 17,
+                "record_sha256": "072fa923dd6467fa2601400df3c4f8f559801b770ca4ae52bed6dc4471f12527",
+                "row": 17
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "source_review",
+              "value": "needs_review",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 16,
                 "record_sha256": "072fa923dd6467fa2601400df3c4f8f559801b770ca4ae52bed6dc4471f12527"
               },
               "checked_at": "",
@@ -4596,7 +4820,7 @@
               "field": "standard_number",
               "value": "T/CMSA 0013-2019",
               "origin_kind": "document_extracted",
-              "status": "verified",
+              "status": "unverified",
               "evidence_ref": {
                 "kind": "file",
                 "sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
@@ -4605,8 +4829,8 @@
                 ],
                 "excerpt": "T/CMSA 0013—2019"
               },
-              "checked_at": "2026-09-22T04:25:11.907911+00:00",
-              "verification_method": "human_confirmed_pdf_cover_standard_number"
+              "checked_at": "",
+              "verification_method": ""
             },
             {
               "field": "standard_number",
@@ -4626,6 +4850,22 @@
             },
             {
               "field": "standard_number",
+              "value": "T/CMSA 0013-2019",
+              "origin_kind": "document_extracted",
+              "status": "verified",
+              "evidence_ref": {
+                "excerpt": "T/CMSA 0013—2019",
+                "kind": "file",
+                "physical_pages": [
+                  3
+                ],
+                "sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966"
+              },
+              "checked_at": "2026-09-22T04:25:11.907911+00:00",
+              "verification_method": "human_confirmed_pdf_cover_standard_number"
+            },
+            {
+              "field": "standard_number",
               "value": "T/CMSA-2019",
               "origin_kind": "legacy_record",
               "status": "unverified",
@@ -4638,8 +4878,7 @@
               "checked_at": "",
               "verification_method": ""
             }
-          ],
-          "suggestion_applied": true
+          ]
         }
       },
       "completeness": {
@@ -4801,8 +5040,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 16,
-                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050",
+                "row": 16
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "document_kind",
+              "value": "standard",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 19,
+                "record_sha256": "2deffca0ebd15281b42f0d27f54ed4c13019f158f2dade841699e864689c22b6"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4810,22 +5063,20 @@
           ]
         },
         "effective_status": {
-          "value": "superseded",
+          "value": "unknown",
           "status": "unverified",
           "has_disagreement": false,
           "observations": [
             {
               "field": "effective_status",
-              "value": "superseded",
-              "origin_kind": "document_extracted",
+              "value": "unknown",
+              "origin_kind": "legacy_record",
               "status": "unverified",
               "evidence_ref": {
-                "kind": "file",
-                "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
-                "physical_pages": [
-                  2
-                ],
-                "excerpt": "GB 50318 - 2000 同时废止"
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 19,
+                "record_sha256": "2deffca0ebd15281b42f0d27f54ed4c13019f158f2dade841699e864689c22b6"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4838,8 +5089,8 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 16,
-                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050",
+                "row": 16
               },
               "checked_at": "",
               "verification_method": ""
@@ -4859,8 +5110,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 16,
-                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050",
+                "row": 16
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "jurisdiction",
+              "value": "全国",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 19,
+                "record_sha256": "2deffca0ebd15281b42f0d27f54ed4c13019f158f2dade841699e864689c22b6"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4880,8 +5145,22 @@
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 16,
-                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050",
+                "row": 16
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "source_review",
+              "value": "needs_review",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 19,
+                "record_sha256": "2deffca0ebd15281b42f0d27f54ed4c13019f158f2dade841699e864689c22b6"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4895,14 +5174,44 @@
           "observations": [
             {
               "field": "standard_number",
+              "value": "GB 50318-2017",
+              "origin_kind": "document_extracted",
+              "status": "verified",
+              "evidence_ref": {
+                "excerpt": "GB 50318-2017",
+                "kind": "file",
+                "physical_pages": [
+                  1
+                ],
+                "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0"
+              },
+              "checked_at": "2026-09-22T04:25:11.907911+00:00",
+              "verification_method": "human_confirmed_pdf_cover_standard_number"
+            },
+            {
+              "field": "standard_number",
               "value": "CJJ 61-2018",
               "origin_kind": "legacy_record",
               "status": "unverified",
               "evidence_ref": {
                 "kind": "registry",
                 "path": "data/registry/inventory.csv",
-                "row": 16,
-                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050"
+                "record_sha256": "f603422e413356e48f63949b8f53a368ed9ac952b492f403d590bff1e7546050",
+                "row": 16
+              },
+              "checked_at": "",
+              "verification_method": ""
+            },
+            {
+              "field": "standard_number",
+              "value": "GB 50318-2017",
+              "origin_kind": "legacy_record",
+              "status": "unverified",
+              "evidence_ref": {
+                "kind": "registry",
+                "path": "data/registry/inventory.csv",
+                "row": 19,
+                "record_sha256": "2deffca0ebd15281b42f0d27f54ed4c13019f158f2dade841699e864689c22b6"
               },
               "checked_at": "",
               "verification_method": ""
@@ -4911,7 +5220,7 @@
               "field": "standard_number",
               "value": "GB 50318-2017",
               "origin_kind": "document_extracted",
-              "status": "verified",
+              "status": "unverified",
               "evidence_ref": {
                 "kind": "file",
                 "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
@@ -4920,11 +5229,10 @@
                 ],
                 "excerpt": "GB 50318-2017"
               },
-              "checked_at": "2026-09-22T04:25:11.907911+00:00",
-              "verification_method": "human_confirmed_pdf_cover_standard_number"
+              "checked_at": "",
+              "verification_method": ""
             }
-          ],
-          "suggestion_applied": true
+          ]
         }
       },
       "completeness": {
@@ -6410,5 +6718,5 @@
       "unverified": 27
     }
   },
-  "source_registry_sha256": "8db801da5d97cd5ac5e31e21b804c4cbb1be492b2b7af96add439a21e423edda"
+  "source_registry_sha256": "93eba090ffb793cd0709f8508f74bedcf82f0e2dd5439446ddab8ba8d3ee4b9a"
 }
