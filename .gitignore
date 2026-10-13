@@ -38,3 +38,6 @@ logs/
 *.log
 models/
 .cache/
+
+# Deployment bundles (large binaries, built by deploy/make_bundle.sh)
+dist/

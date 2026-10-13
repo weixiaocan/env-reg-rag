@@ -392,7 +392,7 @@ def create_app(
                         "今日 AI 演示额度已用完；仍可使用只找原文和资料浏览"
                     )
                 else:
-                    message = "public query limit exceeded; retry later"
+                    message = "请求过于频繁，请一分钟后再试"
                 raise HTTPException(
                     status_code=429,
                     detail={
