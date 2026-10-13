@@ -85,6 +85,10 @@ from src.application.publish_state import (  # noqa: E402
     write_ingest_manifest,
 )
 from src.application.v2_chunker import chunk_document  # noqa: E402
+from src.application.retrieval_context import (  # noqa: E402
+    RETRIEVAL_CONTEXT_VERSION,
+    index_texts,
+)
 from src.domain.v2_chunk import V2Chunk  # noqa: E402
 
 DEFAULT_QDRANT_URL = "http://127.0.0.1:6333"
@@ -106,6 +110,8 @@ def _embedding_profile() -> dict[str, Any]:
         "model_id": BgeSmallZhEmbedder.model_id,
         "model_revision": BgeSmallZhEmbedder.model_revision,
         "dimension": BgeSmallZhEmbedder.dimension,
+        # what text is indexed is part of how vectors are made
+        "retrieval_context": RETRIEVAL_CONTEXT_VERSION,
     }
 
 
@@ -210,6 +216,16 @@ def _iter_canonical_paths(corpus_version: str, root: str | os.PathLike) -> list[
     if not paths:
         raise FileNotFoundError(f"no .canonical.json artifacts in {canonical_dir}")
     return paths
+
+
+def _load_canonicals_by_id(root: Path, corpus_version: str) -> dict[str, dict[str, Any]]:
+    """canonical_id -> canonical document of this corpus (retrieval context)."""
+    canonical_dir = root / "data" / "canonical" / "v2" / corpus_version
+    out: dict[str, dict[str, Any]] = {}
+    for path in sorted(canonical_dir.glob("*.canonical.json")):
+        canonical = json.loads(path.read_text(encoding="utf-8"))
+        out[canonical["canonical_id"]] = canonical
+    return out
 
 
 def _collect_chunks(paths: list[str]) -> tuple[list[V2Chunk], dict[str, Any]]:
@@ -412,7 +428,9 @@ def _build_collection(
         })
         return report
 
-    vectors = embedder.embed_documents([c.text for c in chunks])
+    canonicals = _load_canonicals_by_id(root_path, corpus_version)
+    dense_texts, sparse_texts = index_texts(chunks, canonicals)
+    vectors = embedder.embed_documents(dense_texts)
     report["vector_count"] = len(vectors)
 
     payloads = _build_payloads(chunks, root_path, corpus_version, build_identity)
@@ -423,7 +441,7 @@ def _build_collection(
     # create-only: a collection that already exists is NEVER deleted and
     # recreated (resolve_staging_target already verified/hard-failed on any
     # existing collection -- this is the hard backstop).
-    index.build(payloads, vectors, create_only=True)
+    index.build(payloads, vectors, create_only=True, sparse_texts=sparse_texts)
     report["build_status"] = "ok"
 
     # prove what we just wrote: same full payload identity as the candidate;

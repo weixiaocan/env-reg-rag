@@ -8,14 +8,14 @@ from datetime import datetime, timezone
 from time import perf_counter
 
 from src.application.answer_generation import AnswerGenerator, ModelUsage
-from src.application.evidence_retrieval import EvidenceRetriever
+from src.application.evidence_retrieval import EvidenceContextExpander, EvidenceRetriever
 from src.application.query_observability import (
     NullQueryTraceRecorder,
     QueryTrace,
     QueryTraceRecorder,
 )
 from src.application.scope_resolution import ScopeResolver
-from src.domain.query import AnswerResult, EvidencePack, QueryRequest, QueryStatus
+from src.domain.query import AnswerResult, EvidenceItem, EvidencePack, QueryRequest, QueryStatus
 
 
 logger = logging.getLogger(__name__)
@@ -44,6 +44,7 @@ class QueryApplicationService:
         skip_generation: bool = False,
         generate_context_limit: int | None = None,
         allow_unverified_evidence: bool = False,
+        context_expander: EvidenceContextExpander | None = None,
     ) -> None:
         # When enabled, ``source_locator_only`` evidence may support a claim,
         # but every such claim is marked ``verified=False`` and the result
@@ -58,6 +59,9 @@ class QueryApplicationService:
         if generate_context_limit is not None and generate_context_limit < 1:
             raise ValueError("generate_context_limit must be >= 1 when set")
         self._generate_context_limit = generate_context_limit
+        # Adds the prose framing structured evidence after the context limit
+        # is applied, so expansion never pushes retrieved evidence out.
+        self._context_expander = context_expander
 
     async def execute(self, request: QueryRequest) -> AnswerResult:
         query_started = perf_counter()
@@ -199,6 +203,14 @@ class QueryApplicationService:
         context = list(evidence_pack.evidence)
         if self._generate_context_limit is not None:
             context = context[: self._generate_context_limit]
+        expanded: list[EvidenceItem] = []
+        if self._context_expander is not None:
+            stage_started = perf_counter()
+            expanded = await self._context_expander.expand(context)
+            observation["stages"]["context_expansion"] = round(
+                (perf_counter() - stage_started) * 1000, 3
+            )
+            context = [*context, *expanded]
         citable_policies = (
             {VERIFIED_POLICY, UNVERIFIED_POLICY}
             if self._allow_unverified
@@ -299,7 +311,10 @@ class QueryApplicationService:
             resolved_scope=scope.resolved_scope,
             missing_conditions=[],
             answer=answer,
-            evidence=evidence_pack.evidence,
+            evidence=[*evidence_pack.evidence, *(
+                item for item in expanded
+                if item.evidence_id not in {e.evidence_id for e in evidence_pack.evidence}
+            )],
             corpus_version=evidence_pack.corpus_version,
             warnings=[
                 *(

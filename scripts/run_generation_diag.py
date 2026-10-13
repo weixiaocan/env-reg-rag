@@ -27,6 +27,7 @@ import argparse
 import asyncio
 import hashlib
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -425,6 +426,9 @@ def main() -> None:
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--dataset", type=Path, default=DATASET,
                         help="golden JSONL (default: eval/golden_v2.jsonl)")
+    parser.add_argument("--staging-corpus", default=None,
+                        help="evaluate a staged (unpublished) corpus version: queries its "
+                             "ingest-manifest collection instead of the live alias")
     args = parser.parse_args()
     dataset = args.dataset if args.dataset.is_absolute() else ROOT / args.dataset
 
@@ -438,6 +442,13 @@ def main() -> None:
         if line.strip()
     ]
     pointer = json.loads(POINTER.read_text(encoding="utf-8"))
+    staging_collection = None
+    if args.staging_corpus:
+        manifest = json.loads((ROOT / "data" / "canonical" / "v2" / args.staging_corpus
+                               / "ingest_manifest.json").read_text(encoding="utf-8"))
+        staging_collection = manifest["collection_name"]
+        os.environ["QDRANT_COLLECTION"] = staging_collection
+        pointer = {"corpus_version": args.staging_corpus}
     problems = _binding_problems(cases, pointer)
     if problems:
         print(json.dumps({"binding_problems": problems}, ensure_ascii=False))
@@ -463,7 +474,7 @@ def main() -> None:
     finally:
         server_runtime._build_answer_generator = original_builder
 
-    corpus_version = services.corpus_version
+    corpus_version = args.staging_corpus or services.corpus_version
     run_config = {
         "classification": "diagnostic",
         "run_id": args.run_id,
@@ -471,6 +482,7 @@ def main() -> None:
         "dataset_sha256": _dataset_sha256(dataset),
         "dataset_cases": len(cases),
         "corpus_version": corpus_version,
+        "staging_collection": staging_collection,
         "provider": settings.provider,
         "model": settings.model,
         "temperature": settings.temperature,
@@ -479,6 +491,7 @@ def main() -> None:
             "profile": "production answer profile (verified + caveated unverified evidence)",
             "retrieve_limit": 10,
             "generate_context_limit": 5,
+            "context_expansion": services.answer._context_expander is not None,
         },
         "note": "real LLM run, authorized by the owner for the already-wired provider",
     }

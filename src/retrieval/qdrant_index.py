@@ -19,6 +19,7 @@ class RetrievalHit:
     usage_policy: str
     score: float
     element_ids: list[str] = field(default_factory=list)
+    element_types: list[str] = field(default_factory=list)
     document_version_id: str = ""
     file_name: str = ""
     heading_path: list[str] = field(default_factory=list)
@@ -122,7 +123,12 @@ class QdrantRetrievalIndex:
         vectors: Sequence[Sequence[float]],
         *,
         create_only: bool = False,
+        sparse_texts: Sequence[str] | None = None,
     ) -> None:
+        """``sparse_texts`` (same order as chunks) overrides the text fed to
+        BM25; the stored payload text is always the chunk's own text."""
+        if sparse_texts is not None and len(sparse_texts) != len(chunks):
+            raise ValueError("each retrieval chunk needs exactly one sparse text")
         if len(chunks) != len(vectors):
             raise ValueError("each retrieval chunk must have exactly one dense vector")
         if any(len(vector) != self._vector_size for vector in vectors):
@@ -158,11 +164,18 @@ class QdrantRetrievalIndex:
             points = []
             chunk_batch = chunks[start : start + self._upsert_batch_size]
             vector_batch = vectors[start : start + self._upsert_batch_size]
-            for chunk, vector in zip(chunk_batch, vector_batch, strict=True):
+            sparse_batch = (
+                sparse_texts[start : start + self._upsert_batch_size]
+                if sparse_texts is not None
+                else [chunk["text"] for chunk in chunk_batch]
+            )
+            for chunk, vector, sparse_text in zip(
+                chunk_batch, vector_batch, sparse_batch, strict=True
+            ):
                 named_vectors: dict[str, Any] = {"dense": list(vector)}
                 if self._enable_bm25:
                     named_vectors["bm25"] = models.Document(
-                        text=chunk["text"],
+                        text=sparse_text,
                         model="qdrant/bm25",
                         options=self._bm25_options(),
                     )
@@ -290,6 +303,48 @@ class QdrantRetrievalIndex:
             by_evidence_id.setdefault(hit.primary_evidence_id, hit)
         return [by_evidence_id[item] for item in ordered_ids if item in by_evidence_id]
 
+    def find_by_chunk_ids(self, chunk_ids: Sequence[str]) -> list[RetrievalHit]:
+        """Fetch published chunks by ``chunk_id``, preserving the given order."""
+        ordered_ids = list(dict.fromkeys(chunk_ids))
+        if not ordered_ids:
+            return []
+        records, _ = self._client.scroll(
+            collection_name=self._collection_name,
+            scroll_filter=models.Filter(
+                must=[models.FieldCondition(key="chunk_id", match=models.MatchAny(any=ordered_ids))]
+            ),
+            limit=max(len(ordered_ids) * 2, 10),
+            with_payload=True,
+            with_vectors=False,
+        )
+        by_id = {hit.chunk_id: hit for hit in (self._to_hit(r, score=1.0) for r in records)}
+        return [by_id[item] for item in ordered_ids if item in by_id]
+
+    def find_by_elements(
+        self, document_version_id: str, element_ids: Sequence[str]
+    ) -> list[RetrievalHit]:
+        """Chunks of one document that carry any of the given element ids."""
+        if not document_version_id or not element_ids:
+            return []
+        records, _ = self._client.scroll(
+            collection_name=self._collection_name,
+            scroll_filter=models.Filter(
+                must=[
+                    models.FieldCondition(
+                        key="document_version_id",
+                        match=models.MatchValue(value=document_version_id),
+                    ),
+                    models.FieldCondition(
+                        key="element_ids", match=models.MatchAny(any=list(element_ids))
+                    ),
+                ]
+            ),
+            limit=max(len(element_ids) * 4, 10),
+            with_payload=True,
+            with_vectors=False,
+        )
+        return [self._to_hit(record, score=1.0) for record in records]
+
     @staticmethod
     def _to_hit(point: Any, *, score: float) -> RetrievalHit:
         payload = point.payload or {}
@@ -319,6 +374,7 @@ class QdrantRetrievalIndex:
             usage_policy=str(payload.get("usage_policy") or "source_locator_only"),
             score=score,
             element_ids=list(payload.get("element_ids") or []),
+            element_types=list(payload.get("element_types") or []),
             document_version_id=str(payload.get("document_version_id", "")),
             file_name=str(payload.get("file_name", "")),
             heading_path=heading_path,

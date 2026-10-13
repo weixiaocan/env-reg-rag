@@ -28,7 +28,10 @@ from src.adapters.llm_provider import (
     build_answer_generator,
 )
 from src.adapters.qdrant_evidence_catalog import QdrantEvidenceCatalog
-from src.adapters.qdrant_evidence_retriever import QdrantEvidenceRetriever
+from src.adapters.qdrant_evidence_retriever import (
+    QdrantContextExpander,
+    QdrantEvidenceRetriever,
+)
 from src.adapters.public_document_catalog import PublicDocumentCatalog
 from src.application.answer_generation import Answer, AnswerGenerator, InMemoryAnswerGenerator
 from src.application.corpus_artifacts import (
@@ -119,6 +122,10 @@ def build_query_services(
         trace_recorder=trace_recorder,
         generate_context_limit=5,
         allow_unverified_evidence=True,
+        context_expander=QdrantContextExpander(
+            index=index,
+            allowed_policies={"answer_and_citation", "source_locator_only"},
+        ),
         runtime_metadata={
             "retrieval_profile": "qdrant-bge-small-zh-bm25-rrf",
             "collection": collection,
@@ -127,6 +134,7 @@ def build_query_services(
             "retrieve_limit": "10",
             "generate_context_limit": "5",
             "evidence_tiers": "verified+unverified-caveat",
+            "context_expansion": "structured-lead-in-v1",
         },
     )
     source_lookup_service = QueryApplicationService(

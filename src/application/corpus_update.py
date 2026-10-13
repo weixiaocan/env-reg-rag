@@ -36,6 +36,8 @@ SOURCE_REVIEW_RANK = {
     "needs_review": 1,
     "": 0,
 }
+from src.application.retrieval_context import RETRIEVAL_CONTEXT_VERSION  # noqa: E402
+
 _CORPUS_ARTIFACT_PROFILE = "corpus-artifacts-v6-unified-original-cross-page-relations"
 
 
@@ -934,6 +936,10 @@ class CorpusUpdateService:
                 "catalog": catalog.fingerprint_payload(),
                 "config_hash": config_hash,
                 "artifact_profile": _CORPUS_ARTIFACT_PROFILE,
+                # What gets indexed for retrieval is part of the corpus: a
+                # change mints a new version instead of rebinding the
+                # immutable stage chain of an existing one.
+                "retrieval_context": RETRIEVAL_CONTEXT_VERSION,
                 "formula_region_gate": formula_gate['provenance'] if formula_gate else None,
                 "formula_region_registry_sha256": _sha256(self.root / 'data/registry/formula-gold.json')
                     if (self.root / 'data/registry/formula-gold.json').is_file() else None,

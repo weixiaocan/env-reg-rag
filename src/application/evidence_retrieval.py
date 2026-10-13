@@ -17,6 +17,15 @@ class EvidenceRetriever(Protocol):
     ) -> EvidencePack: ...
 
 
+class EvidenceContextExpander(Protocol):
+    """Adds the prose that frames structured evidence (a table's lead-in
+    sentence, units or notes) to the generation context.  Returned items are
+    ordinary published chunks with their own usage policy; they never replace
+    retrieved evidence."""
+
+    async def expand(self, context: list[EvidenceItem]) -> list[EvidenceItem]: ...
+
+
 class InMemoryEvidenceRetriever:
     """Deterministic adapter for query-module acceptance scenarios."""
 

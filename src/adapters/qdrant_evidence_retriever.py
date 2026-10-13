@@ -112,3 +112,85 @@ class QdrantEvidenceRetriever:
             corpus_version=corpus_version,
             evidence=[evidence_item_from_hit(hit) for hit in hits],
         )
+
+
+_STRUCTURED_TYPES = {"table", "formula"}
+_ELEMENT_ID = re.compile(r"^e(\d{6})$")
+# A note after a table ("注：…", a unit line) is short; longer prose after a
+# table belongs to the next topic.
+_TRAILING_NOTE_MAX_CHARS = 120
+
+
+def _element_number(element_id: str) -> int | None:
+    match = _ELEMENT_ID.match(element_id)
+    return int(match.group(1)) if match else None
+
+
+class QdrantContextExpander:
+    """Attach the prose framing each table/formula in the generation context.
+
+    Tables and formulas are atomic chunks, so the sentence that introduces
+    them ("降雨分为7个等级，具体划分见表1") and short notes such as units
+    live in neighbouring chunks.  Canonical element ids are sequential in
+    reading order, so the framing prose is the nearest text-only chunk before
+    the structured element (within ``lookback`` elements) plus a short
+    text-only chunk right after it.  Only chunks whose policy is allowed are
+    added, at most ``max_extra`` in total.
+    """
+
+    def __init__(
+        self,
+        *,
+        index: QdrantRetrievalIndex,
+        allowed_policies: set[str],
+        max_extra: int = 3,
+        lookback: int = 3,
+    ) -> None:
+        self._index = index
+        self._allowed = set(allowed_policies)
+        self._max_extra = max_extra
+        self._lookback = lookback
+
+    async def expand(self, context: list[EvidenceItem]) -> list[EvidenceItem]:
+        return await asyncio.to_thread(self._expand, context)
+
+    def _expand(self, context: list[EvidenceItem]) -> list[EvidenceItem]:
+        seen = {item.evidence_id for item in context}
+        extras: list[EvidenceItem] = []
+        for hit in self._index.find_by_chunk_ids([item.evidence_id for item in context]):
+            if len(extras) >= self._max_extra:
+                break
+            if not _STRUCTURED_TYPES & set(hit.element_types):
+                continue
+            numbers = [n for n in map(_element_number, hit.element_ids) if n is not None]
+            if not numbers:
+                continue
+            before = [f"e{n:06d}" for n in range(min(numbers) - 1, min(numbers) - 1 - self._lookback, -1) if n > 0]
+            after = f"e{max(numbers) + 1:06d}"
+            neighbours = self._index.find_by_elements(hit.document_version_id, [*before, after])
+            # Framing prose shares the structured element's heading; prose
+            # under another clause is a different topic.
+            prose = [
+                n for n in neighbours
+                if set(n.element_types) <= {"text"} and n.heading_path == hit.heading_path
+            ]
+            preceding = sorted(
+                (n for n in prose if set(n.element_ids) & set(before)),
+                key=lambda n: -max(_element_number(e) or 0 for e in n.element_ids),
+            )
+            trailing = [
+                n for n in prose
+                if after in n.element_ids and len(n.text) <= _TRAILING_NOTE_MAX_CHARS
+            ]
+            # Only the nearest chunk on each side; if it is already in the
+            # context nothing further away is pulled in.
+            candidates = [
+                n for n in [*preceding[:1], *trailing[:1]]
+                if n.chunk_id not in seen and n.usage_policy in self._allowed
+            ]
+            for neighbour in candidates:
+                if len(extras) >= self._max_extra or neighbour.chunk_id in seen:
+                    continue
+                seen.add(neighbour.chunk_id)
+                extras.append(evidence_item_from_hit(neighbour))
+        return extras
