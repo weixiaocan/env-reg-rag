@@ -1,0 +1,88 @@
+{
+  "case": "G001",
+  "question": "《城镇内涝防治技术规范》如何定义“内涝”？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_932e13753b5295ca2b6cdefd6bc26ccb",
+    "chunk_2bbf5f573d09f1c20a7c60ecf42573bf",
+    "chunk_3ef56fe7df95e4e8929edf21c872a568",
+    "chunk_b037f0c9d70dc1c6a6ccd861d3bf55b4",
+    "chunk_af42b371ec09989d679ad20135dffb6d"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.014,
+    "retrieval": 56.238,
+    "generation": 6088.282,
+    "total": 6144.604
+  },
+  "token_usage": {
+    "input_tokens": 2307,
+    "output_tokens": 392,
+    "total_tokens": 2699,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "《城镇内涝防治技术规范》如何定义“内涝”？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_932e13753b5295ca2b6cdefd6bc26ccb",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "3 城镇内涝防治系统 > 3.1 一般规定 > 3.1.1\n3.1.1 城镇内涝防治系统应包括源头减排、排水管渠和排涝除险\n等工程性设施，以及应急管理等非工程性措施，并与防洪设施相\n衔接。"
+      },
+      {
+        "evidence_id": "chunk_2bbf5f573d09f1c20a7c60ecf42573bf",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "根据住房城乡建设部《关于请组织开展城市排水相关标准制\n修订工作的函》(建标〔2013〕46号)的要求，规范编制组经广泛调\n查研究，认真总结实践经验，参考有关国际标准和国外先进标准，\n并在广泛征求意见的基础上，编制本规范。\n本规范共分7章和2个附录，主要技术内容是：总则、术语和\n符号、城镇内涝防治系统、源头减排设施、排水管渠设施、排涝除险\n设施、运行维护等。\n本规范中以黑体字标志的条文为强制性条文，必须严格执行。\n本规范由住房城乡建设部负责管理和对强制性条文的解释，\n由上海市政工程设计研究总院(集团)有限公司负责具体技术内容\n的解释。执行过程中如有意见或建议，请寄送上海市政工程设计\n研究总院(集团)有限公司《城镇内涝防治技术规范》编制组(地址：\n上海市中山北二路901号；邮政编码：200092）。\n本规范主编单位、参编单位、主要起草人和主要审查人：\n主编单位：上海市政工程设计研究总院(集团)有限公司\n参编单位：北京市市政工程设计研究总院有限公司\n天津市市政工程设计研究院\n中国市政工程中南设计研究总院有限公司\n中国市政工程东北设计研究总院有限公司\n上海城市排水系统工程技术研究中心\n北京建筑大学\n北京工业大学\n中国城市规划设计研究院"
+      },
+      {
+        "evidence_id": "chunk_3ef56fe7df95e4e8929edf21c872a568",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "3 城镇内涝防治系统 > 3.1 一般规定 > 3.1.5\n3.1.5 新建、改建和扩建工程的内涝防治设计文件，应符合下列\n规定：\n1 应在项目可行性研究报告中编制内涝防治设计篇(章)；\n2 项目可行性研究报告论证结论中，应提出初步设计阶段编\n制内涝防治设计报告的要求，对城镇内涝防治系统影响较大的工\n程应编制内涝防治设计报告，其他工程可编制内涝防治设计报告，\n并应符合本规范附录A的有关规定。"
+      },
+      {
+        "evidence_id": "chunk_b037f0c9d70dc1c6a6ccd861d3bf55b4",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          12,
+          13
+        ],
+        "text": "3 城镇内涝防治系统 > 3.1 一般规定 > 3.1.4\n3.1.4 城镇内涝防治设施应便于维护管理，且不应对公众健康和\n安全产生影响，并应在安全设施、安全防护和危险部位、危险场所\n等设警示标志。"
+      },
+      {
+        "evidence_id": "chunk_af42b371ec09989d679ad20135dffb6d",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "1 总则 > 1.0.7\n1.0.7 城镇内涝防治设施的建设和运行维护，除应符合本规范\n外，尚应符合国家现行有关标准的规定。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,122 @@
+{
+  "case": "G035",
+  "question": "按GB 50014，采用推理公式法时雨水设计流量与q、综合径流系数的关系如何表述（式4.1.7）？表4.1.8-1中各种屋面、混凝土或沥青路面的径流系数取值范围是多少？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "GB 50014第4.1.7条规定，当采用推理公式法时，排水管渠的雨水设计流量Qs与设计暴雨强度q、综合径流系数Ψ及汇水面积F相关；证据中给出了各参数的含义说明，但未完整显示公式表达式。",
+        "evidence_ids": [
+          "chunk_3edd1aa2e6b64c67c1b5cfedf4144390"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "根据GB 50014表4.1.8-1，各种屋面、混凝土或沥青路面的径流系数取值范围为0.85~0.95。",
+        "evidence_ids": [
+          "chunk_aa37507a06c2e01394da9274688b2e4d"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_3edd1aa2e6b64c67c1b5cfedf4144390",
+    "chunk_aa37507a06c2e01394da9274688b2e4d",
+    "chunk_1d8da60bf64737b416cfdcbe62da1d6d",
+    "chunk_7f4fa948836ad222b2677a9a7572644b",
+    "chunk_0226114537d8ae99c536a24208fa726a",
+    "chunk_869cf8d22cb9d73ad4cb4192a983a0a6",
+    "chunk_b52bbf2e3b7b5ae55b1f2e2b650491ae",
+    "chunk_7d5d91761b41fcb8264ce423adfc66e1",
+    "chunk_52cd9e58fa4eaa0fe27fadcf7b522820",
+    "chunk_9465786b10a455954e438403bda57f0f"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_3edd1aa2e6b64c67c1b5cfedf4144390",
+    "chunk_aa37507a06c2e01394da9274688b2e4d",
+    "chunk_1d8da60bf64737b416cfdcbe62da1d6d",
+    "chunk_7f4fa948836ad222b2677a9a7572644b",
+    "chunk_0226114537d8ae99c536a24208fa726a"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.109,
+    "retrieval": 70.89,
+    "generation": 18908.789,
+    "validation": 0.02,
+    "total": 18980.051
+  },
+  "token_usage": {
+    "input_tokens": 2437,
+    "output_tokens": 1487,
+    "total_tokens": 3924,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "按GB 50014，采用推理公式法时雨水设计流量与q、综合径流系数的关系如何表述（式4.1.7）？表4.1.8-1中各种屋面、混凝土或沥青路面的径流系数取值范围是多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_3edd1aa2e6b64c67c1b5cfedf4144390",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          21
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.7\n4.1.7 当采用推理公式法时，排水管渠的雨水设计流量应按下式\n计算。当汇水面积大于2km时，应考虑区域降雨和地面渗透性能\n的时空分布不均匀性和管网汇流过程等因素，采用数学模型法确\n定雨水设计流量。\n式中：Qs—雨水设计流量(L/s)；流量（L/s)\nq 设计暴雨强度[/(hm² s)_:\n综合径流系数；\nΨ\n-汇水面积(hm²)。"
+      },
+      {
+        "evidence_id": "chunk_aa37507a06c2e01394da9274688b2e4d",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          22
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.8\n表4.1.8-1径流系数\n地面种类 | 径流系数\n各种屋面、混凝土或沥青路面 | 0.85~0.95\n大块石铺砌路面或沥青表面各种的碎石路面 | 0.55~0.65\n级配碎石路面 | \n干砌砖石或碎石路面 | \n非铺砌土路面 | 35\n公园或绿地 | 10~0.20"
+      },
+      {
+        "evidence_id": "chunk_1d8da60bf64737b416cfdcbe62da1d6d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          21
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.8\n4.1.8综合径流系数应严格按规划确定的控制，并应符合下列规定：\n1 综合径流系数高于0.7的地区应采用渗透、调蓄等措施。\n2 综合径流系数可根据表4.1.8-1规定的径流系数，通过地\n面种类加权平均计算得到，也可按表4.1.8-2的规定取值，并应核\n实地面种类的组成和比例。\n3 采用推理公式法进行内涝防治设计校核时，宜提高表\n4.1.8-1中规定的径流系数。当设计重现期为20年～30年时，宜将\n径流系数提高10%～15%；当设计重现期为30年～50年时，宜将径\n流系数提高20%～25%；当设计重现期为50年～100年时，宜将径流\n系数提高30%～50%；当计算的径流系数大于1时，应按1取值。"
+      },
+      {
+        "evidence_id": "chunk_7f4fa948836ad222b2677a9a7572644b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.4\n5.2.4 综合径流系数可按表5.2.4的规定取值。城市开发建设\n应采用低影响开发建设模式，降低综合径流系数。"
+      },
+      {
+        "evidence_id": "chunk_0226114537d8ae99c536a24208fa726a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.6\n5.2.6 雨水设计流量应采用数学模型法进行校核，并同步确定\n相应的径流量、不同设计重现期的淹没范围、水流深度及持续时\n间等。当汇水面积不超过2km²时，雨水设计流量可采用推理公\n式法按下式计算。"
+      }
+    ]
+  }
+}

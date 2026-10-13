@@ -1,0 +1,130 @@
+{
+  "case": "G030",
+  "question": "按T/CECS 1764，采用特征因子法计算旱天入流入渗量BI的公式是什么？式中ADF、Cw、C、Cws含义是什么？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "T/CECS 1764第5.2.3条给出的旱天入流入渗量计算公式为：BI = ADF×(Cw−C)/(Cw−Cws)。",
+        "evidence_ids": [
+          "chunk_afe2ff8ac8d9ef0d4873f94e69ab98c2"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "式中，BI为旱天入流入渗量（m³/d），ADF为旱天日均流量监测值（m³/d）。",
+        "evidence_ids": [
+          "chunk_afe2ff8ac8d9ef0d4873f94e69ab98c2"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "证据中未提供Cw、C、Cws的含义说明，也未明确标注该公式为“特征因子法”。",
+        "evidence_ids": [
+          "chunk_afe2ff8ac8d9ef0d4873f94e69ab98c2"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_afe2ff8ac8d9ef0d4873f94e69ab98c2",
+    "chunk_2f59294a13bcecb9d497354c6416a1ea",
+    "chunk_ec478a940fdec9ba37a79d4cda5f5779",
+    "chunk_e39b08880bc74a27c1774240f527ac90",
+    "chunk_cd23e01f080a958c700c38b0703b5734",
+    "chunk_79a05c25cfb4c7e5461dde976a0c4c8a",
+    "chunk_da04f7c96dcfda5709d23fcc8ee0f934",
+    "chunk_c4f0ddf1ba99f548285e09ee85cdd682",
+    "chunk_bcc2961808dd4a6570f7b3ebc59432cc",
+    "chunk_a0b9c3fb49edc8c99d0ef065c7036bb2"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_afe2ff8ac8d9ef0d4873f94e69ab98c2",
+    "chunk_2f59294a13bcecb9d497354c6416a1ea",
+    "chunk_ec478a940fdec9ba37a79d4cda5f5779",
+    "chunk_e39b08880bc74a27c1774240f527ac90",
+    "chunk_cd23e01f080a958c700c38b0703b5734"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.01,
+    "retrieval": 48.935,
+    "generation": 22623.705,
+    "validation": 0.197,
+    "total": 22672.999
+  },
+  "token_usage": {
+    "input_tokens": 2227,
+    "output_tokens": 1693,
+    "total_tokens": 3920,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "按T/CECS 1764，采用特征因子法计算旱天入流入渗量BI的公式是什么？式中ADF、Cw、C、Cws含义是什么？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_afe2ff8ac8d9ef0d4873f94e69ab98c2",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          18
+        ],
+        "text": "5 评估 > 5.2 旱天入流入渗计算 > 5.2.3\n[公式]\nB I=\\frac{A D F\\times(C_{\\mathrm{w}}-C)}{C_{\\mathrm{w}}-C_{\\mathrm{w s}}}\n式中：BI—旱天入流入渗量（m³/d）；\nADF旱天日均流量监测值（m³/d)；"
+      },
+      {
+        "evidence_id": "chunk_2f59294a13bcecb9d497354c6416a1ea",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          19
+        ],
+        "text": "5 评估 > 5.2 旱天入流入渗计算 > 5.2.4\n[公式]\nBI=ADF-KQ_{g}\n式中：BI——旱天入流入渗量（m³/d)；"
+      },
+      {
+        "evidence_id": "chunk_ec478a940fdec9ba37a79d4cda5f5779",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          19
+        ],
+        "text": "5 评估 > 5.2 旱天入流入渗计算 > 5.2.6\n[公式]\nBI=\\frac{0.4\\times MDF}{1-0.6\\times(MDF/ADF)(\\frac{ADF}{3785})^{0.7}}\n式中：BI——旱天入流入渗量（m³/d）；"
+      },
+      {
+        "evidence_id": "chunk_e39b08880bc74a27c1774240f527ac90",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          19
+        ],
+        "text": "5 评估 > 5.2 旱天入流入渗计算 > 5.2.5\n[公式]\nBI=ADF-(ADF-MDF)/X\n式中：BI——旱天入流入渗量（m³/d)；"
+      },
+      {
+        "evidence_id": "chunk_cd23e01f080a958c700c38b0703b5734",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          19
+        ],
+        "text": "5 评估 > 5.2 旱天入流入渗计算 > 5.2.7\n[公式]\nBI=ADF-M\n式中：BI——旱天人流入渗量（m³/d)；"
+      }
+    ]
+  }
+}

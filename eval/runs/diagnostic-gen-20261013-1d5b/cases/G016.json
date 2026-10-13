@@ -1,0 +1,131 @@
+{
+  "case": "G016",
+  "question": "对照GB 50014表4.1.4与GB 55027表3.4.2，超大城市与中等城市/小城市的城镇内涝防治设计重现期分别取多少？两表对道路积水深度的共同表述是什么？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "GB 50014表4.1.4中，超大城市的内涝防治设计重现期为100年，中等城市和小城市为20~30年。",
+        "evidence_ids": [
+          "chunk_0e9f49469903290ba093dae7adebdac4"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "GB 55027表3.4.2中，超大城市的城镇内涝防治设计重现期为100年，中等城市和小城市为20~30年。",
+        "evidence_ids": [
+          "chunk_6e9780a877a0916b32bc6501e483ab53"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "GB 50014表4.1.4与GB 55027表3.4.2对道路积水深度的共同表述为：道路中一条车道的积水深度不超过15cm。",
+        "evidence_ids": [
+          "chunk_0e9f49469903290ba093dae7adebdac4",
+          "chunk_6e9780a877a0916b32bc6501e483ab53"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_6e9780a877a0916b32bc6501e483ab53",
+    "chunk_0e9f49469903290ba093dae7adebdac4",
+    "chunk_c45df9f06928470a72e9dc1a0f5d7d34",
+    "chunk_9cf2238f9bf5c9719e196c4cc1f6cfaf",
+    "chunk_211e4fc8387e4e268f2aa8032af4e89b",
+    "chunk_87325fc2a9f99d74d3653bdd4bb1056e",
+    "chunk_d6a80d9588b991347fe8b500ef20ed9b",
+    "chunk_81db8a747179b56fb378af16e59c7dae",
+    "chunk_8b4c8962eb156d5fdfc82543e31f39a8",
+    "chunk_44bd969ceb3b398d89819f23e1760e18"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_6e9780a877a0916b32bc6501e483ab53",
+    "chunk_0e9f49469903290ba093dae7adebdac4",
+    "chunk_c45df9f06928470a72e9dc1a0f5d7d34",
+    "chunk_9cf2238f9bf5c9719e196c4cc1f6cfaf",
+    "chunk_211e4fc8387e4e268f2aa8032af4e89b"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.037,
+    "retrieval": 72.938,
+    "generation": 8529.231,
+    "validation": 0.281,
+    "total": 8602.734
+  },
+  "token_usage": {
+    "input_tokens": 2636,
+    "output_tokens": 1009,
+    "total_tokens": 3645,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "对照GB 50014表4.1.4与GB 55027表3.4.2，超大城市与中等城市/小城市的城镇内涝防治设计重现期分别取多少？两表对道路积水深度的共同表述是什么？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_6e9780a877a0916b32bc6501e483ab53",
+        "usage_policy": "source_locator_only",
+        "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "3 雨水系统 > 3.4 排涝除险 > 3.4.2\n表3.4.2城镇内涝防治设计重现期\n城镇类型 | 重现期（年） | 地面最大允许积水深度\n超城市 | 100 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n特大城市 | 50~100 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n大城市 | 30~50 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm\n中等城市和小城市 | 20~30 | 1 居民住宅和商业建筑物的底层不 进水； 2 道路中一条车道的积水深度不超 IZ 过15cm"
+      },
+      {
+        "evidence_id": "chunk_0e9f49469903290ba093dae7adebdac4",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.4\n表4.1.4内涝防治设计重现期(年）\n城镇类型 | 重现期 | 地面积水设计标准\n超大城市 | 100 | 1居民住宅和工商业 建筑物的底层不进水； 2道路中一条车道的 积水深度不超过15cm\n特大城市 | 50~100 | 1居民住宅和工商业 建筑物的底层不进水； 2道路中一条车道的 积水深度不超过15cm\n大城市 | 30~50 | 1居民住宅和工商业 建筑物的底层不进水； 2道路中一条车道的 积水深度不超过15cm\n中等城市和小城市 | 20~30 | 1居民住宅和工商业 建筑物的底层不进水； 2道路中一条车道的 积水深度不超过15cm\n注：详见表4.1.3的注3。"
+      },
+      {
+        "evidence_id": "chunk_c45df9f06928470a72e9dc1a0f5d7d34",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.2 技术要求 > 3.2.3\n注：1 表中所列设计重现期适用于采用年最大值法确定的暴雨强度公式。\n2 超大城市指城区常住人口在1000万以上的城市：特大城市指城区常住人\n口500万以上1000万以下的城市；大城市指城区常住人口100万以上500\n万以下的城市：中等城市指城区常住人口50万以上100万以下的城市；小\n城市指城区常住人口在50万以下的城市（以上包括本数，以下不包括本\n数)。\n3 本规范规定的地面积水设计标准没有包括具体的积水时间，各城重应根据\n地区重要性等因素，因地制宜确定设计地面积水时间。"
+      },
+      {
+        "evidence_id": "chunk_9cf2238f9bf5c9719e196c4cc1f6cfaf",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.2 技术要求 > 3.2.3\n表3.2.3内涝防治设计重现期\n城镇类型 | 重现期（年） | 地面积水设计标准\n超大城市 | 100 | 1．居民住宅和工商业建筑物的底层不 川 进水； 过15cm\n特大城市 | 50~100 | 1．居民住宅和工商业建筑物的底层不 川 进水； 过15cm\n大城市 | 30~50 | 1．居民住宅和工商业建筑物的底层不 川 进水； 过15cm\n中等城市和小城市 | 20~30 | 1．居民住宅和工商业建筑物的底层不 川 进水； 过15cm"
+      },
+      {
+        "evidence_id": "chunk_211e4fc8387e4e268f2aa8032af4e89b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "2 术语 > 2.0.16\n2.0.16 内涝防治设计重现期recurrence interval for urban\nflooding design\n用于进行城镇内涝防治系统设计的暴雨重现期，使地面、道路\n等区域的积水深度和退水时间不超过一定的标准。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "case": "G002",
+  "question": "《城镇内涝防治技术规范》中，当地面汇水距离不大于90m时，地面集水时间ta如何计算？式中n0、L、q、S分别表示什么？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "当地面汇水距离不大于90m时，地面集水时间t_a可按下式计算：t_a = 10.41(n_0·L)^0.6 / (q^0.4·S^0.3)。",
+        "evidence_ids": [
+          "chunk_571002af76acd54f97035960931ed705",
+          "chunk_89bd31d23849f12fb6bddfdf3e7c8924"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "式中，t_a为地面集水时间(min)；n_0为粗糙系数；L为地面集水距离(m)；S为地形坡度。证据中未给出q的含义说明。",
+        "evidence_ids": [
+          "chunk_89bd31d23849f12fb6bddfdf3e7c8924",
+          "chunk_182e21978f7ad66aa50ba90369c033a3"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_571002af76acd54f97035960931ed705",
+    "chunk_182e21978f7ad66aa50ba90369c033a3",
+    "chunk_89bd31d23849f12fb6bddfdf3e7c8924",
+    "chunk_5ae7e751d6bf2feda36de36ccc80cc3c",
+    "chunk_3edd1aa2e6b64c67c1b5cfedf4144390",
+    "chunk_21a840b8360628d69043b515eb483c14",
+    "chunk_8cf437e6654fea8446076960c65642cb",
+    "chunk_c45df9f06928470a72e9dc1a0f5d7d34",
+    "chunk_589ddf7a19edd5ae1c1ef4e58a4a3c79",
+    "chunk_eb694bdae4216cfde566158683eb4c8a"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_571002af76acd54f97035960931ed705",
+    "chunk_182e21978f7ad66aa50ba90369c033a3",
+    "chunk_89bd31d23849f12fb6bddfdf3e7c8924",
+    "chunk_5ae7e751d6bf2feda36de36ccc80cc3c",
+    "chunk_3edd1aa2e6b64c67c1b5cfedf4144390"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.011,
+    "retrieval": 39.488,
+    "generation": 26720.891,
+    "validation": 0.043,
+    "total": 26760.509
+  },
+  "token_usage": {
+    "input_tokens": 2205,
+    "output_tokens": 2234,
+    "total_tokens": 4439,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "《城镇内涝防治技术规范》中，当地面汇水距离不大于90m时，地面集水时间ta如何计算？式中n0、L、q、S分别表示什么？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_571002af76acd54f97035960931ed705",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n3.3.2 地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n雨强度等因素通过计算确定，并应符合下列规定：\n1 当地面汇水距离不大于90m时，可按下式计算："
+      },
+      {
+        "evidence_id": "chunk_182e21978f7ad66aa50ba90369c033a3",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\nS——地形坡度。\n2 当地面汇水距离大于90m时，可按下式计算："
+      },
+      {
+        "evidence_id": "chunk_89bd31d23849f12fb6bddfdf3e7c8924",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n[公式]\nt_{a}=\\frac{10.41\\left(n_{0}\\cdot L\\right)^{0.6}}{q^{0.4}S^{0.3}}\n式中：t8地面集水时间(min)；\n粗糙系数；\nL地面集水距离(m)；"
+      },
+      {
+        "evidence_id": "chunk_5ae7e751d6bf2feda36de36ccc80cc3c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.1\n3.3.1 当汇水面积大于2km时，应考虑区域降雨和地面渗透性\n能的时空分布的不均匀性和管网汇流过程等因素，采用数学模型\n法确定雨水设计流量，并校核内涝防治设计重现期下地面的积水\n深度等要素。"
+      },
+      {
+        "evidence_id": "chunk_3edd1aa2e6b64c67c1b5cfedf4144390",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          21
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.7\n4.1.7 当采用推理公式法时，排水管渠的雨水设计流量应按下式\n计算。当汇水面积大于2km时，应考虑区域降雨和地面渗透性能\n的时空分布不均匀性和管网汇流过程等因素，采用数学模型法确\n定雨水设计流量。\n式中：Qs—雨水设计流量(L/s)；流量（L/s)\nq 设计暴雨强度[/(hm² s)_:\n综合径流系数；\nΨ\n-汇水面积(hm²)。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,257 @@
+{
+  "classification": "diagnostic (generation layer, real LLM, NOT formal)",
+  "status_distribution": {
+    "refused": 9,
+    "answered": 38,
+    "error": 3
+  },
+  "claim_tiers": {
+    "verified": 41,
+    "unverified_caveat": 36,
+    "answers_with_unverified_claims": 18
+  },
+  "cases_with_removed_source_documents": [],
+  "refusal": {
+    "denominator": 4,
+    "refuse_correct": 3,
+    "cases": [
+      {
+        "case": "G008",
+        "status": "refused",
+        "refuse_correct": true
+      },
+      {
+        "case": "G015",
+        "status": "answered",
+        "refuse_correct": false
+      },
+      {
+        "case": "G028",
+        "status": "refused",
+        "refuse_correct": true
+      },
+      {
+        "case": "G050",
+        "status": "refused",
+        "refuse_correct": true
+      }
+    ]
+  },
+  "answer_expected": {
+    "denominator": 6,
+    "answered": 5,
+    "with_support_problems": 3,
+    "cases": [
+      {
+        "case": "G009",
+        "expected": "answer",
+        "status": "refused",
+        "answered": false,
+        "claims": 0,
+        "claim_support_problems": [],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [],
+            "covered": null
+          },
+          {
+            "fact_index": 1,
+            "numbers": [],
+            "covered": null
+          }
+        ]
+      },
+      {
+        "case": "G013",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 2,
+        "claim_support_problems": [],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [],
+            "covered": null
+          }
+        ]
+      },
+      {
+        "case": "G021",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 1,
+        "claim_support_problems": [
+          "claim-1: numbers ['2024', '18'] not in cited evidence"
+        ],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [
+              "2027",
+              "73"
+            ],
+            "covered": true
+          }
+        ]
+      },
+      {
+        "case": "G031",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 1,
+        "claim_support_problems": [
+          "claim-1: numbers ['0013'] not in cited evidence"
+        ],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [
+              "10",
+              "30",
+              "1",
+              "6"
+            ],
+            "covered": true
+          }
+        ]
+      },
+      {
+        "case": "G038",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 2,
+        "claim_support_problems": [],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [
+              "4.2",
+              "3"
+            ],
+            "covered": true
+          },
+          {
+            "fact_index": 1,
+            "numbers": [],
+            "covered": null
+          }
+        ]
+      },
+      {
+        "case": "G040",
+        "expected": "answer",
+        "status": "answered",
+        "answered": true,
+        "claims": 2,
+        "claim_support_problems": [
+          "claim-2: numbers ['8', '20'] not in cited evidence"
+        ],
+        "expected_facts_coverage": [
+          {
+            "fact_index": 0,
+            "numbers": [
+              "3",
+              "2",
+              "1"
+            ],
+            "covered": true
+          },
+          {
+            "fact_index": 1,
+            "numbers": [
+              "10",
+              "30",
+              "5",
+              "10",
+              "10",
+              "30",
+              "0",
+              "5",
+              "0",
+              "10"
+            ],
+            "covered": true
+          },
+          {
+            "fact_index": 2,
+            "numbers": [
+              "8",
+              "20",
+              "2"
+            ],
+            "covered": true
+          }
+        ]
+      }
+    ]
+  },
+  "locate_observed": {
+    "denominator": 40,
+    "statuses": {
+      "answered": 32,
+      "error": 3,
+      "refused": 5
+    },
+    "answered_locate_cases": [
+      "G002",
+      "G004",
+      "G005",
+      "G006",
+      "G007",
+      "G010",
+      "G011",
+      "G014",
+      "G016",
+      "G017",
+      "G018",
+      "G019",
+      "G022",
+      "G023",
+      "G024",
+      "G025",
+      "G026",
+      "G029",
+      "G030",
+      "G032",
+      "G033",
+      "G034",
+      "G035",
+      "G036",
+      "G037",
+      "G042",
+      "G043",
+      "G044",
+      "G046",
+      "G047",
+      "G048",
+      "G049"
+    ]
+  },
+  "failure_classes": {
+    "generation_error": 3
+  },
+  "latency_ms": {
+    "generation": {
+      "p50": 9127.56,
+      "p95": 26720.89,
+      "mean": 14938.43,
+      "n": 47
+    },
+    "total": {
+      "p50": 8602.73,
+      "p95": 26768.14,
+      "mean": 14390.52,
+      "n": 50
+    }
+  },
+  "token_usage_totals": {
+    "input_tokens": 119425,
+    "output_tokens": 41764,
+    "pricing_status": "not_configured (cost rates not set; tokens only)"
+  }
+}

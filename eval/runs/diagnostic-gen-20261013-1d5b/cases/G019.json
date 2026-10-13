@@ -1,0 +1,120 @@
+{
+  "case": "G019",
+  "question": "对照《城镇分流制排水系统雨污混接调查》征求意见稿与T/CECS 758：前者表5-1给出生活污水中氨氮浓度的灰水/黑水均值大约是多少？后者规定单个混接点或混接源的混接程度可依据哪些要素评估？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "《城镇分流制排水系统雨污混接调查》征求意见稿表5-1中，生活污水氨氮浓度灰水均值约为6.1 mg/L，黑水均值约为76.8 mg/L。",
+        "evidence_ids": [
+          "chunk_efb67de7409992d18ec475a3459d6e08"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "T/CECS 758规定，对某混接点或混接源而言，管径大小和混接水质水量是评估其严重程度的三个主要指标。",
+        "evidence_ids": [
+          "chunk_d11a88b784502033ef0d093eadc0664a"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_d11a88b784502033ef0d093eadc0664a",
+    "chunk_efb67de7409992d18ec475a3459d6e08",
+    "chunk_d4948b491c2e1b592a2adb6a9359b63c",
+    "chunk_6ecb680ad451b72fc4395e0603d40fb4",
+    "chunk_a3f2a3d68d4e3b183f0d7d70ba320a11",
+    "chunk_373f4a6d0c83347efda50a992141063c",
+    "chunk_4d854a9303ed1c1120d64a9e2644802e",
+    "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+    "chunk_6a625f12350d70311d005814b4465a6a",
+    "chunk_61ccc1fa845a4edfa10c022b38e2607a"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_d11a88b784502033ef0d093eadc0664a",
+    "chunk_efb67de7409992d18ec475a3459d6e08",
+    "chunk_d4948b491c2e1b592a2adb6a9359b63c",
+    "chunk_6ecb680ad451b72fc4395e0603d40fb4",
+    "chunk_a3f2a3d68d4e3b183f0d7d70ba320a11"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.049,
+    "retrieval": 85.228,
+    "generation": 7519.985,
+    "validation": 0.161,
+    "total": 7605.65
+  },
+  "token_usage": {
+    "input_tokens": 2734,
+    "output_tokens": 595,
+    "total_tokens": 3329,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "对照《城镇分流制排水系统雨污混接调查》征求意见稿与T/CECS 758：前者表5-1给出生活污水中氨氮浓度的灰水/黑水均值大约是多少？后者规定单个混接点或混接源的混接程度可依据哪些要素评估？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_d11a88b784502033ef0d093eadc0664a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          72
+        ],
+        "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.3\n7.1.3 对整个排水区来讲，雨污水管道错接数量和污水源入流数\n量的多少直接反映出城市混接现象的轻重，将其与整个被调查区\n域的雨水管线总长相比，则得出单位长度内混接点或混接源的数\n量，以此来表达混接的严重程度。而对某混接点或混接源而言，管\n径大小和混接水质水量是评估其严重程度的三个主要指标。外水\n入渗和水体水倒灌是反映污水收集系统质量和效能的主要指标，\n不做混接评估分级。"
+      },
+      {
+        "evidence_id": "chunk_efb67de7409992d18ec475a3459d6e08",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          24
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n表5-1 生活污水中氨氮和电导率的浓度范围\n水量来源 | 氨氮（mg/L) | 氨氮（mg/L) | 电导率（us/cm) | 电导率（us/cm)\n水量来源 | 范围 | 均值 | 范围 | 均值\n灰水 | 3.6~9.6 | 6.1 | 432~1058 | 810\n黑水 | 46.8~109 | 76.8 | 1314~2044 | 1786"
+      },
+      {
+        "evidence_id": "chunk_d4948b491c2e1b592a2adb6a9359b63c",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          44
+        ],
+        "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.2\n[公式]\nC污 =\\mathrm{q}/\\mathrm{Q}\\times100\\%\n式中：C 污—混接水量比；指雨水管网中混接的污水量占区域内总污\n水产生量的比例；\nQ—被调查区域的污水总产生量，m³/d，按照区域总用水量的\n85%~90%计算；\nq—调查得到的雨水管网中污水混接总水量，m³/d。"
+      },
+      {
+        "evidence_id": "chunk_6ecb680ad451b72fc4395e0603d40fb4",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          2
+        ],
+        "text": "目前我国城镇分流制系统的雨污混接现象较为普遍，混接进入雨\n水系统的污水成为雨天溢流污染的重要污染源，混接进入污水系统的\n雨水造成污水处理厂进水水量和水质波动，甚至超负荷溢流，对城市\n水环境质量的改善与提升造成较大影响，也不利于污水处理厂正常运\n行管理。\n编制《城镇分流制排水系统雨污混接调查及治理技术规程》旨在\n规范雨污混接调查与治理工作，确保有效解决城镇分流制排水系统雨\n污混接问题，实现分流制排水区域雨水、污水各行其道，充分发挥排\n水系统的投资效益。\n根据中国工程建设标准化协会建标协字[2017]014 号文“关于印\n发《2017 年第一批工程建设协会标准制订、修订计划》的通知”的要\n求，制定本规程。\n本规程在总结国内实践经验，并参考国内外近期资料和相关标准\n的基础上，经广泛征求专家和相关行业单位意见后编制而成。供政府\n行业管理单位、建设单位、咨询设计单位、运行管理单位组织开展分\n流制排水系统的雨污混接调查与治理工作。\n本规程内容主要包括总则、术语和符号、基本规定、混接预判、\n资料收集与现场踏勘、混接区域筛查、混接点探查与判定、雨污混接\n状况评估、混接改造、管理要求等9 个章节。"
+      },
+      {
+        "evidence_id": "chunk_a3f2a3d68d4e3b183f0d7d70ba320a11",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 基本规定 > 3.0.4\n3.0. 4 城镇分流制排水系统雨污混接调查与治理的环节宜包括城镇分流制排水系统雨污？昆接调查与治理的环节宜包括\n混接预判、资料收集与现场踏勘、混接区域调查、混接点或混接源\n位置探查与判定、混接水量与水质测定、编制评估报告与治理方\n案、实施混接治理措施、提出长效管理机制体制等(图3.0.4)；在\n具体工作中，可根据实际情况，精简部分环节，宜边调查、边评估、\n边制订方案、边治理。"
+      }
+    ]
+  }
+}

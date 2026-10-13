@@ -1,0 +1,145 @@
+{
+  "case": "G046",
+  "question": "按T/CECS 758，排水口自由出流采用容器体积法时流量Q如何计算？浮标法对应的流量公式又如何？两式中n、Δt等符号含义有何共同点？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "T/CECS 758-2020规定排水口自由出流流量测定可采用容器体积法，每日流量应基于一天内多次的测量数据按下式计算，但具体公式在提供的证据中未给出。",
+        "evidence_ids": [
+          "chunk_51706fdd0ce4a7ebbd60e419388de316"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "T/CECS 758-2020中采用浮标法计算时，管渠过流面积A根据管道横断面形状分为矩形和圆形按公式计算，但浮标法流量公式本身在提供的证据中未给出。",
+        "evidence_ids": [
+          "chunk_b1528ac212c8fd8d63bea8f356f91a54"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "T/CECS 758-2020中，符号n在容器体积法和浮标法中含义相同，均表示一天中观测次数。",
+        "evidence_ids": [
+          "chunk_ddafaed4177ad0dd7584f7641fa706fa"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-4",
+        "text": "T/CECS 758-2020中，符号Δt在容器体积法中表示第i次测定的水量收集时间，在浮标法中表示对应第i次测量的水流流经时间；两种方法中Δt均与第i次测定相关，但具体物理含义不同。",
+        "evidence_ids": [
+          "chunk_ddafaed4177ad0dd7584f7641fa706fa"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-5",
+        "text": "T/CECS 758-2020中，符号Q在两种方法中均指排放口或管道检测点流量，V为容器体积法中第i次测定的容器内水的体积，A为管渠过流面积，L为浮标法中第i次测定浮标流动的起止点距离，k为浮标法测定的表面流速与断面平均流速之间的修正系数。",
+        "evidence_ids": [
+          "chunk_ddafaed4177ad0dd7584f7641fa706fa"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_ddafaed4177ad0dd7584f7641fa706fa",
+    "chunk_a045a6f56476aa6bb2a44012ed5e91d7",
+    "chunk_51706fdd0ce4a7ebbd60e419388de316",
+    "chunk_49ac4cc1226de42186a754b405bee1c3",
+    "chunk_b1528ac212c8fd8d63bea8f356f91a54",
+    "chunk_59ae35f629f1a3746740ca6f68e67b6d",
+    "chunk_f592a8a96871358ecdd171b2a598f979",
+    "chunk_1918ccd0201f4c813b9c2c782ced76b0",
+    "chunk_20594fddd168642a86ad461f9d7ffdef",
+    "chunk_a874f3468958220633aef01d396ad818"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_ddafaed4177ad0dd7584f7641fa706fa",
+    "chunk_a045a6f56476aa6bb2a44012ed5e91d7",
+    "chunk_51706fdd0ce4a7ebbd60e419388de316",
+    "chunk_49ac4cc1226de42186a754b405bee1c3",
+    "chunk_b1528ac212c8fd8d63bea8f356f91a54"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.1,
+    "retrieval": 70.894,
+    "generation": 81067.934,
+    "validation": 0.032,
+    "total": 81139.186
+  },
+  "token_usage": {
+    "input_tokens": 2721,
+    "output_tokens": 2301,
+    "total_tokens": 5022,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "按T/CECS 758，排水口自由出流采用容器体积法时流量Q如何计算？浮标法对应的流量公式又如何？两式中n、Δt等符号含义有何共同点？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_ddafaed4177ad0dd7584f7641fa706fa",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "2 术语和符号 > 2.2 符号 > 2.2.1\n2.2.1流量、体积、面积、长度、时间、修正系数：\nQ—排放口或管道检测点流量；\nV—容器体积法中第i次测定的容器内水的体积；\nn——容器体积法或浮标法的一天中观测次数；\nA——管渠过流面积；\nL—浮标法中第i次测定浮标流动的起止点距离；\nk 浮标法测定的表面流速与断面平均流速之间的修正系\n数；\n∆t———容器体积法中第i次测定的水量收集时间，或浮标法i\nf欠测定的水量收集时间，或浮标法\n中对应第i次测量的水流流经时间。"
+      },
+      {
+        "evidence_id": "chunk_a045a6f56476aa6bb2a44012ed5e91d7",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          37
+        ],
+        "text": "6 混接点探查与判定 > 6.3 混接流量与水质检测 > 6.3.5\n式中: Q——流量，m³/d；\nV——容器内水的体积，m³；\nt——收集时间，s。\n2. 浮标法适用于混接排放口和管渠非满管流的情况。采用浮标\n法测定流量应选择无断面变化和跌落的连续直线段进行测量，所使用\n的器材有浮标、秒尺和秒表；浮标流动的起止点距离用皮尺测量，读\n数精确到厘米；浮标流动的时间采用秒表计时。所使用的器材有浮标、\n皮尺和秒表。\n其流量应按下式6-2 计算："
+      },
+      {
+        "evidence_id": "chunk_51706fdd0ce4a7ebbd60e419388de316",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n5.4.2 管道流量测量方法可选用容器体积法、浮标法和速度-面\n积流量计测定法，并应符合下列规定：\n1 排水口的自由出流流量测定可采用容器体积法，测量记录\n应按本规程附录E 第E. 0. 1 条规定执行。每日流量应基于一天\n内多次的测量数据，按下式计算："
+      },
+      {
+        "evidence_id": "chunk_49ac4cc1226de42186a754b405bee1c3",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          36
+        ],
+        "text": "6 混接点探查与判定 > 6.3 混接流量与水质检测 > 6.3.5\n6.3.5 流量测定方法可选用容器法、浮标法和速度-面积流量计测定法，\n应符合下列规定：\n1. 容器法适用于混接排放口的自由出流流量测定；所使用的器材\n有容器（至少一面是平面）和秒表。\n其流量应按下式6-1 计算：Q=V×3600×24/t （式6-1）"
+      },
+      {
+        "evidence_id": "chunk_b1528ac212c8fd8d63bea8f356f91a54",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          67,
+          68
+        ],
+        "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n5.4.2 排水口的水量在一天中可能是动态变化的，如早晚用水高\n峰水量相对较大，其他时间段水量相对较小。若在一天中只实施\n一次观测，可能会造成较大的误差。为此原则上要求一天内在不\n同时间段实施多次容器法水量收集操作，通过不同时间段的瞬时\n流量平均，估算一天内的总水量。原则上每天实施至少6次以上\n等时间间隔的容器法水量收集操作。\n同上，采用浮标法测定管道流量时，考虑到检查井或排水口的\n水量在一天中可能是动态变化的，若在一天中只实施一次观测，可\n能会造成较大的误差。为此原则上要求一天内在不同时间段实施\n多浮标法操作，通过不同时间段的瞬时流量平均，估算一天内的总\n水量。原则上每天实施至少6次以上的等时间间隔的浮标法测\n量。\n采用浮标法计算时，管渠过流面积A根据管道横断面形状分\n为矩形和圆形，按下列公式计算："
+      }
+    ]
+  }
+}

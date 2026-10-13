@@ -266,6 +266,46 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(raised.exception.raw_output, "这不是 JSON")
 
+    async def test_bare_quotes_inside_claim_text_are_repaired(self):
+        # GLM quoted a figure title with ASCII quotes inside the JSON string.
+        evidence = EvidenceItem(
+            evidence_id="ev_quote_test",
+            text="图1 城镇分流制排水系统雨污混错接调查与治理工作技术路线图",
+            document_version_id="doc_quote_test",
+            file_name="测试证据.pdf",
+            physical_pages=[7],
+            heading_path=["1"],
+            usage_policy="answer_and_citation",
+            source_uri="https://example.org/test.pdf",
+        )
+        raw = (
+            '{\n  "claims": [\n    {\n      "claim_id": "claim-1",\n'
+            '      "text": "图1的图名为"雨污混错接调查与治理工作技术路线图"。",\n'
+            '      "evidence_ids": ["ev_quote_test"]\n    }\n  ],\n  "conflicts": []\n}'
+        )
+        service = QueryApplicationService(
+            scope_resolver=RuleBasedScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([evidence]),
+            answer_generator=LangChainAnswerGenerator(
+                model=FakeListChatModel(responses=[raw])
+            ),
+        )
+        request = QueryRequest(
+            request_id="query-bare-quotes",
+            question="图1的图名是什么？",
+            conversation_context={},
+            corpus_version="formal-corpus-v1",
+            caller_type="web",
+        )
+
+        result = await service.execute(request)
+
+        self.assertEqual(result.status, QueryStatus.ANSWERED)
+        self.assertEqual(
+            result.answer.claims[0].text,
+            '图1的图名为"雨污混错接调查与治理工作技术路线图"。',
+        )
+
     async def test_irrelevant_retrieval_results_become_a_controlled_refusal(self):
         evidence = EvidenceItem(
             evidence_id="ev_empty_answer_test",

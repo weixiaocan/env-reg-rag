@@ -40,6 +40,32 @@ class _GeneratedAnswer(BaseModel):
     conflicts: list[_GeneratedConflict] = Field(default_factory=list)
 
 
+def _escape_inner_quotes(raw: str) -> str:
+    """Escape bare ASCII quotes the model left inside JSON string values.
+
+    Models often quote a title as "..." inside a string.  A quote inside a
+    string is taken as the closing quote only when the next non-space
+    character can follow a JSON string (, } ] :); any other quote is escaped.
+    """
+    out: list[str] = []
+    in_string = escaped = False
+    for index, char in enumerate(raw):
+        if not in_string:
+            in_string = char == '"'
+        elif escaped:
+            escaped = False
+        elif char == "\\":
+            escaped = True
+        elif char == '"':
+            rest = raw[index + 1 :].lstrip()
+            if rest and rest[0] not in ",}]:":
+                out.append("\\")
+            else:
+                in_string = False
+        out.append(char)
+    return "".join(out)
+
+
 class AnswerGenerationError(RuntimeError):
     """The external model did not return a valid structured answer."""
 
@@ -79,7 +105,8 @@ class LangChainAnswerGenerator:
                     "conflicts 只能引用 verified 为 true 的证据。"
                     "若问题点名了某个文件、标准或文号，而证据中没有该文件，不得用其他文件的"
                     "内容冒充它的规定：要么返回空 claims，要么在主张中写明内容出自哪个文件，"
-                    "并说明证据中没有所问文件。\n"
+                    "并说明证据中没有所问文件。主张文本中引用名称时用中文引号“”或书名号，"
+                    "不要用英文双引号。\n"
                     "{format_instructions}",
                 ),
                 (
@@ -139,7 +166,10 @@ class LangChainAnswerGenerator:
         )
         raw_text = str(raw_message.content)
         try:
-            generated = self._parser.parse(raw_text)
+            try:
+                generated = self._parser.parse(raw_text)
+            except Exception:
+                generated = self._parser.parse(_escape_inner_quotes(raw_text))
         except Exception as exc:
             raise AnswerGenerationError(
                 "model output did not match the answer schema",
