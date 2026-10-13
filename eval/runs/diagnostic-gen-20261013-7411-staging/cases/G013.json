@@ -1,0 +1,116 @@
+{
+  "case": "G013",
+  "question": "武汉规程现场工作中的“混错接点判定”“混错接流量测定”属于哪类步骤？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "在《武汉市排水管道混错接改造技术规程》中，“混错接点判定”与“混错接流量测定”均属于第5章“资料收集、现场踏勘与混错接判定”这一类步骤。",
+        "evidence_ids": [
+          "chunk_33a1e55c6779b50aabee47d75e2ca2db",
+          "chunk_e1a74597e6f5a76242ecfc6baa22c109",
+          "chunk_3ac3eb3d6bd5061a9d8d110befa492fa",
+          "chunk_a874f3468958220633aef01d396ad818",
+          "chunk_ee47d372cee67d1bdd837240d52054aa"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_e1a74597e6f5a76242ecfc6baa22c109",
+    "chunk_3ac3eb3d6bd5061a9d8d110befa492fa",
+    "chunk_ee47d372cee67d1bdd837240d52054aa",
+    "chunk_33a1e55c6779b50aabee47d75e2ca2db",
+    "chunk_a874f3468958220633aef01d396ad818",
+    "chunk_b6734eded271bab89193fcbde614ef6b",
+    "chunk_6398271af8f93180353d73fe82c0511e",
+    "chunk_d54149773559abea1cd7ac8fca96d236",
+    "chunk_5e6a25e8213db8d0bca3f2726256ccfa",
+    "chunk_e5140dda20d0ba60d19b079fc0c223a2"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_e1a74597e6f5a76242ecfc6baa22c109",
+    "chunk_3ac3eb3d6bd5061a9d8d110befa492fa",
+    "chunk_ee47d372cee67d1bdd837240d52054aa",
+    "chunk_33a1e55c6779b50aabee47d75e2ca2db",
+    "chunk_a874f3468958220633aef01d396ad818"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.014,
+    "retrieval": 51.539,
+    "context_expansion": 25.492,
+    "generation": 8013.944,
+    "validation": 0.036,
+    "total": 8091.124
+  },
+  "token_usage": {
+    "input_tokens": 2181,
+    "output_tokens": 593,
+    "total_tokens": 2774,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "武汉规程现场工作中的“混错接点判定”“混错接流量测定”属于哪类步骤？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_e1a74597e6f5a76242ecfc6baa22c109",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.6.1 混错接点流量测定应根据实际情况确定监测时段。"
+      },
+      {
+        "evidence_id": "chunk_3ac3eb3d6bd5061a9d8d110befa492fa",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.6.2 选择流量测定点位时，应符合下列规定：\n—— 提前进行现场勘查，了解水流状况、管内污泥淤积程度、管道所处路面的交通情况与测量设\n备安装条件等；\n—— 利用管道图确定安装点位与具体安装位置。"
+      },
+      {
+        "evidence_id": "chunk_ee47d372cee67d1bdd837240d52054aa",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.6.4 流量测定结果按照附录D 填写流量测定记录表。"
+      },
+      {
+        "evidence_id": "chunk_33a1e55c6779b50aabee47d75e2ca2db",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.5.9 仪器探查发现管道有支管暗接的，应调查暗接管道的性质，判断是否属于混错接点。暗接支管\n与主管管道属性不同时，则可判定该处支管暗接为混错接点。"
+      },
+      {
+        "evidence_id": "chunk_a874f3468958220633aef01d396ad818",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.6.3 流量测定方法包括容器法、浮标法和速度-面积流量计测定法3 种。容器法适用于井的混错接流\n量测定和检测上下游流量差，浮标法适用于管道非满流的情况，速度-面积流量计测定法适用于满管和\n非满管的流量测量。"
+      }
+    ]
+  }
+}

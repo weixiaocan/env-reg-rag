@@ -1,0 +1,135 @@
+{
+  "case": "N13",
+  "question": "沟槽底部开挖宽度没有设计要求时怎么确定？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "根据《GB50268-2008给水排水管道工程施工及验收规范》第4.3.2条，沟槽底部的开挖宽度应符合设计要求；设计无要求时，可按公式计算确定。",
+        "evidence_ids": [
+          "chunk_e9d318b93d8b35bbd03815a3f4262b78"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "计算公式为 B=D₀+2(b₁+b₂+b₃)，其中B为管道沟槽底部的开挖宽度（mm），D₀为管外径（mm），b₁为管道一侧的工作面宽度（可按表4.3.2选取），b₂为有支撑要求时管道一侧的支撑厚度（可取150~200mm），b₃为现场浇筑混凝土或钢筋混凝土管渠一侧模板的厚度（mm）。",
+        "evidence_ids": [
+          "chunk_4a998c670e28687b6bfa7ba83b12bd61"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_4a998c670e28687b6bfa7ba83b12bd61",
+    "chunk_e9d318b93d8b35bbd03815a3f4262b78",
+    "chunk_86c4ffcb84277490bd749c476aa2745a",
+    "chunk_3f01ae5104202ec13ca881268371ff79",
+    "chunk_9b8f7452b8d71829bd1a383bbd2ab525",
+    "chunk_9a999a7f662c2d43c781e4d31d19f5b7",
+    "chunk_5697a92db635c30133ca5ddbdc27249c",
+    "chunk_6654d9f82d6f24e944e9805ee9e546e8",
+    "chunk_9bf95cb21c32777d7d29e1f62231db6c",
+    "chunk_42d05a5d0723c2fd523fe11b4423073f"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_4a998c670e28687b6bfa7ba83b12bd61",
+    "chunk_e9d318b93d8b35bbd03815a3f4262b78",
+    "chunk_86c4ffcb84277490bd749c476aa2745a",
+    "chunk_3f01ae5104202ec13ca881268371ff79",
+    "chunk_9b8f7452b8d71829bd1a383bbd2ab525",
+    "chunk_9bf95cb21c32777d7d29e1f62231db6c"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.013,
+    "retrieval": 55.116,
+    "context_expansion": 33.37,
+    "generation": 13654.167,
+    "validation": 0.023,
+    "total": 13742.773
+  },
+  "token_usage": {
+    "input_tokens": 2928,
+    "output_tokens": 985,
+    "total_tokens": 3913,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "沟槽底部开挖宽度没有设计要求时怎么确定？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_4a998c670e28687b6bfa7ba83b12bd61",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n[公式]\nB=D_{0}+2(b_{1}+b_{2}+b_{3})\n式中 B管道沟槽底部的开挖宽度（mm）；\n管外径（mm）；\nb1——管道一侧的工作面宽度（mm），可按表4.3.2\n选取；\n有支撑要求时，管道一侧的支撑厚度，可取150\n~200mm;\nb3——现场浇筑混凝土或钢筋混凝土管渠一侧模板的厚度\n(mm)。"
+      },
+      {
+        "evidence_id": "chunk_e9d318b93d8b35bbd03815a3f4262b78",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n4.3.2 沟槽底部的开挖宽度，应符合设计要求；设计无要求时，\n可按下式计算确定："
+      },
+      {
+        "evidence_id": "chunk_86c4ffcb84277490bd749c476aa2745a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          78,
+          79
+        ],
+        "text": "6 > 6.2 > 6.2.6\n6. 2. 6\n建筑与小区内开槽埋管受场地空间的限制，往往设计上会\n采用直槽开挖、满砂回填等措施，因而本条规定室外管道基槽开\n挖、回填等应符合设计要求，包含基坑（沟槽）断面形式、坡度\n和宽度、场地标高、回填材料、压实度等。\n消能沟槽、渗排水管等构造进行沟槽开挖时，应严格控制开\n挖的平面尺寸、基底高程和边坡坡度，开挖过程应做好侧壁边坡\n的安全措施。"
+      },
+      {
+        "evidence_id": "chunk_3f01ae5104202ec13ca881268371ff79",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          24
+        ],
+        "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.5\n4.3.5 沟槽挖深较大时，应确定分层开挖的深度，并符合下列\n规定：\n1 人工开挖沟槽的槽深超过3m时应分层开挖，每层的深\n度不超过2m；\n2 人工开挖多层沟槽的层间留台宽度：放坡开槽时不应小\n于0.8m，直槽时不应小于0.5m，安装井点设备时不应小\n于1.5m;\n3 采用机械挖槽时，沟槽分层的深度按机械性能确定。"
+      },
+      {
+        "evidence_id": "chunk_9b8f7452b8d71829bd1a383bbd2ab525",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          139
+        ],
+        "text": "7 沉管和桥管施工主体结构 > 7.2 沉管 > 7.2.4\n[公式]\nB\\geqslant D_{0}+2b+1000\n式中B管道基槽底部的开挖宽度（mm）；\n管外径（mm）；\nb管道外壁保护层及沉管附加物等宽度（mm）。"
+      },
+      {
+        "evidence_id": "chunk_9bf95cb21c32777d7d29e1f62231db6c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          138,
+          139
+        ],
+        "text": "7 沉管和桥管施工主体结构 > 7.2 沉管 > 7.2.4\n7.2.4 沉管基槽浚挖应符合下列规定：\n1 水下基槽浚挖前，应对管位进行测量放样复核，开挖成\n槽过程中应及时进行复测；\n2 根据工程地质和水文条件因素，以及水上交通和周围环\n境要求，结合基槽设计要求选用浚挖方式和船舶设备；\n3 基槽采用爆破成槽时，应进行试爆确定爆破施工方式，\n并符合下列规定：\n1）炸药量计算和布置，药桩（药包）的规格、埋设要\n求和防水措施等，应符合国家相关标准的规定和施\n工方案的要求；\n2）爆破线路的设计和施工、爆破器材的性能和质量、\n爆破安全措施的制定和实施，应符合国家相关标准\n的规定；\n3）爆破时，应有专人指挥；\n4 基槽底部宽度和边坡应根据工程具体情况进行确定，必\n要时进行试挖；基槽底部宽度和边坡应符合下列规定：\n1）河床岩土层相当稳定河水流速度小、回淤量小，且\n浚挖施工对土层扰动影响较小时，底部宽度可按式\n(7.2.4) 的规定确定，边坡可按表7.2.4 的规定\n确定；"
+      }
+    ]
+  }
+}

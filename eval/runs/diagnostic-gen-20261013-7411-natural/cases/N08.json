@@ -1,0 +1,141 @@
+{
+  "case": "N08",
+  "question": "雨水管道里的污水混错接，密度8%、水量比20%属于什么程度？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "雨水管道中污水混错接密度8%处于5%~10%区间，属于中度混错接（2级）。",
+        "evidence_ids": [
+          "chunk_a3716840bba7072d80c5093240858f4b"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "雨水管道中污水混错接水量比20%处于10%~30%区间，属于中度混错接（2级）。",
+        "evidence_ids": [
+          "chunk_a3716840bba7072d80c5093240858f4b"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "区域混错接程度以任一指标高值的原则确定等级，密度8%与水量比20%均为中度混错接（2级），故该区域属于中度混错接（2级）。",
+        "evidence_ids": [
+          "chunk_a3716840bba7072d80c5093240858f4b",
+          "chunk_753aa32bb176dbd884f50e3898a73366"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_a3716840bba7072d80c5093240858f4b",
+    "chunk_7cee16f490f1369c7fbee381757bf87a",
+    "chunk_000fba0fc9152fbbebcc0c6405626d5f",
+    "chunk_146ea40d938ec4135ade639156e5349e",
+    "chunk_9abd3762b905b07649e2e08dd580b67c",
+    "chunk_b8e13435936ae15824551eb1679dc699",
+    "chunk_f4b7b3252f76d9b770b47ebacb1ef706",
+    "chunk_359194749b6c780c25eae26e6cdb1ee9",
+    "chunk_753aa32bb176dbd884f50e3898a73366",
+    "chunk_d11a88b784502033ef0d093eadc0664a"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_a3716840bba7072d80c5093240858f4b",
+    "chunk_7cee16f490f1369c7fbee381757bf87a",
+    "chunk_000fba0fc9152fbbebcc0c6405626d5f",
+    "chunk_146ea40d938ec4135ade639156e5349e",
+    "chunk_9abd3762b905b07649e2e08dd580b67c",
+    "chunk_753aa32bb176dbd884f50e3898a73366"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.036,
+    "retrieval": 50.383,
+    "context_expansion": 57.555,
+    "generation": 27682.959,
+    "validation": 0.104,
+    "total": 27791.259
+  },
+  "token_usage": {
+    "input_tokens": 3062,
+    "output_tokens": 1911,
+    "total_tokens": 4973,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "雨水管道里的污水混错接，密度8%、水量比20%属于什么程度？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_a3716840bba7072d80c5093240858f4b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n表1 区域雨水管道中污水混错接程度分级评估及治理建议表\n区域混错接程度 | 混错接密度和混错接水量比 | 混错接密度和混错接水量比\n区域混错接程度 | 混错接密度（M) | 混错接水量比 （C污）\n重度混错接（3级） | >10%以上 | >30%以上\n中度混错接（2级） | 5%~10% | 10%~30%\n轻度混错接（1级） | <0~5% | <0~10%"
+      },
+      {
+        "evidence_id": "chunk_7cee16f490f1369c7fbee381757bf87a",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n[公式 5]\nM_{高}=n_{高}\\div N\\times100\\%\n式中：\nM 雨——雨水管道中污水混错接密度；\nN 雨——雨水管道中污水混错接点数或用户数（居民小区、公共建筑等）；\n𝐶𝐶雨= ቚ𝑄𝑄雨−𝑄𝑄ቚ÷ 𝑄𝑄× 100% ···························································· (6)N——排水管道服务区域内总排水用户数（居民小区、公共建筑等）。"
+      },
+      {
+        "evidence_id": "chunk_000fba0fc9152fbbebcc0c6405626d5f",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n表2 区域污水管道中雨水混错接程度分级评估及治理建议表\n区域混错接程度 | 混错接密度和混错接水量比 | 混错接密度和混错接水量比\n区域混错接程度 | 混错接密度（M) _ | 混错接水量比（C雨）\n重度混错接（3级） | >10%以上 | >50%以上\n中度混错接（2级） | 5%~10% | 30%~50%\n轻度混错接 （1级 - | <0~5% | <0~30%"
+      },
+      {
+        "evidence_id": "chunk_146ea40d938ec4135ade639156e5349e",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n[公式 4]\nC_{浮}=q\\div Q\\times100\\%\n式中：\nC 污——混错接水量比，指雨水管道中混错接的污水量占区域内总污水产生量的比例；\nQ——被调查区域的污水总产生量，m³/d，按照区域总用水量的80％～90％计算；\nq——调查得到的雨水管道中污水混错接总水量，m³/d。\n污水管道中雨水混错接可依据下式进行判定：\n𝑀𝑀雨= 𝑛𝑛雨÷ 𝑁𝑁× 100% ································································· (5)"
+      },
+      {
+        "evidence_id": "chunk_9abd3762b905b07649e2e08dd580b67c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          44,
+          45
+        ],
+        "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.2\n【条文解释】混接密度（M）和混接水量比（C）两个指标都可以作\n为判断区域混接严重程度的指标。\n混接密度（M）表示区域范围内混接点的数量在总的接点数量（检查\n井、胡水口）的比重，混接密度越高，说明区域内的雨污混接状况越\n严重。\n混接水量比C 分为雨水管网的混接水量程度C 污和污水管网中混接\n雨水量C 雨程度两种情况分别计算。雨水管网的混接水量程度指旱天\n混接到雨水管道的污水量占区域内总污水产生量的比例，比值越大，\n说明区域混接到雨水管网的污水量越高，雨污混接状况越严重。污水\n管网的混接水量程度指雨天混接进入污水管道的雨水总量和区域污\n水总量的比值，其中雨天混接进入污水管道的雨水总量按照雨天污水\n管道输送水量与旱天污水管道输送水量的差值计算。比值越大，说明\n区域混接到污水管网的雨水量越高，雨污混接状况越严重。"
+      },
+      {
+        "evidence_id": "chunk_753aa32bb176dbd884f50e3898a73366",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.8.4 根据混错接密度（M）和混错接水量比（C），区域混错接程度分为三级：重度混错接（3 级）、\n中度混错接（2 级）、轻度混错接（1 级），以任一指标高值的原则确定等级，详见表1 和表2。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "case": "G024",
+  "question": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》提到要建设什么样的样板区？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》提到要建设“城市污水管网全覆盖样板区”。",
+        "evidence_ids": [
+          "chunk_427726eb98b96d28b768752da26c816d"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_427726eb98b96d28b768752da26c816d",
+    "chunk_752ffba38ad33e52d7f729c12048f723",
+    "chunk_1cc7d64e0d630bd018d5912284a4885b",
+    "chunk_19ab3db2e68245d962b40c422cae9b69",
+    "chunk_8694e2e18458a58e8b0ad57f888e70c1",
+    "chunk_06321822cefd4bcb3a1fcf2c87d02778",
+    "chunk_7893ebd78f69f6cb6c143140e59ed310",
+    "chunk_e0196f9dadd72d5bb6e01c4fb8705c9a",
+    "chunk_e803249118024fe77277ae0db40f6b2c",
+    "chunk_b5b14a5fc7ee8d86d8361ef455a40c50"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_427726eb98b96d28b768752da26c816d",
+    "chunk_752ffba38ad33e52d7f729c12048f723",
+    "chunk_1cc7d64e0d630bd018d5912284a4885b",
+    "chunk_19ab3db2e68245d962b40c422cae9b69",
+    "chunk_8694e2e18458a58e8b0ad57f888e70c1"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.034,
+    "retrieval": 61.256,
+    "context_expansion": 12.809,
+    "generation": 4193.863,
+    "validation": 0.08,
+    "total": 4268.345
+  },
+  "token_usage": {
+    "input_tokens": 2292,
+    "output_tokens": 245,
+    "total_tokens": 2537,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》提到要建设什么样的样板区？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_427726eb98b96d28b768752da26c816d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          3
+        ],
+        "text": "党的二十大报告提出，要建设人与自然和谐共生的中国式\n现代化，推进美丽中国建设。2023年，习近平总书记在中央经\n济工作会议上强调，城市地下管网是城市的“里子”工程，这\n个工程投资潜力大，带动能力强。《中共中央、国务院关于全\n面推进美丽中国建设的意见》明确提出，要“加快补齐城镇污\n水收集和处理设施短板，建设城市污水管网全覆盖样板区”。\n为此，住房城乡建设部、生态环境部、国家发展改革委、财政\n部、市场监管总局5部门联合印发了《住房城乡建设部等5部门\n关于加强城市生活污水管网建设和运行维护的通知》（建城\n〔2024〕18号）。\n为指导各地加强城市生活污水管网建设和运行维护，加快\n推进城市生活污水管网全覆盖，建设管网运行维护长效机制，\n切实提升城市生活污水收集效能，改善城市人居环境，助力城\n市高质量发展，制定本工作指南。"
+      },
+      {
+        "evidence_id": "chunk_752ffba38ad33e52d7f729c12048f723",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1.1 编制目的\n指导各地以实际问题为导向，通过行之有效的工程措施和管\n理举措，系统实施污水管网建设运行问题识别、诊断与整治，加\n快推进城市生活污水管网全覆盖，建立健全管网运行维护长效\n机制，切实提升城市生活污水收集效能，实现排水行业可持续发\n展，改善城市人居环境，建设美丽城市。"
+      },
+      {
+        "evidence_id": "chunk_1cc7d64e0d630bd018d5912284a4885b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "1.2 工作目标\n各地稳步有序推进城市生活污水管网全覆盖，基本解决生活\n污水直排问题，雨天不发生引起城市水体大面积返黑返臭的溢流；\n结合费价机制改革、管网建设和运行维护体制机制改革，逐步建\n立污水管网专业化运行维护长效机制，全面落实城市污水排入排\n水管网许可。"
+      },
+      {
+        "evidence_id": "chunk_19ab3db2e68245d962b40c422cae9b69",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          91
+        ],
+        "text": "1 什么是“按效付费”\n“按效付费”是指构建的以提升生活污水污染物收集效能为导向的\n绩效考核体系，根据污水管网的运行维护情况，对第三方运行维护单位\n实行绩效考核、按效付费。通常将污水管网干管浓度（污水处理厂进水\n浓度）、管网运维质量（包括但不限于运行维护频次、管网和泵站运行\n水位、污水溢流情况等）等作为绩效考核指标，由排水主管部门组织开\n展绩效考核，按考核结果支付服务费。实行“厂网一体”、“按效付\n费”，目的是提升污水管网建设改造质量和运行维护水平。"
+      },
+      {
+        "evidence_id": "chunk_8694e2e18458a58e8b0ad57f888e70c1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          74
+        ],
+        "text": "三、 取得的效果 > 4.3 科学推进新建城区污水管网建设\n应基于城市降雨规律、地表水系特征、浅层地下水水位\n等自然条件，合理制定城市污水收集处理系统的发展目标和\n建设指标，污水管网建设宜与城市地块开发，尤其是城市市\n政道路工程建设同步推进。"
+      }
+    ]
+  }
+}

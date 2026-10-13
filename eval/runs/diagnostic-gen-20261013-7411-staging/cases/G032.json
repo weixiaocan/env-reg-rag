@@ -1,0 +1,124 @@
+{
+  "case": "G032",
+  "question": "按T/CMSA 0013，1小时降雨量8.0～19.9 mm属于哪个短时等级？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "按《短时气象服务降雨量等级》T/CMSA 0013，1小时降雨量8.0～19.9 mm属于“短时暴雨”等级。",
+        "evidence_ids": [
+          "chunk_69fe543473ebaf48c51980e43eac2b10"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_69fe543473ebaf48c51980e43eac2b10",
+    "chunk_388ccda10b328fd65adb746222b291ab",
+    "chunk_cb81d8786d7af5095916add8ea2f3a65",
+    "chunk_e62787760d14282210534d066d79efb0",
+    "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+    "chunk_2ae705b4f7ffcf38fef995ceb1d7dbdc",
+    "chunk_6bbafef5e0d4e80f1e55b999818863ec",
+    "chunk_365f6e14affd234374b1646ca49aafe5",
+    "chunk_7e9f485389691a9ef7066a0f34866ee3",
+    "chunk_e729cb0e74178c646eb4a65b94909fa3"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_69fe543473ebaf48c51980e43eac2b10",
+    "chunk_388ccda10b328fd65adb746222b291ab",
+    "chunk_cb81d8786d7af5095916add8ea2f3a65",
+    "chunk_e62787760d14282210534d066d79efb0",
+    "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+    "chunk_6bbafef5e0d4e80f1e55b999818863ec"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.019,
+    "retrieval": 57.359,
+    "context_expansion": 34.792,
+    "generation": 3035.674,
+    "validation": 0.021,
+    "total": 3127.965
+  },
+  "token_usage": {
+    "input_tokens": 2473,
+    "output_tokens": 218,
+    "total_tokens": 2691,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "按T/CMSA 0013，1小时降雨量8.0～19.9 mm属于哪个短时等级？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_69fe543473ebaf48c51980e43eac2b10",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          6
+        ],
+        "text": "3 等级划分\n表1 短时气象服务降雨量等级划分表\n等级 | 时段 | 时段 | 时段\n等级 | 10分钟 | 30分钟 | 1小时\n短时小雨 | <0.5 | <1.0 | <2.0\n短时中雨 | 0.5~0.9 | 1.0~1.9 | 2.0~3.9\n短时大雨 | 1.0~1.9 | 2.0~3.9 | 4.0~7.9\n短时暴雨 | 2.0~4.9 | 4.0~9.9 | 8.0~19.9\n短时大暴雨 | 5.0~15.0 | 10.0~30.0 | 20.0~50.0\n短时特大暴雨 | >15.0 | >30.0 | >50.0"
+      },
+      {
+        "evidence_id": "chunk_388ccda10b328fd65adb746222b291ab",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          5,
+          6
+        ],
+        "text": "3 等级划分\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）"
+      },
+      {
+        "evidence_id": "chunk_cb81d8786d7af5095916add8ea2f3a65",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "1 范围\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。"
+      },
+      {
+        "evidence_id": "chunk_e62787760d14282210534d066d79efb0",
+        "usage_policy": "source_locator_only",
+        "file_name": "GBT 28592-2012降水量等级.pdf",
+        "physical_pages": [
+          4
+        ],
+        "text": "4 降雨量等级划分\n等 级 | 时段 雨量 | 时段 雨量\n等 级 | 12h降雨量 | 24h降雨量\n微量降雨（零星小雨） | <0.1 | <0.1\n小雨 | 0.1~4.9 | 0.1~9.9\n中雨 | 5.0~14.9 | 10.0~24.9\n大雨 | 15.0~29.9 | 25.0~49.9\n暴雨 | 30.0~69.9 | 50.0~99.9\n大暴雨 | 70.0~139.9 | 100.0~249.9\n特大暴雨 | ≥140.0 | ≥250.0"
+      },
+      {
+        "evidence_id": "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "参考文献\n[1] GB/T 27961－2011 气象服务分类术语\n[2] GB/T 28592－2012 降水量等级\n[3] QX/T 489－2019 降雨过程等级"
+      },
+      {
+        "evidence_id": "chunk_6bbafef5e0d4e80f1e55b999818863ec",
+        "usage_policy": "source_locator_only",
+        "file_name": "GBT 28592-2012降水量等级.pdf",
+        "physical_pages": [
+          4
+        ],
+        "text": "4 降雨量等级划分\n降雨分为微量降雨（零星小雨)、小雨、中雨、大雨、暴雨、大暴雨、特大暴雨共7个等级。具体划分见\n表1。\n单位为毫米"
+      }
+    ]
+  }
+}

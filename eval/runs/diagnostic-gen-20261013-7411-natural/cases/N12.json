@@ -1,0 +1,133 @@
+{
+  "case": "N12",
+  "question": "雨水管渠的降雨历时怎么算？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "根据《室外排水设计标准》GB50014-2021，雨水管渠的降雨历时应按下式计算，由地面集水时间和管渠内雨水流行时间组成；地面集水时间应根据汇水距离、地形坡度和地面种类通过计算确定，宜采用5min~15min。",
+        "evidence_ids": [
+          "chunk_55c6b1f104174f1a8a7f2aabb66f1d61"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "根据《城市排水工程规划规范》，采用数学模型法计算雨水设计流量时，设计降雨历时应根据本地降雨特征、雨水系统的汇水面积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历时降雨，防涝系统宜采用不同历时的降雨。",
+        "evidence_ids": [
+          "chunk_56738b93e7509b0d2ae7cc2a16e16c5f",
+          "chunk_85ee85eaedec701190f2c13e463deaed"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "根据《城镇内涝防治技术规范》，在内涝防治设计校核中计算暴雨强度和设计流量时，降雨历时的选择应与雨水管渠设计时采用的降雨历时保持一致。",
+        "evidence_ids": [
+          "chunk_eb694bdae4216cfde566158683eb4c8a"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_55c6b1f104174f1a8a7f2aabb66f1d61",
+    "chunk_56738b93e7509b0d2ae7cc2a16e16c5f",
+    "chunk_85ee85eaedec701190f2c13e463deaed",
+    "chunk_eb694bdae4216cfde566158683eb4c8a",
+    "chunk_528fdb08f75b83a8d8e94ab9da8d89fc",
+    "chunk_cd3d8ff80b7bb71fec850f32e7c245ce",
+    "chunk_dbc17d226d1414373a9de0aef41b3380",
+    "chunk_243f66708711969699433c5f35fd33e5",
+    "chunk_952268428e4c20c141153c1ea2d6f13c",
+    "chunk_d6ba966933629704ed4de3984efad1c0"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_55c6b1f104174f1a8a7f2aabb66f1d61",
+    "chunk_56738b93e7509b0d2ae7cc2a16e16c5f",
+    "chunk_85ee85eaedec701190f2c13e463deaed",
+    "chunk_eb694bdae4216cfde566158683eb4c8a",
+    "chunk_528fdb08f75b83a8d8e94ab9da8d89fc"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.082,
+    "retrieval": 58.888,
+    "context_expansion": 13.988,
+    "generation": 21738.164,
+    "validation": 0.023,
+    "total": 21811.646
+  },
+  "token_usage": {
+    "input_tokens": 2446,
+    "output_tokens": 1951,
+    "total_tokens": 4397,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "雨水管渠的降雨历时怎么算？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_55c6b1f104174f1a8a7f2aabb66f1d61",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          22,
+          23
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n4.1.11 雨水管渠的降雨历时应按下式计算：\n式中：t—降雨历时(min)；\nt1——地面集水时间(min)，应根据汇水距离、地形坡度和地\n面种类通过计算确定，宜采用5min~15min；\nt管渠内雨水流行时间(min)。"
+      },
+      {
+        "evidence_id": "chunk_56738b93e7509b0d2ae7cc2a16e16c5f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          19,
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.2\n5.2.2 采用数学模型法计算雨水设计流量时，宜采用当地设计\n暴雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水\n面积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历\n时降雨，防涝系统宜采用不同历时的降雨。"
+      },
+      {
+        "evidence_id": "chunk_85ee85eaedec701190f2c13e463deaed",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          50
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.2\n5.2.2 本条是关于设计降雨历时的确定原则。\n在采用数学模型法计算复核管道规模时，宜采用当地设计暴\n雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水面\n积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历时\n降雨，防涝系统宜采用不同历时的降雨进行校核。"
+      },
+      {
+        "evidence_id": "chunk_eb694bdae4216cfde566158683eb4c8a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          38,
+          39
+        ],
+        "text": "附录B 内涝防治设计校核 > B.0.6\nB.0.6用手工方法校核内涝防治设计，应按下列步骤执行：\n1 按本规范的规定选取内涝防治设计重现期，确定允许的道\n路积水深度和水面高程；\n2 根据道路积水深度和水面高程，确定地面泄水通道过水断\n面的形状和参数，从上游至下游逐段计算道路表面的最大过水能\n力(Q1)；\n3 按推理公式法，从上游至下游逐段计算每个汇水区的地\n面集水时间、暴雨强度和设计流量(Qτ)，并计算内涝防治设计标\n准下雨水管渠的过水能力(Q。)。计算暴雨强度和设计流量时，\n降雨历时的选择应与雨水管渠设计时采用的降雨历时保持\n一致；\n4 计算每个区段内雨水口的泄水能力之和(Q)，并与内涝\n防治设计重现期条件下雨水管渠的过水能力(Q。比较，若前者大\n于或等于后者，则雨水口的设计符合内涝防治设计重现期要求，否\n则，应采取增加雨水口数量和调查雨水口型式等措施增加雨水口\n的泄水能力；"
+      },
+      {
+        "evidence_id": "chunk_528fdb08f75b83a8d8e94ab9da8d89fc",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "3 雨水系统 > 3.3 雨水管网 > 3.3.2\n3.3.2城镇雨水管渠的规模应根据雨水管渠设计重现期确定。\n雨水管渠设计重现期应根据城镇类型、城区类型、地形特点和气\n候特征等因素，经技术经济比较后，按表3.3.2的规定取值，并\n应明确相应的设计降雨强度。"
+      }
+    ]
+  }
+}

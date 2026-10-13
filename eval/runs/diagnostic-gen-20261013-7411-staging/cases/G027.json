@@ -1,0 +1,124 @@
+{
+  "case": "G027",
+  "question": "《武汉市排水管道混错接改造技术规程》中，图1的图名是什么？它说明的是哪项工作的技术路线？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "《武汉市排水管道混错接改造技术规程》中图1的图名为“城镇分流制排水系统雨污混错接调查与治理工作技术路线图”。",
+        "evidence_ids": [
+          "chunk_0f9d6a399890eb8e9a1df5a68415ed23"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "图1说明的是城镇分流制排水系统雨污混错接调查与治理工作的技术路线。",
+        "evidence_ids": [
+          "chunk_0f9d6a399890eb8e9a1df5a68415ed23"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_0f9d6a399890eb8e9a1df5a68415ed23",
+    "chunk_dbf1bfa11d0112c09e6bb10e3ba15795",
+    "chunk_6d557f4d3967272048bbb1e52c0da3e1",
+    "chunk_2164a1b43cdbba0a78276465c6c35177",
+    "chunk_575faa6a281d264b68ce58cce7ee8ee0",
+    "chunk_e16533d690baa1a7075b886499c9660a",
+    "chunk_1e582bdec03d3757431857be50ea20a8",
+    "chunk_ebf511c0182bf4d065b80c9ad4e5139e",
+    "chunk_36a3cfd8c570e987da77b2c246219e5c",
+    "chunk_35009803b43a8a9bfff247a912cf5998"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_0f9d6a399890eb8e9a1df5a68415ed23",
+    "chunk_dbf1bfa11d0112c09e6bb10e3ba15795",
+    "chunk_6d557f4d3967272048bbb1e52c0da3e1",
+    "chunk_2164a1b43cdbba0a78276465c6c35177",
+    "chunk_575faa6a281d264b68ce58cce7ee8ee0"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.045,
+    "retrieval": 52.877,
+    "context_expansion": 11.936,
+    "generation": 10211.628,
+    "validation": 0.177,
+    "total": 10277.01
+  },
+  "token_usage": {
+    "input_tokens": 2233,
+    "output_tokens": 832,
+    "total_tokens": 3065,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "《武汉市排水管道混错接改造技术规程》中，图1的图名是什么？它说明的是哪项工作的技术路线？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_0f9d6a399890eb8e9a1df5a68415ed23",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求 > 4.3.1\n[图1 城镇分流制排水系统雨污混错接调查与治理工作技术路线图]\n4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1。"
+      },
+      {
+        "evidence_id": "chunk_dbf1bfa11d0112c09e6bb10e3ba15795",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。"
+      },
+      {
+        "evidence_id": "chunk_6d557f4d3967272048bbb1e52c0da3e1",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          9,
+          10
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.4.2\n[图2 污水管道中雨水混错接筛查技术路线图]\n氨氮、电导率数值接近、但是下游节点流量相对于上游节点明显增加，则初步判定相邻上下\n游节点之间存在雨水接入污水管道。污水管道中雨水混错接区域判定的技术路线见图2。"
+      },
+      {
+        "evidence_id": "chunk_2164a1b43cdbba0a78276465c6c35177",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          17
+        ],
+        "text": "7 混错接改造施工 > 7.1.1\n7.1.1 排水管道施工单位施工前应熟悉和审查施工图纸，掌握设计意图与要求，在开挖前对地下管线\n应重新进行复测，以充分了解、复核各管线特性，确保施工过程中各类管线的安全。"
+      },
+      {
+        "evidence_id": "chunk_575faa6a281d264b68ce58cce7ee8ee0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求\n承担城市排水管道混错接改造工作的主管部门应委托有专业能力和相应资质的单位，进行分区、分\n块混错接调查，在调查的基础上，科学合理制定混错接改造方案，有序开展混错接改造工作，并严格执\n行国家、行业相关安全和质量规定，确保安全和质量达标。"
+      }
+    ]
+  }
+}

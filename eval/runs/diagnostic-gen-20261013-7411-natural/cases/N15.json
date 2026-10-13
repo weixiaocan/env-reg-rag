@@ -1,0 +1,114 @@
+{
+  "case": "N15",
+  "question": "什么是内涝？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "根据《GB50014-2021 室外排水设计标准》第2.0.17条，内涝是指强降雨或连续性降雨超过城镇排水能力，导致城镇地面产生积水灾害的现象。",
+        "evidence_ids": [
+          "chunk_69d86ddb200c1d6aa2c12f88392cf630"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_19ab3db2e68245d962b40c422cae9b69",
+    "chunk_b43ed058b260f953b8d77eb9d0b34159",
+    "chunk_b4751cf6e66b4d05a8a5e9ff66c61b74",
+    "chunk_69d86ddb200c1d6aa2c12f88392cf630",
+    "chunk_3eb8b93c26d6929e7cbd5324688369a1",
+    "chunk_10f805ef7807f17bef8de66cec2a68c9",
+    "chunk_7f72ab38ce4f08b46e066fb7f1477e1f",
+    "chunk_ef88b350fce44c15fe83445d1f2b0e61",
+    "chunk_dd8b55d1dd5b2e788e7290081f9dd85f",
+    "chunk_ac525d7059181a1187b0a69a9c3f5280"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_19ab3db2e68245d962b40c422cae9b69",
+    "chunk_b43ed058b260f953b8d77eb9d0b34159",
+    "chunk_b4751cf6e66b4d05a8a5e9ff66c61b74",
+    "chunk_69d86ddb200c1d6aa2c12f88392cf630",
+    "chunk_3eb8b93c26d6929e7cbd5324688369a1"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.035,
+    "retrieval": 54.351,
+    "context_expansion": 35.412,
+    "generation": 4946.241,
+    "validation": 0.073,
+    "total": 5036.313
+  },
+  "token_usage": {
+    "input_tokens": 2499,
+    "output_tokens": 269,
+    "total_tokens": 2768,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "什么是内涝？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_19ab3db2e68245d962b40c422cae9b69",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          91
+        ],
+        "text": "1 什么是“按效付费”\n“按效付费”是指构建的以提升生活污水污染物收集效能为导向的\n绩效考核体系，根据污水管网的运行维护情况，对第三方运行维护单位\n实行绩效考核、按效付费。通常将污水管网干管浓度（污水处理厂进水\n浓度）、管网运维质量（包括但不限于运行维护频次、管网和泵站运行\n水位、污水溢流情况等）等作为绩效考核指标，由排水主管部门组织开\n展绩效考核，按考核结果支付服务费。实行“厂网一体”、“按效付\n费”，目的是提升污水管网建设改造质量和运行维护水平。"
+      },
+      {
+        "evidence_id": "chunk_b43ed058b260f953b8d77eb9d0b34159",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "2 术语 > 2.0.18\n2.0.18内涝防治系统urban flooding prevention and con\ntrol system\n用于防止和应对城镇内涝的工程性设施和非工程性措施以一\n定方式组合成的总体，包括雨水收集、输送、调蓄、行泄、处理、利用\n的天然和人工设施及管理措施等。"
+      },
+      {
+        "evidence_id": "chunk_b4751cf6e66b4d05a8a5e9ff66c61b74",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          37
+        ],
+        "text": "3 基本规定 > 3.1 一般规定 > 3.1.4\n3.1.4 本条是关于推行低影响开发建设模式、源头减排的规定。\n低影响开发（Low Impact Development， LID)是一种在开\n发过程中尽最大努力保留自然要素、生物多样性和水文状态，对\n自然环境影响最小化的土地利用和开发模式，其运用经过设计的\n小规模水文控制措施，通过在源头对径流进行渗透、过滤、存\n储、蒸发和滞留，来重现流域开发前的水文机制。\n大气和地表中的污染物通过降雨和地表径流冲刷，形成径流\n污染，排入受纳水体，是城市河湖水系遭受污染的重要原因。低\n影响开发强调利用场地的自然特征来保护水环境质量，有利于控\n制城市径流污染和提高雨水利用程度，对于降低城市内涝风险也\n有一定的帮助。但是，在强降雨的降雨强度达到峰值时，源头减\n排系统所依赖的渗透、存储、蒸发和滞留能力往往也已经基本饱\n和。因此，低影响开发建设模式对于内涝风险的降低作用是有限\n的。确定城市内涝应对策略时，应注意避免过于强调甚至是依赖\n这一措施。"
+      },
+      {
+        "evidence_id": "chunk_69d86ddb200c1d6aa2c12f88392cf630",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "2 术语 > 2.0.17\n2.0.17内涝urban flooding,local flooding\n强降雨或连续性降雨超过城镇排水能力，导致城镇地面产生\n积水灾害的现象。"
+      },
+      {
+        "evidence_id": "chunk_3eb8b93c26d6929e7cbd5324688369a1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          34,
+          35
+        ],
+        "text": "2 术语语 > 2.0.4\n2.0.4 本条是防涝系统的定义。\n防涝系统是城市雨水系统中重要的组成部分，主要用于应对\n内涝防治设计重现期对应的强降雨径流，其设置的目的是为了提\n高城市排水防涝能力，减少强降雨径流可能导致的重大破坏和生\n命损失，国外比较常见的术语为“Major（Drainage）System\n(大排水系统)”。\n防涝系统主要由强排设施、滞蓄设施和行泄通道组成，组成\n部分包括河道、明渠、隧道（存蓄和输送雨水的）、泵站以及承\n担防涝功能的道路、绿地、广场、开放式运动场、湿地、坑塘、\n生态用地和防涝调蓄设施等。其中，道路、绿地主要承担强降雨\n径流的汇集功能，明渠、隧道、河道等行泄通道主要承担对所汇\n集强降雨径流的输送和排放功能，湿地、洼地主要起蓄滞作用，\n防涝调蓄设施的主要作用是削减峰值流量，减轻下游的排水压力\n和致灾风险。"
+      }
+    ]
+  }
+}

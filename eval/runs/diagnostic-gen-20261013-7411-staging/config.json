@@ -1,0 +1,20 @@
+{
+  "classification": "diagnostic",
+  "run_id": "diagnostic-gen-20261013-7411-staging",
+  "dataset": "eval\\golden_v3.jsonl",
+  "dataset_sha256": "c5b30aca3ce8a32f92f1f07e970ae9bb957040589274ba3532ecc77c207d11d2",
+  "dataset_cases": 50,
+  "corpus_version": "corpus-7411b3a05a07",
+  "staging_collection": "corpus_v2__staging__corpus-7411b3a05a07__bi-c3d507491436d14e1443a956",
+  "provider": "zhipu",
+  "model": "glm-5.2",
+  "temperature": 0.1,
+  "llm_base_url": "https://open.bigmodel.cn/api/paas/v4/",
+  "retrieval": {
+    "profile": "production answer profile (verified + caveated unverified evidence)",
+    "retrieve_limit": 10,
+    "generate_context_limit": 5,
+    "context_expansion": true
+  },
+  "note": "real LLM run, authorized by the owner for the already-wired provider"
+}

@@ -1,0 +1,142 @@
+{
+  "case": "N07",
+  "question": "生活污水里灰水和黑水的氨氮浓度大概是多少？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "根据《T_CECS_758-2020城镇排水管道混接调查及治理技术规程》表1，以洗涤废水为主要特点的灰水氨氮浓度范围为3.6~9.6 mg/L，均值为6.1 mg/L。",
+        "evidence_ids": [
+          "chunk_4d854a9303ed1c1120d64a9e2644802e"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "根据《T_CECS_758-2020城镇排水管道混接调查及治理技术规程》表1，以粪便污水为特点的黑水氨氮浓度范围为46.8~109.3 mg/L，均值为76.8 mg/L。",
+        "evidence_ids": [
+          "chunk_4d854a9303ed1c1120d64a9e2644802e"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "上述灰水水样取自旧式居住小区建筑内洗涤盆、洗衣机的排水管出口检查井，黑水水样取自小区化粪池入口检查井。",
+        "evidence_ids": [
+          "chunk_8e62decc2e5c13bcae99fd7ff0cc911a"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_778352a809f0abd19ca435a12cb4772c",
+    "chunk_c0e3391959e549573291f06783ab0c49",
+    "chunk_4d854a9303ed1c1120d64a9e2644802e",
+    "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+    "chunk_9fb89e46eafe41c53a49c2859b838c3e",
+    "chunk_8e62decc2e5c13bcae99fd7ff0cc911a",
+    "chunk_efb67de7409992d18ec475a3459d6e08",
+    "chunk_b85e75a8bb4cd5c30adc4c52844d64d6",
+    "chunk_3c405127a459a35c4a738229f3dabb54",
+    "chunk_225e8f50b9b70e7ec61c00c19aac659e"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_778352a809f0abd19ca435a12cb4772c",
+    "chunk_c0e3391959e549573291f06783ab0c49",
+    "chunk_4d854a9303ed1c1120d64a9e2644802e",
+    "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+    "chunk_9fb89e46eafe41c53a49c2859b838c3e",
+    "chunk_8e62decc2e5c13bcae99fd7ff0cc911a"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.066,
+    "retrieval": 60.567,
+    "context_expansion": 58.501,
+    "generation": 10813.583,
+    "validation": 0.09,
+    "total": 10933.106
+  },
+  "token_usage": {
+    "input_tokens": 3261,
+    "output_tokens": 779,
+    "total_tokens": 4040,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "生活污水里灰水和黑水的氨氮浓度大概是多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_778352a809f0abd19ca435a12cb4772c",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          27
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n[公式]\nNH_3-N/K"
+      },
+      {
+        "evidence_id": "chunk_c0e3391959e549573291f06783ab0c49",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          27
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n特征因子可包括氨氮、总氮、表面活性剂和人工甜味剂安赛蜜、茶氨酸等。其中\n氨氮、总氮、安赛蜜是表征黑水的特征指标，表面活性剂、茶氨酸是表征灰水的\n特征指标。此外，钾离子也是表征生活污染的重要水质特征因子指标，NH3-N/K\n比值可用作判定灰水或者黑水接入的定性指标。如果NH3-N/K<1，污水来源可\n能为灰水；如果NH3-N/K≥1，污水来源可能为以化粪池溢流或者居住区生活污水\n为特点的黑水。综合考虑指标的测定难易程度以及黑水和灰水的区分等因素，选\n择氨氮、总氮、钾离子、表面活性剂作为生活污染混接预判的水质特征因子指标。"
+      },
+      {
+        "evidence_id": "chunk_4d854a9303ed1c1120d64a9e2644802e",
+        "usage_policy": "source_locator_only",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          65
+        ],
+        "text": "5 混接区域调查 > 5.3 水质特征因子的选择 > 5.3.2\n表1\n生活污水水质特征因子浓度\n水质参数 | 以洗涤废水为主要特点的灰水 | 以洗涤废水为主要特点的灰水 | 以粪便污水为特点的黑水 | 以粪便污水为特点的黑水\n水质参数 | 范围 | 均值 | 范围 | 均值\nCODcr(mg/L) | 142~387 | 285 | 426~803 | 575\n氨氮(mg/L) | 3.6~9.6 | 6.1 | 46.8~109.3 | 76.8\n磷酸盐(mg/L) | 0.47~1.36 | 0.89 | 4.16~7.74 | 5.87\n总氮(mg/L) | 12.3~40.0 | 22.4 | 54.2~121.6 | 99.2\n表面活性剂(mg/L) | 1.86~7.64 | 3.46 | 0.83~1.92 | 1.31\n钾(mg/L) | 12.9~36.7 | 23.6 | 25.0~56.0 | 37.6\n钠(mg/L) | 22.2~68.3 | 38.7 | 16.7~63.7 | 44.4\n氯化物(mg/L) | 26.0~76.0 | 51.9 | 89.0~252 | 153\n电导率(μs/cm) | 432~1058 | 810 | 1314~2044 | 1786\n安赛蜜(μg/L) | 1.07~1.78 | 1.47 | 27.9~51.2 | 37.2\n注：1\nCODc，、氨氮、磷酸盐、总氮、表面活件剂、氯化物、电导率是在某居住小区连"
+      },
+      {
+        "evidence_id": "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          56,
+          57
+        ],
+        "text": "4 前期调查 > 4.3 > 4.3.4\nCODCr、氨氮、总氮、磷酸盐、钾等均可以作为表征黑水接\n入的水质特征因子指标，表面活性剂是表征灰水接入的水质特征\n指标。如果表面活性剂浓度相对较高，而氨氮和钾的浓度相对较\n低，那么洗涤废水接入的可能性很大；如果表面活性剂、氨氮、\n钾的浓度都较高，那么居住区生活污水接入的可能性很大。通常\n化粪池溢流的表面活性剂浓度低；因此，如果氨氮、钾的浓度相\n对较高，而表面活性剂浓度低，则可能存在化粪池溢流水。\n混接调查时，如果遇到无法打开的检查井或需要开挖方能确\n认混接点的情况，可由业主单位或建设单位配合，也可在施工阶\n段由施工单位配合开展溯源调查工作，完善混接调查报告。"
+      },
+      {
+        "evidence_id": "chunk_9fb89e46eafe41c53a49c2859b838c3e",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          64
+        ],
+        "text": "7 污水和再生水处理 > 7.6 活性污泥法 > 7.6.17\n值可采用（0.030.06）kgNO\n(kgMLSS·d)]，并按本标准公式(7.6.172)\n进行温度修正；\nK de(T) 、Kde(20)分别为 T℃和20℃时的脱氮速率；\nX生物反应池内混合液悬浮固体平均浓度\n(gMLSS/L);\n息根据试验资\n料确定。无试验资料时，可取0.3～0.6；\nT ——设计温度(℃)；\nS。———生物反应池进水五日生化需氧量浓度(mg/L)；\nS。———生物反应池出水五日生化需氧量浓度(mg/L)。\n2)好氧区(池)容积可按下列公式计算："
+      },
+      {
+        "evidence_id": "chunk_8e62decc2e5c13bcae99fd7ff0cc911a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          65
+        ],
+        "text": "5 混接区域调查 > 5.3 水质特征因子的选择 > 5.3.2\n5.3.2 我国生活污水水质特征因子浓度检测结果如表1 所示。\n灰水水样取自旧式居住小区建筑内洗涤盆、洗衣机的排水管出口\n检查井，黑水水样取自小区化粪池入口检查井。"
+      }
+    ]
+  }
+}

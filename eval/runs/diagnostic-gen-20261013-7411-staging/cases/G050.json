@@ -1,0 +1,88 @@
+{
+  "case": "G050",
+  "question": "欧盟《城市废水处理指令》2024修订版对合流制溢流的具体限值是多少？",
+  "expected_answerability": "refuse",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_d9dd5de8b490731d0de6595ecc025ce7",
+    "chunk_852cb7e67be3545fcd14161a9d3f512e",
+    "chunk_8bdaa08927ad638acd41232f82483108",
+    "chunk_96741c4cb686143faf8ae39af4231201",
+    "chunk_086a042e062631c8ddcbd8c0a3d2b66f"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.014,
+    "retrieval": 54.899,
+    "context_expansion": 12.829,
+    "generation": 4586.986,
+    "total": 4654.9
+  },
+  "token_usage": {
+    "input_tokens": 2762,
+    "output_tokens": 411,
+    "total_tokens": 3173,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "欧盟《城市废水处理指令》2024修订版对合流制溢流的具体限值是多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_d9dd5de8b490731d0de6595ecc025ce7",
+        "usage_policy": "source_locator_only",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          58
+        ],
+        "text": "6 合流制排水系统 > 6.5 合流制溢流污染控制 > 6.5.2\n6.5.2 本条规定合流制系统溢流污染的控制措施。\n合流制排水系统溢流污染(Combined Sewer Overflows，\nCS是成我国地表水污染的主要因素之流制污水溢\n流是指随着降雨量的增加，雨水径流相应增加，当流量超过截流\n干管的输送能力时，部分雨污混合水经过溢流井或泵站排入受纳\n水体。住定期禹新盜源共享\n集中处理等方式。对溢流的合流污水就地处理可以在短时间内最\n大限度地去除可沉淀固体、漂浮物、细菌等污染物，经济实用且\n效果明显。合流制溢流污水送至污水厂集中处理，是利用非雨天\n污水厂的空余处理能力，不影响规划中污水厂规模的确定。\n合流制调蓄池是合流制溢流污染控制的一项关键技术，目前\n已被多个国家采用。上海市在苏州河水环境综合整治过程中，针\n对合流制污水溢流污染问题，采取了提高截流倍数、建设地下调\n蓄池和优化运行调度管理等对策，取得了良好效果。"
+      },
+      {
+        "evidence_id": "chunk_852cb7e67be3545fcd14161a9d3f512e",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+        "physical_pages": [
+          70
+        ],
+        "text": "4.2 加强旱季管道沉积控制与雨季溢流治理 > 4.2.2\n长期控制规划指南，确定CSO九项基本控制措施；2012年，EPA发布《市\n政雨污水综合规划方法框架》，涵盖污水处理、CSO及分流制污水溢流\n（SSO）控制雨洪管理、绿色基础设施（GI）等，在2014年又发布《绿\n色CSO控制规划：GI的规划与模拟》，强调将GI与CSO长期控制规划相\n结合。日本于1982年发布了《合流制下水道溢流对策与暂定指南》，但\n没有强制要求合流制改为分流制，而是提出要对合流制排水系统进行溢\n流控制；2001年成立合流制溢流控制对策研究委员会，开展溢流污染控\n制相关政策研究；2003年修订《下水道法》，将CSO治理纳入法规体\n系，提出制定长期CSO改善计划的要求；2008年发布《合流制排水系统\n紧急改善计划编制指南》并于2013启动改善效果评估。英国通过设计污\n水处理厂3倍旱季处理量的雨季处理能力，或者按合流制服务人口68升/人\n和2小时峰值调蓄的标准，在污水处理厂内设置调蓄池，实现雨天处理\n6.5—8倍旱流污水量。"
+      },
+      {
+        "evidence_id": "chunk_8bdaa08927ad638acd41232f82483108",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          11
+        ],
+        "text": "2 术语 > 2.0.5\n2.0.5 合流制溢流combined sewer overflow(CSO)\n合流制排水系统降雨时，超过截流能力而排入水体的合流污\n水。"
+      },
+      {
+        "evidence_id": "chunk_96741c4cb686143faf8ae39af4231201",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          3
+        ],
+        "text": "根据住房和城乡建设部《关于印发〈2012 年工程建设标准规\n范制订、修订计划>的通知》（建标[2012]5号)的要求，规范编制\n组经广泛调查研究，认真总结实践经验，参考有关国际标准和国组经广泛调查研究，认真总结实践经验，参考有关国际标准和国\n内先进标准，并在广泛征求意见的基础上，编制了本规范。\n本规范的主要技术内容是：1 总则；2 术语；3 基本规\n定；4\n定；4 污水系统；5 雨水系统；6 合流制排水系统；7 监控监控\n与预警。\n本规范修订的主要技术内容是：1. 将原规范的结构框架进\n行调整，增加了术语、基本规定和监控与预警三个章节；2. 将\n原规范的排水体制、排水量、系统布局、排水管渠、排水泵站、\n污水处理与利用等内容分别在污水系统、雨水系统及合流制排水\n系统中规定；并对雨水系统进行了定义；3. 适用范围调整为城\n市规划的排水工程规划和城市排水工程专项规划的编制；4. 在\n总则、基本规定、雨水系统及合流制排水系统中增加了节能减\n排、源头径流减排、雨水综合利用、城市防涝空间控制、合流制\n系统改造和溢流污染控制等内容。\n本规范中以黑体字标志的条文为强制性条文，必须严格\n执行。"
+      },
+      {
+        "evidence_id": "chunk_086a042e062631c8ddcbd8c0a3d2b66f",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          24
+        ],
+        "text": "6 合流制排水系统 > 6.5 合流制溢流污染控制 > 6.5.2\n6.5.2 合流制排水系统的溢流污水，可采用调蓄后就地处理或\n送至污水厂处理等方式，处理达标后利用或排放。就地处理应结\n合空间条件选择旋流分离、人工湿地等处理措施。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{"case": "N01", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N02", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N03", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N04", "expected": "answer", "status": "answered", "answered": true, "claims": 2, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N05", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N06", "expected": "answer", "status": "answered", "answered": true, "claims": 2, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N07", "expected": "answer", "status": "answered", "answered": true, "claims": 3, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N08", "expected": "answer", "status": "answered", "answered": true, "claims": 3, "claim_support_problems": ["claim-1: numbers ['8'] not in cited evidence", "claim-2: numbers ['20'] not in cited evidence", "claim-3: numbers ['20'] not in cited evidence"], "expected_facts_coverage": []}
+{"case": "N09", "expected": "answer", "status": "answered", "answered": true, "claims": 3, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N10", "expected": "answer", "status": "answered", "answered": true, "claims": 4, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N11", "expected": "answer", "status": "answered", "answered": true, "claims": 2, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N12", "expected": "answer", "status": "answered", "answered": true, "claims": 3, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N13", "expected": "answer", "status": "answered", "answered": true, "claims": 2, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N14", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N15", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": []}
+{"case": "N16", "expected": "answer", "status": "answered", "answered": true, "claims": 1, "claim_support_problems": [], "expected_facts_coverage": []}

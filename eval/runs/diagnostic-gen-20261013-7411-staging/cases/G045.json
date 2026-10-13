@@ -1,0 +1,113 @@
+{
+  "case": "G045",
+  "question": "T/CECS 758中图3.0.4的图名是什么？该示意图概括了混接工作的哪些环节取向？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "根据《T/CECS 758-2020城镇排水管道混接调查及治理技术规程》第3.0.4条，图3.0.4概括了城镇分流制排水系统雨污混接调查与治理的环节，包括混接预判、资料收集与现场踏勘、混接区域调查、混接点或混接源位置探查与判定、混接水量与水质测定、编制评估报告与治理方案、实施混接治理措施、提出长效管理机制体制等。",
+        "evidence_ids": [
+          "chunk_a3f2a3d68d4e3b183f0d7d70ba320a11"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_d89324976a28137e32272843ce9c9cc0",
+    "chunk_a3f2a3d68d4e3b183f0d7d70ba320a11",
+    "chunk_aae44a37d2de9655f375027283d07a9a",
+    "chunk_556a754d580d1dfd8f5e0b7337a61641",
+    "chunk_0b38df11eb78c53d55626f9495bc3ec3",
+    "chunk_7ef4757645f04066d3fb05c2dfcf6fc2",
+    "chunk_9653163f4672a2efa93eb7929fc4cda0",
+    "chunk_dd8be2a09c45ad968cc2ef1ab93433f5",
+    "chunk_10b3eb8c6c132d2bd959b880d9a76cc5",
+    "chunk_02371c40665bb23f30eb978e1510d0f9"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_d89324976a28137e32272843ce9c9cc0",
+    "chunk_a3f2a3d68d4e3b183f0d7d70ba320a11",
+    "chunk_aae44a37d2de9655f375027283d07a9a",
+    "chunk_556a754d580d1dfd8f5e0b7337a61641",
+    "chunk_0b38df11eb78c53d55626f9495bc3ec3"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.062,
+    "retrieval": 64.197,
+    "context_expansion": 42.513,
+    "generation": 31767.19,
+    "validation": 0.063,
+    "total": 31874.259
+  },
+  "token_usage": {
+    "input_tokens": 2383,
+    "output_tokens": 2539,
+    "total_tokens": 4922,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "T/CECS 758中图3.0.4的图名是什么？该示意图概括了混接工作的哪些环节取向？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_d89324976a28137e32272843ce9c9cc0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "4 > 4.3 > 4.3.8\n4. 3. 8\n混接调查应形成混接点的位置、流量、水质和污染源类\n型等内容的记录，应按附录C 进行填写。"
+      },
+      {
+        "evidence_id": "chunk_a3f2a3d68d4e3b183f0d7d70ba320a11",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 基本规定 > 3.0.4\n3.0. 4 城镇分流制排水系统雨污混接调查与治理的环节宜包括城镇分流制排水系统雨污？昆接调查与治理的环节宜包括\n混接预判、资料收集与现场踏勘、混接区域调查、混接点或混接源\n位置探查与判定、混接水量与水质测定、编制评估报告与治理方\n案、实施混接治理措施、提出长效管理机制体制等(图3.0.4)；在\n具体工作中，可根据实际情况，精简部分环节，宜边调查、边评估、\n边制订方案、边治理。"
+      },
+      {
+        "evidence_id": "chunk_aae44a37d2de9655f375027283d07a9a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          41
+        ],
+        "text": "6 混接点探查与判定 > 6.4 混接点分布图记录与编辑 > 6.4.2\n【条文解释】要结合已经收收集到的区域管线图，编织制作混接点分\n布图，在混接点图上要能够显示出混接点的类型和位置，使用扯旗的\n方式标识出来，方便进行统一的查找。可以借助于测绘工程使用的方\n式，将混接点分布图平均分成若干个区域，并将相应的区域进行编号，\n各个编号范围内的混接点分布图放大打印，方便后续管理单位的准确\n查找。"
+      },
+      {
+        "evidence_id": "chunk_556a754d580d1dfd8f5e0b7337a61641",
+        "usage_policy": "source_locator_only",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          61
+        ],
+        "text": "5 混接区域调查 > 5.1 一 般规 定 > 5.1.2\n[图1 混接溯源调查法示意图]\n5. 1. 2 \n1昆接调查中的溯源调查法如图\n1 所示。首先从雨水管网"
+      },
+      {
+        "evidence_id": "chunk_0b38df11eb78c53d55626f9495bc3ec3",
+        "usage_policy": "source_locator_only",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          68
+        ],
+        "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n[图3 圆形管渠横断面示意图]\n式中：1一－AB 的弧长（m ）（图3);\nd \n水面位置的弦长，即图3 中的AB(m);\nh \n三角形AOC 的高，即图3 中的OC(m ）。"
+      }
+    ]
+  }
+}

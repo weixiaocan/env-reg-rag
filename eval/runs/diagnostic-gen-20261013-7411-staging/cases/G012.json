@@ -1,0 +1,98 @@
+{
+  "case": "G012",
+  "question": "武汉市排水管道混错接改造技术规程的地方标准号是什么？",
+  "expected_answerability": "locate",
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "generate_context_evidence_ids": [
+    "chunk_dbf1bfa11d0112c09e6bb10e3ba15795",
+    "chunk_b22506a3bcba6187c782135bcc4dad33",
+    "chunk_575faa6a281d264b68ce58cce7ee8ee0",
+    "chunk_43a5788cd4d654ff5dca13e5d782644c",
+    "chunk_97f6a1d3c244c095ea17c113607fbffb",
+    "chunk_2d4ec5e336f765dd7af06c85c84b22e8"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [],
+  "refusal_stage": "refused_by_generation",
+  "stages_ms": {
+    "scope": 0.013,
+    "retrieval": 54.073,
+    "context_expansion": 23.895,
+    "generation": 3383.875,
+    "total": 3461.943
+  },
+  "token_usage": {
+    "input_tokens": 2611,
+    "output_tokens": 176,
+    "total_tokens": 2787,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "武汉市排水管道混错接改造技术规程的地方标准号是什么？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_dbf1bfa11d0112c09e6bb10e3ba15795",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。"
+      },
+      {
+        "evidence_id": "chunk_b22506a3bcba6187c782135bcc4dad33",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          10
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.1\n5.5.1 针对本文件5.4 所探查出来存在混错接区域的地方具体混错接点进行探查。"
+      },
+      {
+        "evidence_id": "chunk_575faa6a281d264b68ce58cce7ee8ee0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求\n承担城市排水管道混错接改造工作的主管部门应委托有专业能力和相应资质的单位，进行分区、分\n块混错接调查，在调查的基础上，科学合理制定混错接改造方案，有序开展混错接改造工作，并严格执\n行国家、行业相关安全和质量规定，确保安全和质量达标。"
+      },
+      {
+        "evidence_id": "chunk_43a5788cd4d654ff5dca13e5d782644c",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "9 运行维护\n序号 | 图号 | 混错接点号码 | 雨水错接污水管径 |  |  | 混错接等级 | 备注\n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  |"
+      },
+      {
+        "evidence_id": "chunk_97f6a1d3c244c095ea17c113607fbffb",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          16
+        ],
+        "text": "6 混错接改造设计 > 6.4.1\n6.4.1 建筑排水立管混错接改造应查明错接原因，并采取针对性的改造措施，实施雨污分流。"
+      },
+      {
+        "evidence_id": "chunk_2d4ec5e336f765dd7af06c85c84b22e8",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "9 运行维护\n排水户排水情况调查表内容见表C.1。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,146 @@
+{
+  "case": "G019",
+  "question": "对照《城镇分流制排水系统雨污混接调查》征求意见稿与T/CECS 758：前者表5-1给出生活污水中氨氮浓度的灰水/黑水均值大约是多少？后者规定单个混接点或混接源的混接程度可依据哪些要素评估？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "《城镇分流制排水系统雨污混接调查》征求意见稿表5-1给出生活污水中氨氮浓度的灰水均值约为6.1 mg/L，黑水均值约为76.8 mg/L。",
+        "evidence_ids": [
+          "chunk_efb67de7409992d18ec475a3459d6e08"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "T/CECS 758规定单个混接点或混接源的混接程度可依据管径大小、混接水质和混接水量等要素评估。",
+        "evidence_ids": [
+          "chunk_d11a88b784502033ef0d093eadc0664a",
+          "chunk_a2b56d0490be9ca4ac14c6707458cb69"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_efb67de7409992d18ec475a3459d6e08",
+    "chunk_99a172305e9a9804c98844aa21c38664",
+    "chunk_d11a88b784502033ef0d093eadc0664a",
+    "chunk_c0e3391959e549573291f06783ab0c49",
+    "chunk_373f4a6d0c83347efda50a992141063c",
+    "chunk_3c405127a459a35c4a738229f3dabb54",
+    "chunk_778352a809f0abd19ca435a12cb4772c",
+    "chunk_61ccc1fa845a4edfa10c022b38e2607a",
+    "chunk_65e3734289600f364214a7969ae5ddfa",
+    "chunk_fe39e9b33e4166b1996ce0588d6a2480",
+    "chunk_f8a673b00c4403bb66dd8e80cc81e6f1",
+    "chunk_a2b56d0490be9ca4ac14c6707458cb69"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_efb67de7409992d18ec475a3459d6e08",
+    "chunk_99a172305e9a9804c98844aa21c38664",
+    "chunk_d11a88b784502033ef0d093eadc0664a",
+    "chunk_c0e3391959e549573291f06783ab0c49",
+    "chunk_373f4a6d0c83347efda50a992141063c",
+    "chunk_f8a673b00c4403bb66dd8e80cc81e6f1",
+    "chunk_a2b56d0490be9ca4ac14c6707458cb69"
+  ],
+  "missing_conditions": [],
+  "warnings": [],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.017,
+    "retrieval": 63.828,
+    "context_expansion": 44.579,
+    "generation": 13592.524,
+    "validation": 0.025,
+    "total": 13701.054
+  },
+  "token_usage": {
+    "input_tokens": 3245,
+    "output_tokens": 1151,
+    "total_tokens": 4396,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "对照《城镇分流制排水系统雨污混接调查》征求意见稿与T/CECS 758：前者表5-1给出生活污水中氨氮浓度的灰水/黑水均值大约是多少？后者规定单个混接点或混接源的混接程度可依据哪些要素评估？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_efb67de7409992d18ec475a3459d6e08",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          24
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n表5-1 生活污水中氨氮和电导率的浓度范围\n水量来源 | 氨氮（mg/L) | 氨氮（mg/L) | 电导率（us/cm) | 电导率（us/cm)\n水量来源 | 范围 | 均值 | 范围 | 均值\n灰水 | 3.6~9.6 | 6.1 | 432~1058 | 810\n黑水 | 46.8~109 | 76.8 | 1314~2044 | 1786"
+      },
+      {
+        "evidence_id": "chunk_99a172305e9a9804c98844aa21c38664",
+        "usage_policy": "source_locator_only",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          28
+        ],
+        "text": "7 雨污混接状况评估 > 7.2 评估指标与方法 > 7.2.2\n表7. 2. 2 \n单个混接点或混接源混接程度分级标准\n混接程度与分级 | 接入管管径d (mm) | 出流流量q (m³/d) | 污水出流水质(mg/L) | 污水出流水质(mg/L)\n混接程度与分级 | 接入管管径d (mm) | 出流流量q (m³/d) | 氨氮 | COD\n重度混接(3级) | d≥600 | q>600 | >30 | >200"
+      },
+      {
+        "evidence_id": "chunk_d11a88b784502033ef0d093eadc0664a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          72
+        ],
+        "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.3\n7.1.3 对整个排水区来讲，雨污水管道错接数量和污水源入流数\n量的多少直接反映出城市混接现象的轻重，将其与整个被调查区\n域的雨水管线总长相比，则得出单位长度内混接点或混接源的数\n量，以此来表达混接的严重程度。而对某混接点或混接源而言，管\n径大小和混接水质水量是评估其严重程度的三个主要指标。外水\n入渗和水体水倒灌是反映污水收集系统质量和效能的主要指标，\n不做混接评估分级。"
+      },
+      {
+        "evidence_id": "chunk_c0e3391959e549573291f06783ab0c49",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          27
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n特征因子可包括氨氮、总氮、表面活性剂和人工甜味剂安赛蜜、茶氨酸等。其中\n氨氮、总氮、安赛蜜是表征黑水的特征指标，表面活性剂、茶氨酸是表征灰水的\n特征指标。此外，钾离子也是表征生活污染的重要水质特征因子指标，NH3-N/K\n比值可用作判定灰水或者黑水接入的定性指标。如果NH3-N/K<1，污水来源可\n能为灰水；如果NH3-N/K≥1，污水来源可能为以化粪池溢流或者居住区生活污水\n为特点的黑水。综合考虑指标的测定难易程度以及黑水和灰水的区分等因素，选\n择氨氮、总氮、钾离子、表面活性剂作为生活污染混接预判的水质特征因子指标。"
+      },
+      {
+        "evidence_id": "chunk_373f4a6d0c83347efda50a992141063c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          45,
+          46
+        ],
+        "text": "7 雨污混接状况评估 > 7.1 一般规定 > 7.1.4\n7.1.4 单个混接点混接程度可依据混接管管径、混接水量、混接水质\n以任一指标高值的原则确定等级，混接点混接程度分级标准见表7.1.2。"
+      },
+      {
+        "evidence_id": "chunk_f8a673b00c4403bb66dd8e80cc81e6f1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          23,
+          24
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n5.2.2 雨水管网混接筛查中，管网节点监测的水质特征因子选取如下：\n1. 雨水管网中污水混接调查的基本指标为氨氮和电导率，生活\n污水中氨氮的电导率的浓度范围可参照表5-1。有条件时可采用在线\n水质监测仪表，对关键节点水质参数如氨氮、电导率等进行连续监测。"
+      },
+      {
+        "evidence_id": "chunk_a2b56d0490be9ca4ac14c6707458cb69",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          28
+        ],
+        "text": "7 雨污混接状况评估 > 7.2 评估指标与方法 > 7.2.2\n7.2.2 单个混接点或混接源的混接程度分级标准应按表7.2.2\n执行，并应以任一指标取高值的原则进行评估。"
+      }
+    ]
+  }
+}

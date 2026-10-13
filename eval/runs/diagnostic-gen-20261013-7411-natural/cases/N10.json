@@ -1,0 +1,154 @@
+{
+  "case": "N10",
+  "question": "地面集水时间怎么计算？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "地面集水时间应根据汇水距离、地形坡度、地面种类和暴雨强度等因素通过计算确定。",
+        "evidence_ids": [
+          "chunk_571002af76acd54f97035960931ed705",
+          "chunk_55c6b1f104174f1a8a7f2aabb66f1d61"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "当地面汇水距离不大于90m时，可按公式计算：ta=10.41(n0·L)^0.6 / (q^0.4·S^0.3)。",
+        "evidence_ids": [
+          "chunk_571002af76acd54f97035960931ed705",
+          "chunk_89bd31d23849f12fb6bddfdf3e7c8924"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "上述公式中，ta为地面集水时间(min)，n0为粗糙系数，L为地面集水距离(m)，q为设计暴雨强度[L/(s·ha)]。",
+        "evidence_ids": [
+          "chunk_89bd31d23849f12fb6bddfdf3e7c8924",
+          "chunk_4ac45add12a67f24df18608f8b1d3c2d"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-4",
+        "text": "《室外排水设计标准》规定，地面集水时间宜采用5min~15min。",
+        "evidence_ids": [
+          "chunk_55c6b1f104174f1a8a7f2aabb66f1d61"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_89bd31d23849f12fb6bddfdf3e7c8924",
+    "chunk_571002af76acd54f97035960931ed705",
+    "chunk_006c79540b2fae2a15392703a88543b1",
+    "chunk_55c6b1f104174f1a8a7f2aabb66f1d61",
+    "chunk_0a3ee3f2d4ac68cd886d87c30b9bba04",
+    "chunk_8cf437e6654fea8446076960c65642cb",
+    "chunk_a377cffcc4608f88db7e62c32a2cc4de",
+    "chunk_5f1a9c9bc16a72a89d72161096eec45d",
+    "chunk_93456f9dd8343692ed418f407d4b35ca",
+    "chunk_113641d2d50e6fa702fd2c407a625d7e",
+    "chunk_4ac45add12a67f24df18608f8b1d3c2d"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_89bd31d23849f12fb6bddfdf3e7c8924",
+    "chunk_571002af76acd54f97035960931ed705",
+    "chunk_006c79540b2fae2a15392703a88543b1",
+    "chunk_55c6b1f104174f1a8a7f2aabb66f1d61",
+    "chunk_0a3ee3f2d4ac68cd886d87c30b9bba04",
+    "chunk_4ac45add12a67f24df18608f8b1d3c2d"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.013,
+    "retrieval": 53.007,
+    "context_expansion": 52.699,
+    "generation": 18172.061,
+    "validation": 0.121,
+    "total": 18278.073
+  },
+  "token_usage": {
+    "input_tokens": 2352,
+    "output_tokens": 1832,
+    "total_tokens": 4184,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "地面集水时间怎么计算？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_89bd31d23849f12fb6bddfdf3e7c8924",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n[公式]\nt_{a}=\\frac{10.41\\left(n_{0}\\cdot L\\right)^{0.6}}{q^{0.4}S^{0.3}}\n式中：t8地面集水时间(min)；\n粗糙系数；\nL地面集水距离(m)；"
+      },
+      {
+        "evidence_id": "chunk_571002af76acd54f97035960931ed705",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n3.3.2 地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n雨强度等因素通过计算确定，并应符合下列规定：\n1 当地面汇水距离不大于90m时，可按下式计算："
+      },
+      {
+        "evidence_id": "chunk_006c79540b2fae2a15392703a88543b1",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n[公式]\n\\mathrm{[L/(s\\cdot ha)]}"
+      },
+      {
+        "evidence_id": "chunk_55c6b1f104174f1a8a7f2aabb66f1d61",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          22,
+          23
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n4.1.11 雨水管渠的降雨历时应按下式计算：\n式中：t—降雨历时(min)；\nt1——地面集水时间(min)，应根据汇水距离、地形坡度和地\n面种类通过计算确定，宜采用5min~15min；\nt管渠内雨水流行时间(min)。"
+      },
+      {
+        "evidence_id": "chunk_0a3ee3f2d4ac68cd886d87c30b9bba04",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          87
+        ],
+        "text": "7 污水和再生水处理 > 7.12 自然处理 > 7.12.10\n7.12.10人工湿地的集配水应均匀，宜采用穿孔管、配(集)水管、\n配(集)水堰等方式。"
+      },
+      {
+        "evidence_id": "chunk_4ac45add12a67f24df18608f8b1d3c2d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          14
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n9 q设计暴雨强度L/(s·ha)]；"
+      }
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "case": "G037",
+  "question": "按《城市排水工程规划规范》，当汇水面积不超过2km²时可采用推理公式法计算雨水设计流量；式5.2.6中Q、q分别表示什么？同页表5.2.4城市建筑密集区雨水排放系统综合径流系数取值范围是多少？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "根据《城市排水工程规划规范》第5.2.6条，当汇水面积不超过2km²时，雨水设计流量可采用推理公式法计算。",
+        "evidence_ids": [
+          "chunk_0226114537d8ae99c536a24208fa726a"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "根据《城市排水工程规划规范》式5.2.6，Q表示雨水设计流量，q表示设计暴雨强度[L/（s·hm²）]。",
+        "evidence_ids": [
+          "chunk_869cf8d22cb9d73ad4cb4192a983a0a6"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "根据《城市排水工程规划规范》表5.2.4，城市建筑密集区雨水排放系统综合径流系数取值范围为0.60~0.70。",
+        "evidence_ids": [
+          "chunk_c2c80d300a21c08c4eaa279d2dd7b2b0"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_3edd1aa2e6b64c67c1b5cfedf4144390",
+    "chunk_869cf8d22cb9d73ad4cb4192a983a0a6",
+    "chunk_0226114537d8ae99c536a24208fa726a",
+    "chunk_8dafa1c2cdd2ff018713603ea80c4cfe",
+    "chunk_c2c80d300a21c08c4eaa279d2dd7b2b0",
+    "chunk_b52bbf2e3b7b5ae55b1f2e2b650491ae",
+    "chunk_7f4fa948836ad222b2677a9a7572644b",
+    "chunk_e2017ecef76681f34a63b8dae416e3df",
+    "chunk_5ae7e751d6bf2feda36de36ccc80cc3c",
+    "chunk_1d8da60bf64737b416cfdcbe62da1d6d"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_3edd1aa2e6b64c67c1b5cfedf4144390",
+    "chunk_869cf8d22cb9d73ad4cb4192a983a0a6",
+    "chunk_0226114537d8ae99c536a24208fa726a",
+    "chunk_8dafa1c2cdd2ff018713603ea80c4cfe",
+    "chunk_c2c80d300a21c08c4eaa279d2dd7b2b0",
+    "chunk_7f4fa948836ad222b2677a9a7572644b"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.123,
+    "retrieval": 95.755,
+    "context_expansion": 45.798,
+    "generation": 36627.781,
+    "validation": 0.105,
+    "total": 36769.811
+  },
+  "token_usage": {
+    "input_tokens": 2740,
+    "output_tokens": 1162,
+    "total_tokens": 3902,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "按《城市排水工程规划规范》，当汇水面积不超过2km²时可采用推理公式法计算雨水设计流量；式5.2.6中Q、q分别表示什么？同页表5.2.4城市建筑密集区雨水排放系统综合径流系数取值范围是多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_3edd1aa2e6b64c67c1b5cfedf4144390",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          21
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.7\n4.1.7 当采用推理公式法时，排水管渠的雨水设计流量应按下式\n计算。当汇水面积大于2km时，应考虑区域降雨和地面渗透性能\n的时空分布不均匀性和管网汇流过程等因素，采用数学模型法确\n定雨水设计流量。\n式中：Qs—雨水设计流量(L/s)；流量（L/s)\nq 设计暴雨强度[/(hm² s)_:\n综合径流系数；\nΨ\n-汇水面积(hm²)。"
+      },
+      {
+        "evidence_id": "chunk_869cf8d22cb9d73ad4cb4192a983a0a6",
+        "usage_policy": "source_locator_only",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.6\n[公式]\nQ=q\\times\\Psi\\times F\n式中：Q—雨水设计流量（L/s）；\nq——设计暴雨强度[L/ （s· hm²）]；"
+      },
+      {
+        "evidence_id": "chunk_0226114537d8ae99c536a24208fa726a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.6\n5.2.6 雨水设计流量应采用数学模型法进行校核，并同步确定\n相应的径流量、不同设计重现期的淹没范围、水流深度及持续时\n间等。当汇水面积不超过2km²时，雨水设计流量可采用推理公\n式法按下式计算。"
+      },
+      {
+        "evidence_id": "chunk_8dafa1c2cdd2ff018713603ea80c4cfe",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          52
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.6\n5.2.6 本条是关于雨水设计流量计算方法的规定。\n本次规范修编提出采用数学模型法进行雨水设计流量计算，\n意在推动我国基础设施基础数据及降雨资料的积累和技术进步。\n数学模型法是基于流域产汇流机制或水文过程线的一种计算方\n法。它能够模拟降雨及产汇流过程，直观、快速地对城市内涝灾\n害风险进行量化分析，还能够在城市雨水系统运营与管理中发挥\n重要作用。\n我国目前采用恒定均匀流推理公式计算雨水设计流量。恒定\n均匀流推理公式基于以下假设：降雨在整个汇水面积上的分布是\n均匀的；降雨强度在选定的降雨时段内均匀不变；汇水面积随集\n流时间增长的速度为常数，因此，恒定均匀流推理公式适用于汇\n水面积较小的排水系统流量计算，当应用于较大面积的排水系统\n流量计算时，会产生一定误差。随着汇水面积的增加（汇水面积"
+      },
+      {
+        "evidence_id": "chunk_c2c80d300a21c08c4eaa279d2dd7b2b0",
+        "usage_policy": "source_locator_only",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.4\n表5. 2. 4\n综合径流系数\n区域情况 | 综合径流系数（Ψ) | 综合径流系数（Ψ)\n区域情况 | 雨水排放系统 | 防涝系统\n城市建筑密集区 | 0.60~0.70 | 0.80~1.00\n城市建筑较密集区 | 0.45~0.60 | 0.60~0.80\n城市建筑稀疏区 | 0.20~0.45 | 0.40~0.60"
+      },
+      {
+        "evidence_id": "chunk_7f4fa948836ad222b2677a9a7572644b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.4\n5.2.4 综合径流系数可按表5.2.4的规定取值。城市开发建设\n应采用低影响开发建设模式，降低综合径流系数。"
+      }
+    ]
+  }
+}

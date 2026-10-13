@@ -1,0 +1,117 @@
+{
+  "case": "G039",
+  "question": "《城镇分流制排水系统雨污混接调查》征求意见稿中，图5-2的图名是什么？它表示哪类管网的混接筛查技术路线？",
+  "expected_answerability": "locate",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "《城镇分流制排水系统雨污混接调查》征求意见稿中，图5-2的图名为“污水管网中雨水混接筛查技术路线”，表示污水管网中雨水混接筛查的技术路线。",
+        "evidence_ids": [
+          "chunk_7daa0de6b58ca384ff476ae2296e2ac0"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_66a80de71f75d0c8db11aa514dadc1d4",
+    "chunk_7daa0de6b58ca384ff476ae2296e2ac0",
+    "chunk_0f9d6a399890eb8e9a1df5a68415ed23",
+    "chunk_016642866ebd7ea7eaa97d13dccfe0b0",
+    "chunk_79b3d36a4e65e76c106b9a8fe4c39905",
+    "chunk_4e2ee50e8e0c9fad13dddb9af3ddfeaa",
+    "chunk_d3a01051750a99bbcfa88dcf5368a686",
+    "chunk_f1068c6f5805efa1d7a60bd4e633a6fa",
+    "chunk_d1538526c04fb76a6a1b0b2413b25a09",
+    "chunk_10b3eb8c6c132d2bd959b880d9a76cc5"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_66a80de71f75d0c8db11aa514dadc1d4",
+    "chunk_7daa0de6b58ca384ff476ae2296e2ac0",
+    "chunk_0f9d6a399890eb8e9a1df5a68415ed23",
+    "chunk_016642866ebd7ea7eaa97d13dccfe0b0",
+    "chunk_79b3d36a4e65e76c106b9a8fe4c39905"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.011,
+    "retrieval": 57.4,
+    "context_expansion": 12.143,
+    "generation": 5332.692,
+    "validation": 0.019,
+    "total": 5402.34
+  },
+  "token_usage": {
+    "input_tokens": 2390,
+    "output_tokens": 314,
+    "total_tokens": 2704,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "《城镇分流制排水系统雨污混接调查》征求意见稿中，图5-2的图名是什么？它表示哪类管网的混接筛查技术路线？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_66a80de71f75d0c8db11aa514dadc1d4",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          21,
+          22
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.1\n[图5-1 雨水管网中污水混接筛查技术路线]\n雨水管网中污水混接调查的技术路线如下图5-1 所示。"
+      },
+      {
+        "evidence_id": "chunk_7daa0de6b58ca384ff476ae2296e2ac0",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          27,
+          28
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.3\n[图5-2 污水管网中雨水混接筛查技术路线]\n污水管网中雨水混接筛查的技术路线如下图5-2 所示。"
+      },
+      {
+        "evidence_id": "chunk_0f9d6a399890eb8e9a1df5a68415ed23",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求 > 4.3.1\n[图1 城镇分流制排水系统雨污混错接调查与治理工作技术路线图]\n4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1。"
+      },
+      {
+        "evidence_id": "chunk_016642866ebd7ea7eaa97d13dccfe0b0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          21
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.1\n5.2.1 雨水管网中污水混接筛查，遵循以下方法：\n1. 针对雨水管网关键节点开展水质特征因子监测，原则上每个\n节点旱天连续监测1 天，每3～4 小时采样1 次，每个节点每天采集\n6～8 个水样；\n2. 若节点采集水样的水质平均浓度超出混接预判的参照值，则继\n续向上游区域开展溯源调查，否则可停止向上游区域溯源调查；\n3. 存在污水混接的上游区域内，若相邻节点的上下游水质特征因\n子浓度值升高，可判定为存在污水混接的区域。\n4. 对存在污水混接的区域，可加密节点水质监测，进一步缩小混\n接调查的范围。\n雨水管网中污水混接调查的技术路线如下图5-1 所示。"
+      },
+      {
+        "evidence_id": "chunk_79b3d36a4e65e76c106b9a8fe4c39905",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 混接区域调查 > 5.1 一 般规定 > 5.1.4\n5.1.4 对通过调查识别存在雨污混接的区域，应对区域内居民小\n区、公共建筑、企事业单位、沿街商铺及洗车场所等做重点调查，调\n查记录的填写应符合本规程附录D的规定。"
+      }
+    ]
+  }
+}

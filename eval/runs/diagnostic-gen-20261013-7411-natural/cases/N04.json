@@ -1,0 +1,138 @@
+{
+  "case": "N04",
+  "question": "城市建筑密集区的雨水综合径流系数取多少？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "根据《城市排水工程规划规范》表5.2.4，城市建筑密集区在雨水排放系统的综合径流系数为0.60~0.70，在防涝系统的综合径流系数为0.80~1.00。",
+        "evidence_ids": [
+          "chunk_c2c80d300a21c08c4eaa279d2dd7b2b0",
+          "chunk_7f4fa948836ad222b2677a9a7572644b",
+          "chunk_b52bbf2e3b7b5ae55b1f2e2b650491ae"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "根据《室外排水设计标准》表4.1.8-2，城镇建筑密集区的综合径流系数为0.60~0.70。",
+        "evidence_ids": [
+          "chunk_178878e041f0407e35445de1e43e936c",
+          "chunk_1d8da60bf64737b416cfdcbe62da1d6d"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_b52bbf2e3b7b5ae55b1f2e2b650491ae",
+    "chunk_c2c80d300a21c08c4eaa279d2dd7b2b0",
+    "chunk_092ff1edf4a0bd5ebc1d2b860cbafdfa",
+    "chunk_7f4fa948836ad222b2677a9a7572644b",
+    "chunk_178878e041f0407e35445de1e43e936c",
+    "chunk_52cd9e58fa4eaa0fe27fadcf7b522820",
+    "chunk_b899e8a87ecb67d6b0d33c5cd962d87a",
+    "chunk_571002af76acd54f97035960931ed705",
+    "chunk_6443211b8d86fa46543c65c48d03faf8",
+    "chunk_d11a88b784502033ef0d093eadc0664a",
+    "chunk_1d8da60bf64737b416cfdcbe62da1d6d"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_b52bbf2e3b7b5ae55b1f2e2b650491ae",
+    "chunk_c2c80d300a21c08c4eaa279d2dd7b2b0",
+    "chunk_092ff1edf4a0bd5ebc1d2b860cbafdfa",
+    "chunk_7f4fa948836ad222b2677a9a7572644b",
+    "chunk_178878e041f0407e35445de1e43e936c",
+    "chunk_1d8da60bf64737b416cfdcbe62da1d6d"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.018,
+    "retrieval": 76.663,
+    "context_expansion": 35.109,
+    "generation": 19698.735,
+    "validation": 0.074,
+    "total": 19810.76
+  },
+  "token_usage": {
+    "input_tokens": 2866,
+    "output_tokens": 2264,
+    "total_tokens": 5130,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "城市建筑密集区的雨水综合径流系数取多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_b52bbf2e3b7b5ae55b1f2e2b650491ae",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          50,
+          51
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.4\n5.2.4 本条规定了综合径流系数的取值范围。\n城市建筑稀疏区是指公园、绿地等用地，城市建筑密集区是\n指城市中心区等建筑密度高的区域，城市建筑较密集区是指上述\n两类区域以外的城市规划建设用地。\n综合径流系数应考虑城市规划用地的下垫面情况，如不透水\n下垫面的比例、土壤渗透能力以及地下水埋深等的影响。相同条\n件下，不透水下垫面比例高的场地，其综合径流系数取值应高于\n不透水下垫面比例低的场地；土壤渗透能力弱的场地，其综合径\n流系数取值应高于土壤渗透能力强的场地。\n推行低影响开发建设模式能够在一定程度上降低场地的综合\n径流系数，对雨水进行源头削峰、减量、降污。随着海绵城市建\n设的逐渐推进，低影响开发模式正在城市建设过程中实施，规划\n审批环节也将逐步完善。因此，在确定雨水管道及设施规模时，\n考虑源头减排系统对径流系数取值的影响，综合径流系数的取值\n采用表5.2.4的数值，对于没有采用低影响理念进行建设的城市\n或区域，市政管道设计径流系数可取上限值或按实际情况取值。\n防涝系统的综合径流系数的取值范围高于雨水排放系统，主\n要是考虑到以下两个方面的因素："
+      },
+      {
+        "evidence_id": "chunk_c2c80d300a21c08c4eaa279d2dd7b2b0",
+        "usage_policy": "source_locator_only",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.4\n表5. 2. 4\n综合径流系数\n区域情况 | 综合径流系数（Ψ) | 综合径流系数（Ψ)\n区域情况 | 雨水排放系统 | 防涝系统\n城市建筑密集区 | 0.60~0.70 | 0.80~1.00\n城市建筑较密集区 | 0.45~0.60 | 0.60~0.80\n城市建筑稀疏区 | 0.20~0.45 | 0.40~0.60"
+      },
+      {
+        "evidence_id": "chunk_092ff1edf4a0bd5ebc1d2b860cbafdfa",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          51
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.4\n注：根据《澳大利亚降雨与径流》（1998）的建议，城区内修正后的综合径流系数\n超过1.00 时，直接取1.00。"
+      },
+      {
+        "evidence_id": "chunk_7f4fa948836ad222b2677a9a7572644b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.4\n5.2.4 综合径流系数可按表5.2.4的规定取值。城市开发建设\n应采用低影响开发建设模式，降低综合径流系数。"
+      },
+      {
+        "evidence_id": "chunk_178878e041f0407e35445de1e43e936c",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          22
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.8\n表4.1.8-2\n区域情况 | 综合径流系数\n城镇建筑密集区 | 0.60~0.70\n城镇建筑较密集区 | \n城镇建筑稀疏区 |"
+      },
+      {
+        "evidence_id": "chunk_1d8da60bf64737b416cfdcbe62da1d6d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          21
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.8\n4.1.8综合径流系数应严格按规划确定的控制，并应符合下列规定：\n1 综合径流系数高于0.7的地区应采用渗透、调蓄等措施。\n2 综合径流系数可根据表4.1.8-1规定的径流系数，通过地\n面种类加权平均计算得到，也可按表4.1.8-2的规定取值，并应核\n实地面种类的组成和比例。\n3 采用推理公式法进行内涝防治设计校核时，宜提高表\n4.1.8-1中规定的径流系数。当设计重现期为20年～30年时，宜将\n径流系数提高10%～15%；当设计重现期为30年～50年时，宜将径\n流系数提高20%～25%；当设计重现期为50年～100年时，宜将径流\n系数提高30%～50%；当计算的径流系数大于1时，应按1取值。"
+      }
+    ]
+  }
+}

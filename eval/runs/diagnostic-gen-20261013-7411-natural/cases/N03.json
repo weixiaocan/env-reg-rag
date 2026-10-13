@@ -1,0 +1,126 @@
+{
+  "case": "N03",
+  "question": "屋面和沥青路面的径流系数一般取多少？",
+  "expected_answerability": "answer",
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "根据《室外排水设计标准》GB 50014 表4.1.8-1，各种屋面、混凝土或沥青路面的径流系数为0.85~0.95。",
+        "evidence_ids": [
+          "chunk_aa37507a06c2e01394da9274688b2e4d"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_aa37507a06c2e01394da9274688b2e4d",
+    "chunk_eba7f520162e99a1bebf5b842ec02c10",
+    "chunk_750dd4f9c1a51af7c6da970ae76305cb",
+    "chunk_ea36b0d1d27d02f99fa468cd74e4c7bd",
+    "chunk_092ff1edf4a0bd5ebc1d2b860cbafdfa",
+    "chunk_63990d7b5c455fd71924887652a2e468",
+    "chunk_427773ea077f0bb890f23d2f7476012d",
+    "chunk_beb03beaa2f2631ad71fa594926d66ab",
+    "chunk_2957e75f6fe0427ce074cc30e73b4167",
+    "chunk_4f3c9b5c8d82a2f38da8c504ba3efff7",
+    "chunk_1d8da60bf64737b416cfdcbe62da1d6d"
+  ],
+  "generate_context_evidence_ids": [
+    "chunk_aa37507a06c2e01394da9274688b2e4d",
+    "chunk_eba7f520162e99a1bebf5b842ec02c10",
+    "chunk_750dd4f9c1a51af7c6da970ae76305cb",
+    "chunk_ea36b0d1d27d02f99fa468cd74e4c7bd",
+    "chunk_092ff1edf4a0bd5ebc1d2b860cbafdfa",
+    "chunk_1d8da60bf64737b416cfdcbe62da1d6d"
+  ],
+  "missing_conditions": [],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "failure_class": null,
+  "error_type": null,
+  "evidence_policies": [
+    "answer_and_citation",
+    "source_locator_only"
+  ],
+  "refusal_stage": "n/a",
+  "stages_ms": {
+    "scope": 0.027,
+    "retrieval": 73.234,
+    "context_expansion": 24.299,
+    "generation": 9209.066,
+    "validation": 0.025,
+    "total": 9306.785
+  },
+  "token_usage": {
+    "input_tokens": 2838,
+    "output_tokens": 640,
+    "total_tokens": 3478,
+    "estimated_cost": null,
+    "pricing_status": "not_configured"
+  },
+  "prompt_input": {
+    "question_sent": "屋面和沥青路面的径流系数一般取多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_aa37507a06c2e01394da9274688b2e4d",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          22
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.8\n表4.1.8-1径流系数\n地面种类 | 径流系数\n各种屋面、混凝土或沥青路面 | 0.85~0.95\n大块石铺砌路面或沥青表面各种的碎石路面 | 0.55~0.65\n级配碎石路面 | \n干砌砖石或碎石路面 | \n非铺砌土路面 | 35\n公园或绿地 | 10~0.20"
+      },
+      {
+        "evidence_id": "chunk_eba7f520162e99a1bebf5b842ec02c10",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n式中：k地面截留系数，用混凝土、沥青或砖石铺装的地面取\n6.19，未铺装地面取4.91。"
+      },
+      {
+        "evidence_id": "chunk_750dd4f9c1a51af7c6da970ae76305cb",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          48
+        ],
+        "text": "1 总 > 1.0.3\n1. 0. 3\n涉及排水管网及配套设施混接改造设计应符合国家现行\n标准《建筑给水排水设计标准》GB 50015、《室外排水设计标准》\nGB 50014、《城市工程管线综合规划规范》GB 50289、《建筑与\n小区雨水控制与利用工程技术规范》GB 50400、《建筑给水排水\n与节水相关规定通用规范》GB 55020、《建筑屋面雨水排水系统\n技术规程》CJJ 142、《埋地塑料排水管道工程技术规程》CJJ 143、\n《城镇排水管道非开挖修复更新工程技术规程》CJJ/T 210 等的规\n定。\n涉及屋面改造设计应符合现行国家标准《屋面工程技术规范》\nGB 50345、《坡屋面工程技术规范》GB 50693、《建筑与市政工\n程防水通用规范》GB 55030、《种植屋面工程技术规程》JGJ 155\n等的规定。\n涉及道路改造设计应符合现行行业标准《城市道路工程设计\n规范》CJJ 37、《透水水泥混凝土路面技术规程》CJJ/T 135、《城\n镇道路路面设计规范》CJJ 169、\n《透水砖路面技术规程》CJJ/T 188、\n《透水沥青路面技术规程》CJJ/T 190 和《城市道路路基设计规范》\nCJJ 194 等的规定。\n截流设施应符合现行国家标准《室外排水设计标准》GB\n50014 和现行行业标准等的规定。"
+      },
+      {
+        "evidence_id": "chunk_ea36b0d1d27d02f99fa468cd74e4c7bd",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          18
+        ],
+        "text": "4 源头减排设施 > 4.2 渗透设施 > 4.2.4\n4.2.4当透水路面接纳周边地面的径流时，周边地面的面积不宜\n大于透水路面面积的1.2倍。"
+      },
+      {
+        "evidence_id": "chunk_092ff1edf4a0bd5ebc1d2b860cbafdfa",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          51
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.4\n注：根据《澳大利亚降雨与径流》（1998）的建议，城区内修正后的综合径流系数\n超过1.00 时，直接取1.00。"
+      },
+      {
+        "evidence_id": "chunk_1d8da60bf64737b416cfdcbe62da1d6d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          21
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.8\n4.1.8综合径流系数应严格按规划确定的控制，并应符合下列规定：\n1 综合径流系数高于0.7的地区应采用渗透、调蓄等措施。\n2 综合径流系数可根据表4.1.8-1规定的径流系数，通过地\n面种类加权平均计算得到，也可按表4.1.8-2的规定取值，并应核\n实地面种类的组成和比例。\n3 采用推理公式法进行内涝防治设计校核时，宜提高表\n4.1.8-1中规定的径流系数。当设计重现期为20年～30年时，宜将\n径流系数提高10%～15%；当设计重现期为30年～50年时，宜将径\n流系数提高20%～25%；当设计重现期为50年～100年时，宜将径流\n系数提高30%～50%；当计算的径流系数大于1时，应按1取值。"
+      }
+    ]
+  }
+}
