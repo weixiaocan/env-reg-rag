@@ -188,7 +188,7 @@ def create_app(
     diagnostic_routes_enabled: bool = False,
 ) -> FastAPI:
     """Create the HTTP adapter with its application dependency injected."""
-    app = FastAPI(title="排水法规标准智能问答系统", version="0.1.0")
+    app = FastAPI(title="法规文档 RAG 智能问答系统", version="0.1.0")
     install_error_handlers(app)
     workbench_path = Path(__file__).parent / "static" / "index.html"
     documents_path = Path(__file__).parent / "static" / "documents.html"

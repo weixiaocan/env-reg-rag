@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>排水法规标准智能问答系统</title>
+  <title>法规文档 RAG 智能问答系统</title>
   <style>
     :root{--ink:#18231e;--muted:#66756e;--line:#d9e1dc;--paper:#f4f6f2;--panel:#fff;--deep:#10271d;--green:#116447;--soft:#e8f3ed;--lime:#c8ee66;--amber:#945f05;--amber-bg:#fff3d8;--red:#973d35;--red-bg:#fbeae7;--blue:#275f85;--blue-bg:#e9f3f8;--shadow:0 14px 36px rgba(26,45,36,.09)}
     *{box-sizing:border-box}html,body{margin:0;height:100%;color:var(--ink);background:var(--paper);font-family:Inter,"Microsoft YaHei","PingFang SC",system-ui,sans-serif}button,input{font:inherit}button{cursor:pointer}.app{height:100%;display:flex;flex-direction:column}.topbar{height:64px;display:flex;align-items:center;gap:18px;padding:0 22px;background:var(--deep);color:#fff;border-bottom:1px solid #365246}.brand{display:flex;align-items:center;gap:10px;min-width:250px}.mark{display:grid;place-items:center;width:35px;height:35px;border:1px solid #668277;border-radius:10px;color:var(--lime);font-weight:800}.brand strong{font-size:15px}.brand small{display:block;color:#aabdb4;font-size:10px;margin-top:2px}.corpus{flex:1;color:#b7c9c1;font-size:11px}.corpus b{display:block;color:#fff;font-size:12px;margin-bottom:2px}.modes{display:flex;gap:3px;padding:3px;border:1px solid #466256;border-radius:10px}.modes button{border:0;border-radius:7px;padding:7px 10px;background:transparent;color:#c5d4ce;font-size:11px}.modes button.active{background:var(--lime);color:#193122;font-weight:800}
@@ -17,7 +17,7 @@
 <body>
   <div id="app" class="app mode-a">
     <header class="topbar">
-      <div class="brand"><div class="mark">排</div><div><strong>排水法规标准智能问答系统</strong><small>Drainage RAG workspace</small></div></div>
+      <div class="brand"><div class="mark">法</div><div><strong>法规文档 RAG 智能问答系统</strong><small>Regulatory RAG · 排水领域</small></div></div>
       <div class="corpus"><b>当前发布语料</b><span id="runtimeProfile">正在读取运行模式…</span></div>
       <a href="/documents" style="color:#c8ee66;text-decoration:none;font-size:12px">资料浏览</a>
       <div class="modes" aria-label="界面模式"><button data-mode="a" class="active">A 对话</button><button data-mode="b">B 对照</button><button data-mode="c">C 证据板</button></div>

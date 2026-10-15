@@ -148,7 +148,7 @@ class QueryHttpApiTest(unittest.TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertIn("text/html", response.headers["content-type"])
-        self.assertIn("排水法规标准智能问答系统", response.text)
+        self.assertIn("法规文档 RAG 智能问答系统", response.text)
         self.assertIn("当前发布语料", response.text)
         self.assertNotIn("正式语料 formal-corpus-v1", response.text)
         self.assertIn('aria-label="提交问题"', response.text)
