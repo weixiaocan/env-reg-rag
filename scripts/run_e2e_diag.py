@@ -287,11 +287,13 @@ def main() -> None:
     parser.add_argument("--authorized-base-url")
     parser.add_argument("--authorized-send-scope")
     parser.add_argument("--preflight-only", action="store_true")
+    parser.add_argument("--dataset", type=Path, default=DATASET)
     args = parser.parse_args()
+    dataset = args.dataset if args.dataset.is_absolute() else ROOT / args.dataset
 
     cases = [
         json.loads(line)
-        for line in DATASET.read_text(encoding="utf-8").splitlines()
+        for line in dataset.read_text(encoding="utf-8").splitlines()
         if line.strip()
     ]
     pointer = json.loads(POINTER.read_text(encoding="utf-8"))
@@ -302,7 +304,8 @@ def main() -> None:
     if args.preflight_only:
         preflight = {
             "classification": "offline preflight; no provider loaded; no model call",
-            "dataset_sha256": _dataset_sha256(),
+            "dataset": str(dataset.relative_to(ROOT)).replace("\\", "/"),
+            "dataset_sha256": _dataset_sha256(dataset),
             "dataset_cases": len(cases),
             "corpus_version": pointer["corpus_version"],
             "entry": "POST /api/v1/queries (in-process ASGI)",
@@ -373,7 +376,8 @@ def main() -> None:
     run_config = {
         "classification": "diagnostic",
         "run_id": args.run_id,
-        "dataset_sha256": _dataset_sha256(),
+        "dataset": str(dataset.relative_to(ROOT)).replace("\\", "/"),
+        "dataset_sha256": _dataset_sha256(dataset),
         "dataset_cases": len(cases),
         "corpus_version": services.corpus_version,
         "entry": "POST /api/v1/queries (in-process ASGI, production HTTP adapter)",
