@@ -1,0 +1,15 @@
+{
+  "source_run": "eval/runs/diagnostic-e2e-20261015-7411",
+  "claims": 82,
+  "claims_without_citation": 0,
+  "citations_outside_prompt_evidence": 0,
+  "citation_policy_counts": {
+    "answer_and_citation": 58,
+    "source_locator_only": 43
+  },
+  "claims_verified": {
+    "False": 39,
+    "True": 43
+  },
+  "unverified_claims_citing_only_locator_only": 32
+}

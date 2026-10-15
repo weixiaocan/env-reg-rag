@@ -1,0 +1,94 @@
+{
+  "case": "G008",
+  "question": "美国EPA《Illicit Discharge Detection and Elimination》指导手册对住宅小区雨污混接的法定罚款上限是多少美元？",
+  "expected_answerability": "refuse",
+  "request_id": "diagnostic-e2e-20261015-7411-G008",
+  "trace_missing": false,
+  "wall_ms": 3326.072,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.018,
+    "retrieval": 52.189,
+    "context_expansion": 9.753,
+    "generation": 3241.069,
+    "total": 3303.207
+  },
+  "generate_context_evidence_ids": [
+    "chunk_8c6f110ce77811ddd894f5dc8691830b",
+    "chunk_974718206eb262c3c09d8dcfd4b12d0c",
+    "chunk_c2ccd013ce87b3b022b2719b803c57f5",
+    "chunk_755a57fa3419e0b11f30500e48181583",
+    "chunk_7c8806bb8cff259337de48e40c2e4ad1"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 2479,
+    "output_tokens": 118,
+    "total_tokens": 2597,
+    "estimated_cost": 0.023136,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "美国EPA《Illicit Discharge Detection and Elimination》指导手册对住宅小区雨污混接的法定罚款上限是多少美元？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_8c6f110ce77811ddd894f5dc8691830b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          47,
+          48
+        ],
+        "text": "1 总 > 1.0.2\n1. 0. 2\n本标准所表述的建筑与小区均指既有建筑与小区。根据省\n内已开展雨污混接改造城市的工作经验来看，建筑与小区排水管\n网及配套设施的雨污混接点约占70%，市政排水管网及配套设施\n的混接点约占30%，且建筑与小区内的混接形式更为复杂多样，\n是城镇污水处理提质增效应重点关注的对象。因此，本标准主要\n针对的是既有建筑与小区排水管网及配套设施的雨污混接改造工\n程。"
+      },
+      {
+        "evidence_id": "chunk_974718206eb262c3c09d8dcfd4b12d0c",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "2 术语和符号 > 2.1 术语术语 > 2.1.11\n2.1.11 混接治理illicit discharge elimination\n为消除混接、外水入渗和水体水倒灌所采取的相关措施。"
+      },
+      {
+        "evidence_id": "chunk_c2ccd013ce87b3b022b2719b803c57f5",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          76
+        ],
+        "text": "6 > 6.1 > 6.1.1\n6. 1. 1\n建筑与小区雨污混接改造工程是一项系统性工程，施工\n图审查合格后，建设单位应组织设计单位向施工单位、监理单位\n进行设计交底。\n本条规定施工单位应熟悉设计文件和施工图，理解设计意图\n及要求，严格按照设计文件和相应的技术标准进行施工，不得无\n图纸擅自施工，造成雨污混接改造达不到应有的效果。施工单位\n如发现现场情况与设计文件不相符的，应及时联系建设单位与设\n计单位进行处理。"
+      },
+      {
+        "evidence_id": "chunk_755a57fa3419e0b11f30500e48181583",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          10
+        ],
+        "text": "2 术 > 2.0.4\n2. 0. 4\n混接调查\nillicit discharge investigation\n综合运用人工调查、仪器探查、泵站运行配合等方法，查明\n调查区域内混接点、雨污混接源空间位置、流量水质、管道缺陷\n等要素，并通过调查结果的分析和判断，得出雨污混接状况和程\n度的评估结论的过程。"
+      },
+      {
+        "evidence_id": "chunk_7c8806bb8cff259337de48e40c2e4ad1",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          45
+        ],
+        "text": "编制说明\n《福建省建筑与小区雨污混接改造技术标准》DBJ/T\n13-477-2024，经福建省住房和城乡建设厅2024 年12 月31 日以\n闽建科〔2024〕63 号文批准发布，并经住房和城乡建设部备案，\n备案号为J 17963-2025。\n本标准制订过程中，编制组进行了广泛的调查研究，总结了\n我省雨污混接改造的实践经验，参考了国内先进技术法规、技术\n标准，并对雨污混接改造开展了专题研究。\n为便于广大设计、施工、科研、学校等单位有关人员在使用\n本标准时能正确理解和执行条文规定，《福建省建筑与小区雨污\n混接改造技术标准》编制组按章、节、条顺序编制了本标准的条\n文说明，对条文规定的目的、依据以及执行中需要注意的有关事\n项进行说明。但是，本条文说明不具备与标准正文同等的法律效\n力，仅供使用者作为理解和把握标准规定的参考。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "correct_refusal",
+  "cumulative_estimated_cost_cny": 0.400608
+}

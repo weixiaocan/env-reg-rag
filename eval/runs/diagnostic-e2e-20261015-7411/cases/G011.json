@@ -1,0 +1,566 @@
+{
+  "case": "G011",
+  "question": "按福建标准表1《生活污水水质特征因子浓度》，以洗涤废水为主要特点的灰水氨氮浓度均值是多少？黑水氨氮均值是多少？",
+  "expected_answerability": "locate",
+  "request_id": "diagnostic-e2e-20261015-7411-G011",
+  "trace_missing": false,
+  "wall_ms": 12245.711,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "福建标准《DBJ/T 13-477-2024 福建省建筑与小区雨污混接改造技术标准》表1《生活污水水质特征因子浓度》中，以洗涤废水为主要特点的灰水氨氮浓度均值为6.1 mg/L。",
+        "evidence_ids": [
+          "chunk_3c405127a459a35c4a738229f3dabb54"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "福建标准《DBJ/T 13-477-2024 福建省建筑与小区雨污混接改造技术标准》表1《生活污水水质特征因子浓度》中，以粪便污水为特点的黑水氨氮浓度均值为76.8 mg/L。",
+        "evidence_ids": [
+          "chunk_3c405127a459a35c4a738229f3dabb54"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_4d854a9303ed1c1120d64a9e2644802e",
+    "chunk_778352a809f0abd19ca435a12cb4772c",
+    "chunk_3c405127a459a35c4a738229f3dabb54",
+    "chunk_c0e3391959e549573291f06783ab0c49",
+    "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+    "chunk_8e62decc2e5c13bcae99fd7ff0cc911a",
+    "chunk_071364b33cf2497c83b6276b0efb197c",
+    "chunk_65e3734289600f364214a7969ae5ddfa",
+    "chunk_efb67de7409992d18ec475a3459d6e08",
+    "chunk_b85e75a8bb4cd5c30adc4c52844d64d6",
+    "chunk_1c940aa98c2e4383128f0f8158f6993b"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_4d854a9303ed1c1120d64a9e2644802e",
+      "text": "5 混接区域调查 > 5.3 水质特征因子的选择 > 5.3.2\n表1\n生活污水水质特征因子浓度\n水质参数 | 以洗涤废水为主要特点的灰水 | 以洗涤废水为主要特点的灰水 | 以粪便污水为特点的黑水 | 以粪便污水为特点的黑水\n水质参数 | 范围 | 均值 | 范围 | 均值\nCODcr(mg/L) | 142~387 | 285 | 426~803 | 575\n氨氮(mg/L) | 3.6~9.6 | 6.1 | 46.8~109.3 | 76.8\n磷酸盐(mg/L) | 0.47~1.36 | 0.89 | 4.16~7.74 | 5.87\n总氮(mg/L) | 12.3~40.0 | 22.4 | 54.2~121.6 | 99.2\n表面活性剂(mg/L) | 1.86~7.64 | 3.46 | 0.83~1.92 | 1.31\n钾(mg/L) | 12.9~36.7 | 23.6 | 25.0~56.0 | 37.6\n钠(mg/L) | 22.2~68.3 | 38.7 | 16.7~63.7 | 44.4\n氯化物(mg/L) | 26.0~76.0 | 51.9 | 89.0~252 | 153\n电导率(μs/cm) | 432~1058 | 810 | 1314~2044 | 1786\n安赛蜜(μg/L) | 1.07~1.78 | 1.47 | 27.9~51.2 | 37.2\n注：1\nCODc，、氨氮、磷酸盐、总氮、表面活件剂、氯化物、电导率是在某居住小区连",
+      "document_version_id": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        65
+      ],
+      "heading_path": [
+        "5 混接区域调查",
+        "5.3 水质特征因子的选择",
+        "5.3.2"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "publication_date": "2020-10-09",
+      "effective_from": "2021-03-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_4d854a9303ed1c1120d64a9e2644802e__p65",
+          "physical_page": 65,
+          "kind": "text",
+          "bbox": [
+            40.8342656931774,
+            222.0533652820747,
+            337.95459658659973,
+            413.886870696438
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_778352a809f0abd19ca435a12cb4772c",
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n[公式]\nNH_3-N/K",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        27
+      ],
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.2"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_778352a809f0abd19ca435a12cb4772c__p27",
+          "physical_page": 27,
+          "kind": "text",
+          "bbox": [
+            458.3608452290783,
+            120.69788708946182,
+            504.4525169077247,
+            132.26853259663045
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_3c405127a459a35c4a738229f3dabb54",
+      "text": "4 前期调查 > 4.3 > 4.3.4\n表1\n生活污水水质特征因子浓度\n水质参数 | 以洗涤废水为主要特点的灰水 | 以洗涤废水为主要特点的灰水 | 以粪便污水为特点的黑水 | 以粪便污水为特点的黑水\n水质参数 | 范围 | 均值 | 范围 | 均值\nCODcr (mg/L) | 142~387 | 285 | 426~803 | 575\n氨氮（mg/L） | 3.6~9.6 | 6.1 | 46.8~109.3 | 76.8\n磷酸盐(mg/L) | 0.47~1.36 | 0.89 | 4.16~7.74 | 5.87\n总氮(mg/L) | 12.3~40.0 | 22.4 | 54.2~121.6 | 99.2\n表面活性剂 (mg/L) | 1.86~7.64 | 3.46 | 0.83~1.92 | 1.31\n钾(mg/L) | 12.9~36.7 | 23.6 | 25.0~56.0 | 37.6\n钠（mg/L) | 22.2~68.3 | 38.7 | 16.7~63.7 | 44.4\n氯化物（mg/L) | 26.0~76.0 | 51.9 | 89.0~252 | 153\n电导率(μS/cm) | 432~1058 | 810 | 1314~2044 | 1786\n安赛蜜 (μg/L) | 1.07~1.78 | 1.47 | 27.9~51.2 | 37.2",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        56
+      ],
+      "heading_path": [
+        "4 前期调查",
+        "4.3",
+        "4.3.4"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_3c405127a459a35c4a738229f3dabb54__p56",
+          "physical_page": 56,
+          "kind": "text",
+          "bbox": [
+            49.78229802697247,
+            308.0228627667954,
+            344.2366504479919,
+            468.79598142195954
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c0e3391959e549573291f06783ab0c49",
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n特征因子可包括氨氮、总氮、表面活性剂和人工甜味剂安赛蜜、茶氨酸等。其中\n氨氮、总氮、安赛蜜是表征黑水的特征指标，表面活性剂、茶氨酸是表征灰水的\n特征指标。此外，钾离子也是表征生活污染的重要水质特征因子指标，NH3-N/K\n比值可用作判定灰水或者黑水接入的定性指标。如果NH3-N/K<1，污水来源可\n能为灰水；如果NH3-N/K≥1，污水来源可能为以化粪池溢流或者居住区生活污水\n为特点的黑水。综合考虑指标的测定难易程度以及黑水和灰水的区分等因素，选\n择氨氮、总氮、钾离子、表面活性剂作为生活污染混接预判的水质特征因子指标。",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        27
+      ],
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c0e3391959e549573291f06783ab0c49__p27",
+          "physical_page": 27,
+          "kind": "text",
+          "bbox": [
+            89.87997436523438,
+            73.69200134277344,
+            508.44000244140625,
+            227.7240447998047
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+      "text": "4 前期调查 > 4.3 > 4.3.4\nCODCr、氨氮、总氮、磷酸盐、钾等均可以作为表征黑水接\n入的水质特征因子指标，表面活性剂是表征灰水接入的水质特征\n指标。如果表面活性剂浓度相对较高，而氨氮和钾的浓度相对较\n低，那么洗涤废水接入的可能性很大；如果表面活性剂、氨氮、\n钾的浓度都较高，那么居住区生活污水接入的可能性很大。通常\n化粪池溢流的表面活性剂浓度低；因此，如果氨氮、钾的浓度相\n对较高，而表面活性剂浓度低，则可能存在化粪池溢流水。\n混接调查时，如果遇到无法打开的检查井或需要开挖方能确\n认混接点的情况，可由业主单位或建设单位配合，也可在施工阶\n段由施工单位配合开展溯源调查工作，完善混接调查报告。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        56,
+        57
+      ],
+      "heading_path": [
+        "4 前期调查",
+        "4.3",
+        "4.3.4"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_bc4082cff9b245882840bf6cde9d6ea2__p56",
+          "physical_page": 56,
+          "kind": "text",
+          "bbox": [
+            50.99999237060547,
+            471.83245849609375,
+            345.836669921875,
+            516.1944580078125
+          ]
+        },
+        {
+          "region_id": "chunk_bc4082cff9b245882840bf6cde9d6ea2__p57",
+          "physical_page": 57,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            60.544464111328125,
+            345.7378234863281,
+            166.99440002441406
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_8e62decc2e5c13bcae99fd7ff0cc911a",
+      "text": "5 混接区域调查 > 5.3 水质特征因子的选择 > 5.3.2\n5.3.2 我国生活污水水质特征因子浓度检测结果如表1 所示。\n灰水水样取自旧式居住小区建筑内洗涤盆、洗衣机的排水管出口\n检查井，黑水水样取自小区化粪池入口检查井。",
+      "document_version_id": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        65
+      ],
+      "heading_path": [
+        "5 混接区域调查",
+        "5.3 水质特征因子的选择",
+        "5.3.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "publication_date": "2020-10-09",
+      "effective_from": "2021-03-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_8e62decc2e5c13bcae99fd7ff0cc911a__p65",
+          "physical_page": 65,
+          "kind": "text",
+          "bbox": [
+            39.5,
+            158.77188873291016,
+            338.0,
+            203.71499633789065
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_071364b33cf2497c83b6276b0efb197c",
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n[公式]\nNH_{3}-N.",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        25
+      ],
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.2"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_071364b33cf2497c83b6276b0efb197c__p25",
+          "physical_page": 25,
+          "kind": "text",
+          "bbox": [
+            134.25889337290994,
+            590.2313107665327,
+            174.87710407313787,
+            603.7727983737665
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_65e3734289600f364214a7969ae5ddfa",
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n除NH3-N、TN 外，表征污染来源的水质特征因子还包括钾、表\n面活性剂、氯离子、安赛蜜、电导率及其他金属离子（钠、钙、镁）\n等。附表1 给出了上海典型居住小区生活污水中黑水、灰水中的水质\n特征因子浓度，并对比给出了地下水中对应指标的浓度范围。",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        25
+      ],
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_65e3734289600f364214a7969ae5ddfa__p25",
+          "physical_page": 25,
+          "kind": "text",
+          "bbox": [
+            89.86730194091797,
+            587.5416870117188,
+            512.4012451171875,
+            687.8294677734375
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_efb67de7409992d18ec475a3459d6e08",
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n表5-1 生活污水中氨氮和电导率的浓度范围\n水量来源 | 氨氮（mg/L) | 氨氮（mg/L) | 电导率（us/cm) | 电导率（us/cm)\n水量来源 | 范围 | 均值 | 范围 | 均值\n灰水 | 3.6~9.6 | 6.1 | 432~1058 | 810\n黑水 | 46.8~109 | 76.8 | 1314~2044 | 1786",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        24
+      ],
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_efb67de7409992d18ec475a3459d6e08__p24",
+          "physical_page": 24,
+          "kind": "text",
+          "bbox": [
+            83.40365852242755,
+            195.79229212076575,
+            508.80240186384486,
+            300.94498309433976
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b85e75a8bb4cd5c30adc4c52844d64d6",
+      "text": "4 设计流量和设计水质 > 4.2 设计水质 > 4.2.2\n4.2.2 污水厂内生物处理构筑物进水的水温宜为10℃～37℃，\npH值宜为6.5～9.5，营养组合比（五日生化需氧量：氮：磷)可为\n100：5：1。有工业废水进入时，应考虑有害物质的影响。",
+      "document_version_id": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        25
+      ],
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.2 设计水质",
+        "4.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b85e75a8bb4cd5c30adc4c52844d64d6__p25",
+          "physical_page": 25,
+          "kind": "text",
+          "bbox": [
+            54.5,
+            170.5,
+            350.5,
+            216.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_1c940aa98c2e4383128f0f8158f6993b",
+      "text": "4 前期调查 > 4.3 > 4.3.4\n4. 3. 4\n对预判存在雨污混接的区域，可采用的混接调查手段\n包括：人工开井目视方法、电视检测（CCTV）、潜望镜检测（QV）、\n声纳检测、水量检测、水质特征因子和染色检查等。生活污\n水水质特征因子浓度如表1 所示。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        56
+      ],
+      "heading_path": [
+        "4 前期调查",
+        "4.3",
+        "4.3.4"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_1c940aa98c2e4383128f0f8158f6993b__p56",
+          "physical_page": 56,
+          "kind": "text",
+          "bbox": [
+            50.99993896484375,
+            224.10516357421875,
+            351.2499694824219,
+            286.32757568359375
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.008,
+    "retrieval": 74.146,
+    "context_expansion": 44.342,
+    "generation": 12109.288,
+    "validation": 0.133,
+    "total": 12228.098
+  },
+  "generate_context_evidence_ids": [
+    "chunk_4d854a9303ed1c1120d64a9e2644802e",
+    "chunk_778352a809f0abd19ca435a12cb4772c",
+    "chunk_3c405127a459a35c4a738229f3dabb54",
+    "chunk_c0e3391959e549573291f06783ab0c49",
+    "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+    "chunk_8e62decc2e5c13bcae99fd7ff0cc911a",
+    "chunk_1c940aa98c2e4383128f0f8158f6993b"
+  ],
+  "trace_evidence_ids": [
+    "chunk_4d854a9303ed1c1120d64a9e2644802e",
+    "chunk_778352a809f0abd19ca435a12cb4772c",
+    "chunk_3c405127a459a35c4a738229f3dabb54",
+    "chunk_c0e3391959e549573291f06783ab0c49",
+    "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+    "chunk_8e62decc2e5c13bcae99fd7ff0cc911a",
+    "chunk_071364b33cf2497c83b6276b0efb197c",
+    "chunk_65e3734289600f364214a7969ae5ddfa",
+    "chunk_efb67de7409992d18ec475a3459d6e08",
+    "chunk_b85e75a8bb4cd5c30adc4c52844d64d6",
+    "chunk_1c940aa98c2e4383128f0f8158f6993b"
+  ],
+  "token_usage": {
+    "input_tokens": 3837,
+    "output_tokens": 772,
+    "total_tokens": 4609,
+    "estimated_cost": 0.052312,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按福建标准表1《生活污水水质特征因子浓度》，以洗涤废水为主要特点的灰水氨氮浓度均值是多少？黑水氨氮均值是多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_4d854a9303ed1c1120d64a9e2644802e",
+        "usage_policy": "source_locator_only",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          65
+        ],
+        "text": "5 混接区域调查 > 5.3 水质特征因子的选择 > 5.3.2\n表1\n生活污水水质特征因子浓度\n水质参数 | 以洗涤废水为主要特点的灰水 | 以洗涤废水为主要特点的灰水 | 以粪便污水为特点的黑水 | 以粪便污水为特点的黑水\n水质参数 | 范围 | 均值 | 范围 | 均值\nCODcr(mg/L) | 142~387 | 285 | 426~803 | 575\n氨氮(mg/L) | 3.6~9.6 | 6.1 | 46.8~109.3 | 76.8\n磷酸盐(mg/L) | 0.47~1.36 | 0.89 | 4.16~7.74 | 5.87\n总氮(mg/L) | 12.3~40.0 | 22.4 | 54.2~121.6 | 99.2\n表面活性剂(mg/L) | 1.86~7.64 | 3.46 | 0.83~1.92 | 1.31\n钾(mg/L) | 12.9~36.7 | 23.6 | 25.0~56.0 | 37.6\n钠(mg/L) | 22.2~68.3 | 38.7 | 16.7~63.7 | 44.4\n氯化物(mg/L) | 26.0~76.0 | 51.9 | 89.0~252 | 153\n电导率(μs/cm) | 432~1058 | 810 | 1314~2044 | 1786\n安赛蜜(μg/L) | 1.07~1.78 | 1.47 | 27.9~51.2 | 37.2\n注：1\nCODc，、氨氮、磷酸盐、总氮、表面活件剂、氯化物、电导率是在某居住小区连"
+      },
+      {
+        "evidence_id": "chunk_778352a809f0abd19ca435a12cb4772c",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          27
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n[公式]\nNH_3-N/K"
+      },
+      {
+        "evidence_id": "chunk_3c405127a459a35c4a738229f3dabb54",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          56
+        ],
+        "text": "4 前期调查 > 4.3 > 4.3.4\n表1\n生活污水水质特征因子浓度\n水质参数 | 以洗涤废水为主要特点的灰水 | 以洗涤废水为主要特点的灰水 | 以粪便污水为特点的黑水 | 以粪便污水为特点的黑水\n水质参数 | 范围 | 均值 | 范围 | 均值\nCODcr (mg/L) | 142~387 | 285 | 426~803 | 575\n氨氮（mg/L） | 3.6~9.6 | 6.1 | 46.8~109.3 | 76.8\n磷酸盐(mg/L) | 0.47~1.36 | 0.89 | 4.16~7.74 | 5.87\n总氮(mg/L) | 12.3~40.0 | 22.4 | 54.2~121.6 | 99.2\n表面活性剂 (mg/L) | 1.86~7.64 | 3.46 | 0.83~1.92 | 1.31\n钾(mg/L) | 12.9~36.7 | 23.6 | 25.0~56.0 | 37.6\n钠（mg/L) | 22.2~68.3 | 38.7 | 16.7~63.7 | 44.4\n氯化物（mg/L) | 26.0~76.0 | 51.9 | 89.0~252 | 153\n电导率(μS/cm) | 432~1058 | 810 | 1314~2044 | 1786\n安赛蜜 (μg/L) | 1.07~1.78 | 1.47 | 27.9~51.2 | 37.2"
+      },
+      {
+        "evidence_id": "chunk_c0e3391959e549573291f06783ab0c49",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+        "physical_pages": [
+          27
+        ],
+        "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.2\n特征因子可包括氨氮、总氮、表面活性剂和人工甜味剂安赛蜜、茶氨酸等。其中\n氨氮、总氮、安赛蜜是表征黑水的特征指标，表面活性剂、茶氨酸是表征灰水的\n特征指标。此外，钾离子也是表征生活污染的重要水质特征因子指标，NH3-N/K\n比值可用作判定灰水或者黑水接入的定性指标。如果NH3-N/K<1，污水来源可\n能为灰水；如果NH3-N/K≥1，污水来源可能为以化粪池溢流或者居住区生活污水\n为特点的黑水。综合考虑指标的测定难易程度以及黑水和灰水的区分等因素，选\n择氨氮、总氮、钾离子、表面活性剂作为生活污染混接预判的水质特征因子指标。"
+      },
+      {
+        "evidence_id": "chunk_bc4082cff9b245882840bf6cde9d6ea2",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          56,
+          57
+        ],
+        "text": "4 前期调查 > 4.3 > 4.3.4\nCODCr、氨氮、总氮、磷酸盐、钾等均可以作为表征黑水接\n入的水质特征因子指标，表面活性剂是表征灰水接入的水质特征\n指标。如果表面活性剂浓度相对较高，而氨氮和钾的浓度相对较\n低，那么洗涤废水接入的可能性很大；如果表面活性剂、氨氮、\n钾的浓度都较高，那么居住区生活污水接入的可能性很大。通常\n化粪池溢流的表面活性剂浓度低；因此，如果氨氮、钾的浓度相\n对较高，而表面活性剂浓度低，则可能存在化粪池溢流水。\n混接调查时，如果遇到无法打开的检查井或需要开挖方能确\n认混接点的情况，可由业主单位或建设单位配合，也可在施工阶\n段由施工单位配合开展溯源调查工作，完善混接调查报告。"
+      },
+      {
+        "evidence_id": "chunk_8e62decc2e5c13bcae99fd7ff0cc911a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          65
+        ],
+        "text": "5 混接区域调查 > 5.3 水质特征因子的选择 > 5.3.2\n5.3.2 我国生活污水水质特征因子浓度检测结果如表1 所示。\n灰水水样取自旧式居住小区建筑内洗涤盆、洗衣机的排水管出口\n检查井，黑水水样取自小区化粪池入口检查井。"
+      },
+      {
+        "evidence_id": "chunk_1c940aa98c2e4383128f0f8158f6993b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          56
+        ],
+        "text": "4 前期调查 > 4.3 > 4.3.4\n4. 3. 4\n对预判存在雨污混接的区域，可采用的混接调查手段\n包括：人工开井目视方法、电视检测（CCTV）、潜望镜检测（QV）、\n声纳检测、水量检测、水质特征因子和染色检查等。生活污\n水水质特征因子浓度如表1 所示。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 0.508684
+}

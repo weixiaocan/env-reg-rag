@@ -1,0 +1,8 @@
+{
+  "classification": "diagnostic agent semantic review; not independent human adjudication",
+  "source_run": "eval/runs/diagnostic-e2e-20261015-7411",
+  "dataset": "eval/golden_v3.jsonl",
+  "source_case_files_sha256": "255d3e00d44d2cadee89cf92ddac043f166965270c0e038c00473d73697cea14",
+  "review_artifact": "eval/audits/diagnostic_e2e_20261015_7411_agent_review.jsonl",
+  "review_scope": "answered content cases only (42); G015 refuse-expected case reviewed in report"
+}
