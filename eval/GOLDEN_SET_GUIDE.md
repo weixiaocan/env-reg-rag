@@ -2,7 +2,7 @@
 
 ## 字段（一行一条 JSONL）
 
-见 `schemas/golden_case_v1.schema.json`。最少三件套：
+见 `schemas/golden_case_v3.schema.json`。最少三件套：
 
 - `question`：问题
 - `evidence[]`：应检索到的原文（评检索）
@@ -30,7 +30,7 @@
 
 | 文件 | 用途 |
 | --- | --- |
-| `schemas/golden_case_v1.schema.json` | 单条 schema |
+| `schemas/golden_case_v3.schema.json` | 单条 schema |
 | `golden_v1.examples.jsonl` / `golden_v1.draft.jsonl` | 示例 / 50 条草稿 |
 | `golden_v1.jsonl` | 50 条已定位、已校验的正式候选集 |
 | `golden_coverage_v1.md` | 23 份×条数配额 |

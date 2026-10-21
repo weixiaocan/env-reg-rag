@@ -8,7 +8,7 @@ from src.application.answer_generation import (
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.query_observability import InMemoryQueryTraceRecorder
 from src.application.query_service import QueryApplicationService
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.domain.query import Answer, Claim, EvidenceItem, QueryRequest, QueryStatus
 
 
@@ -26,7 +26,7 @@ class QueryTraceTest(unittest.IsolatedAsyncioTestCase):
         )
         recorder = InMemoryQueryTraceRecorder()
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([evidence]),
             answer_generator=InMemoryAnswerGenerator(
                 AnswerGenerationResult(
@@ -103,7 +103,7 @@ class QueryTraceTest(unittest.IsolatedAsyncioTestCase):
             source_uri="https://example.org/rainfall.pdf",
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([evidence]),
             answer_generator=InMemoryAnswerGenerator(
                 Answer(

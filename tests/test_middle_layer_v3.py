@@ -19,7 +19,6 @@ from src.ingestion.ocr_region_text import (
     remove_introduced_adjacent_duplicate_fragments,
 )
 from src.ingestion.page_furniture import classify_page_furniture, watermark_line_variants
-from eval.audits.middle_layer_v3.run_rollout import _read_r2b_baseline_snapshot
 
 
 def _line(text: str, y: float, x: float = 50.0) -> dict:
@@ -499,26 +498,6 @@ def test_split_native_number_prefix_and_appendix_hierarchy() -> None:
         "label": "附录B", "title": "暴雨强度公式的编制方法", "level": 1}
     assert heading_descriptor("B.0.1 本方法适用于自记雨量记录。", is_clause=True) == {
         "label": "B.0.1", "title": None, "level": 3}
-
-
-def test_r2b_baseline_snapshot_is_explicit_and_validated(tmp_path) -> None:
-    snapshot = tmp_path / "baseline.json"
-    snapshot.write_text(
-        '{"schema_version":"middle-layer-v3-r2b-baseline-snapshot/1",'
-        '"source_commit":"0f209d9","adjacent_repetition_rows":[],'
-        '"appendix_clause_rows":[],"body_clause_duplicates_by_document":{}}',
-        encoding="utf-8",
-    )
-    assert _read_r2b_baseline_snapshot(snapshot)["source_commit"] == "0f209d9"
-
-    snapshot.write_text(
-        '{"schema_version":"middle-layer-v3-r2b-baseline-snapshot/1",'
-        '"source_commit":"wrong","adjacent_repetition_rows":[],'
-        '"appendix_clause_rows":[],"body_clause_duplicates_by_document":{}}',
-        encoding="utf-8",
-    )
-    with pytest.raises(ValueError, match="source_commit"):
-        _read_r2b_baseline_snapshot(snapshot)
 
 
 def test_wrapped_cross_reference_is_not_a_clause_start() -> None:

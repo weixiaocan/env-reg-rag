@@ -24,9 +24,6 @@ Pipeline order for a new corpus (run from the repo root, venv active)::
     PYTHONPATH=src python scripts/assemble_corpus_v2.py --corpus-version <new-fingerprint>
     # 6. ingest into Qdrant and publish
     PYTHONPATH=src python scripts/ingest_corpus_v2.py --corpus-version <new-fingerprint> --publish
-    # 7. enrich Qdrant payloads + regenerate the manifest retrieval section
-    PYTHONPATH=src python scripts/enrich_corpus_v2_payloads.py
-    PYTHONPATH=src python scripts/regenerate_corpus_manifest.py
 
 The corpus fingerprint is derived from the source catalog + extractor config +
 formula gate, so adding or changing a PDF yields a new version automatically.

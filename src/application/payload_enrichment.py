@@ -11,9 +11,7 @@ expects but the raw V2 chunk payload does not carry. It is a CONTROLLED step:
   merge leaves it untouched; a MISSING policy is backfilled with the safest
   non-excluded default (``source_locator_only``), never ``answer_and_citation``.
 
-Ingest applies this offline while building the point payloads; the legacy
-``scripts/enrich_corpus_v2_payloads.py`` reuses the same function for the
-already-published collection.
+Ingest applies this offline while building the point payloads.
 """
 
 from __future__ import annotations

@@ -14,7 +14,7 @@
 
 - **资料治理**：记录文件来源、版本、效力状态、重复关系和发布版本。
 - **文档结构化**：按页处理正文、表格、公式和图片，保留物理页码、坐标与处理状态。
-- **证据问答**：使用向量和关键词混合检索，只允许经过回答准入的证据支持结论。
+- **证据问答**：使用向量和关键词混合检索，回答中的每句事实都必须标注来源，并能回到原文页面区域。
 
 处理完成、内容质量通过、允许正式回答是三种不同状态。系统不会因为 OCR 成功返回，就自动把内容标记为正确或现行有效。
 
@@ -30,9 +30,9 @@ flowchart LR
     F --> G[结构感知分块]
     G --> H[中文向量与 BM25 索引]
     H --> I[Qdrant 混合检索]
-    I --> J[范围判断与证据筛选]
-    J --> K[引用约束生成]
-    K --> L[答案与原文定位]
+    I --> J[上下文补全]
+    J --> K[带来源标注的回答生成]
+    K --> L[引用校验与原文定位]
 ```
 
 这条链路的关键点是：检索块只是查询投影，V2 Canonical 元素和原 PDF 才是可回查的事实来源。
@@ -42,7 +42,8 @@ flowchart LR
 3. **V2 Canonical 装配**把页面结果整理为有顺序的元素流。每个元素保存类型化内容、页码、坐标、来源和关联关系。
 4. **结构感知分块**优先沿标题、条款和结构化元素边界切分，再按 token 预算处理过长正文。
 5. **混合检索**同时使用 `BAAI/bge-small-zh-v1.5` 中文向量和 Qdrant BM25 稀疏检索，通过 RRF 合并排序。
-6. **证据约束生成**先解析问题范围，再筛选允许回答的证据。每条生成主张必须绑定本次查询返回的 evidence ID。
+6. **上下文补全**在命中表格或公式时，把同一条款的引导句、“式中”变量说明和注释一起交给模型。
+7. **带来源标注的生成**让模型写一段自然的回答，句末用编号标注来源；应用层把编号映射回 evidence ID 并逐句校验，引用不存在的来源时整次回答作废。
 
 ## 核心能力
 
@@ -53,8 +54,8 @@ flowchart LR
 | 语料治理 | 文件清单、来源证据、重复关系、候选版本和正式版本指针 |
 | 分块与索引 | 标题/条款感知分块，bge-small-zh dense 向量，BM25 sparse 索引 |
 | 检索 | Qdrant dense + BM25 + RRF，支持地域、资料类型、效力和日期过滤 |
-| 问答 | FastAPI、浏览器工作台、条件追问、受控拒答、冲突证据和引用校验 |
-| 原文查看 | 单页原文图、证据详情、物理页码、来源区域裁剪图；不提供整本 PDF 接口 |
+| 问答 | FastAPI、浏览器工作台、整段回答加句内来源编号、分情况作答、受控拒答、冲突证据和引用校验 |
+| 原文查看 | 按文件编号的引用；点击后在整份文档中定位并高亮引用区域，可前后翻页、缩放；来源区域裁剪图；不提供 PDF 文件下载 |
 | 可观测性 | 查询阶段耗时、模型用量、语料版本和检索配置记录 |
 | 评估 | Canonical、表格、公式、区域检测、检索契约和 HTTP 接口测试 |
 
@@ -70,16 +71,40 @@ python -m venv .venv
 Copy-Item .env.example .env
 ```
 
-`.env` 中的 LLM 配置只影响回答生成。未配置有效密钥时，服务仍能启动，`source_lookup` 原文检索可以继续使用，`answer` 模式会受控拒答。
+`.env` 中的 LLM 配置只影响回答生成。未配置有效密钥时，服务仍能启动，提问会直接返回找到的原文，并提示 AI 回答暂不可用。
 
 同一代码库支持两种运行模式：
 
-- `APP_PROFILE=self_hosted`（默认）：GitHub 发布形态。部署者自行提供 PDF、Qdrant 数据和模型 API Key；限流可以按其环境调整。
-- `APP_PROFILE=demo`：仓库维护者出资的公开面试演示。必须启用应用限流，默认每个 IP 每天 10 次、每分钟 3 次 AI 回答，全站每天 20 次；额度耗尽后 `source_lookup` 和逐页原文浏览继续可用。
+- `APP_PROFILE=self_hosted`（默认）：GitHub 发布形态。部署者使用 Release 中的现成资料库（见下文“载入现成资料库”）或自己的 PDF，并配置自己的模型 API Key；限流可以按其环境调整。
+- `APP_PROFILE=demo`：仓库维护者出资的公开面试演示。必须启用应用限流，默认每个 IP 每天 10 次、每分钟 3 次 AI 回答，全站每天 20 次；额度耗尽后提问自动改为只返回相关原文，逐页原文浏览继续可用。
 
-两种模式都默认设置 `PUBLIC_DIAGNOSTIC_ROUTES_ENABLED=false`。不要让公开网页收集访客 API Key；自托管部署者应把自己的 Key 写入服务器 Secret 或本地 `.env`。
+不要让公开网页收集访客 API Key；自托管部署者应把自己的 Key 写入服务器 Secret 或本地 `.env`。
 
-### 2. 启动 Qdrant 和应用
+### 公网演示状态（2026-10-15）
+
+> 线上仍是 2026-10-15 部署的版本。本文“问答链路”一节描述的回答方式（2026-10-19：整段回答与句内引用、取消规则追问、条款级上下文补全、整份文档阅读器）尚未部署。
+
+工作台已部署在 [https://weixiaocan.com/rag/](https://weixiaocan.com/rag/)。服务器上的语料仍为 `corpus-7411b3a05a07`（本地已发布 `corpus-9097cecb12d5`，待重新部署），服务器就绪检查和 Qdrant 实际 point 数均为 3,885；公网 `source_lookup`、资料目录及逐页原文图已通过烟测。演示服务器已配置智谱 GLM-5.2，公网问答烟测有绑定证据的回答；机器识别、尚未人工核对的表格和公式也可以支持回答，但对应结论会标注"未核对"，提示用户对照原文页。以上是部署与局部在线烟测，不代表法规效力或语料内容质量已经获得权威核验。
+
+### 2. 载入现成资料库
+
+仓库的 [Releases](https://github.com/weixiaocan/env-reg-rag/releases) 附带当前发布语料的数据包，不需要 OCR 或重新入库：
+
+| 文件 | 内容 |
+| --- | --- |
+| `data-corpus-<版本>.tar.gz` | `data/registry`（语料登记与当前指针）和 `data/raw`（原文 PDF，用于逐页显示和高亮） |
+| `qdrant-corpus-<版本>.snapshot` | 向量库快照（向量、BM25、条款路径与原文坐标） |
+| `SHA256SUMS` | 校验和 |
+
+把三个文件下载到同一目录，在仓库根目录运行（Windows 用 Git Bash 或 WSL）：
+
+```bash
+bash deploy/restore_release_data.sh <下载目录>
+```
+
+脚本会校验文件、解压 PDF 和登记数据、启动 Qdrant、载入快照并把查询入口 `corpus_v2_live` 指向它。资料版权说明见 [DATA_NOTICE.md](DATA_NOTICE.md)。
+
+### 3. 启动应用
 
 ```powershell
 docker compose up -d --build
@@ -100,7 +125,7 @@ Invoke-RestMethod http://127.0.0.1:8000/api/v1/health
 Invoke-RestMethod http://127.0.0.1:8000/api/v1/ready
 ```
 
-`health` 只表示应用进程存活。`ready` 还会检查运行查询入口等于 pointer 中的 alias、alias 实际目标等于 pointer 目标、目标 collection 存在且 point 数等于 pointer 的 chunk 数。首次启动的新 Qdrant volume 没有索引，此时需要完成下一节的入库。
+`health` 只表示应用进程存活。`ready` 还会检查运行查询入口等于 pointer 中的 alias、alias 实际目标等于 pointer 目标、目标 collection 存在且 point 数等于 pointer 的 chunk 数。首次启动的新 Qdrant volume 没有索引：载入 Release 数据包，或按下一节从已有制品入库。
 
 ## 用已有 V2 制品建立索引
 
@@ -119,8 +144,6 @@ Docker 镜像会在构建时固定并下载同一个模型，但容器缓存不�
 ```powershell
 $corpus = (Get-Content data\registry\corpus-current.json -Raw | ConvertFrom-Json).corpus_version
 .venv\Scripts\python.exe scripts\ingest_corpus_v2.py --corpus-version $corpus --publish
-.venv\Scripts\python.exe scripts\enrich_corpus_v2_payloads.py --corpus-version $corpus
-.venv\Scripts\python.exe scripts\regenerate_corpus_manifest.py
 ```
 
 当前入库仍采用版本内整库重建：脚本重新分块、重新嵌入并构建不可变 staging collection；通过验证后，`--publish` 原子切换查询 alias `corpus_v2_live`。它还没有实现按文档或 chunk 的增量 upsert。
@@ -181,27 +204,52 @@ $formulaRun = $manifest.formula_region_gate.run_id
 ```powershell
 docker compose up -d qdrant
 .venv\Scripts\python.exe scripts\ingest_corpus_v2.py --corpus-version $candidate --publish
-.venv\Scripts\python.exe scripts\enrich_corpus_v2_payloads.py --corpus-version $candidate
-.venv\Scripts\python.exe scripts\regenerate_corpus_manifest.py
 ```
 
 只有 chunk、向量和 Qdrant point 数量一致，并且内置检索烟测返回结果时，`--publish` 才会更新 `data/registry/corpus-current.json`。
 
-## 使用问答服务
+## 问答链路
 
-浏览器工作台提供问答、证据列表、原文信息和区域图片入口。HTTP API 的主入口是：
+一次提问经过以下步骤。代码入口为 `src/application/query_service.py`，运行时组合见 `src/server/runtime.py`。
+
+| 步骤 | 做什么 | 代码 |
+| --- | --- | --- |
+| 0. 追问改写 | 有前文时，用最近 3 轮问答把追问改写成独立完整的问题（如“计算公式在哪里”→“夜间最小流量法的计算公式在哪里？”），用改写结果检索，网页在回答上方显示“检索：…”。新对话的第一个问题不改写；改写失败时按原问题检索。对话记录由浏览器保存并随请求发送，服务器不保存 | `src/adapters/langchain_question_rewriter.py`、`src/application/question_rewriting.py` |
+| 1. 检索 | bge-small-zh 向量与 BM25 并行检索，RRF 合并，取前 10 条。只检索 `answer_and_citation` 与 `source_locator_only` 证据，`excluded` 不参与 | `src/adapters/qdrant_evidence_retriever.py` |
+| 2. 截取 | 前 5 条进入生成上下文 | `generate_context_limit=5` |
+| 3. 上下文补全 | 命中表格或公式时，补上同一条款前面的引导句，以及后面的“式中”变量说明、单位和注释，到下一条款为止；命中“见表 1”“按下式计算”这类引导句时，补上它指向的表格或公式。最多补 8 块 | `QdrantContextExpander` |
+| 4. 生成 | 证据以 JSON 列表交给模型，每条带短编号（S1、S2…）、原文、文件名、页码、条款路径、效力与日期等元数据，以及是否经人工核对。模型输出一段完整回答，含事实的句子末尾标注 [S1] 这样的编号；只有不同文件的要求在同一适用范围内无法同时成立时，才另行列出冲突 | `src/adapters/langchain_answer_generator.py` |
+| 5. 拆分与校验 | 按编号把回答切成逐句的结论，编号映射回 evidence ID。引用了未提供的编号时整次回答作废；回答中没有任何编号时按“证据不足”处理；冲突只能由两份不同文件的已核对证据构成 | `split_cited_answer`、`QueryApplicationService` |
+| 6. 标记 | 引用了机器识别、未经人工核对证据的句子标记为 `verified=false`，页面提示“部分引用来自机器识别，请对照原文页” | 同上 |
+
+提示词只要求模型依据资料、先给结论、说明出处；结论取决于问题没说明的条件（如统计时段）时分情况说明；涉及公式时写出公式和各变量含义。最近 3 轮问答作为“之前的对话”放在本轮问题前，只用于理解问题，事实仍只能来自本次资料；历史不作为模型的回复消息重放，否则模型会模仿纯文本回复而丢掉要求的 JSON 格式。公式要求写成纯文本。系统不做重排（E1 实验未达采纳门槛）。
+
+### 返回状态
+
+| 状态 | 含义 |
+| --- | --- |
+| `answered` | 回答通过了引用校验 |
+| `conflicting_sources` | 不同文件在同一适用范围内的要求无法同时成立，分别列出，不替用户裁决 |
+| `refused` | 资料不能支持回答，系统不拼凑答案 |
+| `search_only` | 没有生成回答，只返回检索到的原文：模型未配置、演示额度用完，或调用方指定了 `source_lookup` |
+| `needs_clarification` | 保留在接口枚举中；当前版本不再由规则追问，网页链路不会返回该状态 |
+
+### HTTP 接口
 
 ```text
 POST /api/v1/queries
+GET  /api/v1/documents
+GET  /api/v1/documents/{document_version_id}
+GET  /api/v1/documents/{document_version_id}/pages/{physical_page}
+GET  /api/v1/documents/{document_version_id}/pages/{physical_page}/image
+GET  /api/v1/evidence/{evidence_id}
+GET  /api/v1/regions/{region_id}/image
 ```
 
-### 只检索原文
-
-`source_lookup` 不调用 LLM，适合检索测试和人工查阅：
+`POST /api/v1/queries` 的 `mode` 默认为 `answer`。网页只使用这一种方式；`mode=source_lookup` 只检索、不调用模型，保留给检索测试和评估脚本：
 
 ```powershell
 $body = @{
-  request_id = "source-demo-001"
   question = "GB 50014-2021 关于雨水管渠设计重现期的原文在哪里？"
   conversation_context = @{}
   mode = "source_lookup"
@@ -214,31 +262,9 @@ Invoke-RestMethod `
   -Body $body
 ```
 
-### 生成带引用回答
+`mode=answer` 会把生成上下文中的证据片段发送给 `.env` 配置的外部模型，产生模型费用，证据片段也会离开本机。涉及受限资料时，先确认数据发送边界。
 
-把 `mode` 改为 `answer` 后，系统会把允许回答的检索证据发送给 `.env` 中配置的外部模型。调用会产生模型费用，也意味着证据片段会离开本机。涉及受限资料时，需要先确认数据发送边界。
-
-查询可能返回以下状态：
-
-| 状态 | 含义 |
-| --- | --- |
-| `answered` | 生成了通过引用校验的回答 |
-| `needs_clarification` | 缺少统计时段、地域等必要条件 |
-| `search_only` | 只提供原文定位，不生成结论 |
-| `conflicting_sources` | 不同文档版本存在无法同时成立的要求 |
-| `refused` | 没有足够证据，或生成模型未配置 |
-
-每条回答主张都带有 evidence ID。服务还提供文档、证据和区域图片接口：
-
-```text
-GET /api/v1/documents/{document_version_id}
-GET /api/v1/documents
-GET /api/v1/documents/{document_version_id}/pages/{physical_page}/image
-GET /api/v1/evidence/{evidence_id}
-GET /api/v1/regions/{region_id}/image
-```
-
-公式列表和复核接口属于诊断能力，不是主问答链路的前置依赖。
+页面信息接口返回页面的点数尺寸，阅读器据此把 PDF 坐标换算到页面图上画高亮框。公式列表和复核接口属于诊断能力，不是问答链路的依赖。
 
 ## 测试
 
@@ -269,7 +295,7 @@ Invoke-RestMethod http://127.0.0.1:6333/collections/corpus_v2_live
 - **运行烟测**：就绪检查、实际 Qdrant point 数和在线查询证明当前服务可运行。
 - **内容质量**：固定问题集、原页金标准和人工坏例复核衡量 OCR、表格、公式、召回和答案质量。
 
-截至 2026-09-29，当前工作区 pointer 指向 `corpus-0b9a1fd84e3d`：正式选择 23 份主文本、1144 页和 4232 个检索块；查询入口为 `corpus_v2_live`。后续始终以 `corpus-current.json`、对应 manifest 和 Qdrant 实际状态为准。
+截至 2026-10-20，`data/registry/corpus-current.json` 指向 `corpus-9097cecb12d5`（2026-10-20 发布，在 7411 基础上应用 35 个经负责人核对的公式更正，见 `data/registry/source-corrections.json`）：正式选择 21 份主文本、1078 页、11977 个结构区域、3885 个检索块，结构处理 0 个执行失败；查询入口为 `corpus_v2_live`。后续始终以 pointer、对应 manifest 和 Qdrant 实际状态为准。
 
 ## 项目结构
 
@@ -296,10 +322,10 @@ Invoke-RestMethod http://127.0.0.1:6333/collections/corpus_v2_live
 
 - **原文可回查**：检索增强文本不能替代源元素。引用必须能够回到文件、物理页和页面区域。
 - **质量状态独立**：执行完成不自动升级为内容正确，也不自动获得回答准入。
-- **低置信内容受限**：未经复核的结构化数字、公式和表格可以用于定位原文，不能直接支持结论。
+- **未核对内容带标记**：未经人工核对的表格、公式和扫描件识别结果可以支持回答，但对应结论标记“未核对”，页面提示对照原文；`excluded` 内容不参与检索。
 - **来源关系显式登记**：同标准号或相似文件名不会触发自动合并，不同排版的页码不会自动互换。
 - **本地文档处理**：PDF、页面和裁剪图默认不上传外部视觉服务。
-- **生成引用受控**：模型只能引用本次提供的 evidence ID，输出仍会经过应用层校验。
+- **生成引用受控**：模型只能使用本次提供的来源编号，编号映射回 evidence ID 后经应用层逐句校验。
 
 更详细的模块边界、状态语义和延期范围见：
 
@@ -312,9 +338,11 @@ Invoke-RestMethod http://127.0.0.1:6333/collections/corpus_v2_live
 
 ## 评估结果（diagnostic 口径）
 
-评估使用 50 题黄金集（46 道内容题 + 4 道应拒答题，`eval/golden_v3.jsonl`）和 16 道不点名文件的自然问法题（`eval/golden_natural.jsonl`）。题目状态为 `reviewed`，尚未冻结，因此以下数字均为诊断结果，不是正式验收成绩。
+> 以下数字来自 2026-10-13 至 10-15 的运行，对应当时的生成方式（逐条主张输出、规则追问统计时段、只补表格引导句）。2026-10-19 起回答方式和上下文补全已改变，黄金集预期同步更新为 `eval/golden_v4.jsonl`（见 `eval/golden_v4.summary.md`），2026-10-20 发布公式更正后证据锚点重新对齐为 `eval/golden_v5.jsonl`，这些数字不能代表当前版本，待功能测试完成后统一重跑。
 
-当前正式语料 `corpus-7411b3a05a07`，生成模型为智谱 GLM，经生产查询入口实测（`eval/runs/diagnostic-gen-20261013-7411-staging/REPORT.md`）：
+评估使用 50 题黄金集（46 道内容题 + 4 道应拒答题，`eval/golden_v3.jsonl`）和 16 道不点名文件的自然问法题（题目文件已清理，结果保留在对应运行目录）。题目状态为 `reviewed`，尚未冻结，因此以下数字均为诊断结果，不是正式验收成绩。
+
+当时的正式语料为 `corpus-7411b3a05a07`，生成模型为智谱 GLM，经生产查询入口实测（`eval/runs/diagnostic-gen-20261013-7411-staging/REPORT.md`）：
 
 | 指标 | 结果 |
 | --- | --- |
@@ -345,6 +373,8 @@ Invoke-RestMethod http://127.0.0.1:6333/collections/corpus_v2_live
 - 新增 PDF 可以复用未变化页面的处理缓存；分块、嵌入和 Qdrant 入库仍是整库重建。
 - OCR 对复杂表格、低质量扫描页和公式参数仍可能出错，隔离内容需要回看原页。
 - 问题中点名文件时，文件名关键词可能压过真正的条文（如 G001）；图片内容类问题回答不稳定。
+- 检索固定返回前 10 条，没有相关度门槛；不重排。追问改写每次多一次模型调用；额度用完退回只查原文时不改写，追问会按原话检索。
+- “先给结论”“写一次出处”等写法要求只在提示词中约束，代码只校验引用。
 
 ## 许可
 

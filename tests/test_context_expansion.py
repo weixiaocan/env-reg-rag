@@ -9,7 +9,7 @@ from src.adapters.qdrant_evidence_retriever import (
 from src.application.answer_generation import InMemoryAnswerGenerator
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.query_service import QueryApplicationService
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.domain.query import (
     Answer,
     Claim,
@@ -73,6 +73,63 @@ class QdrantContextExpanderTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual([e.evidence_id for e in extras], ["chunk_lead", "chunk_note"])
 
+    async def test_formula_brings_its_variable_lines_but_not_unit_fragments(self):
+        clause = [{"label": "5.2.4", "title": ""}]
+        chunks = [
+            _chunk("f_lead", ["e000193"], ["text"], "5.2.4 应按下式计算：", clause),
+            _chunk("f_formula", ["e000194", "e000195"], ["formula", "text"],
+                   "[公式]\nBI=ADF-KQ_{g}\n式中：BI——旱天入流入渗量；", clause,
+                   "source_locator_only"),
+            _chunk("f_unit", ["e000196"], ["formula"], "[公式]\n(m³/d)", clause,
+                   "source_locator_only"),
+            _chunk("f_adf", ["e000197"], ["text"], "ADF——旱天日均流量监测值；", clause),
+            _chunk("f_qg", ["e000199"], ["text"], "Qg——区域日平均用水量；", clause),
+            _chunk("f_k", ["e000201"], ["text"], "K——折算系数，宜取0.8~0.9。", clause),
+            _chunk("f_next", ["e000202"], ["text"], "5.2.5 采用夜间最小流量法…",
+                   [{"label": "5.2.5", "title": ""}]),
+        ]
+        index = QdrantRetrievalIndex(
+            client=QdrantClient(":memory:"),
+            collection_name="test_formula_clause",
+            vector_size=2,
+        )
+        index.build(chunks, [[1.0, 0.0]] * len(chunks))
+        formula = index.find_by_chunk_ids(["chunk_f_formula"])[0]
+        expander = QdrantContextExpander(index=index, allowed_policies=POLICIES)
+
+        extras = await expander.expand([evidence_item_from_hit(formula)])
+
+        self.assertEqual(
+            [e.evidence_id for e in extras],
+            ["chunk_f_lead", "chunk_f_adf", "chunk_f_qg", "chunk_f_k"],
+        )
+
+    async def test_long_variable_list_is_kept_but_long_prose_is_not(self):
+        clause = [{"label": "5.3.6", "title": ""}]
+        variables = "5.3.6\n" + "\n".join(
+            f"X{i}——第{i}个变量的含义说明，按监测点上游管径不小于300mm的管段统计；" for i in range(6)
+        )
+        chunks = [
+            _chunk("r_formula", ["e000269", "e000270"], ["formula", "text"],
+                   "5.3.6\n[公式]\nQ_{rl}=\\frac{a}{b}\n式中：Q——评估值；", clause,
+                   "source_locator_only"),
+            _chunk("r_vars", ["e000272"], ["text"], variables, clause),
+            _chunk("r_prose", ["e000273"], ["text"], "5.3.6\n" + "条文说明" * 60, clause),
+        ]
+        self.assertGreater(len(variables), 160)
+        index = QdrantRetrievalIndex(
+            client=QdrantClient(":memory:"),
+            collection_name="test_variable_list",
+            vector_size=2,
+        )
+        index.build(chunks, [[1.0, 0.0]] * len(chunks))
+        formula = index.find_by_chunk_ids(["chunk_r_formula"])[0]
+        expander = QdrantContextExpander(index=index, allowed_policies=POLICIES)
+
+        extras = await expander.expand([evidence_item_from_hit(formula)])
+
+        self.assertEqual([e.evidence_id for e in extras], ["chunk_r_vars"])
+
     async def test_lead_in_already_in_context_stops_the_search(self):
         expander = QdrantContextExpander(index=self.index, allowed_policies=POLICIES)
 
@@ -81,8 +138,28 @@ class QdrantContextExpanderTest(unittest.IsolatedAsyncioTestCase):
         # the older same-heading chunk is not pulled in instead
         self.assertEqual([e.evidence_id for e in extras], ["chunk_note"])
 
-    async def test_text_evidence_is_not_expanded(self):
+    async def test_plain_text_evidence_is_not_expanded(self):
         expander = QdrantContextExpander(index=self.index, allowed_policies=POLICIES)
+
+        self.assertEqual(await expander.expand(self._items("older", "note")), [])
+
+    async def test_lead_in_brings_the_table_it_refers_to(self):
+        expander = QdrantContextExpander(index=self.index, allowed_policies=POLICIES)
+
+        extras = await expander.expand(self._items("lead"))
+
+        self.assertEqual([e.evidence_id for e in extras], ["chunk_table"])
+
+    async def test_reference_without_a_following_table_adds_nothing(self):
+        expander = QdrantContextExpander(index=self.index, allowed_policies=POLICIES)
+
+        # snow points at 表2, but no structured chunk follows under its heading
+        self.assertEqual(await expander.expand(self._items("snow")), [])
+
+    async def test_referenced_table_respects_policy(self):
+        expander = QdrantContextExpander(
+            index=self.index, allowed_policies={"answer_and_citation"}
+        )
 
         self.assertEqual(await expander.expand(self._items("lead")), [])
 
@@ -124,7 +201,7 @@ class ServiceContextExpansionTest(unittest.IsolatedAsyncioTestCase):
         lead = _evidence("ev_lead", "单位为毫米")
         expander = _FixedExpander(lead)
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever(retrieved),
             answer_generator=InMemoryAnswerGenerator(
                 Answer(claims=[Claim(claim_id="claim-1", text="单位为毫米。",

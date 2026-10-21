@@ -1,0 +1,593 @@
+{
+ "schema_version": "1",
+ "basis": "owner visual check of each correction against the source PDF render (2026-10-20)",
+ "owner_verified": true,
+ "owner_verified_note": "2026-10-20 owner: mark the corrected formulas (and the two corrected 5.3.6 variable lines) as verified",
+ "review": {
+  "proposal": "eval/formula_corrections_proposed_7411.json",
+  "proposal_sha256": "a4c04034b607dce07e0f7a168da7cd14172d24163029eeaaa5bfa62a5e83b741",
+  "owner_decisions_sha256": "63fde40c65d6578acb68904296121b12c80de82a51ebc5be801f5e698ebd2b69",
+  "reviewed_at": "2026-10-20T02:44:43.233Z",
+  "notes": {
+   "59": "owner queried S_e vs S_c; the clause defines only S_o and S_e (7.6.10-1 uses S_o-S_e), so S_e"
+  }
+ },
+ "formulas": [
+  {
+   "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+   "file_name": "城镇内涝防治技术规范.pdf",
+   "physical_page": 15,
+   "clause": "3.3.5",
+   "bbox": [
+    139.14583908355138,
+    296.6880968074537,
+    259.43126892497054,
+    308.0971940232159
+   ],
+   "original_latex_sha256": "2d5fc00420ec2757e9579e61d5f0de72f29c2389723549afab4fa07042057e16",
+   "corrected_latex": "R_{0}=(i-f_{\\mathrm{m}})t-D_{0}-E",
+   "issue": "末项“− E”被识别成积分号 ∫E_0",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+   "file_name": "城镇内涝防治技术规范.pdf",
+   "physical_page": 17,
+   "clause": "4.1.11",
+   "bbox": [
+    166.75449080039948,
+    298.0246772472729,
+    232.27015829788638,
+    308.78969781611056
+   ],
+   "original_latex_sha256": "44464bcaa4ceb72cf2e7ee7f5fd2afd974c9e2fb25f369f52bf164d4a2e972a0",
+   "corrected_latex": "V_{\\mathrm{s}}=V_{\\mathrm{i}}-W_{\\mathrm{p}}",
+   "issue": "W_p 被识别成乱码",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+   "file_name": "城镇内涝防治技术规范.pdf",
+   "physical_page": 17,
+   "clause": "4.1.11",
+   "bbox": [
+    167.4686679996783,
+    313.8849630554898,
+    230.98131462274725,
+    325.53360325916765
+   ],
+   "original_latex_sha256": "ae9e8555efc0e1f00d78d768fa2970a893e6e8ca8ccfaf2824fbbb0e0f1a4252",
+   "corrected_latex": "W_{\\mathrm{p}}=KJA_{\\mathrm{s}}t_{\\mathrm{s}}",
+   "issue": "A_s 的下标丢失、夹带下划线",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+   "file_name": "城镇内涝防治技术规范.pdf",
+   "physical_page": 26,
+   "clause": "5.2.3",
+   "bbox": [
+    132.08854651040585,
+    157.80899565753168,
+    254.0809349606788,
+    179.73109013710558
+   ],
+   "original_latex_sha256": "69f2c3f86c964646d58c304e8de981afc893fde72ff68c10e6a4491ad4f608a3",
+   "corrected_latex": "Q_{\\mathrm{s}}=\\frac{0.376}{n_{0}}S_{\\mathrm{x}}^{1.67}S_{\\mathrm{L}}^{0.5}T^{2.67}",
+   "issue": "T^2.67 被识别成 T_x^2.75",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+   "file_name": "降雨过程强度等级标准.pdf",
+   "physical_page": 8,
+   "clause": "4.4.2",
+   "bbox": [
+    263.2521146323685,
+    642.4819438792781,
+    328.66211304536364,
+    696.5176457342982
+   ],
+   "original_latex_sha256": "563847dfa26002b6f21a1f4f054e56019d864af2155f85a88246229493a9d2e2",
+   "corrected_latex": "\\overline{I}=\\frac{\\sum_{j=1}^{n}I_{j}Cp_{j}}{\\sum_{j=1}^{n}Cp_{j}}",
+   "issue": "Cp_j 被识别成 C\\not p 乱码",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+   "file_name": "降雨过程强度等级标准.pdf",
+   "physical_page": 8,
+   "clause": "4.4.2",
+   "bbox": [
+    264.89078984735477,
+    701.0146496909878,
+    327.3100873884782,
+    724.6255789262973
+   ],
+   "original_latex_sha256": "2eb3b392d1e1a0dca55635eeb7978ac927c035e9c84e187f2642e9c81ad79c4e",
+   "corrected_latex": "Cp=\\sum_{j=1}^{n}Cp_{j}",
+   "issue": "Cp 被识别成 \\mathscr P 乱码",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+   "file_name": "降雨过程强度等级标准.pdf",
+   "physical_page": 9,
+   "clause": "4.4.2",
+   "bbox": [
+    261.1062293763722,
+    86.78124039523365,
+    330.9633482610908,
+    140.49127399568957
+   ],
+   "original_latex_sha256": "eb7d215adcf482436c443716af4b927c931bbbd4a0f0a9d41ebac1220ffc3ffa",
+   "corrected_latex": "\\overline{T}=\\frac{\\sum_{j=1}^{n}T_{j}Cp_{j}}{\\sum_{j=1}^{n}Cp_{j}}",
+   "issue": "Cp_j 被识别成 C_{P_j}",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+   "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+   "physical_page": 12,
+   "clause": "5.5.5",
+   "bbox": [
+    242.03658132772654,
+    384.3268639587818,
+    344.0597358066949,
+    397.04576863126465
+   ],
+   "original_latex_sha256": "7f273b037e5de1aa2cfa0ecb6ced0df186e63d2e74e06d9fd3b91fdbe7f8106a",
+   "corrected_latex": "C_{污}=q\\div Q\\times100\\%",
+   "issue": "“污”被识别成“浮”",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+   "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+   "physical_page": 12,
+   "clause": "5.5.5",
+   "bbox": [
+    236.65265186388663,
+    510.95489690705415,
+    343.2573023303091,
+    524.8805875580068
+   ],
+   "original_latex_sha256": "4dfa22dddaeb1ba02c165385a1d99fe319b0e6bd89fcbc4d98c2aec8e129cbe5",
+   "corrected_latex": "M_{雨}=n_{雨}\\div N\\times100\\%",
+   "issue": "“雨”被识别成“高”",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+   "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+   "physical_page": 12,
+   "clause": "5.5.5",
+   "bbox": [
+    223.57595410644603,
+    614.1904392983381,
+    355.2790418266552,
+    633.4726075854578
+   ],
+   "original_latex_sha256": "736b0020550f72b65e29f7f33f1cab3c85799c1a292a963cc354727627b88bdf",
+   "corrected_latex": "C_{雨}=\\left|Q_{雨}-Q\\right|\\div Q\\times100\\%",
+   "issue": "“雨”被识别成“放/匝”",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 44,
+   "clause": "7.1.2",
+   "bbox": [
+    191.16600716180938,
+    516.8375885930357,
+    359.0782931395632,
+    531.3542155128557
+   ],
+   "original_latex_sha256": "af17f958ebb52f8d108e725a280c7f99004eaeb02857b99f2261093e7ced96c7",
+   "corrected_latex": "C_{雨}=\\left|Q_{雨}-Q\\right|/Q\\times100\\%",
+   "issue": "Q_雨 的下标丢失，绝对值错位",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "clause": "5.2.6",
+   "bbox": [
+    166.7852663434997,
+    511.0991023389026,
+    423.2539400695457,
+    545.8314644641388
+   ],
+   "original_latex_sha256": "841d0b4732cf32f6c44e759964e5d92669dbfb31b0f1ee7698e977b52f79b97b",
+   "corrected_latex": "BI=\\frac{0.4\\times MDF}{1-0.6\\times(MDF/ADF)^{\\left(\\frac{ADF}{3785}\\right)^{0.7}}}",
+   "issue": "(ADF/3785)^0.7 是 (MDF/ADF) 的指数，被识别成相乘",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 22,
+   "clause": "5.3.6",
+   "bbox": [
+    242.9385194586367,
+    91.79745580924754,
+    363.97411448324715,
+    215.3262117126747
+   ],
+   "original_latex_sha256": "0edf8aefd02600340f5a0355588a8e9a4fb56c7eaa2cd062297f92cbf7110c0d",
+   "corrected_latex": "Q_{\\mathrm{rl}}=\\frac{\\frac{\\sum_{j=1}^{m}RDII_{j}}{\\sum_{j=1}^{m}R_{j}}}{\\sum_{i=1}^{n}L_{i}}",
+   "issue": "外层分母 ΣL_i 整个丢失",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 22,
+   "clause": "4.1.9",
+   "bbox": [
+    141.07663695518494,
+    318.1836648091553,
+    243.51659174483393,
+    342.9408961693856
+   ],
+   "original_latex_sha256": "87280a7dcccf832c35be1237006082ab0f43e4dc23b2ba437115a5873e2fad3a",
+   "corrected_latex": "q=\\frac{167A_{1}(1+C\\lg P)}{(t+b)^{n}}",
+   "issue": "b 被识别成 Δ，多了 \\widehat",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 24,
+   "clause": "4.1.22",
+   "bbox": [
+    155.55304785298526,
+    204.0026979666527,
+    234.77481088282366,
+    214.76169523902428
+   ],
+   "original_latex_sha256": "d9833588a453ed18cdedc0e0c88693493589a13b3f838584f1a91760940d4fdb",
+   "corrected_latex": "Q=Q_{\\mathrm{d}}+Q_{\\mathrm{m}}+Q_{\\mathrm{s}}",
+   "issue": "Q_m 丢失，Q_s 被识别成“四卡负”",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 61,
+   "clause": "7.6.10",
+   "bbox": [
+    150.76012390244637,
+    328.0151479237895,
+    253.75634667984704,
+    351.69600943994567
+   ],
+   "original_latex_sha256": "6478599b46418682ed7cb9ef9281c7089eaab9292cb2f556895cbbe7ec4179cf",
+   "corrected_latex": "V=\\frac{QY\\theta_{\\mathrm{c}}(S_{\\mathrm{o}}-S_{\\mathrm{e}})}{1000X_{\\mathrm{V}}(1+K_{\\mathrm{d}}\\theta_{\\mathrm{c}})}",
+   "issue": "“1+”被识别成“k+”，S_e 被识别成 S_c",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 63,
+   "clause": "7.6.17",
+   "bbox": [
+    122.36168101518865,
+    333.6865144243011,
+    282.21715115363247,
+    359.21530856722364
+   ],
+   "original_latex_sha256": "1d2b7c832a94d333259e818e68196279b3ae6c30f21c26c592474aff9847a53b",
+   "corrected_latex": "V_{\\mathrm{n}}=\\frac{0.001Q(N_{\\mathrm{k}}-N_{\\mathrm{te}})-0.12\\Delta X_{\\mathrm{V}}}{K_{\\mathrm{de}}X}",
+   "issue": "0.12ΔX_V 被移出分式、减号丢失、多了 ^7",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 64,
+   "clause": "7.6.17",
+   "bbox": [
+    147.03863746725114,
+    247.9159382548535,
+    240.88648798897216,
+    272.0701459152688
+   ],
+   "original_latex_sha256": "1a2366ef805e77fc738bc3d3f42b6a7c757af48b11b50b90b76c490d97b2c9d8",
+   "corrected_latex": "V_{\\mathrm{o}}=\\frac{Q(S_{\\mathrm{o}}-S_{\\mathrm{e}})\\theta_{\\mathrm{co}}Y_{\\mathrm{t}}}{1000X}",
+   "issue": "分子里混入偏导符号 ∂/∂θ",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 64,
+   "clause": "7.6.17",
+   "bbox": [
+    133.2037777060907,
+    305.04209783233426,
+    211.67960697893716,
+    327.66906284667164
+   ],
+   "original_latex_sha256": "1fa6b1c238659cdd65cbf170bda912e9a56c09e44d86ccb0c2f767a75de35ef5",
+   "corrected_latex": "\\mu=0.47\\frac{N_{\\mathrm{a}}}{K_{\\mathrm{n}}+N_{\\mathrm{a}}}\\mathrm{e}^{0.098(T-15)}",
+   "issue": "指数因子 e^{0.098(T−15)} 丢失（检测框截短）",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 73,
+   "clause": "7.7.3",
+   "bbox": [
+    99.58003134409162,
+    214.67588793223095,
+    305.55527748985764,
+    225.28515079520582
+   ],
+   "original_latex_sha256": "22c29afe715c36e0c89b6aadd8798ae31f890d50a4697168c1b2b0a9e1d08825",
+   "corrected_latex": "\\Delta X=YQ(S_{\\mathrm{o}}-S_{\\mathrm{e}})-K_{\\mathrm{d}}VX_{\\mathrm{V}}+fQ(SS_{\\mathrm{o}}-SS_{\\mathrm{e}})",
+   "issue": "下标 e→c、X_V→X_e",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 92,
+   "clause": "8.3.6",
+   "bbox": [
+    176.89100153502093,
+    331.17516785543216,
+    219.72660200724877,
+    357.3829073705399
+   ],
+   "original_latex_sha256": "9f74c3c483d31e311eedb100892ba676ea43488abf6132d2d906dd7a31803449",
+   "corrected_latex": "V=\\frac{W_{\\mathrm{S}}}{L_{\\mathrm{V}}}",
+   "issue": "被识别成 W_水/W_水",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 111,
+   "clause": "A.0.1",
+   "bbox": [
+    113.42671981759625,
+    249.30385935979385,
+    292.82253081839303,
+    273.04631936244476
+   ],
+   "original_latex_sha256": "85a7cbd202d2532947246e8fd7965f93ca712ee19471b855c1c4a713598637cf",
+   "corrected_latex": "P_{i}=\\frac{(X_{1}+X_{2}+\\cdots+X_{i})+X_{i}\\times(N-i)}{X_{1}+X_{2}+\\cdots+X_{N}}",
+   "issue": "(N−i) 被识别成 (N×i)，分母错",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 13,
+   "clause": "5.4.5",
+   "bbox": [
+    229.84228304679874,
+    424.6243406053919,
+    395.47149520074584,
+    456.6988719557627
+   ],
+   "original_latex_sha256": "ffc898fd20cc392156a33bd407dae2fb22763fefb3fab29498643c6d8b017642",
+   "corrected_latex": "(EL_{r})_{i}=\\left[\\frac{1}{n-1}\\times\\sum_{j=1}^{n}(EL_{ij}-EL_{i})^{2}\\right]^{\\frac{1}{2}}",
+   "issue": "Σ 被识别成 n/n，EL_ij 被识别成 e^{iθ}",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 13,
+   "clause": "5.4.6",
+   "bbox": [
+    254.5158060071528,
+    679.5162795104851,
+    366.9774275061099,
+    706.7147584417978
+   ],
+   "original_latex_sha256": "976539cb032a4df995ac87b0ef13ae9b7432b43799d526fa2bd4d7d08062b8df",
+   "corrected_latex": "EV_{ij}=\\frac{V_{ij}-(V_{s})_{ij}}{(V_{s})_{ij}}\\times100\\%",
+   "issue": "V_ij 被识别成 W_ij",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 14,
+   "clause": "5.4.7",
+   "bbox": [
+    230.3984292546758,
+    377.13521885654103,
+    395.87960818002705,
+    404.6418832795169
+   ],
+   "original_latex_sha256": "a73c84de6d8629d335deeeacb4b15a047ed05eeb91f75ee05138949753cf612e",
+   "corrected_latex": "(EV_{r})_{i}=\\left[\\frac{1}{n-1}\\times\\sum_{j=1}^{n}(EV_{ij}-EV_{i})^{2}\\right]^{\\frac{1}{2}}",
+   "issue": "“=”被识别成“≤”，1/(n−1) 被识别成 (n−1)/(n−1)",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+   "file_name": "城镇内涝防治技术规范.pdf",
+   "physical_page": 20,
+   "clause": "4.2.9",
+   "bbox": [
+    163.56920822724913,
+    64.48605668430481,
+    221.18023063637088,
+    85.39650390980921
+   ],
+   "original_latex_sha256": "0c914a858db55ccacc9b7e1cd87666eec4387ce7f1a550711c6449fd98e4cda9",
+   "corrected_latex": "d_{\\mathrm{rpp}}=\\frac{\\beta f_{\\mathrm{m}}t_{\\mathrm{o}}}{n_{\\mathrm{i}}}",
+   "issue": "多余的 array 包装",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+   "file_name": "城镇内涝防治技术规范.pdf",
+   "physical_page": 26,
+   "clause": "5.2.3",
+   "bbox": [
+    101.57087771009218,
+    463.57100809299305,
+    283.48655858014627,
+    510.9047200830376
+   ],
+   "original_latex_sha256": "2be0efaa0dfd1ad195e5a0bc5630b118278d3e4b676d04fb0b615fa4f801d42b",
+   "corrected_latex": "E_{0}=\\frac{Q_{\\mathrm{w}}}{Q_{0}}=\\frac{1}{1+\\frac{S_{\\mathrm{w}}/S_{\\mathrm{x}}}{\\left(1+\\frac{S_{\\mathrm{w}}/S_{\\mathrm{x}}}{T/W-1}\\right)^{2.67}-1}}",
+   "issue": "E_0 写成了 E_∘",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+   "file_name": "降雨过程强度等级标准.pdf",
+   "physical_page": 7,
+   "clause": "4.3.2",
+   "bbox": [
+    275.18902279926687,
+    436.7572695790524,
+    316.84508330066393,
+    454.0492143368507
+   ],
+   "original_latex_sha256": "1d01a3a73fa93712adfb4d741b88d1612363bf8ba60bb3127dd4117618a6f03b",
+   "corrected_latex": "Cp=\\frac{n}{N}",
+   "issue": "\\rlap 包装",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+   "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+   "physical_page": 11,
+   "clause": "5.5.5",
+   "bbox": [
+    258.2818884672676,
+    742.4372307477139,
+    348.77780826970655,
+    753.0502686228136
+   ],
+   "original_latex_sha256": "d31dd4365d4dc30c6b8ea33db6986c08d9ab51f4f12ba72612fa0b4f60093c30",
+   "corrected_latex": "\\rho=n_{1}\\div L\\times100\\%",
+   "issue": "末尾多一个 \\cdot",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+   "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+   "physical_page": 12,
+   "clause": "5.5.5",
+   "bbox": [
+    244.8498765847397,
+    158.38440934446325,
+    334.8987649087935,
+    169.2221405309557
+   ],
+   "original_latex_sha256": "6d9398590e3ac8f997fbac868b484afefa0329197cfd52c38c2e118b74f58397",
+   "corrected_latex": "\\rho=n_{2}\\div S\\times100\\%",
+   "issue": "末尾多一个 \\cdot",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+   "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+   "physical_page": 12,
+   "clause": "5.5.5",
+   "bbox": [
+    236.51904109915426,
+    280.0266344732214,
+    344.2430826403773,
+    295.4777570853807
+   ],
+   "original_latex_sha256": "f58de671562e9fddfd964795d0cf0484a05b961fb537622afee27cdaf1f9e1df",
+   "corrected_latex": "M_{污}=n_{污}\\div N\\times100\\%",
+   "issue": "多余的 \\widehat 包装",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 61,
+   "clause": "7.6.10",
+   "bbox": [
+    167.73418333710111,
+    284.21587801644995,
+    236.90162873853674,
+    306.15071681270456
+   ],
+   "original_latex_sha256": "8a4804898adbc3fb29bb6dfc38321c2af677a79e6e03c289df218d9674bb7002",
+   "corrected_latex": "V=\\frac{Q(S_{\\mathrm{o}}-S_{\\mathrm{e}})}{1000L_{\\mathrm{s}}X}",
+   "issue": "多一个下标 X_p",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 64,
+   "clause": "7.6.17",
+   "bbox": [
+    172.43523432686084,
+    278.18713484750157,
+    215.21829203227847,
+    299.90611532410657
+   ],
+   "original_latex_sha256": "ec945b78f3f9bf54e6d561c9b11d45d91813763567ff0e5f999e255741c8db0d",
+   "corrected_latex": "\\theta_{\\mathrm{co}}=F\\frac{1}{\\mu}",
+   "issue": "多一个上划线",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 66,
+   "clause": "7.6.18",
+   "bbox": [
+    175.23090710648182,
+    313.33834192104604,
+    217.70344189257978,
+    333.28234575292777
+   ],
+   "original_latex_sha256": "8b71dcc2c0f929fb9dae80db9c9fda3553c767bf82e1222bc07ea0407f0f55aa",
+   "corrected_latex": "V_{\\mathrm{P}}=\\frac{t_{\\mathrm{P}}Q}{24}",
+   "issue": "Q 带了乱码上下标",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 77,
+   "clause": "7.9.2",
+   "bbox": [
+    75.19026438574507,
+    472.662805271678,
+    273.44793470811635,
+    514.6453372208755
+   ],
+   "original_latex_sha256": "c624eb14d899a6b0e02589188eb4159dc62104b3bff28a627821df117edca71c",
+   "corrected_latex": "O_{2}=0.001aQ(S_{\\mathrm{o}}-S_{\\mathrm{e}})-c\\Delta X_{\\mathrm{V}}+b[0.001Q(N_{\\mathrm{k}}-N_{\\mathrm{ke}})-0.12\\Delta X_{\\mathrm{V}}]-0.62b[0.001Q(N_{\\mathrm{t}}-N_{\\mathrm{ke}}-N_{\\mathrm{oe}})-0.12\\Delta X_{\\mathrm{V}}]",
+   "issue": "N_oe 被识别成 N_ce",
+   "severity": "format"
+  }
+ ],
+ "texts": [
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "physical_page": 22,
+   "original_text_sha256": "fbba5827cdbd06df77ae32a88329a6e631b6057b36e4a4ef236099cf2295fe0b",
+   "corrected_text": "式中：Q_rl——污水收集系统的降雨入流入渗评估值[m³/(km·mm)]；",
+   "issue": "T/CECS 1764 第5.3.6条：变量名应为 Q_rl，单位被拆断"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "physical_page": 22,
+   "original_text_sha256": "e62b3738ee1fd66f7ca7b3e5e48a036ca82dda46b20463b51752a19356566440",
+   "corrected_text": "n——监测点上游管径不小于300mm的污水管段数量。",
+   "issue": "T/CECS 1764 第5.3.6条：缺少变量名 n——"
+  }
+ ]
+}

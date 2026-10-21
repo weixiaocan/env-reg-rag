@@ -7,7 +7,7 @@ BUNDLE=$(cd "$(dirname "$0")" && pwd)
 TARGET=${1:-/opt/drainage-rag}
 QDRANT=http://127.0.0.1:6333
 
-sha256sum -c "$BUNDLE/SHA256SUMS"
+(cd "$BUNDLE" && sha256sum -c SHA256SUMS)
 [ -f "$TARGET/.env" ] || { echo "missing $TARGET/.env -- create it first"; exit 1; }
 
 echo "[install] load images"

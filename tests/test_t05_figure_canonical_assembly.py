@@ -942,25 +942,6 @@ class TestChunkPolicy(unittest.TestCase):
 class TestLegacyCompat(unittest.TestCase):
     _REPO = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-    def test_published_artifact_still_validates_unmarked(self):
-        import glob
-        published = sorted(glob.glob(os.path.join(
-            self._REPO, "data", "canonical", "v2", "*",
-            "*.canonical.json")))
-        if not published:
-            self.skipTest("no published canonical artifacts present")
-        sample = None
-        for path in published:
-            with open(path, "r", encoding="utf-8") as fh:
-                doc = json.load(fh)
-            if any(e.get("type") == "figure" for e in doc.get("elements") or []):
-                sample = doc
-                break
-        if sample is None:
-            self.skipTest("no published artifact with figure elements")
-        self.assertNotIn("figure_ledger", sample)  # unmarked legacy contract
-        validate_document(sample)  # must keep validating
-
     def test_legacy_pi_without_image_fields_still_closes(self):
         # a historical page-intermediate may record no crop asset at all --
         # the region closes as an explicit failed outcome, never silently.

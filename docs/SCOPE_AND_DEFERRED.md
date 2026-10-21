@@ -20,7 +20,7 @@ PDF → UnifiedPageExtractor / CorpusUpdateService → page-intermediate → ass
 
 ssemble 产物 → ingest_corpus_v2（chunk + 向量 + Qdrant）→ FastAPI 查询 → 主工作台 index.html（对话 / 证据溯源）
 
-本地依赖（正常跑通演示时）：Qdrant、本地 embedding（如 bge-small-zh）、以及 **任意已配置的 LLM**（用于证据化回答；未配置时服务仍可起，但 answer 可能拒绝，source_lookup 仍可用）。
+本地依赖（正常跑通演示时）：Qdrant、本地 embedding（如 bge-small-zh）、以及 **任意已配置的 LLM**（用于证据化回答；未配置时服务仍可启动，提问返回检索到的原文并说明 AI 回答不可用）。
 
 **不要求、也未承诺：** 开箱即用的完整 SaaS（多租户、云部署、计费、权限体系等）。本项目是可演示的本地/自托管 RAG 流水线 + 工作台。
 

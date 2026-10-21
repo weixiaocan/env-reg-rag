@@ -13,8 +13,10 @@ Cutting strategy (plan §2.2 "切分格式 5 步"):
 2. Per-type projection (``_project_text``): text by role (filtered), table
    expanded to caption + rows, formula atomic, figure caption + references.
 3. Structure-aware cutting -- three breakpoints (heading / clause start /
-   structured unit) + one merge (adjacent short clauses/paragraphs/list_items
-   fill the token budget).
+   structured unit) + one merge. Every clause start flushes, so clauses are
+   never merged with each other; the merge only packs the paragraphs and
+   list items that follow a clause (same ``section_path``) into its chunk up
+   to the token budget, and keeps a short introduction with its list.
 4. Token budget (default 480) + overlap (64) via the bge tokenizer; an overlong
    single clause is split intra-clause with an offset-exact window packer
    (recursive separator ladder + exact char ranges -- round 5), so every

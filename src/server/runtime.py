@@ -4,10 +4,9 @@ Wires the published corpus's Qdrant collection (from the current pointer) to
 both query profiles
 (answer / source_lookup). The answer profile uses the LangChain generator
 backed by the provider configured in ``.env`` (default: zhipu GLM). When the
-LLM is not configured (missing API key, unsupported provider) the answer
-profile degrades to an ``InMemoryAnswerGenerator`` stub so the service still
-starts and ``source_lookup`` keeps working; ``answer`` queries then return
-REFUSED with a configuration warning.
+LLM is not configured (missing API key, unsupported provider), retrieval
+remains available and the answer profile explicitly reports that generation
+is unavailable.
 """
 
 from __future__ import annotations
@@ -26,6 +25,7 @@ from src.adapters.llm_provider import (
     LlmConfigurationError,
     LlmProviderSettings,
     build_answer_generator,
+    build_question_rewriter,
 )
 from src.adapters.qdrant_evidence_catalog import QdrantEvidenceCatalog
 from src.adapters.qdrant_evidence_retriever import (
@@ -34,13 +34,14 @@ from src.adapters.qdrant_evidence_retriever import (
 )
 from src.adapters.public_document_catalog import PublicDocumentCatalog
 from src.application.answer_generation import Answer, AnswerGenerator, InMemoryAnswerGenerator
+from src.application.question_rewriting import QuestionRewriter
 from src.application.corpus_artifacts import (
     resolve_current_corpus,
     resolve_query_collection,
 )
 from src.application.evidence_source import EvidenceSourceService
 from src.application.query_service import QueryApplicationService
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.retrieval.bge_small_zh import BgeSmallZhEmbedder
 from src.retrieval.qdrant_index import QdrantRetrievalIndex
 from src.server.readiness import QdrantReadinessProbe, ReadinessProbe
@@ -60,21 +61,22 @@ class QueryServices:
     region_image: RegionImageService
     corpus_version: str
     query_rate_limiter: QueryRateLimiter | None
+    answer_available: bool
 
 
-def _build_answer_generator() -> AnswerGenerator:
-    """Build the LangChain answer generator from env, or a REFUSED stub.
+def _build_answer_generator() -> tuple[AnswerGenerator, bool, QuestionRewriter | None]:
+    """Build the LangChain answer generator and report availability.
 
     When ``.env`` does not configure a usable provider (missing key, unknown
     provider), the service must still start: ``source_lookup`` is unaffected
-    and ``answer`` queries degrade to REFUSED with a configuration warning.
+    and ``answer`` queries expose retrieved sources with a configuration warning.
     """
     try:
         settings = LlmProviderSettings.from_env()
     except LlmConfigurationError as exc:
-        _log.warning("LLM not configured; answer profile degrades to REFUSED: %s", exc)
-        return InMemoryAnswerGenerator(answer=Answer(claims=[], conflicts=[]))
-    return build_answer_generator(settings)
+        _log.warning("LLM not configured; answer generation unavailable: %s", exc)
+        return InMemoryAnswerGenerator(answer=Answer(claims=[], conflicts=[])), False, None
+    return build_answer_generator(settings), True, build_question_rewriter(settings)
 
 
 def build_query_services(
@@ -96,7 +98,7 @@ def build_query_services(
         vector_size=embedder.dimension,
         enable_bm25=True,
     )
-    answer_generator = _build_answer_generator()
+    answer_generator, answer_available, question_rewriter = _build_answer_generator()
     trace_recorder = JsonlQueryTraceRecorder(
         trace_output_path
         or Path(
@@ -107,21 +109,26 @@ def build_query_services(
         )
     )
     answer_service = QueryApplicationService(
-        scope_resolver=RuleBasedScopeResolver(),
+        scope_resolver=PassthroughScopeResolver(),
         evidence_retriever=QdrantEvidenceRetriever(
             index=index,
             embedder=embedder,
             # Unreviewed transcriptions may answer with a per-claim caveat
-            # (owner decision 2026-10-12); excluded chunks never answer.
+            # (owner decision 2026-10-12, reconfirmed 2026-10-16); excluded
+            # chunks never answer.
             fixed_filters={
                 "usage_policy": ["answer_and_citation", "source_locator_only"]
             },
             limit=10,
         ),
         answer_generator=answer_generator,
+        question_rewriter=question_rewriter,
         trace_recorder=trace_recorder,
         generate_context_limit=5,
         allow_unverified_evidence=True,
+        generation_unavailable_reason=(
+            None if answer_available else "AI 回答暂不可用：服务器未配置智谱模型密钥；已为你找到原文。"
+        ),
         context_expander=QdrantContextExpander(
             index=index,
             allowed_policies={"answer_and_citation", "source_locator_only"},
@@ -130,15 +137,16 @@ def build_query_services(
             "retrieval_profile": "qdrant-bge-small-zh-bm25-rrf",
             "collection": collection,
             "embedding_model": "BAAI/bge-small-zh-v1.5",
-            "generation": "langchain-zhipu-glm",
+            "generation": "langchain-zhipu-glm-inline-cite",
+            "follow_up": "history-rewrite-then-retrieve",
             "retrieve_limit": "10",
             "generate_context_limit": "5",
             "evidence_tiers": "verified+unverified-caveat",
-            "context_expansion": "structured-lead-in-v1",
+            "context_expansion": "structured-clause-v2",
         },
     )
     source_lookup_service = QueryApplicationService(
-        scope_resolver=RuleBasedScopeResolver(),
+        scope_resolver=PassthroughScopeResolver(),
         evidence_retriever=QdrantEvidenceRetriever(
             index=index,
             embedder=embedder,
@@ -176,6 +184,7 @@ def build_query_services(
         region_image=RegionImageService(index=index, document_catalog=documents),
         corpus_version=current_corpus.corpus_version,
         query_rate_limiter=build_query_rate_limiter(),
+        answer_available=answer_available,
     )
 
 

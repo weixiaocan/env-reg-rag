@@ -15,9 +15,7 @@ from src.application.query_service import QueryApplicationService
 from src.adapters.inventory_document_catalog import DocumentCatalog
 from src.adapters.pdf_region_renderer import DocumentPageImageService, RegionImageService
 from src.application.evidence_source import EvidenceSourceService
-from src.application.formula_preview import FormulaPreviewService
-from src.application.formula_review import FormulaReviewService
-from src.domain.query import QueryRequest
+from src.domain.query import ConversationTurn, QueryRequest
 from src.server.http_errors import install_error_handlers
 from src.server.query_dto import AnswerResultDto, EvidenceDto
 from src.server.readiness import ReadinessProbe
@@ -25,10 +23,28 @@ from src.server.rate_limit import QueryRateLimiter
 from src.server.deployment_profile import DeploymentProfile
 
 
+# Pages are inline single files; revalidate so a redeploy reaches open browsers.
+_REVALIDATE = {"Cache-Control": "no-cache"}
+_ANSWER_QUOTA_REASONS = {
+    "answer_client_daily_limit_exceeded",
+    "answer_daily_budget_exhausted",
+}
+
+
+# Follow-ups read at most this many earlier turns; the client sends them.
+_HISTORY_TURNS = 3
+
+
+class HistoryTurnDto(BaseModel):
+    question: str = Field(min_length=1, max_length=1000)
+    answer: str = Field(default="", max_length=6000)
+
+
 class QueryHttpRequest(BaseModel):
     request_id: str = Field(default_factory=lambda: str(uuid4()), min_length=1)
     question: str = Field(min_length=1, max_length=1000)
     conversation_context: dict[str, str] = Field(default_factory=dict)
+    history: list[HistoryTurnDto] = Field(default_factory=list, max_length=20)
     mode: Literal["answer", "source_lookup"] = "answer"
 
 
@@ -45,129 +61,10 @@ class DocumentDto(BaseModel):
     page_image_url_template: str
 
 
-def _register_diagnostic_routes(
-    app: FastAPI,
-    *,
-    formula_preview: FormulaPreviewService | None,
-    formula_review: FormulaReviewService | None,
-) -> None:
-    """Register internal review routes only when explicitly enabled."""
-
-    def preview_service():
-        if formula_preview is None:
-            raise HTTPException(
-                status_code=503,
-                detail={
-                    "code": "formula_preview_unavailable",
-                    "message": "formula preview is not configured",
-                },
-            )
-        return formula_preview
-
-    @app.get("/api/v1/formulas")
-    def list_formulas():
-        return {"items": preview_service().list(), "diagnostic_only": True}
-
-    @app.get("/api/v1/formulas/{anchor_id}")
-    def get_formula(anchor_id: str):
-        item = preview_service().get(anchor_id)
-        if item is None:
-            raise HTTPException(
-                status_code=404,
-                detail={
-                    "code": "formula_not_found",
-                    "message": "formula is not registered",
-                },
-            )
-        return item
-
-    def review_service():
-        if formula_review is None:
-            raise HTTPException(
-                status_code=503,
-                detail={"code": "formula_review_unavailable"},
-            )
-        return formula_review
-
-    @app.get("/api/v1/formula-review")
-    def review_list(
-        category: str = "all",
-        offset: int = 0,
-        limit: int = 20,
-        query: str = "",
-    ):
-        service = review_service()
-        if (
-            category
-            not in {
-                "all",
-                "relation_candidate",
-                "expression_candidate",
-                "fragment_candidate",
-                "needs_review",
-            }
-            or offset < 0
-            or not 1 <= limit <= 50
-            or len(query) > 200
-        ):
-            raise HTTPException(
-                status_code=400, detail={"code": "invalid_review_filter"}
-            )
-        try:
-            return service.list(category, offset, limit, query=query)
-        except (OSError, ValueError, KeyError, TypeError):
-            raise HTTPException(
-                status_code=503,
-                detail={"code": "formula_review_unavailable"},
-            )
-
-    @app.get("/api/v1/formula-review/{candidate_id}")
-    def review_detail(candidate_id: str):
-        try:
-            item = review_service().get(candidate_id)
-        except (OSError, ValueError, KeyError, TypeError):
-            raise HTTPException(
-                status_code=503,
-                detail={"code": "formula_review_unavailable"},
-            )
-        if item is None:
-            raise HTTPException(
-                status_code=404,
-                detail={"code": "formula_review_not_found"},
-            )
-        return item
-
-    @app.get("/api/v1/formula-review/{candidate_id}/image")
-    def review_image(
-        candidate_id: str,
-        context: bool = False,
-        full_page: bool = False,
-        page_offset: int = 0,
-    ):
-        if page_offset not in (-1, 0, 1) or (page_offset and not full_page):
-            raise HTTPException(
-                status_code=400,
-                detail={"code": "invalid_source_page_offset"},
-            )
-        try:
-            image = review_service().image(
-                candidate_id, context, full_page, page_offset
-            )
-        except (OSError, ValueError, KeyError, TypeError, RuntimeError):
-            raise HTTPException(
-                status_code=503,
-                detail={"code": "formula_image_unavailable"},
-            )
-        if image is None:
-            raise HTTPException(
-                status_code=404,
-                detail={"code": "formula_image_unavailable"},
-            )
-        return Response(
-            content=image,
-            media_type="image/png",
-            headers={"Cache-Control": "no-store"},
-        )
+class PageGeometryDto(BaseModel):
+    physical_page: int
+    page_width_pt: float
+    page_height_pt: float
 
 
 def create_app(
@@ -180,12 +77,10 @@ def create_app(
     readiness_probe: ReadinessProbe | None = None,
     answer_corpus_version: str = "formal-corpus-v1",
     source_lookup_corpus_version: str = "m3-experiment-v1",
-    formula_preview: FormulaPreviewService | None = None,
-    formula_review: FormulaReviewService | None = None,
     region_image_service: RegionImageService | None = None,
     query_rate_limiter: QueryRateLimiter | None = None,
     deployment_profile: DeploymentProfile = "self_hosted",
-    diagnostic_routes_enabled: bool = False,
+    answer_available: bool = True,
 ) -> FastAPI:
     """Create the HTTP adapter with its application dependency injected."""
     app = FastAPI(title="法规文档 RAG 智能问答系统", version="0.1.0")
@@ -195,33 +90,27 @@ def create_app(
 
     @app.get("/", response_class=FileResponse)
     async def workbench() -> FileResponse:
-        return FileResponse(workbench_path)
+        return FileResponse(workbench_path, headers=_REVALIDATE)
 
     @app.get("/documents", response_class=FileResponse)
     async def document_browser() -> FileResponse:
-        return FileResponse(documents_path)
+        return FileResponse(documents_path, headers=_REVALIDATE)
 
     @app.get("/api/v1/health")
     async def health() -> dict[str, str]:
         return {"status": "ok"}
 
     @app.get("/api/v1/runtime")
-    async def runtime_profile() -> dict[str, str]:
+    async def runtime_profile() -> dict[str, str | bool]:
         return {
             "deployment_profile": deployment_profile,
+            "answer_available": answer_available,
             "answer_access": (
                 "shared_demo_budget"
                 if deployment_profile == "demo"
                 else "operator_configured"
             ),
         }
-
-    if diagnostic_routes_enabled:
-        _register_diagnostic_routes(
-            app,
-            formula_preview=formula_preview,
-            formula_review=formula_review,
-        )
 
     @app.get("/api/v1/ready")
     async def ready() -> JSONResponse:
@@ -300,6 +189,33 @@ def create_app(
     async def get_document(document_version_id: str) -> DocumentDto:
         document = registered_document(document_version_id)
         return document_dto(document)
+
+    @app.get(
+        "/api/v1/documents/{document_version_id}/pages/{physical_page}",
+        response_model=PageGeometryDto,
+    )
+    async def get_document_page_geometry(
+        document_version_id: str, physical_page: int
+    ) -> PageGeometryDto:
+        registered_document(document_version_id)
+        if document_page_service is None:
+            raise HTTPException(
+                status_code=503,
+                detail={"code": "document_page_service_unavailable"},
+            )
+        dimensions = document_page_service.page_geometry(
+            document_version_id, physical_page
+        )
+        if dimensions is None:
+            raise HTTPException(
+                status_code=404,
+                detail={"code": "document_page_not_found"},
+            )
+        return PageGeometryDto(
+            physical_page=physical_page,
+            page_width_pt=dimensions[0],
+            page_height_pt=dimensions[1],
+        )
 
     @app.get("/api/v1/documents/{document_version_id}/pages/{physical_page}/image")
     async def get_document_page_image(
@@ -380,17 +296,24 @@ def create_app(
 
     @app.post("/api/v1/queries", response_model=AnswerResultDto)
     async def submit_query(payload: QueryHttpRequest, request: Request) -> AnswerResultDto:
+        mode = payload.mode
+        fallback_warning: str | None = None
         if query_rate_limiter is not None:
             client_key = request.client.host if request.client is not None else "unknown"
-            decision = query_rate_limiter.check(client_key, payload.mode)
+            decision = query_rate_limiter.check(client_key, mode)
+            # Once the daily AI budget is spent the question is still served:
+            # the sources are found without generating an answer.
+            if (
+                not decision.allowed
+                and decision.reason in _ANSWER_QUOTA_REASONS
+                and source_locator_service is not None
+            ):
+                mode = "source_lookup"
+                fallback_warning = "今日 AI 回答额度已用完，已为你找到相关原文"
+                decision = query_rate_limiter.check(client_key, mode)
             if not decision.allowed:
-                if decision.reason in {
-                    "answer_client_daily_limit_exceeded",
-                    "answer_daily_budget_exhausted",
-                }:
-                    message = (
-                        "今日 AI 演示额度已用完；仍可使用只找原文和资料浏览"
-                    )
+                if decision.reason in _ANSWER_QUOTA_REASONS:
+                    message = "今日 AI 回答额度已用完，请明天再试"
                 else:
                     message = "请求过于频繁，请一分钟后再试"
                 raise HTTPException(
@@ -403,7 +326,7 @@ def create_app(
                 )
         selected_service = query_service
         corpus_version = answer_corpus_version
-        if payload.mode == "source_lookup":
+        if mode == "source_lookup":
             if source_locator_service is None:
                 raise HTTPException(
                     status_code=503,
@@ -421,8 +344,15 @@ def create_app(
                 conversation_context=payload.conversation_context,
                 corpus_version=corpus_version,
                 caller_type="web",
+                history=tuple(
+                    ConversationTurn(question=turn.question, answer=turn.answer)
+                    for turn in payload.history[-_HISTORY_TURNS:]
+                ),
             )
         )
-        return AnswerResultDto.model_validate(asdict(result))
+        body = asdict(result)
+        if fallback_warning is not None:
+            body["warnings"] = [fallback_warning]
+        return AnswerResultDto.model_validate(body)
 
     return app

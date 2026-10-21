@@ -13,7 +13,7 @@ from src.application.query_service import (
 )
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.answer_generation import InMemoryAnswerGenerator
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.domain.query import (
     Answer,
     Claim,
@@ -38,35 +38,85 @@ class _QuestionBoundEvidenceRetriever:
 
 
 class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
-    async def test_ambiguous_rainfall_period_returns_structured_clarification(self):
-        service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
-            evidence_retriever=InMemoryEvidenceRetriever([]),
-            answer_generator=InMemoryAnswerGenerator(None),
-        )
-        request = QueryRequest(
-            request_id="query-real-001",
-            question="雨量为20毫米时，属于小雨、中雨还是大雨？",
-            conversation_context={},
-            corpus_version="formal-corpus-v1",
-            caller_type="web",
-        )
-
-        result = await service.execute(request)
-
-        self.assertEqual(result.query_id, "query-real-001")
-        self.assertEqual(result.status, QueryStatus.NEEDS_CLARIFICATION)
-        self.assertEqual(result.missing_conditions, ["statistical_period"])
-        self.assertIsNone(result.answer)
-        self.assertEqual(result.evidence, [])
-        self.assertEqual(result.corpus_version, "formal-corpus-v1")
-
-    async def test_user_can_supply_the_missing_period_in_the_next_query(self):
-        original_question = "雨量为20毫米时，属于小雨、中雨还是大雨？"
-        effective_question = f"{original_question}（统计时段：12h）"
+    async def test_missing_model_reports_configuration_and_keeps_sources(self):
         evidence = EvidenceItem(
-            evidence_id="ev_rainfall_12h_20mm",
-            text="12小时降水量15.0至29.9毫米为大雨。",
+            evidence_id="ev_rainfall_table",
+            text="24小时降水量10.0至24.9毫米为中雨。",
+            document_version_id="doc_rainfall",
+            file_name="降水量等级.pdf",
+            physical_pages=[4],
+            heading_path=["表1"],
+            usage_policy="source_locator_only",
+            source_uri="https://example.org/rainfall.pdf",
+        )
+        service = QueryApplicationService(
+            scope_resolver=PassthroughScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([evidence]),
+            answer_generator=InMemoryAnswerGenerator(Answer(claims=[])),
+            generation_unavailable_reason="AI 回答暂不可用：模型密钥未配置。",
+        )
+
+        result = await service.execute(
+            QueryRequest(
+                request_id="query-no-model",
+                question="24小时降水量20毫米属于什么等级？",
+                conversation_context={},
+                corpus_version="formal-corpus-v1",
+                caller_type="web",
+            )
+        )
+
+        self.assertEqual(result.status, QueryStatus.SEARCH_ONLY)
+        self.assertEqual(result.evidence, [evidence])
+        self.assertEqual(result.warnings, ["AI 回答暂不可用：模型密钥未配置。"])
+
+    async def test_unreviewed_table_refusal_keeps_the_original_source_visible(self):
+        evidence = EvidenceItem(
+            evidence_id="ev_rainfall_table",
+            text="24小时降水量10.0至24.9毫米为中雨。",
+            document_version_id="doc_rainfall",
+            file_name="降水量等级.pdf",
+            physical_pages=[4],
+            heading_path=["表1"],
+            usage_policy="source_locator_only",
+            source_uri="https://example.org/rainfall.pdf",
+        )
+        context = EvidenceItem(
+            evidence_id="ev_rainfall_principle",
+            text="降水量按24小时和12小时两个时段划分。",
+            document_version_id="doc_rainfall",
+            file_name="降水量等级.pdf",
+            physical_pages=[4],
+            heading_path=["3"],
+            usage_policy="answer_and_citation",
+            source_uri="https://example.org/rainfall.pdf",
+        )
+        service = QueryApplicationService(
+            scope_resolver=PassthroughScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([context, evidence]),
+            answer_generator=InMemoryAnswerGenerator(Answer(claims=[])),
+        )
+
+        result = await service.execute(
+            QueryRequest(
+                request_id="query-unreviewed-table",
+                question="24小时降水量20毫米属于什么等级？",
+                conversation_context={},
+                corpus_version="formal-corpus-v1",
+                caller_type="web",
+            )
+        )
+
+        self.assertEqual(result.status, QueryStatus.SEARCH_ONLY)
+        self.assertEqual(result.evidence, [context, evidence])
+        self.assertIn("人工核对", result.warnings[0])
+
+    async def test_open_rainfall_period_is_answered_not_asked(self):
+        # The answer states both periods instead of a rule-based follow-up.
+        question = "雨量为20毫米时，属于小雨、中雨还是大雨？"
+        evidence = EvidenceItem(
+            evidence_id="ev_rainfall_table",
+            text="12小时15.0~29.9毫米为大雨；24小时10.0~24.9毫米为中雨。",
             document_version_id="doc_rainfall",
             file_name="降水量等级.pdf",
             physical_pages=[4],
@@ -77,54 +127,34 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
         answer = Answer(
             claims=[
                 Claim(
-                    claim_id="claim-rainfall",
-                    text="按12小时统计，20毫米属于大雨。",
+                    claim_id="claim-1",
+                    text="按24小时统计属于中雨，按12小时统计属于大雨。",
                     evidence_ids=[evidence.evidence_id],
                 )
             ]
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=_QuestionBoundEvidenceRetriever(
-                expected_question=effective_question,
+                expected_question=question,
                 evidence=[evidence],
             ),
             answer_generator=InMemoryAnswerGenerator(answer),
         )
 
-        first = await service.execute(
+        result = await service.execute(
             QueryRequest(
-                request_id="query-rainfall-turn-1",
-                question=original_question,
+                request_id="query-rainfall",
+                question=question,
                 conversation_context={},
                 corpus_version="formal-corpus-v1",
                 caller_type="web",
             )
         )
-        second = await service.execute(
-            QueryRequest(
-                request_id="query-rainfall-turn-2",
-                question="12小时",
-                conversation_context=first.continuation_context,
-                corpus_version="formal-corpus-v1",
-                caller_type="web",
-            )
-        )
 
-        self.assertEqual(
-            first.continuation_context,
-            {"pending_question": original_question},
-        )
-        self.assertEqual(second.status, QueryStatus.ANSWERED)
-        self.assertEqual(second.resolved_scope, {"statistical_period": "12h"})
-        self.assertEqual(second.answer, answer)
-        self.assertEqual(
-            second.continuation_context,
-            {
-                "anchor_question": original_question,
-                "statistical_period": "12h",
-            },
-        )
+        self.assertEqual(result.status, QueryStatus.ANSWERED)
+        self.assertEqual(result.missing_conditions, [])
+        self.assertEqual(result.answer, answer)
 
     async def test_locator_only_formula_evidence_returns_search_only(self):
         locator = EvidenceItem(
@@ -138,7 +168,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             source_uri="https://example.org/official.pdf",
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([locator]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -179,7 +209,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             ]
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([evidence]),
             answer_generator=InMemoryAnswerGenerator(draft),
         )
@@ -211,13 +241,11 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
         )
         model = FakeListChatModel(
             responses=[
-                '{"claims":[{"claim_id":"claim-1",'
-                '"text":"评估周期应至少跨越一个完整雨季。",'
-                '"evidence_ids":["ev_d6a4f70024ff1539091b28cdf9a66bf3"]}]}'
+                '{"answer":"评估周期应至少跨越一个完整雨季[S1]。"}'
             ]
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([evidence]),
             answer_generator=LangChainAnswerGenerator(model=model),
         )
@@ -247,7 +275,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             source_uri="https://example.org/test.pdf",
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([evidence]),
             answer_generator=LangChainAnswerGenerator(
                 model=FakeListChatModel(responses=["这不是 JSON"])
@@ -279,12 +307,11 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             source_uri="https://example.org/test.pdf",
         )
         raw = (
-            '{\n  "claims": [\n    {\n      "claim_id": "claim-1",\n'
-            '      "text": "图1的图名为"雨污混错接调查与治理工作技术路线图"。",\n'
-            '      "evidence_ids": ["ev_quote_test"]\n    }\n  ],\n  "conflicts": []\n}'
+            '{\n  "answer": "图1的图名为"雨污混错接调查与治理工作技术路线图"[S1]。",\n'
+            '  "conflicts": []\n}'
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([evidence]),
             answer_generator=LangChainAnswerGenerator(
                 model=FakeListChatModel(responses=[raw])
@@ -306,6 +333,58 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             '图1的图名为"雨污混错接调查与治理工作技术路线图"。',
         )
 
+    async def test_answer_without_source_markers_is_not_shown_as_answered(self):
+        evidence = EvidenceItem(
+            evidence_id="ev_unmarked",
+            text="评估周期应至少跨越一个完整雨季。",
+            document_version_id="doc_unmarked",
+            file_name="测试证据.pdf",
+            physical_pages=[1],
+            heading_path=["1"],
+            usage_policy="answer_and_citation",
+            source_uri="https://example.org/test.pdf",
+        )
+        service = QueryApplicationService(
+            scope_resolver=PassthroughScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([evidence]),
+            answer_generator=LangChainAnswerGenerator(
+                model=FakeListChatModel(responses=['{"answer":"评估周期为一个雨季。"}'])
+            ),
+        )
+
+        result = await service.execute(QueryRequest(
+            request_id="query-unmarked", question="评估周期？",
+            conversation_context={}, corpus_version="formal-corpus-v1",
+            caller_type="web"))
+
+        self.assertEqual(result.status, QueryStatus.REFUSED)
+        self.assertIsNone(result.answer)
+
+    async def test_unknown_source_label_fails_citation_validation(self):
+        evidence = EvidenceItem(
+            evidence_id="ev_known",
+            text="评估周期应至少跨越一个完整雨季。",
+            document_version_id="doc_known",
+            file_name="测试证据.pdf",
+            physical_pages=[1],
+            heading_path=["1"],
+            usage_policy="answer_and_citation",
+            source_uri="https://example.org/test.pdf",
+        )
+        service = QueryApplicationService(
+            scope_resolver=PassthroughScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([evidence]),
+            answer_generator=LangChainAnswerGenerator(
+                model=FakeListChatModel(responses=['{"answer":"周期为两年[S7]。"}'])
+            ),
+        )
+
+        with self.assertRaises(CitationValidationError):
+            await service.execute(QueryRequest(
+                request_id="query-unknown-label", question="评估周期？",
+                conversation_context={}, corpus_version="formal-corpus-v1",
+                caller_type="web"))
+
     async def test_irrelevant_retrieval_results_become_a_controlled_refusal(self):
         evidence = EvidenceItem(
             evidence_id="ev_empty_answer_test",
@@ -318,7 +397,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             source_uri="https://example.org/test.pdf",
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([evidence]),
             answer_generator=LangChainAnswerGenerator(
                 model=FakeListChatModel(responses=['{"claims":[]}'])
@@ -370,7 +449,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             ]
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([citable, locator]),
             answer_generator=InMemoryAnswerGenerator(invalid_draft),
         )
@@ -424,7 +503,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             ]
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([verified, unverified]),
             answer_generator=InMemoryAnswerGenerator(draft),
             allow_unverified_evidence=True,
@@ -442,7 +521,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             claims=[Claim(claim_id="c1", text="一级。", evidence_ids=["ev_unverified"])]
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([unverified]),
             answer_generator=InMemoryAnswerGenerator(draft),
             allow_unverified_evidence=True,
@@ -453,13 +532,27 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
         self.assertEqual(result.status, QueryStatus.ANSWERED)
         self.assertFalse(result.answer.claims[0].verified)
 
+    async def test_empty_answer_is_a_refusal_when_unverified_evidence_may_answer(self):
+        verified, unverified, request = self._caveat_fixture()
+        service = QueryApplicationService(
+            scope_resolver=PassthroughScopeResolver(),
+            evidence_retriever=InMemoryEvidenceRetriever([verified, unverified]),
+            answer_generator=InMemoryAnswerGenerator(Answer(claims=[], conflicts=[])),
+            allow_unverified_evidence=True,
+        )
+
+        result = await service.execute(request)
+
+        # not "search_only because tables are unreviewed": they were usable
+        self.assertEqual(result.status, QueryStatus.REFUSED)
+
     async def test_verified_only_answer_carries_no_caveat(self):
         verified, unverified, request = self._caveat_fixture()
         draft = Answer(
             claims=[Claim(claim_id="c1", text="条款正文。", evidence_ids=["ev_verified"])]
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([verified, unverified]),
             answer_generator=InMemoryAnswerGenerator(draft),
             allow_unverified_evidence=True,
@@ -486,7 +579,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             ],
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([verified, unverified]),
             answer_generator=InMemoryAnswerGenerator(draft),
             allow_unverified_evidence=True,
@@ -541,7 +634,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             ],
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever(
                 [local_evidence, national_evidence]
             ),
@@ -584,17 +677,13 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             source_uri="https://example.org/b.pdf",
         )
         model_output = (
-            '{"claims":['
-            '{"claim_id":"claim-a","text":"文件甲要求一个完整雨季。",'
-            '"evidence_ids":["ev_model_conflict_1"]},'
-            '{"claim_id":"claim-b","text":"文件乙要求两个完整雨季。",'
-            '"evidence_ids":["ev_model_conflict_2"]}],'
+            '{"answer":"文件甲要求一个完整雨季[S1]，文件乙要求两个完整雨季[S2]。",'
             '"conflicts":[{"conflict_id":"conflict-1",'
             '"description":"最短周期要求不同。",'
-            '"evidence_ids":["ev_model_conflict_1","ev_model_conflict_2"]}]}'
+            '"sources":["S1","S2"]}]}'
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([first, second]),
             answer_generator=LangChainAnswerGenerator(
                 model=FakeListChatModel(responses=[model_output])
@@ -613,6 +702,14 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual(result.status, QueryStatus.CONFLICTING_SOURCES)
         self.assertEqual(result.answer.conflicts[0].conflict_id, "conflict-1")
+        self.assertEqual(
+            result.answer.conflicts[0].evidence_ids,
+            ["ev_model_conflict_1", "ev_model_conflict_2"],
+        )
+        self.assertEqual(
+            [claim.text for claim in result.answer.claims],
+            ["文件甲要求一个完整雨季，", "文件乙要求两个完整雨季。"],
+        )
 
     async def test_conflict_requires_a_claim_for_each_conflicting_source(self):
         first = EvidenceItem(
@@ -652,7 +749,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
             ],
         )
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([first, second]),
             answer_generator=InMemoryAnswerGenerator(incomplete_draft),
         )
@@ -670,7 +767,7 @@ class QueryApplicationServiceTest(unittest.IsolatedAsyncioTestCase):
 
     async def test_empty_evidence_returns_controlled_refusal(self):
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )

@@ -10,6 +10,7 @@ from langchain_openai import ChatOpenAI
 from pydantic import SecretStr
 
 from src.adapters.langchain_answer_generator import LangChainAnswerGenerator
+from src.adapters.langchain_question_rewriter import LangChainQuestionRewriter
 
 
 class LlmConfigurationError(ValueError):
@@ -99,12 +100,8 @@ class LlmProviderSettings:
         )
 
 
-def build_answer_generator(
-    settings: LlmProviderSettings,
-) -> LangChainAnswerGenerator:
-    """Compose the provider-neutral answer adapter used by the query module."""
-
-    model = ChatOpenAI(
+def _chat_model(settings: LlmProviderSettings) -> ChatOpenAI:
+    return ChatOpenAI(
         model=settings.model,
         api_key=settings.api_key,
         base_url=settings.base_url,
@@ -112,8 +109,24 @@ def build_answer_generator(
         timeout=settings.timeout_seconds,
         max_retries=settings.max_retries,
     )
+
+
+def build_question_rewriter(settings: LlmProviderSettings) -> LangChainQuestionRewriter:
+    """Follow-up rewriting uses the same provider and model as the answers."""
+    return LangChainQuestionRewriter(
+        model=_chat_model(settings),
+        input_cost_per_million=settings.input_cost_per_million,
+        output_cost_per_million=settings.output_cost_per_million,
+        cost_currency=settings.cost_currency,
+    )
+
+
+def build_answer_generator(
+    settings: LlmProviderSettings,
+) -> LangChainAnswerGenerator:
+    """Compose the provider-neutral answer adapter used by the query module."""
     return LangChainAnswerGenerator(
-        model=model,
+        model=_chat_model(settings),
         input_cost_per_million=settings.input_cost_per_million,
         output_cost_per_million=settings.output_cost_per_million,
         cost_currency=settings.cost_currency,

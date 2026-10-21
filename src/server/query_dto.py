@@ -54,3 +54,4 @@ class AnswerResultDto(BaseModel):
     corpus_version: str
     warnings: list[str]
     continuation_context: dict[str, str]
+    search_question: str = ""

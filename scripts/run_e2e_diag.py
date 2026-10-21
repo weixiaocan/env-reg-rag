@@ -45,7 +45,7 @@ from scripts.external_run_guard import (  # noqa: E402
 from src.server import runtime as server_runtime  # noqa: E402
 from src.server.fastapi_app import create_app  # noqa: E402
 
-SEND_SCOPE = "http-e2e:50-questions:production-retrieval-top5-chunks"
+SEND_SCOPE = "http-e2e:50-questions:production-retrieval-top5-chunks+same-clause-expansion-up-to-8"
 
 
 def run_e2e_case(client: TestClient, case: dict, run_id: str) -> dict:
@@ -164,6 +164,12 @@ def classify_outcome(record: dict) -> str:
         return record["failure_class"]
     if expected == "refuse":
         return "correct_refusal" if status == "refused" else "refusal_failure"
+    if expected == "correct_premise":
+        if status == "refused":
+            return "correct_refusal"
+        if status in {"answered", "conflicting_sources"}:
+            return "premise_answer_needs_semantic_review"
+        return "premise_failure"
     if status in {"answered", "conflicting_sources"}:
         return "answered_needs_semantic_review"
     if status == "search_only":
@@ -222,7 +228,11 @@ def build_summary(records: list[dict]) -> dict:
         "denominators": {
             "all_cases": len(records),
             "content_target_cases": sum(
-                1 for r in records if r["expected_answerability"] != "refuse"
+                1 for r in records if r["expected_answerability"] == "answer"
+            ),
+            "premise_cases": sum(
+                1 for r in records
+                if r["expected_answerability"] == "correct_premise"
             ),
             "refusal_cases": sum(
                 1 for r in records if r["expected_answerability"] == "refuse"

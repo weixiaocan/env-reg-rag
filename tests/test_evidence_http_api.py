@@ -8,7 +8,7 @@ from src.application.answer_generation import InMemoryAnswerGenerator
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.evidence_source import EvidenceSourceService
 from src.application.query_service import QueryApplicationService
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.retrieval.qdrant_index import QdrantRetrievalIndex
 from src.server.fastapi_app import create_app
 
@@ -68,7 +68,7 @@ class EvidenceHttpApiTest(unittest.TestCase):
     @staticmethod
     def _query_service() -> QueryApplicationService:
         return QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )

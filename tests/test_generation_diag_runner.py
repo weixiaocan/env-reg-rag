@@ -158,6 +158,18 @@ class TestRunCasesAndJudgment:
             "answered"
         ) is None  # locate: observed, not judged
 
+    def test_premise_case_is_acceptable_refused_or_answered(self):
+        case = _case("G015", "correct_premise")
+        refused = judge_case(case, {"status": "refused"})
+        answered = judge_case(case, {"status": "answered"})
+        failed = judge_case(case, {"status": None})
+
+        assert refused["acceptable_status"] and not refused["needs_semantic_review"]
+        assert answered["acceptable_status"] and answered["needs_semantic_review"]
+        assert not failed["acceptable_status"]
+        summary = build_summary([case], [{"status": "answered"}], [answered])
+        assert summary["correct_premise"]["needs_semantic_review"] == ["G015"]
+
     def test_citation_error_recorded_and_loop_continues(self):
         service = RaisingService(
             lambda req: _result(QueryStatus.REFUSED), raise_for={"G009"}

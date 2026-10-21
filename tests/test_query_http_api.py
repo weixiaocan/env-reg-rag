@@ -5,7 +5,7 @@ from fastapi.testclient import TestClient
 from src.application.answer_generation import InMemoryAnswerGenerator
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.query_service import QueryApplicationService
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.domain.query import Answer, Claim, EvidenceItem
 from src.server.fastapi_app import create_app
 from src.server.readiness import ReadinessReport
@@ -19,7 +19,7 @@ class _FailingEvidenceRetriever:
 class QueryHttpApiTest(unittest.TestCase):
     def test_unexpected_failure_does_not_leak_internal_details(self):
         query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=_FailingEvidenceRetriever(),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -47,7 +47,7 @@ class QueryHttpApiTest(unittest.TestCase):
 
     def test_invalid_query_uses_the_stable_error_contract(self):
         query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -68,7 +68,7 @@ class QueryHttpApiTest(unittest.TestCase):
 
     def test_unconfigured_source_lookup_has_a_stable_error_code(self):
         query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -92,7 +92,7 @@ class QueryHttpApiTest(unittest.TestCase):
 
     def test_user_can_find_an_unverified_formula_without_generating_an_answer(self):
         answer_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -107,7 +107,7 @@ class QueryHttpApiTest(unittest.TestCase):
             source_uri="https://example.org/formula.pdf",
         )
         locator_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([locator]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -138,7 +138,7 @@ class QueryHttpApiTest(unittest.TestCase):
 
     def test_user_can_open_the_evidence_workbench(self):
         query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -149,13 +149,15 @@ class QueryHttpApiTest(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn("text/html", response.headers["content-type"])
         self.assertIn("法规文档 RAG 智能问答系统", response.text)
-        self.assertIn("当前发布语料", response.text)
+        self.assertIn('id="runtimeProfile"', response.text)
         self.assertNotIn("正式语料 formal-corpus-v1", response.text)
         self.assertIn('aria-label="提交问题"', response.text)
+        # A redeployed page must not be shadowed by a cached copy.
+        self.assertEqual(response.headers["cache-control"], "no-cache")
 
     def test_health_check_is_available_without_running_a_query(self):
         query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -179,7 +181,7 @@ class QueryHttpApiTest(unittest.TestCase):
                 )
 
         query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -202,7 +204,7 @@ class QueryHttpApiTest(unittest.TestCase):
                 )
 
         query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever([]),
             answer_generator=InMemoryAnswerGenerator(None),
         )
@@ -217,88 +219,6 @@ class QueryHttpApiTest(unittest.TestCase):
             response.json(),
             {"status": "not_ready", "checks": {"qdrant": "unavailable"}},
         )
-
-    def test_user_receives_a_structured_clarification_result(self):
-        query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
-            evidence_retriever=InMemoryEvidenceRetriever([]),
-            answer_generator=InMemoryAnswerGenerator(None),
-        )
-        client = TestClient(create_app(query_service=query_service))
-
-        response = client.post(
-            "/api/v1/queries",
-            json={
-                "request_id": "api-rainfall-001",
-                "question": "降水量为20毫米时属于什么等级？",
-                "conversation_context": {},
-            },
-        )
-
-        self.assertEqual(response.status_code, 200)
-        body = response.json()
-        self.assertEqual(body["query_id"], "api-rainfall-001")
-        self.assertEqual(body["status"], "needs_clarification")
-        self.assertEqual(body["missing_conditions"], ["statistical_period"])
-        self.assertIsNone(body["answer"])
-        self.assertEqual(body["evidence"], [])
-        self.assertEqual(
-            body["continuation_context"],
-            {"pending_question": "降水量为20毫米时属于什么等级？"},
-        )
-        self.assertEqual(body["corpus_version"], "formal-corpus-v1")
-
-    def test_user_can_answer_a_clarifying_question_without_managing_query_ids(self):
-        table = EvidenceItem(
-            evidence_id="ev_rainfall_table",
-            text="12小时降水量15.0~29.9毫米为大雨。",
-            document_version_id="doc_rainfall",
-            file_name="降水量等级.pdf",
-            physical_pages=[4],
-            heading_path=["表1"],
-            usage_policy="answer_and_citation",
-            source_uri="https://example.org/rainfall.pdf",
-        )
-        query_service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
-            evidence_retriever=InMemoryEvidenceRetriever([table]),
-            answer_generator=InMemoryAnswerGenerator(
-                Answer(
-                    claims=[
-                        Claim(
-                            claim_id="claim-rainfall",
-                            text="按12小时统计，20毫米属于大雨。",
-                            evidence_ids=[table.evidence_id],
-                        )
-                    ]
-                )
-            ),
-        )
-        client = TestClient(create_app(query_service=query_service))
-
-        first = client.post(
-            "/api/v1/queries",
-            json={"question": "降水量为20毫米时属于什么等级？"},
-        )
-        second = client.post(
-            "/api/v1/queries",
-            json={
-                "question": "12小时",
-                "conversation_context": first.json()["continuation_context"],
-            },
-        )
-
-        self.assertEqual(first.status_code, 200)
-        self.assertEqual(second.status_code, 200)
-        self.assertTrue(first.json()["query_id"])
-        self.assertTrue(second.json()["query_id"])
-        self.assertNotEqual(first.json()["query_id"], second.json()["query_id"])
-        self.assertEqual(second.json()["status"], "answered")
-        self.assertEqual(
-            second.json()["answer"]["claims"][0]["evidence_ids"],
-            ["ev_rainfall_table"],
-        )
-        self.assertEqual(second.json()["evidence"][0]["physical_pages"], [4])
 
 
 if __name__ == "__main__":

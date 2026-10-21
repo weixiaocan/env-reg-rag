@@ -16,12 +16,26 @@ class QueryStatus(StrEnum):
 
 
 @dataclass(frozen=True)
+class ConversationTurn:
+    """One earlier question and the answer text shown for it."""
+
+    question: str
+    answer: str = ""
+
+
+@dataclass(frozen=True)
 class QueryRequest:
     request_id: str
     question: str
     conversation_context: dict[str, str]
     corpus_version: str
     caller_type: str
+    # Earlier turns of the same conversation, oldest first; the client keeps
+    # them, the server stores none.
+    history: tuple[ConversationTurn, ...] = ()
+    # The standalone question actually searched, when a follow-up was
+    # rewritten from the history; empty otherwise.
+    search_question: str = ""
 
 
 @dataclass(frozen=True)
@@ -92,3 +106,4 @@ class AnswerResult:
     corpus_version: str
     warnings: list[str] = field(default_factory=list)
     continuation_context: dict[str, str] = field(default_factory=dict)
+    search_question: str = ""

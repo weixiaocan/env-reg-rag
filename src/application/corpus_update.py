@@ -37,6 +37,7 @@ SOURCE_REVIEW_RANK = {
     "": 0,
 }
 from src.application.retrieval_context import RETRIEVAL_CONTEXT_VERSION  # noqa: E402
+from src.application.source_corrections import REGISTRY_PATH as SOURCE_CORRECTIONS_PATH  # noqa: E402
 
 _CORPUS_ARTIFACT_PROFILE = "corpus-artifacts-v6-unified-original-cross-page-relations"
 
@@ -931,20 +932,24 @@ class CorpusUpdateService:
         config_hash = _stable_json_sha(
             {"schema_version": "1", "page_extractor": self.page_extractor.config_id}
         )
-        corpus_fingerprint = _stable_json_sha(
-            {
-                "catalog": catalog.fingerprint_payload(),
-                "config_hash": config_hash,
-                "artifact_profile": _CORPUS_ARTIFACT_PROFILE,
-                # What gets indexed for retrieval is part of the corpus: a
-                # change mints a new version instead of rebinding the
-                # immutable stage chain of an existing one.
-                "retrieval_context": RETRIEVAL_CONTEXT_VERSION,
-                "formula_region_gate": formula_gate['provenance'] if formula_gate else None,
-                "formula_region_registry_sha256": _sha256(self.root / 'data/registry/formula-gold.json')
-                    if (self.root / 'data/registry/formula-gold.json').is_file() else None,
-            }
-        )
+        fingerprint = {
+            "catalog": catalog.fingerprint_payload(),
+            "config_hash": config_hash,
+            "artifact_profile": _CORPUS_ARTIFACT_PROFILE,
+            # What gets indexed for retrieval is part of the corpus: a
+            # change mints a new version instead of rebinding the
+            # immutable stage chain of an existing one.
+            "retrieval_context": RETRIEVAL_CONTEXT_VERSION,
+            "formula_region_gate": formula_gate['provenance'] if formula_gate else None,
+            "formula_region_registry_sha256": _sha256(self.root / 'data/registry/formula-gold.json')
+                if (self.root / 'data/registry/formula-gold.json').is_file() else None,
+        }
+        # Assembly applies the owner-reviewed corrections, so they are part
+        # of the corpus too; without the registry the fingerprint is unchanged.
+        corrections = self.root / SOURCE_CORRECTIONS_PATH
+        if corrections.is_file():
+            fingerprint["source_corrections_sha256"] = _sha256(corrections)
+        corpus_fingerprint = _stable_json_sha(fingerprint)
         corpus_version = f"corpus-{corpus_fingerprint[:12]}"
         priority_shas = set()
         if getattr(self.page_extractor, 'requires_structure', False):

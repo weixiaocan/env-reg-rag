@@ -16,7 +16,7 @@ from src.adapters.public_document_catalog import PublicDocumentCatalog
 from src.application.answer_generation import InMemoryAnswerGenerator
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.query_service import QueryApplicationService
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.server.fastapi_app import create_app
 
 
@@ -50,7 +50,7 @@ class DocumentBrowserHttpTests(unittest.TestCase):
                 project_root=root, inventory_path=inventory
             )
             service = QueryApplicationService(
-                scope_resolver=RuleBasedScopeResolver(),
+                scope_resolver=PassthroughScopeResolver(),
                 evidence_retriever=InMemoryEvidenceRetriever([]),
                 answer_generator=InMemoryAnswerGenerator(None),
             )

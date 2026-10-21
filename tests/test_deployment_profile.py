@@ -10,7 +10,6 @@ def test_github_default_is_self_hosted() -> None:
     settings = DeploymentSettings.from_env({})
 
     assert settings.profile == "self_hosted"
-    assert settings.diagnostic_routes_enabled is False
 
 
 def test_demo_refuses_to_start_without_rate_limiting() -> None:
@@ -22,12 +21,3 @@ def test_demo_refuses_to_start_without_rate_limiting() -> None:
             }
         )
 
-
-def test_demo_never_exposes_internal_diagnostics() -> None:
-    with pytest.raises(ValueError, match="diagnostic routes"):
-        DeploymentSettings.from_env(
-            {
-                "APP_PROFILE": "demo",
-                "PUBLIC_DIAGNOSTIC_ROUTES_ENABLED": "true",
-            }
-        )

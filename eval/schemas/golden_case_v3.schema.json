@@ -1,0 +1,220 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "rag-eval-golden-case-v3",
+  "title": "RAG Golden Case v3 (behaviour-based answerability)",
+  "type": "object",
+  "required": [
+    "id",
+    "question",
+    "evidence",
+    "expected_facts",
+    "labels",
+    "doc_coverage",
+    "anchor_corpus",
+    "expected_answerability"
+  ],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^G[0-9]{3}$",
+      "description": "稳定编号，如 G001；沿用 v1 编号不改号"
+    },
+    "question": {
+      "type": "string",
+      "minLength": 4,
+      "description": "用户真实会问的问法"
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "required": [
+          "doc_file",
+          "quote",
+          "page",
+          "element_ids",
+          "must_hit",
+          "quote_kind"
+        ],
+        "additionalProperties": false,
+        "properties": {
+          "doc_file": {
+            "type": "string",
+            "description": "主文本 display_file_name"
+          },
+          "standard_number": {
+            "type": "string"
+          },
+          "page": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "锚定语料中的物理页；v2 起为必填（匹配器要求页佐证）"
+          },
+          "element_ids": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "string"
+            },
+            "description": "锚定语料（anchor_corpus）内的元素 ID；跨语料不可比，运行时校验"
+          },
+          "quote": {
+            "type": "string",
+            "minLength": 4,
+            "description": "可定位摘录：必须是其 element_ids 投影文本的连续片段（verbatim_kept / rebuilt_element_excerpt / native_table_row），或声明页的原文摘录（page_excerpt）"
+          },
+          "rendering": {
+            "type": "string",
+            "description": "独立的展示转写：人工排版版式（公式/表格的人类可读形式）。仅 rebuilt_element_excerpt 携带；quote 保持机器可定位，rendering 面向人工阅读，二者不混用"
+          },
+          "must_hit": {
+            "type": "boolean",
+            "default": true,
+            "description": "是否计入 Recall 必命中集合；false 表示拒答题的库内定位锚"
+          },
+          "quote_kind": {
+            "type": "string",
+            "enum": [
+              "verbatim_kept",
+              "rebuilt_element_excerpt",
+              "native_table_row",
+              "page_excerpt"
+            ],
+            "description": "verbatim_kept=v1 引文在新元素投影中逐字保留；rebuilt_element_excerpt=从锚定元素投影重建（人工转写移入 rendering）；native_table_row=表格行原文；page_excerpt=拒答题的声明页原文摘录"
+          },
+          "usage_policy": {
+            "type": "string",
+            "enum": [
+              "answer_and_citation",
+              "source_locator_only"
+            ],
+            "description": "锚定元素投影出的证据使用策略（evidence_policy 严格者胜）。source_locator_only 的命中只算定位成功，不算可引用答案"
+          },
+          "pending": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "pdf_rendering_faithfulness",
+                "weak_anchor_needs_review",
+                "quote_spans_multiple_elements",
+                "page_reanchored",
+                "quote_not_in_single_chunk",
+                "fact_coverage_needs_review",
+                "reanchor_unresolved",
+                "source_document_removed"
+              ]
+            },
+            "description": "人工待核标记：未清空前该数据集只允许诊断运行，不报告正式 Recall"
+          },
+          "notes": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "expected_facts": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 2
+      },
+      "description": "答案应覆盖的关键事实；拒答题与纠正前提题写应拒答或应纠正的内容"
+    },
+    "labels": {
+      "type": "object",
+      "required": [
+        "repr",
+        "challenge"
+      ],
+      "additionalProperties": false,
+      "properties": {
+        "repr": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "定义",
+              "数值",
+              "条件",
+              "范围例外",
+              "表格",
+              "流程要求",
+              "拒答"
+            ]
+          },
+          "minItems": 1
+        },
+        "challenge": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "同义表达",
+              "多条件",
+              "多证据",
+              "跨页",
+              "多文档",
+              "表格",
+              "相似干扰",
+              "公式",
+              "图片",
+              "原文定位",
+              "库外"
+            ]
+          }
+        },
+        "modality": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "正文",
+              "表格",
+              "公式",
+              "图片图注"
+            ]
+          }
+        }
+      }
+    },
+    "doc_coverage": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string"
+      },
+      "description": "本条计入覆盖的主文本 display_file_name 列表（通常 1 个；多证据可多个）"
+    },
+    "anchor_corpus": {
+      "type": "string",
+      "pattern": "^corpus-[0-9a-f]{12}$",
+      "description": "element_ids/page 锚定的语料版本；检索评估运行时必须与其一致，否则拒绝计分（防同页 ID 错位）"
+    },
+    "expected_answerability": {
+      "type": "string",
+      "enum": [
+        "answer",
+        "correct_premise",
+        "refuse"
+      ],
+      "description": "期望的系统行为，与证据策略分开记录（证据策略见 evidence[].usage_policy）。answer=库内可答，应给出带引用的回答，引用机器识别证据时带“未核对”标记；correct_premise=问题前提与资料不符，拒答或依据资料纠正前提均可接受，但不得给出所问的虚构数值，回答需人工语义复核；refuse=库外问题，应拒答"
+    },
+    "notes": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "reviewed",
+        "frozen"
+      ],
+      "default": "reviewed",
+      "description": "reviewed=重锚定+机器校验通过；全部 pending 清空并人工核 PDF 后方可置 frozen"
+    }
+  }
+}

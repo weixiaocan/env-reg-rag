@@ -938,14 +938,6 @@ class TestRuntimeQueryEntry(unittest.TestCase):
 # --------------------------------------------------------------------------- #
 
 class TestRecoveryOverride(unittest.TestCase):
-    def test_reparse_script_no_longer_patches_published_jsonl(self):
-        source = (_REPO / "scripts" / "reparse_qxt489_p3.py").read_text(
-            encoding="utf-8")
-        # the retired in-place patch: rewrite of <corpus>-documents.jsonl
-        self.assertNotIn("-documents.jsonl", source,
-                         "reparse must not reference the published page-intermediate")
-        self.assertNotIn(".replace(", source)
-
     def test_write_recovery_pages_stays_out_of_published_tree(self):
         from src.application.corpus_update import write_recovery_pages
         with _ScriptRoot() as env:

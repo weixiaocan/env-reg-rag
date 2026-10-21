@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -11,11 +10,12 @@ import pymupdf
 from fastapi.testclient import TestClient
 
 from src.adapters.pdf_region_renderer import DocumentPageImageService
-from src.adapters.source_evidence_document_catalog import SourceEvidenceDocumentCatalog
+from src.adapters.public_document_catalog import PublicDocumentCatalog
+from src.application.pdf_source_audit import file_digest
 from src.application.answer_generation import InMemoryAnswerGenerator
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.query_service import QueryApplicationService
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.server.fastapi_app import create_app
 
 
@@ -24,7 +24,7 @@ ROOT = Path(__file__).resolve().parents[1]
 
 def _query_service() -> QueryApplicationService:
     return QueryApplicationService(
-        scope_resolver=RuleBasedScopeResolver(),
+        scope_resolver=PassthroughScopeResolver(),
         evidence_retriever=InMemoryEvidenceRetriever([]),
         answer_generator=InMemoryAnswerGenerator(None),
     )
@@ -47,28 +47,14 @@ class PublicDeploymentContractTests(unittest.TestCase):
                 pdf.new_page(width=200, height=300).insert_text((30, 50), "page one")
                 pdf.new_page(width=200, height=300).insert_text((30, 50), "page two")
                 pdf.save(pdf_path)
-            sha = "a" * 64
-            registry = root / "data" / "registry" / "source_evidence.jsonl"
-            registry.parent.mkdir(parents=True)
-            registry.write_text(
-                json.dumps(
-                    {
-                        "file_sha256": sha,
-                        "aliases": [
-                            {
-                                "file_name": "example.pdf",
-                                "rel_path": "data/raw/example.pdf",
-                            }
-                        ],
-                    }
-                )
-                + "\n",
+            sha = file_digest(pdf_path)
+            inventory = root / "data" / "registry" / "inventory.csv"
+            inventory.parent.mkdir(parents=True)
+            inventory.write_text(
+                f"sha256,file_name,rel_path\n{sha},example.pdf,data/raw/example.pdf\n",
                 encoding="utf-8",
             )
-            catalog = SourceEvidenceDocumentCatalog(
-                project_root=root,
-                registry_path=registry,
-            )
+            catalog = PublicDocumentCatalog(project_root=root, inventory_path=inventory)
             client = TestClient(
                 create_app(
                     query_service=_query_service(),
@@ -118,6 +104,7 @@ class PublicDeploymentContractTests(unittest.TestCase):
             {
                 "deployment_profile": "demo",
                 "answer_access": "shared_demo_budget",
+                "answer_available": True,
             },
         )
         self.assertEqual(client.get("/api/v1/formulas").status_code, 404)

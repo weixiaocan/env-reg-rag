@@ -14,6 +14,7 @@ from src.application.query_observability import (
     QueryTrace,
     QueryTraceRecorder,
 )
+from src.application.question_rewriting import QuestionRewriter, add_usage
 from src.application.scope_resolution import ScopeResolver
 from src.domain.query import AnswerResult, EvidenceItem, EvidencePack, QueryRequest, QueryStatus
 
@@ -45,6 +46,8 @@ class QueryApplicationService:
         generate_context_limit: int | None = None,
         allow_unverified_evidence: bool = False,
         context_expander: EvidenceContextExpander | None = None,
+        generation_unavailable_reason: str | None = None,
+        question_rewriter: QuestionRewriter | None = None,
     ) -> None:
         # When enabled, ``source_locator_only`` evidence may support a claim,
         # but every such claim is marked ``verified=False`` and the result
@@ -62,6 +65,10 @@ class QueryApplicationService:
         # Adds the prose framing structured evidence after the context limit
         # is applied, so expansion never pushes retrieved evidence out.
         self._context_expander = context_expander
+        self._generation_unavailable_reason = generation_unavailable_reason
+        # With earlier turns, a follow-up is rewritten into a standalone
+        # question before retrieval; the first question is searched as asked.
+        self._question_rewriter = question_rewriter
 
     async def execute(self, request: QueryRequest) -> AnswerResult:
         query_started = perf_counter()
@@ -74,6 +81,8 @@ class QueryApplicationService:
         error_type: str | None = None
         try:
             result = await self._execute(request, observation)
+            if observation.get("search_question"):
+                result = replace(result, search_question=observation["search_question"])
             return result
         except Exception as error:
             error_type = type(error).__name__
@@ -103,7 +112,7 @@ class QueryApplicationService:
                     claim.claim_id: list(claim.evidence_ids)
                     for claim in (answer.claims if answer is not None else [])
                 },
-                model_usage=observation["usage"],
+                model_usage=add_usage(observation["usage"], observation.get("rewrite_usage")),
                 runtime_metadata=self._runtime_metadata,
                 error_type=error_type,
                 generate_context_evidence_ids=list(
@@ -143,9 +152,28 @@ class QueryApplicationService:
                     **scope.resolved_scope,
                 },
             )
+        if self._question_rewriter is not None and request.history:
+            stage_started = perf_counter()
+            try:
+                rewrite = await self._question_rewriter.rewrite(
+                    question=effective_request.question, history=request.history
+                )
+                observation["rewrite_usage"] = rewrite.usage
+                if rewrite.question.strip():
+                    effective_request = replace(
+                        effective_request, search_question=rewrite.question.strip()
+                    )
+                    observation["search_question"] = effective_request.search_question
+            except Exception:
+                # A failed rewrite must not fail the query: search as asked.
+                logger.warning("question rewrite failed for query_id=%s", request.request_id,
+                               exc_info=True)
+            observation["stages"]["rewrite"] = round(
+                (perf_counter() - stage_started) * 1000, 3
+            )
         stage_started = perf_counter()
         evidence_pack = await self._evidence_retriever.retrieve(
-            question=effective_request.question,
+            question=effective_request.search_question or effective_request.question,
             resolved_scope=scope.resolved_scope,
             corpus_version=request.corpus_version,
         )
@@ -162,6 +190,21 @@ class QueryApplicationService:
                 evidence=[],
                 corpus_version=evidence_pack.corpus_version,
                 warnings=["no evidence in the selected corpus"],
+                continuation_context={
+                    "anchor_question": scope.anchor_question or request.question,
+                    **scope.resolved_scope,
+                },
+            )
+        if self._generation_unavailable_reason and not self._skip_generation:
+            return AnswerResult(
+                query_id=request.request_id,
+                status=QueryStatus.SEARCH_ONLY,
+                resolved_scope=scope.resolved_scope,
+                missing_conditions=[],
+                answer=None,
+                evidence=evidence_pack.evidence,
+                corpus_version=evidence_pack.corpus_version,
+                warnings=[self._generation_unavailable_reason],
                 continuation_context={
                     "anchor_question": scope.anchor_question or request.question,
                     **scope.resolved_scope,
@@ -194,7 +237,7 @@ class QueryApplicationService:
                 answer=None,
                 evidence=evidence_pack.evidence,
                 corpus_version=evidence_pack.corpus_version,
-                warnings=["source lookup mode; open the source page"],
+                warnings=[],
                 continuation_context={
                     "anchor_question": scope.anchor_question or request.question,
                     **scope.resolved_scope,
@@ -236,15 +279,26 @@ class QueryApplicationService:
         observation["usage"] = generation.usage
         answer = generation.answer
         if not answer.claims and not answer.conflicts:
+            # When unverified evidence may answer, an empty answer means the
+            # sources do not support one; only the verified-only profile can
+            # blame unreviewed tables or formulas.
+            locator_only = not self._allow_unverified and any(
+                item.usage_policy == UNVERIFIED_POLICY
+                for item in evidence_pack.evidence
+            )
             return AnswerResult(
                 query_id=request.request_id,
-                status=QueryStatus.REFUSED,
+                status=(QueryStatus.SEARCH_ONLY if locator_only else QueryStatus.REFUSED),
                 resolved_scope=scope.resolved_scope,
                 missing_conditions=[],
                 answer=None,
-                evidence=[],
+                evidence=(evidence_pack.evidence if locator_only else []),
                 corpus_version=evidence_pack.corpus_version,
-                warnings=["retrieved evidence does not support an answer"],
+                warnings=[
+                    "检索到相关原文，但直接支持答案的表格或公式尚未通过人工核对；请查看原文页。"
+                    if locator_only
+                    else "retrieved evidence does not support an answer"
+                ],
                 continuation_context={
                     "anchor_question": scope.anchor_question or request.question,
                     **scope.resolved_scope,

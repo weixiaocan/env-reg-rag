@@ -1,5 +1,7 @@
 # 仓库整理与公开部署准备
 
+> 状态更新（2026-10-15）：腾讯云演示工作台已接入 `https://weixiaocan.com/rag/`，原文检索、逐页查看和智谱 GLM-5.2 证据化回答已通过局部在线烟测。未经人工核对的表格和公式可以支持回答，对应结论标注"未核对"。下文 P0–P3 是部署前制定的检查清单，已完成的在线烟测与当前限制以 README 的“公网演示状态”为准；内容质量与法规效力未因此获得认证。
+
 - 状态：In review
 - 修订日期：2026-09-29
 - 当前正式语料：`corpus-0b9a1fd84e3d`
@@ -50,7 +52,6 @@
 | `_tmp_extract/`、`_tmp_qxt489_diag/`、`_tmp_t08_evidence/` | 可能包含修复证据；先与 observability/测试引用比对 |
 | `data/observability/` 旧日志和失败输出 | 发布证据长期保留；纯进程日志按日期归档，不与发布报告混删 |
 | `eval/` | 本任务不评估、不修改；由评测任务单独管理 |
-| `docs/CLEANUP_PLAN.md` 等历史计划 | 标明历史状态；活跃部署口径以本文和 README 为准 |
 | 旧 Qdrant staging collections | 先确认回退链和备份，再制定保留数量；本轮不删除 |
 
 ### 可删除候选（必须逐项确认后执行）
@@ -117,8 +118,7 @@ GET /api/v1/documents/{document_version_id}/pages/{physical_page}/image
 - Qdrant 不允许公网入口；当前端口只绑定 `127.0.0.1`，正式主机应进一步取消宿主机端口映射，只保留 Docker 内网。
 - `.env` 不进 Git；生产密钥使用平台 Secret 注入，不写 Compose、镜像、日志、trace 或前端。
 - 本轮检查过程中，`docker compose config` 曾在本地命令输出中展开 `.env` 值；未向外部服务发送，但应在公开部署前轮换受影响的 LLM 密钥。后续配置核对只使用 `docker compose config --no-interpolate`。
-- `source_lookup` 不调用 LLM；当日 answer 预算耗尽时仍可保留原文定位能力。
-- 公式复核等诊断接口不属于公开产品面，默认不注册；仅 `self_hosted` 可通过 `PUBLIC_DIAGNOSTIC_ROUTES_ENABLED=true` 显式启用，`demo` 配置为 true 时应用拒绝启动。
+- `source_lookup` 不调用 LLM；当日 answer 预算耗尽后，提问自动改走 `source_lookup`，返回相关原文并说明额度已用完（2026-10-19 起）。
 - CORS 保持同源，不为公开站点开放任意来源。
 
 ## 5. 健康、可观测性与回退

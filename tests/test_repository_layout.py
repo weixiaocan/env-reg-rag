@@ -21,7 +21,7 @@ class PublicRepositoryLayoutTests(unittest.TestCase):
         self.assertEqual(
             {path.name for path in (ROOT / "docs").iterdir() if path.is_file()},
             {
-                "ARCHITECTURE.md", "CLEANUP_PLAN.md", "SCOPE_AND_DEFERRED.md",
+                "ARCHITECTURE.md", "SCOPE_AND_DEFERRED.md",
                 "v2-canonical-schema-design.md", "TEXT_QUALITY_RECOVERY.md",
                 "PDF_EXTRACTION_FREEZE_REMEDIATION_PLAN.md", "PUBLIC_DEPLOYMENT_PREP.md",
             },

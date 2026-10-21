@@ -39,6 +39,23 @@ class DocumentPageImageService:
         except Exception:
             return None
 
+    def page_geometry(
+        self, document_version_id: str, physical_page: int
+    ) -> tuple[float, float] | None:
+        if physical_page < 1:
+            return None
+        document = self._catalog.get(document_version_id)
+        if document is None or document.local_path is None:
+            return None
+        try:
+            with pymupdf.open(document.local_path) as pdf:
+                if physical_page > len(pdf):
+                    return None
+                rect = pdf[physical_page - 1].rect
+                return float(rect.width), float(rect.height)
+        except Exception:
+            return None
+
     def image(self, document_version_id: str, physical_page: int) -> bytes | None:
         if physical_page < 1:
             return None

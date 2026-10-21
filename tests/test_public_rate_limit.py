@@ -9,7 +9,7 @@ from fastapi.testclient import TestClient
 from src.application.answer_generation import InMemoryAnswerGenerator
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
 from src.application.query_service import QueryApplicationService
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.server.fastapi_app import create_app
 from src.server.rate_limit import InMemoryQueryRateLimiter, QueryRateLimitPolicy
 
@@ -24,7 +24,7 @@ class _Clock:
 
 def _service() -> QueryApplicationService:
     return QueryApplicationService(
-        scope_resolver=RuleBasedScopeResolver(),
+        scope_resolver=PassthroughScopeResolver(),
         evidence_retriever=InMemoryEvidenceRetriever([]),
         answer_generator=InMemoryAnswerGenerator(None),
     )
@@ -108,6 +108,34 @@ class PublicRateLimitTests(unittest.TestCase):
         self.assertEqual(response.status_code, 429)
         self.assertEqual(response.json()["error"]["code"], "rate_limit_exceeded")
         self.assertIn("retry-after", response.headers)
+
+    def test_spent_answer_budget_falls_back_to_finding_sources(self) -> None:
+        limiter = InMemoryQueryRateLimiter(
+            QueryRateLimitPolicy(
+                source_lookup_per_minute=10,
+                answer_per_minute=10,
+                answer_daily_budget=1,
+            ),
+            clock=lambda: 0.0,
+            day_key=lambda: "2026-09-29",
+        )
+        client = TestClient(
+            create_app(
+                query_service=_service(),
+                source_locator_service=_service(),
+                query_rate_limiter=limiter,
+            )
+        )
+        payload = {"question": "测试额度用完后的兜底", "mode": "answer"}
+
+        self.assertEqual(client.post("/api/v1/queries", json=payload).status_code, 200)
+        response = client.post("/api/v1/queries", json=payload)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertIsNone(response.json()["answer"])
+        self.assertEqual(
+            response.json()["warnings"], ["今日 AI 回答额度已用完，已为你找到相关原文"]
+        )
 
 
 if __name__ == "__main__":

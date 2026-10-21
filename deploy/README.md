@@ -1,6 +1,8 @@
 # 服务器部署（演示版，带每日额度）
 
-适用：一台装有 Docker（含 compose v2）和 nginx 的 Linux 服务器。服务器不需要访问 Docker Hub、PyPI 或 Hugging Face，镜像、向量库和资料都在部署包里。
+适用：一台装有 Docker（含 compose v2）和 HTTPS 反向代理的 Linux 服务器。服务器不需要访问 Docker Hub、PyPI 或 Hugging Face，镜像、向量库和资料都在部署包里。
+
+2026-10-15 的腾讯云演示实例使用现有 Caddy，公网入口为 `https://weixiaocan.com/rag/`。Caddy 把 `/rag/*`（去掉 `/rag` 前缀）、`/api/v1/*` 和 `/documents` 转发到 RAG 容器；个人站的其他路径仍走原服务。RAG 容器通过单独的 Compose override 加入现有 Caddy Docker 网络，应用和 Qdrant 的宿主机端口仍只绑定 `127.0.0.1`。调整代理容器后应重新核对其内网 IP 与 `FORWARDED_ALLOW_IPS` 的精确配置。
 
 ## 1. 在开发机上打包
 
@@ -28,7 +30,9 @@ sudo nano .env        # 内容见下
 sudo chmod 600 .env
 ```
 
-`.env` 最少需要这些内容：
+启用外部模型回答时，`.env` 需要提供方配置和 Key。未配置模型时，提问会返回找到的原文并明确提示模型不可用。公网演示实例目前配置智谱 GLM-5.2；模型可用性须以在线烟测为准。`answer_and_citation` 证据可直接支持结论；`source_locator_only`（机器识别、未人工核对）也可支持结论，但对应结论标注"未核对"。
+
+模型回答部署的示例配置：
 
 ```ini
 LLM_PROVIDER=zhipu
@@ -40,9 +44,8 @@ PUBLIC_RATE_LIMIT_ENABLED=true
 PUBLIC_ANSWER_PER_CLIENT_DAILY=10   # 每个访客每天 AI 回答次数
 PUBLIC_ANSWER_DAILY_BUDGET=20       # 全站每天 AI 回答总次数（控制 token 费用的关键）
 PUBLIC_ANSWER_PER_MINUTE=3
-PUBLIC_SOURCE_LOOKUP_PER_MINUTE=30  # "只找原文"不调用模型，不消耗 token
-PUBLIC_DIAGNOSTIC_ROUTES_ENABLED=false
-FORWARDED_ALLOW_IPS=*               # 应用端口只绑定 127.0.0.1，只有本机 nginx 能连
+PUBLIC_SOURCE_LOOKUP_PER_MINUTE=30  # 只返回原文（额度用完后的兜底）不调用模型，不消耗 token
+FORWARDED_ALLOW_IPS=172.19.0.5      # 示例：当前腾讯实例的 Caddy 容器内网 IP；其他主机需实测后替换
 ```
 
 ## 3. 安装
@@ -62,15 +65,15 @@ sudo bash /tmp/deploy-<语料版本>/server_install.sh /opt/drainage-rag
 
 升级时重新打包上传，再运行同一个脚本即可。
 
-## 4. nginx 和 HTTPS
+## 4. HTTPS 反向代理
 
-1. 把 `deploy/nginx-drainage-rag.conf` 复制到 `/etc/nginx/conf.d/`，把 `rag.example.com` 换成你的域名，然后执行 `nginx -t && systemctl reload nginx`。
-2. 申请证书：`certbot --nginx -d 你的域名`。
+1. 独立 nginx 主机可把 `deploy/nginx-drainage-rag.conf` 复制到 `/etc/nginx/conf.d/`，把 `rag.example.com` 换成你的域名，再执行 `nginx -t && systemctl reload nginx`，并申请 HTTPS 证书。
+2. 已有 Caddy 的共享主机应在现有站点配置中加专用路由，先验证 Caddy 到应用的私有网络连通性，再热加载配置。不要用 nginx 配置覆盖现有 80/443 服务。
 3. 云服务器安全组只开放 80 和 443，8000 与 6333 不对外开放（compose 已经只绑定 127.0.0.1）。
 
 ## 5. 额度说明
 
-- AI 回答受两层限制：每个访客每天 10 次，全站每天 20 次。"只找原文"和浏览资料不受每日限制。
+- AI 回答受两层限制：每个访客每天 10 次，全站每天 20 次。额度用完后，提问自动改为只返回相关原文；这一路径和浏览资料不受每日限制。
 - 计数在应用内存中，按 UTC 日期重置（北京时间 8:00）。重启容器也会清零。
 - 应用内的计数不是严格的费用上限。请同时在智谱控制台设置余额提醒或消费上限。
 

@@ -145,6 +145,18 @@ class TestRunLoopAndSummary:
         assert classify_outcome({**base, "status": "refused", "generate_context_evidence_ids": ["ev-1"]}) == "generation_refusal"
         assert classify_outcome({"expected_answerability": "refuse", "status": "refused", "failure_class": None}) == "correct_refusal"
 
+    def test_premise_case_accepts_refusal_or_a_reviewed_correction(self):
+        base = {"expected_answerability": "correct_premise", "failure_class": None}
+        assert classify_outcome({**base, "status": "refused"}) == "correct_refusal"
+        assert classify_outcome({**base, "status": "answered"}) == "premise_answer_needs_semantic_review"
+        assert classify_outcome({**base, "status": "search_only"}) == "premise_failure"
+        summary = build_summary([
+            {**base, "case": "G015", "status": "answered"},
+            {"expected_answerability": "answer", "case": "G009", "status": "answered"},
+        ])
+        assert summary["denominators"]["premise_cases"] == 1
+        assert summary["denominators"]["content_target_cases"] == 1
+
     def test_merge_traces_fills_stages_and_usage(self, tmp_path):
         from src.domain.query import QueryStatus
 

@@ -3,7 +3,7 @@ from src.application.answer_generation import AnswerGenerationResult, ModelUsage
 from src.application.query_observability import InMemoryQueryTraceRecorder
 from src.application.query_service import QueryApplicationService
 from src.application.evidence_retrieval import InMemoryEvidenceRetriever
-from src.application.scope_resolution import RuleBasedScopeResolver
+from src.application.scope_resolution import PassthroughScopeResolver
 from src.domain.query import Answer, Claim, EvidenceItem, EvidencePack, QueryRequest, QueryStatus
 
 
@@ -50,7 +50,7 @@ class GenerateContextLimitTest(unittest.IsolatedAsyncioTestCase):
         generator = _RecordingGenerator(answer)
         recorder = InMemoryQueryTraceRecorder()
         service = QueryApplicationService(
-            scope_resolver=RuleBasedScopeResolver(),
+            scope_resolver=PassthroughScopeResolver(),
             evidence_retriever=InMemoryEvidenceRetriever(evidence),
             answer_generator=generator,
             generate_context_limit=5,

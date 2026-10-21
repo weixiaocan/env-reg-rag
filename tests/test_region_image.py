@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import tempfile
 import unittest
 from pathlib import Path
@@ -9,9 +8,8 @@ import pymupdf
 from qdrant_client import QdrantClient
 
 from src.adapters.pdf_region_renderer import RegionImageService
-from src.adapters.source_evidence_document_catalog import (
-    SourceEvidenceDocumentCatalog,
-)
+from src.adapters.public_document_catalog import PublicDocumentCatalog
+from src.application.pdf_source_audit import file_digest
 from src.retrieval.qdrant_index import QdrantRetrievalIndex
 
 
@@ -29,17 +27,16 @@ def _write_minimal_pdf(path: Path) -> tuple[float, float, list[float]]:
     return 612, 792, [60, 60, 220, 90]
 
 
-def _write_source_evidence(root: Path, sha: str, rel_path: str, file_name: str) -> Path:
-    registry_path = root / "data" / "registry" / "source_evidence.jsonl"
-    registry_path.parent.mkdir(parents=True, exist_ok=True)
-    record = {
-        "file_sha256": sha,
-        "aliases": [{"file_name": file_name, "rel_path": rel_path}],
-        "observations": [],
-    }
-    with registry_path.open("w", encoding="utf-8") as fh:
-        fh.write(json.dumps(record, ensure_ascii=False) + "\n")
-    return registry_path
+def _write_inventory(root: Path, rel_path: str) -> tuple[Path, str]:
+    """Register one PDF in inventory.csv the way the live catalog reads it."""
+    sha = file_digest(root / rel_path)
+    inventory = root / "data" / "registry" / "inventory.csv"
+    inventory.parent.mkdir(parents=True, exist_ok=True)
+    inventory.write_text(
+        f"sha256,file_name,rel_path\n{sha},{Path(rel_path).name},{rel_path}\n",
+        encoding="utf-8",
+    )
+    return inventory, sha
 
 
 class RegionImageServiceTest(unittest.TestCase):
@@ -53,11 +50,8 @@ class RegionImageServiceTest(unittest.TestCase):
         pdf_path.parent.mkdir(parents=True, exist_ok=True)
         _, _, self.bbox = _write_minimal_pdf(pdf_path)
 
-        self.sha = "a" * 64
-        registry_path = _write_source_evidence(root, self.sha, pdf_rel, "region_test.pdf")
-        self.catalog = SourceEvidenceDocumentCatalog(
-            project_root=root, registry_path=registry_path
-        )
+        inventory, self.sha = _write_inventory(root, pdf_rel)
+        self.catalog = PublicDocumentCatalog(project_root=root, inventory_path=inventory)
 
         self.client = QdrantClient(url="http://127.0.0.1:6333", timeout=10)
         self.collection = "test_region_image_service"

@@ -12,7 +12,6 @@ retriever answer default).
 from __future__ import annotations
 
 import asyncio
-import importlib.util
 import os
 import unittest
 from pathlib import Path
@@ -294,58 +293,6 @@ class RetrieverMissingPolicyTest(unittest.TestCase):
         hit = self._to_hit(payload)
         self.assertEqual(hit.usage_policy, "answer_and_citation")
 
-
-# --------------------------------------------------------------------------- #
-# Enrich never upgrades policy
-# --------------------------------------------------------------------------- #
-
-def _load_enrich_module():
-    path = _REPO / "scripts" / "enrich_corpus_v2_payloads.py"
-    spec = importlib.util.spec_from_file_location("enrich_corpus_v2_payloads", path)
-    mod = importlib.util.module_from_spec(spec)
-    spec.loader.exec_module(mod)
-    return mod
-
-
-class EnrichPreservesPolicyTest(unittest.TestCase):
-    """D2: enrich must not upgrade an existing policy; missing -> locator-only."""
-
-    def setUp(self):
-        self.mod = _load_enrich_module()
-        self.md = {
-            "file_name": "ex.pdf", "document_kind": "standard", "jurisdictions": ["全国"],
-            "standard_number": "T/CECS 758-2020", "source_authority": "", "publication_date": "",
-            "effective_from": "", "effective_to": "", "effective_status": "unknown",
-            "effective_status_as_of": "",
-        }
-
-    def test_existing_locator_preserved(self):
-        payload = {"chunk_id": "c1", "source_sha256": SHA, "usage_policy": "source_locator_only"}
-        enr = self.mod._build_enrichment(payload, self.md, "", "c1", SHA)
-        # enrich must NOT overwrite an existing locator-only with answer.
-        self.assertNotEqual(enr.get("usage_policy"), "answer_and_citation")
-        # either omitted (preserved via no set_payload) or kept as locator.
-        if "usage_policy" in enr:
-            self.assertEqual(enr["usage_policy"], "source_locator_only")
-
-    def test_existing_answer_preserved(self):
-        payload = {"chunk_id": "c1", "source_sha256": SHA, "usage_policy": "answer_and_citation"}
-        enr = self.mod._build_enrichment(payload, self.md, "", "c1", SHA)
-        # must not downgrade a legitimately-answerable policy either? Actually
-        # enrich must never CHANGE policy in either direction. Verify it does not
-        # overwrite to a different value.
-        if "usage_policy" in enr:
-            self.assertEqual(enr["usage_policy"], "answer_and_citation")
-
-    def test_missing_policy_backfilled_locator(self):
-        payload = {"chunk_id": "c1", "source_sha256": SHA}
-        enr = self.mod._build_enrichment(payload, self.md, "", "c1", SHA)
-        self.assertEqual(enr.get("usage_policy"), "source_locator_only")
-
-
-# --------------------------------------------------------------------------- #
-# Answer path double filter (regression)
-# --------------------------------------------------------------------------- #
 
 class AnswerPathDoubleFilterTest(unittest.TestCase):
     """answer path: Qdrant filter + result post-filter both exclude locator-only."""

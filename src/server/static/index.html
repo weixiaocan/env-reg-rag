@@ -7,43 +7,910 @@
   <style>
     :root{--ink:#18231e;--muted:#66756e;--line:#d9e1dc;--paper:#f4f6f2;--panel:#fff;--deep:#10271d;--green:#116447;--soft:#e8f3ed;--lime:#c8ee66;--amber:#945f05;--amber-bg:#fff3d8;--red:#973d35;--red-bg:#fbeae7;--blue:#275f85;--blue-bg:#e9f3f8;--shadow:0 14px 36px rgba(26,45,36,.09)}
     *{box-sizing:border-box}html,body{margin:0;height:100%;color:var(--ink);background:var(--paper);font-family:Inter,"Microsoft YaHei","PingFang SC",system-ui,sans-serif}button,input{font:inherit}button{cursor:pointer}.app{height:100%;display:flex;flex-direction:column}.topbar{height:64px;display:flex;align-items:center;gap:18px;padding:0 22px;background:var(--deep);color:#fff;border-bottom:1px solid #365246}.brand{display:flex;align-items:center;gap:10px;min-width:250px}.mark{display:grid;place-items:center;width:35px;height:35px;border:1px solid #668277;border-radius:10px;color:var(--lime);font-weight:800}.brand strong{font-size:15px}.brand small{display:block;color:#aabdb4;font-size:10px;margin-top:2px}.corpus{flex:1;color:#b7c9c1;font-size:11px}.corpus b{display:block;color:#fff;font-size:12px;margin-bottom:2px}.modes{display:flex;gap:3px;padding:3px;border:1px solid #466256;border-radius:10px}.modes button{border:0;border-radius:7px;padding:7px 10px;background:transparent;color:#c5d4ce;font-size:11px}.modes button.active{background:var(--lime);color:#193122;font-weight:800}
-    .workspace{min-height:0;flex:1;display:grid;grid-template-columns:220px minmax(420px,1fr) 390px}.left{padding:19px 15px;background:#f0f3ef;border-right:1px solid var(--line)}.pane-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.pane-head h2{font-size:13px;margin:0}.new{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 9px}.session{padding:11px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:12px;line-height:1.55}.session span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.note{margin-top:18px;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.7}
-    .chat{min-width:0;display:flex;flex-direction:column;background:#fff}.messages{flex:1;overflow:auto;padding:30px clamp(22px,5vw,70px) 18px}.empty{max-width:680px;margin:12vh auto 0}.eyebrow{color:var(--green);font-size:10px;letter-spacing:.12em;font-weight:800;text-transform:uppercase}.empty h1{font:650 32px/1.28 Georgia,"Songti SC",serif;margin:10px 0}.empty p{color:var(--muted);font-size:13px;line-height:1.7}.suggestions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:25px}.suggestion{padding:13px;text-align:left;border:1px solid var(--line);border-radius:11px;background:#fafbf9;color:#33443b;line-height:1.5}.suggestion:hover{border-color:#74a18c;background:var(--soft)}.turn{max-width:820px;margin:0 auto 24px}.user{max-width:78%;margin-left:auto;padding:12px 15px;border-radius:14px 14px 3px 14px;background:#173a2b;color:#fff;font-size:13px;line-height:1.6}.assistant-head{display:flex;align-items:center;gap:8px;color:var(--green);font-size:11px;font-weight:800;margin:17px 0 10px}.assistant-head:before{content:"证";display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:var(--green);color:#fff}.status{border-left:4px solid var(--green);border-radius:5px 10px 10px 5px;padding:11px 13px;background:var(--soft);font-size:12px;line-height:1.55}.status.needs_clarification{border-color:#cf850c;background:var(--amber-bg)}.status.refused{border-color:#c75a50;background:var(--red-bg)}.status.search_only,.status.conflicting_sources{border-color:#4d87ae;background:var(--blue-bg)}.claim{font:15px/1.85 Georgia,"Songti SC",serif;margin:15px 0}.unverified{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:5px;background:var(--amber-bg);color:#9a5d00;font:700 10px/1.6 system-ui;vertical-align:middle}.cite{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:4px;padding:0 5px;border:0;border-radius:6px;background:var(--green);color:#fff;font:700 11px/1 system-ui}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.chip{border:1px solid #c8d5ce;border-radius:999px;background:#fff;padding:6px 10px;color:#42544a;font-size:11px}.chip.action:hover{border-color:var(--green);color:var(--green)}.warning{margin-top:10px;color:var(--muted);font-size:11px}.composer{padding:10px clamp(22px,5vw,70px) 18px;border-top:1px solid var(--line);background:#fff}.query-modes{max-width:820px;margin:0 auto 8px;display:flex;align-items:center;gap:5px}.query-modes span{margin-right:4px;color:var(--muted);font-size:10px}.query-modes button{border:1px solid var(--line);border-radius:999px;padding:5px 9px;background:#fff;color:var(--muted);font-size:10px}.query-modes button.active{border-color:#9bc9b2;background:var(--soft);color:var(--green);font-weight:800}.composer form{max-width:820px;margin:auto;display:flex;gap:8px}.composer input{flex:1;height:46px;border:1px solid #bdcbc4;border-radius:11px;padding:0 14px;outline:none}.composer input:focus{border-color:var(--green);box-shadow:0 0 0 3px #dceee5}.send{border:0;border-radius:10px;background:var(--lime);padding:0 20px;color:#183021;font-weight:800}.send:disabled{opacity:.55;cursor:wait}
+    .workspace{min-height:0;flex:1;display:grid;grid-template-columns:220px minmax(420px,1fr) 390px}.left{padding:19px 15px;background:#f0f3ef;border-right:1px solid var(--line)}.pane-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}.pane-head h2{font-size:13px;margin:0}.new{border:1px solid var(--line);background:#fff;border-radius:8px;padding:6px 9px}.history{display:flex;flex-direction:column;gap:6px;max-height:calc(100vh - 230px);overflow:auto}.session{position:relative;display:block;width:100%;text-align:left;padding:9px 28px 9px 11px;border:1px solid var(--line);border-radius:10px;background:#fff;font-size:12px;line-height:1.55;color:var(--ink)}.session.active{border-color:var(--green);box-shadow:inset 3px 0 0 var(--green)}.session-title{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.session .remove{position:absolute;top:6px;right:6px;border:0;background:transparent;color:var(--muted);font-size:14px;line-height:1;padding:2px 4px;border-radius:4px}.session .remove:hover{background:#eef1ec;color:var(--ink)}.history-empty{color:var(--muted);font-size:12px}.search-note{margin:0 0 8px;color:var(--muted);font-size:12px}.session span{display:block;color:var(--muted);font-size:10px;margin-top:4px}.note{margin-top:18px;padding-top:15px;border-top:1px solid var(--line);color:var(--muted);font-size:11px;line-height:1.7}
+    .chat{min-width:0;display:flex;flex-direction:column;background:#fff}.messages{flex:1;overflow:auto;padding:30px clamp(22px,5vw,70px) 18px}.empty{max-width:680px;margin:12vh auto 0}.eyebrow{color:var(--green);font-size:10px;letter-spacing:.12em;font-weight:800;text-transform:uppercase}.empty h1{font:650 32px/1.28 Georgia,"Songti SC",serif;margin:10px 0;text-wrap:balance}.empty p{color:var(--muted);font-size:13px;line-height:1.7}.suggestions{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:25px}.suggestion{padding:13px;text-align:left;border:1px solid var(--line);border-radius:11px;background:#fafbf9;color:#33443b;line-height:1.5}.suggestion:hover{border-color:#74a18c;background:var(--soft)}.turn{max-width:820px;margin:0 auto 24px}.user{max-width:78%;margin-left:auto;padding:12px 15px;border-radius:14px 14px 3px 14px;background:#173a2b;color:#fff;font-size:13px;line-height:1.6}.assistant-head{display:flex;align-items:center;gap:8px;color:var(--green);font-size:11px;font-weight:800;margin:17px 0 10px}.assistant-head:before{content:"证";display:grid;place-items:center;width:25px;height:25px;border-radius:8px;background:var(--green);color:#fff}.status{border-left:4px solid var(--green);border-radius:5px 10px 10px 5px;padding:11px 13px;background:var(--soft);font-size:12px;line-height:1.55}.status.needs_clarification{border-color:#cf850c;background:var(--amber-bg)}.status.refused{border-color:#c75a50;background:var(--red-bg)}.status.search_only,.status.conflicting_sources{border-color:#4d87ae;background:var(--blue-bg)}.claim{font:15px/1.85 Georgia,"Songti SC",serif;margin:15px 0;white-space:pre-line}.unverified{display:inline-block;margin-left:6px;padding:1px 6px;border-radius:5px;background:var(--amber-bg);color:#9a5d00;font:700 10px/1.6 system-ui;vertical-align:middle}.cite{display:inline-grid;place-items:center;min-width:22px;height:22px;margin-left:4px;padding:0 5px;border:0;border-radius:6px;background:var(--green);color:#fff;font:700 11px/1 system-ui}.chips{display:flex;gap:7px;flex-wrap:wrap;margin-top:12px}.chip{border:1px solid #c8d5ce;border-radius:999px;background:#fff;padding:6px 10px;color:#42544a;font-size:11px}.chip.action:hover{border-color:var(--green);color:var(--green)}.warning{margin-top:10px;color:var(--muted);font-size:11px}.composer{padding:10px clamp(22px,5vw,70px) 18px;border-top:1px solid var(--line);background:#fff}.query-modes{max-width:820px;margin:0 auto 8px;display:flex;align-items:center;gap:5px}.query-modes span{margin-right:4px;color:var(--muted);font-size:10px}.query-modes button{border:1px solid var(--line);border-radius:999px;padding:5px 9px;background:#fff;color:var(--muted);font-size:10px}.query-modes button.active{border-color:#9bc9b2;background:var(--soft);color:var(--green);font-weight:800}.composer form{max-width:820px;margin:auto;display:flex;gap:8px}.composer input{flex:1;height:46px;border:1px solid #bdcbc4;border-radius:11px;padding:0 14px;outline:none}.composer input:focus{border-color:var(--green);box-shadow:0 0 0 3px #dceee5}.send{border:0;border-radius:10px;background:var(--lime);padding:0 20px;color:#183021;font-weight:800}.send:disabled{opacity:.55;cursor:wait}
     .evidence{overflow:auto;padding:20px;background:#f8f7f2;border-left:1px solid var(--line)}.evidence-empty{margin-top:25vh;color:var(--muted);text-align:center;font-size:12px;line-height:1.7}.source-list{display:grid;gap:8px;margin-bottom:16px}.source-card{width:100%;text-align:left;padding:10px;border:1px solid var(--line);border-radius:10px;background:#fff}.source-card.active{border-color:var(--green);box-shadow:inset 3px 0 var(--green)}.source-card strong{display:block;font-size:11px;line-height:1.45}.source-card span{color:var(--muted);font-size:10px}.detail{padding-top:15px;border-top:1px solid var(--line)}.detail h3{font:650 18px/1.45 Georgia,"Songti SC",serif;margin:8px 0 13px}.meta{display:grid;grid-template-columns:70px 1fr;gap:7px;font-size:11px}.meta dt{color:var(--muted)}.meta dd{margin:0;overflow-wrap:anywhere}.quote{margin:17px 0;padding:14px;border:1px solid var(--line);border-left:4px solid var(--green);background:#fff;font:13px/1.8 Georgia,"Songti SC",serif;white-space:pre-wrap}.source-actions{display:grid;gap:8px}.open-source{display:block;text-align:center;text-decoration:none;border:1px solid var(--line);border-radius:9px;padding:9px;background:#fff;color:var(--green);font-size:12px}.open-source.primary{border-color:var(--green);background:var(--green);color:#fff}.loading{display:inline-flex;align-items:center;gap:8px;color:var(--muted);font-size:12px}.loading:before{content:"";width:14px;height:14px;border:2px solid #ccd8d1;border-top-color:var(--green);border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
     .mode-b .workspace{grid-template-columns:minmax(460px,1fr) minmax(420px,.85fr)}.mode-b .left{display:none}.mode-b .evidence{grid-column:1;grid-row:1;border-left:0;border-right:1px solid var(--line)}.mode-b .chat{grid-column:2;grid-row:1}.mode-c .workspace{display:grid;grid-template-columns:minmax(520px,1fr)}.mode-c .left{display:none}.mode-c .evidence{border-left:0;border-top:1px solid var(--line);padding:20px clamp(22px,5vw,70px)}.mode-c .source-list{grid-template-columns:repeat(3,1fr)}.mode-c .detail{max-width:900px}.mode-c .messages{padding-bottom:25px}
     @media(max-width:1020px){.workspace{grid-template-columns:180px 1fr}.evidence{display:none}.mode-b .workspace{display:block}.mode-b .evidence{display:none}.mode-b .chat{min-height:calc(100vh - 64px)}.mode-c .evidence{display:block}.mode-c .source-list{grid-template-columns:1fr 1fr}}@media(max-width:700px){.topbar{height:auto;min-height:64px;flex-wrap:wrap;padding:10px 12px}.brand{min-width:0}.corpus{order:3;min-width:100%}.workspace{display:block}.left{display:none}.chat{height:calc(100vh - 98px)}.messages{padding:20px 14px}.composer{padding:10px 12px}.suggestions{grid-template-columns:1fr}.empty{margin-top:5vh}.empty h1{font-size:26px}.modes button{padding:6px 8px}.mode-c .evidence{display:none}}
+    /* Keep the composer inside the viewport while only the conversation scrolls. */
+    html,body{overflow:hidden}
+    .app{height:100vh;height:100dvh;min-height:0;overflow:hidden}
+    .topbar{flex:none}
+    .workspace{min-height:0;overflow:hidden;grid-template-rows:minmax(0,1fr)}
+    .chat{min-height:0;overflow:hidden}
+    .messages{min-height:0;overflow-y:auto}
+    .composer{flex:none;padding-bottom:max(18px,env(safe-area-inset-bottom))}
+    .workspace,.chat,.messages,.composer,.composer form,.empty{min-width:0}
+    .composer input{min-width:0}
+    .send{flex:none}
+    .mode-c .workspace{grid-template-columns:minmax(0,1fr) 390px}
+    .mode-c .evidence{grid-column:2;grid-row:1;border-top:0;border-left:1px solid var(--line)}
+    .mode-c .source-list{grid-template-columns:1fr}
+    @media(max-width:1020px){.mode-b .workspace{display:grid;grid-template-columns:minmax(0,1fr)}.mode-b .chat{grid-column:1;grid-row:1;min-height:0}.mode-c .workspace{grid-template-columns:minmax(0,1fr)}.mode-c .evidence{display:none}}
+    @media(max-width:700px){.workspace{display:grid;grid-template-columns:minmax(0,1fr)}.chat{height:auto;min-height:0}.composer{padding:10px 12px max(10px,env(safe-area-inset-bottom))}}
+    .cite{font-size:12px;vertical-align:super;min-width:0;height:auto;padding:0 2px;margin-left:2px;background:transparent;color:var(--green);border-radius:0}.cite:hover,.cite:focus-visible{text-decoration:underline}
+    .source-list{display:grid;grid-template-columns:1fr;gap:10px}.source-card{display:block;text-align:left;scroll-margin:18px}.source-card.flash{animation:source-flash 1.8s ease-out}@keyframes source-flash{0%,55%{box-shadow:0 0 0 3px #c8ee66;background:#f3f9dd}100%{box-shadow:none;background:#fff}}
+    .source-card-head{display:flex;align-items:flex-start;gap:8px}.source-number{flex:none;color:var(--green);font-weight:800}.source-card-copy{min-width:0}.source-card-copy strong{display:block}.source-card-copy small{display:block;color:var(--muted);margin-top:4px}.source-excerpt{margin:8px 0;color:#44554b;font-size:11px;line-height:1.55;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}.machine-tag{font-size:10px;color:var(--muted);font-weight:400}.source-card button,.reader-toolbar button{border:1px solid var(--line);border-radius:8px;padding:7px 10px;background:#fff;color:var(--green)}.source-card .read-button{margin-top:8px}.other-results{border-top:1px solid var(--line);padding-top:12px}.other-results summary{cursor:pointer;color:var(--muted);font-size:12px;margin-bottom:10px}
+    .page-preview{width:100%;overflow:hidden;background:#e5e8e3;border:1px solid var(--line);border-radius:6px}.page-canvas{position:relative;width:100%}.page-preview img{display:block;width:100%;height:auto}.page-highlight{position:absolute;box-sizing:border-box;border:2px solid #e88b14;background:rgba(255,190,53,.28);pointer-events:none}.source-card .page-preview{max-width:160px;margin-top:8px}
+    .reader-toolbar{position:sticky;top:0;z-index:4;display:flex;align-items:center;gap:8px;padding:8px 0 12px;background:#f8f7f2}.reader-toolbar strong{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:12px}.reader-page{margin:0 auto 18px;max-width:920px}.reader-page h4{font-size:12px;color:var(--muted);margin:0 0 8px}.reader-page .page-preview{min-height:180px}.reader-page img{min-height:180px}.evidence.fullscreen{position:fixed;inset:0;z-index:40;padding:14px max(18px,5vw);border:0}.evidence.fullscreen .reader-page{max-width:1100px}
+    .source-toggle,.drawer-close,.drawer-backdrop{display:none}
+    /* Cited passage crops; the reader widens the source pane so pages stay legible. */
+    .region-crops{display:grid;gap:6px;margin-top:10px}.region-crop{display:block;width:100%;height:auto;border:1px solid var(--line);border-radius:6px;background:#fff}.recognised-text summary{cursor:pointer;color:var(--muted);font-size:11px;margin-top:8px}.source-excerpt.full{display:block;-webkit-line-clamp:unset;overflow:visible}
+    .splitter{display:none}
+    @media(min-width:1021px){
+      .app .workspace{grid-template-columns:var(--left-w,220px) 7px minmax(320px,1fr) 7px min(var(--right-w,390px),calc(100vw - var(--left-w,220px) - 354px))}
+      .app .workspace.reading{grid-template-columns:var(--left-w,220px) 7px minmax(320px,1fr) 7px min(var(--reading-w,55%),calc(100vw - var(--left-w,220px) - 354px))}
+      .app .workspace.reading .left{display:block}
+      .app .left{border-right:0;min-width:0;overflow:hidden}.app .evidence{border-left:0}
+      .splitter{display:block;position:relative;cursor:col-resize;touch-action:none;background:#fff}
+      .splitter::after{content:'';position:absolute;top:0;bottom:0;left:3px;width:1px;background:var(--line)}
+      .splitter:hover::after,.splitter.dragging::after{left:2px;width:3px;background:var(--green)}
+      body.resizing,body.resizing *{cursor:col-resize!important;user-select:none!important}
+    }
+    .workspace.reading .evidence{display:flex;flex-direction:column;overflow:hidden;padding-bottom:0}.workspace.reading #evidencePanel{flex:1;min-height:0;display:flex;flex-direction:column}.reader-head{flex:none;padding:0 0 10px;border-bottom:1px solid var(--line)}.reader-scroll{flex:1;min-height:0;overflow:auto;padding-top:14px}.reader-head .reader-toolbar{position:static;padding:0 0 8px}.zoom-label{font-size:12px;color:var(--muted);min-width:42px;text-align:center}.reader-caption{display:flex;flex-wrap:wrap;align-items:center;gap:8px;font-size:12px;color:#44554b}.reader-switch{display:flex;gap:4px}.reader-switch button{border:1px solid var(--line);border-radius:6px;padding:2px 7px;background:#fff;color:var(--green);font-size:12px}.reader-switch button.active{background:var(--green);border-color:var(--green);color:#fff}
+    .reader-pages{min-width:100%}.reader-pages .reader-page{max-width:none}.page-placeholder{aspect-ratio:210/297;display:grid;place-items:center;color:var(--muted);font-size:12px}.page-highlight{border-width:3px}.page-highlight.flash{animation:highlight-pulse 1.4s ease-out 2}@keyframes highlight-pulse{0%{box-shadow:0 0 0 0 rgba(232,139,20,.85)}100%{box-shadow:0 0 0 16px rgba(232,139,20,0)}}
+    .page-highlight.other{border-width:2px;border-style:dashed;background:rgba(255,190,53,.12)}.reader-locations{display:flex;flex-wrap:wrap;gap:6px;width:100%}.reader-locations button{border:1px solid var(--line);border-radius:6px;padding:3px 8px;background:#fff;color:var(--green);font-size:12px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.reader-locations button.active{background:var(--green);border-color:var(--green);color:#fff}.source-location{margin-top:10px;padding-top:10px;border-top:1px dashed var(--line);scroll-margin:18px}.source-location.flash{animation:source-flash 1.8s ease-out}.location-head{display:flex;align-items:center;gap:6px;cursor:pointer;list-style-position:inside;font-size:12px;color:#44554b}.location-label{flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.location-head .machine-tag{flex:none}.source-card .location-head .read-button{flex:none;margin:0;padding:3px 8px;font-size:12px}.source-location[open]>.location-head{margin-bottom:8px}.source-location{margin-top:8px;padding-top:8px}.other-doc{border:1px solid var(--line);border-radius:10px;background:#fff;padding:8px 10px;margin-bottom:8px}.other-doc>summary{cursor:pointer;display:flex;flex-wrap:wrap;gap:4px 8px;align-items:baseline;list-style-position:inside}.other-doc>summary strong{font-size:12px}.other-doc>summary small{color:var(--muted);font-size:11px}
+    @media(max-width:1020px) and (min-width:769px){.workspace,.mode-c .workspace{display:grid;grid-template-columns:minmax(0,1fr) minmax(300px,40%)}.left{display:none}.evidence,.mode-c .evidence{display:block;grid-column:2;grid-row:1}.mode-b .workspace{display:grid;grid-template-columns:minmax(300px,40%) minmax(0,1fr)}.mode-b .evidence{display:block;grid-column:1;grid-row:1}.mode-b .chat{grid-column:2;grid-row:1}}
+    @media(max-width:1020px) and (min-width:769px){.app .workspace.reading{grid-template-columns:minmax(0,1fr) 60%}.mode-b .workspace.reading{grid-template-columns:60% minmax(0,1fr)}}
+    @media(max-width:768px){.app .workspace.reading{grid-template-columns:minmax(0,1fr)}.workspace.reading .evidence{height:100dvh;border-radius:0}}
+    @media(max-width:768px){.workspace,.mode-b .workspace,.mode-c .workspace{display:grid;grid-template-columns:minmax(0,1fr)}.chat,.mode-b .chat{grid-column:1;grid-row:1;min-height:0;height:auto}.evidence,.mode-b .evidence,.mode-c .evidence{display:block;position:fixed;z-index:31;left:0;right:0;bottom:0;height:min(86dvh,850px);overflow:auto;border:0;border-radius:18px 18px 0 0;box-shadow:0 -12px 40px #152c2160;transform:translateY(105%);transition:transform .2s ease}.evidence.drawer-open{transform:translateY(0)}.source-toggle{display:block;position:fixed;z-index:20;right:12px;bottom:110px;border:1px solid var(--green);border-radius:999px;padding:9px 14px;background:#fff;color:var(--green);box-shadow:var(--shadow)}.drawer-close{display:block;float:right;border:0;background:transparent;color:var(--green);font-size:12px}.drawer-backdrop.drawer-open{display:block;position:fixed;z-index:30;inset:0;border:0;background:#13271d88}.evidence.fullscreen{height:100dvh;border-radius:0;transform:none}}
   </style>
 </head>
 <body>
   <div id="app" class="app mode-a">
     <header class="topbar">
       <div class="brand"><div class="mark">法</div><div><strong>法规文档 RAG 智能问答系统</strong><small>Regulatory RAG · 排水领域</small></div></div>
-      <div class="corpus"><b>当前发布语料</b><span id="runtimeProfile">正在读取运行模式…</span></div>
+      <div class="corpus"><span id="runtimeProfile"></span></div>
       <a href="/documents" style="color:#c8ee66;text-decoration:none;font-size:12px">资料浏览</a>
-      <div class="modes" aria-label="界面模式"><button data-mode="a" class="active">A 对话</button><button data-mode="b">B 对照</button><button data-mode="c">C 证据板</button></div>
     </header>
     <main class="workspace">
-      <aside class="left"><div class="pane-head"><h2>当前对话</h2><button id="newChat" class="new">＋ 新对话</button></div><div class="session">规范问答<span id="turnCount">尚未提问</span></div><p class="note">地域、效力和统计时段由查询核心解析。条件不足时会追问；证据不足时不会使用模型记忆补齐。</p></aside>
-      <section class="chat"><div id="messages" class="messages"></div><div class="composer"><div class="query-modes"><span>查询方式</span><button data-query-mode="answer" class="active">证据化回答</button><button data-query-mode="source_lookup">只找原文</button></div><form id="queryForm" aria-label="提交问题"><input id="question" autocomplete="off" placeholder="输入规范、政策或监测问题…"><button id="send" class="send" type="submit">发送</button></form></div></section>
-      <aside class="evidence"><div class="pane-head"><h2>原文证据</h2><span id="evidenceCount" class="chip">0 条</span></div><div id="evidencePanel"></div></aside>
+      <aside class="left"><div class="pane-head"><h2>对话记录</h2><button id="newChat" class="new">＋ 新对话</button></div><nav id="history" class="history" aria-label="历史对话"></nav><p class="note">对话记录只保存在当前浏览器中，清除浏览器数据或换设备后不会保留。</p></aside>
+      <div class="splitter" data-split="left" role="separator" aria-orientation="vertical" title="拖动调整宽度，双击还原"></div>
+      <section class="chat"><div id="messages" class="messages"></div><div class="composer"><form id="queryForm" aria-label="提交问题"><input id="question" autocomplete="off" placeholder="输入规范、政策或监测问题…"><button id="send" class="send" type="submit">发送</button></form></div></section>
+      <div class="splitter" data-split="right" role="separator" aria-orientation="vertical" title="拖动调整宽度，双击还原"></div>
+      <aside id="evidence" class="evidence" aria-label="原文来源"><div class="pane-head"><h2>原文来源</h2><span id="evidenceCount" class="chip">0 条</span><button id="closeSources" class="drawer-close" type="button">关闭</button></div><div id="evidencePanel"></div></aside>
     </main>
+    <button id="sourceToggle" class="source-toggle" type="button">查看来源 · 0</button>
+    <button id="drawerBackdrop" class="drawer-backdrop" type="button" aria-label="关闭来源面板"></button>
   </div>
   <script>
-    const state={context:{},turns:[],evidence:[],selected:0,busy:false,queryMode:'answer'};
-    const $=s=>document.querySelector(s);
-    const node=(tag,className,text)=>{const n=document.createElement(tag);if(className)n.className=className;if(text!==undefined)n.textContent=text;return n};
-    const statusText={answered:'已基于证据回答',needs_clarification:'需要补充条件',search_only:'请查看原文',conflicting_sources:'来源存在冲突',refused:'当前证据不足'};
-    async function loadRuntimeProfile(){try{const response=await fetch('/api/v1/runtime');if(!response.ok)return;const runtime=await response.json();$('#runtimeProfile').textContent=runtime.deployment_profile==='demo'?'面试演示版 · AI 回答有每日额度，原文检索始终可用':'自托管版 · 模型 Key 与额度由部署者配置'}catch(error){console.warn('无法读取运行模式',error)}}
-    function setQueryMode(mode){state.queryMode=mode;document.querySelectorAll('[data-query-mode]').forEach(b=>b.classList.toggle('active',b.dataset.queryMode===mode));$('#question').placeholder=mode==='source_lookup'?'输入需要定位原文页的问题…':'输入规范、政策或监测问题…'}
-    function renderEmpty(){const box=node('div','empty');box.append(node('p','eyebrow','排水法规 · 政策 · 标准'));box.append(node('h1','', '先找到依据，再形成回答'));box.append(node('p','', '回答中的每项事实都必须能回到文档、条款或表格和物理页。你可以继续追问，条件会显式传递。'));const list=node('div','suggestions');[{text:'降水量为20毫米时属于什么等级？',mode:'answer'},{text:'武汉市混错接改造项目的评估周期有什么要求？',mode:'answer'},{text:'重庆地块项目评价中，基础工作包含哪些材料？',mode:'answer'},{text:'采用用水量折算法时，原文公式在哪里？',mode:'source_lookup'}].forEach(item=>{const b=node('button','suggestion',item.text);b.addEventListener('click',()=>{setQueryMode(item.mode);submit(item.text)});list.append(b)});box.append(list);$('#messages').replaceChildren(box)}
-    async function selectEvidence(index){state.selected=index;renderEvidence();document.querySelectorAll('.cite').forEach(b=>b.classList.toggle('active',Number(b.dataset.index)===index));const current=state.evidence[index];if(!current?.evidence_id)return;try{const response=await fetch(`/api/v1/evidence/${encodeURIComponent(current.evidence_id)}`);if(response.ok){state.evidence[index]=await response.json();renderEvidence()}}catch(error){console.warn('无法刷新证据详情',error)}}
-    async function responseError(response){try{const payload=await response.json();const error=new Error(payload.error?.message||`HTTP ${response.status}`);error.code=payload.error?.code||'http_error';return error}catch{return new Error(`HTTP ${response.status}`)}}
-    function renderTurn(turn){const wrap=node('article','turn');wrap.append(node('div','user',turn.question));if(turn.loading){const h=node('div','assistant-head','排水法规助手');wrap.append(h,node('div','loading','正在检索并核验证据…'));return wrap}const r=turn.result;wrap.append(node('div','assistant-head','排水法规助手'));const status=node('div',`status ${r.status}`);status.append(node('strong','',statusText[r.status]||r.status));const detail={needs_clarification:'当前条件会改变结论，请补充后继续。',refused:'当前语料不能直接支持这个问题，系统没有拼凑答案。',search_only:'转写未通过回答门控，请直接查看定位页。',conflicting_sources:'分别展示各来源，不替你裁决。',answered:'以下主张均绑定了本次证据；标“未核对”的内容来自未经人工核对的识别结果，请以原文页为准。'}[r.status];status.append(node('div','',detail));wrap.append(status);if(r.answer){r.answer.claims.forEach(claim=>{const p=node('p','claim',claim.text);if(claim.verified===false){const tag=node('span','unverified','未核对');tag.title='来自未经人工核对的识别结果，请以原文页为准';p.append(tag)}claim.evidence_ids.forEach(id=>{const idx=state.evidence.findIndex(e=>e.evidence_id===id);if(idx>=0){const b=node('button','cite',String(idx+1));b.dataset.index=idx;b.title='查看原文证据';b.addEventListener('click',()=>selectEvidence(idx));p.append(b)}});wrap.append(p)})}if(r.status==='needs_clarification'&&r.missing_conditions.includes('statistical_period')){const chips=node('div','chips');['12小时','24小时'].forEach(text=>{const b=node('button','chip action',text);b.addEventListener('click',()=>submit(text));chips.append(b)});wrap.append(chips)}if(r.resolved_scope&&Object.keys(r.resolved_scope).length){const chips=node('div','chips');Object.entries(r.resolved_scope).forEach(([k,v])=>chips.append(node('span','chip',`${k}：${v}`)));wrap.append(chips)}if(r.warnings?.length)wrap.append(node('p','warning',r.warnings.join('；')));return wrap}
-    function renderMessages(){const root=$('#messages');if(!state.turns.length){renderEmpty();return}root.replaceChildren(...state.turns.map(renderTurn));root.scrollTop=root.scrollHeight;$('#turnCount').textContent=`${state.turns.filter(t=>!t.loading).length} 轮问答`}
-    function renderRegionSources(detail,e){for(const region of e.source_regions||[]){if(!/^(up-[0-9a-f]{24}|chunk_[0-9a-f]{32}__p\d+)$/.test(region.region_id||''))continue;const figure=node('figure','region-source');figure.append(node('figcaption','',`原PDF${({formula:'公式',table:'表格',image:'图片'})[region.kind]||'区域'} · 物理页 ${region.physical_page}`));const image=node('img','');image.src=`/api/v1/regions/${region.region_id}/image`;image.alt=`${e.file_name} 第 ${region.physical_page} 页原图`;image.loading='lazy';image.style.maxWidth='100%';image.style.height='auto';figure.append(image,node('p','',region.quality_status==='passed'?'原文区域':'自动提取及关联仍需对照原图核对'));detail.append(figure)}}
-    function renderEvidence(){const root=$('#evidencePanel');$('#evidenceCount').textContent=`${state.evidence.length} 条`;if(!state.evidence.length){root.replaceChildren(node('div','evidence-empty','提交问题后，这里展示回答所依据的原文、文档名称、位置和页码。'));return}const list=node('div','source-list');state.evidence.forEach((e,i)=>{const b=node('button',`source-card ${i===state.selected?'active':''}`);b.append(node('strong','',`[${i+1}] ${e.file_name||'未命名文档'}`),node('span','',`${e.heading_path?.join(' › ')||'位置待补充'} · 第 ${e.physical_pages?.join('、')||'?'} 页`));b.addEventListener('click',()=>selectEvidence(i));list.append(b)});const e=state.evidence[state.selected]||state.evidence[0];const d=node('div','detail');d.append(node('p','eyebrow',e.usage_policy==='source_locator_only'?'未核对识别结果 · 请看原文页':'已核对证据'),node('h3','',e.file_name||'未命名文档'));const dl=node('dl','meta');[['发布机关',e.source_authority||'未知'],['地域',e.jurisdiction||'未知'],['效力状态',e.effective_status||'未知'],['位置',e.heading_path?.join(' › ')||'未识别'],['物理页',e.physical_pages?.join('、')||'未知']].forEach(([k,v])=>{dl.append(node('dt','',k),node('dd','',v))});d.append(dl,node('blockquote','quote',e.text));renderRegionSources(d,e);const actions=node('div','source-actions');if(e.document_version_id){const page=e.physical_pages?.[0]||1;const local=node('a','open-source primary',`查看原文页 · 第 ${page} 页`);local.href=`/api/v1/documents/${encodeURIComponent(e.document_version_id)}/pages/${page}/image`;local.target='_blank';local.rel='noopener';actions.append(local)}if(e.source_uri){const official=node('a','open-source','打开官方原文');official.href=e.source_uri;official.target='_blank';official.rel='noopener';actions.append(official)}if(actions.childNodes.length)d.append(actions);root.replaceChildren(list,d)}
-    async function submit(raw){const question=raw.trim();if(!question||state.busy)return;state.busy=true;$('#send').disabled=true;$('#question').value='';state.turns.push({question,loading:true});renderMessages();try{const response=await fetch('/api/v1/queries',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({question,conversation_context:state.context,mode:state.queryMode})});if(!response.ok)throw await responseError(response);const result=await response.json();state.context=result.continuation_context||{};state.evidence=result.evidence||[];state.selected=0;state.turns[state.turns.length-1]={question,result};renderMessages();renderEvidence()}catch(error){const code=error.code?`[${error.code}]`:'';state.turns[state.turns.length-1]={question,result:{status:'refused',answer:null,evidence:[],resolved_scope:{},missing_conditions:[],warnings:[`请求失败${code}：${error.message}`]}};renderMessages()}finally{state.busy=false;$('#send').disabled=false;$('#question').focus()}}
-    $('#queryForm').addEventListener('submit',e=>{e.preventDefault();submit($('#question').value)});$('#newChat').addEventListener('click',()=>{state.context={};state.turns=[];state.evidence=[];state.selected=0;setQueryMode('answer');renderMessages();renderEvidence()});document.querySelectorAll('[data-mode]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-mode]').forEach(x=>x.classList.remove('active'));b.classList.add('active');$('#app').className=`app mode-${b.dataset.mode}`}));document.querySelectorAll('[data-query-mode]').forEach(b=>b.addEventListener('click',()=>setQueryMode(b.dataset.queryMode)));loadRuntimeProfile();renderMessages();renderEvidence();
+const state = {
+  context: {}, turns: [], evidence: [], referenceIds: [], citedDocs: [], selectedId: null,
+  busy: false, reader: null, conversationId: null,
+  geometryCache: new Map(), documentCache: new Map(), readerObserver: null,
+};
+const $ = selector => document.querySelector(selector);
+
+// Conversations live only in this browser; the server keeps no history.
+const HISTORY_KEY = 'rag.conversations.v1';
+const HISTORY_LIMIT = 30;
+function loadConversations() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(HISTORY_KEY) || '[]');
+    return Array.isArray(saved) ? saved.filter(item => item && item.id && Array.isArray(item.turns)) : [];
+  } catch { return []; }
+}
+function storeConversations(list) {
+  // Evidence makes entries large; drop the oldest until the browser accepts it.
+  for (let keep = Math.min(list.length, HISTORY_LIMIT); keep >= 0; keep -= 1) {
+    try { localStorage.setItem(HISTORY_KEY, JSON.stringify(list.slice(0, keep))); return; }
+    catch { /* quota exceeded or storage blocked */ }
+  }
+}
+function saveConversation() {
+  const turns = state.turns.filter(turn => !turn.loading)
+    .map(turn => ({question: turn.question, result: turn.result}));
+  if (!turns.length) return;
+  if (!state.conversationId) state.conversationId = `c${Date.now().toString(36)}${Math.random().toString(36).slice(2, 6)}`;
+  const entry = {id: state.conversationId, title: turns[0].question, updatedAt: Date.now(),
+    context: state.context, turns};
+  const list = [entry, ...loadConversations().filter(item => item.id !== entry.id)];
+  storeConversations(list);
+  renderHistory();
+}
+function relativeTime(time) {
+  const minutes = Math.round((Date.now() - time) / 60000);
+  if (minutes < 1) return '刚刚';
+  if (minutes < 60) return `${minutes} 分钟前`;
+  const hours = Math.round(minutes / 60);
+  if (hours < 24) return `${hours} 小时前`;
+  const date = new Date(time);
+  return `${date.getMonth() + 1}月${date.getDate()}日`;
+}
+function renderHistory() {
+  const list = loadConversations();
+  const root = $('#history');
+  if (!list.length) { root.replaceChildren(node('p', 'history-empty', '还没有对话')); return; }
+  root.replaceChildren(...list.map(item => {
+    const button = node('button', `session${item.id === state.conversationId ? ' active' : ''}`);
+    button.type = 'button';
+    button.title = item.title;
+    button.append(node('span', 'session-title', item.title),
+      node('span', '', `${item.turns.length} 轮 · ${relativeTime(item.updatedAt)}`));
+    const remove = node('span', 'remove', '×');
+    remove.setAttribute('role', 'button');
+    remove.setAttribute('aria-label', '删除这条对话');
+    remove.title = '删除这条对话';
+    remove.addEventListener('click', event => {
+      event.stopPropagation();
+      storeConversations(loadConversations().filter(other => other.id !== item.id));
+      if (item.id === state.conversationId) resetConversation();
+      else renderHistory();
+    });
+    button.append(remove);
+    button.addEventListener('click', () => openConversation(item.id));
+    return button;
+  }));
+}
+function openConversation(id) {
+  if (state.busy) return;
+  const item = loadConversations().find(other => other.id === id);
+  if (!item) return;
+  resetConversation(false);
+  state.conversationId = item.id;
+  state.context = item.context || {};
+  state.turns = item.turns.map(turn => ({...turn, loading: false}));
+  renderMessages();
+  const last = state.turns[state.turns.length - 1];
+  if (last?.result) activateResult(last.result);
+  renderHistory();
+}
+const node = (tag, className, content) => {
+  const element = document.createElement(tag);
+  if (className) element.className = className;
+  if (content !== undefined) element.textContent = content;
+  return element;
+};
+const statusText = {
+  answered: '已基于证据回答', search_only: '请查看原文', conflicting_sources: '来源存在冲突',
+  refused: '当前证据不足',
+};
+
+function citedIds(result) {
+  const available = new Set((result.evidence || []).map(item => item.evidence_id));
+  const seen = new Set();
+  const ordered = [];
+  for (const claim of result.answer?.claims || []) {
+    for (const id of claim.evidence_ids || []) {
+      if (available.has(id) && !seen.has(id)) {
+        seen.add(id);
+        ordered.push(id);
+      }
+    }
+  }
+  return ordered;
+}
+function docKey(evidence) {
+  return evidence.document_version_id || evidence.file_name || evidence.evidence_id;
+}
+// Citations are numbered per document, in order of first appearance.
+function groupByDocument(items) {
+  const groups = new Map();
+  for (const item of items) {
+    const key = docKey(item);
+    if (!groups.has(key)) groups.set(key, {key, fileName: item.file_name || '未命名文档', items: []});
+    groups.get(key).items.push(item);
+  }
+  return [...groups.values()];
+}
+function citedDocuments(result) {
+  const byId = new Map((result.evidence || []).map(item => [item.evidence_id, item]));
+  return groupByDocument(citedIds(result).map(id => byId.get(id)));
+}
+
+async function loadRuntimeProfile() {
+  try {
+    const response = await fetch('/api/v1/runtime');
+    if (!response.ok) return;
+    const runtime = await response.json();
+    // Only say something when it changes what the user can expect.
+    $('#runtimeProfile').textContent = runtime.answer_available === false
+      ? 'AI 回答暂未启用，提问将直接返回相关原文'
+      : runtime.deployment_profile === 'demo' ? '演示版 · AI 回答每日有额度' : '';
+  } catch (error) { console.warn('无法读取运行模式', error); }
+}
+
+function renderEmpty() {
+  const box = node('div', 'empty');
+  box.append(
+    node('p', 'eyebrow', '排水法规 · 政策 · 标准'),
+    node('h1', '', '先找到依据，再形成回答'),
+  );
+  const suggestions = node('div', 'suggestions');
+  for (const item of [
+    '24小时降水量为20毫米属于什么等级？',
+    '武汉市混错接改造项目的评估周期有什么要求？',
+    '重庆地块项目评价中，基础工作包含哪些材料？',
+    '用水量折算法的计算公式是什么？',
+  ]) {
+    const button = node('button', 'suggestion', item);
+    button.addEventListener('click', () => submit(item));
+    suggestions.append(button);
+  }
+  box.append(suggestions);
+  $('#messages').replaceChildren(box);
+}
+
+function activateResult(result) {
+  state.evidence = result.evidence || [];
+  state.referenceIds = citedIds(result);
+  state.citedDocs = citedDocuments(result);
+  state.selectedId = state.referenceIds[0] || state.evidence[0]?.evidence_id || null;
+  state.reader = null;
+  $('.workspace').classList.remove('reading');
+  renderEvidence();
+}
+
+function openDrawer() {
+  $('#evidence').classList.add('drawer-open');
+  $('#drawerBackdrop').classList.add('drawer-open');
+}
+
+function closeDrawer() {
+  $('#evidence').classList.remove('drawer-open');
+  $('#drawerBackdrop').classList.remove('drawer-open');
+  $('#evidence').classList.remove('fullscreen');
+}
+
+function openSource(turn, evidenceId) {
+  if (!turn.result) return;
+  if (state.evidence !== turn.result.evidence) activateResult(turn.result);
+  state.selectedId = evidenceId;
+  // A citation opens straight into the whole document at the cited passage.
+  const evidence = state.evidence.find(item => item.evidence_id === evidenceId);
+  const page = evidence && citedPage(evidence);
+  if (evidence?.document_version_id && Number.isInteger(page) && page > 0) {
+    openReader(evidence);
+    return;
+  }
+  if (state.reader) closeReader();
+  openDrawer();
+  requestAnimationFrame(() => {
+    const card = [...document.querySelectorAll('.source-location')]
+      .find(item => evidence && item.dataset.clause === clauseKey(evidence));
+    if (!card) return;
+    card.open = true;
+    card.closest('.other-results, .other-doc')?.setAttribute('open', '');
+    card.scrollIntoView({block: 'center', behavior: 'smooth'});
+    card.classList.remove('flash');
+    void card.offsetWidth;
+    card.classList.add('flash');
+  });
+}
+
+// Formula transcriptions arrive as LaTeX-style subscripts (KQ_{g}); show
+// them as real subscripts without interpreting any other markup.
+function claimText(text) {
+  const span = node('span', 'claim-text');
+  const pattern = /_\{([^{}]{1,12})\}|_([A-Za-z0-9])(?![A-Za-z0-9])/g;
+  let last = 0;
+  for (const match of text.matchAll(pattern)) {
+    span.append(text.slice(last, match.index), node('sub', '', match[1] ?? match[2]));
+    last = match.index + match[0].length;
+  }
+  span.append(text.slice(last));
+  return span;
+}
+
+function renderTurn(turn) {
+  const wrap = node('article', 'turn');
+  wrap.append(node('div', 'user', turn.question));
+  wrap.append(node('div', 'assistant-head', '法规文档 RAG 智能问答系统'));
+  if (turn.loading) {
+    wrap.append(node('div', 'loading', '正在检索并核验证据…'));
+    return wrap;
+  }
+  const result = turn.result;
+  const status = node('div', `status ${result.status}`);
+  status.append(node('strong', '', statusText[result.status] || result.status));
+  const detail = {
+    refused: '当前语料不能直接支持这个问题，系统没有拼凑答案。',
+    search_only: '已找到相关原文，请查看来源面板中的文档与页码。',
+    conflicting_sources: '分别展示各来源，不替你裁决。',
+  }[result.status];
+  if (detail) status.append(node('div', '', detail));
+  // A follow-up searched as a rewritten question says what was searched.
+  if (result.search_question && result.search_question !== turn.question)
+    wrap.append(node('p', 'search-note', `检索：${result.search_question}`));
+  // A normal answer needs no banner; its markers already point to the source.
+  if (result.status !== 'answered') wrap.append(status);
+
+  // One number per document; each marker still opens the passage this
+  // particular claim relies on.
+  const docs = citedDocuments(result);
+  const numberByDoc = new Map(docs.map((group, index) => [group.key, index + 1]));
+  const byId = new Map((result.evidence || []).map(item => [item.evidence_id, item]));
+  // Claims read as one continuous answer, each followed by its markers.
+  const paragraph = node('p', 'claim');
+  const claims = result.answer?.claims || [];
+  const citesOf = claim => {
+    const firstByNumber = new Map();
+    for (const id of claim.evidence_ids || []) {
+      const number = byId.has(id) && numberByDoc.get(docKey(byId.get(id)));
+      if (number && !firstByNumber.has(number)) firstByNumber.set(number, id);
+    }
+    return [...firstByNumber].sort((a, b) => a[0] - b[0]);
+  };
+  claims.forEach((claim, index) => {
+    paragraph.append(claimText(claim.text));
+    const cites = citesOf(claim);
+    // A run of sentences from the same source carries one marker, at the
+    // end of the run; a new paragraph always shows its own.
+    const next = claims[index + 1];
+    if (next && !/^\s*\n\s*\n/.test(next.text) &&
+        citesOf(next).map(([number]) => number).join() === cites.map(([number]) => number).join()) return;
+    for (const [number, id] of cites) {
+      const cite = node('button', 'cite', `[${number}]`);
+      cite.type = 'button';
+      cite.title = `查看来源 ${number} · ${docs[number - 1].fileName}`;
+      cite.setAttribute('aria-label', `查看来源 ${number}`);
+      cite.addEventListener('click', () => openSource(turn, id));
+      paragraph.append(cite);
+    }
+  });
+  if (paragraph.childNodes.length) wrap.append(paragraph);
+  if (result.answer?.claims?.some(claim => claim.verified === false)) {
+    wrap.append(node('p', 'warning', '部分引用来自机器识别，请对照原文页。'));
+  }
+  const warnings = (result.warnings || []).filter(message =>
+    !(result.answer?.claims?.some(claim => claim.verified === false) &&
+      message.includes('未经人工核对')));
+  if (warnings.length) wrap.append(node('p', 'warning', warnings.join('；')));
+  return wrap;
+}
+
+function renderMessages() {
+  const root = $('#messages');
+  if (!state.turns.length) { renderEmpty(); return; }
+  root.replaceChildren(...state.turns.map(renderTurn));
+  root.scrollTop = root.scrollHeight;
+}
+
+function pageImageUrl(documentId, page) {
+  return `/api/v1/documents/${encodeURIComponent(documentId)}/pages/${page}/image`;
+}
+function pageMetadataUrl(documentId, page) {
+  return `/api/v1/documents/${encodeURIComponent(documentId)}/pages/${page}`;
+}
+function pageGeometry(documentId, page) {
+  const key = `${documentId}:${page}`;
+  if (!state.geometryCache.has(key)) {
+    const request = fetch(pageMetadataUrl(documentId, page))
+      .then(response => {
+        if (!response.ok) throw new Error(`Page geometry HTTP ${response.status}`);
+        return response.json();
+      });
+    state.geometryCache.set(key, request);
+  }
+  return state.geometryCache.get(key);
+}
+function documentMetadata(documentId) {
+  if (!state.documentCache.has(documentId)) {
+    const request = fetch(`/api/v1/documents/${encodeURIComponent(documentId)}`)
+      .then(response => {
+        if (!response.ok) throw new Error(`Document HTTP ${response.status}`);
+        return response.json();
+      });
+    state.documentCache.set(documentId, request);
+  }
+  return state.documentCache.get(documentId);
+}
+
+function regionsOnPage(evidence, page) {
+  return (evidence.source_regions || []).filter(region =>
+    Number(region.physical_page) === page && Array.isArray(region.bbox) &&
+    region.bbox.length === 4 && region.bbox.every(Number.isFinite));
+}
+function addPageHighlights(canvas, regions, geometry) {
+  if (!geometry || !(geometry.page_width_pt > 0) || !(geometry.page_height_pt > 0)) return;
+  canvas.querySelectorAll('.page-highlight').forEach(box => box.remove());
+  for (const region of regions) {
+    const [x0, y0, x1, y1] = region.bbox;
+    if (x0 < 0 || y0 < 0 || x1 <= x0 || y1 <= y0 ||
+        x1 > geometry.page_width_pt || y1 > geometry.page_height_pt) continue;
+    const box = node('div', 'page-highlight');
+    box.dataset.clause = region.clause;
+    box.classList.toggle('other', region.clause !== state.reader?.focusClause);
+    box.style.left = `${100 * x0 / geometry.page_width_pt}%`;
+    box.style.top = `${100 * y0 / geometry.page_height_pt}%`;
+    box.style.width = `${100 * (x1 - x0) / geometry.page_width_pt}%`;
+    box.style.height = `${100 * (y1 - y0) / geometry.page_height_pt}%`;
+    box.title = `第 ${region.physical_page} 页原文区域`;
+    canvas.append(box);
+  }
+}
+// Every passage this answer cites from the document is highlighted; the one
+// the reader came for is drawn stronger.
+function readerRegions(page) {
+  return (state.reader?.items || []).flatMap(item =>
+    regionsOnPage(item, page).map(region => ({...region, clause: clauseKey(item)})));
+}
+function pageFigure(documentId, fileName, page, lazy = true) {
+  const frame = node('div', 'page-preview');
+  const canvas = node('div', 'page-canvas');
+  const image = node('img', '');
+  image.alt = `${fileName} 第 ${page} 页原文`;
+  image.loading = lazy ? 'lazy' : 'eager';
+  image.addEventListener('load', async () => {
+    try {
+      const geometry = await pageGeometry(documentId, page);
+      addPageHighlights(canvas, readerRegions(page), geometry);
+      if (state.reader && !state.reader.centered && page === state.reader.targetPage) {
+        state.reader.centered = true;
+        centerHighlight();
+      }
+    } catch (error) { console.warn('无法取得页面尺寸', error); }
+  });
+  image.src = pageImageUrl(documentId, page);
+  canvas.append(image);
+  frame.append(canvas);
+  return frame;
+}
+
+function locationLabel(evidence) {
+  const heading = (evidence.heading_path || []).at(-1) || '';
+  const short = heading.length > 18 ? `${heading.slice(0, 18)}…` : heading;
+  return [short, `第 ${citedPage(evidence) || '?'} 页`].filter(Boolean).join(' · ');
+}
+
+// The chunker splits one clause into several pieces (lead-in, formula,
+// variable lines); readers think in clauses, so they are shown as one.
+function clauseKey(evidence) {
+  return `${docKey(evidence)}|${citedPage(evidence)}|${(evidence.heading_path || []).join('›')}`;
+}
+function groupByClause(items) {
+  const groups = new Map();
+  for (const item of items) {
+    const key = clauseKey(item);
+    if (!groups.has(key)) groups.set(key, {key, items: []});
+    groups.get(key).items.push(item);
+  }
+  return [...groups.values()];
+}
+
+// One line per cited clause; its cropped original and recognised text stay
+// folded until asked for, and the line itself opens the full document.
+function sourceLocation(clause) {
+  const [first] = clause.items;
+  const block = node('details', 'source-location');
+  block.dataset.clause = clause.key;
+  const head = node('summary', 'location-head');
+  const pages = [...new Set(clause.items.flatMap(item => item.physical_pages || []))].sort((x, y) => x - y);
+  head.append(node('span', 'location-label', `第 ${pages.join('、') || '?'} 页 · ${(first.heading_path || []).join(' › ') || '位置待补充'}`));
+  if (clause.items.some(item => item.usage_policy === 'source_locator_only'))
+    head.append(node('span', 'machine-tag', '含机器识别'));
+  const page = citedPage(first);
+  if (first.document_version_id && Number.isInteger(page) && page > 0) {
+    const read = node('button', 'read-button', '原文 ›');
+    read.type = 'button';
+    read.title = '在全文中查看';
+    read.addEventListener('click', event => { event.preventDefault(); openReader(first); });
+    head.append(read);
+  }
+  block.append(head);
+  const excerpt = node('p', 'source-excerpt full', clause.items.map(item => item.text).filter(Boolean).join('\n') || '无文本摘录');
+  const seen = new Set();
+  const regions = clause.items.flatMap(item => item.source_regions || [])
+    .filter(region => region.region_id && !seen.has(region.region_id) && seen.add(region.region_id))
+    .slice(0, 6);
+  if (!regions.length) { block.append(excerpt); return block; }
+  // Crops load only when the clause is first unfolded.
+  block.addEventListener('toggle', () => {
+    if (!block.open || block.dataset.loaded) return;
+    block.dataset.loaded = 'true';
+    const crops = node('div', 'region-crops');
+    for (const region of regions) {
+      const image = node('img', 'region-crop');
+      image.alt = `${first.file_name} 第 ${region.physical_page} 页引用原文`;
+      image.addEventListener('error', () => {
+        image.remove();
+        if (!crops.querySelector('img')) crops.replaceWith(excerpt);
+      });
+      image.src = `/api/v1/regions/${encodeURIComponent(region.region_id)}/image`;
+      crops.append(image);
+    }
+    const text = node('details', 'recognised-text');
+    text.append(node('summary', '', '识别文本'), excerpt);
+    block.append(crops, text);
+  });
+  return block;
+}
+
+function pageList(items) {
+  const pages = [...new Set(items.flatMap(item => item.physical_pages || []))].sort((a, b) => a - b);
+  return pages.length ? `第 ${pages.join('、')} 页` : '页码待补充';
+}
+
+// One card per document; the passages used from it are listed inside.
+function documentCard(group, number, cited) {
+  const card = node('article', 'source-card');
+  card.dataset.documentKey = group.key;
+  const heading = node('div', 'source-card-head');
+  if (number) heading.append(node('span', 'source-number', `[${number}]`));
+  const clauses = groupByClause(group.items);
+  const copy = node('div', 'source-card-copy');
+  copy.append(
+    node('strong', '', group.fileName),
+    node('small', '', cited ? `本回答引用 ${clauses.length} 处` : `${pageList(group.items)} · ${clauses.length} 处`),
+  );
+  heading.append(copy);
+  card.append(heading, ...clauses.map(sourceLocation));
+  return card;
+}
+
+function citedPage(evidence) {
+  return Number((evidence.source_regions || []).find(region =>
+    Array.isArray(region.bbox) && region.bbox.length === 4 &&
+    Number.isInteger(Number(region.physical_page)))?.physical_page ||
+    evidence.physical_pages?.[0]);
+}
+
+function stopReaderObserver() {
+  if (state.readerObserver) state.readerObserver.disconnect();
+  if (state.readerResize) state.readerResize.disconnect();
+  state.readerResize = null;
+  state.readerObserver = null;
+}
+function renderSourceList() {
+  const root = $('#evidencePanel');
+  if (!state.evidence.length) {
+    root.replaceChildren(node('div', 'evidence-empty', '提交问题后，这里展示原文、文档名称、位置和页码。'));
+    return;
+  }
+  const list = node('div', 'source-list');
+  if (state.citedDocs.length) {
+    state.citedDocs.forEach((group, index) => list.append(documentCard(group, index + 1, true)));
+    const others = state.evidence.filter(item => !state.referenceIds.includes(item.evidence_id));
+    if (others.length) {
+      const folded = node('details', 'other-results');
+      folded.append(node('summary', '', `其他检索结果（${groupByDocument(others).length} 份文件）`));
+      // Uncited hits collapse to one row per document.
+      for (const group of groupByDocument(others)) {
+        const clauses = groupByClause(group.items);
+        const row = node('details', 'other-doc');
+        const summary = node('summary', '');
+        summary.append(node('strong', '', group.fileName), node('small', '', `${pageList(group.items)} · ${clauses.length} 处`));
+        row.append(summary, ...clauses.map(sourceLocation));
+        folded.append(row);
+      }
+      list.append(folded);
+    }
+  } else {
+    groupByDocument(state.evidence).forEach(group =>
+      list.append(documentCard(group, null, false)));
+  }
+  root.replaceChildren(list);
+}
+
+async function openReader(evidence) {
+  const page = citedPage(evidence);
+  if (!evidence.document_version_id || !Number.isInteger(page) || page < 1) return;
+  const key = docKey(evidence);
+  if (state.reader?.docKey === key &&
+      state.reader.items.some(item => clauseKey(item) === clauseKey(evidence))) {
+    focusLocation(clauseKey(evidence));
+    openDrawer();
+    return;
+  }
+  try {
+    const document = await documentMetadata(evidence.document_version_id);
+    if (!Number.isInteger(document.page_count) || document.page_count < 1) throw new Error('原文页数不可用');
+    const cited = state.citedDocs.find(group => group.key === key)?.items || [];
+    const items = cited.includes(evidence) ? cited : [...cited, evidence];
+    const zoom = state.reader?.zoom || 100;
+    state.selectedId = evidence.evidence_id;
+    state.reader = {docKey: key, items, focusClause: clauseKey(evidence), document,
+      targetPage: page, zoom, centered: false};
+    $('.workspace').classList.add('reading');
+    renderEvidence();
+    openDrawer();
+  } catch (error) {
+    console.warn('无法打开全文', error);
+    $('#evidencePanel').prepend(node('p', 'warning', '全文暂不可用，请稍后重试。'));
+  }
+}
+
+function closeReader() {
+  state.reader = null;
+  $('.workspace').classList.remove('reading');
+  $('#evidence').classList.remove('fullscreen');
+  renderEvidence();
+}
+
+function centerHighlight(flash = true) {
+  const section = document.querySelector(`.reader-page[data-page="${state.reader?.targetPage}"]`);
+  if (!section) return;
+  const boxes = [...section.querySelectorAll('.page-highlight')]
+    .filter(box => box.dataset.clause === state.reader.focusClause);
+  (boxes[0] || section).scrollIntoView({block: boxes.length ? 'center' : 'start'});
+  // Pages above load after this and change height; stay on the passage
+  // until the reader scrolls on their own.
+  state.reader.pinned = true;
+  if (!flash) return;
+  boxes.forEach(box => {
+    box.classList.remove('flash');
+    void box.offsetWidth;
+    box.classList.add('flash');
+  });
+}
+
+// Moving between passages of the open document only re-targets the view.
+function focusLocation(clause) {
+  const reader = state.reader;
+  const item = reader.items.find(entry => clauseKey(entry) === clause);
+  if (!item) return;
+  reader.focusClause = clause;
+  reader.targetPage = citedPage(item);
+  state.selectedId = item.evidence_id;
+  document.querySelectorAll('.reader-pages .page-highlight').forEach(box =>
+    box.classList.toggle('other', box.dataset.clause !== clause));
+  renderReaderCaption();
+  const section = document.querySelector(`.reader-page[data-page="${reader.targetPage}"]`);
+  if (!section) return;
+  reader.load(section);
+  if (section.querySelector('.page-highlight')) {
+    reader.centered = true;
+    centerHighlight();
+  } else {
+    reader.centered = false;
+    section.scrollIntoView({block: 'start'});
+  }
+}
+
+function renderReaderCaption() {
+  const reader = state.reader;
+  const caption = reader.caption;
+  caption.replaceChildren();
+  if (state.citedDocs.length > 1) {
+    const switcher = node('div', 'reader-switch');
+    state.citedDocs.forEach((group, index) => {
+      const button = node('button', group.key === reader.docKey ? 'active' : '', `[${index + 1}]`);
+      button.type = 'button';
+      button.title = group.fileName;
+      button.addEventListener('click', () => openReader(group.items[0]));
+      switcher.append(button);
+    });
+    caption.append(switcher);
+  }
+  const number = state.citedDocs.findIndex(group => group.key === reader.docKey) + 1;
+  const citedCount = groupByClause(reader.items.filter(item => state.referenceIds.includes(item.evidence_id))).length;
+  caption.append(node('span', '', citedCount
+    ? `${number ? `[${number}] ` : ''}本回答引用此文件 ${citedCount} 处：`
+    : '检索结果位置：'));
+  const locations = node('div', 'reader-locations');
+  for (const {key, items: [item]} of groupByClause(reader.items)) {
+    const button = node('button', key === reader.focusClause ? 'active' : '', locationLabel(item));
+    button.type = 'button';
+    button.title = (item.heading_path || []).join(' › ');
+    button.addEventListener('click', () => focusLocation(key));
+    locations.append(button);
+  }
+  caption.append(locations);
+}
+
+function renderReader() {
+  const reader = state.reader;
+  const {document} = reader;
+  const fileName = reader.items[0]?.file_name || document.file_name;
+  const root = $('#evidencePanel');
+  const toolbar = node('div', 'reader-toolbar');
+  const back = node('button', '', '← 来源列表');
+  back.type = 'button';
+  back.addEventListener('click', closeReader);
+  const zoomOut = node('button', '', '−');
+  const zoomLabel = node('span', 'zoom-label', `${reader.zoom}%`);
+  const zoomIn = node('button', '', '+');
+  zoomOut.title = '缩小';
+  zoomIn.title = '放大';
+  const fullscreen = node('button', '', $('#evidence').classList.contains('fullscreen') ? '退出全屏' : '全屏');
+  fullscreen.addEventListener('click', () => {
+    $('#evidence').classList.toggle('fullscreen');
+    fullscreen.textContent = $('#evidence').classList.contains('fullscreen') ? '退出全屏' : '全屏';
+  });
+  toolbar.append(back, node('strong', '', fileName), zoomOut, zoomLabel, zoomIn, fullscreen);
+
+  reader.caption = node('div', 'reader-caption');
+  renderReaderCaption();
+
+  const pages = node('div', 'reader-pages');
+  pages.style.width = `${reader.zoom}%`;
+  for (let page = 1; page <= document.page_count; page++) {
+    const section = node('section', 'reader-page');
+    section.dataset.page = String(page);
+    section.append(node('h4', '', `第 ${page} / ${document.page_count} 页`));
+    const placeholder = node('div', 'page-preview page-placeholder');
+    placeholder.textContent = '页面加载中…';
+    section.append(placeholder);
+    pages.append(section);
+  }
+  const setZoom = value => {
+    reader.zoom = Math.min(250, Math.max(100, value));
+    pages.style.width = `${reader.zoom}%`;
+    zoomLabel.textContent = `${reader.zoom}%`;
+    requestAnimationFrame(centerHighlight);
+  };
+  zoomOut.addEventListener('click', () => setZoom(reader.zoom - 50));
+  zoomIn.addEventListener('click', () => setZoom(reader.zoom + 50));
+  const head = node('div', 'reader-head');
+  head.append(toolbar, reader.caption);
+  const scroller = node('div', 'reader-scroll');
+  scroller.append(pages);
+  root.replaceChildren(head, scroller);
+  stopReaderObserver();
+  reader.load = section => {
+    if (section.dataset.loaded) return;
+    section.dataset.loaded = 'true';
+    const page = Number(section.dataset.page);
+    section.lastElementChild.replaceWith(
+      pageFigure(reader.items[0].document_version_id,
+        fileName, page, page !== reader.targetPage));
+  };
+  // Placeholders guess an A4 height; when real pages above the target load,
+  // keep the cited passage where the reader was sent.
+  let settle = 0;
+  state.readerResize = new ResizeObserver(() => {
+    if (!reader.pinned || !reader.centered) return;
+    cancelAnimationFrame(settle);
+    settle = requestAnimationFrame(() => centerHighlight(false));
+  });
+  state.readerResize.observe(pages);
+  const release = () => { reader.pinned = false; };
+  for (const type of ['wheel', 'touchstart', 'pointerdown', 'keydown'])
+    scroller.addEventListener(type, release, {passive: true});
+  state.readerObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => { if (entry.isIntersecting) reader.load(entry.target); });
+  }, {root: scroller, rootMargin: '700px 0px'});
+  pages.querySelectorAll('.reader-page').forEach(section => state.readerObserver.observe(section));
+  const target = pages.querySelector(`[data-page="${reader.targetPage}"]`);
+  if (target) {
+    reader.load(target);
+    requestAnimationFrame(() => target.scrollIntoView({block: 'start'}));
+  }
+}
+
+function renderEvidence() {
+  const cited = state.citedDocs.length;
+  const total = groupByDocument(state.evidence).length;
+  $('#evidenceCount').textContent = cited ? `引用 ${cited} 份文件` : `${total} 份文件`;
+  $('#sourceToggle').textContent = `查看来源 · ${cited || total}`;
+  if (state.reader) renderReader();
+  else { stopReaderObserver(); renderSourceList(); }
+}
+
+async function responseError(response) {
+  try {
+    const payload = await response.json();
+    const error = new Error(payload.error?.message || `HTTP ${response.status}`);
+    error.code = payload.error?.code || 'http_error';
+    return error;
+  } catch { return new Error(`HTTP ${response.status}`); }
+}
+
+// The last few turns go with a follow-up so the server can resolve what it
+// refers to; answers are sent as the plain text the user saw.
+function recentHistory(limit = 3) {
+  return state.turns.filter(turn => !turn.loading && turn.result).slice(-limit).map(turn => ({
+    question: turn.question,
+    answer: (turn.result.answer?.claims || []).map(claim => claim.text).join('').trim().slice(0, 6000),
+  }));
+}
+
+async function submit(raw) {
+  const question = raw.trim();
+  if (!question || state.busy) return;
+  const history = recentHistory();
+  state.busy = true;
+  $('#send').disabled = true;
+  $('#question').value = '';
+  const turn = {question, loading: true};
+  state.turns.push(turn);
+  renderMessages();
+  try {
+    const response = await fetch('/api/v1/queries', {
+      method: 'POST', headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify({question, conversation_context: state.context, history, mode: 'answer'}),
+    });
+    if (!response.ok) throw await responseError(response);
+    const result = await response.json();
+    state.context = result.continuation_context || {};
+    turn.result = result;
+    turn.loading = false;
+    renderMessages();
+    activateResult(result);
+    saveConversation();
+  } catch (error) {
+    const code = error.code ? `[${error.code}]` : '';
+    turn.result = {status: 'refused', answer: null, evidence: [], resolved_scope: {},
+      missing_conditions: [], warnings: [`请求失败${code}：${error.message}`]};
+    turn.loading = false;
+    renderMessages();
+    activateResult(turn.result);
+    saveConversation();
+  } finally {
+    state.busy = false;
+    $('#send').disabled = false;
+    $('#question').focus();
+  }
+}
+
+$('#queryForm').addEventListener('submit', event => {
+  event.preventDefault();
+  submit($('#question').value);
+});
+function resetConversation(render = true) {
+  state.conversationId = null;
+  state.context = {};
+  state.turns = [];
+  state.evidence = [];
+  state.referenceIds = [];
+  state.citedDocs = [];
+  state.selectedId = null;
+  state.reader = null;
+  $('.workspace').classList.remove('reading');
+  closeDrawer();
+  if (!render) return;
+  renderMessages();
+  renderEvidence();
+  renderHistory();
+}
+$('#newChat').addEventListener('click', () => { if (!state.busy) resetConversation(); });
+$('#sourceToggle').addEventListener('click', openDrawer);
+$('#closeSources').addEventListener('click', closeDrawer);
+$('#drawerBackdrop').addEventListener('click', closeDrawer);
+// Column widths are a per-browser preference.
+const LAYOUT_KEY = 'rag.layout.v1';
+function initSplitters() {
+  const workspace = $('.workspace');
+  let layout = {};
+  try { layout = JSON.parse(localStorage.getItem(LAYOUT_KEY) || '{}') || {}; } catch { layout = {}; }
+  const apply = () => {
+    for (const name of ['left', 'right', 'reading']) {
+      if (Number.isFinite(layout[name])) workspace.style.setProperty(`--${name}-w`, `${layout[name]}px`);
+      else workspace.style.removeProperty(`--${name}-w`);
+    }
+  };
+  const save = () => { try { localStorage.setItem(LAYOUT_KEY, JSON.stringify(layout)); } catch {} };
+  const rightName = () => workspace.classList.contains('reading') ? 'reading' : 'right';
+  apply();
+  document.querySelectorAll('.splitter').forEach(bar => {
+    bar.addEventListener('pointerdown', event => {
+      event.preventDefault();
+      bar.setPointerCapture(event.pointerId);
+      bar.classList.add('dragging');
+      document.body.classList.add('resizing');
+      const box = workspace.getBoundingClientRect();
+      const left = $('.left').getBoundingClientRect().width;
+      const move = moveEvent => {
+        if (bar.dataset.split === 'left') {
+          layout.left = Math.round(Math.min(420, Math.max(150, moveEvent.clientX - box.left)));
+        } else {
+          const max = box.width - left - 354;
+          layout[rightName()] = Math.round(Math.min(max, Math.max(300, box.right - moveEvent.clientX)));
+        }
+        apply();
+      };
+      const stop = () => {
+        bar.removeEventListener('pointermove', move);
+        bar.classList.remove('dragging');
+        document.body.classList.remove('resizing');
+        save();
+      };
+      bar.addEventListener('pointermove', move);
+      bar.addEventListener('pointerup', stop, {once: true});
+      bar.addEventListener('pointercancel', stop, {once: true});
+    });
+    bar.addEventListener('dblclick', () => {
+      delete layout[bar.dataset.split === 'left' ? 'left' : rightName()];
+      apply();
+      save();
+    });
+  });
+}
+initSplitters();
+loadRuntimeProfile();
+renderHistory();
+renderMessages();
+renderEvidence();
   </script>
 </body>
 </html>

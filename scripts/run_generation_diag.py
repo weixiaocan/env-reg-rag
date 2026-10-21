@@ -55,10 +55,14 @@ from src.domain.query import (  # noqa: E402
 from src.application.query_service import CitationValidationError  # noqa: E402
 from src.server import runtime as server_runtime  # noqa: E402
 
-DATASET = ROOT / "eval" / "golden_v2.jsonl"
+DATASET = ROOT / "eval" / "golden_v5.jsonl"
 POINTER = ROOT / "data" / "registry" / "corpus-current.json"
 REFUSE_EXPECTED = {"refuse"}
 ANSWER_EXPECTED = {"answer"}
+# The question's premise is not in the sources: a refusal and an answer
+# that corrects the premise from the sources are both acceptable; an
+# answer still needs a human check that it invents no figure.
+PREMISE_EXPECTED = {"correct_premise"}
 
 
 def _dataset_sha256(dataset: Path = DATASET) -> str:
@@ -255,6 +259,13 @@ def judge_case(case: dict, record: dict) -> dict:
     judgment: dict = {"case": case["id"], "expected": expected, "status": status}
     if expected in REFUSE_EXPECTED:
         judgment["refuse_correct"] = status == "refused"
+    elif expected in PREMISE_EXPECTED:
+        judgment["acceptable_status"] = status in {
+            "refused", "answered", "conflicting_sources"
+        }
+        judgment["needs_semantic_review"] = status in {
+            "answered", "conflicting_sources"
+        }
     elif expected in ANSWER_EXPECTED:
         judgment["answered"] = status in {"answered", "conflicting_sources"}
         judgment["claims"] = len(
@@ -262,9 +273,8 @@ def judge_case(case: dict, record: dict) -> dict:
         )
         judgment["claim_support_problems"] = _claim_support_problems(record)
         judgment["expected_facts_coverage"] = _expected_facts_coverage(case, record)
-    # locate cases: no pass/fail -- the diagnostic reports what generation
-    # does under the CURRENT admission contract (expected_answerability=locate
-    # describes today's evidence admission, not the product goal).
+    # locate (golden_v3 and earlier only): no pass/fail -- it described the
+    # evidence admission of its time, not the expected behaviour.
     return judgment
 
 
@@ -329,6 +339,7 @@ def build_summary(cases: list[dict], records: list[dict], judgments: list[dict])
     refuse_j = [j for j in judgments if j["expected"] == "refuse"]
     answer_j = [j for j in judgments if j["expected"] == "answer"]
     locate_j = [j for j in judgments if j["expected"] == "locate"]
+    premise_j = [j for j in judgments if j["expected"] in PREMISE_EXPECTED]
     gen_lat = [
         r["stages_ms"]["generation"]
         for r in records
@@ -371,6 +382,16 @@ def build_summary(cases: list[dict], records: list[dict], judgments: list[dict])
                 {"case": j["case"], "status": j["status"],
                  "refuse_correct": j.get("refuse_correct")}
                 for j in refuse_j
+            ],
+        },
+        "correct_premise": {
+            "denominator": len(premise_j),
+            "acceptable_status": sum(1 for j in premise_j if j.get("acceptable_status")),
+            "needs_semantic_review": [
+                j["case"] for j in premise_j if j.get("needs_semantic_review")
+            ],
+            "cases": [
+                {"case": j["case"], "status": j["status"]} for j in premise_j
             ],
         },
         "answer_expected": {
@@ -425,7 +446,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--dataset", type=Path, default=DATASET,
-                        help="golden JSONL (default: eval/golden_v2.jsonl)")
+                        help="golden JSONL (default: eval/golden_v5.jsonl)")
     parser.add_argument("--staging-corpus", default=None,
                         help="evaluate a staged (unpublished) corpus version: queries its "
                              "ingest-manifest collection instead of the live alias")

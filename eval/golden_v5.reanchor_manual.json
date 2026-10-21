@@ -1,0 +1,18 @@
+{
+ "schema_version": "1",
+ "basis": "assistant reading of candidate chunks against the question, expected facts and clean rendering (2026-10-20); the automatic overlap rule could not decide these rows",
+ "corpus_version": "corpus-9097cecb12d5",
+ "rows": [
+  {"case": "G021", "evidence": 0, "element_ids": ["e000006"], "note": "一、工作目标：到2027年集中收集率73%以上；rendering 跨到下一节"},
+  {"case": "G030", "evidence": 0, "element_ids": ["e000183", "e000184", "e000185"], "note": "5.2.3 公式块，含 BI 公式与 BI/ADF 式中说明"},
+  {"case": "G030", "evidence": 2, "element_ids": ["e000183", "e000184", "e000185"], "note": "ADF 含义在 5.2.3 公式块的式中说明里"},
+  {"case": "G033", "evidence": 0, "element_ids": ["e000214"], "note": "4.1.5：交通枢纽最大允许退水时间 0.5h"},
+  {"case": "G037", "evidence": 0, "element_ids": ["e000167"], "note": "5.2.6 引导句：汇水面积不超过2km²时可采用推理公式法"},
+  {"case": "G037", "evidence": 2, "element_ids": ["e000168", "e000169", "e000170"], "note": "5.2.6 公式块：Q=qΨF 与 Q、q 含义"},
+  {"case": "G045", "evidence": 0, "element_ids": ["e000095"], "note": "3.0.4 条文列出各环节并引用图3.0.4；图名本身未进入索引"},
+  {"case": "G047", "evidence": 0, "element_ids": ["e000269"], "note": "7.2.2：以任一指标取高值的原则评估"},
+  {"case": "G047", "evidence": 1, "element_ids": ["e000272"], "note": "续表7.2.2：中度/轻度分级"},
+  {"case": "G047", "evidence": 2, "element_ids": ["e000270"], "note": "表7.2.2：重度分级"},
+  {"case": "G049", "evidence": 0, "element_ids": ["e000447"], "note": "图4.6.3 图名块"}
+ ]
+}

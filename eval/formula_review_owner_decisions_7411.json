@@ -1,0 +1,154 @@
+{
+ "corpus": "corpus-7411b3a05a07",
+ "reviewed_at": "2026-10-20T02:44:43.233Z",
+ "decisions": {
+  "3": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "5": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "6": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "8": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "11": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "13": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "16": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "21": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "22": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "23": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "25": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "26": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "27": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "28": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "29": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "30": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "37": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "41": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "48": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "51": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "53": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "58": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "59": {
+   "verdict": "wrong",
+   "note": "要确认一下到底是S_e 还是S_c"
+  },
+  "61": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "64": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "65": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "66": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "68": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "74": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "75": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "79": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "81": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "87": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "89": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "90": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "text-e000270": {
+   "verdict": "ok",
+   "note": ""
+  },
+  "text-e000276": {
+   "verdict": "ok",
+   "note": ""
+  }
+ }
+}
