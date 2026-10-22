@@ -280,15 +280,27 @@ function openSource(turn, evidenceId) {
 
 // Formula transcriptions arrive as LaTeX-style subscripts (KQ_{g}); show
 // them as real subscripts without interpreting any other markup.
-function claimText(text) {
-  const span = node('span', 'claim-text');
+function withSubscripts(parent, text) {
   const pattern = /_\{([^{}]{1,12})\}|_([A-Za-z0-9])(?![A-Za-z0-9])/g;
   let last = 0;
   for (const match of text.matchAll(pattern)) {
-    span.append(text.slice(last, match.index), node('sub', '', match[1] ?? match[2]));
+    parent.append(text.slice(last, match.index), node('sub', '', match[1] ?? match[2]));
     last = match.index + match[0].length;
   }
-  span.append(text.slice(last));
+  parent.append(text.slice(last));
+  return parent;
+}
+
+// The model marks headings as **bold**; render that and drop stray markers.
+function claimText(text) {
+  const span = node('span', 'claim-text');
+  let last = 0;
+  for (const match of text.matchAll(/\*\*([^*\n]+?)\*\*/g)) {
+    withSubscripts(span, text.slice(last, match.index).replaceAll('**', ''));
+    span.append(withSubscripts(node('strong', ''), match[1]));
+    last = match.index + match[0].length;
+  }
+  withSubscripts(span, text.slice(last).replaceAll('**', ''));
   return span;
 }
 
