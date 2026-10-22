@@ -291,9 +291,13 @@ function withSubscripts(parent, text) {
   return parent;
 }
 
-// The model marks headings as **bold**; render that and drop stray markers.
+// The model marks headings as **bold** and lists with "- "; render bold,
+// show list markers as bullets, and drop stray markers and "#" headings.
 function claimText(text) {
   const span = node('span', 'claim-text');
+  text = text
+    .replace(/(^|\n)[ \t]*[-*][ \t]+/g, '$1• ')
+    .replace(/(^|\n)[ \t]*#{1,6}[ \t]+/g, '$1');
   let last = 0;
   for (const match of text.matchAll(/\*\*([^*\n]+?)\*\*/g)) {
     withSubscripts(span, text.slice(last, match.index).replaceAll('**', ''));
