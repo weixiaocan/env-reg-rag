@@ -178,6 +178,18 @@ class QdrantContextExpander:
                 ):
                     seen.add(table.chunk_id)
                     extras.append(evidence_item_from_hit(table))
+                    # The variable lines after a formula the lead-in pointed
+                    # at belong to it as much as when the formula ranks itself.
+                    numbers = [n for n in map(_element_number, table.element_ids) if n is not None]
+                    after = [f"e{n:06d}" for n in range(max(numbers) + 1, max(numbers) + 1 + _TRAILING_SPAN)]
+                    neighbours = self._index.find_by_elements(table.document_version_id, after)
+                    for neighbour in self._explanation(table, neighbours, after):
+                        if len(extras) >= self._max_extra:
+                            break
+                        if neighbour.chunk_id in seen or neighbour.usage_policy not in self._allowed:
+                            continue
+                        seen.add(neighbour.chunk_id)
+                        extras.append(evidence_item_from_hit(neighbour))
                 continue
             numbers = [n for n in map(_element_number, hit.element_ids) if n is not None]
             if not numbers:
@@ -247,7 +259,8 @@ class QdrantContextExpander:
         by the context limit. Only the nearest structured chunk following
         the prose under the same heading is taken.
         """
-        if not _STRUCTURE_REFERENCE.search(hit.text):
+        # Line breaks of the page layout can split "下式" across lines.
+        if not _STRUCTURE_REFERENCE.search(re.sub(r"\s+", "", hit.text)):
             return None
         numbers = [n for n in map(_element_number, hit.element_ids) if n is not None]
         if not numbers:

@@ -130,6 +130,32 @@ class QdrantContextExpanderTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual([e.evidence_id for e in extras], ["chunk_r_vars"])
 
+    async def test_lead_in_brings_the_formula_and_its_variable_lines(self):
+        clause = [{"label": "5.3.6", "title": ""}]
+        chunks = [
+            _chunk("q_lead", ["e000268"], ["text"],
+                   "5.3.6\n5.3.6 评估值应按下\n式计算：", clause),
+            _chunk("q_formula", ["e000269", "e000270"], ["formula", "text"],
+                   "5.3.6\n[公式]\nQ_{rl}=\\frac{a}{b}\n式中：Q_rl——评估值；", clause),
+            _chunk("q_unit", ["e000271"], ["formula"], "5.3.6\n[公式]\n[m³/(km·", clause,
+                   "source_locator_only"),
+            _chunk("q_vars", ["e000272", "e000276"], ["text", "text"],
+                   "5.3.6\nm——降雨场次数；\nn——污水管段数量。", clause,
+                   "source_locator_only"),
+        ]
+        index = QdrantRetrievalIndex(
+            client=QdrantClient(":memory:"),
+            collection_name="test_lead_in_formula",
+            vector_size=2,
+        )
+        index.build(chunks, [[1.0, 0.0]] * len(chunks))
+        lead = index.find_by_chunk_ids(["chunk_q_lead"])[0]
+        expander = QdrantContextExpander(index=index, allowed_policies=POLICIES)
+
+        extras = await expander.expand([evidence_item_from_hit(lead)])
+
+        self.assertEqual([e.evidence_id for e in extras], ["chunk_q_formula", "chunk_q_vars"])
+
     async def test_lead_in_already_in_context_stops_the_search(self):
         expander = QdrantContextExpander(index=self.index, allowed_policies=POLICIES)
 
@@ -148,7 +174,8 @@ class QdrantContextExpanderTest(unittest.IsolatedAsyncioTestCase):
 
         extras = await expander.expand(self._items("lead"))
 
-        self.assertEqual([e.evidence_id for e in extras], ["chunk_table"])
+        # the table's short note comes with it, as when the table ranks itself
+        self.assertEqual([e.evidence_id for e in extras], ["chunk_table", "chunk_note"])
 
     async def test_reference_without_a_following_table_adds_nothing(self):
         expander = QdrantContextExpander(index=self.index, allowed_policies=POLICIES)
