@@ -102,7 +102,9 @@ Copy-Item .env.example .env
 bash deploy/restore_release_data.sh <下载目录>
 ```
 
-脚本会校验文件、解压 PDF 和登记数据、启动 Qdrant、载入快照并把查询入口 `corpus_v2_live` 指向它。资料版权说明见 [DATA_NOTICE.md](DATA_NOTICE.md)。
+脚本会校验文件、解压 PDF 和登记数据、启动 Qdrant、载入快照并把查询入口 `corpus_v2_live` 指向它。
+
+> 数据包中的原始 PDF 仅供学习与研究使用，版权归各自权利人所有，请勿用于商业用途或再次分发；正式使用请以官方发布版本为准。
 
 ### 3. 启动应用
 
