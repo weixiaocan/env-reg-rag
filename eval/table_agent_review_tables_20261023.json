@@ -1,0 +1,1064 @@
+[
+ {
+  "sheet": "A001",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-7eb81bacd2e21d10204b91af",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 34,
+  "decision": "ok",
+  "replacement_sha256": "14e982cf0ff35c9b57119ccba557fe67e4d0a043a61735e84984d30fab307108"
+ },
+ {
+  "sheet": "A002",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-a8f00e2cbda888a5fe7408ad",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 35,
+  "decision": "html",
+  "replacement_sha256": "4c81dd711ca3d05f5af9dfed3172d5faeaf4bf049dd4b679cee926493b8ede25"
+ },
+ {
+  "sheet": "A003",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-354cfa8ff7a8d6f1076beeda",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 36,
+  "decision": "html",
+  "replacement_sha256": "87c98e56f22109470b9c715887f6cb6e2de46f00cd4be83c577f0625fd3f3a85"
+ },
+ {
+  "sheet": "A004",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-12f332d3201ef632e0674eb6",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 37,
+  "decision": "re",
+  "replacement_sha256": "380b742886a842c58e63bbbcfb214378ed4d6bf950a76188390bd04990bdf21c"
+ },
+ {
+  "sheet": "A005",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-ab22401ff51f83b8006d7618",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 38,
+  "decision": "ok",
+  "replacement_sha256": "1e339a66d1d2182b69ea78b63dc15ce39d8a46be3873a21e235c98b3500aafb7"
+ },
+ {
+  "sheet": "A006",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-e28f3a7abb3dee79000e724c",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 81,
+  "decision": "ok",
+  "replacement_sha256": "637effe9ca138204867185462737196320bfc86672020d486afceb75a54a4e46"
+ },
+ {
+  "sheet": "A007",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-d7919404f8047ad08ddc5a54",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 82,
+  "decision": "re",
+  "replacement_sha256": "80e72e1a9b7b372429c9bc67a359b5804a223a7766279945792b7fe58bb089af"
+ },
+ {
+  "sheet": "A008",
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-7e9238d324bdf45522b1dbc7",
+  "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "page": 98,
+  "decision": "ok",
+  "replacement_sha256": "2d03dd60fe0fe8ec9de1ea26c8917a2d58dfe3f26c7b2539a1e64b1c6391a4e6"
+ },
+ {
+  "sheet": "A009",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-f25686f455c72a5225155059",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 34,
+  "decision": "re",
+  "replacement_sha256": "c3103a56f8af8c41bbd3a5c76b71252137ae3b8f13aea033f290181c73d3106e"
+ },
+ {
+  "sheet": "A010",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-384d35ee8d3f69d832b4adc5",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 50,
+  "decision": "ok",
+  "replacement_sha256": "80168e27187e5fde51a132ff39fd0b8ade795340fe7916a5700e6dca55e6d179"
+ },
+ {
+  "sheet": "A011",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-52adba29b72daec95475aaa1",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 56,
+  "decision": "ok",
+  "replacement_sha256": "efed2222704b3711582ff11be6fa8b2cff3e2956dbd0e1447970dc5a035b4124"
+ },
+ {
+  "sheet": "A012",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-fc8926b5303241fd61057280",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 58,
+  "decision": "ok",
+  "replacement_sha256": "f7a53c4241747a3b83304613cfadb5042eb532f0ba8f9d2bdd07da73eea51820"
+ },
+ {
+  "sheet": "A013",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-d8894dab985a13918913527d",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 87,
+  "decision": "ok",
+  "replacement_sha256": "b4896c2fa67f344ba75c9eda5593865d2573012a9fc8346cc072d31ec6060023"
+ },
+ {
+  "sheet": "A014",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-a4b8b0c8258d6b0162ef7947",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 120,
+  "decision": "hdr",
+  "replacement_sha256": "f5b6223273b4dbc300fcd061781cf5a25a31081aec130a3b41df894209aa2e23"
+ },
+ {
+  "sheet": "A015",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-9927041628bd6b7b9a4c9727",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 125,
+  "decision": "hdr",
+  "replacement_sha256": "94de391a82d1f1b58c728f0fa4de8299618b0ec7d573d7677ad14b8ef8b2b499"
+ },
+ {
+  "sheet": "A016",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-6eca21ebd6d66e7fbc999548",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 126,
+  "decision": "hdr",
+  "replacement_sha256": "e3bdae2b661197d83e28b3e4f26c6b418c7a1a801177ef40265f4fd0b5da65ee"
+ },
+ {
+  "sheet": "A017",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-807962d71f46134b5783f335",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 129,
+  "decision": "hdr",
+  "replacement_sha256": "1c100d5c94977d16ca88cce30ebc543dd3c1ade76054d47d9fba23918936d0ab"
+ },
+ {
+  "sheet": "A018",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-0403fa3800515e0b6b29287f",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 154,
+  "decision": "ok",
+  "replacement_sha256": "9bbc0e08e89ef0328dbdad3cfc53546f551f86dbfc2c82dddcbca64b12a5d62d"
+ },
+ {
+  "sheet": "A019",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-4d30d077be58fc7fec91c861",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 157,
+  "decision": "hdr",
+  "replacement_sha256": "a704c8486919919c46b0208a3e85bfcfdad15a578ecc81a7b1bb084f4f13f9c0"
+ },
+ {
+  "sheet": "A020",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-c3fc50e469565550f45eb129",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 159,
+  "decision": "hdr",
+  "replacement_sha256": "dbaf419f662df7b490e6934c0533239132ef0f6ccba2583dfe73cf5c4de41e52"
+ },
+ {
+  "sheet": "A021",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-0a88e79d3eb520d2cf13db03",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 182,
+  "decision": "ok",
+  "replacement_sha256": "e32b336d9a0342d3e713f407f1938c76b65816e969536268917f5ddd330289f3"
+ },
+ {
+  "sheet": "A022",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-1868c84276dbe7544f788ecf",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 184,
+  "decision": "ok",
+  "replacement_sha256": "758fc7d73691e3fd921aa5664a32f97c098e569ffc3a040e7cbbca803fd27644"
+ },
+ {
+  "sheet": "A023",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-7fcb6c629813e35a894f8893",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 185,
+  "decision": "ok",
+  "replacement_sha256": "f7ac8c2144510c6e8730b8befca7e3ae37ef5402bd40b8f25a2f44c7848d9164"
+ },
+ {
+  "sheet": "A024",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-09276b4be17ea68569af3243",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 186,
+  "decision": "ok",
+  "replacement_sha256": "928d3bb8f47210a69213cf2dc110f4b93048558bdb6b72cf2d5ae6435b5aec4a"
+ },
+ {
+  "sheet": "A025",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-862d1b324661b594436667f7",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 189,
+  "decision": "ok",
+  "replacement_sha256": "2313ac8925a94bf5611401a5a4e08aef345d395ef3d5286c1b3d4e1db4c256e1"
+ },
+ {
+  "sheet": "A026",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-4ca5a5202e14c5765ace6760",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 191,
+  "decision": "ok",
+  "replacement_sha256": "4eaa9a9135859c0c850c817905c4b97a3ee6a9bd4d5cc2915a650268bed14676"
+ },
+ {
+  "sheet": "A027",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-b9dfaefef5c6fec48195ec12",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 192,
+  "decision": "re",
+  "replacement_sha256": "ff03466ae24ba7f2db4be0394d951ecc62635b175082aa036c1b7ff9c8447d96"
+ },
+ {
+  "sheet": "A028",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-a54f8edbb46d0d60a6eef033",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 194,
+  "decision": "ok",
+  "replacement_sha256": "5ac64280296ef2a9e40f9708bec0e45c2ce5526b623c03704f18d240f107d2e3"
+ },
+ {
+  "sheet": "A029",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-912c62a9085d17789a88cfde",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 197,
+  "decision": "ok",
+  "replacement_sha256": "80d3223ed32fc7152bb0f902f4d8215fb416ac18693e54656cfb95285b213e81"
+ },
+ {
+  "sheet": "A030",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-2fe3be1420496ff7b16853e3",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 28,
+  "decision": "hdr",
+  "replacement_sha256": "ba386accedfc7ce924191bf3acca3ee5a2bff72231fc158cbfaf8726125175a7"
+ },
+ {
+  "sheet": "A031",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-24236f7a74f5fb9b9d10e173",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 38,
+  "decision": "ok",
+  "replacement_sha256": "fa2d734c869de21cbeb9d9f0e09357cc37396e867dbb0470ea261590343ddc8c"
+ },
+ {
+  "sheet": "A032",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-c181fa734f7a7d38340f9734",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 39,
+  "decision": "ok",
+  "replacement_sha256": "60140905edabc32a23f7eddee5d50a1f9148fa569d5935af6309c5b64f24cc68"
+ },
+ {
+  "sheet": "A033",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-59f13ee3138d39575f855cde",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 41,
+  "decision": "re",
+  "replacement_sha256": "3b1a1697d99d47770596ee6054e7bf3b7c05f8a995f8f316657fcd4ea069f264"
+ },
+ {
+  "sheet": "A034",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-58ee12ac94b6a75883826bb4",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 66,
+  "decision": "ok",
+  "replacement_sha256": "40f984d17919d136cc18cc913c5fafe90d270cb88febc663abca9cd1b45bb2a8"
+ },
+ {
+  "sheet": "A035",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-412a094aa49dd94ae40767fa",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 67,
+  "decision": "ok",
+  "replacement_sha256": "35a1d74ff3aa682620b0ac1fe1c0be7b26c53b586609c48f25d60b2f7b7574af"
+ },
+ {
+  "sheet": "A036",
+  "sha256": "25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7",
+  "region_id": "up-cd39f7f64bc29e98adc005ce",
+  "file_name": "“十四五”全国城市基础设施建设规划.pdf",
+  "page": 5,
+  "decision": "ok",
+  "replacement_sha256": "ba53594fde6b651e31cb4317c8eeafe42ab7a25bb3a4839b4533d0a5fa6acb8e"
+ },
+ {
+  "sheet": "A037",
+  "sha256": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+  "region_id": "up-cfcff7ffd7ad2d6250c5aa45",
+  "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+  "page": 45,
+  "decision": "ok",
+  "replacement_sha256": "f5f65674957bd8d5b035a99219d994547d07cd023fc0dd5b078ca3d1dd133bb9"
+ },
+ {
+  "sheet": "A038",
+  "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+  "region_id": "up-33e8c3e433130bfcea962f0f",
+  "file_name": "城市排水工程规划规范.pdf",
+  "page": 21,
+  "decision": "ok",
+  "replacement_sha256": "69b39bcd7709f1fbea16d9fa3e2ad1ec7b33b03a0f96d3c198956fa661b750f1"
+ },
+ {
+  "sheet": "A039",
+  "sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+  "region_id": "up-fdd4f3e0a5be17cf629f9489",
+  "file_name": "城市排水工程规划规范.pdf",
+  "page": 45,
+  "decision": "ok",
+  "replacement_sha256": "356df13f2719826fbecef3b3409dd86c2458ab6df02a62ba112545250e9f189b"
+ },
+ {
+  "sheet": "A040",
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-c6780b27603a0fa83c01dc76",
+  "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "page": 58,
+  "decision": "ok",
+  "replacement_sha256": "e63af6b7f43e0f9d573877630d90326efbc3f7bb7fbeb37a20ba088ea51c8c1c"
+ },
+ {
+  "sheet": "A041",
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-a232a8bc3b39228660d9a822",
+  "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "page": 59,
+  "decision": "ok",
+  "replacement_sha256": "fc431943b437e40aabe636c500dde1ceb4461d73a80a645009c5019c3cbdd1e3"
+ },
+ {
+  "sheet": "A042",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-f5f40d104aacf1c31915565b",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 40,
+  "decision": "ok",
+  "replacement_sha256": "c8b30b3092477e3db52e0970f85dce198c8a4ef07778f27ce8772184ca3a5cfa"
+ },
+ {
+  "sheet": "A043",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-ed0f0f5cc3b091d015d5fa79",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 41,
+  "decision": "ok",
+  "replacement_sha256": "7e245316e946884c48f500974e56fdef7452150ae25f26556bffc6dac4cc154a"
+ },
+ {
+  "sheet": "A044",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-1a59a62e99d7da1ebf792620",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 44,
+  "decision": "ok",
+  "replacement_sha256": "1fdeb9762abaf494c970dbd500f983f45d4df1082e65a577f0fd66c61c79a866"
+ },
+ {
+  "sheet": "B045",
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-21d0842dfcb8fe93bbef4bbc",
+  "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "page": 86,
+  "decision": "ok",
+  "replacement_sha256": "3ff74e998515c35473bbb9e9600d8775dd6651a7d899a784f43acac5275ad653"
+ },
+ {
+  "sheet": "B046",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-60ef6bdc4ffb0a49ada356a4",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 32,
+  "decision": "hdr",
+  "replacement_sha256": "65caf63a34e8250c188e334c2ebdb3a41c8731f5d301557eadeff8073d98921e"
+ },
+ {
+  "sheet": "B047",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-25b7973849347df828a4063f",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 35,
+  "decision": "hdr",
+  "replacement_sha256": "24163bb52a00067d6fa25d276b2e69a3a9513d0334419d6ced667f484163f159"
+ },
+ {
+  "sheet": "B048",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-8ba5a6cad7f435d4946e5ccb",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 46,
+  "decision": "re",
+  "replacement_sha256": "21da78dabc6bee270fef901eb4f8c72a43c8c423a556c128b5531177658dadaf"
+ },
+ {
+  "sheet": "B049",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-f5f1e241de3f28baccd11f6e",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 50,
+  "decision": "ok",
+  "replacement_sha256": "ba4f774dda67b99ca4aed2a6eecd978e42133515db92e10b2dd1f5c933ad47f4"
+ },
+ {
+  "sheet": "B050",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-2c33b568b9803971ca20cb0d",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 53,
+  "decision": "re",
+  "replacement_sha256": "a7b573d165d501b936a8d944bf259ec3fd6b728f9620ecba23fbfcedc6ca0154"
+ },
+ {
+  "sheet": "B051",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-8a0c075d2f7d899fba5f5fd2",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 58,
+  "decision": "ok",
+  "replacement_sha256": "2004d03027e33cba44271cc9ec722e351fea7b3a4b586cb821012f67dc2def0b"
+ },
+ {
+  "sheet": "B052",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-4cf873c007ca42e67fb29c87",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 64,
+  "decision": "hdr",
+  "replacement_sha256": "edec60197a2ddc10aa8db70b74ddf8f3daf13f34b1e762e1428cf7e33916b23b"
+ },
+ {
+  "sheet": "B053",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-0adb862116a4716c686810cb",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 68,
+  "decision": "hdr",
+  "replacement_sha256": "566bce6b2fa778c2d2de19b54b6add54d2cdbada868c18e75a59af43b721f92b"
+ },
+ {
+  "sheet": "B054",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-c08503179f9edb5659f68bc6",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 75,
+  "decision": "hdr",
+  "replacement_sha256": "50aa17c6b431921c9b2159843bc7ca91888e9620136b5d1dd40772a98e258d68"
+ },
+ {
+  "sheet": "B055",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-18197e20e0d8d84ef686d7bf",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 119,
+  "decision": "hdr",
+  "replacement_sha256": "5ac73f5b1da436e6235d77c8abbf36c8287430415ef37fe7b2f6ca037555bcab"
+ },
+ {
+  "sheet": "B056",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-6a7957a802369b3ab510d02f",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 120,
+  "decision": "hdr",
+  "replacement_sha256": "818a0681927108216c9c03a8fab30dabe1cf5b677300f092247b6a55ed5e343b"
+ },
+ {
+  "sheet": "B057",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-ddc15f23b23c55829c548ed1",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 121,
+  "decision": "hdr",
+  "replacement_sha256": "8c7e0f3abb1b3abb40f0a556fadacfa81d175af4ecc886238a058a22519dce75"
+ },
+ {
+  "sheet": "B058",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-72afc2a51f8cc8a60878a2ec",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 122,
+  "decision": "hdr",
+  "replacement_sha256": "692f8a83817bd89ffb41720880b5dfdecd78fb561eb2a5c19a891ed6fc2b1d24"
+ },
+ {
+  "sheet": "B059",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-550cae4824f9cd2ab1f09e00",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 123,
+  "decision": "hdr",
+  "replacement_sha256": "2e008582f819c8e4d035e4869f3f5ea61262dfb009fbbf03327b2590d7b827e7"
+ },
+ {
+  "sheet": "B060",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-33b1b12d6711674f7cfb23c9",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 154,
+  "decision": "hdr",
+  "replacement_sha256": "99691af5bd868283cbf758cb35a88720cc096f039d7a356b64a589c583b23e6a"
+ },
+ {
+  "sheet": "B061",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-8078a87688e0df8144da927f",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 156,
+  "decision": "hdr",
+  "replacement_sha256": "41f865450b0a43b35243dd5a8700c9ee3bafaf75182be63c96b2c52e7a7e15e0"
+ },
+ {
+  "sheet": "B062",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-7d70380c78e6f51d28968dc6",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 158,
+  "decision": "hdr",
+  "replacement_sha256": "c2d32f60b819489e099bbcdc43d6f7d2199243f3a6a44e4189c193c68d8d2f45"
+ },
+ {
+  "sheet": "B063",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-ee1758085f75aa674e574064",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 166,
+  "decision": "re",
+  "replacement_sha256": "7fda40977ec34896e45da7fff14102a4f48d3681860c0749c597953c974bb3af"
+ },
+ {
+  "sheet": "B064",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-6e784008ad33c28f5b019042",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 172,
+  "decision": "re",
+  "replacement_sha256": "e2f0a21964e44ad92f07e82ce42b8a2f1cda4325bbe08cce98aeb2d00065cd89"
+ },
+ {
+  "sheet": "B065",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-7321cff77135c03e7b2dc285",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 177,
+  "decision": "ok",
+  "replacement_sha256": "bf2a7e96c470a2e61342f2901936f62a75d46accddb1c1a77bc40642c693f340"
+ },
+ {
+  "sheet": "B066",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-58c9ae8fc7b0f63d0f7b28b1",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 35,
+  "decision": "ok",
+  "replacement_sha256": "6dbb364ce18a7667aae6caad291bec00a8e37df4f2f08f53d16cb6ec50e8f9e3"
+ },
+ {
+  "sheet": "B067",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-c539d95257c7e5ab046148c8",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 42,
+  "decision": "ok",
+  "replacement_sha256": "fd7385c72ecee9231066c41db8c7de94476588b575fb47d3c7f935161e912112"
+ },
+ {
+  "sheet": "B068",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-b7a83000f006727b3a8a8d39",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 43,
+  "decision": "hdr",
+  "replacement_sha256": "31887fcf2bdf02193f0c6b0fcd92b7f6a10afc0c51c92268ab6c9934168f1bb6"
+ },
+ {
+  "sheet": "B069",
+  "sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+  "region_id": "up-caa610a5e776732f3e5e4590",
+  "file_name": "城镇内涝防治技术规范.pdf",
+  "page": 14,
+  "decision": "ok",
+  "replacement_sha256": "a4c66c1d037c6444141a266dfa81c04bd3802eb06b9f1cad3f8e1e6fd93975aa"
+ },
+ {
+  "sheet": "B070",
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-1e452c87dd22bea60907ebeb",
+  "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "page": 54,
+  "decision": "ok",
+  "replacement_sha256": "57cbeb6061cf4148dc96689f6cb81bd2df8545c28e39544606a9e0d3d5b51c87"
+ },
+ {
+  "sheet": "B071",
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-95f85a0494d353e8455095bc",
+  "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "page": 60,
+  "decision": "ok",
+  "replacement_sha256": "2c0365e4961e9b85bfe615ef6480a98d3ac6318909ec01caedfce3552c66077c"
+ },
+ {
+  "sheet": "B072",
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-2d787bdbe999af2e31780a8b",
+  "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "page": 61,
+  "decision": "ok",
+  "replacement_sha256": "fab05779ef4deb8e79f72ec88bcbc1d80c97ee73c5c5da00aef9c272be56dcc7"
+ },
+ {
+  "sheet": "B073",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-324b00961470669c631922cd",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 39,
+  "decision": "ok",
+  "replacement_sha256": "d9b67bfa70935bf0a3758ebbf2d6f35f288f345fa46c6b1b10123f9f2d99e13f"
+ },
+ {
+  "sheet": "B074",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-da0cacdea4c220a279d75ed8",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 42,
+  "decision": "ok",
+  "replacement_sha256": "827ba6d8801c6ed622a0fefce1ae8a09360d5f625b3932b8b343401f6a46927f"
+ },
+ {
+  "sheet": "B075",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-4269a5ecce825efeb1ef72e9",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 43,
+  "decision": "ok",
+  "replacement_sha256": "a8dac7aa3cd746f069b046c6de956fe5ca554100ee3d88d9c225c49182aab2a1"
+ },
+ {
+  "sheet": "B076",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-527c43913924f64bc99eb550",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 43,
+  "decision": "ok",
+  "replacement_sha256": "ba319f0eacd1091a5a98edd9ea3d7407aca26fb7f9c977ed845de0b98256ba35"
+ },
+ {
+  "sheet": "B077",
+  "sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+  "region_id": "up-a108782bc0e7b0be2a6cf690",
+  "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+  "page": 15,
+  "decision": "re",
+  "replacement_sha256": "409931f57f279d3c917e5535c0e9035784ab413d46cb0f16bba2e5c8ae8f6336"
+ },
+ {
+  "sheet": "B078",
+  "sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+  "region_id": "up-e959a8c6d707ac268ec885f7",
+  "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+  "page": 15,
+  "decision": "ok",
+  "replacement_sha256": "98b483217147d8061d7e745d154d56b745d65e993dbbbd42dc1d4a46cfa37634"
+ },
+ {
+  "sheet": "C079",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-b3f36d4caa8b19ec0aeb67fb",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 71,
+  "decision": "html",
+  "replacement_sha256": "bb52c0932f4a5187942a5856fc40da02a88046d3680fe8b251bedf23792dc10f"
+ },
+ {
+  "sheet": "C080",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-2f3a0a13dd6b13768c565ded",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 72,
+  "decision": "re",
+  "replacement_sha256": "6882e835f66efb1ec8f505a59112e0108b749f1026c603c809a6116c08b7d79f"
+ },
+ {
+  "sheet": "C081",
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-f474a619a33bcde335b88a37",
+  "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "page": 30,
+  "decision": "ok",
+  "replacement_sha256": "1c519f63736543c3b5f9504b0b3f815a9c3dfbf21f61c7df8dca220c500f448c"
+ },
+ {
+  "sheet": "C082",
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-9a8857ba6746f31a6bde2f16",
+  "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "page": 67,
+  "decision": "ok",
+  "replacement_sha256": "1da3907f71429e1165deda90c0b1509ffe9975aef310dbdb9e33eff6666a0c6f"
+ },
+ {
+  "sheet": "C083",
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-af032e4811e2f9f04350011c",
+  "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "page": 68,
+  "decision": "ok",
+  "replacement_sha256": "8abd5fe534fcecca56f6afe7004ea16376c24035c7b05d68333e5c25f3f5bd6e"
+ },
+ {
+  "sheet": "C084",
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-08b027543b0d8d098ec25987",
+  "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "page": 69,
+  "decision": "ok",
+  "replacement_sha256": "291e1808f71754e6dd404041b79839113b9331480f129eec9c8a5c883dddb049"
+ },
+ {
+  "sheet": "C085",
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-a49b3726d8e367ba66df1e3e",
+  "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "page": 114,
+  "decision": "ok",
+  "replacement_sha256": "4d91f03a0d68a13074fe4de2a33514c9de76211094feeb1537766b25c212432b"
+ },
+ {
+  "sheet": "C086",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-5c9c6cb8c5cf8b5c0883c0da",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 124,
+  "decision": "html",
+  "replacement_sha256": "bdf6cce2cf46cdeb5835b521580d810aa271fefb6ca14efd5c523ba0567d013a"
+ },
+ {
+  "sheet": "C087",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-b921f853c4aafb8d844a44ac",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 178,
+  "decision": "ok",
+  "replacement_sha256": "69eab214a51e5c7ff556d6b911e6856d0c543fa4768c059d472543f26f9501b7"
+ },
+ {
+  "sheet": "C088",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-f7050848a088f744fd6ee72c",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 29,
+  "decision": "ok",
+  "replacement_sha256": "efa9e1ea070533ddf548176f31b64eec0c5e278f76ea3fae9823cadbc0531dba"
+ },
+ {
+  "sheet": "C089",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-c64fe0d6b555896935119639",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 42,
+  "decision": "ok",
+  "replacement_sha256": "7af69d8a6d13b00cc185d3ca322e4d36f349f2bd4a478a494ee37e142a099017"
+ },
+ {
+  "sheet": "C090",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-0b2299bd2cad40693508d8eb",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 39,
+  "decision": "ok",
+  "replacement_sha256": "669036d8f3199a9d0cb322227d7b30fbe40ed46129754d7f392b4cd0518fbd50"
+ },
+ {
+  "sheet": "C091",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-6aa5b95d45ae73756975bd9d",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 40,
+  "decision": "ok",
+  "replacement_sha256": "33c1cb2929d463b7a9c8526ca1984c2a1e157883655929567f202a74041fee95"
+ },
+ {
+  "sheet": "C092",
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-cd79bae41fea9d9d9c38ecb0",
+  "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "page": 41,
+  "decision": "ok",
+  "replacement_sha256": "3d9510d1ddf0439baf52c18310354fc49cfb0e1a1490a8aec792ee228f2cf200"
+ },
+ {
+  "sheet": "C093",
+  "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+  "region_id": "up-58cdc7b33cb54c31d8c6b68d",
+  "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+  "page": 9,
+  "decision": "ok",
+  "replacement_sha256": "09899996afe8701b8830d56e0e6c2beeb62b748024a9496b1bc166fb9100b760"
+ },
+ {
+  "sheet": "C094",
+  "sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+  "region_id": "up-099bb9a9410ece40db70c1d6",
+  "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+  "page": 15,
+  "decision": "ok",
+  "replacement_sha256": "c9b2211a39d69b8fe9e6d7ca067955df1f13ef63bf4d1fc475af7d80dd09d57d"
+ },
+ {
+  "sheet": "D095",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-252a9dc941fde93c16c3b994",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 32,
+  "decision": "re",
+  "replacement_sha256": "0e7b1341055c3c6e15830cc8095119b930ab7a75a3e0a2b650c0de59fc31d491"
+ },
+ {
+  "sheet": "D096",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-46fb8cb536b7fb10005696de",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 33,
+  "decision": "re",
+  "replacement_sha256": "7174a27a827667b11284a91b9340d5a8e4242e8fddfa68641a415d98e2177632"
+ },
+ {
+  "sheet": "D097",
+  "sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+  "region_id": "up-e01b89d183d86a434a08396a",
+  "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "page": 39,
+  "decision": "re",
+  "replacement_sha256": "53a02e53ae0dd7e2b66593a938dff933b15fe865f704738b4cb8ea71b4c83803"
+ },
+ {
+  "sheet": "D098",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-429e8226da5c7b6bd3655e83",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 35,
+  "decision": "html",
+  "replacement_sha256": "08bdab752b198cb67c1d3f46822211e7a336a52b6022c5ddc1639b3eb78d0729"
+ },
+ {
+  "sheet": "D099",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-df418cc9a690736a68b1105c",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 67,
+  "decision": "html",
+  "replacement_sha256": "20cc2db368fb86600465346772d762839da7937f37f532725cf4f19c470d6d15"
+ },
+ {
+  "sheet": "D100",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-881d784e11dfaa42506a1b7c",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 115,
+  "decision": "html",
+  "replacement_sha256": "6996ac59cfff07f9114e3bae0bda2cf7cd50cf319d025d9748cc7864549c362d"
+ },
+ {
+  "sheet": "D101",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-8b9169757581a71ad33db347",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 117,
+  "decision": "hdr",
+  "replacement_sha256": "82f91a04c1e128f7ea77fda423b2da230cffbae167a8f1035472f03ebb4a68f4"
+ },
+ {
+  "sheet": "D102",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-a0d40f06232cc763f7a79ff3",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 127,
+  "decision": "html",
+  "replacement_sha256": "df7bdd1e426be626167ae60620e70ed62b321eb189fb8671fee26cb9efe9a75a"
+ },
+ {
+  "sheet": "D103",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-5f8015fc19add016b59a06b7",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 132,
+  "decision": "html",
+  "replacement_sha256": "e362e37b8d0102f9eeec7aa3e159badbdde83c798fdfe7411af724c7473449bd"
+ },
+ {
+  "sheet": "D104",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-99103ad8f519b0bb5e7e3a20",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 134,
+  "decision": "html",
+  "replacement_sha256": "98da327b49893cf16fd6fc9b453687448a7343e8315f70493675d8678aa9e70e"
+ },
+ {
+  "sheet": "D105",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-1b39d0110598cc51d1d616a4",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 150,
+  "decision": "html",
+  "replacement_sha256": "8499932d83c5f1141474a070868782ba43bcea95c6e5345275edeca573c51c1d"
+ },
+ {
+  "sheet": "D106",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-12ecf256d10a762de88c7581",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 153,
+  "decision": "html",
+  "replacement_sha256": "dac5f408751430172e78cc1527e6e1d20b872e9bd8d7c1407a56de621a413a6e"
+ },
+ {
+  "sheet": "D107",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-65ab01f4b306968315c11073",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 165,
+  "decision": "html",
+  "replacement_sha256": "d5580d68a55fd14e356292838caeee4eac14bdc9e67a69c6eef8fadc428c3368"
+ },
+ {
+  "sheet": "D108",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-e85362cfc9cb858128041088",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 167,
+  "decision": "html",
+  "replacement_sha256": "bdd336c60140c84e093c783a440ccd96b5be0a632b2a7e871946ef2bc5043213"
+ },
+ {
+  "sheet": "D109",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-7299230a52e6eb9e760e6617",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 181,
+  "decision": "html",
+  "replacement_sha256": "247877952db3772542ff5af88f21fcec5e8b50e2b79643ec715977dc18d5004e"
+ },
+ {
+  "sheet": "D110",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-cb2c925dd13ebf71462def03",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 183,
+  "decision": "html",
+  "replacement_sha256": "6b5c516d03d6c5ac07a4bd577f6667385c3f9a80f73f3512a8296c4b5adbf7f7"
+ },
+ {
+  "sheet": "D111",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-7fb5aeae407edbc751cc49d6",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 187,
+  "decision": "re",
+  "replacement_sha256": "0cea50d1862c4c36d2b502e1637810a08c5dea7131338fe15c97e95590819899"
+ },
+ {
+  "sheet": "D112",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-37836c00f98495d4916b2da8",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 188,
+  "decision": "re",
+  "replacement_sha256": "ccc285508904251082655d990ea8aa717eba493a7496f0f75887a221fcd68abd"
+ },
+ {
+  "sheet": "D113",
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-0a93d2ae1b110d7416386101",
+  "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "page": 190,
+  "decision": "html",
+  "replacement_sha256": "0cccb32e6b7d3bbfd79db9ef8937ab29d915cc5858570d357c2a7e5395499b1a"
+ },
+ {
+  "sheet": "D114",
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-7e69dadadbd93cd0bbe6be35",
+  "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "page": 44,
+  "decision": "html",
+  "replacement_sha256": "b128a76878810aba0b2cb30b3ca3d32a6aaa7fdeacb5f7caa420660b57b0e8a3"
+ },
+ {
+  "sheet": "D115",
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-d8ccf0216ad097f05d4e8309",
+  "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "page": 55,
+  "decision": "html",
+  "replacement_sha256": "816d0750cc2546c3335ca009c3382c47933be80c77ce7a57e30512933febe6c5"
+ },
+ {
+  "sheet": "D116",
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-211a905fa7ca41dc062389a2",
+  "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "page": 56,
+  "decision": "html",
+  "replacement_sha256": "73077f51700dc9fa640e5295ff8a34f34d9fffef55ae3b092baf543e4fb4da32"
+ },
+ {
+  "sheet": "D117",
+  "sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+  "region_id": "up-893dc6a5e5bbeec518717d1a",
+  "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+  "page": 24,
+  "decision": "html",
+  "replacement_sha256": "835a19abf52e5bc11ea95b6e3ac4348170cd767e2e3f1b2522cf7ceb9fef9bba"
+ },
+ {
+  "sheet": "D118",
+  "sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+  "region_id": "up-0689f3e9e07fd3522373bf46",
+  "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+  "page": 16,
+  "decision": "html",
+  "replacement_sha256": "5b01a6e49121530408a319e4fb37a7f50b46bb53f951ae030643a0d71cd5628c"
+ }
+]

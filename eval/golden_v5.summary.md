@@ -1,5 +1,17 @@
 # golden_v5 变更说明
 
+## 2026-10-23：重新对齐到 corpus-913c134c18ae
+
+`corpus-913c134c18ae` 发布：239 张表格逐格核对后全部可引用，扫描件识别的投票规则修正（行内单位符号、含行内公式的正文行不再丢失）。用同一脚本把证据锚点重新对齐到 913c：
+
+- 76/79 条对齐（上次 73/79），未对齐 3 条：G013 第 3 页、G049 第 35 页（必中，原因同下文）、G050（拒答题的非必中证据）；
+- 证据使用策略：`answer_and_citation` 65 条、`source_locator_only` 14 条（表格可引用后，多数证据变为可正式引用）；
+- 对齐前，G002、G046 的 4 条引文已改为更正后的原文（旧引文保留在 `quote_before_20261023`）。
+
+产物 SHA-256 `75375e4ef1eaf13c8daab37248f3355db56f0fae952a42bf175bee4f0894de89`，逐条记录见 `eval/golden_v5.reanchor_report.json`。以下为 2026-10-20 首次生成 v5 时的说明。
+
+---
+
 日期：2026-10-20。来源：`eval/golden_v4.jsonl`（SHA-256 `dcfbe780…8c9c23f`）。
 产物：`eval/golden_v5.jsonl`（SHA-256 `530f7b4af3f8f2df3218b05a81b9609d3edc245d2e11dcadd0f93164b9330e10`），锚定 `corpus-9097cecb12d5`。
 

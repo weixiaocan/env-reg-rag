@@ -19,7 +19,7 @@ from src.ingestion.independent_ocr_fusion import (
     load_independent_ocr_page,
     load_independent_ocr_run,
 )
-from src.ingestion.ocr_region_text import assemble_page_region_text
+from src.ingestion.ocr_region_text import OCR_VOTE_MODE, assemble_page_region_text
 from src.ingestion.page_furniture import (
     classify_page_furniture,
     normalize_line,
@@ -248,7 +248,7 @@ def prepare_page_document_v3(
             for key in totals:
                 totals[key] += page_stats[key]
         ocr_summary = {
-            "mode": "three-source-region-vote-v1", "run_id": run_id,
+            "mode": OCR_VOTE_MODE, "run_id": run_id,
             "run_manifest_sha256": manifest_sha, "preprocessing": preprocessing,
             "raw_run_id": raw_run_id,
             "raw_run_manifest_sha256": raw_manifest_sha,
@@ -366,11 +366,13 @@ def build_page_blocks(
             blocks.append(_make_block(body_lines, label, region, role=furniture.role,
                                       furniture_rule=furniture.rule_id))
             continue
-        if page.get("_v3_front_matter"):
-            blocks.append(_make_block(body_lines, label, region, role="front_matter"))
-            continue
+        # A contents page stays navigation even before the first structural
+        # heading: its lines must not reach the document card as cover text.
         if mapped == "toc" or page_is_toc:
             blocks.append(_make_block(body_lines, label, region, role="toc"))
+            continue
+        if page.get("_v3_front_matter"):
+            blocks.append(_make_block(body_lines, label, region, role="front_matter"))
             continue
         is_title = mapped == "title"
         # A paragraph_title that begins with a clause number and carries body
@@ -483,8 +485,12 @@ def _front_matter_pages(pages: list[dict[str, Any]]) -> set[int]:
     for index, page in enumerate(pages):
         texts = [str(item.get("text") or item.get("normalized_text") or "")
                  for item in [*(page.get("elements") or []), *(page.get("regions") or [])]]
+        # Widely spaced headings can come back from OCR one character per
+        # line ("前\n言"), so the whole element is also tried without spaces.
         if any(_STRUCTURAL_START.match(line.strip())
-               for text in texts for line in text.splitlines() if line.strip()):
+               for text in texts
+               for line in [*text.splitlines(), re.sub(r"\s+", "", text)]
+               if line.strip()):
             boundary = index
             break
     result: set[int] = set()
@@ -780,7 +786,14 @@ def _join_lines(lines: list[dict[str, Any]]) -> str:
         if previous_box is not None and box and previous_box:
             prev_height = max(1.0, previous_box[3] - previous_box[1])
             height = max(1.0, box[3] - box[1])
-            same_baseline = abs(
+            # Pieces of one row sit side by side (or one encloses the other);
+            # a short last line under a full one ("施工；") overlaps it
+            # horizontally even when tall OCR boxes bring the centres close.
+            narrower = max(1.0, min(previous_box[2] - previous_box[0], box[2] - box[0]))
+            side_by_side = (
+                (min(previous_box[2], box[2]) - max(previous_box[0], box[0])) < 0.5 * narrower
+                or max(_containment(previous_box, box), _containment(box, previous_box)) >= 0.8)
+            same_baseline = side_by_side and abs(
                 (previous_box[1] + previous_box[3]) / 2 - (box[1] + box[3]) / 2
             ) <= 0.6 * max(prev_height, height)
         if same_baseline and rows:

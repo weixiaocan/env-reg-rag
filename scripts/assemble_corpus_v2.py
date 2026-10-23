@@ -61,6 +61,11 @@ from src.application.source_corrections import (  # noqa: E402
     apply_source_corrections,
     load_source_corrections,
 )
+from src.application.table_checks import (  # noqa: E402
+    REGISTRY_PATH as TABLE_CHECKS_PATH,
+    apply_table_checks,
+    load_table_checks,
+)
 from src.application.publish_state import (  # noqa: E402
     CandidateConflictError,
     write_artifact_manifest,
@@ -147,6 +152,7 @@ def _assemble_one(
     root: str | None = None, middle_layer: str = "legacy",
     admission: dict[str, Any] | None = None,
     corrections: dict[str, Any] | None = None,
+    table_checks: dict[str, Any] | None = None,
 ) -> dict[str, Any]:
     sha = page_doc["sha256"]
     page_count = len(page_doc.get("pages") or [])
@@ -186,6 +192,10 @@ def _assemble_one(
         print(f"  [admission] {page_doc.get('file_name', '')} sha={sha[:12]}: "
               f"{admitted} OCR text element(s) admitted by "
               f"{admission['admission_id']} ({admission['registry_sha256'][:12]})")
+    checked = apply_table_checks(doc, table_checks)
+    if table_checks and any(e["sha256"] == sha for e in table_checks.get("tables") or []):
+        print(f"  [table checks] {page_doc.get('file_name', '')} sha={sha[:12]}: "
+              f"{checked} table(s) admitted ({table_checks['registry_sha256'][:12]})")
     corrected = apply_source_corrections(doc, corrections)
     if corrected:
         print(f"  [corrections] {page_doc.get('file_name', '')} sha={sha[:12]}: "
@@ -351,6 +361,10 @@ def main(argv: list[str] | None = None) -> int:
         print(f"[assemble] source corrections: {len(corrections.get('formulas', []))} formula(s), "
               f"{len(corrections.get('texts', []))} text(s) "
               f"sha256={corrections['registry_sha256'][:12]}")
+    table_checks = load_table_checks(os.path.join(root, TABLE_CHECKS_PATH))
+    if table_checks:
+        print(f"[assemble] table checks: {len(table_checks.get('tables', []))} table(s) "
+              f"sha256={table_checks['registry_sha256'][:12]}")
     print(f"[assemble] output dir: {output_dir}")
     print()
 
@@ -375,7 +389,7 @@ def main(argv: list[str] | None = None) -> int:
                 page_doc, args.formula_run_id, args.independent_ocr_run_id,
                 raw_independent_ocr_run_id=args.raw_independent_ocr_run_id,
                 root=root, middle_layer=args.middle_layer, admission=admission,
-                corrections=corrections)
+                corrections=corrections, table_checks=table_checks)
             out_path = _write(doc, corpus_version, root)
             quar = _quarantine_count(page_doc)
             _print_row(idx, total, page_doc, doc, out_path, quar)

@@ -1,0 +1,3526 @@
+{
+ "corpus": "corpus-576f4e03a04c",
+ "reviewed_at": "2026-10-22T15:46:43.512Z",
+ "decisions": [
+  {
+   "id": "1-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 14,
+    "bbox": [
+     141.14599420172723,
+     426.7138192005577,
+     243.46689851389706,
+     449.4154281345696
+    ],
+    "element_id": "e000185",
+    "original_sha256": "70785280fc0fb589f845e947da5785d17f75b36bb14c6e28a4d1a877b56fb53d",
+    "content": "t_{a}=\\frac{10.41\\left(n_{0}\\cdot L\\right)^{0.6}}{q^{0.4}S^{0.3}}"
+   }
+  },
+  {
+   "id": "1-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 14,
+    "bbox": [
+     96,
+     472,
+     150,
+     485.5
+    ],
+    "element_id": "e000187",
+    "original_sha256": "94cb9a0e0f2e90f00260ea5292b2787b1dee79a835ed2672c48d7c2c16351d69",
+    "content": "粗糙系数；"
+   }
+  },
+  {
+   "id": "2-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 15,
+    "bbox": [
+     170.34131962462334,
+     95.72147245236903,
+     228.28554933136692,
+     116.14988390878146
+    ],
+    "element_id": "e000194",
+    "original_sha256": "3e9cae0ec14a6e976f4ce09bbb89c6cf74f331373e13aad7f8f42e6bef450b3b",
+    "content": "t_{\\mathrm{a}}=\\frac{L}{60kS^{0.5}}"
+   }
+  },
+  {
+   "id": "3-1",
+   "verdict": "wrong",
+   "note": "fm ​  ",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 15,
+    "bbox": [
+     76.5,
+     345,
+     95.5,
+     358.5
+    ],
+    "element_id": "e000202",
+    "original_sha256": "9e2eee4115ab7958bbd3e17d6e0e043d07fb08c31dd1f1f06cebb4d13429ece1",
+    "content": "∫m"
+   }
+  },
+  {
+   "id": "4-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 15,
+    "bbox": [
+     139.25819649207824,
+     429.7107212638275,
+     259.0729505755261,
+     444.71527039919874
+    ],
+    "element_id": "e000208",
+    "original_sha256": "fdc9632b3df4ad22a7094ed8e923a42cde97323d07d05ddb621a821cc12bf3fa",
+    "content": "f_{\\mathrm{m}}=f_{\\mathrm{c}}+\\left(f_{0}-f_{\\mathrm{c}}\\right)\\mathrm{e}^{\\frac{-k_{0}t_{\\mathrm{x}}}{3600}}"
+   }
+  },
+  {
+   "id": "5-1",
+   "verdict": "wrong",
+   "note": "Vs——渗透设施的有效储存容积(m3)",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     54.5,
+     330.5,
+     256,
+     341
+    ],
+    "element_id": "e000238",
+    "original_sha256": "294b0951c808edb2ae691af9140b1329a07c53f3dbd16c76cc874eb5692a86e1",
+    "content": "式中：V、渗透设施的有效储存容积(m)；3）"
+   }
+  },
+  {
+   "id": "5-2",
+   "verdict": "wrong",
+   "note": "Vi——渗透设施进水量(m3)",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     80,
+     346,
+     219,
+     358
+    ],
+    "element_id": "e000239",
+    "original_sha256": "39c75de2f0d2e09d125424056a71d8daf71fd7a173da9eda25b0f4b1b4c0841b",
+    "content": "渗透设施进水量(m)；"
+   }
+  },
+  {
+   "id": "5-3",
+   "verdict": "wrong",
+   "note": "Wp——渗透量(m³)",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     91,
+     362.5,
+     172,
+     374
+    ],
+    "element_id": "e000240",
+    "original_sha256": "f4dcd26ca28269b6fca1fe28ddf34e2d200b634fe667a91f9999b015f339a75e",
+    "content": "渗透量(m³)；"
+   }
+  },
+  {
+   "id": "5-4",
+   "verdict": null,
+   "note": "K——土壤渗透系数(m/s)",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     81.5,
+     377,
+     209,
+     390.5
+    ],
+    "element_id": "e000241",
+    "original_sha256": "b1ad02735abfaa66f4375ad7c5e2e087ba884a43e763f56a01658522b11bdcf9",
+    "content": "土壤渗透系数(m/s)；"
+   }
+  },
+  {
+   "id": "5-5",
+   "verdict": "wrong",
+   "note": "J——水力坡降",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     79,
+     393,
+     160,
+     407
+    ],
+    "element_id": "e000242",
+    "original_sha256": "2fd6b4a25bb5e8eff59f991575b35a2c3dd0cc303b4e471d7c15c03a206b88f0",
+    "content": "J水力坡降；"
+   }
+  },
+  {
+   "id": "5-6",
+   "verdict": "wrong",
+   "note": "As——有效渗透面积(m²)",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     77.5,
+     409.5,
+     203.5,
+     422.5
+    ],
+    "element_id": "e000243",
+    "original_sha256": "09dfef96e5525d85f7fee04c83ca3b2be3fab6f94a17056800765121e923df1c",
+    "content": "As有效渗透面积(m²)；"
+   }
+  },
+  {
+   "id": "5-7",
+   "verdict": "wrong",
+   "note": "ts——渗透时间(s)",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     82,
+     426,
+     174.5,
+     437.5
+    ],
+    "element_id": "e000244",
+    "original_sha256": "a519cf798a64276e5d3055cb445ebf9ed3cdf1dcbcc5774fdb6bf1548e376746",
+    "content": "ts渗透时间(s)。"
+   }
+  },
+  {
+   "id": "6-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 19,
+    "bbox": [
+     144.51024929114726,
+     379.0435780963216,
+     253.91518225481335,
+     401.40597728465
+    ],
+    "element_id": "e000274",
+    "original_sha256": "be72d0109d72f8f060577f9ccf567271237e1e9c78c9b91dc0cbe56407de1765",
+    "content": "d_{\\mathrm{pp}}=\\frac{Hr+H-\\beta f_{\\mathrm{m}}T_{\\mathrm{f}}}{n_{\\mathrm{i}}}"
+   }
+  },
+  {
+   "id": "7-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 23,
+    "bbox": [
+     156.62758899514048,
+     111.90094017344195,
+     241.08212816428497,
+     132.59447047889037
+    ],
+    "element_id": "e000340",
+    "original_sha256": "04f430c8b50fe3e86221fb281cef57d0699934d7948e1fd2e2a2390dae053c51",
+    "content": "Q=\\frac{1}{n_0}A_{\\mathrm{h}}R^{0.667}i_1^{0.5}"
+   }
+  },
+  {
+   "id": "7-2",
+   "verdict": "wrong",
+   "note": "i1——纵向坡度。",
+   "item": {
+    "kind": "text",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 23,
+    "bbox": [
+     79,
+     189,
+     158.5,
+     200.5
+    ],
+    "element_id": "e000344",
+    "original_sha256": "61bf742a811c83d5a6b2d72d918b84802102d4beb4c82f8aa7bb019b4e83d5ae",
+    "content": "纵向坡度。"
+   }
+  },
+  {
+   "id": "8-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 26,
+    "bbox": [
+     134.77751523813154,
+     125.50212379178156,
+     249.9142132239232,
+     149.64370424336332
+    ],
+    "element_id": "e000383",
+    "original_sha256": "4d41063498926ca1f47e025581ed59a602ea5051378a698ee7fda2256f099314",
+    "content": "T=\\left(\\frac{n_{0}Q_{0}}{0.376S_{x}^{1.67}S_{L}^{0.5}}\\right)^{3/8}"
+   }
+  },
+  {
+   "id": "9-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 26,
+    "bbox": [
+     159.40293666676146,
+     442.8756540792345,
+     224.93806056294957,
+     453.05185856018335
+    ],
+    "element_id": "e000392",
+    "original_sha256": "1f29412d76145ca49f69ce8ffda7cb5e1dce4939cee3d432e6a8ffa1b0c81b03",
+    "content": "Q_{0}=Q_{\\mathrm{w}}+Q_{\\mathrm{s}}"
+   }
+  },
+  {
+   "id": "11-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 27,
+    "bbox": [
+     121.98849058258732,
+     64.19903136315803,
+     275.47030271706444,
+     85.30932845534623
+    ],
+    "element_id": "e000395",
+    "original_sha256": "b5f0338a7c6178dd4e277b39c136d8a0c054b68633d176bbcaab3599bc40231f",
+    "content": "Q_{\\mathrm{s}}=\\frac{0.376}{n_{0}}S_{\\mathrm{x}}^{1.67}S_{\\mathrm{w}}^{0.5}(T-W)^{2.67}"
+   }
+  },
+  {
+   "id": "12-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 6,
+    "bbox": [
+     192.33682377537332,
+     522.8224330126837,
+     400.1065997074988,
+     575.1075890576957
+    ],
+    "element_id": "e000047",
+    "original_sha256": "aaafe5f9d5db0f1fddd589b6ec28223c9368483786258f65232aa263a0b12c7c",
+    "content": "R=\\frac{w*\\sum\\limits_{i=1}^{n}\\left(r_{\\max}\\right)_{i}+(1-w)\\times\\sum\\limits_{i=1}^{n}\\left(\\frac{\\sum\\limits_{d=1}^{T_{0}}r_{d}}{T_{0}}\\right)_{i}}{n}"
+   }
+  },
+  {
+   "id": "12-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 6,
+    "bbox": [
+     85,
+     580,
+     115.5,
+     594.5
+    ],
+    "element_id": "e000048",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "12-3",
+   "verdict": "wrong",
+   "note": "w——权重，区域降雨过程中取0.5，单站降雨过程根据当地情况可作调整；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 6,
+    "bbox": [
+     86,
+     597.5,
+     430.5,
+     608.5
+    ],
+    "element_id": "e000049",
+    "original_sha256": "c5d4eb09fd96e1b2c3a91dbcb3c6eff805d53d8aa667fc35db3060a49401ea11",
+    "content": "权重，区域降雨过程中取0.5，单站降雨过程根据当地情况可作调整；"
+   }
+  },
+  {
+   "id": "12-4",
+   "verdict": "wrong",
+   "note": "n——按照4.2区域降雨过程定义选取的测站个数，i取值范围[1，n]；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 6,
+    "bbox": [
+     86,
+     612.5,
+     416,
+     624.5
+    ],
+    "element_id": "e000050",
+    "original_sha256": "b8bfa6bacce83e6051b5c00d6185c250760110f20ef8e9bb019b0ca09b5a6af4",
+    "content": "n按照4.2区域降雨过程定义选取的测站个数，i取值范围[1，n]；"
+   }
+  },
+  {
+   "id": "12-5",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 6,
+    "bbox": [
+     122,
+     628,
+     455.5,
+     640
+    ],
+    "element_id": "e000051",
+    "original_sha256": "71aae5e41cec4a1c2937152c1e1250c31361c93e37e58974fc6066064856d513",
+    "content": "按照4.2区域降雨过程定义选取测站的日最大雨量值，单位为毫米(mm)；"
+   }
+  },
+  {
+   "id": "12-6",
+   "verdict": "wrong",
+   "note": "T0——降雨过程持续时间，单位为天(d)，d取值范围[1，T。]；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 6,
+    "bbox": [
+     85.5,
+     642.5,
+     374.5,
+     657
+    ],
+    "element_id": "e000052",
+    "original_sha256": "3705cc733edfa12a80af05c241add02393b689fd623260ef9e16c76d0607bee8",
+    "content": "。降雨过程持续时间，单位为天(d)，d取值范围[1，T。]；"
+   }
+  },
+  {
+   "id": "12-7",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 6,
+    "bbox": [
+     120.5,
+     659.9059197350809,
+     437.5,
+     670.5
+    ],
+    "element_id": "e000053",
+    "original_sha256": "2394ce734a94af8587465666cdb3ed61a65992fc453630652320c8bc80928357",
+    "content": "按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米(mm)。"
+   }
+  },
+  {
+   "id": "12-8",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 6,
+    "bbox": [
+     86.5,
+     675.5,
+     237,
+     687
+    ],
+    "element_id": "e000054",
+    "original_sha256": "7c6f648d3206eb0c4654b82a2b4e5046f7db68f2014911fac1b80415074fda7e",
+    "content": "对降雨强度指数(I)划分见表3。"
+   }
+  },
+  {
+   "id": "13-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 7,
+    "bbox": [
+     85,
+     459.5,
+     115.5,
+     474.17239905328
+    ],
+    "element_id": "e000061",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "13-2",
+   "verdict": "wrong",
+   "note": "n——按照4.2区域降雨过程定义选取的测站个数；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 7,
+    "bbox": [
+     85.44000175229964,
+     476.5720569432258,
+     326.5,
+     489.0502779709437
+    ],
+    "element_id": "e000062",
+    "original_sha256": "cd4158804e0f119bade329feac3cc7bdbd455246d2631bf37b1b17c5491386fd",
+    "content": "n 按照4.2区域降雨过程定义选取的测站个数；"
+   }
+  },
+  {
+   "id": "13-3",
+   "verdict": "wrong",
+   "note": "N——设定区域测站总个数。",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 7,
+    "bbox": [
+     85.5,
+     491.92986743887855,
+     222,
+     505
+    ],
+    "element_id": "e000063",
+    "original_sha256": "166f8b60dd6309f07bcba04ac7c421619e33a11457822fd6fa01163f7fb9ca29",
+    "content": "N设定区域测站总个数。"
+   }
+  },
+  {
+   "id": "13-4",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 7,
+    "bbox": [
+     86,
+     508,
+     254.5,
+     520.5
+    ],
+    "element_id": "e000064",
+    "original_sha256": "59e9ed89347bfc4f33e5c549004908f381862a9f3f1bbf875350d0024a84fe58",
+    "content": "对降雨覆盖范围指数(C)划分见表4。"
+   }
+  },
+  {
+   "id": "14-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 7,
+    "bbox": [
+     255.71075593401986,
+     728.0021210966481,
+     337.8895228760094,
+     738.2135943889095
+    ],
+    "element_id": "e000068",
+    "original_sha256": "01f47baa7454180143e4729876e3627adc6b8e072a33eb34ff9999772460b80b",
+    "content": "T_{0}=T_{e}-T_{s}+1"
+   }
+  },
+  {
+   "id": "14-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 7,
+    "bbox": [
+     84,
+     742,
+     116,
+     758
+    ],
+    "element_id": "e000069",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "15-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     265.3887750922264,
+     415.3867367229824,
+     328.25499204245534,
+     425.11653094429744
+    ],
+    "element_id": "e000078",
+    "original_sha256": "f8e54a6e0b447eae8d8dbd8cc0d03e57465753573c7511e3afd7916e170604e2",
+    "content": "R S I=I\\times T"
+   }
+  },
+  {
+   "id": "15-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     84.5,
+     430.0186938782782,
+     115.5,
+     444.5
+    ],
+    "element_id": "e000079",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "15-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     86,
+     447.5,
+     437.5,
+     458.5
+    ],
+    "element_id": "e000080",
+    "original_sha256": "e27e07292b408bbb9a5aaa1b9b70ba4ddc7fd4d035bc922a6a6d80c699c1cf30",
+    "content": "I—降雨强度指数，利用公式(1)计算降雨强度(R)，对照表3查出对应指数；"
+   }
+  },
+  {
+   "id": "15-4",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     85.5,
+     461,
+     464.5,
+     475.5
+    ],
+    "element_id": "e000081",
+    "original_sha256": "9631b4a87c2cdda5261a60621c67f97d14887f428e0b633d0803f41e161652bd",
+    "content": "T——持续时间指数，根据公式(3)计算降雨持续时间（T。），对照表5查出对应指数。"
+   }
+  },
+  {
+   "id": "16-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     254.7653021850345,
+     525.6724407370941,
+     338.92957471301406,
+     534.9118132629536
+    ],
+    "element_id": "e000084",
+    "original_sha256": "29b29368cb64c3ef330aacd4ecabcd8d22db6afc17a3e400e477aec9d425ac44",
+    "content": "R P I=I\\times C\\times T"
+   }
+  },
+  {
+   "id": "16-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     85,
+     540,
+     115.5,
+     554.5
+    ],
+    "element_id": "e000085",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "16-3",
+   "verdict": "wrong",
+   "note": "I——降雨强度指数，利用公式(1)计算降雨强度(R)，对照表3查出对应指数；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     86.5,
+     557.5,
+     444,
+     569
+    ],
+    "element_id": "e000086",
+    "original_sha256": "93b72520b9b901d0a385fd697266e8ffc8df99ab0afaf1b9b48dbc2a66a74834",
+    "content": "I降雨强度指数，利用公式(1)计算降雨强度(R)，对照表3查出对应指数；"
+   }
+  },
+  {
+   "id": "16-4",
+   "verdict": "wrong",
+   "note": "C——覆盖范围指数，利用公式(2)计算覆盖范围(Cp)，对照表4查出对应指数：",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     85.44000175229964,
+     572.0784409630666,
+     450,
+     584.5566619907845
+    ],
+    "element_id": "e000087",
+    "original_sha256": "64aaf686cbd5241b2f31aa418d1fcd593f2c778c93afd139105b44ddcbfad50d",
+    "content": "C覆盖范围指数，利用公式(2)计算覆盖范围(Cp)，对照表4查出对应指数："
+   }
+  },
+  {
+   "id": "16-5",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     85.92000176214403,
+     587.9161830367085,
+     469.5,
+     600.5
+    ],
+    "element_id": "e000088",
+    "original_sha256": "e78dc526291f812d1883403e2f22b1d02d79dfb6a3772c9244765d84f9d39a54",
+    "content": "T——持续时间指数，根据公式(3)计算降雨持续时间(T。)，对照表5查出对应指数。"
+   }
+  },
+  {
+   "id": "16-6",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     87,
+     604.5,
+     368,
+     616
+    ],
+    "element_id": "e000089",
+    "original_sha256": "bf14968cd90ef3dcb649431a1cee773f83fd95bb8a14c0e87ebf9525e27786fb",
+    "content": "情况2：当降雨区跨所分四类降雨区中的两个或多个降雨区时："
+   }
+  },
+  {
+   "id": "17-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 8,
+    "bbox": [
+     254.42655449255201,
+     621.0530682827651,
+     339.09469856389154,
+     635.6749540095676
+    ],
+    "element_id": "e000090",
+    "original_sha256": "ee29d07e1ec08e498314f89c2087e9b04fb81de633aa9b17670ba99e474bfb3f",
+    "content": "R P I=\\bar{I}\\times C\\times\\bar{T}"
+   }
+  },
+  {
+   "id": "20-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 9,
+    "bbox": [
+     85,
+     141.5,
+     115.2000023626512,
+     155.5
+    ],
+    "element_id": "e000096",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "20-2",
+   "verdict": "wrong",
+   "note": "n——所跨降雨区个数；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 9,
+    "bbox": [
+     86,
+     158.5,
+     205.5,
+     170.5
+    ],
+    "element_id": "e000097",
+    "original_sha256": "c744fbde9e15f7e04a70a98fb6e0fa28b5703791e2b9903458c4c3bbc37d193d",
+    "content": "n所跨降雨区个数；"
+   }
+  },
+  {
+   "id": "20-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 9,
+    "bbox": [
+     125,
+     174.21516281006137,
+     529,
+     185.5
+    ],
+    "element_id": "e000098",
+    "original_sha256": "49b501acf27292c729bee41d069fb526134475382936b4ffd7b1b17a02903fdd",
+    "content": "第j类降雨区降雨强度指数，j的取值范围[1，n]，利用公式(1)计算第j类降雨区降雨强\n度(R)，对照表 3查出对应指数；"
+   }
+  },
+  {
+   "id": "20-4",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 9,
+    "bbox": [
+     124.5,
+     204.5,
+     499.5,
+     218
+    ],
+    "element_id": "e000099",
+    "original_sha256": "fa08af9627fffc233415d3340fbbd41189d2667248a9ce391776afa21c3d0c5d",
+    "content": "第j类降雨区按照4.2区域降雨过程定义选取的测站占设定区域总测站的百分比；"
+   }
+  },
+  {
+   "id": "20-5",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+    "file_name": "降雨过程强度等级标准.pdf",
+    "physical_page": 9,
+    "bbox": [
+     126,
+     221.5,
+     402.5,
+     233
+    ],
+    "element_id": "e000100",
+    "original_sha256": "485d788eda144cd97a08bf4e49ca64ff506e975f6f3cbcb765e23b02a0d16542",
+    "content": "设定区域内降雨覆盖范围百分比，对照表4查出对应指数C；"
+   }
+  },
+  {
+   "id": "21-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+    "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+    "physical_page": 13,
+    "bbox": [
+     129.38618018178155,
+     70.06852016226696,
+     255.34849993078882,
+     80.36423470990839
+    ],
+    "element_id": "e000080",
+    "original_sha256": "91cea283ba096862c7c83b28844c75932239e912dc132e758286120b08052e83",
+    "content": "M_{1}=(C_{2}-C_{1})/C_{1}\\times100\\%"
+   }
+  },
+  {
+   "id": "22-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 12,
+    "bbox": [
+     77.62942504882812,
+     176.48153686523438,
+     111.57982635498047,
+     190.61082458496094
+    ],
+    "element_id": "e000134",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "22-2",
+   "verdict": "wrong",
+   "note": "S——地块面积，m2或ha；这个单位是要跟在S后面的",
+   "item": {
+    "kind": "text",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 12,
+    "bbox": [
+     56.645751953125,
+     211.97755432128906,
+     524.4866333007812,
+     255.64312744140625
+    ],
+    "element_id": "e000136",
+    "original_sha256": "318fc24ca32a1c4c4cf348fd00e020b2f8dab7bd7a4e2c965aa8ccedbe742271",
+    "content": "2或ha。"
+   }
+  },
+  {
+   "id": "23-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 12,
+    "bbox": [
+     77.63421630859375,
+     310.0415954589844,
+     111.5846176147461,
+     324.1708679199219
+    ],
+    "element_id": "e000141",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "24-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 12,
+    "bbox": [
+     77.62652587890625,
+     412.4015808105469,
+     111.5769271850586,
+     426.5308532714844
+    ],
+    "element_id": "e000145",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "25-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 12,
+    "bbox": [
+     77.63421630859375,
+     539.2416381835938,
+     111.5846176147461,
+     553.3709106445312
+    ],
+    "element_id": "e000151",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "26-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 12,
+    "bbox": [
+     77.6380615234375,
+     646.04833984375,
+     111.58846282958984,
+     660.1776123046875
+    ],
+    "element_id": "e000155",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "27-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 36,
+    "bbox": [
+     165.8457457224119,
+     711.9027553628198,
+     264.9959502203239,
+     725.0003267588583
+    ],
+    "element_id": "e000274",
+    "original_sha256": "37ea109d5558427ae557d36fea9e51c70237e0eaf9e1ec32c6b8393723771505",
+    "content": "\\mathrm{Q}{=}\\mathrm{V}{\\times}3600{\\times}24/\\mathrm{t}"
+   }
+  },
+  {
+   "id": "28-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 37,
+    "bbox": [
+     208.82804534666266,
+     368.9930586072275,
+     324.3777409946837,
+     382.8324969051587
+    ],
+    "element_id": "e000281",
+    "original_sha256": "18b6002ba0113415e237d2af118aae629c8fadb44e4f892e59120b9f2e1e3142",
+    "content": "Q{=}3600{\\cdot}24{\\cdot}A{\\cdot}L{/t}{\\cdot}k"
+   }
+  },
+  {
+   "id": "29-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 37,
+    "bbox": [
+     116.2922327498519,
+     582.8590853223087,
+     175.51835665823114,
+     595.3688401219528
+    ],
+    "element_id": "e000287",
+    "original_sha256": "a4ae058c871d073b1f4e857ffa84a70a00219da60d008b40211ce0f9f7f7c6a0",
+    "content": "k=0.8\\sim0.9"
+   }
+  },
+  {
+   "id": "30-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 43,
+    "bbox": [
+     206.18359789263093,
+     535.6285622523267,
+     294.5879446435404,
+     547.7888258568952
+    ],
+    "element_id": "e000337",
+    "original_sha256": "1bd7ef234ce16e7d1142ea67e1e3a84ace1ae45f820a0c347cbcbb2e4174b2fd",
+    "content": "\\mathrm{M}=\\mathrm{n}/\\mathrm{N}\\times100\\%"
+   }
+  },
+  {
+   "id": "31-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 44,
+    "bbox": [
+     187.26798669430804,
+     73.34322522153067,
+     288.2758575325546,
+     88.10362049235391
+    ],
+    "element_id": "e000342",
+    "original_sha256": "67ce99abca5b733764684c208d466e2982d57c43015b8beaf3161809eca4c650",
+    "content": "C污 =\\mathrm{q}/\\mathrm{Q}\\times100\\%"
+   }
+  },
+  {
+   "id": "32-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 44,
+    "bbox": [
+     191.88770739906474,
+     314.2769253772945,
+     280.57239071175485,
+     326.7524516578332
+    ],
+    "element_id": "e000347",
+    "original_sha256": "1bd7ef234ce16e7d1142ea67e1e3a84ace1ae45f820a0c347cbcbb2e4174b2fd",
+    "content": "\\mathrm{M}=\\mathrm{n}/\\mathrm{N}\\times100\\%"
+   }
+  },
+  {
+   "id": "33-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 18,
+    "bbox": [
+     226.6922384863483,
+     674.0778650117703,
+     390.59034614285684,
+     709.6529480973693
+    ],
+    "element_id": "e000183",
+    "original_sha256": "90721b47da3912f056234653bc4d2ccc03fce3af7a15efc61afceea91ca02391",
+    "content": "B I=\\frac{A D F\\times(C_{\\mathrm{w}}-C)}{C_{\\mathrm{w}}-C_{\\mathrm{w s}}}"
+   }
+  },
+  {
+   "id": "34-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 19,
+    "bbox": [
+     234.06682299324362,
+     195.24065183468764,
+     359.8803521813791,
+     212.12648634364737
+    ],
+    "element_id": "e000194",
+    "original_sha256": "efbbf41a19e052cac51e7a140f6c1af5419d05cba2704d8e6e02d2f4fc5a7241",
+    "content": "BI=ADF-KQ_{g}"
+   }
+  },
+  {
+   "id": "35-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 19,
+    "bbox": [
+     185.25990556924185,
+     364.9038437726649,
+     406.84563342296263,
+     380.1248869788015
+    ],
+    "element_id": "e000203",
+    "original_sha256": "07c0eff3abc2cc653d10892cfdbefef9a8f090f716977e45c7e41d848a805464",
+    "content": "BI=ADF-(ADF-MDF)/X"
+   }
+  },
+  {
+   "id": "36-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 19,
+    "bbox": [
+     239.46366623665645,
+     650.368363348056,
+     351.69298134387407,
+     664.3613977887504
+    ],
+    "element_id": "e000220",
+    "original_sha256": "e59b3a49a366283cff8644ea36db6681ee92329fb30dfdad7c2712fcc73feca3",
+    "content": "BI=ADF-M"
+   }
+  },
+  {
+   "id": "37-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 20,
+    "bbox": [
+     239.94923802763853,
+     84.8883027854364,
+     368.9550859715425,
+     143.87951145589338
+    ],
+    "element_id": "e000229",
+    "original_sha256": "88ee88a59402936722ed4b09d1f3faebfaa54d8cad50866ed68cb77d68f6ac35",
+    "content": "Q_{rs}=\\frac{1000\\times BI}{\\sum\\limits_{i=1}^{n}L_{i}\\times D_{i}}"
+   }
+  },
+  {
+   "id": "38-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 20,
+    "bbox": [
+     244.54816633164253,
+     712.7759366490205,
+     363.91860487384605,
+     727.6879235863775
+    ],
+    "element_id": "e000244",
+    "original_sha256": "34a9cb1e42a0f176412d8a5bd243b5dbc68636c27eb0fbc5574d342a8bef6846",
+    "content": "RDII=Q-AQ"
+   }
+  },
+  {
+   "id": "39-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     219.94719489588613,
+     143.6799034619972,
+     365.0397583974802,
+     181.61773578241124
+    ],
+    "element_id": "e000250",
+    "original_sha256": "998ce001e2761e9321cdb8026e3e980796fa6df5a091d5ec9cb2ca501bde6e68",
+    "content": "Q=\\frac{T}{n}\\sum_{i=1}^{n}q_{i}\\times\\frac{60}{1000}"
+   }
+  },
+  {
+   "id": "39-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     75.78856418557363,
+     188,
+     461.5,
+     206.3926489731061
+    ],
+    "element_id": "e000251",
+    "original_sha256": "09fe3a8105c278a74d278cbe56b93e293e6fe90a4ace9068de7e0381114ef422",
+    "content": "式中：Q—场次计算期间内污水管网的累积流量（m³）；"
+   }
+  },
+  {
+   "id": "39-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     117,
+     211,
+     467.5,
+     232
+    ],
+    "element_id": "e000252",
+    "original_sha256": "7764ff9d38408791dd46855cd463fd5d564b7c290504f7e2a6587fd652494f35",
+    "content": "n——场次计算期间污水管道流量监测数据的个数；"
+   }
+  },
+  {
+   "id": "39-4",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     116,
+     236,
+     329.5,
+     255.35090524114523
+    ],
+    "element_id": "e000253",
+    "original_sha256": "e2d155fdd97b1f344443bce20f770fdd7bf8e0554f20d0654a5ac2ba571117bc",
+    "content": "T——场次计算期时长（min)；"
+   }
+  },
+  {
+   "id": "39-5",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     127,
+     259.5,
+     510,
+     280
+    ],
+    "element_id": "e000254",
+    "original_sha256": "2886c49b8b2aab7b452717fffe264abb6e5ad44d5d3f913b79dd1fdebafe2d8a",
+    "content": "——场次计算期间污水管道流量监测数据中的第i个流\n量值（L/s)。"
+   }
+  },
+  {
+   "id": "40-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     236.97924327533218,
+     384.7552388248827,
+     344.26123973224514,
+     422.23347406888195
+    ],
+    "element_id": "e000256",
+    "original_sha256": "228856f2aff34195eb458abbde6435dd8004ae9ae7ba0b16d34dc235f511b8d5",
+    "content": "q_{b,t}=\\frac{1}{n}\\sum_{i=1}^{n}q_{i,t}"
+   }
+  },
+  {
+   "id": "40-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     76,
+     427,
+     199.54457405821918,
+     448
+    ],
+    "element_id": "e000257",
+    "original_sha256": "5ef13eb136abd211350fac658878a30e6cdf0d27315be48f286520deee256f0d",
+    "content": "式中：t—时刻；"
+   }
+  },
+  {
+   "id": "40-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     114,
+     454,
+     304.113605656036,
+     470
+    ],
+    "element_id": "e000258",
+    "original_sha256": "99896b84cf4039a6557f4bed6874ac543f543abc14bdb2b519c9f3aac9969063",
+    "content": "n—选取计算的旱天数量；"
+   }
+  },
+  {
+   "id": "40-4",
+   "verdict": "wrong",
+   "note": "qb,t——标准旱天流量曲线t时刻的流量（L/s)；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     100.5,
+     473,
+     427,
+     498
+    ],
+    "element_id": "e000259",
+    "original_sha256": "fa668f661f7f298386c5b1a3b39386911569ea7a77b5d319cc49ae96b6dac8cf",
+    "content": "qb,——标准旱天流量曲线t时刻的流量（L/s)；"
+   }
+  },
+  {
+   "id": "40-5",
+   "verdict": "wrong",
+   "note": "qi,t——选取的第i 个旱天t时刻的流量监测值（L/s）。",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     101.5,
+     496.5,
+     471,
+     523.5
+    ],
+    "element_id": "e000260",
+    "original_sha256": "6913b509b3492eb1756bf6aef08ce011c1671bc47ff933cb6683114402891818",
+    "content": "qi,——选取的第i 个旱天t时刻的流量监测值（L/s）。"
+   }
+  },
+  {
+   "id": "41-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     213.2394066665416,
+     574.4034836441406,
+     366.71247139181196,
+     611.0616696699849
+    ],
+    "element_id": "e000262",
+    "original_sha256": "ac07a4a15e445294324385211e64b173eb8303146cadf1fdaf3f9079440b1a0b",
+    "content": "AQ=\\frac{T}{n}\\sum_{i=1}^{n}q_{i}\\times\\frac{60}{1000}"
+   }
+  },
+  {
+   "id": "41-2",
+   "verdict": "wrong",
+   "note": "式中：AQ——场次计算期间内对应降雨时段的旱天累积流量(m3)",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     77,
+     616.5,
+     506.5,
+     634.5
+    ],
+    "element_id": "e000263",
+    "original_sha256": "8cff3bd46131c5c56cb81ffd465c1041737c300b41045b1281964d21479db744",
+    "content": "式中：AQ场次计算期间内对应降雨时段的旱天累积流量"
+   }
+  },
+  {
+   "id": "41-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     130.5,
+     664.5,
+     427.5,
+     682.5
+    ],
+    "element_id": "e000264",
+    "original_sha256": "d7ecbb6a5154e3ae133573a23262c234a5fd9a28816df15b607fb0533204b762",
+    "content": "n——选择参与计算的旱天流量数据的个数；"
+   }
+  },
+  {
+   "id": "41-4",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     128.5,
+     687,
+     339,
+     706.5
+    ],
+    "element_id": "e000265",
+    "original_sha256": "ecf3613434dbaad8219b060b8af4331e6ee2b1d12e34653f423712e363f085a7",
+    "content": "T——场次计算期时长（min）；"
+   }
+  },
+  {
+   "id": "41-5",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 21,
+    "bbox": [
+     142,
+     712,
+     506.5,
+     730.5
+    ],
+    "element_id": "e000266",
+    "original_sha256": "16ee0986de26cefbfdf7f367494fd90c63cc04078a5ff7d6813b4bb4833ab462",
+    "content": "——选择参与计算的旱天流量数据中的第i个流量值\n(L/s)。"
+   }
+  },
+  {
+   "id": "42-1",
+   "verdict": "wrong",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 47,
+    "bbox": [
+     121.28011628185166,
+     243.30951253251484,
+     200.08868155749616,
+     259.447113642387
+    ],
+    "element_id": "e000426",
+    "original_sha256": "81d46bbfd075c9f3be326c770bf3e48c19cff524217d4acb8a037a58d7b4f6ba",
+    "content": "仑 =3785m^{3}"
+   }
+  },
+  {
+   "id": "43-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 49,
+    "bbox": [
+     165.58225426844749,
+     340.36161692640235,
+     244.75985849855925,
+     356.0969264245393
+    ],
+    "element_id": "e000442",
+    "original_sha256": "53e02b1517072c22503fdb48a47fcc0762634fd0e1e922be81b9f7cc1f0ceb7f",
+    "content": "T=1800min"
+   }
+  },
+  {
+   "id": "44-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 23,
+    "bbox": [
+     150.07064286731992,
+     142.06923125743904,
+     253.79432596237834,
+     152.64121429460022
+    ],
+    "element_id": "e000249",
+    "original_sha256": "82b20136214da8a61f5e86ead65c945c56eee39f50ffc3617c0d383d9d0c5ce6",
+    "content": "Q_{\\mathrm{dr}}=KQ_{\\mathrm{d}}+K^{\\prime}Q_{\\mathrm{m}}+Q_{\\mathrm{u}}"
+   }
+  },
+  {
+   "id": "45-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 24,
+    "bbox": [
+     136.22767763753365,
+     330.4435210677331,
+     250.8747098041091,
+     342.18675407135464
+    ],
+    "element_id": "e000274",
+    "original_sha256": "41c4069904066a3c78115b74e86f0e8626295524902ccfd6fe042fef53b3f1e6",
+    "content": "Q^{\\prime}=(n_{0}+1)\\times(Q_{\\mathrm{d}}+Q_{\\mathrm{m}})"
+   }
+  },
+  {
+   "id": "45-2",
+   "verdict": "wrong",
+   "note": "n0——截流倍数。",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 24,
+    "bbox": [
+     73,
+     362,
+     154.5,
+     375
+    ],
+    "element_id": "e000276",
+    "original_sha256": "247f47af1cd13759d03f8c5a1f558248ccec344be97f2e23807bdbab31bf41c7",
+    "content": "截流倍数。"
+   }
+  },
+  {
+   "id": "46-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 28,
+    "bbox": [
+     163.23454994778717,
+     137.0842133708918,
+     220.84322366612443,
+     155.84100742873883
+    ],
+    "element_id": "e000322",
+    "original_sha256": "4c7b26e803b79c6b2769024f8e46496599beca73b80519532d5840b9d4c6e0d4",
+    "content": "\\boldsymbol{v}=\\frac{1}{n}\\boldsymbol{R}^{\\frac{2}{3}}\\boldsymbol{I}^{\\frac{1}{2}}"
+   }
+  },
+  {
+   "id": "47-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 45,
+    "bbox": [
+     152.21669199073463,
+     94.01612892164485,
+     252.07078262834955,
+     103.84402025577201
+    ],
+    "element_id": "e000563",
+    "original_sha256": "93ed3f3b83b28c192cc2a542805de9333c9357b9dd1dd76089b4dee1c0a246ac",
+    "content": "Q_{\\mathrm{p}}=Q_{\\mathrm{s}}-n_{0}\\left(Q_{\\mathrm{d}}+Q_{\\mathrm{m}}\\right)"
+   }
+  },
+  {
+   "id": "48-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 45,
+    "bbox": [
+     149.62240386249997,
+     125.31254269224618,
+     254.24285052571355,
+     135.32588852815252
+    ],
+    "element_id": "e000565",
+    "original_sha256": "a309694da8d393c1935728726420df101617fc3c4d47ab0ca810cf72cd9f54bd",
+    "content": "Q_{\\mathrm{p}}=(n_{0}+1)(Q_{\\mathrm{d}}+Q_{\\mathrm{m}})"
+   }
+  },
+  {
+   "id": "48-2",
+   "verdict": "wrong",
+   "note": "n0——截流倍数；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 45,
+    "bbox": [
+     80,
+     171.5,
+     162.5,
+     186
+    ],
+    "element_id": "e000568",
+    "original_sha256": "3dcbb16105b9d19c8ac123640861f91aa83ecfe4c680eb5229a93f10c7d480f9",
+    "content": "截流倍数；"
+   }
+  },
+  {
+   "id": "49-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 62,
+    "bbox": [
+     146.28304963583898,
+     155.76869950495228,
+     241.3035791495877,
+     166.18764193720412
+    ],
+    "element_id": "e000830",
+    "original_sha256": "f97366c30a255db028eeb2a19b1108ef093b7486109264f49fd98b61828ee410",
+    "content": "K_{\\mathrm{d}T}=K_{\\mathrm{d}20}\\cdot\\left(\\theta_{T}\\right)^{T-20}"
+   }
+  },
+  {
+   "id": "51-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 63,
+    "bbox": [
+     148.5936902942491,
+     362.3121922470168,
+     256.0000677985049,
+     373.36455121291584
+    ],
+    "element_id": "e000855",
+    "original_sha256": "120f1a1bfa2ec5b8f37ac6f68010cc5d69ead02de02485a9be7f568498f504f1",
+    "content": "K_{\\mathrm{de}(T)}=K_{\\mathrm{de}(20)}1.08^{(T-20)}"
+   }
+  },
+  {
+   "id": "52-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 63,
+    "bbox": [
+     157.66569761313286,
+     379.14545054283644,
+     247.7246479240146,
+     399.98959630914146
+    ],
+    "element_id": "e000856",
+    "original_sha256": "2f966fa258113ce4564e117d27fdd0913133849e2a95eeec2a66ef04a327516b",
+    "content": "\\Delta X_{v}=Y\\frac{Q\\left(S_{o}-S_{e}\\right)}{1000}"
+   }
+  },
+  {
+   "id": "54-1",
+   "verdict": "wrong",
+   "note": "公式识别没问题，下面的QRI后面是混合液回流量（m³/d），混合液回流比不宜大于 400%;",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 65,
+    "bbox": [
+     148.39161371261423,
+     125.28557687834734,
+     255.33750614495284,
+     147.55840551553106
+    ],
+    "element_id": "e000894",
+    "original_sha256": "0ede852a708b302a5870f843a2769f1867422988d217f80249eb22d470c51e71",
+    "content": "Q_{\\mathrm{R}i}=\\frac{1000V_{\\mathrm{n}}K_{\\mathrm{de}}X}{N_{\\mathrm{t}}-N_{\\mathrm{ke}}}-Q_{\\mathrm{R}}"
+   }
+  },
+  {
+   "id": "55-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     159.24583565739556,
+     62.39468098322793,
+     228.29726742049166,
+     84.18768289358617
+    ],
+    "element_id": "e000948",
+    "original_sha256": "9db193a88c4bd815be934bce4b3bd4579e618c1b77071930c46c87eae17bcd96",
+    "content": "V=\\frac{24QS_{o}}{1000XL_{s}t_{R}}"
+   }
+  },
+  {
+   "id": "55-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     46.5,
+     88,
+     182,
+     101.5
+    ],
+    "element_id": "e000949",
+    "original_sha256": "22b72e382b58e786d727c5ce371a8b4a618f267a0cbac0ae7689c9a414e10503",
+    "content": "式中：V—生物反应池容积；"
+   }
+  },
+  {
+   "id": "55-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     71.5,
+     104.5,
+     204.5,
+     117.5
+    ],
+    "element_id": "e000950",
+    "original_sha256": "829f94cf5b35662dc8476f5211ca0a384494be24f3b676f0ac1c90c0994f3b7f",
+    "content": "Q—每个周期进水量(m³)；"
+   }
+  },
+  {
+   "id": "55-4",
+   "verdict": "wrong",
+   "note": "S0——生物反应池进水五日生化需氧量浓度(mg/L);",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     68.5,
+     119.5,
+     313.5,
+     133.5
+    ],
+    "element_id": "e000951",
+    "original_sha256": "980a1de4b112dac7f5d60ffe255daa6376287156b5e1e9d7c90ebda88dadb86e",
+    "content": "。生物反应池进水五日生化需氧量浓度(mg/);"
+   }
+  },
+  {
+   "id": "55-5",
+   "verdict": "wrong",
+   "note": "X——生物反应池内混合液悬浮固体平均浓度(gMLSS/L)；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     71,
+     135.5,
+     328,
+     148.5
+    ],
+    "element_id": "e000952",
+    "original_sha256": "895a372b58b01088ea5f2da784c8a652e77ec82f3b33773b3a1e669d673722d5",
+    "content": "X——生物反应池内混合液悬浮固体平均浓度(gMLSSL)；"
+   }
+  },
+  {
+   "id": "55-6",
+   "verdict": "wrong",
+   "note": "Ls—生物反应池的五日生化需氧量污泥负荷[kgBOD5/",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     68,
+     150.5,
+     342.5,
+     165
+    ],
+    "element_id": "e000953",
+    "original_sha256": "67606892ac0f2b0bb73d181dce3251ae0169f86c73313d2cdca75ae3566ae077",
+    "content": "Ls—生物反应池的五日生化需氧量污泥负荷kgBOD5/"
+   }
+  },
+  {
+   "id": "56-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     178.47336913230674,
+     295.64195789969887,
+     208.91107324128694,
+     314.06845094339036
+    ],
+    "element_id": "e000959",
+    "original_sha256": "423a703b00cf106065b3c5a045fc0301adb7136120131cbedd6f6022b1533e7b",
+    "content": "t_{\\mathrm{F}}=\\frac{t}{n}"
+   }
+  },
+  {
+   "id": "56-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     46,
+     318,
+     272.5,
+     333.5
+    ],
+    "element_id": "e000960",
+    "original_sha256": "8feb8dd862cd397e0a2f901104aae0448c632d2bad6825ce5678f123eea9a66f",
+    "content": "式中：t每池每个周期所需要的进水时间(h)；"
+   }
+  },
+  {
+   "id": "56-3",
+   "verdict": "wrong",
+   "note": "t——一个运行周期所需要的时间(h);",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     75,
+     329,
+     251.5,
+     352.5
+    ],
+    "element_id": "e000961",
+    "original_sha256": "63f4d9ff2960ef547ac8b627ecef2dd229f42242ec45f651468446b9234a5965",
+    "content": "个运行周期所需要的时间(h);"
+   }
+  },
+  {
+   "id": "56-4",
+   "verdict": "wrong",
+   "note": "n——每个系列反应池个数。",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     73.5,
+     347.04001177739264,
+     215.0399967055723,
+     365.28001239639804
+    ],
+    "element_id": "e000962",
+    "original_sha256": "efe7e2c4820d37cd38f42bc30dce4e5da385b4923b78bf763ec9d860522a6e40",
+    "content": "每个系列反应池个数。"
+   }
+  },
+  {
+   "id": "56-5",
+   "verdict": "wrong",
+   "note": "2  反应时间可按下式计算：",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     66.5,
+     366.5,
+     195.5,
+     378
+    ],
+    "element_id": "e000963",
+    "original_sha256": "4c08391ca857d162bcbae09cc95ac777eaceb28d730bfd04f6df91a3feb68448",
+    "content": "反应时间可按下式计算："
+   }
+  },
+  {
+   "id": "57-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     162.79109953960796,
+     383.39759142940085,
+     224.79957099711183,
+     404.438527224957
+    ],
+    "element_id": "e000964",
+    "original_sha256": "db361d4c0cdd7ab2034b386d3333b3ae6d1bcb1a7b9484adf2d356e7a451b45d",
+    "content": "t_{\\mathrm{R}}=\\frac{24S_{\\mathrm{o}}m}{1000L_{\\mathrm{s}}X}"
+   }
+  },
+  {
+   "id": "57-2",
+   "verdict": "wrong",
+   "note": "S0——生物反应池进水五日生化需氧量浓度(mg/L)；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 70,
+    "bbox": [
+     47,
+     410,
+     315.5,
+     422.5
+    ],
+    "element_id": "e000965",
+    "original_sha256": "ef9469600ca7bc0779e5a761d7fe87ded63992e3eefed635fce4b5d17051d20e",
+    "content": "式中：S。——生物反应池进水五日生化需氧量浓度(mg/L)；"
+   }
+  },
+  {
+   "id": "58-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 71,
+    "bbox": [
+     162.47699615582758,
+     94.11590792508964,
+     241.84945720059136,
+     103.36703839485276
+    ],
+    "element_id": "e000975",
+    "original_sha256": "78040b4dacbb6a92afd7be43cc8d5cdca1a28cf63dcf4a689339de6b6d3633c0",
+    "content": "t=t_{\\mathrm{R}}+t_{\\mathrm{s}}+t_{\\mathrm{D}}+t_{\\mathrm{b}}"
+   }
+  },
+  {
+   "id": "59-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 73,
+    "bbox": [
+     175.62854733899937,
+     77.84879442066737,
+     229.82111748818613,
+     99.12879231667206
+    ],
+    "element_id": "e001002",
+    "original_sha256": "661b93b038900a3b8ccf3689f22dac7cca9190f2a362a1b45dcb93d123c17d23",
+    "content": "\\Delta X=\\frac{V\\cdot X}{\\theta_{c}}"
+   }
+  },
+  {
+   "id": "62-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 78,
+    "bbox": [
+     165.89079329081625,
+     381.44414613122416,
+     221.4900576352969,
+     402.5024806433651
+    ],
+    "element_id": "e001099",
+    "original_sha256": "1ade3642a3254e8e3f2e56b40028dd8c2c353613e2569cf258597daf07d84b57",
+    "content": "G_{\\mathrm{s}}=\\frac{O_{\\mathrm{s}}}{0.28E_{\\mathrm{A}}}"
+   }
+  },
+  {
+   "id": "63-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 90,
+    "bbox": [
+     150.79524759982493,
+     281.48891477677284,
+     236.44231884974008,
+     294.2462600956789
+    ],
+    "element_id": "e001286",
+    "original_sha256": "85b48b9e0dc38dd1ece0df23e6d10c004c24c9e4e66ddf74517ce50ab908200a",
+    "content": "Q_{\\mathrm{sl}}=Q_{\\mathrm{ps}}+Q_{\\mathrm{es}}+Q_{\\mathrm{cs}}"
+   }
+  },
+  {
+   "id": "64-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 92,
+    "bbox": [
+     169.58565688597218,
+     315.54837435269593,
+     219.96214385026965,
+     326.7032363635253
+    ],
+    "element_id": "e001323",
+    "original_sha256": "03b1b91fc0ff24a18bb1da115c5b8be304ed10e4388dc0969e630f3c33b00dbe",
+    "content": "V=Q_{0}\\cdot t_{\\mathrm{d}}"
+   }
+  },
+  {
+   "id": "65-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 97,
+    "bbox": [
+     151.95512039074464,
+     376.5019440257676,
+     253.63155760867278,
+     385.8118391001575
+    ],
+    "element_id": "e001416",
+    "original_sha256": "e2eab28d20fca773c5473cc0e263c8f06eb3d4d96f7d9c9a8fda7eb491dc2fbd",
+    "content": "P=\\left(P_{1}+P_{2}+P_{3}\\right)\\cdot\\lambda"
+   }
+  },
+  {
+   "id": "66-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 20,
+    "bbox": [
+     154.44676287864027,
+     469.70904692318265,
+     228.34058007808,
+     479.6143160603373
+    ],
+    "element_id": "e000168",
+    "original_sha256": "9fd15f78856b5128c346537dedf403702ff10b9169ccc9a6e3e79d62126d5dde",
+    "content": "Q=q\\times\\Psi\\times F"
+   }
+  },
+  {
+   "id": "67-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     272.9802599609655,
+     312.59410379263454,
+     352.4698635250276,
+     329.6823632692536
+    ],
+    "element_id": "e000183",
+    "original_sha256": "955209349f7b5ac9328979afa5646bfdc7f26a0ef013d92ee4c4ac36cb440f4e",
+    "content": "\\mathrm{EQ_{i}}=\\frac{1}{\\mathrm{n}}\\sum_{\\mathrm{j}=1}^{\\mathrm{n}}\\mathrm{EQ_{ij}}"
+   }
+  },
+  {
+   "id": "67-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     89,
+     336,
+     120,
+     352
+    ],
+    "element_id": "e000185",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "67-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     88.75311323560888,
+     352,
+     305,
+     368.05147162543403
+    ],
+    "element_id": "e000186",
+    "original_sha256": "daf495b1698e135912382754b18c680397fce40a1c9778945f75df8ddb50af44",
+    "content": "EQi—— 第i流量检测点的流量相对误差，%；"
+   }
+  },
+  {
+   "id": "67-4",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     94.5,
+     368.5,
+     243,
+     382
+    ],
+    "element_id": "e000187",
+    "original_sha256": "8a79d9919d9ca7514e5b2cd13f95a91ae1a0befab3882d54443f7c1e8954963e",
+    "content": "n——第i流量检测点检测次数；"
+   }
+  },
+  {
+   "id": "67-5",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     94,
+     389.5,
+     364.6073841030419,
+     408
+    ],
+    "element_id": "e000188",
+    "original_sha256": "6ccba1e01648049b2015a86fd0c1174ca2a6a45fa6edcb2281757ed3262a50c4",
+    "content": "EQij——第i流量检测点第j次检测时的流量相对误差，%。"
+   }
+  },
+  {
+   "id": "67-6",
+   "verdict": "wrong",
+   "note": "5.4.2.5 流量仪误差应合4.3的要求，应按公式（3）计算：公式是EQ=+-|EQi|max(这里有水印)",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     69.5,
+     390.5,
+     451,
+     447
+    ],
+    "element_id": "e000189",
+    "original_sha256": "1e9841ce00f19ede70c31fd21aa7097d534107556f39f846fd857ae1c4cd7f27",
+    "content": "团体标准2.5流量仪误差应合1.3的要求，应按公式（3）计算："
+   }
+  },
+  {
+   "id": "67-7",
+   "verdict": "wrong",
+   "note": "|EQi|max————各流量检测点流量相对误差中的最大值：",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     10.5,
+     423.5,
+     160,
+     496
+    ],
+    "element_id": "e000190",
+    "original_sha256": "5a2d200c0d4b90b4287e3a0c6f5f7a0b0c3b8d869ec848c371fcefd83f10ef88",
+    "content": "中国测线学会xEQilmax——各流量检测点流量相对误差中的最大值："
+   }
+  },
+  {
+   "id": "67-8",
+   "verdict": "wrong",
+   "note": "这个是水印不需要",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     411,
+     429.5,
+     555.5,
+     496.5
+    ],
+    "element_id": "e000191",
+    "original_sha256": "96270d1264f01bc4bd9b27f62570af8610dd497cca320658bf43e8bf33273f55",
+    "content": "中国测绘(3)会"
+   }
+  },
+  {
+   "id": "67-9",
+   "verdict": "wrong",
+   "note": "EQ———流量仪的流量相对误差，%。",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     89.5,
+     478.5,
+     253,
+     492
+    ],
+    "element_id": "e000192",
+    "original_sha256": "be8c118ceb9b5118f5f7c0389f8bb5cda6f5c2a809bfef3a25b0acb1a93f4f34",
+    "content": "EQ流量仪的流量相对误差，%。"
+   }
+  },
+  {
+   "id": "68-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     227.13431633705275,
+     535.7557653049723,
+     398.7975632541125,
+     559.8763432318774
+    ],
+    "element_id": "e000195",
+    "original_sha256": "43af1e1898eaa74a76b963cff6f11c625f5ddc34417ab5c6a1af3c2cda1b5966",
+    "content": "\\left(\\mathrm{E Q}_{\\mathrm{r}}\\right)_{\\mathrm{i}}=\\left[\\frac{1}{(\\mathrm{n}-1)}\\times\\sum_{\\mathrm{j}=1}^{\\mathrm{n}}\\left(\\mathrm{E Q}_{\\mathrm{i j}}-\\mathrm{E Q}_{\\mathrm{i}}\\right)^{2}\\right]^{\\frac{1}{2}}"
+   }
+  },
+  {
+   "id": "68-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     89,
+     562.5,
+     120.5,
+     578.5
+    ],
+    "element_id": "e000197",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "68-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     89.5,
+     578,
+     277.5,
+     594.5
+    ],
+    "element_id": "e000198",
+    "original_sha256": "23313921b27bed59eb131645ffe9234e5e1fb03c0dc2d8e3c3d470675ce26d9e",
+    "content": "(EQr)i——第i流量检测点的流量重复性。"
+   }
+  },
+  {
+   "id": "69-1",
+   "verdict": null,
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     268.3709955907989,
+     610.9440630697383,
+     356.3175191236739,
+     623.9154871727985
+    ],
+    "element_id": "e000200",
+    "original_sha256": "da8f283b1169f7526975a047277e3264ebb6223ca7b9b805715329f913e43bc5",
+    "content": "\\mathrm{EQ_{r}=[(EQ_{r})_{i}]_{max}}"
+   }
+  },
+  {
+   "id": "69-2",
+   "verdict": null,
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     89,
+     625,
+     119.5,
+     640.5
+    ],
+    "element_id": "e000202",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "69-3",
+   "verdict": null,
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 12,
+    "bbox": [
+     93.5,
+     639.5,
+     236,
+     657.5
+    ],
+    "element_id": "e000203",
+    "original_sha256": "cf3ba98452b067467f85cd1b61176db6bd2c0a7069d1e4819b0f3bc25f67a68e",
+    "content": "EQr—流量仪的流量重复性。"
+   }
+  },
+  {
+   "id": "70-1",
+   "verdict": "wrong",
+   "note": "最后那个点不要，那个是公式引线的点",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     274.52300875069983,
+     202.70930368484787,
+     349.1038102422094,
+     221.07039340483263
+    ],
+    "element_id": "e000215",
+    "original_sha256": "046c6e25ae9e538da9f2b099287b95701727561b8a33137edb13289341aa3e0e",
+    "content": "\\mathrm{EL}_{\\mathrm{i}}=\\frac{1}{\\mathrm{n}}\\sum_{\\mathrm{j}=1}^{\\mathrm{n}}\\mathrm{EL}_{\\mathrm{ij}}."
+   }
+  },
+  {
+   "id": "70-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     89,
+     227.5,
+     119.5,
+     242.5
+    ],
+    "element_id": "e000216",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "70-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     89,
+     243.28826090494792,
+     303,
+     259
+    ],
+    "element_id": "e000217",
+    "original_sha256": "ceb627103b00c271bb0d49b2d187b8486f1393075e9f5eb98d7835ff9f07883d",
+    "content": "ELi—— 第i液位检测点的液位相对误差，%；"
+   }
+  },
+  {
+   "id": "70-4",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     94.5,
+     259.1235914963942,
+     243,
+     272.5
+    ],
+    "element_id": "e000218",
+    "original_sha256": "a824453ea072fc5176a2760b8a5dc2b3a9a140208e7e0a2b92f2a50a6375011f",
+    "content": "n— 第i液位检测点检测次数；"
+   }
+  },
+  {
+   "id": "70-5",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     94.5,
+     282.5,
+     362,
+     297.5
+    ],
+    "element_id": "e000219",
+    "original_sha256": "982221b3b2b2951390f784947aff4b4318f5b2e74d09f7412e914224b1ff6384",
+    "content": "ELij——第i液位检测点第j次检测时的液位相对差误，%。"
+   }
+  },
+  {
+   "id": "72-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     269.8883251989533,
+     501.5908444942572,
+     354.7301274843541,
+     514.4578413822521
+    ],
+    "element_id": "e000229",
+    "original_sha256": "6aee27bac2bec6c74ee1d51aa6403a7423f8c66c10fac44af7f61361864429b7",
+    "content": "\\mathrm{EL}_{\\mathrm{r}}=\\left[\\left(\\mathrm{EL}_{\\mathrm{r}}\\right)_{\\mathrm{i}}\\right]_{\\max}"
+   }
+  },
+  {
+   "id": "72-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     89,
+     515.5,
+     120.5,
+     531.5
+    ],
+    "element_id": "e000230",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "72-3",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     94,
+     532.5,
+     235,
+     547.5
+    ],
+    "element_id": "e000231",
+    "original_sha256": "d8a474ffb94827cc3658fc9f93a93d11fdca8ab39dfc26a23d3b0e7bb1c741d4",
+    "content": "ELr—流量仪的液位重复性。"
+   }
+  },
+  {
+   "id": "73-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 13,
+    "bbox": [
+     89,
+     711,
+     120,
+     727.5
+    ],
+    "element_id": "e000236",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "74-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 14,
+    "bbox": [
+     89.5,
+     406.4401518471221,
+     119.5,
+     421.5
+    ],
+    "element_id": "e000271",
+    "original_sha256": "197b0626b6b786f16c1514e37024347432e4fd1de2fb5e339ef28962b6bc401b",
+    "content": "式中："
+   }
+  },
+  {
+   "id": "74-2",
+   "verdict": "wrong",
+   "note": "(EVr)i——第i检测点的流速重复性",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 14,
+    "bbox": [
+     90,
+     423,
+     252.5,
+     438
+    ],
+    "element_id": "e000272",
+    "original_sha256": "c3639b0ca9e776222ad903a80d1194ea56c09ec65f95d10597df65f671636ac2",
+    "content": "(EVr)i——检池点的流速重复性."
+   }
+  },
+  {
+   "id": "74-3",
+   "verdict": "wrong",
+   "note": "5.4.7.2 流量仪的流速重复性应符合4.3的要求，应按公式（15）计算：EVr = [(EVr)i]max",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 14,
+    "bbox": [
+     69,
+     438,
+     407,
+     453.5
+    ],
+    "element_id": "e000273",
+    "original_sha256": "edaccdd95227e8c7dbda1ae560dad0cffb68ce84454647b23a008d2794a9fdc6",
+    "content": "（15） 计算："
+   }
+  },
+  {
+   "id": "74-4",
+   "verdict": "wrong",
+   "note": "式中：EVr——流量仪的流速重复性。",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 14,
+    "bbox": [
+     10,
+     440,
+     228.83910818046184,
+     500
+    ],
+    "element_id": "e000274",
+    "original_sha256": "0a3dba6a2d53b211ad394c2d18c8ba0a3eb3005bc1bebf5540fce2d9e1e4b189",
+    "content": "EVr流量仪的流速重复性。"
+   }
+  },
+  {
+   "id": "74-5",
+   "verdict": "wrong",
+   "note": "这是水印不要",
+   "item": {
+    "kind": "text",
+    "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+    "physical_page": 14,
+    "bbox": [
+     411,
+     440,
+     529,
+     496
+    ],
+    "element_id": "e000275",
+    "original_sha256": "9a3ef225ad5e138d8d45af378ddc71440c320689f6ce0e52404ca2a5eb5e2b36",
+    "content": "中国测绘(15)"
+   }
+  },
+  {
+   "id": "75-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 23,
+    "bbox": [
+     134.41038216104863,
+     287.94863828209014,
+     260.7115566934259,
+     312.7731992070312
+    ],
+    "element_id": "e000210",
+    "original_sha256": "9148d2234d74783cb31cd08add8660f158ceb6c6bb70587e2896d1391e3afe76",
+    "content": "Q=\\frac{1}{n}\\sum_{i=1}^{n}\\frac{V_i}{\\Delta t_i}\\times3600\\times24"
+   }
+  },
+  {
+   "id": "76-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 24,
+    "bbox": [
+     107.4050794682843,
+     65.94626840946131,
+     287.4149205706548,
+     91.28256821327538
+    ],
+    "element_id": "e000218",
+    "original_sha256": "db76248f22b84ec122df12b7562b1229a012fea3e13d17317336ecd81804b2c7",
+    "content": "Q=\\frac{1}{n}\\sum_{i=1}^{n}A\\times L_i/\\Delta t_i\\times k\\times3600\\times24"
+   }
+  },
+  {
+   "id": "77-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 68,
+    "bbox": [
+     142.89579727496286,
+     250.20726854483874,
+     269.9062683470243,
+     260.0547094629152
+    ],
+    "element_id": "e000549",
+    "original_sha256": "98d51945c09f2faaf4911203f83ae4d0c1d26c5911aa27a1b3ba910395231f7a",
+    "content": "A(矩形)= 管沟宽 \\times 水位高"
+   }
+  },
+  {
+   "id": "78-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 68,
+    "bbox": [
+     151.88315176897777,
+     266.5873938505656,
+     260.71175433329205,
+     287.913272092468
+    ],
+    "element_id": "e000550",
+    "original_sha256": "bbe07296cd696b10af4deb34b79997bf1afa754c81d8a8c45d92da3c7c787cb5",
+    "content": "A\\left( 圆形 \\right)=\\frac{1}{2}l R\\pm\\frac{1}{2}d h"
+   }
+  },
+  {
+   "id": "79-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 69,
+    "bbox": [
+     157.18067976164,
+     411.78502070401066,
+     232.09622475092831,
+     422.10513843468954
+    ],
+    "element_id": "e000564",
+    "original_sha256": "34a40233e47b65e0a0d9eec120a16e2420c0551a5cce9a961c491837dcb6e05f",
+    "content": "H=A_{1}-A_{2}+h"
+   }
+  },
+  {
+   "id": "80-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 23,
+    "bbox": [
+     137.66217787053213,
+     121.123458569692,
+     255.77702621297098,
+     131.71075345206827
+    ],
+    "element_id": "e000246",
+    "original_sha256": "6ebbf9fb0cedf280a8461143a7ce942e549fa2f0992fd64f9936356dcc8d1a11",
+    "content": "B=D_{0}+2(b_{1}+b_{2}+b_{3})"
+   }
+  },
+  {
+   "id": "81-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 87,
+    "bbox": [
+     153.36274050765272,
+     57.39321776150711,
+     243.90520480200385,
+     68.16384463557708
+    ],
+    "element_id": "e001187",
+    "original_sha256": "c3279959df6fff3140ec6937562cb360eddaf5d3b0c3f674ba7464d82196e852",
+    "content": "F_{\\mathrm{p}}=\\pi D_{\\mathrm{o}}L f_{\\mathrm{k}}+N_{\\mathrm{F}}"
+   }
+  },
+  {
+   "id": "82-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 87,
+    "bbox": [
+     140.9079063030068,
+     236.4345546241081,
+     212.10881029056307,
+     245.10108799758174
+    ],
+    "element_id": "e001194",
+    "original_sha256": "60dc81fe94942073ce6513490b67aaf46359be28e8e2140e85264befc326dbd9",
+    "content": "N_{\\mathrm{F}}=\\pi(D_{\\mathrm{g}}-t)t R"
+   }
+  },
+  {
+   "id": "83-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 87,
+    "bbox": [
+     136.58567682434443,
+     256.06405014127256,
+     215.78068871245208,
+     269.7423789485816
+    ],
+    "element_id": "e001195",
+    "original_sha256": "080f50f145a8bfe5133f93857a4f581ffca76dbd2ddf9fb83e0bcc58c81b2be9",
+    "content": "N_{\\mathrm{F}}=\\frac{\\pi}{4}D_{\\mathrm{g}}^{2}(1-e)R"
+   }
+  },
+  {
+   "id": "84-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 87,
+    "bbox": [
+     149.70225711626452,
+     278.8729324827355,
+     201.44545491773988,
+     292.65473310856356
+    ],
+    "element_id": "e001196",
+    "original_sha256": "00b29b7c752eb291ee550a5390b2070326da2b0a1894dd68471776e54ebf1f65",
+    "content": "N_{\\mathrm{F}}=\\frac{\\pi}{4}D_{\\mathrm{g}}^{2}\\alpha R"
+   }
+  },
+  {
+   "id": "85-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 87,
+    "bbox": [
+     150.81282249736947,
+     323.1274252137731,
+     200.06683187308053,
+     337.16856416233236
+    ],
+    "element_id": "e001197",
+    "original_sha256": "41e7334fa195928ec5b8384909c54b6a76beee7385c7931dd8c1044d538d480e",
+    "content": "N_{\\mathrm{F}}=\\frac{\\pi}{4}D_{\\mathrm{g}}^{2}P"
+   }
+  },
+  {
+   "id": "86-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 87,
+    "bbox": [
+     190.68834852326242,
+     359.03399081388636,
+     260.0604818498906,
+     366.6508956955539
+    ],
+    "element_id": "e001200",
+    "original_sha256": "2679d0a89dbc956b7b22081be87e92e4196bea90d68a877c40473f27eeb9ed86",
+    "content": "R=300\\sim500kN/m^2"
+   }
+  },
+  {
+   "id": "87-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 94,
+    "bbox": [
+     154.8767755958842,
+     246.57734010784873,
+     254.05266608681504,
+     256.7404817833905
+    ],
+    "element_id": "e001321",
+    "original_sha256": "98d6d29175f63bd2f3f18121bc6bccf6852d2b72b0db582c4062a7ef09ae9af7",
+    "content": "\\tan\\alpha=l/R_{\\min}=\\Delta S/D_{o}"
+   }
+  },
+  {
+   "id": "87-2",
+   "verdict": "wrong",
+   "note": "D0——管外径（m）；",
+   "item": {
+    "kind": "text",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 94,
+    "bbox": [
+     82,
+     339,
+     179,
+     352.5
+    ],
+    "element_id": "e001325",
+    "original_sha256": "3b05cc1b9b9e0e854d600f00741a93b399cd3cc772a4478d5a92192deb0a2d92",
+    "content": "管外径（m）；"
+   }
+  },
+  {
+   "id": "88-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 108,
+    "bbox": [
+     185.24659572044243,
+     509.6290977589668,
+     247.49358553411506,
+     519.5789935029215
+    ],
+    "element_id": "e001581",
+    "original_sha256": "b629a175489f43a2625c10d2a264adc1554a59cce04aff7866fcea1dbc1d6954",
+    "content": "P=P_{1}+P_{\\mathrm{F}}"
+   }
+  },
+  {
+   "id": "89-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 109,
+    "bbox": [
+     160.48830117972102,
+     60.566538352811975,
+     229.22379481093958,
+     72.23284864574079
+    ],
+    "element_id": "e001583",
+    "original_sha256": "0e16ee875afc6b16d9b428ae881e1a100b2c6b2ec31e74f98faf4324be71335b",
+    "content": "P_{\\mathrm{F}}=\\pi D_{\\mathrm{k}}^{2}R_{\\mathrm{a}}/4"
+   }
+  },
+  {
+   "id": "90-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 109,
+    "bbox": [
+     162.59597564113497,
+     76.68653417475345,
+     225.65552553921137,
+     88.26884498258255
+    ],
+    "element_id": "e001584",
+    "original_sha256": "fe98f61da9f567edb345eec086b72be08d571dfae3c960bb44ad664187cccd89",
+    "content": "P_{1}=\\pi D_{0}L f_{1}"
+   }
+  },
+  {
+   "id": "91-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 173,
+    "bbox": [
+     176.62917526034659,
+     276.7370694886243,
+     234.64528246317715,
+     287.22540517105233
+    ],
+    "element_id": "e002535",
+    "original_sha256": "fec95dcc08f024df1dd057ac26199290255ca2333dd9ebb72cd314c3c1d26db7",
+    "content": "q=0.05\\sqrt{D_{i}}"
+   }
+  },
+  {
+   "id": "92-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 173,
+    "bbox": [
+     178.38514067822885,
+     309.5028525634536,
+     231.83808705904258,
+     320.4236530153879
+    ],
+    "element_id": "e002537",
+    "original_sha256": "d9f0dcb6267c67ccb822017e07f013e6373be0c5c56ad81d9531e3a013bb54f0",
+    "content": "q=0.1\\sqrt{D_{i}}"
+   }
+  },
+  {
+   "id": "93-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 173,
+    "bbox": [
+     175.5146688234133,
+     342.7760472067292,
+     234.18891039383138,
+     353.3001764087213
+    ],
+    "element_id": "e002539",
+    "original_sha256": "214a767ff3cee3030817063dd0b98105fbff71138a0cf9a19bbb6e25cb608474",
+    "content": "q=0.14\\sqrt{D_{i}}"
+   }
+  },
+  {
+   "id": "94-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 173,
+    "bbox": [
+     174.11381558919305,
+     389.742107657284,
+     233.6615554080902,
+     399.2727141604064
+    ],
+    "element_id": "e002541",
+    "original_sha256": "57515457f04452df669caddb6403e542403e4a9bdbadc743ede6e95e4e4f1e7a",
+    "content": "q=0.014D_{i}"
+   }
+  },
+  {
+   "id": "95-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 173,
+    "bbox": [
+     146.18713171992607,
+     434.3478599827678,
+     261.04787551402114,
+     455.47381008749915
+    ],
+    "element_id": "e002543",
+    "original_sha256": "aa3b40c4a66d3488f840154f22f4607118a0bdaac7cb90e2497e282cb990c9a5",
+    "content": "q=3\\cdot\\frac{D_{\\mathrm{i}}}{25}\\cdot\\frac{P}{0.3\\alpha}\\cdot\\frac{1}{1440}"
+   }
+  },
+  {
+   "id": "95-2",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "text",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 173,
+    "bbox": [
+     54,
+     457,
+     101,
+     475
+    ],
+    "element_id": "e002544",
+    "original_sha256": "f904786a32eaf00ad2f06406edc116ff2cff9166227d7b310f87db6960316be9",
+    "content": "式中 q"
+   }
+  },
+  {
+   "id": "96-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 174,
+    "bbox": [
+     133.65802123746835,
+     261.7627298033072,
+     273.76104098817166,
+     283.822824891018
+    ],
+    "element_id": "e002555",
+    "original_sha256": "f66d5f80d67192200837e7c80decc658d4659f3595599690d8fb6839fbf8fc7d",
+    "content": "\\Delta V_{\\max}=1.2V\\Delta P\\left(\\frac{1}{E_{\\mathrm{w}}}+\\frac{D_{\\mathrm{i}}}{e_{\\mathrm{n}}E_{\\mathrm{p}}}\\right)"
+   }
+  },
+  {
+   "id": "97-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 176,
+    "bbox": [
+     178.90316447329013,
+     337.54977612529717,
+     243.17943576879432,
+     349.12149161215103
+    ],
+    "element_id": "e002593",
+    "original_sha256": "00cd55b2bb88fcbe13bd22092b77918c2cbe8c7b4cb37bcd39d5c191f99182af",
+    "content": "q=1.25\\sqrt{D_{i}}"
+   }
+  },
+  {
+   "id": "98-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 176,
+    "bbox": [
+     179.02712659700447,
+     400.0691309503147,
+     243.70349739311905,
+     410.19685241293814
+    ],
+    "element_id": "e002596",
+    "original_sha256": "f60b3978b6cc8652fbf19061255d2ff275013ca00c5deba1801e663db894d78c",
+    "content": "q=0.0046D_{i}"
+   }
+  },
+  {
+   "id": "98-2",
+   "verdict": "wrong",
+   "note": "式中   q——允许渗水量（m3/24h*km）",
+   "item": {
+    "kind": "text",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 176,
+    "bbox": [
+     62.5,
+     413,
+     256,
+     430.5
+    ],
+    "element_id": "e002597",
+    "original_sha256": "fa163ab85250f01bbab7775976f0d1f63d574696ddb25250ef562a1a8c325c8c",
+    "content": "式中q"
+   }
+  },
+  {
+   "id": "99-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 179,
+    "bbox": [
+     75.07445688471591,
+     122.69045713370045,
+     321.99998148598274,
+     133.82572225362418
+    ],
+    "element_id": "e002618",
+    "original_sha256": "3a33da48eaf6a241d9b57cb5c486d53a86be2823a81b75b24ce938bfa1ae8fed",
+    "content": "\\Delta P=103300-(P+101300)(273+T_1)/(273+T_2)"
+   }
+  },
+  {
+   "id": "100-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 190,
+    "bbox": [
+     162.41591659462748,
+     201.1266191692934,
+     246.67764426532372,
+     221.00897504092447
+    ],
+    "element_id": "e002681",
+    "original_sha256": "4a147ff753918893acd558dfa98a79388a6d220e4bf9a490ce587a6849f22314",
+    "content": "q=\\frac{W}{T\\cdot L}\\times1000"
+   }
+  },
+  {
+   "id": "101-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 191,
+    "bbox": [
+     173.385938804677,
+     244.39042194012612,
+     222.5814800373751,
+     264.5892100920753
+    ],
+    "element_id": "e002696",
+    "original_sha256": "d97c07bcfa8fa748054ae90f5be46227428a39b0fc4c554e255663d2c945ccb2",
+    "content": "q=\\frac{W}{T\\cdot L}"
+   }
+  },
+  {
+   "id": "102-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 213,
+    "bbox": [
+     79.2824451447781,
+     204.61049246124568,
+     318.90784445209886,
+     226.37536786980337
+    ],
+    "element_id": "e002868",
+    "original_sha256": "bcaf73f7327d201871d7dfa38dddd1bc6899f2288d28cefeca5d77fba264994e",
+    "content": "合格率 =\\frac{ 同一实测项目中的合格点(组)数 }{ 同一实测项目的应检点(组数)}\\times100\\%"
+   }
+  },
+  {
+   "id": "103-1",
+   "verdict": "ok",
+   "note": "",
+   "item": {
+    "kind": "formula",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 236,
+    "bbox": [
+     164.4596449552058,
+     185.44069113951355,
+     237.0066445544985,
+     195.78844393099112
+    ],
+    "element_id": "e003103",
+    "original_sha256": "5cd67a1f54655749f0e69c1f62a2b2dbca0df5b6b96c5d8034f643898137d37e",
+    "content": "\\Delta S=l\\times D_{o}/R_{\\min}"
+   }
+  }
+ ]
+}

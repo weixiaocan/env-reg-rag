@@ -7,7 +7,7 @@ set -euo pipefail
 cd "$(dirname "$0")/.."
 
 QDRANT=${QDRANT:-http://127.0.0.1:6333}
-APP_IMAGE=${APP_IMAGE:-env-reg-rag-app:9097}
+APP_IMAGE=${APP_IMAGE:-env-reg-rag-app:913c}
 CORPUS=$(python -c "import json;print(json.load(open('data/registry/corpus-current.json',encoding='utf-8'))['corpus_version'])")
 COLLECTION=$(python -c "import json;print(json.load(open('data/registry/corpus-current.json',encoding='utf-8'))['collection_name'])")
 OUT="dist/deploy-$CORPUS"

@@ -11,10 +11,18 @@ from src.ingestion.page_furniture import normalize_line, watermark_line_variants
 
 
 _NUMBER_PREFIX = re.compile(r"^\s*(\d+(?:\.\d+){0,2})(?:\s+|(?=[一-鿿])|$)(.*)$")
+# Rules turning OCR lines into text (vote and line joining); bumping it gives
+# assembled corpora a new version.
+OCR_VOTE_MODE = "three-source-region-vote-v4"
 _STRUCTURED_KINDS = {"table", "formula", "image", "figure", "chart"}
 _SOURCE_PRIORITY = ("pp_raw", "primary", "pp_clean")
 _DUPLICATE_SEPARATOR = re.compile(r"^[\s，。；：、,.!?！？;:—-]{0,3}$")
 _RAW_CONFLICT_RECOVERY = re.compile(r"^(?:[一-鿿]|[。，；：、！？])$")
+# Digits and unit/range symbols that only the unpreprocessed run read inside
+# a line.  Watermark removal erases thin glyphs ('/', '～', superscripts),
+# so pp_raw alone is trusted for them mid-line; at line ends they are as
+# likely to be a neighbouring item number or page number.
+_RAW_SYMBOL_RECOVERY = re.compile(r"^[0-9/～~×−\-⁻⁰¹²³⁴⁵⁶⁷⁸⁹.%‰《》()（）]{1,4}$")
 
 
 def assemble_page_region_text(
@@ -92,7 +100,13 @@ def assemble_page_region_text(
         if primary is not None:
             primary_match = _NUMBER_PREFIX.match(str(primary.get("text") or ""))
             merged_match = _NUMBER_PREFIX.match(text)
-            if primary_match and (
+            # Both Paddle runs reading the same number outvote MinerU's
+            # ("7.5.10" vs "7.5.101").
+            paddle_agreed = merged_match is not None and all(
+                (match := _NUMBER_PREFIX.match(source_texts.get(source) or ""))
+                and match.group(1) == merged_match.group(1)
+                for source in ("pp_clean", "pp_raw"))
+            if primary_match and not paddle_agreed and (
                 not merged_match
                 or (not primary_match.group(2).strip()
                     and merged_match.group(1) != primary_match.group(1))
@@ -201,14 +215,14 @@ def merge_source_texts(source_texts: dict[str, str | None]) -> tuple[str, str, l
     conflicts: list[dict[str, Any]] = []
     for offset in range(len(pivot) + 1):
         gap_values = {source: aligned[source][1][offset] for source in source_texts}
-        gap, gap_conflict = _choose_gap_fragment(gap_values)
+        gap, gap_conflict = _choose_gap_fragment(gap_values, interior=0 < offset < len(pivot))
         pieces.append(gap)
         if gap_conflict:
             conflicts.append({"offset": offset, "kind": "insertion", **gap_conflict})
         if offset == len(pivot):
             break
         char_values = {source: aligned[source][0][offset] for source in source_texts}
-        char, char_conflict = _choose_fragment(char_values)
+        char, char_conflict = _choose_fragment(char_values, interior=0 < offset < len(pivot) - 1)
         pieces.append(char)
         if char_conflict:
             conflicts.append({"offset": offset, "kind": "character", **char_conflict})
@@ -279,7 +293,8 @@ def recover_source_supported_occlusion_fragments(
     return result, repairs
 
 
-def _choose_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any] | None]:
+def _choose_fragment(values: dict[str, str | None], *,
+                     interior: bool = False) -> tuple[str, dict[str, Any] | None]:
     present = {key: value for key, value in values.items() if value is not None}
     if not present:
         return "", None
@@ -293,7 +308,9 @@ def _choose_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any]
                 for source, value in present.items())
     )
     if raw_only_against_covered_deletions:
-        return (raw if _RAW_CONFLICT_RECOVERY.fullmatch(raw) else ""), None
+        keep = (_RAW_CONFLICT_RECOVERY.fullmatch(raw)
+                or (interior and _RAW_SYMBOL_RECOVERY.fullmatch(raw)))
+        return (raw if keep else ""), None
     counts = Counter(present.values())
     majority = next((value for value, count in counts.items() if count >= 2), None)
     if majority is not None:
@@ -310,7 +327,8 @@ def _choose_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any]
     }
 
 
-def _choose_gap_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, Any] | None]:
+def _choose_gap_fragment(values: dict[str, str | None], *,
+                         interior: bool = False) -> tuple[str, dict[str, Any] | None]:
     """Vote on an insertion gap, treating covered empty gaps as deletion votes."""
     present = {key: value for key, value in values.items() if value is not None}
     if not present:
@@ -321,7 +339,7 @@ def _choose_gap_fragment(values: dict[str, str | None]) -> tuple[str, dict[str, 
     raw = present.get("pp_raw")
     if (raw and all(source == "pp_raw" or value == ""
                     for source, value in present.items())):
-        return "", None
+        return (raw if interior and _RAW_SYMBOL_RECOVERY.fullmatch(raw) else ""), None
     counts = Counter(present.values())
     majority = next((value for value, count in counts.items() if count >= 2), None)
     if majority is not None:
@@ -497,7 +515,7 @@ def _ocr_candidates(lines: list[dict[str, Any]], source: str,
                 or (len(compact) == 1 and (score is None or score < single_char_score))):
             result.append({"text": "", "_noise": True})
             continue
-        if any(_center_inside(bbox, region.get("bbox"), 0.0) for region in structured):
+        if _inside_structured(bbox, text, structured):
             continue
         region = _smallest_region(bbox, text_regions, tolerance)
         result.append({
@@ -521,7 +539,7 @@ def _primary_candidates(elements: list[dict[str, Any]], text_regions: list[dict[
                 or (len(normalize_line(text)) == 1 and not normalize_line(text).isdigit()
                     and (score is None or score < single_char_score))):
             continue
-        if any(_center_inside(bbox, region.get("bbox"), 0.0) for region in structured):
+        if _inside_structured(bbox, text, structured):
             continue
         region = _smallest_region(bbox, text_regions, tolerance)
         if region is None:
@@ -666,8 +684,6 @@ def _drop_fragments_inside_superset_lines(
     """
     supersets = [row for row in output
                  if (row.get("_ocr_text_source") or {}).get("rule") == "superset_over_fragment_majority"]
-    if not supersets:
-        return output
     # If the superset's extra text is already emitted by another agreed line
     # (the other engines split the line into two groups), the superset would
     # duplicate it: fall back to the agreed fragment.
@@ -697,8 +713,12 @@ def _drop_fragments_inside_superset_lines(
                     stats["superset_over_fragment_majority_lines"] -= 1
                     stats["majority_lines"] += 1
                 break
+    # A single engine's fragment that sits inside a line two or more engines
+    # read (MinerU split the line and only one piece joined the group) is a
+    # second reading of that line, not new text.
     supersets = [row for row in output
-                 if (row.get("_ocr_text_source") or {}).get("rule") == "superset_over_fragment_majority"]
+                 if (row.get("_ocr_text_source") or {}).get("rule")
+                 in {"superset_over_fragment_majority", "majority", "merge"}]
     if not supersets:
         return output
     kept: list[dict[str, Any]] = []
@@ -716,9 +736,33 @@ def _drop_fragments_inside_superset_lines(
                 inter = (max(0.0, min(box[2], outer[2]) - max(box[0], outer[0]))
                          * max(0.0, min(box[3], outer[3]) - max(box[1], outer[1])))
                 big_text = normalize_line(str(big.get("text") or ""))
-                shared = sum((Counter(text) & Counter(big_text)).values())
-                if inter / area >= 0.8 and text and shared / len(text) >= 0.6:
-                    covered = True
+                if not text:
+                    continue
+                if inter / area < 0.8:
+                    # MinerU sometimes boxes a split piece between two rows;
+                    # a long piece read verbatim in an adjacent voted line
+                    # is that line again.
+                    height = max(1.0, outer[3] - outer[1], box[3] - box[1])
+                    adjacent = abs((outer[1] + outer[3]) - (box[1] + box[3])) / 2 <= 1.5 * height
+                    if (adjacent and len(text) >= 6 and (big.get("_ocr_text_source") or {}).get("rule")
+                            in {"majority", "merge"}):
+                        # OCR noise inside the repeat ("雨污？昆接") splits
+                        # the match into pieces; together they still cover it.
+                        blocks = SequenceMatcher(None, text, big_text, autojunk=False).get_matching_blocks()
+                        covered = sum(b.size for b in blocks if b.size >= 2) >= 0.85 * len(text)
+                        if covered:
+                            break
+                    continue
+                if (big.get("_ocr_text_source") or {}).get("rule") == "superset_over_fragment_majority":
+                    shared = sum((Counter(text) & Counter(big_text)).values())
+                    covered = shared / len(text) >= 0.6
+                else:
+                    # A short piece ("n——") shares its few characters with
+                    # any line; only a run of the voted text marks a repeat.
+                    blocks = SequenceMatcher(None, text, big_text, autojunk=False).get_matching_blocks()
+                    covered = len(text) >= 4 and sum(
+                        b.size for b in blocks if b.size >= 3) / len(text) >= 0.7
+                if covered:
                     break
         if covered:
             stats["dropped_fragment_inside_superset_lines"] += 1
@@ -750,6 +794,32 @@ def _center_inside(inner: list[float], outer_raw: Any, tolerance: float) -> bool
         return False
     cx, cy = (inner[0] + inner[2]) / 2, (inner[1] + inner[3]) / 2
     return outer[0] - tolerance <= cx <= outer[2] + tolerance and outer[1] - tolerance <= cy <= outer[3] + tolerance
+
+
+def _inside_structured(bbox: list[float], text: str, structured: list[dict[str, Any]]) -> bool:
+    """A line belongs to a table/formula region when the region covers most of it.
+
+    An inline formula region is a small box inside a body line; a centre
+    test drops the whole line when the box happens to sit mid-line.  A
+    fragment under twice the region's width without a run of Chinese text
+    (the variable "ts" read on its own) still belongs to it.
+    """
+    line = _area(bbox)
+    if not line:
+        return any(_center_inside(bbox, region.get("bbox"), 0.0) for region in structured)
+    for region in structured:
+        outer = _bbox(region.get("bbox"))
+        if outer is None:
+            continue
+        width = min(bbox[2], outer[2]) - max(bbox[0], outer[0])
+        height = min(bbox[3], outer[3]) - max(bbox[1], outer[1])
+        if width > 0 and height > 0 and width * height / line >= 0.5:
+            return True
+        if (_center_inside(bbox, outer, 0.0)
+                and bbox[2] - bbox[0] < 2 * (outer[2] - outer[0])
+                and not re.search(r"[一-鿿]{2}", text)):
+            return True
+    return False
 
 
 def _area(bbox: list[float] | None) -> float:

@@ -28,6 +28,7 @@ class RetrievalHit:
     document_kind: str = "unknown"
     effective_status: str = "unknown"
     source_authority: str = ""
+    standard_number: str = ""
     publication_date: str = ""
     effective_from: str = ""
     effective_to: str = ""
@@ -385,6 +386,7 @@ class QdrantRetrievalIndex:
             document_kind=str(payload.get("document_kind", "unknown")),
             effective_status=str(payload.get("effective_status", "unknown")),
             source_authority=str(payload.get("source_authority", "")),
+            standard_number=str(payload.get("standard_number", "")),
             publication_date=str(payload.get("publication_date", "")),
             effective_from=str(payload.get("effective_from", "")),
             effective_to=str(payload.get("effective_to", "")),

@@ -25,9 +25,9 @@
   "must_hit": true,
   "old_page": 14,
   "new_page": 14,
-  "coverage": 0.727,
+  "coverage": 0.795,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G002",
@@ -77,7 +77,7 @@
   "new_page": 5,
   "coverage": 0.837,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G006",
@@ -87,7 +87,7 @@
   "new_page": 6,
   "coverage": 0.645,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G007",
@@ -105,8 +105,8 @@
   "must_hit": false,
   "old_page": 1,
   "new_page": 1,
-  "coverage": 0.0,
-  "resolved": false,
+  "coverage": 1.0,
+  "resolved": true,
   "policy": "source_locator_only"
  },
  {
@@ -115,7 +115,7 @@
   "must_hit": true,
   "old_page": 63,
   "new_page": 63,
-  "coverage": 0.7,
+  "coverage": 1.0,
   "resolved": true,
   "policy": "answer_and_citation"
  },
@@ -145,8 +145,8 @@
   "must_hit": true,
   "old_page": 1,
   "new_page": 1,
-  "coverage": 0.0,
-  "resolved": false,
+  "coverage": 0.912,
+  "resolved": true,
   "policy": "source_locator_only"
  },
  {
@@ -185,9 +185,9 @@
   "must_hit": true,
   "old_page": 13,
   "new_page": 13,
-  "coverage": 0.79,
+  "coverage": 0.848,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G016",
@@ -197,7 +197,7 @@
   "new_page": 20,
   "coverage": 1.0,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G017",
@@ -207,7 +207,7 @@
   "new_page": 11,
   "coverage": 0.881,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G018",
@@ -287,7 +287,7 @@
   "new_page": 9,
   "coverage": 0.824,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G022",
@@ -395,7 +395,7 @@
   "must_hit": true,
   "old_page": 7,
   "new_page": 7,
-  "coverage": 0.784,
+  "coverage": 1.0,
   "resolved": true,
   "policy": "source_locator_only"
  },
@@ -415,8 +415,8 @@
   "must_hit": true,
   "old_page": 1,
   "new_page": 1,
-  "coverage": 0.0,
-  "resolved": false,
+  "coverage": 1.0,
+  "resolved": true,
   "policy": "source_locator_only"
  },
  {
@@ -427,7 +427,7 @@
   "new_page": 18,
   "coverage": 0.406,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G030",
@@ -447,7 +447,7 @@
   "new_page": 18,
   "coverage": 0.366,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G031",
@@ -495,9 +495,9 @@
   "must_hit": true,
   "old_page": 22,
   "new_page": 22,
-  "coverage": 0.723,
+  "coverage": 0.651,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G035",
@@ -517,7 +517,7 @@
   "new_page": 22,
   "coverage": 1.0,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G036",
@@ -535,7 +535,7 @@
   "must_hit": true,
   "old_page": 23,
   "new_page": 23,
-  "coverage": 0.971,
+  "coverage": 1.0,
   "resolved": true,
   "policy": "answer_and_citation"
  },
@@ -557,7 +557,7 @@
   "new_page": 20,
   "coverage": 0.98,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G037",
@@ -567,7 +567,7 @@
   "new_page": 20,
   "coverage": 0.344,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G037",
@@ -577,7 +577,7 @@
   "new_page": 20,
   "coverage": 1.0,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G038",
@@ -645,9 +645,9 @@
   "must_hit": true,
   "old_page": 4,
   "new_page": 4,
-  "coverage": 0.944,
+  "coverage": 0.913,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G044",
@@ -665,7 +665,7 @@
   "must_hit": true,
   "old_page": 14,
   "new_page": 14,
-  "coverage": 0.167,
+  "coverage": 0.143,
   "resolved": true,
   "policy": "answer_and_citation"
  },
@@ -675,9 +675,9 @@
   "must_hit": true,
   "old_page": 24,
   "new_page": 24,
-  "coverage": 0.675,
+  "coverage": 0.667,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G046",
@@ -685,9 +685,9 @@
   "must_hit": true,
   "old_page": 24,
   "new_page": 24,
-  "coverage": 0.675,
+  "coverage": 0.667,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G046",
@@ -705,9 +705,9 @@
   "must_hit": true,
   "old_page": 23,
   "new_page": 23,
-  "coverage": 0.952,
+  "coverage": 0.935,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G047",
@@ -727,7 +727,7 @@
   "new_page": 29,
   "coverage": 0.463,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G047",
@@ -737,7 +737,7 @@
   "new_page": 28,
   "coverage": 0.455,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G048",
@@ -747,7 +747,7 @@
   "new_page": 15,
   "coverage": 0.603,
   "resolved": true,
-  "policy": "source_locator_only"
+  "policy": "answer_and_citation"
  },
  {
   "case": "G048",

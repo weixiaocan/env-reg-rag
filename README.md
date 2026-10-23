@@ -84,7 +84,7 @@ Copy-Item .env.example .env
 
 ### 公网演示
 
-不想本地部署，可以直接打开 [https://weixiaocan.com/rag/](https://weixiaocan.com/rag/) 试用（每人每天 10 次 AI 回答，用完后只返回原文）。线上运行的就是本仓库当前代码，语料为 `corpus-9097cecb12d5`（2026-10-22 部署，3,885 个检索块），模型为智谱 GLM-5.2。机器识别、尚未人工核对的表格和公式也可以支持回答，但对应结论会标注"未核对"，提示对照原文页。以上是部署与在线烟测，不代表法规效力或语料内容质量已经获得权威核验。
+不想本地部署，可以直接打开 [https://weixiaocan.com/rag/](https://weixiaocan.com/rag/) 试用（每人每天 10 次 AI 回答，用完后只返回原文）。线上运行的就是本仓库当前代码，语料为 `corpus-913c134c18ae`（2026-10-23 部署，3,911 个检索块），模型为智谱 GLM-5.2。全部 239 张表格已逐格核对，可正式引用；尚未人工核对的公式也可以支持回答，但对应结论会标注"未核对"，提示对照原文页。以上是部署与在线烟测，不代表法规效力或语料内容质量已经获得权威核验。
 
 ### 2. 载入现成资料库
 
@@ -297,7 +297,7 @@ Invoke-RestMethod http://127.0.0.1:6333/collections/corpus_v2_live
 - **运行烟测**：就绪检查、实际 Qdrant point 数和在线查询证明当前服务可运行。
 - **内容质量**：固定问题集、原页金标准和人工坏例复核衡量 OCR、表格、公式、召回和答案质量。
 
-截至 2026-10-20，`data/registry/corpus-current.json` 指向 `corpus-9097cecb12d5`（2026-10-20 发布，在 7411 基础上应用 35 个经负责人核对的公式更正，见 `data/registry/source-corrections.json`）：正式选择 21 份主文本、1078 页、11977 个结构区域、3885 个检索块，结构处理 0 个执行失败；查询入口为 `corpus_v2_live`。后续始终以 pointer、对应 manifest 和 Qdrant 实际状态为准。
+截至 2026-10-23，`data/registry/corpus-current.json` 指向 `corpus-913c134c18ae`（2026-10-23 发布：在 9097 基础上，239 张表格逐格核对后可正式引用，核对记录见 `data/registry/table-checks.json`；扫描件识别的投票规则修正，单位符号和含行内公式的正文行不再丢失；经负责人核对的公式与文字更正见 `data/registry/source-corrections.json`）：正式选择 21 份主文本、1078 页、11977 个结构区域、3911 个检索块，结构处理 0 个执行失败；查询入口为 `corpus_v2_live`。后续始终以 pointer、对应 manifest 和 Qdrant 实际状态为准。
 
 ## 项目结构
 

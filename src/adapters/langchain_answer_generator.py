@@ -273,6 +273,7 @@ class LangChainAnswerGenerator:
                             "verified": item.usage_policy == "answer_and_citation",
                             "text": item.text,
                             "file_name": _document_title(item.file_name),
+                            "standard_number": item.standard_number,
                             "physical_pages": item.physical_pages,
                             "heading_path": item.heading_path,
                             "jurisdiction": item.jurisdiction,

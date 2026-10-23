@@ -62,6 +62,9 @@ _STRUCTURED_TYPES = {"table", "formula", "figure"}
 # Reason codes (closed vocabulary) ----------------------------------------------------
 REASON_STRUCTURED_DEFAULT = "structured_default_locator_only"
 REASON_UNREADABLE_TEXT = "unreadable_text"
+# Bumped when the chunk projection changes; part of the corpus fingerprint.
+EVIDENCE_POLICY_VERSION = "table-check-floor-exempt-v1"
+_TABLE_CHECK_ASSERTION = "review_assertion:table-checks:"
 REASON_NEEDS_REVIEW_SOURCE = "needs_review_source"
 REASON_QUARANTINED_SOURCE = "quarantined_source"
 REASON_MISSING_POLICY = "missing_policy_default_locator_only"
@@ -328,8 +331,15 @@ def chunk_usage_policy(
             reasons.append(auto)
 
     # Text readability floor: an unreadable chunk can never answer, regardless
-    # of element quality.
-    if policy == ANSWER and not is_answerable_text(text):
+    # of element quality.  Tables checked cell by cell against an independent
+    # reading are exempt: the floor guards unchecked text, and a numeric table
+    # serialized with cell separators reads as symbols to it.
+    cell_checked = all(
+        e.get("type") == "table"
+        and any(str(r).startswith(_TABLE_CHECK_ASSERTION) for r in element_policy_reasons(e))
+        for e in elements
+    )
+    if policy == ANSWER and not cell_checked and not is_answerable_text(text):
         policy = LOCATOR
         if quality == "passed":
             quality = "needs_review"

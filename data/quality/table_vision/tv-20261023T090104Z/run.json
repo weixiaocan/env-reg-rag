@@ -1,0 +1,31 @@
+{
+ "run_id": "tv-20261023T090104Z",
+ "authorization": {
+  "provider": "zhipu",
+  "model": "glm-4.5v",
+  "base_url": "https://open.bigmodel.cn/api/paas/v4/",
+  "send_scope": "unresolved-table-cell-crops",
+  "note": "2026-10-23 owner approved sending unresolved table cell crops to GLM-4.5V (full run after trial)",
+  "budget_cny": 30.0,
+  "per_call_reserve_cny": 0.2
+ },
+ "rates_cny_per_million": [
+  4.0,
+  12.0
+ ],
+ "usage": {
+  "prompt_tokens": 126522,
+  "completion_tokens": 9406,
+  "calls": 722
+ },
+ "estimated_cost_cny": 0.619,
+ "seconds": 377.9,
+ "summary": {
+  "tables": 125,
+  "cells": 722,
+  "confirmed": 77,
+  "corrected": 453,
+  "unsettled": 192,
+  "admitted": 60
+ }
+}

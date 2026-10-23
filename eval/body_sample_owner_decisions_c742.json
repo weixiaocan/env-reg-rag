@@ -1,0 +1,3307 @@
+{
+ "corpus": "corpus-c742eb0dbb94",
+ "seed": 20261023,
+ "reviewed_at": "2026-10-23T07:46:20.170Z",
+ "decisions": [
+  {
+   "id": "ocr-1",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 224,
+    "bbox": [
+     77,
+     508.5,
+     354,
+     524.5
+    ],
+    "element_id": "e002978",
+    "original_sha256": "95adc1b13a488a2924bb79bf8d8fd4482d4053b8b9edf0f862cd380d88c85cce",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3 施工程序：先在基层上均匀涂刷一层环氧树脂，随即衬"
+   }
+  },
+  {
+   "id": "ocr-2",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+    "file_name": "QXT 489－2019 降雨过程等级.pdf",
+    "physical_page": 9,
+    "bbox": [
+     88,
+     281,
+     230,
+     292.5
+    ],
+    "element_id": "e000030",
+    "original_sha256": "cd638c84bab1c76196efaabf54b77c71f02f42048a15a32a68610de2fd67dda9",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "下列术语和定义适用于本文件。"
+   }
+  },
+  {
+   "id": "ocr-3",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 10,
+    "bbox": [
+     68.5,
+     109.5,
+     341.5,
+     121
+    ],
+    "element_id": "e000091",
+    "original_sha256": "3f1cf0468b56d88d0db8f2babfa0bda8ac1b4c2a96374826cbde62db173ffacc",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "高程低于周边汇水地面标高的广场，当降雨超出源头减排设\n施和排水管渠的承载能力时，可临时调蓄周边地区的雨水径流，起\n到排涝除险作用。"
+   }
+  },
+  {
+   "id": "ocr-4",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+    "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+    "physical_page": 11,
+    "bbox": [
+     49.86473429951691,
+     90.23372287145243,
+     346.6557971014493,
+     105.11268781302171
+    ],
+    "element_id": "e000097",
+    "original_sha256": "8c6c1a5929cc430e217879b67b22676f40a54269bd2f3f19c4f8355842d9cdb4",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3.2.2 城镇源头减排设施规模应根据年径流总量控制率、径流\n污染控制目标、建设前径流量和雨水利用量合理确定，并应明确\n相应的设计降雨量。"
+   }
+  },
+  {
+   "id": "ocr-5",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 124,
+    "bbox": [
+     73.5,
+     303,
+     343.5,
+     320.5
+    ],
+    "element_id": "e001806",
+    "original_sha256": "69314204cd2ac14ad3902be9d2bce1020c78651ef19b468f01b5c220a795ce4b",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "检查方法：检查每批钢筋的质量保证资料和进场复验报告。"
+   }
+  },
+  {
+   "id": "ocr-6",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 197,
+    "bbox": [
+     47.5,
+     220,
+     293,
+     236.5
+    ],
+    "element_id": "e002748",
+    "original_sha256": "0bc9756331c432320e0e53729415390a75fc3b32cf57cf83a188729006130875",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "F.0.4 管道内有结露现象时，不宜进行渗漏水检测。"
+   }
+  },
+  {
+   "id": "ocr-7",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 56,
+    "bbox": [
+     46.5,
+     425.5,
+     247.5,
+     437
+    ],
+    "element_id": "e000739",
+    "original_sha256": "9459f5ccaace96a30d8b5e98963fdab2e604446bca80bc54bd29336551757ec5",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "7.4.4 旋流沉砂池的设计应符合下列规定："
+   }
+  },
+  {
+   "id": "ocr-8",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 16,
+    "bbox": [
+     58,
+     402.5,
+     307.5,
+     414.5
+    ],
+    "element_id": "e000143",
+    "original_sha256": "5d2aec100ab8f96f6ddbab989da6a13fe928e63b3127dd44398d68d53d437293",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3.1.18 工程应经过竣工验收合格后，方可投入使用。"
+   }
+  },
+  {
+   "id": "ocr-9",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 31,
+    "bbox": [
+     53,
+     154.5,
+     349.5,
+     170
+    ],
+    "element_id": "e000444",
+    "original_sha256": "e3d3133530c5a25b15e1bbfdda5f4af85f1471f6585b7164fb531b14a1f2a79d",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "6.3.8 隧道调蓄工程的总体布置和设计应符合现行国家标准《城\n镇雨水调蓄工程技术规范》GB51174的有关规定。"
+   }
+  },
+  {
+   "id": "ocr-10",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 100,
+    "bbox": [
+     74.5,
+     62,
+     351,
+     77
+    ],
+    "element_id": "e001417",
+    "original_sha256": "e0a7ec3fa4bf81934498fd05736a3409f4227440895893ceb5652a490c79f7e9",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1 根据注浆目的选择浆液材料，沉降量控制要求较高的工\n程不宜用惰性浆液；浆液的配合比及性能应经试验确定；"
+   }
+  },
+  {
+   "id": "ocr-11",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 88,
+    "bbox": [
+     83.45571039763975,
+     492.5,
+     359,
+     508
+    ],
+    "element_id": "e001221",
+    "original_sha256": "1bbbeeedfb61d07fa0c25959c7d23009d5bc5c7fbcb91f48d5ca16ee1f702bab",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1 应根据土质条件、周围环境控制要求、顶进方法、各项\n顶进参数和监控数据、顶管机工作性能等，确定顶进、开挖、出"
+   }
+  },
+  {
+   "id": "ocr-12",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 83,
+    "bbox": [
+     86.5,
+     504.5,
+     256,
+     517
+    ],
+    "element_id": "e001189",
+    "original_sha256": "24ae23de10b97a1cfedabb252c4de902cd5757b79da17e98c769800bfafff576",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "1)空床接触时间宜为20min~30min。"
+   }
+  },
+  {
+   "id": "ocr-13",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 99,
+    "bbox": [
+     53,
+     60,
+     311.5,
+     74.5
+    ],
+    "element_id": "e001396",
+    "original_sha256": "fdb7f338543a3d4e9b16c1b03676e6fd2adb0bb512a9576d286393a0b5a1dccc",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "贯通测量不少于一次；曲线管道还应增加贯通测量次数；"
+   }
+  },
+  {
+   "id": "ocr-14",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+    "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+    "physical_page": 8,
+    "bbox": [
+     70.5,
+     389.5,
+     346.5,
+     402.5
+    ],
+    "element_id": "e000076",
+    "original_sha256": "03fc0376d5a174dc66ec47877bddb07870672df7e99294b3d3847cb82202dbeb",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "5 管道检测设备的安全性能，应符合爆炸性气体环境用电\n气设备的有关规定。"
+   }
+  },
+  {
+   "id": "ocr-15",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 74,
+    "bbox": [
+     81,
+     372.5,
+     356.5,
+     386
+    ],
+    "element_id": "e000966",
+    "original_sha256": "458938151702a1dfe67fa064977351f622c6f319ee7844a1c6487ca1d883fbae",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "检查方法：逐个检查；检查产品质量合格证明书、检验\n报告。"
+   }
+  },
+  {
+   "id": "ocr-16",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 45,
+    "bbox": [
+     44.70634460449219,
+     87,
+     341.5,
+     102.3056640625
+    ],
+    "element_id": "e000359",
+    "original_sha256": "79aed672913d19c280c309c0e1db08cda2d54d5f80fbeec804629e8f7877a4f9",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "污水深度处理的规划用地指标按混凝、沉淀（或澄清）、过\n滤、膜技术、曝气、消毒等目前主流处理技术路线考虑。规划时\n可根据区域特征及再生水回用目标酌情调整。"
+   }
+  },
+  {
+   "id": "ocr-17",
+   "verdict": "minor",
+   "note": "ADF——旱天日均流量监测值（m³/d)；",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 19,
+    "bbox": [
+     115,
+     699,
+     382.5,
+     717
+    ],
+    "element_id": "e000223",
+    "original_sha256": "6d097753105e9dfd4b2b939b1432b1340d245e25c48375157c31d1d5780c681a",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "ADF—旱天日均流量监测值（m³/d)；"
+   }
+  },
+  {
+   "id": "ocr-18",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 22,
+    "bbox": [
+     48,
+     62,
+     158,
+     73
+    ],
+    "element_id": "e000315",
+    "original_sha256": "0a273d228a7c9fc8219afeb5b6a2ee50b928c992a844726dd222c0b92656def3",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "和景观要求等因素确定。"
+   }
+  },
+  {
+   "id": "ocr-19",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 58,
+    "bbox": [
+     55.5,
+     300.6720886230469,
+     352.5,
+     313.07830810546875
+    ],
+    "element_id": "e000480",
+    "original_sha256": "3bf1d3241b472a926390408bdba7b03e590b2e3e7295629034afdddcb506c425",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "4.2.1针对雨水系统，当预判发现区域存在雨污混接、外水入渗\n和水体水倒灌时，要对该区域所有涉及的排水口进行实地查看，查\n看雨水排水口旱天是否有污水排出；当排水口被水体淹没时，则需\n要实地查看排水口临近的排水检查井旱天的水流特征。结合排水\n口现场踏勘、调研等方式初步调查排水口旱天水质情况，并对排水\n口状况进行区分。针对污水系统，需要对泵站、泵站相邻的检查井\n和污水处理厂进行实地调查，并为后续的调查提供依据。"
+   }
+  },
+  {
+   "id": "ocr-20",
+   "verdict": "error",
+   "note": "这句应该不要：所以调查水体水会通过排水口倒灌进入雨水管飞截流管，",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 59,
+    "bbox": [
+     44,
+     362.5,
+     340,
+     374.5
+    ],
+    "element_id": "e000488",
+    "original_sha256": "7321a7cd8090dabbd0e58d0661d301ed3fb62824167c18de342f2693b3cfdbf6",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "4.2.5 水体水会通过排水口倒灌进入雨水管、截流管，所以调查水体水会通过排水口倒灌进入雨水管飞截流管，所以调查\n排水口与水体水位的关系非常重要。在排水口被淹没的情况下，\n倒灌水通过雨污混接点、截流管与污水系统的连接处进入污水管、\n污水泵站、污水处理厂。需要注意的是，水体水倒灌不仅发生在排\n水系统末端，也会发生在河、湖附近的企事业单位和居住小区内\n部，当发现企事业单位和居住小区污水浓度低于正常值时，也需要\n进一步调查企事业单位和居住小区内部水体水倒灌。"
+   }
+  },
+  {
+   "id": "ocr-21",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 234,
+    "bbox": [
+     93.04832078817304,
+     326,
+     263.5,
+     339
+    ],
+    "element_id": "e003078",
+    "original_sha256": "bce2bcf8bf2d609ccba9c907ab32eafe44cf85dd61218462f20e0068cba74b3d",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1）时态曲线的变化没有变缓的趋势；"
+   }
+  },
+  {
+   "id": "ocr-22",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 93,
+    "bbox": [
+     89,
+     368,
+     347,
+     385.5
+    ],
+    "element_id": "e001308",
+    "original_sha256": "986a29dee8fc435bb5f0984467c276bf0dcb9c40a81e251811b3649abde4a9e7",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3）工作井中露出的混凝土管道端部应及时浇筑混凝土\n基础；"
+   }
+  },
+  {
+   "id": "ocr-23",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 77,
+    "bbox": [
+     89,
+     181.5,
+     228.5,
+     196
+    ],
+    "element_id": "e001022",
+    "original_sha256": "63fe880ea76c0669e6d62a083fe42a3155ce534231f4afd5c54de648b48e0d7d",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1）土层加固措施和开挖方案；"
+   }
+  },
+  {
+   "id": "ocr-24",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 33,
+    "bbox": [
+     69,
+     400.5,
+     345.5,
+     418.5
+    ],
+    "element_id": "e000424",
+    "original_sha256": "3c67279c09244b7c1f5fd30caae53be0212267cafa2c537b441a920b1c1535ab",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "检查方法：观察；按国家有关规范的规定和设计要求进行检\n查，检查检测报告。"
+   }
+  },
+  {
+   "id": "ocr-25",
+   "verdict": "minor",
+   "note": "[2]",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+    "file_name": "QXT 489－2019 降雨过程等级.pdf",
+    "physical_page": 11,
+    "bbox": [
+     85.5,
+     159.5,
+     461,
+     174
+    ],
+    "element_id": "e000056",
+    "original_sha256": "635515573d010cea0008556fea2fb1422c744ad89a874482d2a6b4177d985542",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "[2《大气科学辞典》编委会.大气科学辞典[M].北京：气象出版社，1994：677，408"
+   }
+  },
+  {
+   "id": "ocr-26",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 80,
+    "bbox": [
+     47.5,
+     442.5,
+     341.5,
+     452.5
+    ],
+    "element_id": "e001125",
+    "original_sha256": "662e2e54fa560d31aafc0c39d406be2a6cea7412bc514472303fca6ab5840998",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "7.9.20 鼓风机房内的机组布置和起重设备设置宜符合本标准第\n6.4.7条和第6.4.9条的规定。"
+   }
+  },
+  {
+   "id": "ocr-27",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 63,
+    "bbox": [
+     72.5,
+     335.5,
+     348.5,
+     352.5
+    ],
+    "element_id": "e000804",
+    "original_sha256": "c986a9367e4591797cc1d65da42970ed12ab88d6aa28c6a22dd1027bc2e27de6",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "检查方法：观察，检查地基处理强度或承载力检验报告、复\n合地基承载力检验报告。"
+   }
+  },
+  {
+   "id": "ocr-28",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 55,
+    "bbox": [
+     55.5,
+     204,
+     350.5,
+     215.5
+    ],
+    "element_id": "e000710",
+    "original_sha256": "b05d7ca0dbe896a974417ad7b380968ebfcb9cca702e16c3d1d00f5676f1848d",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "7.2.28 地下或半地下污水厂箱体内人员操作层的净空不应小于\n4.0m，并宜选用便于拆卸、重量较轻和便于运输的设备。"
+   }
+  },
+  {
+   "id": "ocr-29",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 65,
+    "bbox": [
+     87.5,
+     262,
+     339.5,
+     278
+    ],
+    "element_id": "e000899",
+    "original_sha256": "1cb60bde7704ac9cbd33795feef92226ef1fe7cf2d2e7405bccc508fb0b3f0dc",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "X——生物反应池内混合液悬浮固体平均浓度(gMLSS/L)；"
+   }
+  },
+  {
+   "id": "ocr-30",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 72,
+    "bbox": [
+     71.94457792899978,
+     462,
+     348,
+     475.5
+    ],
+    "element_id": "e000937",
+    "original_sha256": "99b3490d30c61598bd63f9cdaaedfd840dc3badf52fb9cb9207f1194e17c29f3",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "6 管道沿曲线安装时，接口转角应符合本规范第5.6.9、\n5.7.5条的相关规定；"
+   }
+  },
+  {
+   "id": "ocr-31",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 62,
+    "bbox": [
+     54,
+     200,
+     214.5,
+     212.5
+    ],
+    "element_id": "e000787",
+    "original_sha256": "d592166c45de250b09a0f524bcb56762dea9017e68cd7d4ef73116dc00d178f9",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "5.9.2 管道铺设应符合下列规定："
+   }
+  },
+  {
+   "id": "ocr-32",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 134,
+    "bbox": [
+     66,
+     94.5,
+     336.5,
+     108
+    ],
+    "element_id": "e001951",
+    "original_sha256": "e251e88974fd312c2dcde235f6e5ddf1bcdbac8a23253d6cfe79928b8d12eb39",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "8 夯管贯通后的管道的允许偏差应符合表6.7.13的规定。"
+   }
+  },
+  {
+   "id": "ocr-33",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 110,
+    "bbox": [
+     96.5,
+     233,
+     353.5,
+     247.5
+    ],
+    "element_id": "e001611",
+    "original_sha256": "5db7789e0900a59705d26ee727dc69eb75a9733de17ec0972914f55472d395ac",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2）第一根钻杆入土钻进时，应采取轻压慢转的方式，\n稳定钻进导入位置和保证入土角；且入土段和出土\n段应为直线钻进，其直线长度宜控制在20m左右；"
+   }
+  },
+  {
+   "id": "ocr-34",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 22,
+    "bbox": [
+     80.57792728047976,
+     214.5,
+     345.5,
+     227.5
+    ],
+    "element_id": "e000231",
+    "original_sha256": "f73b6a22e0ae67b665e14b30738c5cc552dee92a3dfe6b02437a1979b2545a71",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2 在地下水补给方向可加密，在地下水排泄方向可减少。"
+   }
+  },
+  {
+   "id": "ocr-35",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 110,
+    "bbox": [
+     96.5,
+     202,
+     353.5,
+     216.5
+    ],
+    "element_id": "e001610",
+    "original_sha256": "292a3fe77207ec1b6ea3d7beb7f8edcba73ec8923256ec9f75f7fd2e9f521d56",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1）钻机必须先进行试运转，确定各部分运转正常后方\n可钻进；"
+   }
+  },
+  {
+   "id": "ocr-36",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 34,
+    "bbox": [
+     48.5,
+     501,
+     198.5,
+     513
+    ],
+    "element_id": "e000265",
+    "original_sha256": "ee4a5eb6fdf0a9f4ede82c2a21a56b229bebcdd9eb7179a9cf8db9203a22ea51",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2.0.4 本条是防涝系统的定义。"
+   }
+  },
+  {
+   "id": "ocr-37",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 37,
+    "bbox": [
+     71.5,
+     259.5,
+     348,
+     275
+    ],
+    "element_id": "e000454",
+    "original_sha256": "bae2b99fd8039fec1d1a53f08b207ba8722f97f930f73a1677b248fa3675b973",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "金属管、化学建材管及管件吊装时，应采用柔韧的绳索、兜\n身吊带或专用工具；采用钢丝绳或铁链时不得直接接触管节。"
+   }
+  },
+  {
+   "id": "ocr-38",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 75,
+    "bbox": [
+     68,
+     85.5,
+     343,
+     96.875
+    ],
+    "element_id": "e000609",
+    "original_sha256": "52ebe1a1cf9166ccb1b25eec6dfe335f1d9fc8f4fd2e5ead9b7421455058c9c3",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "从近年来黑臭水体的治理工程案例来看，采用重力截流方式\n的截流式分流制系统倒灌现象十分严重。另外，在污水系统运行\n水位较高时，污水也可能通过截流系统排入河道水体。因此，建议\n将截流方式由重力方式改为水泵提升方式，并采取措施防止河水\n倒灌进入截流系统。"
+   }
+  },
+  {
+   "id": "ocr-39",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 179,
+    "bbox": [
+     46.5,
+     484.5,
+     241,
+     500.5
+    ],
+    "element_id": "e002634",
+    "original_sha256": "2beb6698535ee54c6894cd4af81f37bfbfa6d234d8cbc008af5ea82cba16cfd6",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "9.5.3 管道冲洗与消毒应符合下列规定："
+   }
+  },
+  {
+   "id": "ocr-40",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 38,
+    "bbox": [
+     73,
+     106.05332946777344,
+     348.5,
+     117.15526580810547
+    ],
+    "element_id": "e000290",
+    "original_sha256": "41242b312444084f2d900b1dcfa31bdd5f4e41d82478c6e6b4eea32a7058c3cf",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "保护城市环境、防治水体污染应从全流域着手。规划城市水体\n上游的污水应就地处理达标排放，如无此条件，在允许的情况下可\n接入规划城市进行统一处理。规划城市产生的污水应处理达标后排\n入水体，但不应影响水体下游的现有城市或远景规划城市的建设和\n发展，排水工程规划应促进全流域的系统治理和可持续发展。"
+   }
+  },
+  {
+   "id": "ocr-41",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 144,
+    "bbox": [
+     90.17053767101305,
+     197.5,
+     312,
+     214
+    ],
+    "element_id": "e002098",
+    "original_sha256": "4c369a22e03aabdf7e178bbb2db2a93905b8cdc1789ff46c1d0aec8192292e24",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1）垫层及管节施工应满足设计要求和有关规定；"
+   }
+  },
+  {
+   "id": "ocr-42",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 34,
+    "bbox": [
+     74,
+     178.5814971923828,
+     308.5,
+     191.25448608398438
+    ],
+    "element_id": "e000338",
+    "original_sha256": "fcdaa6d33f6e51960ab6e36ebc1d09cd6226e0d940c101ac5323679fa429f435",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3 分流制污水管道运行水位较改造前有明显降低；"
+   }
+  },
+  {
+   "id": "ocr-43",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 31,
+    "bbox": [
+     55,
+     62,
+     222.5,
+     72
+    ],
+    "element_id": "e000441",
+    "original_sha256": "19cfde97a9bd4eef0d1a0641549a041430004c24daa317040772c1fefdb48882",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "度较高的地区，可设置隧道调蓄工程。"
+   }
+  },
+  {
+   "id": "ocr-44",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
+    "file_name": "GBT 28592-2012降水量等级.pdf",
+    "physical_page": 2,
+    "bbox": [
+     104,
+     200,
+     411.5,
+     214
+    ],
+    "element_id": "e000012",
+    "original_sha256": "5a2600b3be1f25ec605d8b0167144d8719eb4025634588aab54fb1c252734a2b",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "本标准由全国气象防灾减灾标准化技术委员会(SAC/TC345)归口。"
+   }
+  },
+  {
+   "id": "ocr-45",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 103,
+    "bbox": [
+     85.5,
+     59.5,
+     343,
+     74
+    ],
+    "element_id": "e001464",
+    "original_sha256": "6f453d79bb0f5d8e41312abfffda7a21e87b79a4695aaa3ce27166d0d84ee8be",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4）注浆应有序，自一端起跳孔顺序注浆，并观察有无\n串孔现象，发生串孔时应封闭相邻孔；"
+   }
+  },
+  {
+   "id": "ocr-46",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 111,
+    "bbox": [
+     89.21127663195972,
+     491.5,
+     270.5,
+     507.5
+    ],
+    "element_id": "e001636",
+    "original_sha256": "0efaab1b2e98e78e0b934003c1db80df337a7950967084d51feccfa6b26e2e79",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "5）待回拖管表面及钢管外防腐层损伤；"
+   }
+  },
+  {
+   "id": "ocr-47",
+   "verdict": "error",
+   "note": "4）单位时间单位管长单位管径的DII量",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 38,
+    "bbox": [
+     121.35763758829195,
+     351.8274690634576,
+     418.5,
+     375
+    ],
+    "element_id": "e000366",
+    "original_sha256": "25fe4700ba88781d9f12f75dc3936c84b9b0565b56c9a01e01c9ef6604385249",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4）单位时间单位管长单位管径的DI量。"
+   }
+  },
+  {
+   "id": "ocr-48",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 59,
+    "bbox": [
+     75,
+     218.88000742806506,
+     350,
+     230.5
+    ],
+    "element_id": "e000782",
+    "original_sha256": "11cdaefbce6820456713397a9ef23bb1ec92c2709f4512708268b4fb15bceabc",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "5 周边进水周边出水辐流沉淀池应保证进水渠的均匀配水。"
+   }
+  },
+  {
+   "id": "ocr-49",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 240,
+    "bbox": [
+     82.97607987811308,
+     510,
+     359.5,
+     524.5
+    ],
+    "element_id": "e003144",
+    "original_sha256": "f85fa5408c4875385f811214b2dd5d595a58fecb53ef7729f1898042bd616fa5",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3 砂浆强度按每座构筑物工程内同品种同强度为同一验收"
+   }
+  },
+  {
+   "id": "ocr-50",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 136,
+    "bbox": [
+     66,
+     168.5,
+     343.5,
+     184.5
+    ],
+    "element_id": "e001970",
+    "original_sha256": "ebfaac827d232257326808968c66225ada1098652615f2c8b8e5fc3d0f9a9d37",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "5 钢管内、外防腐层施工应符合本规范第5章相关规定和\n设计要求；"
+   }
+  },
+  {
+   "id": "ocr-51",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+    "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+    "physical_page": 18,
+    "bbox": [
+     50.5,
+     184.5,
+     346.5,
+     197.5
+    ],
+    "element_id": "e000188",
+    "original_sha256": "5ebb5fe6fc946764e9f12e2145adce74b5c6dec83ece067835b4f043cdeb6a49",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "4.3.15 污水处理和再生水利用设施进出水处应设置水量计量和\n水质监测设备。化验检测设备的配置应满足正常生产条件下质量\n控制的需要。污水处理厂进水的水质监测点和化验取样点应设置\n在总进水口，并应避开厂内排放污水的影响；出水的水质监测点\n和化验取样点应设置在总出水口。"
+   }
+  },
+  {
+   "id": "ocr-52",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 22,
+    "bbox": [
+     82.5,
+     430.5,
+     253.5,
+     443.5
+    ],
+    "element_id": "e000239",
+    "original_sha256": "c099c861808f506864670c96bd17dc492606340f1c9bb2d745a1cea150a1d2f4",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2 沟槽形式、开挖方法及堆土要求；"
+   }
+  },
+  {
+   "id": "ocr-53",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 88,
+    "bbox": [
+     66.5,
+     395.04001340635426,
+     288.5,
+     407.5
+    ],
+    "element_id": "e001267",
+    "original_sha256": "43b11421c86eac5af2a6d5183e28c570e99be661be7f5741feca94de0fef6184",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "1 二级处理的出水宜为 15mJ/cm²~25mJ/cm²；"
+   }
+  },
+  {
+   "id": "ocr-54",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 23,
+    "bbox": [
+     56,
+     486.3893737792969,
+     356.7528076171875,
+     500.9067789713542
+    ],
+    "element_id": "e000204",
+    "original_sha256": "fd67d7194c2edbcf55f1a3ba1b8e6f46066689b1a3dded8a64003ac6c24f34c3",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "6.4.1 合流制污水处理厂的规模应按规划远期的合流水量确定。"
+   }
+  },
+  {
+   "id": "ocr-55",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 19,
+    "bbox": [
+     67.5,
+     126,
+     282,
+     138.56607055664062
+    ],
+    "element_id": "e000145",
+    "original_sha256": "27575a119e489502923e8d2eea021e23d0ffcb886640382cf930cc313620a845",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4 排水系统服务范围内各排水户的接管信息；"
+   }
+  },
+  {
+   "id": "ocr-56",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 41,
+    "bbox": [
+     70.5,
+     491,
+     348,
+     507.5
+    ],
+    "element_id": "e000518",
+    "original_sha256": "44b082db70449d2bd6ad26f1e6a18c75d7c03caa58285181dcd68d51405303f4",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "7 混凝土浇筑中应防止离析；浇筑后应进行养护，强度低\n于1.2MPa时不得承受荷载。"
+   }
+  },
+  {
+   "id": "ocr-57",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 11,
+    "bbox": [
+     76,
+     256,
+     350.5,
+     269
+    ],
+    "element_id": "e000078",
+    "original_sha256": "8283ef98c5573d1a27ce0e4cd27aff749c15f3b6f6f97523d99344eadf860b55",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "收集、输送、处理、再生和处置城镇污水的设施以一定方式组\n合成的总体。"
+   }
+  },
+  {
+   "id": "ocr-58",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+    "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+    "physical_page": 22,
+    "bbox": [
+     55.184704597224055,
+     408.20296279698204,
+     317.5,
+     419.23547530500855
+    ],
+    "element_id": "e000182",
+    "original_sha256": "99df36acae46965fd740d98a86c6039e1b8af13865c4314daeb8d749adbeb4e3",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "5.2.1市政道路雨水接出口晴天出流评价总分值为5分。"
+   }
+  },
+  {
+   "id": "ocr-59",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 21,
+    "bbox": [
+     68,
+     252.5,
+     345.5,
+     270.5
+    ],
+    "element_id": "e000214",
+    "original_sha256": "7fc8b768a0c5fa13d8d4174f3c8fe7523d67461ecc4e8f9f172444942aee0adc",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3 混合结构的矩形或拱形管渠，砌体的水泥砂浆强度应达\n到设计要求；"
+   }
+  },
+  {
+   "id": "ocr-60",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
+    "file_name": "GBT 28592-2012降水量等级.pdf",
+    "physical_page": 2,
+    "bbox": [
+     104,
+     216.47999560574712,
+     253.5,
+     230
+    ],
+    "element_id": "e000013",
+    "original_sha256": "7094f3ea5e76fa1290cf0c0c8880cae2e041feb0d260f7cafe1d1602937f3787",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "本标准起草单位：国家气象中心。"
+   }
+  },
+  {
+   "id": "ocr-61",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 161,
+    "bbox": [
+     71,
+     242.5,
+     348.5,
+     260.5
+    ],
+    "element_id": "e002354",
+    "original_sha256": "fb88fc1737d777b856005eae6ff043ae8119dc36249a216f6747d3edbd57e8a4",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4 砌块砌筑时，铺浆应饱满，灰浆与砌块四周粘结紧密、\n不得漏浆，上下砌块应错缝砌筑；"
+   }
+  },
+  {
+   "id": "ocr-62",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 99,
+    "bbox": [
+     72.5,
+     168.5,
+     286.5,
+     184
+    ],
+    "element_id": "e001401",
+    "original_sha256": "3001366727c2991daceb45be85444f094756852e130ccc5151e83df7a50acdcc",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3 盾构前方开挖面发生坍塌或地表隆沉严重；"
+   }
+  },
+  {
+   "id": "ocr-63",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 14,
+    "bbox": [
+     46.5,
+     77.5,
+     320,
+     90
+    ],
+    "element_id": "e000130",
+    "original_sha256": "8d4f508380ce597cd534a53f0372fc955a7ed38bae0178d5ebca299924253871",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2.0.27 表面硝化负荷surface nitrification loading rate"
+   }
+  },
+  {
+   "id": "ocr-64",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 48,
+    "bbox": [
+     47,
+     188,
+     342,
+     199.5
+    ],
+    "element_id": "e000617",
+    "original_sha256": "8fff85c5ee1c450786d9f19ca5fafd82c2ce2ed9553b8e0905cd941c690c542e",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "6.4.13 泵房内地面敷设管道时，应根据需要设置跨越设施。若\n架空敷设时，不得跨越电气设备和阻碍通道，通行处的管底距地面\n不宜小于2.0m。"
+   }
+  },
+  {
+   "id": "ocr-65",
+   "verdict": "error",
+   "note": "在基槽断面方向两侧可打两排短桩设置高程导轨，便于控制基础整平施工",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 145,
+    "bbox": [
+     78.17977468284643,
+     179.5,
+     355,
+     201
+    ],
+    "element_id": "e002110",
+    "original_sha256": "62e133a9090bc81504d44441006d36cc9233851814a4e4d20e5fbc29991903d3",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "5 沉管基槽浚挖及管基处理施工应符合本规范第7.2.4条\n和第7.2.5条的规定，采用砂石基础时厚度可根据施工经验留出\n压实虚厚，管节（段）沉放前应再次清除槽底回淤、异物；在基\n施工；槽断面方向两侧可打两排短桩设置高程导轨，便于控制基础整平"
+   }
+  },
+  {
+   "id": "ocr-66",
+   "verdict": "error",
+   "note": "第二排魏源源王社平出现了两次，第三排应该是从许光明开始，彭育蓉陈萌张杰重复了，第四排应该是王捷严瞿飞樊雪莲翟月娇解铭，后面也是重复的",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 5,
+    "bbox": [
+     78.4780044555664,
+     127.7199821472168,
+     341.03900146484375,
+     142
+    ],
+    "element_id": "e000029",
+    "original_sha256": "0c96be753d7c2d4433301e505e8afbdada539f837be69b25c58a6c35a77c5af6",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "主要起草人：唐建国徐祖信胡朱军尹海龙\n王红武庄敏捷魏源源张秀华王社平魏源源王社平\n彭育蓉陈萌张杰许光明杨宪云陈萌蓉张杰\n王捷严瞿飞樊雪莲翠月娇解铭严瞿飞樊雪莲翟月娇\n潘冉徐连军"
+   }
+  },
+  {
+   "id": "ocr-67",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 11,
+    "bbox": [
+     77.5,
+     390,
+     350,
+     400
+    ],
+    "element_id": "e000085",
+    "original_sha256": "97f80e87b5eaf7435a279fe3539c400109fcf99898aebe3a897497082088e664",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "通过降雨和地表径流冲刷，将大气和地表中的污染物带入受\n纳水体，使受纳水体遭受污染的现象，是城市面源污染的主要来\n源。"
+   }
+  },
+  {
+   "id": "ocr-68",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 44,
+    "bbox": [
+     88.73977452108305,
+     702.2149894131494,
+     482.5,
+     723.5
+    ],
+    "element_id": "e000413",
+    "original_sha256": "26d464348cf1c99afcc50c054e4efdd0273052aca98597bd15467f76b17a902f",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2采用特征因子法计算旱天入流入渗量时，一般采用污染\n物浓度的日均值。人工采样一般安排在早、中、晚时段开展3次\n采样，但获得的水质监测数据的代表性并不充分，尤其是无法与"
+   }
+  },
+  {
+   "id": "ocr-69",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 113,
+    "bbox": [
+     69,
+     184,
+     305,
+     203
+    ],
+    "element_id": "e001661",
+    "original_sha256": "75ed28dd583e3f15428c387179ac7a5a851ede592a4e483356f7c24913666240",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2 工作井洞口与管外壁之间进行封闭、防渗处理；"
+   }
+  },
+  {
+   "id": "ocr-70",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
+    "file_name": "GBT 28592-2012降水量等级.pdf",
+    "physical_page": 4,
+    "bbox": [
+     102.72000210669732,
+     275.03999441705787,
+     247,
+     292.79999405655377
+    ],
+    "element_id": "e000023",
+    "original_sha256": "cd638c84bab1c76196efaabf54b77c71f02f42048a15a32a68610de2fd67dda9",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "下列术语和定义适用于本文件。"
+   }
+  },
+  {
+   "id": "ocr-71",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 15,
+    "bbox": [
+     54.5,
+     208.5,
+     313.5,
+     223
+    ],
+    "element_id": "e000154",
+    "original_sha256": "69f8f15cbb875911d0419078f1876a4a498529c8e0beac32804bbc310460cfd6",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2.0.38 污泥综合利用sludge integrated application"
+   }
+  },
+  {
+   "id": "ocr-72",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 102,
+    "bbox": [
+     99.5,
+     155.5,
+     357.5,
+     170.5
+    ],
+    "element_id": "e001447",
+    "original_sha256": "2c4b5986f4a07dbc642902e6f304e8996c275eb681fcb986040c6a037d70299d",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4）混凝土达到规定的强度方可拆模；拆模和台车滑模\n移动时不得损伤已浇筑混凝土；"
+   }
+  },
+  {
+   "id": "ocr-73",
+   "verdict": "minor",
+   "note": "R——单位时间内每立方米物料通风量[m³/(min·m³)]",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 97,
+    "bbox": [
+     80.5,
+     312,
+     350.5,
+     326.5
+    ],
+    "element_id": "e001411",
+    "original_sha256": "33f07c516f95d46dbc02e8b9b7df3ab8eab44f3c122c1e51e4b08d9686216228",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "R—单位时间内每立方米物料通风量m³min·m³)，"
+   }
+  },
+  {
+   "id": "ocr-74",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 34,
+    "bbox": [
+     80,
+     72.47741859288145,
+     509,
+     94.0766492993693
+    ],
+    "element_id": "e000338",
+    "original_sha256": "4e1912df21458e61b2fbfb9dabb2a5860e14057a17ec42ea6bd5f3e7150a7a91",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "以是单独布设的降雨监测点数据，也可以是气象部门提供的满足\n评估要求的监测数据。"
+   }
+  },
+  {
+   "id": "ocr-75",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 109,
+    "bbox": [
+     54.5,
+     313,
+     325.5,
+     328
+    ],
+    "element_id": "e001618",
+    "original_sha256": "2cca88fe9e89182bda4a875564fd9af4a7eec9b74cf2be4883fd86bc12ead793",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "9.5.4 排水工程应设智能化应用系统，并宜符合下列规定："
+   }
+  },
+  {
+   "id": "ocr-76",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+    "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+    "physical_page": 2,
+    "bbox": [
+     65.5,
+     357.5,
+     347,
+     370.5
+    ],
+    "element_id": "e000008",
+    "original_sha256": "9e5de1aae276c1c57c6a7b7682ca8a6f575375203d5c37f8c983c4b99a2569a4",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "强制性工程建设规范实施后，现行相关工程建设国家标准、\n行业标准中的强制性条文同时废止。现行工程建设地方标准中的\n强制性条文应及时修订，且不得低于强制性工程建设规范的规\n定。现行工程建设标准（包括强制性标准和推荐性标准）中有关\n规定与强制性工程建设规范的规定不一致的，以强制性工程建设\n规范的规定为准。"
+   }
+  },
+  {
+   "id": "ocr-77",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 101,
+    "bbox": [
+     92.5,
+     510,
+     348.5,
+     522
+    ],
+    "element_id": "e001442",
+    "original_sha256": "d41cc4c032060afcc352b7fa29007300f5db4b0eb173feadb357704a55213153",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1）泵送导管应水平设置在顶部，插入深度宜为台车滑"
+   }
+  },
+  {
+   "id": "ocr-78",
+   "verdict": null,
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 87,
+    "bbox": [
+     55.67999914697854,
+     282.72000959458404,
+     350.5,
+     294.5
+    ],
+    "element_id": "e001244",
+    "original_sha256": "8bb90948d96e09e60ca04de4f899a17c2df70b8f5fc7efacb3871717a0b0550f",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "7.12.16人工湿地应综合考虑污水的悬浮物浓度、有机负荷、投\n配方式、填料粒径、植物、微生物和运行周期等因素进行防堵塞设\n计。"
+   }
+  },
+  {
+   "id": "ocr-79",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+    "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+    "physical_page": 28,
+    "bbox": [
+     75.5,
+     137.5,
+     348.5,
+     150.5
+    ],
+    "element_id": "e000246",
+    "original_sha256": "487ff34a22330650929c29f3f845cfd8b5e8567ea76f0def30d6a03c75d30ec5",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "1 为便于在执行本导则条文时区别对待，对要求严格程度\n不同的用词说明如下："
+   }
+  },
+  {
+   "id": "ocr-80",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+    "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+    "physical_page": 28,
+    "bbox": [
+     91.1747293345441,
+     233.60146049604023,
+     339,
+     246.5
+    ],
+    "element_id": "e000251",
+    "original_sha256": "39a9ecb35635b3f323bf6c01d9618fd183717b0f22c2eff674a5dd3c267db6c3",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "3）表示允许稍有选择，在条件许可时首先应这样做的：\n正面词采用“宜”，反面词采用”不宜”。"
+   }
+  },
+  {
+   "id": "ocr-81",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+    "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+    "physical_page": 10,
+    "bbox": [
+     92,
+     407,
+     506.5,
+     427
+    ],
+    "element_id": "e000068",
+    "original_sha256": "79c4e468c3a175d000db2095f20bb9579914733b3e574a4933d01031e36efa3a",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2.0.4 旱天入流入渗量 dry-weather infiltration and inflow"
+   }
+  },
+  {
+   "id": "ocr-82",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 85,
+    "bbox": [
+     85,
+     167.5,
+     343,
+     184
+    ],
+    "element_id": "e001159",
+    "original_sha256": "646d3a7ef6d5c442e0b001da8e5c9c60529e9eb7b584457c2b7cf708fcde9d75",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2）千斤顶的油路应并联，每台千斤顶应有进油、回油\n的控制系统；油泵应与千斤顶相匹配，并应有备用\n油泵；高压油管应顺直、转角少；"
+   }
+  },
+  {
+   "id": "ocr-83",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 89,
+    "bbox": [
+     55.5,
+     93,
+     350.5,
+     104.5
+    ],
+    "element_id": "e001276",
+    "original_sha256": "6fc23b6c1100f49e6524f942ea64aa6d36ee679c9f1dbc1cddcd122e573cff0e",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "7.13.9 污水厂出水的加氯量应根据试验资料或类似运行经验确\n定；当无试验资料时，可采用5mg/L～15mg/L，再生水的加氯量\n应按卫生学指标和余氯量确定。"
+   }
+  },
+  {
+   "id": "ocr-84",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 45,
+    "bbox": [
+     67.5,
+     388,
+     191.5,
+     400
+    ],
+    "element_id": "e000411",
+    "original_sha256": "a0e25645dbe2a3d7ee5961a596f7235be07fbc5b693a6b4d4613f64cc52e22b6",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "注：括号内的数字为颜色的索引号。"
+   }
+  },
+  {
+   "id": "ocr-85",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 48,
+    "bbox": [
+     47,
+     457.44001552400437,
+     342,
+     469
+    ],
+    "element_id": "e000623",
+    "original_sha256": "268979924012d8803fffe77972991193576314694e97c7e90c93886e867dbb9f",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "6.5.2 出水压力井的盖板必须密封，所受压力由计算确定。水泵\n出水压力井必须设透气筒，筒高和断面应根据计算确定。"
+   }
+  },
+  {
+   "id": "ocr-86",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 245,
+    "bbox": [
+     47,
+     492,
+     345,
+     506.5
+    ],
+    "element_id": "e003184",
+    "original_sha256": "068cd2bde4e6a2d17ba6b548c53092b76b878c182a9c3f5321be933101f8d02c",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "9.3.7 本规范规定：内径大于或等于1500mm 混凝土结构管\n道，包括顶管、有二次衬砌结构盾构或浅埋暗挖施工管道，当地"
+   }
+  },
+  {
+   "id": "ocr-87",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 236,
+    "bbox": [
+     59.47418442130648,
+     399.5,
+     355.5,
+     413
+    ],
+    "element_id": "e003109",
+    "original_sha256": "be77e928a0bd5b96b28a7df58e14b0ad42046fc8a07725958793286d34410e64",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "6.7.10中防水层材料指低密度聚乙烯（LDPE）卷材，采用其他\n卷材和涂膜施工防水层时，应按照现行国家标准《地下铁道工程\n施工及验收规范》GB50299的有关规定执行。"
+   }
+  },
+  {
+   "id": "ocr-88",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 213,
+    "bbox": [
+     71,
+     276.5,
+     347.5,
+     292
+    ],
+    "element_id": "e002870",
+    "original_sha256": "ae577f96a4ea2b57c79f2f0ad529042d9c1755242bdf31885c4bc7b7b935be54",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "第3款主要工程材料的进场验收和复验合格，试块、试件检\n验合格；"
+   }
+  },
+  {
+   "id": "ocr-89",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     60,
+     520,
+     285.4156799316406,
+     530.5
+    ],
+    "element_id": "e000136",
+    "original_sha256": "9bca4ddfd94e38c1d850786d48ed999bd4376d1dabd6ec452e7147d0f0f2134c",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "注：卫生防护距离为污水处理厂厂界至防护区外缘的最小距离。"
+   }
+  },
+  {
+   "id": "ocr-90",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 19,
+    "bbox": [
+     47.5,
+     86.5,
+     345,
+     103.5
+    ],
+    "element_id": "e000185",
+    "original_sha256": "c393e440e68a19b4d97dc66f1c22c82e81467485817101e5df30b89a8249800c",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3.2.9 验收批及分项工程应由专业监理工程师组织施工项目的\n技术负责人（专业质量检查员）等进行验收。"
+   }
+  },
+  {
+   "id": "ocr-91",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 37,
+    "bbox": [
+     56,
+     252.5,
+     281.5,
+     262.5
+    ],
+    "element_id": "e000449",
+    "original_sha256": "851ca2235ed676e77e76f5bc6f89ed0c5a13b56dbc777a39530a956f873b81ed",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "5.10.5立体交义道路排水系统宜控制径流污染。"
+   }
+  },
+  {
+   "id": "ocr-92",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 36,
+    "bbox": [
+     67,
+     489,
+     342,
+     500.5
+    ],
+    "element_id": "e000441",
+    "original_sha256": "5407ba26457a666c26766b4386e44df7fc5debd7a7c76bb682e4d1a6336e012d",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4 下穿立交道路的地面径流，具备自流条件的，可采用自流\n排除，不具备自流条件的，应设泵站排除。"
+   }
+  },
+  {
+   "id": "ocr-93",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+    "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+    "physical_page": 16,
+    "bbox": [
+     48,
+     113.38093948364258,
+     346,
+     126.77689361572266
+    ],
+    "element_id": "e000103",
+    "original_sha256": "d5fad0ee36e16507fb175cbe50d5b79b552131fbc683de598e8e7e3925b30d27",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "3.0.8 运营单位应按现行行业标准《城镇排水管渠与泵站运行、\n维护及安全技术规程》CJJ68的有关规定，加强排水管道的维护。"
+   }
+  },
+  {
+   "id": "ocr-94",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 190,
+    "bbox": [
+     56,
+     283.5,
+     351.5,
+     298
+    ],
+    "element_id": "e002686",
+    "original_sha256": "57d0c1eec742990b5e4c7b7484bf10ce0abf87c1a9f78dd879c425ed814e5cab",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "C.0.3 注水法试验应进行记录，记录表格宜符合表C.0.3的规定。"
+   }
+  },
+  {
+   "id": "ocr-95",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 21,
+    "bbox": [
+     55.5,
+     190.5,
+     350.5,
+     202
+    ],
+    "element_id": "e000217",
+    "original_sha256": "c30335a32fdd776734cc4f0e253b181015a85ce54dc79baf9c6f7b38c73cb99d",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4.1.6 当地区改建时，改建后相同设计重现期的径流量不得超过\n原径流量。"
+   }
+  },
+  {
+   "id": "ocr-96",
+   "verdict": "error",
+   "note": "7.5.10 平流沉淀池的设计应符合下列规定：",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 58,
+    "bbox": [
+     46.5,
+     313.5,
+     253.5,
+     328
+    ],
+    "element_id": "e000765",
+    "original_sha256": "ef417030c33b890fe04f74c9b699379f5c1e023b6a2d16e0cb05ff942a9b1d33",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "7.5.101 平流沉淀池的设计应符合下列规定："
+   }
+  },
+  {
+   "id": "ocr-97",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 106,
+    "bbox": [
+     105,
+     418,
+     362,
+     432.5
+    ],
+    "element_id": "e001536",
+    "original_sha256": "27dccebb7dd08dd2b0adb5291cfac59eebb8ddef25ebdfe2d214141a54ecc6fd",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1）衬垫材料应直顺，用垫圈固定，钉牢在基面上；固\n定衬垫的垫圈，应与防水卷材同材质，并焊接牢固；"
+   }
+  },
+  {
+   "id": "ocr-98",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 202,
+    "bbox": [
+     60,
+     259.5,
+     357.5,
+     274.5
+    ],
+    "element_id": "e002800",
+    "original_sha256": "69f0136963edf413ef3198b2cd2662f01e009ddc97385262903cc14ecca331ea",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "H.3.3 防腐层厚度应采用磁性测厚仪逐根测量。内防腐层检测\n距管口大于150mm范围内的两个截面，外防腐层随机抽取三个\n截面。每个截面测量上、下、左、右四点的防腐层厚度。所有结\n果符合表H.3.3规定或设计要求值为合格。"
+   }
+  },
+  {
+   "id": "ocr-99",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 79,
+    "bbox": [
+     56.5,
+     61.5,
+     184.5,
+     72.5
+    ],
+    "element_id": "e001106",
+    "original_sha256": "0f2bb42d5c229284827e9f2b5110578a1681ed9d220d5a5ee173b80d990f5ffc",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "性能及底部流速等技术参数。"
+   }
+  },
+  {
+   "id": "ocr-100",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 113,
+    "bbox": [
+     67.5,
+     340,
+     333.5,
+     357.5
+    ],
+    "element_id": "e001667",
+    "original_sha256": "3d0ba61bc10f0653a1b92b4394c8038bb95076b4cf55430e42cadd8de2d177eb",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2 定向钻施工时，应做好待回拖管段的检查、保护工作；"
+   }
+  },
+  {
+   "id": "ocr-101",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 64,
+    "bbox": [
+     74.5,
+     168.41257507169178,
+     303.60611886037907,
+     181.5
+    ],
+    "element_id": "e000815",
+    "original_sha256": "7c40f75cadc445b4d8783c9986ef5569abb69814bd04283b8ff041e691dc0180",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "6 管道基础的允许偏差应符合表5.10.1的规定。"
+   }
+  },
+  {
+   "id": "ocr-102",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 72,
+    "bbox": [
+     45.5,
+     315,
+     274.5,
+     329.5
+    ],
+    "element_id": "e000994",
+    "original_sha256": "49bd2c9530b6367eb2c824a1686ebcb1e8ce16379720f4e9aee97398a548985f",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "7.6.46 膜生物反应器工艺应设置化学清洗设施。"
+   }
+  },
+  {
+   "id": "ocr-103",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 17,
+    "bbox": [
+     52,
+     401.5,
+     349,
+     413
+    ],
+    "element_id": "e000134",
+    "original_sha256": "05ecd0d0307d694603d25db2b6e0dfaa1d5fa8dbacf2265bbabfcec3bd055707",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4.4.4 污水处理厂应设置卫生防护用地，新建污水处理厂卫生\n防护距离，在没有进行建设项目环境影响评价前，根据污水处理\n厂的规模，可按表4.4.4控制。卫生防护距离内宜种植高大乔\n木，不得安排住宅、学校、医院等敏感性用途的建设用地。"
+   }
+  },
+  {
+   "id": "ocr-104",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 37,
+    "bbox": [
+     73,
+     265,
+     282.5,
+     279
+    ],
+    "element_id": "e000513",
+    "original_sha256": "264202aed535fa0c5ac800583b56114dc623afd3ee8da5115dc755bb29febcd3",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2 主要河流、雨水行泄通道和汇水分区划分；"
+   }
+  },
+  {
+   "id": "ocr-105",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 96,
+    "bbox": [
+     95.44647338580637,
+     368.5,
+     316.5,
+     380.5
+    ],
+    "element_id": "e001355",
+    "original_sha256": "94f915d70761c7e86854856cdb4b9fc7ff2ac0370bfc03f52e90def4f4be0f15",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1）应按垂直立管的管节组对编号顺序依次进行；"
+   }
+  },
+  {
+   "id": "ocr-106",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+    "file_name": "城镇内涝防治技术规范.pdf",
+    "physical_page": 19,
+    "bbox": [
+     73,
+     218.5,
+     299,
+     232
+    ],
+    "element_id": "e000268",
+    "original_sha256": "d711239aed913a5837577983eda7142924433b0467ab7ed7dadc4190931e06fd",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3检查井之间的管道敷设坡度宜为0.01~0.02；"
+   }
+  },
+  {
+   "id": "ocr-107",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 99,
+    "bbox": [
+     73,
+     292.5,
+     349.5,
+     306.5
+    ],
+    "element_id": "e001408",
+    "original_sha256": "b1d672b9199096f81f6a522770d7681a2be69aaf02fa655e242d05299a4d0677",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3 拼装前应清理盾尾底部，并检查拼装机运转是否正常；\n拼装机在旋转时，操作人员应退出管片拼装作业范围；"
+   }
+  },
+  {
+   "id": "ocr-108",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 60,
+    "bbox": [
+     48.5,
+     245,
+     207.5,
+     255
+    ],
+    "element_id": "e000496",
+    "original_sha256": "3f50a3f8f389a6ef24dc4a90510802b09b276f400872d391eb0c31153704820a",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "7.0.2 本条规定监控内容和要求。"
+   }
+  },
+  {
+   "id": "ocr-109",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+    "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+    "physical_page": 11,
+    "bbox": [
+     68,
+     266.21932356324913,
+     340,
+     278
+    ],
+    "element_id": "e000052",
+    "original_sha256": "56989bd9fbbdd4b6a7e843e4bd137518b4447b460a7964753a8b76cb4bef571a",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "按照雨水排水口或污水主干管接入口服务范围划分所形成\n的区域。"
+   }
+  },
+  {
+   "id": "ocr-110",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 141,
+    "bbox": [
+     102,
+     72.5,
+     360,
+     88
+    ],
+    "element_id": "e002050",
+    "original_sha256": "16a3225785cbaaeec35c76d6ee3c5bdcf3fcf0d7c0fa79912d13ff313471afce",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "6）应采取措施防止管道（段）产生超过允许的轴向扭\n曲、环向变形、纵向弯曲等现象，并避免外力损伤；"
+   }
+  },
+  {
+   "id": "ocr-111",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+    "file_name": "城市排水工程规划规范.pdf",
+    "physical_page": 53,
+    "bbox": [
+     67.5,
+     203.07838439941406,
+     344,
+     216
+    ],
+    "element_id": "e000434",
+    "original_sha256": "9a3144880b921bcd98fb5df877c5b84d1e02f95a46f6cda5179e086adaec0a53",
+    "vote": "disagree",
+    "usage_policy": "answer_and_citation",
+    "content": "最早的排水管网模型是1971年在美国环保署（USEPA）的\n支持下，由梅特卡夫一埃迪公司（M&E）、美国水资源公司\n（WRE）和佛罗里达大学（UF）等联合开发的 SWMM模型\n(Storm Water Management Model)。 SWMM 曾在美国二十多个\n城市使用，解决当地排水流域的水量、水质问题，并且在加拿\n大、欧洲和澳大利亚也有广泛应用，主要用于进行合流管道溢流\n的复杂水力分析，以及许多城市暴雨管理规划和污染消减等工\n程，在我国也有很多应用实践。随后，各种城市排水模型相继问\n世，包括美国的 ILLUDAS 模型(Illinois Urban Drainage Area\nSimulator)、美国陆军工程兵团水文工程中心开发的 STORM模\n型(Storage Treatment Overflow Runoff Model)、英国沃林福特\n水力研究公司（HR Wallingford） 开发的 Infoworks 模型和丹麦\n水力研究所（DHI）开发的Mouse 模型等。"
+   }
+  },
+  {
+   "id": "ocr-112",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 90,
+    "bbox": [
+     96,
+     137,
+     352.5,
+     151.5
+    ],
+    "element_id": "e001240",
+    "original_sha256": "b33eb90c3f554158317e7fcbfeb6e3944c8a84af482bfc5699d1d42f9919413b",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "3）全段顶完后，应在每个管节接口处测量其水平轴线\n和高程；有错口时，应测出相对高差；"
+   }
+  },
+  {
+   "id": "ocr-113",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 85,
+    "bbox": [
+     83.5,
+     461,
+     341,
+     476.5
+    ],
+    "element_id": "e001168",
+    "original_sha256": "8b740035d4cb74ee427cd35633bc5dd55d4d3d1c9a385c7da372c8ff70015c88",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "1）根据运输和进入工作井吊装条件，盾构可整体或解\n体运入现场，吊装时应采取防止变形的措施；"
+   }
+  },
+  {
+   "id": "ocr-114",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 22,
+    "bbox": [
+     59,
+     167.5,
+     261.5,
+     181
+    ],
+    "element_id": "e000229",
+    "original_sha256": "c7e3a3d3c49c5cd53bc4e21e7034ff120b053c902a45b1964b4254d6714ea473",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4.2.3 降水井的平面布置应符合下列规定："
+   }
+  },
+  {
+   "id": "ocr-115",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 82,
+    "bbox": [
+     47,
+     378.5,
+     221.5,
+     390
+    ],
+    "element_id": "e001159",
+    "original_sha256": "af8994953d5b4fabdef43bb9a204f1351af1cb6673673f2d08180d0cc4b73942",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "7.11.7 滤池的设计宜符合下列规定："
+   }
+  },
+  {
+   "id": "ocr-116",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 57,
+    "bbox": [
+     49,
+     221.5,
+     346.5,
+     244
+    ],
+    "element_id": "e000717",
+    "original_sha256": "ce73fdd073b9380d2191edb477854b17961091bddba919c57843cccaa2978192",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "5.6.7 刚性接口的钢筋混凝土管道，钢丝网水泥砂浆抹带接口材料应符合下列规定："
+   }
+  },
+  {
+   "id": "ocr-117",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+    "file_name": "QXT 489－2019 降雨过程等级.pdf",
+    "physical_page": 10,
+    "bbox": [
+     86.5,
+     166,
+     529,
+     178
+    ],
+    "element_id": "e000048",
+    "original_sha256": "350dfa9be9c547ea4bc251a4b54a7588c7550116c61797ca1a40b5a661e05417",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "区域可分为省(自治区、直辖市)、跨省(自治区、直辖市)或相当面积的地域范围，区域内站点包括县\n级以上国家级地面气象观测站和区域自动站。区域日降雨等级划分以单站日降雨量等级为依据，按照\n区域内达到某等级的站点百分比确定，见表2。若同时满足不同等级标准，则按照最强一级划定区域日\n降雨等级。"
+   }
+  },
+  {
+   "id": "ocr-118",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 67,
+    "bbox": [
+     75,
+     252.0000085520486,
+     334.5,
+     264
+    ],
+    "element_id": "e000918",
+    "original_sha256": "9c593b5288253d8e4dc5e9d212ce512f2aa5d19b9400338d6536ec5af2c0bd4c",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "4 采用生物除磷处理污水时，剩余污泥宜采用机械浓缩。"
+   }
+  },
+  {
+   "id": "ocr-119",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+    "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+    "physical_page": 80,
+    "bbox": [
+     47.5,
+     62,
+     341.5,
+     72.5
+    ],
+    "element_id": "e001120",
+    "original_sha256": "6f377f71bdec004ababd8f6e947d7d12a8cd29a97f3e323930d6dbc1b305f45d",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "7.9.15 鼓风机的台数应根据供气量确定；供气量应根据污水\n量、污染物负荷变化、水温、气温、风压等确定。可采用不同风量\n的鼓风机，但不应超过两种。工作鼓风机台数，按平均风量供气\n量配置时，应设置备用鼓风机。工作鼓风机台数小于或等于4\n台时，应设置1台备用鼓风机；工作鼓风机台数大于或等于5台\n时，应设置2台备用鼓风机。备用鼓风机应按设计配置的最大\n机组考虑。"
+   }
+  },
+  {
+   "id": "ocr-120",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "ocr",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 12,
+    "bbox": [
+     56,
+     275.4097381514276,
+     208,
+     290
+    ],
+    "element_id": "e000084",
+    "original_sha256": "f4c7ebfab4672e3b3b717262d68c0639267d68aa52fdac315e15fdc648fa9ada",
+    "vote": "majority",
+    "usage_policy": "answer_and_citation",
+    "content": "2.0.13 盾构法 shield method"
+   }
+  },
+  {
+   "id": "layer-1",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+    "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+    "physical_page": 6,
+    "bbox": [
+     110.75900268554688,
+     578,
+     514.4346313476562,
+     597.6800537109375
+    ],
+    "element_id": "e000025",
+    "original_sha256": "2de01180f408f89e770b73f6bdd7f3741feb00b34ae8ae7fac59f06f6f6e3ac1",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "——到2035 年，城市生活污水收集管网基本全覆盖，城镇污\n水处理能力全覆盖，全面实现污泥无害化处置，污水污泥资源化\n利用水平显著提升，城镇污水得到安全高效处理，全民共享绿\n色、生态、安全的城镇水生态环境。"
+   }
+  },
+  {
+   "id": "layer-2",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 51,
+    "bbox": [
+     89.87999725341797,
+     71.90169525146484,
+     247.3526153564453,
+     90.35025787353516
+    ],
+    "element_id": "e000409",
+    "original_sha256": "22a24ec3b70bced5d74877c09241acfd74db8c5278767145f7da2b51f240ae93",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "以免污水系统臭气外逸。"
+   }
+  },
+  {
+   "id": "layer-3",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 8,
+    "bbox": [
+     56.66111755371094,
+     328.8305969238281,
+     519.6304931640625,
+     386.1819152832031
+    ],
+    "element_id": "e000068",
+    "original_sha256": "a7336322dca2e8eee7461a2a7190e9d6159fe134d6ccd4db2d0d2db7eba5dd80",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "5.2.1 有下列现象之一的，可预判为调查区域或者建筑内有管道混错接或者管道漏接可能：\n—— 污水厂进水水质浓度明显降低；\n—— 旱天雨水泵站集水井明显有污水流入或雨天污水泵站抽排量明显增加；\n—— 旱天雨水管道内明显有非人为原因导致的污水排出或有污水流动，雨天或河道水位高时污水"
+   }
+  },
+  {
+   "id": "layer-4",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+    "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+    "physical_page": 2,
+    "bbox": [
+     110.75900268554688,
+     521.0599975585938,
+     514.4400024414062,
+     537.9199829101562
+    ],
+    "element_id": "e000011",
+    "original_sha256": "438315512f7bd419c821960693a16ce3fea6f527391e49b30c9fd560e59402e4",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "（二）补齐城镇污水收集管网短板。将城镇污水收集管网建设\n作为补短板的重中之重。新建污水集中处理设施，必须合理规划建\n设服务片区污水收集管网，确保污水收集能力。中央预算内资金不\n再支持收集管网不配套的污水处理厂新改扩建项目。城市和县城要\n加快城中村、老旧城区、城乡结合部和易地扶贫搬迁安置区的生活\n污水收集管网建设，加快消除收集管网空白区。结合老旧小区和市\n政道路改造，推动支线管网和出户管的连接建设，补上“毛细血管”，\n实施混错接、漏接、老旧破损管网更新修复，提升污水收集效能。"
+   }
+  },
+  {
+   "id": "layer-5",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+    "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+    "physical_page": 55,
+    "bbox": [
+     113.41999816894531,
+     444.28033447265625,
+     525.2836303710938,
+     460.2403564453125
+    ],
+    "element_id": "e000286",
+    "original_sha256": "4e90e796f0cb53f1ec3f1a4179c9f61a0859bb061d2a6e5be779959c134eab9e",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "坚持源头改造优先的原则，采取管理与工程相结合的措\n施，系统开展旱天污水直排治理工作。结合城市更新等工作\n同步制定源头改造方案，加快推进整改。采取末端截污措施\n的，应统筹考虑下游污水处理能力和污水管网系统关键节点\n（干管、泵站等）的转输能力。"
+   }
+  },
+  {
+   "id": "layer-6",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7",
+    "file_name": "“十四五”全国城市基础设施建设规划.pdf",
+    "physical_page": 9,
+    "bbox": [
+     117,
+     297.62420654296875,
+     510.2241516113281,
+     313.57421875
+    ],
+    "element_id": "e000048",
+    "original_sha256": "8859e2c69cdf0b8dff814eaa2e338e41f96dd8918d147edcfe6b7bcb22e3426d",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "3.统筹城乡基础设施建设。构建覆盖城乡的基础设施体系\n以及生态网络体系，促进城乡基础设施的衔接配套建设，提高\n一体化监管能力。推动联接城市中心区、县城、镇之间公路完\n善升级，城市燃气管网延伸布局，农村电网基础设施升级，农\n宅清洁取暖改造，城乡垃圾集中处置等，鼓励有条件的地区推\n行城乡统筹区域供水。推进以县城为重要载体的城镇化建设，\n有条件的地区按照小城市标准建设县城，加快县城基础设施补\n短板强弱项。"
+   }
+  },
+  {
+   "id": "layer-7",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+    "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+    "physical_page": 5,
+    "bbox": [
+     70.8239974975586,
+     508.7989501953125,
+     538.8845825195312,
+     534.9589233398438
+    ],
+    "element_id": "e000028",
+    "original_sha256": "bf08d42c677e183abefc5ec844cd5736ae12e778d6861435c639699a95a653cd",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。"
+   }
+  },
+  {
+   "id": "layer-8",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "76b7035435a3dd5d51104c77a5996e47a4deabe9fbfe0d8b6b504fbd4844cada",
+    "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+    "physical_page": 3,
+    "bbox": [
+     84,
+     64.125,
+     501.5998229980469,
+     78.5250015258789
+    ],
+    "element_id": "e000013",
+    "original_sha256": "1b6ff4b59b3f2c26d6b73f0f6de328b2cd2e8913ec92cd735ebeaa081f28ea53",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "快速净化设施，结合本地实际明确排放管控要求。加强工业园区和\n工业企业雨水排口监管，降低雨季排污环境影响。"
+   }
+  },
+  {
+   "id": "layer-9",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 17,
+    "bbox": [
+     71.02560424804688,
+     710.9795532226562,
+     538.92333984375,
+     768.3308715820312
+    ],
+    "element_id": "e000262",
+    "original_sha256": "91722457354214fe0dbffbe4d5a7456d456a9cadf637f744c04f98178530b934",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "8.2.2 应对管道混错接改造工程提交的资料进行验收，根据提交的资料情况，进行验收打分，资料验\n收应包括以下内容："
+   }
+  },
+  {
+   "id": "layer-10",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+    "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+    "physical_page": 8,
+    "bbox": [
+     110.75900268554688,
+     491.6600036621094,
+     514.5576782226562,
+     508.52001953125
+    ],
+    "element_id": "e000035",
+    "original_sha256": "dca097ddac1ed563d6e32961408ebf6b4ee0bb3fc72d39f510cb3b5d56cad4d9",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "关于合流制溢流污染控制。合流制排水区因地制宜采取源头\n改造、溢流口改造、截流井改造、破损修补、管材更换、增设调\n蓄设施、雨污分流改造等工程措施，降低合流制管网雨季溢流污\n染，提高雨水排放能力，降低城市内涝风险。"
+   }
+  },
+  {
+   "id": "layer-11",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+    "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+    "physical_page": 6,
+    "bbox": [
+     452.5,
+     145.5290069580078,
+     529,
+     154.5290069580078
+    ],
+    "element_id": "e000031",
+    "original_sha256": "3d4f2441cee72a18b7ecb5dcabc22148990d3967d519e07b12fc59ca46c55503",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "单位：毫米（mm）"
+   }
+  },
+  {
+   "id": "layer-12",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "76b7035435a3dd5d51104c77a5996e47a4deabe9fbfe0d8b6b504fbd4844cada",
+    "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+    "physical_page": 3,
+    "bbox": [
+     112.796875,
+     492.625,
+     487.19671630859375,
+     507.0249938964844
+    ],
+    "element_id": "e000017",
+    "original_sha256": "80d2e5d7823eaa85ba4d888f4b36764a906f462ddb945958acc8aa9c48c67e25",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "（七）严格质量管控。各地要强化生活污水管网建设质量管\n理，严格实行工程质量终身负责制，督促建设、勘察、设计、施\n工、监理单位依法依规对管网工程质量负责，确保管网符合标准。\n相关单位应严格执行标准规范，严格组织管线工程验收，鼓励邀请\n管网运行维护单位参加验收。各地市场监管部门要运用好“双随\n机、一公开”监管方式，加强排水管材质量安全监管。"
+   }
+  },
+  {
+   "id": "layer-13",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+    "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+    "physical_page": 5,
+    "bbox": [
+     91.8239974975586,
+     290.37896728515625,
+     244.25,
+     300.93896484375
+    ],
+    "element_id": "e000021",
+    "original_sha256": "cd638c84bab1c76196efaabf54b77c71f02f42048a15a32a68610de2fd67dda9",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "下列术语和定义适用于本文件。"
+   }
+  },
+  {
+   "id": "layer-14",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "9cd414feedc5f1891657291e60bd8f7bda122605d61be87e4f79faeb81d7800b",
+    "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+    "physical_page": 106,
+    "bbox": [
+     79.94400024414062,
+     499.6896057128906,
+     284.5299987792969,
+     517.3573608398438
+    ],
+    "element_id": "e000627",
+    "original_sha256": "26410ecb9c7fc2907091f90f695bf29f12b74b7ea5c0fe530967cc469e484fae",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "5.3.1 强化排水管材质量管控"
+   }
+  },
+  {
+   "id": "layer-15",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+    "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+    "physical_page": 4,
+    "bbox": [
+     110.75900268554688,
+     726.8600463867188,
+     514.4395141601562,
+     743.7200317382812
+    ],
+    "element_id": "e000021",
+    "original_sha256": "869861b16b57f356a4be8dfaf1d9916f36c2fac7aade9978c422b3ce76c75e7c",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "（三）加大支持力度。要坚持“要素跟着项目走”“资金跟着"
+   }
+  },
+  {
+   "id": "layer-16",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 15,
+    "bbox": [
+     89.83775329589844,
+     416.2390441894531,
+     505.5172424316406,
+     430.335205078125
+    ],
+    "element_id": "e000098",
+    "original_sha256": "8223b6214117d00a11b7910e189a8a4ce1e4a1bebdaf0fcaff96e53a7a75ed16",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "【条文解释】通过混接预判后初步认定区域存在雨污混接现象后，应\n收集区域排水系统的基本资料，摸清雨水排放口的分布情况和位置，\n结合现场踏勘工作，基本做到可以识别混接区域，为后续的进一步调\n查奠定基础。"
+   }
+  },
+  {
+   "id": "layer-17",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+    "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+    "physical_page": 4,
+    "bbox": [
+     110.75900268554688,
+     462.2599792480469,
+     514.4400024414062,
+     479.1199951171875
+    ],
+    "element_id": "e000020",
+    "original_sha256": "3a7b71ef44bcffe7a8c5ba2e5eda9a907d1c1693ff77e2d48ff03093648c1dde",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "（二）完善收费政策。各地应按照补偿污水处理和运行成本的\n原则，合理制定污水处理费标准，并根据当地水污染防治目标要求，\n考虑污水排放标准提升和污泥无害化处置等成本合理增加因素动\n态调整。加大污水处理费征收力度，尽快实现应收尽收。各地在污\n水处理费标准调整到位前，应按规定给予补贴。污水处理收费应专\n项用于城镇污水处理设施建设、运行和污泥处置。各地征收的城市\n基础设施配套费等，应向污水管网和运行维护倾斜。推广按照污水\n处理厂进水污染物浓度、污染物削减量等支付运营服务费。鼓励通\n过政府购买服务，以招标等市场化方式确定污水处理服务费水平。"
+   }
+  },
+  {
+   "id": "layer-18",
+   "verdict": "minor",
+   "note": "5.4.10后面不用换行而是直接接文字",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+    "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+    "physical_page": 74,
+    "bbox": [
+     51,
+     58.5052490234375,
+     345.838623046875,
+     72.94715118408203
+    ],
+    "element_id": "e000595",
+    "original_sha256": "326ec5b340bc23d26094456612d282b96a1eec64794140ed8110e039dd9b9d44",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "5. 4. 10\n当污水处理设施完善时，设置化粪池或集中处理设施将\n降低污水处理厂进水水质，不利于提高污水处理厂的处理效率。\n当污水处理设施不完善时，设置化粪池或集中处理设施可减少生\n活污水对水体的影响。未设置化粪池的建筑与小区宜在小区污水\n管道接入接户井前增加格栅，对大颗粒及漂浮物进行拦截。格栅\n设置位置应避免对居民的生活造成影响，并应便于疏通养护。格\n栅安装如图12 所示："
+   }
+  },
+  {
+   "id": "layer-19",
+   "verdict": "minor",
+   "note": "5.1.4后面不用换行而是直接接文字",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+    "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+    "physical_page": 62,
+    "bbox": [
+     51,
+     58.5052490234375,
+     345.8493347167969,
+     72.94715118408203
+    ],
+    "element_id": "e000506",
+    "original_sha256": "38eaf0d16a39f04d1f768d4771acb23e3b1a4c5726f7086d957483985bd3ca7e",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "5. 1. 4\n雨污混接改造中，海绵城市建设有相关指标要求，雨污混\n接改造宜与海绵城市建设同步进行，能够避免大拆大建、过度增\n加投资。改造项目海绵城市建设应以问题为导向，重点解决存在\n的水问题，对年径流总量控制率不宜做强制性要求，但可结合道\n路恢复设置透水铺装路面，减少雨水径流；在绿地恢复时结合雨\n水调蓄功能进行部分下沉；在屋面恢复时，结合屋面结构荷载，\n在满足绿色屋面施工要求的条件下，可采用绿色屋面，但应注意\n屋面防水及阻根层的设置。"
+   }
+  },
+  {
+   "id": "layer-20",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "layer",
+    "source_sha256": "25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7",
+    "file_name": "“十四五”全国城市基础设施建设规划.pdf",
+    "physical_page": 33,
+    "bbox": [
+     117,
+     357.50323486328125,
+     510.2291259765625,
+     373.4532470703125
+    ],
+    "element_id": "e000189",
+    "original_sha256": "08f0f8c1671514dc3fe972cbb99420391c5cc21a3ca2c08831d7d4ff74668cd5",
+    "vote": "text_layer",
+    "usage_policy": "answer_and_citation",
+    "content": "（一）落实工作责任。地方各级人民政府要明确本地区目\n标任务，制定实施方案，统筹发展和安全两件大事，落实城市\n基础设施建设重点任务和重大工程，激发全社会参与规划实施\n的积极性，最大限度凝聚全社会共识和力量。城市人民政府是\n城市基础设施规划建设管理的责任主体，要建立住房和城乡建\n设、发展改革、财政、交通、水利、工信、民政、广电、能源\n等多部门统筹协调的工作机制，主动担责、积极作为，形成工\n作合力。省级人民政府要加大指导、组织、协调、支持和监督\n力度，并出台具体政策措施，推动区域、城市群、城乡基础设\n施共建共享。住房和城乡建设部、国家发展改革委等部门要加\n强统筹，做好顶层设计，加强对本规划实施的支持、协调和督\n导工作，建立健全实施评估等保障机制。"
+   }
+  },
+  {
+   "id": "table-1",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "table",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 13,
+    "bbox": [
+     87.38164883312469,
+     107.26188615391246,
+     521.1304004314067,
+     190.9657413840466
+    ],
+    "element_id": "e000160",
+    "original_sha256": "d84bcaa2519e0a43f253c9376dc06329266937fe801363f8fd5e074c71ad2c15",
+    "vote": null,
+    "usage_policy": "answer_and_citation",
+    "content": "{\"caption\": \"表1 区域雨水管道中污水混错接程度分级评估及治理建议表 \\n\", \"cells\": [{\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 2, \"source_bbox\": [86.72451484412747, 107.74673668377824, 236.34643363931153, 141.1669395919129], \"source_span_ids\": [], \"text\": \"区域混错接程度\"}, {\"column\": 1, \"column_span\": 2, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [236.29331584906836, 107.75945078583472, 519.8222052162627, 124.82396474790437], \"source_span_ids\": [], \"text\": \"混错接密度和混错接水量比\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [236.23362282502572, 124.67241560101357, 372.5296574140487, 141.23155544295298], \"source_span_ids\": [], \"text\": \"混错接密度（M)\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [372.49180865588414, 124.75614801020723, 519.6828849034364, 141.26590215848114], \"source_span_ids\": [], \"text\": \"混错接水量比 （C污）\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [86.92777688727931, 141.13750891391265, 236.42362403009264, 157.98188817774763], \"source_span_ids\": [], \"text\": \"重度混错接（3级）\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [236.35501766741032, 141.21008328348398, 372.7266729336363, 157.9551285468042], \"source_span_ids\": [], \"text\": \">10%以上\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [372.5848937687715, 141.25000423934233, 519.5749588621736, 158.00889361056747], \"source_span_ids\": [], \"text\": \">30%以上\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [87.00298009476533, 157.95187303750794, 236.45275703594208, 173.97728687844108], \"source_span_ids\": [], \"text\": \"中度混错接（2级）\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [236.44872847032536, 157.9635458955047, 372.7673537624524, 173.9239369467357], \"source_span_ids\": [], \"text\": \"5%~10%\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [372.62702356396744, 157.9937849885651, 519.6145639432228, 174.01943370684677], \"source_span_ids\": [], \"text\": \"10%~30%\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [86.91750977358798, 173.9495331154642, 236.46129715596877, 190.0794127538648], \"source_span_ids\": [], \"text\": \"轻度混错接（1级）\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [236.51580902750163, 173.92216171096175, 372.6662554264037, 190.0369655009435], \"source_span_ids\": [], \"text\": \"<0~5%\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [372.6318534519003, 174.00167042457934, 519.7414582716401, 189.97943693733947], \"source_span_ids\": [], \"text\": \"<0~10%\"}], \"column_count\": 3, \"notes\": [], \"row_count\": 5, \"table_number\": \"1\", \"unit_context\": [{\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [236.35501766741032, 141.21008328348398, 372.7266729336363, 157.9551285468042], \"physical_page\": 13, \"source_cell\": {\"col\": 1, \"row\": 2}, \"text\": \">10%以上\"}, {\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [372.5848937687715, 141.25000423934233, 519.5749588621736, 158.00889361056747], \"physical_page\": 13, \"source_cell\": {\"col\": 2, \"row\": 2}, \"text\": \">30%以上\"}, {\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [236.44872847032536, 157.9635458955047, 372.7673537624524, 173.9239369467357], \"physical_page\": 13, \"source_cell\": {\"col\": 1, \"row\": 3}, \"text\": \"5%~10%\"}, {\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [372.62702356396744, 157.9937849885651, 519.6145639432228, 174.01943370684677], \"physical_page\": 13, \"source_cell\": {\"col\": 2, \"row\": 3}, \"text\": \"10%~30%\"}, {\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [236.51580902750163, 173.92216171096175, 372.6662554264037, 190.0369655009435], \"physical_page\": 13, \"source_cell\": {\"col\": 1, \"row\": 4}, \"text\": \"<0~5%\"}, {\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [372.6318534519003, 174.00167042457934, 519.7414582716401, 189.97943693733947], \"physical_page\": 13, \"source_cell\": {\"col\": 2, \"row\": 4}, \"text\": \"<0~10%\"}]}"
+   }
+  },
+  {
+   "id": "table-2",
+   "verdict": "minor",
+   "note": "",
+   "item": {
+    "kind": "table",
+    "source_sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+    "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+    "physical_page": 41,
+    "bbox": [
+     50.98412653326427,
+     75.99948052262329,
+     345.2009329079606,
+     495.0560615209163
+    ],
+    "element_id": "e000375",
+    "original_sha256": "bd73f5eb75d0e5caf2a0677a8bb096ba0d5fa7615c790280cfeff865b9e20e11",
+    "vote": null,
+    "usage_policy": "answer_and_citation",
+    "content": "{\"caption\": null, \"cells\": [{\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [51.031141583297625, 76.20854569895111, 86.12464569999389, 105.40460941183015], \"source_span_ids\": [], \"text\": \"现状 问题\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [86.04722256796181, 76.1110112243142, 194.02899036031096, 105.3642965277588], \"source_span_ids\": [], \"text\": \"其他问题（积涝、堵塞、 臭味等)\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [193.98930448689077, 76.02198247865958, 343.9669736641483, 105.27167679832854], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 8, \"source_bbox\": [51.007240862088786, 105.21895551632102, 86.01517471568465, 294.6868319088137], \"source_span_ids\": [], \"text\": \"改造 情况\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [86.00676273767408, 105.2929393196317, 194.0631432654867, 128.55806791191037], \"source_span_ids\": [], \"text\": \"排水体制\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [194.06877503673553, 105.25084243674183, 343.87087127523534, 128.53941002888226], \"source_span_ids\": [], \"text\": \"□分流制 合流制\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [86.06856676143269, 128.51913831307678, 194.11240205221875, 152.167025224175], \"source_span_ids\": [], \"text\": \"立管\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [194.09793290113498, 128.50887345833638, 343.8813663499213, 152.12123409142404], \"source_span_ids\": [], \"text\": \"改造 处，未改造 处\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [86.0579207377123, 152.09239369206256, 194.11614558827307, 175.45879852496165], \"source_span_ids\": [], \"text\": \"小区\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [194.09282807924276, 152.07733674203428, 343.8910051319028, 175.38097226265722], \"source_span_ids\": [], \"text\": \"改造 处，未改造 处\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [86.03710898265382, 175.38917316799527, 194.10180817452846, 199.07342071962847], \"source_span_ids\": [], \"text\": \"排水预处理设施\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [194.09179613675272, 175.3460058858143, 343.86716067351585, 199.01403826049398], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [86.05360633985498, 199.05296785932757, 194.14926655095874, 222.40555630753065], \"source_span_ids\": [], \"text\": \"垃圾收集点\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [194.1057273603683, 198.9598925240452, 343.956434677016, 222.32745558386955], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [86.02514284101399, 222.3163124527877, 194.1421527346444, 243.6097271262516], \"source_span_ids\": [], \"text\": \"其他业态\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [194.13162472562368, 222.2707738244849, 344.0554133311672, 243.55087163292194], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [86.01350329819414, 243.564484916214, 194.13964972520048, 267.93536891157225], \"source_span_ids\": [], \"text\": \"缺陷等级\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [194.23177803771566, 243.51262269825295, 344.25965011930253, 267.8527231078443], \"source_span_ids\": [], \"text\": \"雨水管： 污水管：\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [86.05879075305629, 267.8747898009226, 194.14458987541877, 294.6242327625787], \"source_span_ids\": [], \"text\": \"其他问题（积涝、堵塞、 臭味等)\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [194.30490323905784, 267.79513013675546, 344.43029388595363, 294.4070569802532], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [50.7616409509209, 294.41331469918583, 86.02430850453268, 492.2851319629509], \"source_span_ids\": [], \"text\": \"其他\"}, {\"column\": 1, \"column_span\": 2, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [85.80230089825098, 294.03901527937956, 344.4536113949839, 492.29571519286503], \"source_span_ids\": [], \"text\": \"\"}], \"column_count\": 3, \"notes\": [], \"row_count\": 10, \"table_number\": null, \"unit_context\": []}"
+   }
+  },
+  {
+   "id": "table-3",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "table",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 60,
+    "bbox": [
+     65.90662907064518,
+     114.89360352468755,
+     671.6709318822294,
+     358.10725351070766
+    ],
+    "element_id": "e000450",
+    "original_sha256": "f46eaa65addedb1b3e550abd1ed50520bb44543bb837c4240c56450cd59a742b",
+    "vote": null,
+    "usage_policy": "answer_and_citation",
+    "content": "{\"caption\": null, \"cells\": [{\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [67.21445282018007, 114.99370864464917, 168.3831195624304, 162.676577733013], \"source_span_ids\": [], \"text\": \"测定井（点）编码\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [168.4314578281424, 115.05896295127768, 260.79105167171815, 162.62501728552803], \"source_span_ids\": [], \"text\": \"上（下）游井（点) 编号\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [260.8639048925369, 115.1372413562125, 333.4703733015293, 162.63586230521383], \"source_span_ids\": [], \"text\": \"时间 (hh/mm/ss)\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [333.42165078887206, 115.16234993439811, 413.5986183840169, 162.62685403052032], \"source_span_ids\": [], \"text\": \"管径（mm）\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [413.563399406864, 115.20694737071317, 488.54034211350313, 162.6510661674933], \"source_span_ids\": [], \"text\": \"水深 (mm)\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [488.47113374942217, 115.20660846384799, 581.9971037060517, 162.6628048869813], \"source_span_ids\": [], \"text\": \"流速 (m/s)\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [581.7655455183619, 115.14101353697278, 671.0499122527722, 162.76167111295422], \"source_span_ids\": [], \"text\": \"流量 (m^³/s)\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [67.26058372442269, 162.63127318414357, 168.5183525301889, 187.16648537701104], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [168.53266847352037, 162.6228735025669, 260.9395246913614, 187.12371389138468], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [260.8882112564447, 162.61591032005882, 333.49663383561585, 187.17488505858773], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [333.50631685863607, 162.6092706239822, 413.731040859833, 187.1705865270237], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [488.5255870308057, 162.65539759598255, 582.0161623545359, 187.1019580581626], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [581.8100303361374, 162.71246279562354, 671.0612420484149, 187.15707685639384], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [67.24746752356224, 187.11165716828606, 168.5248847282581, 211.6087418248062], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [168.55582209659252, 187.1071831864541, 260.9494711980012, 211.54680788023046], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [260.88621317232946, 187.1631079593536, 333.53099649100506, 211.5965260999023], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [333.5011350141173, 187.12904867609365, 413.7392308090088, 211.58051626295457], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [413.6102116632792, 187.10962852456322, 488.69685138354413, 211.53576547899326], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [488.59747414501925, 187.10431567113778, 582.0008803045993, 211.51447020272445], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [581.8052876309846, 187.10625658972666, 671.1575013974413, 211.5605697606204], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [67.28412125136245, 211.5672588020849, 168.5776253661142, 235.91317660432935], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [168.60165726791837, 211.5469833304984, 260.9725040577477, 235.8446084464979], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [260.91278110397224, 211.59312675096135, 333.5659080706018, 235.8963443442508], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [333.52333350906844, 211.55424258533355, 413.7426780530319, 235.8874621744373], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [413.6226612643052, 211.5293505785724, 488.7669819402937, 235.851440041305], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [488.686663350253, 211.5218720109023, 582.0671464349281, 235.82004540898907], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [581.893203332057, 211.52938347549764, 671.1890316039197, 235.8905764166929], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [67.3964723135315, 235.8599932418661, 168.58825253877131, 260.2489840848849], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [168.63067340152654, 235.82915785727917, 260.9563656860473, 260.16942835402494], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [260.91390090935556, 235.88067444219718, 333.56553480214063, 260.18894719633107], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [333.5572350681233, 235.86000420750784, 413.7385720999598, 260.1816111820036], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [413.6272063567432, 235.83217340875905, 488.75407124293343, 260.15427383713336], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [488.6582510332731, 235.816953098017, 582.0904647352625, 260.15260705958815], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [581.9400595024088, 235.84961974477534, 671.2328137987096, 260.21813773465624], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [67.4098605749523, 260.18417714217196, 168.59936276473104, 284.5452165643828], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [168.626457663613, 260.13870262585544, 260.92268369667545, 284.4801683775515], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [260.87892345885393, 260.1518942928747, 333.5746469439851, 284.48525643532116], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [333.56630329603115, 260.1435933020738, 413.72408050088194, 284.49378770459873], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [488.6226807446274, 260.1380227560673, 582.0754461689454, 284.4701567466383], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [581.9244261409793, 260.1965573517021, 671.3477365707907, 284.51532422498593], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [67.44842250052884, 284.50890932456514, 168.6019317300221, 308.9905269434039], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [168.61775172568213, 284.4642572313795, 260.9288975187043, 308.9379357255949], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [333.5726269029015, 284.460923676289, 413.75009950831725, 308.9571475299322], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [488.62931174905395, 284.4545636040769, 582.072196537637, 308.9185046084228], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [581.9175755668698, 284.5084378019701, 671.3627551371078, 308.9681351029607], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [67.41672075523547, 308.973924961802, 168.57406833724966, 333.2865291444252], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [168.59366493145723, 308.94651085743953, 260.9488344459205, 333.25584727882267], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [488.6643111565238, 308.9369488178379, 582.1059663548821, 333.21966066106415], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [581.9397960187893, 308.97423199977084, 671.2899897441622, 333.27935761472395], \"source_span_ids\": [], \"text\": \"\"}], \"column_count\": 7, \"notes\": [], \"row_count\": 7, \"table_number\": null, \"unit_context\": [{\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [260.8639048925369, 115.1372413562125, 333.4703733015293, 162.63586230521383], \"physical_page\": 60, \"source_cell\": {\"col\": 2, \"row\": 0}, \"text\": \"时间 (hh/mm/ss)\"}, {\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [333.42165078887206, 115.16234993439811, 413.5986183840169, 162.62685403052032], \"physical_page\": 60, \"source_cell\": {\"col\": 3, \"row\": 0}, \"text\": \"管径（mm）\"}, {\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [413.563399406864, 115.20694737071317, 488.54034211350313, 162.6510661674933], \"physical_page\": 60, \"source_cell\": {\"col\": 4, \"row\": 0}, \"text\": \"水深 (mm)\"}]}"
+   }
+  },
+  {
+   "id": "table-4",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "table",
+    "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+    "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+    "physical_page": 24,
+    "bbox": [
+     83.40365852242755,
+     195.79229212076575,
+     508.80240186384486,
+     300.94498309433976
+    ],
+    "element_id": "e000171",
+    "original_sha256": "ff0fc332b3611076e2458b231db90d8f62e49f11e49b7f9210d24b43c6663d7c",
+    "vote": null,
+    "usage_policy": "answer_and_citation",
+    "content": "{\"caption\": \"表5-1 生活污水中氨氮和电导率的浓度范围 \\n\", \"cells\": [{\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 2, \"source_bbox\": [83.55851466844416, 196.55565693035024, 182.98137119021314, 248.65919671317647], \"source_span_ids\": [], \"text\": \"水量来源\"}, {\"column\": 1, \"column_span\": 2, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [182.91637738580812, 196.5125994932694, 352.86787137896295, 222.5870885312355], \"source_span_ids\": [], \"text\": \"氨氮（mg/L)\"}, {\"column\": 3, \"column_span\": 2, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [352.7645535279855, 196.62538762515194, 508.12624006578505, 222.59214541053638], \"source_span_ids\": [], \"text\": \"电导率（us/cm)\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [183.01302779732742, 222.55432291188671, 281.9952746627935, 248.6422673989406], \"source_span_ids\": [], \"text\": \"范围\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [282.07545968428354, 222.513522716704, 352.95346065121646, 248.63311789901377], \"source_span_ids\": [], \"text\": \"均值\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [352.8499450837477, 222.56198493323265, 437.8752200614071, 248.64655177555304], \"source_span_ids\": [], \"text\": \"范围\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [437.8961340724916, 222.55395309676993, 508.22211059558845, 248.7006598361982], \"source_span_ids\": [], \"text\": \"均值\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [83.70596586095849, 248.6537453644177, 182.99444244714095, 274.70852976266485], \"source_span_ids\": [], \"text\": \"灰水\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [182.96262107628388, 248.63800493729804, 282.03279685915106, 274.6518850442555], \"source_span_ids\": [], \"text\": \"3.6~9.6\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [282.00957615566745, 248.60392168038493, 352.9391811268415, 274.68862001252467], \"source_span_ids\": [], \"text\": \"6.1\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [352.8208587910209, 248.63790631993356, 437.9085902114464, 274.71646846050555], \"source_span_ids\": [], \"text\": \"432~1058\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [437.92256217683473, 248.65306600035126, 508.282567904942, 274.77075184090984], \"source_span_ids\": [], \"text\": \"810\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [83.73437215998848, 274.6808785494129, 182.99919862718275, 300.5463066503718], \"source_span_ids\": [], \"text\": \"黑水\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [183.01487315124666, 274.62847437767624, 282.00302954295404, 300.47947694970856], \"source_span_ids\": [], \"text\": \"46.8~109\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [282.08666361879307, 274.65689261487415, 352.8596990973207, 300.4940613621668], \"source_span_ids\": [], \"text\": \"76.8\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [352.8430250065506, 274.72175544699024, 437.884336988508, 300.5042079932234], \"source_span_ids\": [], \"text\": \"1314~2044\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [437.96309405756057, 274.76259947211275, 508.3849850474589, 300.5765712237825], \"source_span_ids\": [], \"text\": \"1786\"}], \"column_count\": 5, \"notes\": [], \"row_count\": 4, \"table_number\": \"5-1\", \"unit_context\": [{\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [182.91637738580812, 196.5125994932694, 352.86787137896295, 222.5870885312355], \"physical_page\": 24, \"source_cell\": {\"col\": 1, \"row\": 0}, \"text\": \"氨氮（mg/L)\"}, {\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [352.7645535279855, 196.62538762515194, 508.12624006578505, 222.59214541053638], \"physical_page\": 24, \"source_cell\": {\"col\": 3, \"row\": 0}, \"text\": \"电导率（us/cm)\"}]}"
+   }
+  },
+  {
+   "id": "table-5",
+   "verdict": "error",
+   "note": "倒数第二排水后面不是算，它的中间是田不是目",
+   "item": {
+    "kind": "table",
+    "source_sha256": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+    "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+    "physical_page": 83,
+    "bbox": [
+     50.79935019729399,
+     208.87326841578448,
+     345.1176828155978,
+     317.2621268291816
+    ],
+    "element_id": "e000675",
+    "original_sha256": "bd69e8e8d471fadf5f2e6abd3f368cd1c14b23d9369404c5ba2c11e926522a63",
+    "vote": null,
+    "usage_policy": "answer_and_citation",
+    "content": "{\"caption\": \"表6\\n井盖和雨水箅执行标准\\n\", \"cells\": [{\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [50.64323452177495, 209.39534099893933, 150.91005304126008, 227.76751399417066], \"source_span_ids\": [], \"text\": \"井盖种类\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [150.8381647200677, 209.2871905835408, 286.95680332692393, 227.7340662522915], \"source_span_ids\": [], \"text\": \"标准名称\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [287.0429289140467, 209.30678731813668, 343.98727612988966, 227.757135455319], \"source_span_ids\": [], \"text\": \"标准编号\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [50.733789545265786, 227.76253908944463, 150.91457211180193, 245.34935327709917], \"source_span_ids\": [], \"text\": \"球墨铸铁井盖、雨水算\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [150.8444497380786, 227.7213838065706, 287.0040561324925, 245.3136221744881], \"source_span_ids\": [], \"text\": \"球墨铸铁件\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [286.9801664828805, 227.75608897205615, 343.80824634983145, 245.3468630852512], \"source_span_ids\": [], \"text\": \"GB/T 1348\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [50.6494312766893, 245.32848661999662, 150.92611109774856, 262.74734572293283], \"source_span_ids\": [], \"text\": \"混凝土井盖\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [150.850822505032, 245.27856498518244, 287.002323090877, 262.7146855829858], \"source_span_ids\": [], \"text\": \"钢纤维混凝土井盖\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [286.98705477487147, 245.32459929080818, 343.8326624930988, 262.7372479812918], \"source_span_ids\": [], \"text\": \"JC 889\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [50.67400046645216, 262.74525823537704, 150.89147220267296, 280.2539751851848], \"source_span_ids\": [], \"text\": \"塑料树脂类井盖\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [150.869896931421, 262.6855155469049, 286.9278681131147, 280.2413899911807], \"source_span_ids\": [], \"text\": \"再生树脂复合材料检查井盖\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [287.00127010356624, 262.7156389237593, 343.875308479183, 280.25909254312984], \"source_span_ids\": [], \"text\": \"CJ/T 121\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [50.58417005727606, 280.2474606898993, 150.86727543176204, 297.82967802175517], \"source_span_ids\": [], \"text\": \"塑料树脂类水算\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [150.7712890572191, 280.214981355961, 286.9454398388624, 297.8073183453379], \"source_span_ids\": [], \"text\": \"再生树脂复合材料水算\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [286.9668067063758, 280.264637260732, 343.8468120100866, 297.8148190552166], \"source_span_ids\": [], \"text\": \"CJ/T 130\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [50.55563571217126, 297.8048637667946, 150.86061748074528, 316.69936015233156], \"source_span_ids\": [], \"text\": \"检查井盖\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [150.84974758048565, 297.76283458821155, 286.9829086373355, 316.6269062535462], \"source_span_ids\": [], \"text\": \"检查井盖\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [286.9827112022148, 297.79651929554154, 343.79449170308516, 316.5708783067087], \"source_span_ids\": [], \"text\": \"GB/T 23858\"}], \"column_count\": 3, \"notes\": [], \"row_count\": 6, \"table_number\": \"6\", \"unit_context\": []}"
+   }
+  },
+  {
+   "id": "table-6",
+   "verdict": "error",
+   "note": "中心城区下面的数字是1.0~3.0，中心城区重要地区下面的数字是0.5~2.0",
+   "item": {
+    "kind": "table",
+    "source_sha256": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+    "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+    "physical_page": 13,
+    "bbox": [
+     50.81022442068063,
+     202.6719887056697,
+     345.5171688076376,
+     283.8501635421352
+    ],
+    "element_id": "e000119",
+    "original_sha256": "fc0f4256610f28eef0ddc2f5ae26d2442aa532cd4cc1ca2ae521b297480e3236",
+    "vote": null,
+    "usage_policy": "source_locator_only",
+    "content": "{\"caption\": null, \"cells\": [{\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 2, \"source_bbox\": [50.80372582931132, 203.48173398670508, 122.82910996865202, 251.1239250882924], \"source_span_ids\": [], \"text\": \"项目\"}, {\"column\": 1, \"column_span\": 3, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [122.78295499513776, 203.54403536005367, 344.6717313929639, 219.5721586679826], \"source_span_ids\": [], \"text\": \"城区类型\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [122.75260734588589, 219.59177727778388, 194.58487333752348, 251.20466583872022], \"source_span_ids\": [], \"text\": \"中心城区\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [194.46103649949555, 219.56495425574033, 266.00976889626133, 251.19280456648963], \"source_span_ids\": [], \"text\": \"非中心城区\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [266.065977591279, 219.51766890080177, 344.64358316669234, 251.17388223302785], \"source_span_ids\": [], \"text\": \"中心城区 重要地区\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [50.774829435855445, 251.1239250882924, 122.91557855539621, 282.88326240738974], \"source_span_ids\": [], \"text\": \"最大允许退水时间 (h)\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [122.92509476205662, 251.16297117321352, 194.5179253153351, 283.02048072568533], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [194.50971998671034, 251.19532208329363, 266.0701241343541, 283.05663794642135], \"source_span_ids\": [], \"text\": \"1.5~4.0\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [265.98140127617626, 251.17446109806303, 344.4687262973359, 282.9417605418898], \"source_span_ids\": [], \"text\": \"门 2.0\"}], \"column_count\": 4, \"notes\": [], \"row_count\": 3, \"table_number\": null, \"unit_context\": []}"
+   }
+  },
+  {
+   "id": "table-7",
+   "verdict": "error",
+   "note": "中间三个空着的表头分别是排入水体名称、排放情况描述、排口水质（氨氮）",
+   "item": {
+    "kind": "table",
+    "source_sha256": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+    "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+    "physical_page": 21,
+    "bbox": [
+     70.1283734728973,
+     188.60652203061557,
+     539.049576728919,
+     721.0964740798445
+    ],
+    "element_id": "e000302",
+    "original_sha256": "915343d943e8191d1488fe406373a0b562d81839cf786de60b06762a26a5a511",
+    "vote": null,
+    "usage_policy": "source_locator_only",
+    "content": "{\"caption\": null, \"cells\": [{\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [71.1750130217687, 189.11700198273098, 114.0445304960148, 220.6857486201086], \"source_span_ids\": [], \"text\": \"排口编号\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [114.01669813285037, 189.22690195984987, 177.71983985196837, 220.70188490760543], \"source_span_ids\": [], \"text\": \"临近检查井编号\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [177.64277913375145, 189.2237401753782, 208.58414027962374, 220.70555249523656], \"source_span_ids\": [], \"text\": \"位置\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [208.54217206350248, 189.23904638292748, 263.5118252123668, 220.68755496192094], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [263.46094932200464, 189.23395300687875, 318.8680889969947, 220.64963825506376], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [318.71858065942786, 189.1856112302211, 390.4103327763828, 220.6601853147036], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [390.3604014729315, 189.27976851293943, 434.7250126199414, 220.61767314250622], \"source_span_ids\": [], \"text\": \"排口水质 （电导率）\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [434.6200975714226, 189.3473464229833, 503.68609578039957, 220.64049124758853], \"source_span_ids\": [], \"text\": \"感官描述（气味 颜色、可见度）\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [503.62735565482603, 189.0804120655048, 539.1157934360895, 220.62302079273485], \"source_span_ids\": [], \"text\": \"照片\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [71.28413855271326, 220.7488717563288, 114.06938082026876, 245.53614471770922], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [114.13561723150124, 220.7979394668968, 177.77033131742493, 245.52801343435337], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [177.74910007906783, 220.79421423005888, 208.62738258971783, 245.51881701327233], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [208.60002252000882, 220.78143257735638, 263.70337865103596, 245.65112468802528], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [263.62568088583265, 220.76448645576434, 318.99600363843626, 245.52146887678404], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [318.8196953931657, 220.6876949671374, 390.6154619060036, 245.25791866500333], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [390.57893055640415, 220.69022878703524, 434.940927614056, 245.42358052367712], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [434.8053684087776, 220.65891428695417, 503.80476225696964, 245.45941087828905], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [503.7121488054296, 220.79446129808792, 539.3686791225527, 245.51176184844297], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [71.3332234348992, 245.59747249291837, 114.11990249053932, 267.41340925501385], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [114.12828020758892, 245.55077663542923, 177.7824352101665, 267.3836952067209], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [177.78481864458115, 245.53016567140637, 208.7449616929835, 267.3400025983848], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [208.58563404497116, 245.57760273298265, 263.8018133940035, 267.3254200942706], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [263.679324635515, 245.41733244774267, 319.0570942477183, 267.30858652589177], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [318.85631461131504, 245.2400309397006, 390.6125622438586, 267.36016883995535], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [390.63635265373, 245.47814412529115, 434.99272612419156, 267.3062750672201], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [434.78972780690464, 245.52047511426724, 503.8159654970753, 267.34033751282414], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [503.7307769379974, 245.56873024553968, 539.3777295831871, 267.42457672992657], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [71.24981043835399, 267.38437052600034, 114.1383164435169, 288.4074879444987], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [114.15707088712514, 267.34026064721513, 177.88300076546784, 288.41108964732206], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [177.67165493594536, 267.3407328216706, 208.76971865690325, 288.5209525642366], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [208.74805905936566, 267.28732220419215, 263.8931088172958, 288.38177090787565], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [263.68716690358895, 267.2903529053484, 319.1390097033143, 288.1553467852591], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [318.9016108487618, 267.2767312213472, 390.6270166203086, 288.15129486958284], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [390.57923809632865, 267.2869598377495, 434.99791036863263, 288.2884231161024], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [434.8296420956732, 267.3135333768733, 503.8423699963047, 288.357580202632], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [503.73024972669833, 267.4762688520031, 539.4306703844707, 288.38278114159436], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [71.12456274469488, 288.3734694220998, 114.09962956855402, 314.33736543899397], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [114.12208547482462, 288.344820511532, 177.8605064167067, 314.2479817164868], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [177.76990295824442, 288.4984858447956, 208.85525869018053, 314.1926604395837], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [208.5013681056667, 288.30655241903355, 263.65902700050003, 314.2206944252791], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [263.439904804316, 288.2579074693153, 318.9670070169864, 314.17599158322423], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [318.8065151106885, 288.1473857043233, 390.61007995732535, 314.25886369056593], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [390.6202727091078, 288.31735752750376, 434.9761409354077, 314.28919266373117], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [434.8044677561417, 288.283800198759, 503.8406126253077, 314.27026176230584], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [503.7299861210488, 288.4002406156468, 539.3919642882626, 314.3853405598335], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [71.20976194410498, 314.32484732552246, 114.10092013787991, 340.46722528659745], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [114.11771676036184, 314.2629265870436, 177.79270484693004, 340.37403122604235], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [177.5458491397001, 314.2005336741092, 208.65078857468365, 340.3713848529312], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [208.53409914048515, 314.06049551524745, 263.56625977899773, 340.3101229625298], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [263.4286576299354, 314.08373089077884, 319.0006387044408, 340.23716651875367], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [318.8388287698952, 314.19111214660165, 390.70631798654665, 340.3743826116836], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [390.5805780917138, 314.33474102748545, 434.96221377025677, 340.4280787299957], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [434.76962787612683, 314.2377146672799, 503.88116396106267, 340.43967445615874], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [503.8061242194923, 314.4050291365479, 539.4662132128843, 340.57174055328335], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [71.1943379244779, 340.455805253255, 114.12128367430725, 366.9726944231543], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [114.13153683571767, 340.3877901700597, 177.7793488273531, 367.01285121347485], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [177.58156770521342, 340.4344146523405, 208.66604475165104, 366.9336466937642], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [208.6680767118663, 340.179407503964, 263.6018026074114, 366.6906086187947], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [263.4784351634245, 340.1051772872381, 318.97695813025666, 366.43809411231126], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [318.8111941109679, 340.34091312934925, 390.69175377440934, 366.804424624174], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [390.60480784433446, 340.4474269018701, 434.91212869684324, 366.92571855523227], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [434.72870309903504, 340.4273210547066, 503.89821045973326, 366.91724137663573], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [503.82962905657666, 340.6068571558113, 539.565460739938, 367.0363720898397], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [71.20062739052251, 366.99552350903787, 114.12072625819415, 393.2065204973792], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [114.10142812793373, 366.99774163089864, 177.74564025491756, 393.220597884634], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [177.5696395495715, 366.9774271485106, 208.74006302132946, 393.14531351098424], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [208.68716615432083, 366.6537021456563, 263.6100402839597, 393.2792134019243], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [263.484783666151, 366.43773174586863, 318.91696587784776, 393.42872799229997], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [318.8197832617156, 366.7043675628121, 390.91439071258736, 393.2636206640914], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [390.7736252957304, 366.9525446527857, 434.94931906056655, 393.07611250124955], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [434.6371221029557, 366.9186139767971, 503.92628446140975, 393.15460326887626], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [503.8310349533743, 367.1147201070496, 539.6316696922486, 393.2295801800899], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [71.19403999517608, 393.22769148226786, 114.12499337464615, 419.2589766766837], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [114.09747678908275, 393.1909716827514, 177.6752465629204, 419.1976159590707], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [177.7173026475915, 393.19224545570114, 208.74419284317233, 419.1451716521058], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [208.65251299497442, 393.26643174922185, 263.6559296341179, 419.278961735033], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [263.57691384066686, 393.46465717412354, 318.9865138350527, 419.2855941390127], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [318.8045820025918, 393.2395068244567, 391.08727208441377, 419.20635667689817], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [391.066601008062, 393.0440485614804, 435.05805639100373, 419.15588891416564], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [434.6876025848435, 393.12260521391477, 503.9062943663193, 419.2080477202969], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_bbox\": [503.7794121803384, 393.2712413401872, 539.6267490534572, 419.29848559972805], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [71.12849520553712, 419.28717537439854, 114.1078672451023, 445.66659589293823], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [114.12637455841408, 419.1614012764136, 177.6865706222821, 445.5957697246125], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [177.71087725988383, 419.1735899658464, 208.73159468983783, 445.58672154434885], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [208.59040091380044, 419.2192920608187, 263.5689178026307, 445.4649444580338], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [263.5607460274948, 419.33542501527035, 319.0338969505583, 445.3263447841412], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [318.7779797991253, 419.2097387636957, 391.0381755321861, 445.53739578495055], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [390.9753934533195, 419.163268012633, 435.15761145798183, 445.58164841415254], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [434.79326451603606, 419.1764888973872, 503.9160917096274, 445.6134048914855], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_bbox\": [503.7671545176346, 419.3381043307853, 539.6459043973241, 445.75604550025315], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [71.19506901827157, 445.7107167525247, 114.10914957675163, 472.00477252182964], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [114.10133202170732, 445.61459081802496, 177.6648011890572, 471.9677672214796], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [177.6556408927355, 445.61817055924575, 208.7582737782855, 471.8958649346274], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [208.57825308678392, 445.4854785564476, 263.59143411852926, 471.99664672887445], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [263.6537109532343, 445.3539944417915, 319.0889246299008, 471.9446416539612], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [318.7649532866103, 445.5037725713981, 390.99747042646885, 472.0216609942149], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [390.8469955348537, 445.59271706185365, 435.08261565068636, 471.8887932985961], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [434.66539380886934, 445.6166771702702, 503.9072609203676, 471.8781638829466], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_bbox\": [503.7562588174534, 445.8382917019213, 539.6053530615691, 471.98516081072427], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [71.2277708779856, 472.0242744249221, 114.06835111070023, 498.02474749091596], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [114.09611757245227, 471.91549860733534, 177.87430177903286, 497.9575449870162], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [177.68202342482743, 471.9249860196506, 208.8115001523561, 497.93993178174577], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [208.61740950931005, 471.9086685489325, 263.66210239974475, 498.2233023398564], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [263.6008360533631, 471.93212354048967, 319.0019567326885, 498.48778591974684], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [318.8122924678411, 471.942181954472, 390.83886769399277, 498.2056452113808], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [390.55595293061884, 471.9393049845338, 434.97444946582317, 497.87685805913134], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [434.68044129803087, 471.8836323219894, 503.8613496030719, 497.90004951145755], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 11, \"row_span\": 1, \"source_bbox\": [503.78806723249846, 472.03185117781277, 539.5790364308896, 497.98482129742257], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [71.18499331014345, 498.05151868446296, 114.08779477324634, 524.1119249639021], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [114.1451482232676, 497.9910803541584, 177.81582525910886, 523.9333112501058], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [177.88229781706906, 497.9878300369763, 208.8000333066009, 523.9529449228137], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [208.59557417467275, 498.2609006034761, 263.5800331741865, 523.9813412749518], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [263.4706368296254, 498.6443501845512, 318.9125944174928, 524.022431433382], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [318.72635702608943, 498.1597235003826, 390.6058402997952, 524.0851976935603], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [390.48014433923726, 497.9166085598041, 434.9237932468356, 524.0130977522848], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [434.77788751981257, 497.8940100707476, 503.8355601836914, 524.005630807407], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 12, \"row_span\": 1, \"source_bbox\": [503.7813452884351, 498.0463357462537, 539.5425270484276, 524.0768742461819], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [71.15716609552686, 524.1141430857629, 114.13260773366895, 550.7164958321085], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [114.15860309496311, 523.9557779695467, 177.7927927154799, 550.6203040128011], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [177.6867902936567, 523.9481792550534, 208.7316056734066, 550.6198647807494], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [208.60043989562058, 524.0345761996095, 263.6339185623809, 550.8057697466028], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [263.6365106846015, 524.2122016412898, 318.9712027402416, 550.8673940034469], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [318.7274773501, 524.0479727771844, 390.58639938314127, 550.7467808820686], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [390.410244907833, 524.0387928273053, 434.884494037916, 550.6693003481606], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [434.85969313972134, 523.993771542013, 503.84812538631974, 550.6306698892196], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 13, \"row_span\": 1, \"source_bbox\": [503.80203833192434, 524.1489961490598, 539.5310162683975, 550.7184064915332], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [71.11934795220331, 550.7301120257091, 114.11893319059881, 576.738359499017], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [114.17620151796241, 550.6140449560653, 177.84159271135186, 576.562710601569], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [177.6187690525054, 550.7246875098715, 208.8717340432771, 576.7337914856798], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [208.61603656321867, 550.7603092292588, 263.7649305702047, 576.8143905671545], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [263.6410578820561, 550.7589915331039, 319.00085837581537, 576.8402613349956], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [318.72637899322694, 550.6591321261653, 390.6520371898779, 576.7801743903323], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [390.4705227330289, 550.6512039876334, 434.9770196209062, 576.5535745748952], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [434.8538059468815, 550.6270462247936, 503.8446106443258, 576.630220567905], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 14, \"row_span\": 1, \"source_bbox\": [503.77914857468886, 550.8061650554494, 539.541077217355, 576.7684468945538], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [71.01082480135635, 576.7369539564517, 114.08845104147801, 602.8380990086796], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [114.1320091291731, 576.6057992658343, 177.85582741642727, 602.7859182409458], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [177.87992536622318, 576.7203509848999, 208.8104676968954, 602.8563710620276], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [208.51633870984708, 576.8005547575281, 263.7120996046084, 603.0521807106453], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [263.6289320221771, 576.9221341894199, 318.98583285379135, 602.9287125809315], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [318.67262540785725, 576.6090056598111, 390.5696604243952, 602.8978345677017], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [390.543695267915, 576.594423155697, 434.9614668875831, 602.7966355030055], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [434.8523780829465, 576.6016265613437, 503.8479057149451, 602.8038389086523], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 15, \"row_span\": 1, \"source_bbox\": [503.7783138234653, 576.8558101496234, 539.5844842809802, 602.9242324140048], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [70.9416525165257, 602.8470154193278, 114.05659320037365, 629.2347154620408], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [114.14679301268507, 602.7891246349227, 177.79613172037412, 629.2174536424116], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [177.8284014453059, 602.8983616461636, 208.68353059307086, 629.23045491114], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [208.63694927808254, 602.9833969713596, 263.68549740114184, 629.5390154274116], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [263.5298162979482, 602.8353757699596, 318.8979643039431, 629.411813825259], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [318.72901504972236, 602.8191241840491, 390.55206474728806, 629.0982021403934], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [390.558479151427, 602.8294900604676, 434.95922623956193, 629.1930323403408], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [434.8528393928332, 602.7860939337663, 503.86864269270933, 629.1639112553177], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 16, \"row_span\": 1, \"source_bbox\": [503.80401537429594, 602.9934114621369, 539.629165438578, 629.2257112049823], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [70.92763765444317, 629.2551397524417, 114.05919905205509, 655.4450975255097], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [114.13494723380865, 629.24525703128, 177.78095242838782, 655.405874103299], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [177.78082062556308, 629.2323875321672, 208.70821067200947, 655.4106178094567], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [208.65073365684, 629.4877131237811, 263.6379824828114, 655.4895038859297], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [263.5610316002818, 629.3096923732544, 318.89376858068783, 655.5705861226611], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [318.71434100189765, 629.0369292691908, 390.55628243768075, 655.4878348041336], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [390.5563922733681, 629.2182003368994, 434.9754599541464, 655.4170745206156], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [434.8475672798423, 629.1494165976137, 503.8992209480565, 655.3739858563505], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 17, \"row_span\": 1, \"source_bbox\": [503.76689091198506, 629.3446552445644, 539.6524506042877, 655.4724177591213], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [71.0686814361201, 655.4237508478004, 114.13042200349147, 681.549536818125], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [114.1580649000953, 655.392960680981, 177.8196914753022, 681.4157467351978], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [177.75224137972492, 655.4208958394648, 208.77025685177108, 681.2628939812297], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [208.6617831269834, 655.4066207977867, 263.7028514397369, 681.4253219939234], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [263.58317447484353, 655.4592847207775, 318.96485423751506, 681.475262678194], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [318.79858497406474, 655.4288020163942, 390.57877678644195, 681.4886153325635], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [390.5822256270235, 655.4131214321509, 435.0078834490404, 681.4215006750742], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 7, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [434.8726317836865, 655.3352455893964, 503.8835803461835, 681.3605352663076], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 8, \"column_span\": 1, \"role\": \"data\", \"row\": 18, \"row_span\": 1, \"source_bbox\": [503.76412305266484, 655.5867498621612, 539.6599194310248, 681.4103881041679], \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 19, \"row_span\": 1, \"source_bbox\": [71.19089182978854, 681.5033296062933, 114.12097888027496, 719.5281314713646], \"source_span_ids\": [], \"text\": \"备注\"}, {\"column\": 1, \"column_span\": 8, \"role\": \"data\", \"row\": 19, \"row_span\": 1, \"source_bbox\": [113.65957837912958, 681.3485881545032, 539.7301264023536, 719.7294315206278], \"source_span_ids\": [], \"text\": \"\"}], \"column_count\": 9, \"notes\": [], \"row_count\": 20, \"table_number\": null, \"unit_context\": []}"
+   }
+  },
+  {
+   "id": "table-8",
+   "verdict": "error",
+   "note": "最后一行第三列，工作井下面对应的是顶管，第四列对应现在第三列的文字，第五列对应现在第四列的文字",
+   "item": {
+    "kind": "table",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 181,
+    "bbox": [
+     50.45077300295529,
+     165.26998882285423,
+     345.7706518272745,
+     515.0119160802592
+    ],
+    "element_id": "e002641",
+    "original_sha256": "979bc94b940104a2a00c90a2758ff30cf76dabf649e761fe39e978ce238f7b82",
+    "vote": null,
+    "usage_policy": "source_locator_only",
+    "content": "{\"caption\": null, \"cells\": [{\"column\": 0, \"column_span\": 3, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [52.72483825703887, 164.21985565130447, 137.12619476443092, 204.17804110272172], \"source_span_ids\": [], \"text\": \"单位工程 （子单位工程）\"}, {\"column\": 3, \"column_span\": 2, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [136.74177739770926, 165.0931453712778, 346.73029032821034, 206.54675843683995], \"source_span_ids\": [], \"text\": \"开（挖）槽施工的管道工程、大型顶管工程、 盾构管道工程、浅埋暗挖管道工程、 大型沉管工程、大型桥管工程\"}, {\"column\": 0, \"column_span\": 3, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [52.37721802992826, 203.62403357670593, 136.77201561338518, 227.49691924111912], \"source_span_ids\": [], \"text\": \"分部工程 （子分部工程）\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [136.5863480345214, 204.25428872254446, 247.99448369194374, 228.80868548672595], \"source_span_ids\": [], \"text\": \"分项工程\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [247.76615363689243, 205.55929416301234, 346.3232833969221, 229.72031080603128], \"source_span_ids\": [], \"text\": \"验收批\"}, {\"column\": 0, \"column_span\": 3, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [52.130113140782974, 226.9191652441528, 136.3699378128118, 274.239491310689], \"source_span_ids\": [], \"text\": \"土方工程\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [136.1465094739553, 227.60440095786782, 247.76292968932808, 275.5152511263306], \"source_span_ids\": [], \"text\": \"沟槽土方（沟槽开挖、沟槽 支撑、沟槽回填）、基坑土方 （基坑开挖、基坑支护、基坑 回填）\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [247.4782353809407, 228.8180985022379, 346.10115998922254, 276.5760584793553], \"source_span_ids\": [], \"text\": \"与下列验收批对应\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 3, \"source_bbox\": [49.717062836416346, 273.5430159298504, 64.15560135760003, 513.9152830531764], \"source_span_ids\": [], \"text\": \"管道主体工程\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [63.360196471270825, 273.7220497295465, 84.2741828275932, 359.45994200506925], \"source_span_ids\": [], \"text\": \"预制 管开 槽施 工主 体结 构\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [83.46006204838824, 273.99931679368757, 136.0301238703011, 359.7973843490273], \"source_span_ids\": [], \"text\": \"金属类管、混 凝土类管、预 应力钢筒混凝 土管、化学 建材管\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [135.49514595916224, 274.46006086414747, 247.25626549455376, 361.0609884290195], \"source_span_ids\": [], \"text\": \"管道基础、管道接口连接、 管道铺设、管道防腐层（管道 内防腐层、钢管外防腐层）、 钢管阴极保护\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [246.76848442122784, 275.7073622156423, 345.5570365941766, 362.05953603492276], \"source_span_ids\": [], \"text\": \"可选择下列方式划分： ①按流水施工长度； ②排水管道按井段； ③给水管道按一定长度 连续施工段或自然划分段 （路段）； ④其他便于过程质量控 制方法\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [62.27779034468739, 359.21390903785414, 83.32985404369708, 436.78376132626335], \"source_span_ids\": [], \"text\": \"管渠 （廊）\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [82.27887729368814, 359.51190009535424, 135.27386691868196, 437.1707262250243], \"source_span_ids\": [], \"text\": \"现浇钢筋混凝 土管渠、装配 式混凝土管 渠、砌筑 管渠\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [134.56683547936353, 360.100773079758, 246.6051816078658, 438.32146188591764], \"source_span_ids\": [], \"text\": \"管道基础、现浇钢筋混凝土 管渠（钢筋、模板、混凝土、 变形缝）、装配式混凝土管渠 （预制构件安装、变形缝）、砌 筑管渠（砖石砌筑、变形缝）、 管道内防腐层、管廊内管道 安装\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [246.07904213800884, 361.2692815671425, 344.79993527533827, 439.4573429745463], \"source_span_ids\": [], \"text\": \"每节管渠（廊）或每个 流水施工段管渠（廊）\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 2, \"source_bbox\": [61.64679581833245, 436.6388359941974, 82.28311283704437, 513.7604181033321], \"source_span_ids\": [], \"text\": \"不开 槽施 工主 体结 构\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [82.1457496426058, 436.8980779015948, 134.3259715057202, 452.6879177332356], \"source_span_ids\": [], \"text\": \"工作井\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [134.10338205117887, 437.36921139593557, 246.05713245354085, 454.0215379728981], \"source_span_ids\": [], \"text\": \"作井围护结构、工作井\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [245.7985586999096, 438.5844777762243, 344.6280133368552, 455.14427594662783], \"source_span_ids\": [], \"text\": \"每座井\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [81.81849155030324, 452.2733062154886, 134.09424753307985, 514.2314199471062], \"source_span_ids\": [], \"text\": \"顶管\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [133.7612981864035, 453.0400391153696, 245.70580989549003, 515.2273784251997], \"source_span_ids\": [], \"text\": \"管道接口连接、顶管管道 （钢筋混凝土管、钢管）、管道 防腐层（管道内防腐层、钢管 外防腐层）、钢管阴极保护、 垂直顶升\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [245.3443549308084, 454.0466832311188, 344.2800901792974, 516.5352170955696], \"source_span_ids\": [], \"text\": \"顶管顶进：每100m; 垂直顶升：每个顶升管\"}], \"column_count\": 5, \"notes\": [], \"row_count\": 7, \"table_number\": null, \"unit_context\": []}"
+   }
+  },
+  {
+   "id": "table-9",
+   "verdict": "exact",
+   "note": "",
+   "item": {
+    "kind": "table",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 171,
+    "bbox": [
+     56.90724888072648,
+     125.76256221577171,
+     351.1592717325761,
+     253.5036276948594
+    ],
+    "element_id": "e002517",
+    "original_sha256": "cbaa138b53b9c2daa619ec5e2fe7b27c9969ce3fedf7ce9edc38a910d54a4d64",
+    "vote": null,
+    "usage_policy": "source_locator_only",
+    "content": "{\"caption\": \"表9.2.9压力管道水压试验前浸泡时间\", \"cells\": [{\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [58.141456461228515, 125.72392122423979, 193.95618385321205, 143.09738151365713], \"source_span_ids\": [], \"text\": \"管材种类\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [193.76570210080854, 127.51609336236768, 273.3108006568993, 144.01944445209188], \"source_span_ids\": [], \"text\": \"管道内径D；(mm)\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_bbox\": [273.14378189976276, 128.42730110299692, 351.7967486447088, 144.97898245417954], \"source_span_ids\": [], \"text\": \"浸泡时间(h)\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [57.91865030184245, 141.35730586924527, 193.7102670689401, 158.82317638329334], \"source_span_ids\": [], \"text\": \"球墨铸铁管(有泥砂浆衬里）\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [193.55905865957348, 143.16429491247322, 273.1258415468071, 159.71349088928048], \"source_span_ids\": [], \"text\": \"Di\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_bbox\": [272.9048699779055, 144.12485308200422, 351.51543424848524, 160.62814426256648], \"source_span_ids\": [], \"text\": \"≥24\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [57.80092977361828, 157.08543822321136, 193.5740565311386, 174.35569539572091], \"source_span_ids\": [], \"text\": \"钢管 （有水泥砂浆衬里）\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [193.41156129016954, 158.8674201552313, 272.97614829576844, 175.25705783584596], \"source_span_ids\": [], \"text\": \"Di\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_bbox\": [272.72919944712817, 159.7697548354701, 351.38572352032253, 176.25243452562043], \"source_span_ids\": [], \"text\": \"≥24\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [57.64504585190225, 172.66335674089524, 193.391666602559, 189.85456668409836], \"source_span_ids\": [], \"text\": \"化学建材管\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [193.2418745368468, 174.43337601145896, 272.82456658652393, 190.79677416381998], \"source_span_ids\": [], \"text\": \"Di\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_bbox\": [272.56420090109555, 175.34495929694907, 351.244133072516, 191.6948830229446], \"source_span_ids\": [], \"text\": \"≥24\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 2, \"source_bbox\": [57.30623898565045, 188.1417644289062, 193.14291713097828, 220.88485054826688], \"source_span_ids\": [], \"text\": \"现浇钢筋混凝土管渠\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [193.01667589579841, 189.93894069374645, 272.62164516465975, 206.31265828483617], \"source_span_ids\": [], \"text\": \"Di≤1000\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_bbox\": [272.379285708636, 190.88741432946892, 351.0988535435631, 207.31371504783868], \"source_span_ids\": [], \"text\": \"≥48\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [192.82264779455483, 205.46532500799134, 272.4351050197905, 221.84162245876325], \"source_span_ids\": [], \"text\": \"Di>1000\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_bbox\": [272.16632910770113, 206.4093455101223, 350.831548872169, 222.83969403381082], \"source_span_ids\": [], \"text\": \"≥72\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 2, \"source_bbox\": [56.83160088583891, 219.2240124731274, 192.74170759749916, 252.2060012674303], \"source_span_ids\": [], \"text\": \"预（自）应力混凝土管、预应力钢 筒混凝土管\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [192.63183665990607, 221.00784029201122, 272.2483013691251, 237.51930376693826], \"source_span_ids\": [], \"text\": \"Di≤1000\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_bbox\": [272.051264910042, 221.93894506350404, 350.63785015317063, 238.50927973134833], \"source_span_ids\": [], \"text\": \"≥48\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [192.45827417549805, 236.60962661981205, 272.04823459338604, 253.26651530612287], \"source_span_ids\": [], \"text\": \"Di>1000\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_bbox\": [271.83736408000425, 237.60449938795006, 350.57241288045606, 254.25528624053277], \"source_span_ids\": [], \"text\": \"≥72\"}], \"column_count\": 3, \"notes\": [], \"row_count\": 8, \"table_number\": \"9.2.9\", \"unit_context\": [{\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": [193.76570210080854, 127.51609336236768, 273.3108006568993, 144.01944445209188], \"physical_page\": 171, \"source_cell\": {\"col\": 1, \"row\": 0}, \"text\": \"管道内径D；(mm)\"}]}"
+   }
+  },
+  {
+   "id": "table-10",
+   "verdict": "error",
+   "note": "首先2中整体都是\t整平后基础 顶面高程，无压管道在压力管道下面，0.-100是允许偏差，点数中1点是3，4，5，6这些行公用的，检查方法用回声测 深仪、多波 束仪、测深 图检查； 或用水准 仪、经纬仪 测量、钢尺 量测定位标 志，潜水员 检查是1-5公用的，6现在没识别出来，应该是潜水员检查，用刮平尺测量",
+   "item": {
+    "kind": "table",
+    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+    "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+    "physical_page": 150,
+    "bbox": [
+     68.69299280213956,
+     323.7150318334145,
+     363.24661071463424,
+     519.9591075051635
+    ],
+    "element_id": "e002207",
+    "original_sha256": "539e7f651cb5b2b30bad7b376efeef8453e55f46033278e416aad8e09ddff19a",
+    "vote": null,
+    "usage_policy": "source_locator_only",
+    "content": "{\"caption\": \"表7.4.1\", \"cells\": [{\"column\": 0, \"column_span\": 3, \"role\": \"data\", \"row\": 0, \"row_span\": 2, \"source_span_ids\": [], \"text\": \"检查项目\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 2, \"source_span_ids\": [], \"text\": \"允许偏差 (mm)\"}, {\"column\": 4, \"column_span\": 2, \"role\": \"data\", \"row\": 0, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"检查数量\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 0, \"row_span\": 2, \"source_span_ids\": [], \"text\": \"检查方法\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"范围\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 1, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"点数\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 2, \"source_span_ids\": [], \"text\": \"1\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 2, \"source_span_ids\": [], \"text\": \"基槽底部 高程\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"土\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"0,-300\"}, {\"column\": 4, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 12, \"source_span_ids\": [], \"text\": \"每5~ 10m 取 _ 个断面\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 4, \"source_span_ids\": [], \"text\": \"基槽宽度不 于5m时测1点； 基槽宽度大于 5m时测不少于 2点\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 2, \"row_span\": 4, \"source_span_ids\": [], \"text\": \"用回声测 深仪、多波 束仪、测深 图检查； 或用水准 仪、经纬仪 测量、钢尺 量测定位标 志，潜水员 检查\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"石\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 3, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"0,-500\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 2, \"source_span_ids\": [], \"text\": \"2\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"整平后基础 顶面高程\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"压力管道\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 4, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"0,-200\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"无压管道\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"0,-100\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 5, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"3\"}, {\"column\": 1, \"column_span\": 2, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"基槽底部宽度\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"不小于规定\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 4, \"source_span_ids\": [], \"text\": \"1点\"}, {\"column\": 6, \"column_span\": 1, \"role\": \"data\", \"row\": 6, \"row_span\": 4, \"source_span_ids\": [], \"text\": \"\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"4\"}, {\"column\": 1, \"column_span\": 2, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"基槽水平轴线\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 7, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"100\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"5\"}, {\"column\": 1, \"column_span\": 2, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"基础宽度\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 8, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"不小于设计 要求\"}, {\"column\": 0, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 2, \"source_span_ids\": [], \"text\": \"6\"}, {\"column\": 1, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 2, \"source_span_ids\": [], \"text\": \"整平后基础 平整度\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"砂基础\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 9, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"50\"}, {\"column\": 2, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"砾石基础\"}, {\"column\": 3, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"150\"}, {\"column\": 5, \"column_span\": 1, \"role\": \"data\", \"row\": 10, \"row_span\": 1, \"source_span_ids\": [], \"text\": \"\"}], \"column_count\": 7, \"notes\": [], \"row_count\": 14, \"table_number\": \"7.4.1\", \"unit_context\": [{\"association_status\": \"pending_review\", \"basis\": \"literal_cell_text\", \"bbox\": null, \"physical_page\": 150, \"source_cell\": {\"col\": 3, \"row\": 0}, \"text\": \"允许偏差 (mm)\"}]}"
+   }
+  }
+ ]
+}

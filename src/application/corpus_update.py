@@ -19,6 +19,8 @@ from src.ingestion.native_pdf import NativePdfParser
 from src.ingestion.ocr_pdf import OcrPdfParser, PaddleTextOcrEngine
 from src.application.publish_state import CandidateConflictError
 from src.application.document_relations import apply_relations
+from src.ingestion.ocr_region_text import OCR_VOTE_MODE
+from src.application.evidence_policy import EVIDENCE_POLICY_VERSION
 from src.application.formula_region_gate import load_formula_region_gate
 from src.application.pdf_source_audit import (
     REGISTRY as SOURCE_EVIDENCE_REGISTRY,
@@ -38,6 +40,7 @@ SOURCE_REVIEW_RANK = {
 }
 from src.application.retrieval_context import RETRIEVAL_CONTEXT_VERSION  # noqa: E402
 from src.application.source_corrections import REGISTRY_PATH as SOURCE_CORRECTIONS_PATH  # noqa: E402
+from src.application.table_checks import REGISTRY_PATH as TABLE_CHECKS_PATH  # noqa: E402
 
 _CORPUS_ARTIFACT_PROFILE = "corpus-artifacts-v6-unified-original-cross-page-relations"
 
@@ -940,6 +943,8 @@ class CorpusUpdateService:
             # change mints a new version instead of rebinding the
             # immutable stage chain of an existing one.
             "retrieval_context": RETRIEVAL_CONTEXT_VERSION,
+            "ocr_vote": OCR_VOTE_MODE,
+            "evidence_policy": EVIDENCE_POLICY_VERSION,
             "formula_region_gate": formula_gate['provenance'] if formula_gate else None,
             "formula_region_registry_sha256": _sha256(self.root / 'data/registry/formula-gold.json')
                 if (self.root / 'data/registry/formula-gold.json').is_file() else None,
@@ -949,6 +954,9 @@ class CorpusUpdateService:
         corrections = self.root / SOURCE_CORRECTIONS_PATH
         if corrections.is_file():
             fingerprint["source_corrections_sha256"] = _sha256(corrections)
+        table_checks = self.root / TABLE_CHECKS_PATH
+        if table_checks.is_file():
+            fingerprint["table_checks_sha256"] = _sha256(table_checks)
         corpus_fingerprint = _stable_json_sha(fingerprint)
         corpus_version = f"corpus-{corpus_fingerprint[:12]}"
         priority_shas = set()

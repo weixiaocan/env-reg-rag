@@ -60,6 +60,7 @@ class EvidenceItem:
     document_kind: str = "unknown"
     effective_status: str = "unknown"
     source_authority: str = ""
+    standard_number: str = ""
     publication_date: str = ""
     effective_from: str = ""
     effective_to: str = ""

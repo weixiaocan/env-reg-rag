@@ -26,7 +26,10 @@ from typing import Any
 
 # Part of the build identity: changing what gets indexed must mint a new
 # staging collection.
-RETRIEVAL_CONTEXT_VERSION = "structured-lead-in+bm25-title/1"
+# /3: one document card per document (registered facts + cover text);
+# headings OCR-split one character per line end the cover pages, and a
+# contents page before them stays navigation (/2 was an unpublished build).
+RETRIEVAL_CONTEXT_VERSION = "structured-lead-in+bm25-title+document-card/3"
 
 _CONTEXT_TYPES = {"table", "formula"}
 _LEAD_IN_MAX_CHARS = 200

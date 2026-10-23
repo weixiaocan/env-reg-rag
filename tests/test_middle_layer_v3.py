@@ -14,7 +14,10 @@ from src.application.canonical_assembly import (
     _associate_adjacent_formula_numbers,
 )
 from src.ingestion.ocr_region_text import (
+    _drop_fragments_inside_superset_lines,
+    assemble_page_region_text,
     find_adjacent_duplicate_fragments,
+    merge_source_texts,
     recover_source_supported_occlusion_fragments,
     remove_introduced_adjacent_duplicate_fragments,
 )
@@ -351,6 +354,106 @@ def test_vote_recovers_only_source_supported_occluded_fragments() -> None:
     assert repairs == []
 
 
+def _vote_page(primary: list[tuple[str, list[float]]],
+               paddle: list[tuple[str, list[float]]]) -> tuple[dict, dict, dict]:
+    page = {
+        "physical_page": 57, "width": 400, "height": 600,
+        "regions": [{"region_id": "body", "kind": "text", "model_label": "text",
+                     "bbox": [40, 90, 360, 200]}],
+        "elements": [{"element_id": f"p{index}", "type": "text", "text": text, "bbox": bbox}
+                     for index, (text, bbox) in enumerate(primary)],
+    }
+    lines = [{"line_id": f"l{index}", "text": text, "bbox": bbox, "score": 0.99}
+             for index, (text, bbox) in enumerate(paddle)]
+    return page, {"lines": lines}, {"lines": [dict(line) for line in lines]}
+
+
+def _vote_texts(page: dict, clean: dict, raw: dict) -> list[str]:
+    result, _ = assemble_page_region_text(
+        page, clean, raw, run_id="r", run_manifest_sha256="m", raw_run_id="rr",
+        raw_run_manifest_sha256="rm", preprocessing={}, watermarks=[])
+    return [row["text"] for row in result["elements"]]
+
+
+def test_vote_drops_engine_fragment_already_read_by_a_voted_line() -> None:
+    # MinerU split line two into "运…小于：" and "排砂管应"; only the second
+    # joined the Paddle group, so the first used to be appended again.
+    page, clean, raw = _vote_page(
+        [("7.4.7沉砂池除砂宜采用机械方法，并经砂水分", [55, 124.5, 300, 137.5]),
+         ("运。当采用人工排砂时，排砂管直径不应小于：", [57.1, 142.6, 266.4, 150.7]),
+         ("排砂管应", [300, 142, 351, 151])],
+        [("7.4.7 沉砂池除砂宜采用机械方法，并经砂水分离后储存或外", [55, 124.5, 351, 137.5]),
+         ("运。当采用人工排砂时，排砂管直径不应小于200mm。排砂管应", [54.5, 139, 351, 154.5])],
+    )
+    assert _vote_texts(page, clean, raw) == [
+        "7.4.7 沉砂池除砂宜采用机械方法，并经砂水分离后储存或外",
+        "运。当采用人工排砂时，排砂管直径不应小于200mm。排砂管应",
+    ]
+
+
+def test_vote_keeps_short_engine_piece_inside_a_voted_line() -> None:
+    # "n——" shares its letter with the voted line but is not a repeat of it.
+    def row(text: str, bbox: list[float], rule: str) -> dict:
+        return {"text": text, "bbox": bbox, "_ocr_text_source": {"rule": rule}}
+    voted = row("n测定次数(次/d)，每日测量6次～8次", [78, 111.5, 347, 123.5], "majority")
+    piece = row("n——", [78, 112, 95, 123], "single_source")
+    repeat = row("测定次数(次/d)，每日测量6次", [90, 112, 300, 123], "single_source")
+    kept = _drop_fragments_inside_superset_lines([voted, piece, repeat], [], {
+        "dropped_fragment_inside_superset_lines": 0})
+    assert kept == [voted, piece]
+
+    # MinerU boxed the repeat between two rows: still the adjacent line again.
+    above = row("际产泥率进行预测；无资料时可结合污水水质、泥龄、工艺等因", [46.5, 350.5, 347, 370], "majority")
+    last = row("素，按处理万立方米污水产含水率80%的污泥6t～9t估算。", [46.5, 375.5, 347, 389], "merge")
+    between = row("素，按处理万立方米污水产含水率80%的污泥6t", [47, 363.3, 347, 376.1], "single_source")
+    kept = _drop_fragments_inside_superset_lines([above, between, last], [], {
+        "dropped_fragment_inside_superset_lines": 0})
+    assert kept == [above, last]
+
+
+def test_vote_drops_fragment_that_no_line_covers_only_when_text_differs() -> None:
+    page, clean, raw = _vote_page(
+        [("氨氮、总氮、总磷", [55, 160, 200, 172])],
+        [("7.4.8 出水水质应符合下列规定：", [55, 124.5, 351, 137.5])],
+    )
+    assert _vote_texts(page, clean, raw) == ["7.4.8 出水水质应符合下列规定：", "氨氮、总氮、总磷"]
+
+
+def test_vote_keeps_clause_number_both_paddle_runs_agree_on() -> None:
+    page, clean, raw = _vote_page(
+        [("7.5.101", [55, 100, 90, 112])],
+        [("7.5.10 平流沉淀池的设计应符合下列规定：", [55, 100, 340, 112])],
+    )
+    assert _vote_texts(page, clean, raw) == ["7.5.10 平流沉淀池的设计应符合下列规定："]
+    # A number only MinerU read still survives.
+    page, clean, raw = _vote_page(
+        [("7.5.10", [55, 100, 90, 112])],
+        [("平流沉淀池的设计应符合下列规定：", [55, 100, 340, 112])],
+    )
+    assert _vote_texts(page, clean, raw) == ["7.5.10 平流沉淀池的设计应符合下列规定："]
+
+
+def test_short_last_line_under_a_tall_ocr_box_stays_on_its_own_row() -> None:
+    page = {
+        "physical_page": 145, "width": 400, "height": 600,
+        "regions": [{"region_id": "body", "kind": "text", "model_label": "text",
+                     "bbox": [50, 205, 360, 260]}],
+        "elements": [
+            {"element_id": "a", "type": "text", "bbox": [57.5, 209.5, 354.0, 232.5],
+             "text": "压实虚厚，管节（段）沉放前应再次清除槽底回淤、异物；在基",
+             "_v3_assigned_region_id": "body"},
+            {"element_id": "b", "type": "text", "bbox": [56.5, 225.0, 353.5, 247.0],
+             "text": "槽断面方向两侧可打两排短桩设置高程导轨，便于控制基础整平",
+             "_v3_assigned_region_id": "body"},
+            {"element_id": "c", "type": "text", "bbox": [54.0, 239.0, 86.5, 257.0],
+             "text": "施工；", "_v3_assigned_region_id": "body"},
+        ],
+        "_v3_ocr_region_text": True,
+    }
+    text = build_page_blocks(page)[0]["text"]
+    assert text.endswith("便于控制基础整平\n施工；")
+
+
 @pytest.mark.parametrize("variable,definition", [
     ("z1", "糊率系数(m-1)，按试验值确定；"),
     ("beta", "衰减参数(h-1)，可取0.2～0.8。"),
@@ -449,6 +552,32 @@ def test_spaced_preface_heading_bounds_front_matter() -> None:
     assert "front_matter" not in roles[1:]
 
 
+def test_heading_split_one_character_per_line_bounds_front_matter() -> None:
+    doc = prepare_page_document_v3({
+        "sha256": "e" * 64, "file_name": "arbitrary-name.pdf", "pages": [
+            _body_page(1, "某市地方标准", "doc_title"),
+            _body_page(2, "目\n次 \n"),
+            _body_page(3, " \n前\n言 \n"),
+            _body_page(4, "本文件由某市水务局提出并归口。"),
+        ],
+    })
+    roles = [page["elements"][0]["_v3_role"] for page in doc["pages"]]
+    assert roles[0] == "front_matter"
+    assert "front_matter" not in roles[1:]
+
+
+def test_contents_page_before_the_preface_stays_navigation() -> None:
+    doc = prepare_page_document_v3({
+        "sha256": "f" * 64, "file_name": "arbitrary-name.pdf", "pages": [
+            _body_page(1, "某某发展规划", "doc_title"),
+            _body_page(2, "一、总体要求..........................7", "doc_title"),
+            _body_page(3, "前 言"),
+        ],
+    })
+    roles = [page["elements"][0]["_v3_role"] for page in doc["pages"]]
+    assert roles[:2] == ["front_matter", "toc"]
+
+
 def test_document_without_structural_start_has_no_front_matter() -> None:
     doc = prepare_page_document_v3({
         "sha256": "d" * 64, "file_name": "policy.pdf", "pages": [
@@ -528,3 +657,47 @@ def test_unnumbered_back_matter_title_is_a_top_level_heading() -> None:
     assert heading_descriptor("参 考 文 献", is_title=True) == {
         "label": "参考文献", "title": None, "level": 1}
     assert heading_descriptor("参考文献", is_title=False) is None
+
+
+def test_noisy_repeat_beside_its_voted_line_is_dropped() -> None:
+    def row(text: str, bbox: list[float], rule: str) -> dict:
+        return {"text": text, "bbox": bbox, "_ocr_text_source": {"rule": rule}}
+    voted = row("3.0.4 城镇分流制排水系统雨污混接调查与治理的环节宜包括", [50, 100, 347, 113], "majority")
+    noisy = row("城镇分流制排水系统雨污？昆接调查与治理的环节宜包括", [70, 108, 347, 121], "single_source")
+    nextline = row("混接预判、资料收集与现场踏勘、混接区域调查", [50, 116, 347, 129], "majority")
+    kept = _drop_fragments_inside_superset_lines([voted, noisy, nextline], [], {
+        "dropped_fragment_inside_superset_lines": 0})
+    assert kept == [voted, nextline]
+
+
+def test_merge_keeps_mid_line_symbols_only_the_raw_run_read() -> None:
+    # Watermark removal erased the thin '/' and '～'; pp_raw read them.
+    assert merge_source_texts({"pp_clean": "应池容积的23。", "pp_raw": "应池容积的2/3",
+                               "primary": None})[0] == "应池容积的2/3"
+    assert merge_source_texts({
+        "pp_clean": "块铺砌的明渠可采用1：(1.7-1：1的边坡。",
+        "pp_raw": "块铺砌的明渠可采用1：0.75～1：1的边坡。", "primary": None,
+    })[0] == "块铺砌的明渠可采用1：0.75～1：1的边坡。"
+    # At the line end a raw-only digit is the next item number, not text.
+    assert merge_source_texts({
+        "pp_clean": "当种植其他植物时，其厚度不宜大于150mm：",
+        "pp_raw": "当种植其他植物时，其厚度不宜大于150mm；4",
+        "primary": "当种植其他植物时，其厚度不宜大于150mm；",
+    })[0] == "当种植其他植物时，其厚度不宜大于150mm；"
+
+
+def test_inline_formula_region_does_not_drop_its_body_line() -> None:
+    page, clean, raw = _vote_page(
+        [], [("度的管道外壁摩擦阻力（πDLfk）与工具管迎面阻力（NF）两", [58, 123, 354, 136]),
+             ("部分之和。", [58, 138, 120, 152])])
+    page["regions"].append({"region_id": "f1", "kind": "formula", "bbox": [169, 124, 213, 135]})
+    assert _vote_texts(page, clean, raw) == [
+        "度的管道外壁摩擦阻力（πDLfk）与工具管迎面阻力（NF）两", "部分之和。"]
+    # A fragment the size of the region is the formula itself.
+    page["regions"][-1]["bbox"] = [58, 123, 80, 136]
+    clean["lines"].append({"line_id": "lf", "text": "ts", "bbox": [59, 124, 79, 135], "score": 0.99})
+    assert _vote_texts(page, clean, raw) == [
+        "度的管道外壁摩擦阻力（πDLfk）与工具管迎面阻力（NF）两", "部分之和。"]
+    # A display formula region still owns the lines it covers.
+    page["regions"][-1]["bbox"] = [55, 120, 360, 140]
+    assert _vote_texts(page, clean, raw) == ["部分之和。"]

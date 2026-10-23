@@ -3749,7 +3749,9 @@ def _build_generation(
     for eid, name, version in (ocr_engine_order or []):
         engines.append({"engine_id": eid, "name": name, "version": version})
     if fusion_summary and fusion_summary.get("mode") in {
-            "preprocessed-region-text-v1", "three-source-region-vote-v1"}:
+            "preprocessed-region-text-v1", "three-source-region-vote-v1",
+            "three-source-region-vote-v2", "three-source-region-vote-v3",
+            "three-source-region-vote-v4"}:
         version = str(fusion_summary.get("run_id") or "unknown")
         if fusion_summary.get("raw_run_id"):
             version += f"+{fusion_summary['raw_run_id']}"

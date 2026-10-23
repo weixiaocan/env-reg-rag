@@ -47,6 +47,7 @@ def evidence_item_from_hit(hit: Any) -> EvidenceItem:
         document_kind=hit.document_kind,
         effective_status=hit.effective_status,
         source_authority=hit.source_authority,
+        standard_number=getattr(hit, "standard_number", ""),
         publication_date=hit.publication_date,
         effective_from=hit.effective_from,
         effective_to=hit.effective_to,

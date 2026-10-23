@@ -329,6 +329,48 @@ def _doc_level_metadata(canonical: dict[str, Any]) -> dict[str, Any]:
 
 
 # --------------------------------------------------------------------------- #
+# Document card
+# --------------------------------------------------------------------------- #
+
+_CARD_KIND = {"standard": "标准", "regulation": "法规", "policy": "政策文件",
+              "guideline": "指南", "notice": "通知", "report": "报告"}
+_CARD_STATUS = {"current": "现行", "not_yet_effective": "尚未实施", "expired": "已失效",
+                "repealed": "已废止", "superseded": "已被代替", "draft": "征求意见稿"}
+
+
+def _document_card_header(canonical: dict[str, Any]) -> str:
+    """The registered facts of one document, one per line, unknowns left out."""
+    md = canonical.get("metadata") or {}
+    file_name = (canonical.get("source") or {}).get("file_name") or ""
+    title = re.sub(r"\.pdf$", "", (md.get("title") or file_name).strip(), flags=re.I)
+    meta = _doc_level_metadata(canonical)
+    lines = [f"资料卡：{title}"]
+    if meta["standard_number"]:
+        lines.append(f"标准号：{meta['standard_number']}")
+    if md.get("document_kind") in _CARD_KIND:
+        lines.append(f"类型：{_CARD_KIND[md['document_kind']]}")
+    if md.get("issuing_authorities"):
+        lines.append("发布机构：" + "、".join(md["issuing_authorities"]))
+    for key, label in (("publication_date", "发布日期"), ("effective_from", "实施日期"),
+                       ("effective_to", "废止日期")):
+        if md.get(key):
+            lines.append(f"{label}：{md[key]}")
+    if md.get("effective_status") in _CARD_STATUS:
+        lines.append(f"状态：{_CARD_STATUS[md['effective_status']]}")
+    return "\n".join(lines) + "\n"
+
+
+def _front_matter_text(element: dict[str, Any]) -> str:
+    """Cover text as printed: vertical titles ("武\n汉\n市") read as one line."""
+    lines = [line.strip() for line in
+             ((element.get("content") or {}).get("text") or "").splitlines()]
+    lines = [line for line in lines if line]
+    if lines and all(len(line) == 1 for line in lines):
+        return "".join(lines)
+    return "\n".join(lines)
+
+
+# --------------------------------------------------------------------------- #
 # Accumulator
 # --------------------------------------------------------------------------- #
 
@@ -1140,6 +1182,51 @@ class _ChunkBuilder:
         )
         self._chunks.append(chunk)
 
+    def emit_document_card(self, canonical: dict[str, Any],
+                           elements: list[dict[str, Any]]) -> None:
+        """One card per document: its registered facts plus the cover,
+        title-page and announcement text that body chunking leaves out.
+
+        The cover pages carry the standard number, issuing body, dates and
+        editors; they are dropped from body chunks because large repeated
+        titles crowd out clauses.  The card keeps them findable in one place,
+        cited to the cover pages and as verified as its source elements.
+        A document without front matter is anchored on its first heading.
+        """
+        header = _document_card_header(canonical)
+        sources = [e for e in elements
+                   if e.get("type") == "text" and e.get("role") == "front_matter"
+                   and _front_matter_text(e)]
+        if not sources:
+            first = next((e for e in elements if e.get("type") == "text"
+                          and e.get("role") in ("heading", "document_title")), None)
+            if first is not None:
+                self._emit_chunk(element_ids=[first["element_id"]], text=header,
+                                 section_path=[], elements=[first],
+                                 element_types=["document_card"])
+            return
+        room = min(self._token_budget, _HARD_CAP_TOKENS) - self._count(header)
+        shard: list[tuple[dict[str, Any], str]] = []
+
+        def seal() -> None:
+            if shard:
+                self._emit_chunk(
+                    element_ids=[e["element_id"] for e, _ in shard],
+                    text=header + "\n".join(t for _, t in shard),
+                    section_path=[], elements=[e for e, _ in shard],
+                    element_types=["document_card"])
+                shard.clear()
+
+        for element in sources:
+            text = _front_matter_text(element)
+            pieces = ([text] if self._count(text) <= room
+                      else self._split_body(header, text))
+            for piece in pieces:
+                if self._count("\n".join([*(t for _, t in shard), piece])) > room:
+                    seal()
+                shard.append((element, piece))
+        seal()
+
     def bind_elements(self, elements: list[dict[str, Any]]) -> None:
         self._element_lookup = {e["element_id"]: e for e in elements}
 
@@ -1199,6 +1286,7 @@ def chunk_document(
         valid_pages=valid_pages,
     )
     builder.bind_elements(elements)
+    builder.emit_document_card(canonical, elements)
     list_guides = _guided_list_pairs(elements)
 
     # T09 (ledger docs only): explanation elements that are PRIMARY-bound to a

@@ -107,16 +107,22 @@ def apply_source_corrections(document: dict[str, Any], registry: dict[str, Any] 
         if fix["source_sha256"] != sha:
             continue
         on_page = [e for e in elements if _on_page(e, fix["physical_page"])]
+        # A line such as "式中：" recurs on a page; its bbox then tells which.
         texts = [
             e for e in on_page
             if e.get("type") == "text"
             and _sha256((e.get("content") or {}).get("text") or "") == fix["original_text_sha256"]
+            and ("bbox" not in fix or _bbox_close(_primary_span(e)["bbox"], fix["bbox"]))
         ]
         if len(texts) != 1:
             raise SourceCorrectionError(
                 f"text correction on {sha[:12]} p{fix['physical_page']} matched "
                 f"{len(texts)} elements (expected 1)")
         texts[0]["content"]["text"] = fix["corrected_text"]
+        if fix.get("exclude"):
+            # A watermark read as text, or a fragment already restored in the
+            # line it broke off from: kept in the canonical, never retrieved.
+            texts[0]["role"] = "unknown"
         mark(texts[0])
         # A formula may carry the same line as its "式中" context.
         for formula in on_page:

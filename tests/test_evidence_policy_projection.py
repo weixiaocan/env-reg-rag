@@ -502,6 +502,21 @@ class ReasonCodeTest(unittest.TestCase):
         self.assertEqual(pol, "source_locator_only")
         self.assertIn("unreadable_text", reasons)
 
+    def test_cell_checked_numeric_table_skips_readability_floor(self):
+        from src.application.evidence_policy import chunk_usage_policy
+        table = _table_element("t1", quality_status="passed")
+        table["policy_reasons"] = ["table_admitted", "table_cell_check",
+                                   "review_assertion:table-checks:a26a1dfe7124"]
+        table["quality_issues"] = ["review_assertion:table-checks:a26a1dfe7124"]
+        text = "TN (mg/L) | 12.3~40.0 | 22.4 | 0.26 | 54.2~121.6 | 99.2 | 0.15 | / | 1.94"
+        pol, _, reasons = chunk_usage_policy([table], text)
+        self.assertEqual(pol, "answer_and_citation")
+        self.assertNotIn("unreadable_text", reasons)
+        # Without the cell check the same text stays behind the floor.
+        table["policy_reasons"] = ["table_admitted"]
+        pol, _, reasons = chunk_usage_policy([table], text)
+        self.assertNotEqual(pol, "answer_and_citation")
+
     def test_passed_answer_has_no_downgrade_reason(self):
         from src.application.evidence_policy import chunk_usage_policy
         elements = [

@@ -112,6 +112,14 @@ def _chunk(canonical: dict) -> list[V2Chunk]:
     return chunk_document(canonical, tokenizer=_CharTokenizer(), token_budget=40, overlap=8)
 
 
+def _body(chunks: list[V2Chunk]) -> list[V2Chunk]:
+    return [c for c in chunks if c.metadata["element_types"] != ["document_card"]]
+
+
+def _cards(chunks: list[V2Chunk]) -> list[V2Chunk]:
+    return [c for c in chunks if c.metadata["element_types"] == ["document_card"]]
+
+
 class RoleFilterTest(unittest.TestCase):
     def test_page_number_header_footer_dropped(self):
         doc = _canonical([
@@ -137,8 +145,52 @@ class RoleFilterTest(unittest.TestCase):
             _text_element("e3", "clause", "1.0.1 正文。"),
         ])
         chunks = _chunk(doc)
-        ids = [eid for chunk in chunks for eid in chunk.element_ids]
+        ids = [eid for chunk in _body(chunks) for eid in chunk.element_ids]
         self.assertEqual(ids, ["e3"])
+        # the cover text lives on in the document card, never the TOC line
+        self.assertEqual([c.element_ids for c in _cards(chunks)], [["e2"]])
+
+
+class DocumentCardTest(unittest.TestCase):
+    def test_card_carries_registered_facts_and_cover_text(self):
+        doc = _canonical([
+            _text_element("e1", "front_matter", "武\n汉\n市\n地\n方\n标\n准"),
+            _text_element("e2", "front_matter", "本文件由某市水务局提出并归口。"),
+            _text_element("e3", "clause", "1.0.1 正文。", page=2),
+        ], page_count=2)
+        chunks = chunk_document(doc, tokenizer=_CharTokenizer(), token_budget=200, overlap=8)
+        [card] = _cards(chunks)
+        self.assertEqual(card.element_ids, ["e1", "e2"])
+        self.assertEqual(
+            card.text,
+            "资料卡：示例\n标准号：T/CECS 758-2020\n类型：标准\n"
+            "武汉市地方标准\n本文件由某市水务局提出并归口。")
+        self.assertEqual(card.metadata["physical_pages"], [1])
+        self.assertEqual([c.element_ids for c in _body(chunks)], [["e3"]])
+
+    def test_long_cover_text_splits_into_cards_that_each_repeat_the_facts(self):
+        doc = _canonical([
+            _text_element(f"e{i}", "front_matter", f"第{i}段扉页文字，主编单位与批准部门。")
+            for i in range(1, 6)
+        ])
+        cards = _cards(chunk_document(doc, tokenizer=_CharTokenizer(),
+                                      token_budget=60, overlap=8))
+        self.assertGreater(len(cards), 1)
+        for card in cards:
+            self.assertTrue(card.text.startswith("资料卡：示例\n标准号：T/CECS 758-2020"))
+            self.assertLessEqual(len(card.text), 60)
+        self.assertEqual([e for c in cards for e in c.element_ids],
+                         [f"e{i}" for i in range(1, 6)])
+
+    def test_document_without_front_matter_anchors_card_on_first_heading(self):
+        doc = _canonical([
+            _text_element("e1", "heading", "示例规范"),
+            _text_element("e2", "clause", "1.0.1 正文。"),
+        ])
+        [card] = _cards(chunk_document(doc, tokenizer=_CharTokenizer(),
+                                       token_budget=200, overlap=8))
+        self.assertEqual(card.element_ids, ["e1"])
+        self.assertEqual(card.text, "资料卡：示例\n标准号：T/CECS 758-2020\n类型：标准")
 
 
 class ClauseBreakpointTest(unittest.TestCase):
@@ -172,7 +224,7 @@ class HeadingFlushTest(unittest.TestCase):
             _text_element("e3", "clause", "5.3.1 水质特征因子应能区分污水与雨水。", section_path=sp),
         ])
         chunks = _chunk(doc)
-        ids = [eid for c in chunks for eid in c.element_ids]
+        ids = [eid for c in _body(chunks) for eid in c.element_ids]
         self.assertNotIn("e2", ids)  # heading text not emitted as a chunk
 
 

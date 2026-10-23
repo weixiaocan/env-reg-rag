@@ -111,6 +111,41 @@ class ApplySourceCorrectionsTest(unittest.TestCase):
         with self.assertRaises(SourceCorrectionError):
             apply_source_corrections(doc, _registry(texts=[]))
 
+    def test_bbox_picks_one_of_repeated_lines_on_a_page(self):
+        doc = _document()
+        doc["elements"] += [
+            {"element_id": f"e{n}", "type": "text", "quality_status": "needs_review",
+             "quality_issues": [], "content": {"text": "式中："},
+             "source_spans": _span(22, [80.0, y, 120.0, y + 12.0])}
+            for n, y in ((4, 300.0), (5, 500.0))
+        ]
+        line = {"source_sha256": SHA, "physical_page": 22, "original_text_sha256": _sha("式中："),
+                "corrected_text": "式中："}
+
+        with self.assertRaises(SourceCorrectionError):
+            apply_source_corrections(doc, _registry(formulas=[], texts=[line]))
+        doc = _document()
+        doc["elements"] += [
+            {"element_id": f"e{n}", "type": "text", "quality_status": "needs_review",
+             "quality_issues": [], "content": {"text": "式中："},
+             "source_spans": _span(22, [80.0, y, 120.0, y + 12.0])}
+            for n, y in ((4, 300.0), (5, 500.0))
+        ]
+        apply_source_corrections(doc, _registry(
+            owner_verified=True, formulas=[], texts=[{**line, "bbox": [80.0, 500.0, 120.0, 512.0]}]))
+
+        statuses = {e["element_id"]: e["quality_status"] for e in doc["elements"]}
+        self.assertEqual((statuses["e4"], statuses["e5"]), ("needs_review", "passed"))
+
+    def test_excluded_line_leaves_retrieval(self):
+        doc = _document()
+        doc["elements"][1]["role"] = "paragraph"
+        apply_source_corrections(doc, _registry(formulas=[], texts=[
+            {"source_sha256": SHA, "physical_page": 22, "original_text_sha256": _sha(VARS_WRONG),
+             "corrected_text": VARS_WRONG, "exclude": True}]))
+
+        self.assertEqual(doc["elements"][1]["role"], "unknown")
+
     def test_other_documents_and_no_registry_are_untouched(self):
         doc = _document()
         doc["source"]["sha256"] = "b" * 64

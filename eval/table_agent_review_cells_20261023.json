@@ -1,0 +1,897 @@
+[
+ {
+  "item": 1,
+  "sha256": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+  "region_id": "up-d9994c06ba2bd9772c80ebcb",
+  "page": 8,
+  "row": 0,
+  "column": 2,
+  "readings": {
+   "cell": "持续时间(T) d",
+   "pp_clean": "持续时间(T) p",
+   "pp_raw": "持续时间(T0) P",
+   "vision": "持续时间(T₀) d"
+  },
+  "decision": "持续时间(T0) d"
+ },
+ {
+  "item": 2,
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-40caea9841e4e42e25c55596",
+  "page": 26,
+  "row": 2,
+  "column": 7,
+  "readings": {
+   "cell": "",
+   "text_layer": "/",
+   "vision": "√"
+  },
+  "decision": "/"
+ },
+ {
+  "item": 3,
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-40caea9841e4e42e25c55596",
+  "page": 26,
+  "row": 4,
+  "column": 7,
+  "readings": {
+   "cell": "",
+   "text_layer": "/",
+   "vision": "√"
+  },
+  "decision": "/"
+ },
+ {
+  "item": 4,
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-40caea9841e4e42e25c55596",
+  "page": 26,
+  "row": 5,
+  "column": 7,
+  "readings": {
+   "cell": "",
+   "text_layer": "/",
+   "vision": "√"
+  },
+  "decision": "/"
+ },
+ {
+  "item": 5,
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-40caea9841e4e42e25c55596",
+  "page": 26,
+  "row": 16,
+  "column": 7,
+  "readings": {
+   "cell": "",
+   "text_layer": "/",
+   "vision": "√"
+  },
+  "decision": "/"
+ },
+ {
+  "item": 6,
+  "sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+  "region_id": "up-40caea9841e4e42e25c55596",
+  "page": 26,
+  "row": 17,
+  "column": 7,
+  "readings": {
+   "cell": "",
+   "text_layer": "/",
+   "vision": "√"
+  },
+  "decision": "/"
+ },
+ {
+  "item": 7,
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-df0c0034b582de159fa13ac7",
+  "page": 14,
+  "row": 1,
+  "column": 2,
+  "readings": {
+   "cell": "一",
+   "pp_clean": "",
+   "pp_raw": "",
+   "vision": "—"
+  },
+  "decision": "—"
+ },
+ {
+  "item": 8,
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-df0c0034b582de159fa13ac7",
+  "page": 14,
+  "row": 2,
+  "column": 1,
+  "readings": {
+   "cell": "一",
+   "pp_clean": "",
+   "pp_raw": "",
+   "vision": "—"
+  },
+  "decision": "—"
+ },
+ {
+  "item": 9,
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-df0c0034b582de159fa13ac7",
+  "page": 14,
+  "row": 2,
+  "column": 3,
+  "readings": {
+   "cell": "一",
+   "pp_clean": "",
+   "pp_raw": "",
+   "vision": "—"
+  },
+  "decision": "—"
+ },
+ {
+  "item": 10,
+  "sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+  "region_id": "up-df0c0034b582de159fa13ac7",
+  "page": 14,
+  "row": 3,
+  "column": 2,
+  "readings": {
+   "cell": "一",
+   "pp_clean": "",
+   "pp_raw": "",
+   "vision": "—"
+  },
+  "decision": "—"
+ },
+ {
+  "item": 11,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-146e74603d5f02cd1321d8ea",
+  "page": 22,
+  "row": 2,
+  "column": 1,
+  "readings": {
+   "cell": "",
+   "pp_clean": "(, 15~0, 60",
+   "pp_raw": "0.45>0.60",
+   "vision": "0.45~0.60"
+  },
+  "decision": "0.45~0.60"
+ },
+ {
+  "item": 12,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-146e74603d5f02cd1321d8ea",
+  "page": 22,
+  "row": 3,
+  "column": 1,
+  "readings": {
+   "cell": "",
+   "pp_clean": "0, 20 0,1.",
+   "pp_raw": "0,20~0.45",
+   "vision": "0.20~0.45"
+  },
+  "decision": "0.20~0.45"
+ },
+ {
+  "item": 13,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-6ef79fbd175966e695818178",
+  "page": 28,
+  "row": 1,
+  "column": 1,
+  "readings": {
+   "cell": "",
+   "pp_clean": "0,011.0'1",
+   "pp_raw": "0013~0.014",
+   "vision": "0.013~0.014"
+  },
+  "decision": "0.013~0.014"
+ },
+ {
+  "item": 14,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-6ef79fbd175966e695818178",
+  "page": 28,
+  "row": 2,
+  "column": 0,
+  "readings": {
+   "cell": "",
+   "pp_clean": "水沉砂浆内衬球墨待铁管10.11.0)",
+   "pp_raw": "水泥砂浆内衬球墨铸铁管0.011~0.012",
+   "vision": "水泥砂浆内衬球墨铸铁管"
+  },
+  "decision": "水泥砂浆内衬球墨铸铁管"
+ },
+ {
+  "item": 15,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-6ef79fbd175966e695818178",
+  "page": 28,
+  "row": 4,
+  "column": 0,
+  "readings": {
+   "cell": "UPVC管、PE管玻璃钢管",
+   "pp_clean": "しPVC管、PE管、玻璃烤管 0. 1：.0.",
+   "pp_raw": "",
+   "vision": "UPVC 管、PE 管、玻璃钢管"
+  },
+  "decision": "UPVC管、PE管、玻璃钢管"
+ },
+ {
+  "item": 16,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-8d61b6b907385ed56b702cbe",
+  "page": 39,
+  "row": 3,
+  "column": 1,
+  "readings": {
+   "cell": "1.5~1:2",
+   "pp_clean": "1:1.::2",
+   "pp_raw": "1:1.5~1:2",
+   "vision": "1∶1.5～1∶2"
+  },
+  "decision": "1:1.5~1:2"
+ },
+ {
+  "item": 17,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-8d61b6b907385ed56b702cbe",
+  "page": 39,
+  "row": 4,
+  "column": 1,
+  "readings": {
+   "cell": ":1.25~1:1.5",
+   "pp_clean": "",
+   "pp_raw": "1:1.25~1:1.5",
+   "vision": "1∶1.25～1∶1.5"
+  },
+  "decision": "1:1.25~1:1.5"
+ },
+ {
+  "item": 18,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-8f16f3b06e7d6f444f433470",
+  "page": 57,
+  "row": 0,
+  "column": 0,
+  "readings": {
+   "cell": "",
+   "pp_clean": "沉定想类型",
+   "pp_raw": "沉淀池类型时间",
+   "vision": "沉淀池类型"
+  },
+  "decision": "沉淀池类型"
+ },
+ {
+  "item": 19,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-8f16f3b06e7d6f444f433470",
+  "page": 57,
+  "row": 0,
+  "column": 2,
+  "readings": {
+   "cell": "时间 (h)",
+   "pp_clean": "说时间 h1",
+   "pp_raw": "沉淀(h)",
+   "vision": "沉淀 时间 (h)"
+  },
+  "decision": "沉淀时间(h)"
+ },
+ {
+  "item": 20,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-8f16f3b06e7d6f444f433470",
+  "page": 57,
+  "row": 0,
+  "column": 3,
+  "readings": {
+   "cell": "表面水力 负荷[m³/",
+   "pp_clean": "表面水负何 r1 (m ·h.",
+   "pp_raw": "表面水力负荷[m³/ (m2·h)](人,d)]",
+   "vision": "表面水力 负荷[m³/ (m²·h)]"
+  },
+  "decision": "表面水力负荷[m³/(m²·h)]"
+ },
+ {
+  "item": 21,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-8f16f3b06e7d6f444f433470",
+  "page": 57,
+  "row": 0,
+  "column": 4,
+  "readings": {
+   "cell": "",
+   "pp_clean": "人每日沟泥址(人·d)",
+   "pp_raw": "每人每日污泥量[g/",
+   "vision": "每人每日 污泥量[g/(人·d)]"
+  },
+  "decision": "每人每日污泥量[g/(人·d)]"
+ },
+ {
+  "item": 22,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-8f16f3b06e7d6f444f433470",
+  "page": 57,
+  "row": 1,
+  "column": 3,
+  "readings": {
+   "cell": "",
+   "pp_clean": ":.; 1.5",
+   "pp_raw": "1.5~1516~36",
+   "vision": "1.5~4.5"
+  },
+  "decision": "1.5~4.5"
+ },
+ {
+  "item": 23,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-5613aabc09ae62206ca9bc5f",
+  "page": 61,
+  "row": 0,
+  "column": 4,
+  "readings": {
+   "cell": "污泥回 流比R",
+   "pp_clean": "污号に 流比 R ()",
+   "pp_raw": "污泥回流比 R (%)",
+   "vision": "污泥回流比R (‰)"
+  },
+  "decision": "污泥回流比R(%)"
+ },
+ {
+  "item": 24,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-5613aabc09ae62206ca9bc5f",
+  "page": 61,
+  "row": 4,
+  "column": 3,
+  "readings": {
+   "cell": "",
+   "pp_clean": "1.5~1.8",
+   "pp_raw": ".5~1.8",
+   "vision": "0.5~1.8"
+  },
+  "decision": "0.5~1.8"
+ },
+ {
+  "item": 25,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-c53c0e6d72f98e8fb11419a1",
+  "page": 75,
+  "row": 5,
+  "column": 3,
+  "readings": {
+   "cell": "kgNH3 − N/(m3 • d)",
+   "pp_clean": "kkNH\\( •d",
+   "pp_raw": "kgNH3−N/(m3· d)",
+   "vision": "kgNH₃-N/(m³·d)"
+  },
+  "decision": "kgNH3-N/(m³·d)"
+ },
+ {
+  "item": 26,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-66f82ce10de9068414457c89",
+  "page": 76,
+  "row": 2,
+  "column": 3,
+  "readings": {
+   "cell": "kgNH3− N/(m",
+   "pp_clean": "k;NH. N m · ci)",
+   "pp_raw": "kgNH3− N/(m³ · d)",
+   "vision": "kgNH₃-N/(m³·d)"
+  },
+  "decision": "kgNH3-N/(m³·d)"
+ },
+ {
+  "item": 27,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-66f82ce10de9068414457c89",
+  "page": 76,
+  "row": 3,
+  "column": 3,
+  "readings": {
+   "cell": "m3",
+   "pp_clean": "m • m h)",
+   "pp_raw": "m³/Em² • h(m/h)]",
+   "vision": "m³/[m²·h(m/h)]"
+  },
+  "decision": "m³/[m²·h(m/h)]"
+ },
+ {
+  "item": 28,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-66f82ce10de9068414457c89",
+  "page": 76,
+  "row": 4,
+  "column": 3,
+  "readings": {
+   "cell": "N/(m3· d)",
+   "pp_clean": "kgNO) N n · d)",
+   "pp_raw": "2kgNO3 -N/(m³ · d)",
+   "vision": "kgNO₃-N/(m³·d)"
+  },
+  "decision": "kgNO3-N/(m³·d)"
+ },
+ {
+  "item": 29,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-66f82ce10de9068414457c89",
+  "page": 76,
+  "row": 6,
+  "column": 3,
+  "readings": {
+   "cell": "",
+   "pp_clean": "kgN0), N n • d",
+   "pp_raw": "kgNO3 − N/(m",
+   "vision": "kgNO₃-N/(m³·d)"
+  },
+  "decision": "kgNO3-N/(m³·d)"
+ },
+ {
+  "item": 30,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-023f48730c983a20668644ca",
+  "page": 115,
+  "row": 6,
+  "column": 1,
+  "readings": {
+   "cell": "",
+   "pp_clean": "1.1",
+   "pp_raw": "7/150",
+   "vision": "1.50"
+  },
+  "decision": "1.50"
+ },
+ {
+  "item": 31,
+  "sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+  "region_id": "up-023f48730c983a20668644ca",
+  "page": 115,
+  "row": 7,
+  "column": 1,
+  "readings": {
+   "cell": "50",
+   "pp_clean": "1. 1",
+   "pp_raw": ".50",
+   "vision": "1.50"
+  },
+  "decision": "1.50"
+ },
+ {
+  "item": 32,
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-0d6d2eb48ff6e11cd4edc763",
+  "page": 45,
+  "row": 3,
+  "column": 2,
+  "readings": {
+   "cell": "一",
+   "pp_clean": "",
+   "pp_raw": "",
+   "vision": "—"
+  },
+  "decision": "-"
+ },
+ {
+  "item": 33,
+  "sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+  "region_id": "up-0d6d2eb48ff6e11cd4edc763",
+  "page": 45,
+  "row": 4,
+  "column": 1,
+  "readings": {
+   "cell": "2.0 1.0 1",
+   "pp_clean": "20",
+   "pp_raw": "2.0",
+   "vision": "2.0 1.0"
+  },
+  "decision": "2.0 1.0"
+ },
+ {
+  "item": 34,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-155eb0bc730165a941949061",
+  "page": 23,
+  "row": 4,
+  "column": 0,
+  "readings": {
+   "cell": "500<D。≤1000",
+   "pp_clean": "500,D100",
+   "pp_raw": "500<D≤1000",
+   "vision": "500<Do≤1000"
+  },
+  "decision": "500<Do≤1000"
+ },
+ {
+  "item": 35,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-155eb0bc730165a941949061",
+  "page": 23,
+  "row": 6,
+  "column": 0,
+  "readings": {
+   "cell": "1000<D。≤1500",
+   "pp_clean": "10c(, D · 1500",
+   "pp_raw": "1000<D≤1500",
+   "vision": "1000<Do≤1500"
+  },
+  "decision": "1000<Do≤1500"
+ },
+ {
+  "item": 36,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-155eb0bc730165a941949061",
+  "page": 23,
+  "row": 8,
+  "column": 0,
+  "readings": {
+   "cell": "1500<D。≤3000",
+   "pp_clean": "13t (n D) · 3()(1",
+   "pp_raw": "1500<D≤3000",
+   "vision": "1500<Do≤3000"
+  },
+  "decision": "1500<Do≤3000"
+ },
+ {
+  "item": 37,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-156fb5e267684c950857f23e",
+  "page": 37,
+  "row": 2,
+  "column": 5,
+  "readings": {
+   "cell": "一",
+   "pp_clean": "",
+   "pp_raw": "",
+   "vision": "—"
+  },
+  "decision": "—"
+ },
+ {
+  "item": 38,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-156fb5e267684c950857f23e",
+  "page": 37,
+  "row": 2,
+  "column": 8,
+  "readings": {
+   "cell": "一",
+   "pp_clean": "",
+   "pp_raw": "",
+   "vision": "—"
+  },
+  "decision": "—"
+ },
+ {
+  "item": 39,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-7bd3780719de243ededb36a6",
+  "page": 41,
+  "row": 1,
+  "column": 2,
+  "readings": {
+   "cell": "500<D。≤1000",
+   "pp_clean": "5(g= D,、1000",
+   "pp_raw": "500<D≤1000",
+   "vision": "500<Do≤1000"
+  },
+  "decision": "500<Do≤1000"
+ },
+ {
+  "item": 40,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-dc7b4bc0425bdd97e8dd2e13",
+  "page": 42,
+  "row": 0,
+  "column": 0,
+  "readings": {
+   "cell": "管径（D。)",
+   "pp_clean": "管径（1））",
+   "pp_raw": "管径（D）",
+   "vision": "管径 (D₀)"
+  },
+  "decision": "管径（Do）"
+ },
+ {
+  "item": 41,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-3455f24d592c99443cb012e8",
+  "page": 43,
+  "row": 2,
+  "column": 2,
+  "readings": {
+   "cell": "±0.0035D;",
+   "pp_clean": "* (0. G0351)",
+   "pp_raw": "±0.0035D",
+   "vision": "±0.0035Di"
+  },
+  "decision": "±0.0035Di"
+ },
+ {
+  "item": 42,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-3455f24d592c99443cb012e8",
+  "page": 43,
+  "row": 5,
+  "column": 1,
+  "readings": {
+   "cell": "用弧长πD;/6的弧形板量测于管内壁或外壁纵缝处形成的间隙， 其间隙为0.1t十2，且不大于4，距管端200mm纵缝处的间隙不大 于2",
+   "pp_clean": "用弧长πI)5的弧形板量测于管内壁或外壁纵缝处形成的间隙。 其间隙为C. 1t·2，H不大于1，距管端2(℃mm纵缝处的间隙不大 }2",
+   "pp_raw": "用弧长πD/6的弧形板量测于管内壁或外壁纵缝处形成的间隙， 其间隙为0.1t+2，且不大于4，距管端200mm纵缝处的间隙不大于2",
+   "vision": "用弧长 πDi/6 的弧形板量测于管内壁或外壁纵缝处形成的间隙，其间隙为 0.1t+2，且不大于 4，距管端 200mm 纵缝处的间隙不大于 2"
+  },
+  "decision": "用弧长πDi/6的弧形板量测于管内壁或外壁纵缝处形成的间隙，其间隙为0.1t+2，且不大于4，距管端200mm纵缝处的间隙不大于2"
+ },
+ {
+  "item": 43,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-e83704f9e2b3467529387bbc",
+  "page": 44,
+  "row": 2,
+  "column": 0,
+  "readings": {
+   "cell": "α b",
+   "pp_clean": "u p b",
+   "pp_raw": "α 6",
+   "vision": "α l p b"
+  },
+  "decision": "α l p b"
+ },
+ {
+  "item": 44,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-eb4ce78a5d9b251d9ef23e83",
+  "page": 59,
+  "row": 0,
+  "column": 0,
+  "readings": {
+   "cell": "管内径D；(mm）",
+   "pp_clean": "管内径1)（mm）",
+   "pp_raw": "管内径 D（mm）",
+   "vision": "管内径 Di (mm)"
+  },
+  "decision": "管内径Di（mm）"
+ },
+ {
+  "item": 45,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-248c9d4f1146d2dc955cea99",
+  "page": 87,
+  "row": 1,
+  "column": 1,
+  "readings": {
+   "cell": "NF = π(Dg−t)tR",
+   "pp_clean": "V, · π (I)x1)tR",
+   "pp_raw": "NF=π(D8−t)tR",
+   "vision": "N_F = π (D_g - t) t R"
+  },
+  "decision": "NF=π(Dg−t)tR"
+ },
+ {
+  "item": 46,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-248c9d4f1146d2dc955cea99",
+  "page": 87,
+  "row": 1,
+  "column": 2,
+  "readings": {
+   "cell": "t 工具管刃脚厚度（m）",
+   "pp_clean": "t[具管刃脚厚度（m）",
+   "pp_raw": "工具管刃脚厚度（m）",
+   "vision": "t ——工具管刃脚厚度（m）"
+  },
+  "decision": "t——工具管刃脚厚度（m）"
+ },
+ {
+  "item": 47,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-248c9d4f1146d2dc955cea99",
+  "page": 87,
+  "row": 2,
+  "column": 1,
+  "readings": {
+   "cell": "Nr = D(1-e)R",
+   "pp_clean": "V1-D), (1R",
+   "pp_raw": "NF =π4-Dk (1-e)R",
+   "vision": "N_F = π/4 D_g² (1-e)R"
+  },
+  "decision": "NF=π/4 Dg²(1−e)R"
+ },
+ {
+  "item": 48,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-248c9d4f1146d2dc955cea99",
+  "page": 87,
+  "row": 2,
+  "column": 2,
+  "readings": {
+   "cell": "开口率 e",
+   "pp_clean": "e开11率",
+   "pp_raw": "开口率",
+   "vision": "e——开口率"
+  },
+  "decision": "e——开口率"
+ },
+ {
+  "item": 49,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-248c9d4f1146d2dc955cea99",
+  "page": 87,
+  "row": 3,
+  "column": 1,
+  "readings": {
+   "cell": "Nr = π D aR",
+   "pp_clean": "NrπDuR",
+   "pp_raw": "NF =π4D2aR",
+   "vision": "N_F = π/4 D_g²αR"
+  },
+  "decision": "NF=π/4 Dg²αR"
+ },
+ {
+  "item": 50,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-248c9d4f1146d2dc955cea99",
+  "page": 87,
+  "row": 4,
+  "column": 1,
+  "readings": {
+   "cell": "N = D(aR+Pn)",
+   "pp_clean": "V.π1ID(aRP)",
+   "pp_raw": "NF =4π-D{(aR + Pn)",
+   "vision": "N_F = π/4 D_g² (αR + P_n)"
+  },
+  "decision": "NF=π/4 Dg²(αR+Pn)"
+ },
+ {
+  "item": 51,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-248c9d4f1146d2dc955cea99",
+  "page": 87,
+  "row": 5,
+  "column": 1,
+  "readings": {
+   "cell": "π D P NF =-",
+   "pp_clean": "Niπ-12P",
+   "pp_raw": "NF =π4-D{P",
+   "vision": "N_F = π/4 D_g² P"
+  },
+  "decision": "NF=π/4 Dg²P"
+ },
+ {
+  "item": 52,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-32950b656521223e37096196",
+  "page": 128,
+  "row": 3,
+  "column": 2,
+  "readings": {
+   "cell": "×1/6",
+   "pp_clean": "",
+   "pp_raw": "#1/6",
+   "vision": "≯1/6"
+  },
+  "decision": "≯1/6"
+ },
+ {
+  "item": 53,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-744eaad468cfd25fdf51f1fb",
+  "page": 128,
+  "row": 4,
+  "column": 4,
+  "readings": {
+   "cell": "一钢拱 架长度",
+   "pp_clean": "强钢拱架に",
+   "pp_raw": "一棍钢拱架长度",
+   "vision": "一榀钢拱 架长度"
+  },
+  "decision": "一榀钢拱架长度"
+ },
+ {
+  "item": 54,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-764a565154b2e7a8c20abd4e",
+  "page": 131,
+  "row": 3,
+  "column": 2,
+  "readings": {
+   "cell": "3%0",
+   "pp_clean": "3",
+   "pp_raw": "≤3%0",
+   "vision": "≤3‰"
+  },
+  "decision": "≤3‰"
+ },
+ {
+  "item": 55,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-4515aaf74628f01c0ae718c9",
+  "page": 139,
+  "row": 2,
+  "column": 1,
+  "readings": {
+   "cell": "D。+2b+2500~4000",
+   "pp_clean": "D ·2b · 25t (-1",
+   "pp_raw": "D0+2b+2500~4000",
+   "vision": "Do+2b+2500~4000"
+  },
+  "decision": "Do+2b+2500~4000"
+ },
+ {
+  "item": 56,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-4515aaf74628f01c0ae718c9",
+  "page": 139,
+  "row": 3,
+  "column": 1,
+  "readings": {
+   "cell": "Do+26+2000~4000",
+   "pp_clean": "D).·2h+2(((1'n",
+   "pp_raw": "D0+2b+2000~4000",
+   "vision": "Do+2b+2000~4000"
+  },
+  "decision": "Do+2b+2000~4000"
+ },
+ {
+  "item": 57,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-4515aaf74628f01c0ae718c9",
+  "page": 139,
+  "row": 5,
+  "column": 1,
+  "readings": {
+   "cell": "D。+2b+1500~3000",
+   "pp_clean": "1)· 2b+15t(3",
+   "pp_raw": "D0+2b+1500~3000",
+   "vision": "Do+2b+1500~3000"
+  },
+  "decision": "Do+2b+1500~3000"
+ },
+ {
+  "item": 58,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-4515aaf74628f01c0ae718c9",
+  "page": 139,
+  "row": 6,
+  "column": 1,
+  "readings": {
+   "cell": "Do+26+1200~3000",
+   "pp_clean": "1) | 2b:12(( 3",
+   "pp_raw": "D0+2b+1200~3000",
+   "vision": "Do+2b+1200~3000"
+  },
+  "decision": "Do+2b+1200~3000"
+ },
+ {
+  "item": 59,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-4515aaf74628f01c0ae718c9",
+  "page": 139,
+  "row": 7,
+  "column": 1,
+  "readings": {
+   "cell": "Do+26+1200~2000",
+   "pp_clean": "D·2h：12(2",
+   "pp_raw": "D0+2b+1200~2000",
+   "vision": "Do+2b+1200~2000"
+  },
+  "decision": "Do+2b+1200~2000"
+ },
+ {
+  "item": 60,
+  "sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+  "region_id": "up-691759b12dfb78bc20e8c4bc",
+  "page": 171,
+  "row": 0,
+  "column": 1,
+  "readings": {
+   "cell": "管道内径D；(mm)",
+   "pp_clean": "管道内径I).（mm）",
+   "pp_raw": "管道内径D₁（mm）",
+   "vision": "管道内径 Di (mm)"
+  },
+  "decision": "管道内径Di（mm）"
+ }
+]

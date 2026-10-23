@@ -38,6 +38,7 @@ class EvidenceDto(BaseModel):
     document_kind: str
     effective_status: str
     source_authority: str
+    standard_number: str = ""
     publication_date: str
     effective_from: str
     effective_to: str
