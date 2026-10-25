@@ -1,0 +1,542 @@
+{
+  "case": "G036",
+  "question": "按GB 50014，雨水管渠的降雨历时t如何计算？t1、t2分别指什么，t1宜采用什么范围？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261024-ed28-G036",
+  "trace_missing": false,
+  "wall_ms": 16377.884,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "按《GB50014-2021 室外排水设计标准》第4.1.11条，雨水管渠的降雨历时应按下式计算。",
+        "evidence_ids": [
+          "chunk_f47b559c7a1d9c48641835fcf5e35789"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "式中各参数含义如下：\n- t——降雨历时(min)；\n- t1——地面集水时间(min)，应根据汇水距离、地形坡度和地面种类通过计算确定，宜采用5min~15min；\n- t2——管渠内雨水流行时间。\n\n注：资料中未完整给出公式的数学表达式，仅列出了上述参数定义。",
+        "evidence_ids": [
+          "chunk_f47b559c7a1d9c48641835fcf5e35789"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_f47b559c7a1d9c48641835fcf5e35789",
+    "chunk_5ab2e98cf1c5c1bb0dd82713c14129af",
+    "chunk_ad9f8f4e74b0092df1a2be501b19d5dd",
+    "chunk_d6ca7e56ad68d2bbabc75c905ffdb48a",
+    "chunk_5ef0c1c0641c4aee497432838f683048",
+    "chunk_ba52c425c9893f7917b471a428602f50",
+    "chunk_00fbca2f32861989daffa70428726dcf",
+    "chunk_f5208ef0ae10f6a0f48aec33e0f2aad4",
+    "chunk_f743296360cade3886f092fd9ebf1934",
+    "chunk_b3e295cd6ac8e9ff972524ea42b5e789"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_f47b559c7a1d9c48641835fcf5e35789",
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n4.1.11 雨水管渠的降雨历时应按下式计算：\n式中：t—降雨历时(min)；\nt1——地面集水时间(min)，应根据汇水距离、地形坡度和地\n面种类通过计算确定，宜采用5min~15min；\nt管渠内雨水流行时间(min)。",
+      "document_version_id": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22,
+        23
+      ],
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50014-2021",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_f47b559c7a1d9c48641835fcf5e35789__p22",
+          "physical_page": 22,
+          "kind": "text",
+          "bbox": [
+            46.0,
+            456.5,
+            343.0,
+            518.5
+          ]
+        },
+        {
+          "region_id": "chunk_f47b559c7a1d9c48641835fcf5e35789__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            76.0,
+            61.0,
+            307.0,
+            89.76000304615826
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_5ab2e98cf1c5c1bb0dd82713c14129af",
+      "text": "附录B 内涝防治设计校核 > B.0.6\nB.0.6用手工方法校核内涝防治设计，应按下列步骤执行：\n1 按本规范的规定选取内涝防治设计重现期，确定允许的道\n路积水深度和水面高程；\n2 根据道路积水深度和水面高程，确定地面泄水通道过水断\n面的形状和参数，从上游至下游逐段计算道路表面的最大过水能\n力(Q1)；\n3 按推理公式法，从上游至下游逐段计算每个汇水区的地\n面集水时间、暴雨强度和设计流量(Qτ)，并计算内涝防治设计标\n准下雨水管渠的过水能力(Q。)。计算暴雨强度和设计流量时，\n降雨历时的选择应与雨水管渠设计时采用的降雨历时保持\n一致；\n4 计算每个区段内雨水口的泄水能力之和(Q)，并与内涝\n防治设计重现期条件下雨水管渠的过水能力(Q。比较，若前者大\n于或等于后者，则雨水口的设计符合内涝防治设计重现期要求，否\n则，应采取增加雨水口数量和调查雨水口型式等措施增加雨水口\n的泄水能力；",
+      "document_version_id": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        38,
+        39
+      ],
+      "heading_path": [
+        "附录B 内涝防治设计校核",
+        "B.0.6"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 51222-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_5ab2e98cf1c5c1bb0dd82713c14129af__p38",
+          "physical_page": 38,
+          "kind": "text",
+          "bbox": [
+            46.5,
+            425.0,
+            342.0,
+            517.0
+          ]
+        },
+        {
+          "region_id": "chunk_5ab2e98cf1c5c1bb0dd82713c14129af__p39",
+          "physical_page": 39,
+          "kind": "text",
+          "bbox": [
+            53.0,
+            61.0,
+            349.5,
+            216.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_ad9f8f4e74b0092df1a2be501b19d5dd",
+      "text": "4 RSI/ RPI 计算方法 > 4.3 降雨过程评价指标计算 > 4.3.2\n4.3.2 覆盖范围(Cp)计算和指数划分\n降雨覆盖范围(Cp)为达到表3定义的降雨强度的测站占设定区域的比例。",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        7
+      ],
+      "heading_path": [
+        "4 RSI/ RPI 计算方法",
+        "4.3 降雨过程评价指标计算",
+        "4.3.2"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_ad9f8f4e74b0092df1a2be501b19d5dd__p7",
+          "physical_page": 7,
+          "kind": "text",
+          "bbox": [
+            65.0,
+            393.0,
+            426.5,
+            429.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_d6ca7e56ad68d2bbabc75c905ffdb48a",
+      "text": "5 雨水系统 > 5.2 雨水量 > 5.2.2\n5.2.2 采用数学模型法计算雨水设计流量时，宜采用当地设计\n暴雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水\n面积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历\n时降雨，防涝系统宜采用不同历时的降雨。",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        19,
+        20
+      ],
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量",
+        "5.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50318-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d6ca7e56ad68d2bbabc75c905ffdb48a__p19",
+          "physical_page": 19,
+          "kind": "text",
+          "bbox": [
+            54.5,
+            516.8933410644531,
+            351.0,
+            530.5
+          ]
+        },
+        {
+          "region_id": "chunk_d6ca7e56ad68d2bbabc75c905ffdb48a__p20",
+          "physical_page": 20,
+          "kind": "text",
+          "bbox": [
+            42.5,
+            59.0,
+            342.0,
+            106.62779235839844
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_5ef0c1c0641c4aee497432838f683048",
+      "text": "5 评估 > 5.3 降雨入流入渗计算 > 5.3.6\nm——参与计算的降雨、流量同步监测数据的降雨场\n次数；\nRDIIj——第j场降雨的降雨入流入渗量（m³）；\nRj——第j场降雨的降雨量监测值（mm）；\nLi——监测点上游第 i根管径不小于 300mm 的污水管道\n的长度(km);\nn——监测点上游管径不小于300mm的污水管段数量。",
+      "document_version_id": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        22
+      ],
+      "heading_path": [
+        "5 评估",
+        "5.3 降雨入流入渗计算",
+        "5.3.6"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "standard_number": "T/CECS 1764-2024",
+      "publication_date": "2024-11-18",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_5ef0c1c0641c4aee497432838f683048__p22",
+          "physical_page": 22,
+          "kind": "text",
+          "bbox": [
+            102.5,
+            266.5,
+            527.0,
+            431.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_ba52c425c9893f7917b471a428602f50",
+      "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.2\n5.2.2 本条是关于设计降雨历时的确定原则。\n在采用数学模型法计算复核管道规模时，宜采用当地设计暴\n雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水面\n积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历时\n降雨，防涝系统宜采用不同历时的降雨进行校核。",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        50
+      ],
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量水",
+        "5.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50318-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_ba52c425c9893f7917b471a428602f50__p50",
+          "physical_page": 50,
+          "kind": "text",
+          "bbox": [
+            48.0,
+            217.042236328125,
+            345.0,
+            293.01352945963544
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_00fbca2f32861989daffa70428726dcf",
+      "text": "4 RSI/ RPI 计算方法 > 4.3 降雨过程评价指标计算 > 4.3.2\n[公式]\nCp=\\frac{n}{N}\n式中：\nn——按照4.2区域降雨过程定义选取的测站个数；\nN——设定区域测站总个数。\n对降雨覆盖范围指数(C)划分见表4。",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        7
+      ],
+      "heading_path": [
+        "4 RSI/ RPI 计算方法",
+        "4.3 降雨过程评价指标计算",
+        "4.3.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_00fbca2f32861989daffa70428726dcf__p7",
+          "physical_page": 7,
+          "kind": "text",
+          "bbox": [
+            85.0,
+            436.7572695790524,
+            326.5,
+            520.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_f5208ef0ae10f6a0f48aec33e0f2aad4",
+      "text": "附录B 暴雨强度公式的编制方法 > B.0.2\nB.0.2 计算降雨历时宜采用5min、10min、15min、20min、30min、\n45mn、60min、90min、120min、150min、180mn共11个历时。计\n算降雨重现期宜按2年、3年、5年、10年、20年、30年、50年、10\n年统计。",
+      "document_version_id": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        112
+      ],
+      "heading_path": [
+        "附录B 暴雨强度公式的编制方法",
+        "B.0.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50014-2021",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_f5208ef0ae10f6a0f48aec33e0f2aad4__p112",
+          "physical_page": 112,
+          "kind": "text",
+          "bbox": [
+            46.0,
+            218.0,
+            342.5,
+            279.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_f743296360cade3886f092fd9ebf1934",
+      "text": "4 RSI/ RPI 计算方法 > 4.3 降雨过程评价指标计算 > 4.3.1\n4.3.1 降雨强度(R)计算和指数划分\n降雨强度(R)：日雨量达到表3标定区间的测站日最大雨量和过程平均日雨量的加权。",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "4 RSI/ RPI 计算方法",
+        "4.3 降雨过程评价指标计算",
+        "4.3.1"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_f743296360cade3886f092fd9ebf1934__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            65.5,
+            483.0,
+            471.5,
+            517.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b3e295cd6ac8e9ff972524ea42b5e789",
+      "text": "4 RSI/ RPI 计算方法 > 4.4 RSI/ RPI计算 > 4.4.2\n设定区域内第j类降雨区降雨持续时间指数，根据公式(3)计算降雨持续时间(T。)，对照\n表5 查出对应降雨区持续时间指数。",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "4 RSI/ RPI 计算方法",
+        "4.4 RSI/ RPI计算",
+        "4.4.2"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b3e295cd6ac8e9ff972524ea42b5e789__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            125.5,
+            237.5,
+            529.0,
+            265.0
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.011,
+    "retrieval": 56.606,
+    "context_expansion": 23.76,
+    "generation": 16283.414,
+    "validation": 0.081,
+    "total": 16364.065
+  },
+  "generate_context_evidence_ids": [
+    "chunk_f47b559c7a1d9c48641835fcf5e35789",
+    "chunk_5ab2e98cf1c5c1bb0dd82713c14129af",
+    "chunk_ad9f8f4e74b0092df1a2be501b19d5dd",
+    "chunk_d6ca7e56ad68d2bbabc75c905ffdb48a",
+    "chunk_5ef0c1c0641c4aee497432838f683048"
+  ],
+  "trace_evidence_ids": [
+    "chunk_f47b559c7a1d9c48641835fcf5e35789",
+    "chunk_5ab2e98cf1c5c1bb0dd82713c14129af",
+    "chunk_ad9f8f4e74b0092df1a2be501b19d5dd",
+    "chunk_d6ca7e56ad68d2bbabc75c905ffdb48a",
+    "chunk_5ef0c1c0641c4aee497432838f683048",
+    "chunk_ba52c425c9893f7917b471a428602f50",
+    "chunk_00fbca2f32861989daffa70428726dcf",
+    "chunk_f5208ef0ae10f6a0f48aec33e0f2aad4",
+    "chunk_f743296360cade3886f092fd9ebf1934",
+    "chunk_b3e295cd6ac8e9ff972524ea42b5e789"
+  ],
+  "token_usage": {
+    "input_tokens": 2204,
+    "output_tokens": 1513,
+    "total_tokens": 3717,
+    "estimated_cost": 0.059996,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按GB 50014，雨水管渠的降雨历时t如何计算？t1、t2分别指什么，t1宜采用什么范围？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_f47b559c7a1d9c48641835fcf5e35789",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          22,
+          23
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n4.1.11 雨水管渠的降雨历时应按下式计算：\n式中：t—降雨历时(min)；\nt1——地面集水时间(min)，应根据汇水距离、地形坡度和地\n面种类通过计算确定，宜采用5min~15min；\nt管渠内雨水流行时间(min)。"
+      },
+      {
+        "evidence_id": "chunk_5ab2e98cf1c5c1bb0dd82713c14129af",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          38,
+          39
+        ],
+        "text": "附录B 内涝防治设计校核 > B.0.6\nB.0.6用手工方法校核内涝防治设计，应按下列步骤执行：\n1 按本规范的规定选取内涝防治设计重现期，确定允许的道\n路积水深度和水面高程；\n2 根据道路积水深度和水面高程，确定地面泄水通道过水断\n面的形状和参数，从上游至下游逐段计算道路表面的最大过水能\n力(Q1)；\n3 按推理公式法，从上游至下游逐段计算每个汇水区的地\n面集水时间、暴雨强度和设计流量(Qτ)，并计算内涝防治设计标\n准下雨水管渠的过水能力(Q。)。计算暴雨强度和设计流量时，\n降雨历时的选择应与雨水管渠设计时采用的降雨历时保持\n一致；\n4 计算每个区段内雨水口的泄水能力之和(Q)，并与内涝\n防治设计重现期条件下雨水管渠的过水能力(Q。比较，若前者大\n于或等于后者，则雨水口的设计符合内涝防治设计重现期要求，否\n则，应采取增加雨水口数量和调查雨水口型式等措施增加雨水口\n的泄水能力；"
+      },
+      {
+        "evidence_id": "chunk_ad9f8f4e74b0092df1a2be501b19d5dd",
+        "usage_policy": "source_locator_only",
+        "file_name": "降雨过程强度等级标准.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 RSI/ RPI 计算方法 > 4.3 降雨过程评价指标计算 > 4.3.2\n4.3.2 覆盖范围(Cp)计算和指数划分\n降雨覆盖范围(Cp)为达到表3定义的降雨强度的测站占设定区域的比例。"
+      },
+      {
+        "evidence_id": "chunk_d6ca7e56ad68d2bbabc75c905ffdb48a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          19,
+          20
+        ],
+        "text": "5 雨水系统 > 5.2 雨水量 > 5.2.2\n5.2.2 采用数学模型法计算雨水设计流量时，宜采用当地设计\n暴雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水\n面积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历\n时降雨，防涝系统宜采用不同历时的降雨。"
+      },
+      {
+        "evidence_id": "chunk_5ef0c1c0641c4aee497432838f683048",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+        "physical_pages": [
+          22
+        ],
+        "text": "5 评估 > 5.3 降雨入流入渗计算 > 5.3.6\nm——参与计算的降雨、流量同步监测数据的降雨场\n次数；\nRDIIj——第j场降雨的降雨入流入渗量（m³）；\nRj——第j场降雨的降雨量监测值（mm）；\nLi——监测点上游第 i根管径不小于 300mm 的污水管道\n的长度(km);\nn——监测点上游管径不小于300mm的污水管段数量。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.18098
+}

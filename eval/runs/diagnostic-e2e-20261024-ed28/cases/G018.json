@@ -1,0 +1,533 @@
+{
+  "case": "G018",
+  "question": "城乡排水工程是否必须执行GB 55027？该规范属于什么类型？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261024-ed28-G018",
+  "trace_missing": false,
+  "wall_ms": 8031.519,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "城乡排水工程必须执行GB 55027-2022。该规范第1.0.2条明确规定\"城乡排水工程必须执行本规范\"。",
+        "evidence_ids": [
+          "chunk_46c0c1b5e124d5fb3d64bd5c036f8081"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "\n\n关于规范类型，GB 55027-2022《城乡排水工程项目规范》由住房和城乡建设部发布，2022年3月10日发布、2022年10月1日起实施，属于国家标准。",
+        "evidence_ids": [
+          "chunk_a260e702a02cedc67e37182e98e8439e"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "从文件名称看，它属于\"项目规范\"类型。",
+        "evidence_ids": [
+          "chunk_46c0c1b5e124d5fb3d64bd5c036f8081",
+          "chunk_a260e702a02cedc67e37182e98e8439e"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_a1aafe2f62358eccae2f2185f6e2d476",
+    "chunk_46c0c1b5e124d5fb3d64bd5c036f8081",
+    "chunk_417763b244906db3399be624307344a0",
+    "chunk_cb1433aac3cc2c1ebb7f420b3d9d9758",
+    "chunk_a260e702a02cedc67e37182e98e8439e",
+    "chunk_1b536ee8f61aa32cbe500d18d427447d",
+    "chunk_b9ff3e83a6b85706bd4babdd3a3e7770",
+    "chunk_b4043178077f70147282a4d8284dff19",
+    "chunk_a463d65c50ca7e11c6b8990079957d12",
+    "chunk_fcb6d651c1b97bb10b9450881e59f470"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_a1aafe2f62358eccae2f2185f6e2d476",
+      "text": "资料卡：GB 50318-2017 城市排水工程规划规范\n标准号：GB 50318-2017\n类型：标准\n中华人民共和国国家标准\n城市排水工程规划规范\nCode for urban wastewater and stormwater\nengineering planning\nGB 50318-2017\n主编部门：中华人民共和国住房和城乡建设部\n批准部门：中华人民共和国住房和城乡建设部\n0 1 7 年\n7 施行日期：2 0 1 7 年 7 月 1 日1 日\n中国建筑工业出版社\n2017北京京\n中华人民共和国住房和城乡建设部\n公告告\n第1447号\n住房城乡建设部关于发布国家标准\n《城市排水工程规划规范》的公告\n现批准《城市排水工程规划规范》为国家标准，编号为GB\n50318-2017，自2017年7月1日起实施。其中，第3.5.2、\n5.1.2条为强制性条文，必须严格执行。原国家标准《城市排水\n工程规划规范》GB50318-2000同时废止。\n本规范由我部标准定额研究所组织中国建筑工业出版社出版\n发行。\n中华人民共和国住房和城乡建设部\n2017年1月21日",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        1,
+        2
+      ],
+      "heading_path": [
+        "5.1.2"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50318-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_a1aafe2f62358eccae2f2185f6e2d476__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            86.0,
+            86.0,
+            299.0,
+            491.0
+          ]
+        },
+        {
+          "region_id": "chunk_a1aafe2f62358eccae2f2185f6e2d476__p2",
+          "physical_page": 2,
+          "kind": "text",
+          "bbox": [
+            46.5,
+            99.9499053955078,
+            349.2632751464844,
+            420.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_46c0c1b5e124d5fb3d64bd5c036f8081",
+      "text": "1 总则 > 1.0.2\n1.0.2 城乡排水工程必须执行本规范。\n1 统筹区域流域的生态环境治理与城乡建设，保护和修复\n生态环境自然积存、自然渗透和自然净化的能力，合理控制城镇\n开发强度，满足蓝线和水面率的要求，实现生活污水的有效收集\n处理和污泥的安全处理处置；\n2 统筹水资源利用与防灾减灾，提升城镇对雨水的渗、滞、\n蓄能力，充分利用再生水，强化雨水的积蓄利用；\n3 统筹防洪与城镇排水防涝，提升城镇雨水系统建设水平，\n加强城镇排水防涝和流域防洪的体系衔接。",
+      "document_version_id": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+      "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        4
+      ],
+      "heading_path": [
+        "1 总则",
+        "1.0.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "住房和城乡建设部",
+      "standard_number": "GB 55027-2022",
+      "publication_date": "2022-03-10",
+      "effective_from": "2022-10-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_46c0c1b5e124d5fb3d64bd5c036f8081__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            50.0,
+            169.0,
+            347.0,
+            324.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_417763b244906db3399be624307344a0",
+      "text": "修订说明\n《城市排水工程规划规范》GB50318-2017（以下简称本规\n范)，经住房和城乡建设部2017 年1 月21 日以第1447 号公告批\n准、发布。\n本规范是在《城市排水工程规划规范》GB 50318-2000\n(以下简称原规范)的基础上修订而成，上一版的主编单位是陕\n西省城乡规划设计研究院，参编单位是浙江省城乡规划设计研究\n院、大连市规划设计研究院、昆明市规划设计研究院，主要起草人景是韩文斌张明生、李少林、潘伯堂、赵萍、曹世法付文\n清区乘华标刘结治李美本次修订的主要技内容：\n1 总则；2 术语；3 基本规定；4 污水系统；5 雨水系统；\n6合流制排水系统； 监控与预警。\n最新标范制组参分源亮有必应关雨水系统；\n最新%球髓蒯僦麻遍最嬴有\n应\n规、技术标准，征求了专家、相关部门和社会各界对于原规范以\n及规范修订的意见，并与相关国家标准、规范相衔接。\n为便于广大规划设计、管理、科研、学校等有关单位人员在\n使用本规范时能正确理解和执行条文规定，《城市排水工程规划\n规范》编制组按章、节、条顺序编制了本规范的条文说明，对条\n文规定的目的、依据以及执行中需注意的有关事项进行了说明，\n还着重对强制性条文的强制性理由做出了解释。但是，条文说明\n不具备与标准正文同等的法律效力，仅供使用者作为理解和把握\n标准规定的参考。",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        29
+      ],
+      "heading_path": [
+        "修订说明"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50318-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_417763b244906db3399be624307344a0__p29",
+          "physical_page": 29,
+          "kind": "text",
+          "bbox": [
+            12.0,
+            134.42201232910156,
+            385.0,
+            462.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_cb1433aac3cc2c1ebb7f420b3d9d9758",
+      "text": "资料卡：GB 50268-2008 GB50268-2008给水排水管道工程施工及验收规范\n标准号：GB 50268-2008\n类型：标准\n本社网址：http：//www.cabp.com.cn\n网上书店：http：//www.china-building.com.cn\n中华人民共和国住房和城乡建设部\n公告\n第132号\n关于发布国家标准《给水排水管道\n工程施工及验收规范》的公告\n现批准《给水排水管道工程施工及验收规范》为国家标准，\n编号为GB50268-2008，自2009年5月1日起实施。其中，第\n1.0.3、3.1.9、3.1.15、3.2.8、9.1.10、9.1.11条为强制性条\n文，必须严格执行。原《给水排水管道工程施工及验收规范》\nGB 50268-97和《市政排水管渠工程质量检验评定标准》\nCJJ3-90同时废止。\n本规范由我部标准定额研究所组织中国建筑工业出版社出版\n发行。\n中华人民共和国住房和城乡建设部\n2008年10月15日",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        3,
+        4
+      ],
+      "heading_path": [
+        "9.1.11"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_cb1433aac3cc2c1ebb7f420b3d9d9758__p3",
+          "physical_page": 3,
+          "kind": "text",
+          "bbox": [
+            101.5,
+            475.9694429376587,
+            295.0,
+            507.0
+          ]
+        },
+        {
+          "region_id": "chunk_cb1433aac3cc2c1ebb7f420b3d9d9758__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            57.5,
+            94.5,
+            355.5,
+            442.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_a260e702a02cedc67e37182e98e8439e",
+      "text": "资料卡：GB 55027-2022 《城乡排水工程项目规范》 (GB 55027-2022)\n标准号：GB 55027-2022\n类型：标准\n发布机构：住房和城乡建设部\n发布日期：2022-03-10\n实施日期：2022-10-01",
+      "document_version_id": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+      "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "住房和城乡建设部",
+      "standard_number": "GB 55027-2022",
+      "publication_date": "2022-03-10",
+      "effective_from": "2022-10-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_a260e702a02cedc67e37182e98e8439e__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            163.0,
+            77.5,
+            235.0,
+            101.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_1b536ee8f61aa32cbe500d18d427447d",
+      "text": "根据住房城乡建设部《关于请组织开展城市排水相关标准制\n修订工作的函》(建标〔2013〕46号)的要求，规范编制组经广泛调\n查研究，认真总结实践经验，参考有关国际标准和国外先进标准，\n并在广泛征求意见的基础上，编制本规范。\n本规范共分7章和2个附录，主要技术内容是：总则、术语和\n符号、城镇内涝防治系统、源头减排设施、排水管渠设施、排涝除险\n设施、运行维护等。\n本规范中以黑体字标志的条文为强制性条文，必须严格执行。\n本规范由住房城乡建设部负责管理和对强制性条文的解释，\n由上海市政工程设计研究总院(集团)有限公司负责具体技术内容\n的解释。执行过程中如有意见或建议，请寄送上海市政工程设计\n研究总院(集团)有限公司《城镇内涝防治技术规范》编制组(地址：\n上海市中山北二路901号；邮政编码：200092）。\n本规范主编单位、参编单位、主要起草人和主要审查人：\n主编单位：上海市政工程设计研究总院(集团)有限公司\n参编单位：北京市市政工程设计研究总院有限公司\n天津市市政工程设计研究院\n中国市政工程中南设计研究总院有限公司\n中国市政工程东北设计研究总院有限公司\n上海城市排水系统工程技术研究中心\n北京建筑大学\n北京工业大学\n中国城市规划设计研究院",
+      "document_version_id": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 51222-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_1b536ee8f61aa32cbe500d18d427447d__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            54.0,
+            139.0,
+            349.5,
+            500.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b9ff3e83a6b85706bd4babdd3a3e7770",
+      "text": "5 > 5.1 > 5.1.3\n5. 1. 3\n屋面雨水、空调冷凝水排水、游泳池放空排水、室内水景\n排水、消防水池和生活水箱排水属于非生活排水，含有机物较少，\n属于洁净废水，可排入雨水系统。当有传染病暴发，游泳池放空\n排水应经消毒处理后方能排放。车库和无机修的机房地面排水，\n应遵照各地政府相关部门要求执行。\n阳台雨水是否接入室外雨水系统，应视具体情况确定。当存\n在混接时，应进行混接改造后，根据排水水质接入相应的雨、污\n水系统。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        61
+      ],
+      "heading_path": [
+        "5",
+        "5.1",
+        "5.1.3"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b9ff3e83a6b85706bd4babdd3a3e7770__p61",
+          "physical_page": 61,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            394.505126953125,
+            350.9569396972656,
+            518.954345703125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b4043178077f70147282a4d8284dff19",
+      "text": "引用标准名录\n城市排水工程规划规范\nGB 50318 - 2017\n条文说明",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        28
+      ],
+      "heading_path": [
+        "引用标准名录"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50318-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b4043178077f70147282a4d8284dff19__p28",
+          "physical_page": 28,
+          "kind": "text",
+          "bbox": [
+            125.0,
+            128.5,
+            286.5,
+            205.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_a463d65c50ca7e11c6b8990079957d12",
+      "text": "6 混接点探查与判定 > 6.2 混接点位置探查与判定 > 6.2.7\n6.2.7 仪器探查发现管道有支管暗接的，应调查暗接管道的性质，判\n断是否属于混接点。当根据管道属性判断是污水管时，则可判定该处\n支管暗接为混接点。\n【条文解释】当使用电视检测或者声呐检测发现管道内支管暗接现象\n时，可以初步确定暗接的支管可能为混接点，为了确定是否为混接点，\n就需要调查所有的暗接管道的属性，并与主管道属性做对比，当两者\n的管道属性不一致时，即可确定该暗接支管为混接点。",
+      "document_version_id": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        33,
+        34
+      ],
+      "heading_path": [
+        "6 混接点探查与判定",
+        "6.2 混接点位置探查与判定",
+        "6.2.7"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "draft",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_a463d65c50ca7e11c6b8990079957d12__p33",
+          "physical_page": 33,
+          "kind": "text",
+          "bbox": [
+            89.87994384765625,
+            584.5162353515625,
+            512.6397705078125,
+            719.8758544921875
+          ]
+        },
+        {
+          "region_id": "chunk_a463d65c50ca7e11c6b8990079957d12__p34",
+          "physical_page": 34,
+          "kind": "text",
+          "bbox": [
+            89.87999725341797,
+            73.859619140625,
+            505.55950927734375,
+            117.5942153930664
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_fcb6d651c1b97bb10b9450881e59f470",
+      "text": "根据住房和城乡建设部《关于印发〈2012 年工程建设标准规\n范制订、修订计划>的通知》（建标[2012]5号)的要求，规范编制\n组经广泛调查研究，认真总结实践经验，参考有关国际标准和国\n内先进标准，并在广泛征求意见的基础上，编制了本规范。\n本规范的主要技术内容是：1 总则；2 术语；3 基本规\n定；4\n定；4 污水系统；5 雨水系统；6 合流制排水系统；7 监控监控\n与预警。\n本规范修订的主要技术内容是：1. 将原规范的结构框架进\n行调整，增加了术语、基本规定和监控与预警三个章节；2. 将\n原规范的排水体制、排水量、系统布局、排水管渠、排水泵站、\n污水处理与利用等内容分别在污水系统、雨水系统及合流制排水\n系统中规定；并对雨水系统进行了定义；3. 适用范围调整为城\n市规划的排水工程规划和城市排水工程专项规划的编制；4. 在\n总则、基本规定、雨水系统及合流制排水系统中增加了节能减\n排、源头径流减排、雨水综合利用、城市防涝空间控制、合流制\n系统改造和溢流污染控制等内容。\n本规范中以黑体字标志的条文为强制性条文，必须严格\n执行。",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        3
+      ],
+      "heading_path": [],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50318-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_fcb6d651c1b97bb10b9450881e59f470__p3",
+          "physical_page": 3,
+          "kind": "text",
+          "bbox": [
+            48.0,
+            139.0,
+            351.5699768066406,
+            420.0
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.005,
+    "retrieval": 65.969,
+    "context_expansion": 13.17,
+    "generation": 7945.36,
+    "validation": 0.024,
+    "total": 8024.617
+  },
+  "generate_context_evidence_ids": [
+    "chunk_a1aafe2f62358eccae2f2185f6e2d476",
+    "chunk_46c0c1b5e124d5fb3d64bd5c036f8081",
+    "chunk_417763b244906db3399be624307344a0",
+    "chunk_cb1433aac3cc2c1ebb7f420b3d9d9758",
+    "chunk_a260e702a02cedc67e37182e98e8439e"
+  ],
+  "trace_evidence_ids": [
+    "chunk_a1aafe2f62358eccae2f2185f6e2d476",
+    "chunk_46c0c1b5e124d5fb3d64bd5c036f8081",
+    "chunk_417763b244906db3399be624307344a0",
+    "chunk_cb1433aac3cc2c1ebb7f420b3d9d9758",
+    "chunk_a260e702a02cedc67e37182e98e8439e",
+    "chunk_1b536ee8f61aa32cbe500d18d427447d",
+    "chunk_b9ff3e83a6b85706bd4babdd3a3e7770",
+    "chunk_b4043178077f70147282a4d8284dff19",
+    "chunk_a463d65c50ca7e11c6b8990079957d12",
+    "chunk_fcb6d651c1b97bb10b9450881e59f470"
+  ],
+  "token_usage": {
+    "input_tokens": 2572,
+    "output_tokens": 540,
+    "total_tokens": 3112,
+    "estimated_cost": 0.035696,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "城乡排水工程是否必须执行GB 55027？该规范属于什么类型？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_a1aafe2f62358eccae2f2185f6e2d476",
+        "usage_policy": "source_locator_only",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          1,
+          2
+        ],
+        "text": "资料卡：GB 50318-2017 城市排水工程规划规范\n标准号：GB 50318-2017\n类型：标准\n中华人民共和国国家标准\n城市排水工程规划规范\nCode for urban wastewater and stormwater\nengineering planning\nGB 50318-2017\n主编部门：中华人民共和国住房和城乡建设部\n批准部门：中华人民共和国住房和城乡建设部\n0 1 7 年\n7 施行日期：2 0 1 7 年 7 月 1 日1 日\n中国建筑工业出版社\n2017北京京\n中华人民共和国住房和城乡建设部\n公告告\n第1447号\n住房城乡建设部关于发布国家标准\n《城市排水工程规划规范》的公告\n现批准《城市排水工程规划规范》为国家标准，编号为GB\n50318-2017，自2017年7月1日起实施。其中，第3.5.2、\n5.1.2条为强制性条文，必须严格执行。原国家标准《城市排水\n工程规划规范》GB50318-2000同时废止。\n本规范由我部标准定额研究所组织中国建筑工业出版社出版\n发行。\n中华人民共和国住房和城乡建设部\n2017年1月21日"
+      },
+      {
+        "evidence_id": "chunk_46c0c1b5e124d5fb3d64bd5c036f8081",
+        "usage_policy": "answer_and_citation",
+        "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "physical_pages": [
+          4
+        ],
+        "text": "1 总则 > 1.0.2\n1.0.2 城乡排水工程必须执行本规范。\n1 统筹区域流域的生态环境治理与城乡建设，保护和修复\n生态环境自然积存、自然渗透和自然净化的能力，合理控制城镇\n开发强度，满足蓝线和水面率的要求，实现生活污水的有效收集\n处理和污泥的安全处理处置；\n2 统筹水资源利用与防灾减灾，提升城镇对雨水的渗、滞、\n蓄能力，充分利用再生水，强化雨水的积蓄利用；\n3 统筹防洪与城镇排水防涝，提升城镇雨水系统建设水平，\n加强城镇排水防涝和流域防洪的体系衔接。"
+      },
+      {
+        "evidence_id": "chunk_417763b244906db3399be624307344a0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城市排水工程规划规范.pdf",
+        "physical_pages": [
+          29
+        ],
+        "text": "修订说明\n《城市排水工程规划规范》GB50318-2017（以下简称本规\n范)，经住房和城乡建设部2017 年1 月21 日以第1447 号公告批\n准、发布。\n本规范是在《城市排水工程规划规范》GB 50318-2000\n(以下简称原规范)的基础上修订而成，上一版的主编单位是陕\n西省城乡规划设计研究院，参编单位是浙江省城乡规划设计研究\n院、大连市规划设计研究院、昆明市规划设计研究院，主要起草人景是韩文斌张明生、李少林、潘伯堂、赵萍、曹世法付文\n清区乘华标刘结治李美本次修订的主要技内容：\n1 总则；2 术语；3 基本规定；4 污水系统；5 雨水系统；\n6合流制排水系统； 监控与预警。\n最新标范制组参分源亮有必应关雨水系统；\n最新%球髓蒯僦麻遍最嬴有\n应\n规、技术标准，征求了专家、相关部门和社会各界对于原规范以\n及规范修订的意见，并与相关国家标准、规范相衔接。\n为便于广大规划设计、管理、科研、学校等有关单位人员在\n使用本规范时能正确理解和执行条文规定，《城市排水工程规划\n规范》编制组按章、节、条顺序编制了本规范的条文说明，对条\n文规定的目的、依据以及执行中需注意的有关事项进行了说明，\n还着重对强制性条文的强制性理由做出了解释。但是，条文说明\n不具备与标准正文同等的法律效力，仅供使用者作为理解和把握\n标准规定的参考。"
+      },
+      {
+        "evidence_id": "chunk_cb1433aac3cc2c1ebb7f420b3d9d9758",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          3,
+          4
+        ],
+        "text": "资料卡：GB 50268-2008 GB50268-2008给水排水管道工程施工及验收规范\n标准号：GB 50268-2008\n类型：标准\n本社网址：http：//www.cabp.com.cn\n网上书店：http：//www.china-building.com.cn\n中华人民共和国住房和城乡建设部\n公告\n第132号\n关于发布国家标准《给水排水管道\n工程施工及验收规范》的公告\n现批准《给水排水管道工程施工及验收规范》为国家标准，\n编号为GB50268-2008，自2009年5月1日起实施。其中，第\n1.0.3、3.1.9、3.1.15、3.2.8、9.1.10、9.1.11条为强制性条\n文，必须严格执行。原《给水排水管道工程施工及验收规范》\nGB 50268-97和《市政排水管渠工程质量检验评定标准》\nCJJ3-90同时废止。\n本规范由我部标准定额研究所组织中国建筑工业出版社出版\n发行。\n中华人民共和国住房和城乡建设部\n2008年10月15日"
+      },
+      {
+        "evidence_id": "chunk_a260e702a02cedc67e37182e98e8439e",
+        "usage_policy": "source_locator_only",
+        "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "资料卡：GB 55027-2022 《城乡排水工程项目规范》 (GB 55027-2022)\n标准号：GB 55027-2022\n类型：标准\n发布机构：住房和城乡建设部\n发布日期：2022-03-10\n实施日期：2022-10-01"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 0.559472
+}

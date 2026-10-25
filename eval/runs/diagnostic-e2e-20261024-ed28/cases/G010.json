@@ -1,0 +1,519 @@
+{
+  "case": "G010",
+  "question": "该福建标准主要技术内容大致包含哪些环节？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261024-ed28-G010",
+  "trace_missing": false,
+  "wall_ms": 6707.749,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "该福建标准即《福建省建筑与小区雨污混接改造技术标准》DBJ/T 13-477-2024，其主要技术内容包含以下环节：1.总则；2.术语；3.基本规定；4.前期调查；5.设计；6.施工与验收；7.运维管理；8.效果评估；以及附录。",
+        "evidence_ids": [
+          "chunk_7147fb44e57a98c756b347965060e831"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "其中，前期调查环节要求勘察设计单位结合前期调查报告进行现场踏勘，复核排水体制、已有管线走向及属性、雨污水立管和埋地排水管网错接混接情况及混接点位置，并调查污水直排、淤堵、积水等主要涉水问题。",
+        "evidence_ids": [
+          "chunk_1f455cd81cc4dda07242ed1639ecb95e"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "施工与验收环节则对施工方案作出具体规定，要求施工组织设计按\"规定程序\"审批后执行，涉及危险性较大的分项、分部工程时应符合现行福建省工程建设地方标准《福建省危险性较大的分部分项工程安全管理标准》DBJ/T 13-416的规定。",
+        "evidence_ids": [
+          "chunk_7b230cd7928614ccb04a37825a302c1e"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_7147fb44e57a98c756b347965060e831",
+    "chunk_1f455cd81cc4dda07242ed1639ecb95e",
+    "chunk_7b230cd7928614ccb04a37825a302c1e",
+    "chunk_d61960a95cab69d0c3bc239fb85f65d0",
+    "chunk_078b8656ce53204e978f99f404143596",
+    "chunk_53e6158a57b02b0ae4e2eb5679e2af4c",
+    "chunk_79a5924ca4a5f1ec3ade6f19a052993b",
+    "chunk_861d00eee3f76936d2cc4f1b129b76af",
+    "chunk_db286c9ddb64e9502a063b292a62ea2f",
+    "chunk_eb38efe2bcba18f84ae45df3f5ebe679"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_7147fb44e57a98c756b347965060e831",
+      "text": "根据《福建省住房和城乡建设厅关于公布全省住房和城乡建\n设行业2022 年第五批科学技术计划项目的通知》（闽建科\n〔2022〕33 号）的要求，标准编制组经广泛调查研究，认真总结\n实践经验，参考国家及行业相关标准，在广泛征求意见的基础上，\n制定本标准。\n本标准的主要技术内容是：1.总则；2.术语；3.基本规定；\n4.前期调查；5.设计；6.施工与验收；7.运维管理；8.效果评估；\n附录。\n本标准由福建省住房和城乡建设厅负责管理，由厦门市城市\n规划设计研究院有限公司负责具体内容的解释。执行过程中如有\n意见或建议，请寄送福建省住房和城乡建设厅科技与设计处（地\n址：福州市北大路242 号，邮编：350001）和厦门市城市规划设\n计研究院有限公司（地址：厦门市思明区体育路95-17 号，邮编：\n361012），以供今后修订时参考。\n本标准主编单位：厦门市城市规划设计研究院有限公司\n北京市建筑设计研究院股份有限公司\n福建省建筑科学研究院有限责任公司\n本标准参编单位：福建北杭建设工程有限公司\n福建省建科院施工图审查有限公司\n漳州城投市政集团有限公司\n福建祥云科创新型管业科技有限公司\n福建腾鼎鑫市政工程有限公司\n厦门万宾科技有限公司",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        3
+      ],
+      "heading_path": [],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_7147fb44e57a98c756b347965060e831__p3",
+          "physical_page": 3,
+          "kind": "text",
+          "bbox": [
+            50.99995422363281,
+            143.10446166992188,
+            351.0126037597656,
+            504.5545043945313
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_1f455cd81cc4dda07242ed1639ecb95e",
+      "text": "4 前期调查 > 4.4 > 4.4.1\n4. 4. 1\n本条强调勘察设计单位在进行设计前，应结合前期调查报\n告进行现场踏勘，核对混接点是否与前期调查报告一致，对缺失\n资料进行补充，发现与资料不符应标注或存在缺漏，应进行圈注。\n踏勘工作包含以下内容：\n1\n复核排水体制，已有管线的走向、管线属性等要素；\n2\n复核雨污水立管、埋地排水管网错接混接情况、混接点位\n置；\n3\n调查污水直排、淤堵、积水等主要涉水问题。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        59
+      ],
+      "heading_path": [
+        "4 前期调查",
+        "4.4",
+        "4.4.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_1f455cd81cc4dda07242ed1639ecb95e__p59",
+          "physical_page": 59,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            84.06524658203125,
+            350.94647216796875,
+            210.46707153320312
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_7b230cd7928614ccb04a37825a302c1e",
+      "text": "6 > 6.1 > 6.1.2\n6. 1. 2\n施工组织设计的核心是施工方案，本标准重点对施工方案\n作出具体规定；对于施工组织设计和施工方案审批程序，各地市\n规定不同，本标准仅强调其内容要求和按“规定程序”审批后执\n行，执行时若有变更需求时按规定办理变更审批手续。施工方案\n涉及危险性较大的分项、分部工程时应符合现行福建省工程建设\n地方标准《福建省危险性较大的分部分项工程安全管理标准》\nDBJ/T 13-416 的规定。\n施工组织设计应充分考虑好民众的出行路线、出行习惯，合\n理规划交通组织，合理布置施工场地。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        76
+      ],
+      "heading_path": [
+        "6",
+        "6.1",
+        "6.1.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_7b230cd7928614ccb04a37825a302c1e__p76",
+          "physical_page": 76,
+          "kind": "text",
+          "bbox": [
+            50.999969482421875,
+            294.6651611328125,
+            345.83941650390625,
+            435.1944274902344
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_d61960a95cab69d0c3bc239fb85f65d0",
+      "text": "6 > 6.2 > 6.2.2\n6. 2. 2\n建筑与小区室外管线复杂处编制的专项保护方案应包含\n应急预案等内容，且施工前应与各管线权属单位密切沟通，达成\n一致后方可施工。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        78
+      ],
+      "heading_path": [
+        "6",
+        "6.2",
+        "6.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d61960a95cab69d0c3bc239fb85f65d0__p78",
+          "physical_page": 78,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            154.50518798828125,
+            345.8459777832031,
+            198.9143829345703
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_078b8656ce53204e978f99f404143596",
+      "text": "4 > 4.1 > 4.1.2\n4. 1. 2\n雨污混接调查范围为室内排水管至接户井之间的雨水、\n污水管道及配套设施，包含建筑与小区范围内的海绵设施分布情\n况等。调查内容应按附录A 进行填写。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        13
+      ],
+      "heading_path": [
+        "4",
+        "4.1",
+        "4.1.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_078b8656ce53204e978f99f404143596__p13",
+          "physical_page": 13,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            198.66522216796875,
+            345.73187255859375,
+            244.9276428222656
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_53e6158a57b02b0ae4e2eb5679e2af4c",
+      "text": "1 > 1.0.1\n1. 0. 1\n为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n污混接改造工作，制定本标准。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "1",
+        "1.0.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_53e6158a57b02b0ae4e2eb5679e2af4c__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            50.99998474121094,
+            141.06524658203125,
+            345.8315124511719,
+            169.6344451904297
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_79a5924ca4a5f1ec3ade6f19a052993b",
+      "text": "1 总则 > 1.0.5\n1.0.5 工程建设所采用的技术方法和措施是否符合本规范要求，\n由相关责任主体判定。其中，创新性的技术方法和措施，应进行\n论证并符合本规范中有关性能的要求。",
+      "document_version_id": "60bfe78380e9533e32ef659b054daf9fa7f072557824b7ae759b51371f1ca41f",
+      "file_name": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+      "physical_pages": [
+        4
+      ],
+      "heading_path": [
+        "1 总则",
+        "1.0.5"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "住房和城乡建设部",
+      "standard_number": "GB 55027-2022",
+      "publication_date": "2022-03-10",
+      "effective_from": "2022-10-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_79a5924ca4a5f1ec3ade6f19a052993b__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            51.5,
+            390.5,
+            346.0,
+            433.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_861d00eee3f76936d2cc4f1b129b76af",
+      "text": "6 > 6.3 > 6.3.8\n6. 3. 8\n工程验收合格后，建设单位应将有关设计资料、施工验\n收文件和技术资料立卷归档。归档资料应包含下列内容：\n1\n调查技术报告及有关测绘图纸资料；\n2\n项目工程设计、工程竣工验收和工程监理等有关档案资\n料；\n3\n电视检测（CCTV）、潜望镜检测（QV）等有关影像资\n料。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        27
+      ],
+      "heading_path": [
+        "6",
+        "6.3",
+        "6.3.8"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_861d00eee3f76936d2cc4f1b129b76af__p27",
+          "physical_page": 27,
+          "kind": "text",
+          "bbox": [
+            51.000030517578125,
+            90.42523193359376,
+            345.7186584472656,
+            198.9143829345703
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_db286c9ddb64e9502a063b292a62ea2f",
+      "text": "3 基本规定 > 3.1 施工基本规定 > 3.1.15\n第1款强调工程施工中各分项工程应按照施工技术标准进行\n质量控制，且在完成后进行检验（自检）；",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        212
+      ],
+      "heading_path": [
+        "3 基本规定",
+        "3.1 施工基本规定",
+        "3.1.15"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_db286c9ddb64e9502a063b292a62ea2f__p212",
+          "physical_page": 212,
+          "kind": "text",
+          "bbox": [
+            58.5,
+            145.38179557470826,
+            354.0,
+            173.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_eb38efe2bcba18f84ae45df3f5ebe679",
+      "text": "4 前期调查 > 4.2 > 4.2.1\n地下管线资料包含各类地下管线性质、规格、材质、平面位\n置、走向、埋深、管内底标高、附属构筑物、埋设权属单位及近\n5 年不小于1：500 比例尺的地下管线测绘图等内容。水文地质资\n料包含地下水的水位和埋藏条件、含水层范围、土壤地质、渗透\n系数等内容。\n排水管网资料包括建筑与小区内部至接户井之间的排水管道、\n管径、管内底标高、地面标高，市政管网上下游管线管径、管内\n底标高，材质、平面位置、排水流向、附属构筑物、现状排水管\n道结构性缺陷及其他功能性缺陷、管道淤积和堵塞情况以及排水\n和混接情况等内容。\n对于雨天积水内涝点，污水冒溢点等资料也应收集，分析形\n成原因，为下一步踏勘提供依据。",
+      "document_version_id": "4722c42dc0a0e08adc6726589bf0dfd0d4ea3a04a38473f8f7d6c34a9d56e50c",
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        55,
+        56
+      ],
+      "heading_path": [
+        "4 前期调查",
+        "4.2",
+        "4.2.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "福建",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "DBJ/T 13-477-2024",
+      "publication_date": "2024-12-31",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_eb38efe2bcba18f84ae45df3f5ebe679__p55",
+          "physical_page": 55,
+          "kind": "text",
+          "bbox": [
+            50.99999237060547,
+            402.0643615722656,
+            355.37274169921875,
+            508.5143737792969
+          ]
+        },
+        {
+          "region_id": "chunk_eb38efe2bcba18f84ae45df3f5ebe679__p56",
+          "physical_page": 56,
+          "kind": "text",
+          "bbox": [
+            51.0,
+            60.544464111328125,
+            345.83740234375,
+            134.9544219970703
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.017,
+    "retrieval": 65.085,
+    "context_expansion": 12.461,
+    "generation": 6619.195,
+    "validation": 0.022,
+    "total": 6696.924
+  },
+  "generate_context_evidence_ids": [
+    "chunk_7147fb44e57a98c756b347965060e831",
+    "chunk_1f455cd81cc4dda07242ed1639ecb95e",
+    "chunk_7b230cd7928614ccb04a37825a302c1e",
+    "chunk_d61960a95cab69d0c3bc239fb85f65d0",
+    "chunk_078b8656ce53204e978f99f404143596"
+  ],
+  "trace_evidence_ids": [
+    "chunk_7147fb44e57a98c756b347965060e831",
+    "chunk_1f455cd81cc4dda07242ed1639ecb95e",
+    "chunk_7b230cd7928614ccb04a37825a302c1e",
+    "chunk_d61960a95cab69d0c3bc239fb85f65d0",
+    "chunk_078b8656ce53204e978f99f404143596",
+    "chunk_53e6158a57b02b0ae4e2eb5679e2af4c",
+    "chunk_79a5924ca4a5f1ec3ade6f19a052993b",
+    "chunk_861d00eee3f76936d2cc4f1b129b76af",
+    "chunk_db286c9ddb64e9502a063b292a62ea2f",
+    "chunk_eb38efe2bcba18f84ae45df3f5ebe679"
+  ],
+  "token_usage": {
+    "input_tokens": 2339,
+    "output_tokens": 336,
+    "total_tokens": 2675,
+    "estimated_cost": 0.02812,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "该福建标准主要技术内容大致包含哪些环节？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_7147fb44e57a98c756b347965060e831",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          3
+        ],
+        "text": "根据《福建省住房和城乡建设厅关于公布全省住房和城乡建\n设行业2022 年第五批科学技术计划项目的通知》（闽建科\n〔2022〕33 号）的要求，标准编制组经广泛调查研究，认真总结\n实践经验，参考国家及行业相关标准，在广泛征求意见的基础上，\n制定本标准。\n本标准的主要技术内容是：1.总则；2.术语；3.基本规定；\n4.前期调查；5.设计；6.施工与验收；7.运维管理；8.效果评估；\n附录。\n本标准由福建省住房和城乡建设厅负责管理，由厦门市城市\n规划设计研究院有限公司负责具体内容的解释。执行过程中如有\n意见或建议，请寄送福建省住房和城乡建设厅科技与设计处（地\n址：福州市北大路242 号，邮编：350001）和厦门市城市规划设\n计研究院有限公司（地址：厦门市思明区体育路95-17 号，邮编：\n361012），以供今后修订时参考。\n本标准主编单位：厦门市城市规划设计研究院有限公司\n北京市建筑设计研究院股份有限公司\n福建省建筑科学研究院有限责任公司\n本标准参编单位：福建北杭建设工程有限公司\n福建省建科院施工图审查有限公司\n漳州城投市政集团有限公司\n福建祥云科创新型管业科技有限公司\n福建腾鼎鑫市政工程有限公司\n厦门万宾科技有限公司"
+      },
+      {
+        "evidence_id": "chunk_1f455cd81cc4dda07242ed1639ecb95e",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          59
+        ],
+        "text": "4 前期调查 > 4.4 > 4.4.1\n4. 4. 1\n本条强调勘察设计单位在进行设计前，应结合前期调查报\n告进行现场踏勘，核对混接点是否与前期调查报告一致，对缺失\n资料进行补充，发现与资料不符应标注或存在缺漏，应进行圈注。\n踏勘工作包含以下内容：\n1\n复核排水体制，已有管线的走向、管线属性等要素；\n2\n复核雨污水立管、埋地排水管网错接混接情况、混接点位\n置；\n3\n调查污水直排、淤堵、积水等主要涉水问题。"
+      },
+      {
+        "evidence_id": "chunk_7b230cd7928614ccb04a37825a302c1e",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          76
+        ],
+        "text": "6 > 6.1 > 6.1.2\n6. 1. 2\n施工组织设计的核心是施工方案，本标准重点对施工方案\n作出具体规定；对于施工组织设计和施工方案审批程序，各地市\n规定不同，本标准仅强调其内容要求和按“规定程序”审批后执\n行，执行时若有变更需求时按规定办理变更审批手续。施工方案\n涉及危险性较大的分项、分部工程时应符合现行福建省工程建设\n地方标准《福建省危险性较大的分部分项工程安全管理标准》\nDBJ/T 13-416 的规定。\n施工组织设计应充分考虑好民众的出行路线、出行习惯，合\n理规划交通组织，合理布置施工场地。"
+      },
+      {
+        "evidence_id": "chunk_d61960a95cab69d0c3bc239fb85f65d0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          78
+        ],
+        "text": "6 > 6.2 > 6.2.2\n6. 2. 2\n建筑与小区室外管线复杂处编制的专项保护方案应包含\n应急预案等内容，且施工前应与各管线权属单位密切沟通，达成\n一致后方可施工。"
+      },
+      {
+        "evidence_id": "chunk_078b8656ce53204e978f99f404143596",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "4 > 4.1 > 4.1.2\n4. 1. 2\n雨污混接调查范围为室内排水管至接户井之间的雨水、\n污水管道及配套设施，包含建筑与小区范围内的海绵设施分布情\n况等。调查内容应按附录A 进行填写。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 0.30578
+}

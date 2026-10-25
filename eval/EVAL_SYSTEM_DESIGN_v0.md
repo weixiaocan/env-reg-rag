@@ -1,5 +1,7 @@
 # RAG 评估体系设计草案 v0
 
+> **历史文档（2026-09），只作记录，不代表当前状态。** 评估体系初版设计；文中语料与 golden_v1 已替换。当前状态见 `README.md` 与 `.claude/EVALUATION_HANDOFF.md`。
+
 基于你的评估文章，结合现有项目「排水/城镇水务法规智能问答」（GitHub `weixiaocan/env-reg-rag`，本机 `p15_法律法规RAG`：约 23 份 PDF / 1144 页；发布 `corpus-069284e6d60e`；Qdrant `corpus_v2` ≈4176 points；V2 Canonical / 结构感知分块 / bge-small-zh-v1.5 + BM25 + RRF；生成：LangChain + 智谱 GLM）。
 
 目标：先定设计，再落地；黄金集约 **50** 条；**9 月 28 日前**能写出可上简历的评估闭环结果。

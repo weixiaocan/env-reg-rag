@@ -1,0 +1,30 @@
+{
+  "classification": "diagnostic",
+  "run_id": "diagnostic-e2e-20261024-ed28",
+  "dataset": "eval/golden_v5.jsonl",
+  "dataset_sha256": "92b3e839f9c88d6a28081eb69aade1c6a0d27f77ad1f5990fcb0c689b358f481",
+  "dataset_cases": 50,
+  "corpus_version": "corpus-ed28791afb8a",
+  "entry": "POST /api/v1/queries (in-process ASGI, production HTTP adapter)",
+  "provider": "zhipu",
+  "model": "glm-5.2",
+  "temperature": 0.1,
+  "rate_limiter": "disabled (ops guard, not under evaluation)",
+  "pricing": {
+    "input_cost_per_million": 8.0,
+    "output_cost_per_million": 28.0,
+    "currency": "CNY",
+    "status": "configured and required by external-run guard"
+  },
+  "external_data_authorized": true,
+  "authorization": {
+    "provider": "zhipu",
+    "model": "glm-5.2",
+    "base_url": "https://open.bigmodel.cn/api/paas/v4/",
+    "send_scope": "http-e2e:50-questions:production-retrieval-top5-chunks+same-clause-expansion-up-to-8",
+    "note": "Owner approved 2026-10-19 (scope) and 2026-10-24 (run after inline fragment check): 50 golden_v5 questions + top-5 chunks + <=8 same-clause expansion to zhipu GLM-5.2, corpus-ed28 E2E diagnostic",
+    "budget_cny": 8.0,
+    "per_call_reserve_cny": 0.5
+  },
+  "budget_guard_limit": "per-call reserve is checked before dispatch; actual calculated cost is checked after response, so this is not a provider-side hard spending cap"
+}

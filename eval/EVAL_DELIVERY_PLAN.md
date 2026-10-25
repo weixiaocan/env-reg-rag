@@ -1,5 +1,7 @@
 # 50 题问答评估交付顺序
 
+> **历史文档（2026-10-07），只作记录，不代表当前状态。** 交付顺序草案；后续评估按 `eval/README.md` 进行。当前状态见 `README.md` 与 `.claude/EVALUATION_HANDOFF.md`。
+
 - 状态：Draft，待项目负责人逐阶段确认
 - 修订日期：2026-10-07
 - 需求依据：[EVAL_COMPLETION_SPEC.md](EVAL_COMPLETION_SPEC.md) EV-0–EV-6；用户已明确目标为 46 题有原文依据地回答、4 题正确拒答，Precision/F1 延后。

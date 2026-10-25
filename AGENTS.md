@@ -56,7 +56,7 @@
 - assemble 必须校验 V2 Canonical 不变量；缺少公式缓存等关键输入时硬失败，不能生成看似成功的空结果。
 - 当前 `ingest_corpus_v2.py` 会对版本内全部文档重新分块、嵌入，并写入新的不可变 staging collection，`--publish` 再把 alias `corpus_v2_live` 切过去。在真正实现并验证 upsert 前，不得称其为增量入库。
 - 只有 chunk/vector/point 数一致、检索烟测成功后才可使用显式 `--publish` 切换 `corpus-current.json`。
-- 发布会自动写回退记录；删除旧语料版本需负责人同意（2026-10-21 起只保留当前版本）。任何会覆盖 Qdrant 正式集合或切换指针的操作，都要在执行前明确说明影响范围。
+- 发布会自动写回退记录；删除旧语料版本需负责人同意（2026-10-24 起保留当前版本和一个回退版本，GitHub Release 同样只保留这两个）。任何会覆盖 Qdrant 正式集合或切换指针的操作，都要在执行前明确说明影响范围。
 - 不把 `query_alias` 字段描述成已生效的 Qdrant alias，除非代码实际创建并由运行时使用该 alias。
 
 ## 7. 验证门槛
@@ -89,4 +89,4 @@
 
 - 检索池 retrieve_limit=10，生成上下文 generate_context_limit=5（`src/server/runtime.py`，`tests/test_generate_context_limit.py`）。
 - 评估主报 @5，附报 @10。
-- 历史结果见 `eval/FINAL_EVAL_REPORT.md`，基于 golden_v3 和 2026-10-15 的生成方式，不代表当前版本。
+- 最近一次结果见 `eval/FINAL_EVAL_REPORT.md`（2026-10-24，corpus-ed28，golden_v5）。

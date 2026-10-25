@@ -1,5 +1,7 @@
 # 语料文字层乱码盘点与恢复机制（草案）
 
+> **历史文档（2026-09-24），只作记录，不代表当前状态。** 乱码门禁与坏页 OCR 恢复已落地；文中语料 069284 早已替换。当前状态见 `README.md` 与 `.claude/EVALUATION_HANDOFF.md`。
+
 > 扫描语料：`corpus-069284e6d60e`（23 文档 / 1144 页）
 > 报告产物：`data/observability/garble_scan_corpus-069284e6d60e.json`
 > 启发式：按 canonical element 聚合到 `physical_page`，用汉字比例 / 符号比例 / 替换字符 / blank 页判定。

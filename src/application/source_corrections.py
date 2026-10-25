@@ -11,6 +11,10 @@ Each corrected element records the registry it came from in
 correction against the page (``owner_verified``), the corrected elements
 also pass review with a ``review_assertion`` binding, so formulas may answer
 as verified evidence; otherwise quality and policy stay as assembled.
+
+An entry with ``"verified_by": "agent"`` was checked against the page by the
+agent under the owner's instruction, not by the owner; it passes the same way
+but its marker and policy reason say who checked it.
 """
 
 from __future__ import annotations
@@ -23,6 +27,7 @@ from typing import Any
 REGISTRY_PATH = Path("data/registry/source-corrections.json")
 _BBOX_TOLERANCE = 2.0
 OWNER_VERIFIED_REASON = "owner_verified_correction"
+AGENT_VERIFIED_REASON = "agent_verified_correction"
 
 
 class SourceCorrectionError(ValueError):
@@ -64,16 +69,19 @@ def apply_source_corrections(document: dict[str, Any], registry: dict[str, Any] 
     if not registry:
         return 0
     sha = str((document.get("source") or {}).get("sha256") or "")
-    marker = f"source_correction:{registry['registry_sha256'][:12]}:owner_reviewed"
+    prefix = f"source_correction:{registry['registry_sha256'][:12]}"
     verified = registry.get("owner_verified") is True
     assertion = f"review_assertion:source-corrections:{registry['registry_sha256'][:12]}"
 
-    def mark(element: dict[str, Any]) -> None:
+    def mark(element: dict[str, Any], fix: dict[str, Any]) -> None:
+        by_agent = fix.get("verified_by") == "agent"
+        marker = f"{prefix}:agent_reviewed" if by_agent else f"{prefix}:owner_reviewed"
         element["quality_issues"] = [*element.get("quality_issues", []), marker]
         if verified:
             element["quality_status"] = "passed"
             element["policy_reasons"] = [*element.get("policy_reasons", []),
-                                         OWNER_VERIFIED_REASON, assertion]
+                                         AGENT_VERIFIED_REASON if by_agent else OWNER_VERIFIED_REASON,
+                                         assertion]
             element["quality_issues"].append(assertion)
             # The structured outcome that produced a formula carries the same
             # verdict as its element (schema invariant).
@@ -100,7 +108,7 @@ def apply_source_corrections(document: dict[str, Any], registry: dict[str, Any] 
                 f"{len(matches)} elements (expected 1)")
         element = matches[0]
         element["content"]["latex"] = fix["corrected_latex"]
-        mark(element)
+        mark(element, fix)
         applied += 1
 
     for fix in registry.get("texts", []):
@@ -123,7 +131,7 @@ def apply_source_corrections(document: dict[str, Any], registry: dict[str, Any] 
             # A watermark read as text, or a fragment already restored in the
             # line it broke off from: kept in the canonical, never retrieved.
             texts[0]["role"] = "unknown"
-        mark(texts[0])
+        mark(texts[0], fix)
         # A formula may carry the same line as its "式中" context.
         for formula in on_page:
             content = formula.get("content") or {}

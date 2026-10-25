@@ -31,8 +31,6 @@
 | 文件 | 用途 |
 | --- | --- |
 | `schemas/golden_case_v3.schema.json` | 单条 schema |
-| `golden_v1.examples.jsonl` / `golden_v1.draft.jsonl` | 示例 / 50 条草稿 |
-| `golden_v1.jsonl` | 50 条已定位、已校验的正式候选集 |
-| `golden_coverage_v1.md` | 23 份×条数配额 |
-| `EVAL_SYSTEM_DESIGN_v0.md` | 评估体系总设计 |
+| `golden_v5.jsonl` | 现行 50 题黄金集（锚定当前语料） |
+| `golden_v3.jsonl` / `golden_v4.jsonl` | 存档 |
 | `README.md` | 目录入口；完整交接见根目录 AGENTS.md §10 |

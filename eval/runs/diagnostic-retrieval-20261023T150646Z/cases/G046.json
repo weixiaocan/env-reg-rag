@@ -1,0 +1,401 @@
+{
+  "id": "G046",
+  "question": "按T/CECS 758，排水口自由出流采用容器体积法时流量Q如何计算？浮标法对应的流量公式又如何？两式中n、Δt等符号含义有何共同点？",
+  "labels": {
+    "repr": [
+      "条件",
+      "数值"
+    ],
+    "challenge": [
+      "公式",
+      "跨页",
+      "多证据"
+    ],
+    "modality": [
+      "公式"
+    ]
+  },
+  "expected_facts": [
+    "容器体积法公式编号为(5.4.21)，Q单位m3/d，每日测6~8次",
+    "浮标法公式编号为(5.4.22)，含过流面积A与修正系数k约0.8~0.9",
+    "两种方法均基于一天内多次测量取用"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 4,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 4,
+    "recall_at_5": 0.25,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 0.5,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": true,
+    "mrr": 0.3333333333333333,
+    "latency_ms": 20.997,
+    "citable_evidence_count": 4,
+    "citable_matched_at_5": 1,
+    "citable_matched_at_10": 4,
+    "citable_recall_at_5": 0.25,
+    "citable_recall_at_10": 1.0,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 0,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": null,
+    "locator_only_recall_at_10": null
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 24,
+      "element_ids": [
+        "e000218",
+        "e000219",
+        "e000220",
+        "e000221",
+        "e000222",
+        "e000223",
+        "e000224"
+      ],
+      "quote": "式中：Q——流量(m³/d)；\nn——测定次数(次/d)，每日测量6次～8次，对应的时间间隔为3h～4h；\nA——管渠过流面积(m²)；\nLi——第i次测定浮标流动的起止点距离(m)；\nΔti——第i次测定所用的时间(s)；\nk——浮标法测定的表面流速与断面平均流速之间的修正系数，取0.8～0.9。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 8,
+      "match_rank": 8,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_843035a07d7713299a015400a0587ab8",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 8,
+      "citable_chunk_id": "chunk_843035a07d7713299a015400a0587ab8",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 24,
+      "element_ids": [
+        "e000218",
+        "e000219",
+        "e000220",
+        "e000221",
+        "e000222",
+        "e000223",
+        "e000224"
+      ],
+      "quote": "式中：Q——流量(m³/d)；\nn——测定次数(次/d)，每日测量6次～8次，对应的时间间隔为3h～4h；\nA——管渠过流面积(m²)；\nLi——第i次测定浮标流动的起止点距离(m)；\nΔti——第i次测定所用的时间(s)；\nk——浮标法测定的表面流速与断面平均流速之间的修正系数，取0.8～0.9。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 8,
+      "match_rank": 8,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_843035a07d7713299a015400a0587ab8",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 8,
+      "citable_chunk_id": "chunk_843035a07d7713299a015400a0587ab8",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 2,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 23,
+      "element_ids": [
+        "e000208",
+        "e000209"
+      ],
+      "quote": "5.4.2 管道流量测量方法可选用容器体积法、浮标法和速度-面\n积流量计测定法，并应符合下列规定：\n1 排水口的自由出流流量测定可采用容器体积法，测量记录\n应按本规程附录E 第E. 0. 1 条规定执行。每日流量应基于一天\n内多次的测量数据，按下式计算：",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 3,
+      "match_rank": 6,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_ea4276a687f8c76b230fa36d96464983",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 6,
+      "citable_chunk_id": "chunk_ea4276a687f8c76b230fa36d96464983",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 3,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 23,
+      "element_ids": [
+        "e000210",
+        "e000211",
+        "e000212",
+        "e000213",
+        "e000214"
+      ],
+      "quote": "式中：Q——流量(m³/d)；\nn——测定次数(次/d)，每日测量6次～8次，对应的时间间隔为3h～4h；\nVi——第i次测定的容器内水的体积(m³)；\n∆ti——第 i 次测定的收集时间(s)。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 3,
+      "match_rank": 3,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_675fbad1096ab7187195621b79ff6966",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 3,
+      "citable_chunk_id": "chunk_675fbad1096ab7187195621b79ff6966",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_04df0b481d836d4f0f77c21186c93389",
+      "score": 0.666667,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        12
+      ],
+      "element_ids": [
+        "e000077",
+        "e000078",
+        "e000079",
+        "e000080",
+        "e000081",
+        "e000082",
+        "e000083",
+        "e000084"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 术语和符号",
+        "2.2 符号",
+        "2.2.1"
+      ],
+      "text": "2 术语和符号 > 2.2 符号 > 2.2.1\n2.2.1流量、体积、面积、长度、时间、修正系数：\nQ—排放口或管道检测点流量；\nV—容器体积法中第i次测定的容器内水的体积；\nn——容器体积法或浮标法的一天中观测次数；\nA——管渠过流面积；\nL—浮标法中第i次测定浮标流动的起止点距离；\nk 浮标法测定的表面流速与断面平均流速之间的修正系\n数；\n∆t———容器体积法中第i次测定的水量收集时间，或浮标法i\n中对应第i次测量的水流流经时间。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_e7ba88a004468d625422f93ef939ed1b",
+      "score": 0.642857,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        37
+      ],
+      "element_ids": [
+        "e000281",
+        "e000282",
+        "e000283",
+        "e000284",
+        "e000285",
+        "e000286"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6 混接点探查与判定",
+        "6.3 混接流量与水质检测",
+        "6.3.5"
+      ],
+      "text": "6 混接点探查与判定 > 6.3 混接流量与水质检测 > 6.3.5\n[公式]\nQ{=}3600{\\cdot}24{\\cdot}A{\\cdot}L{/t}{\\cdot}k\n式中:Q——流量，m³/d；\nA——管渠过流面积，m²；\nL——浮标流动的起止点距离,m；\nt——所用的时间，s；\nk——浮标法测定的表面流速与断面平均流速之间的修正系\n数，k=0.8~0.9。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_675fbad1096ab7187195621b79ff6966",
+      "score": 0.625,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        23
+      ],
+      "element_ids": [
+        "e000210",
+        "e000211",
+        "e000212",
+        "e000213",
+        "e000214"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量",
+        "5.4.2"
+      ],
+      "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n[公式]\nQ=\\frac{1}{n}\\sum_{i=1}^{n}\\frac{V_i}{\\Delta t_i}\\times3600\\times24\n式中：Q——流量(m³/d)；\nn——测定次数(次/d)，每日测量6次～8次，对应的时间间隔为3h～4h；\nVi——第i次测定的容器内水的体积(m³)；\n∆ti——第 i 次测定的收集时间(s)。",
+      "matched_evidence_indexes": [
+        3
+      ]
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_89b1a84cfc732978e592794daa9cbfa2",
+      "score": 0.5,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        36
+      ],
+      "element_ids": [
+        "e000274"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6 混接点探查与判定",
+        "6.3 混接流量与水质检测",
+        "6.3.5"
+      ],
+      "text": "6 混接点探查与判定 > 6.3 混接流量与水质检测 > 6.3.5\n[公式]\n\\mathrm{Q}{=}\\mathrm{V}{\\times}3600{\\times}24/\\mathrm{t}",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_a78b103b513bbd224f539c979fab5acd",
+      "score": 0.325,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        37
+      ],
+      "element_ids": [
+        "e000276",
+        "e000277",
+        "e000278",
+        "e000279",
+        "e000280"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6 混接点探查与判定",
+        "6.3 混接流量与水质检测",
+        "6.3.5"
+      ],
+      "text": "6 混接点探查与判定 > 6.3 混接流量与水质检测 > 6.3.5\n式中: Q——流量，m³/d；\nV——容器内水的体积，m³；\nt——收集时间，s。\n2. 浮标法适用于混接排放口和管渠非满管流的情况。采用浮标\n法测定流量应选择无断面变化和跌落的连续直线段进行测量，所使用\n的器材有浮标、秒尺和秒表；浮标流动的起止点距离用皮尺测量，读\n数精确到厘米；浮标流动的时间采用秒表计时。所使用的器材有浮标、\n皮尺和秒表。\n其流量应按下式6-2 计算：",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_ea4276a687f8c76b230fa36d96464983",
+      "score": 0.311111,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        23
+      ],
+      "element_ids": [
+        "e000208",
+        "e000209"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量",
+        "5.4.2"
+      ],
+      "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n5.4.2 管道流量测量方法可选用容器体积法、浮标法和速度-面\n积流量计测定法，并应符合下列规定：\n1 排水口的自由出流流量测定可采用容器体积法，测量记录\n应按本规程附录E 第E. 0. 1 条规定执行。每日流量应基于一天\n内多次的测量数据，按下式计算：",
+      "matched_evidence_indexes": [
+        2
+      ]
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_1c53991fb629969b276471ca7cc1faf3",
+      "score": 0.277778,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        36
+      ],
+      "element_ids": [
+        "e000271",
+        "e000272",
+        "e000273"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6 混接点探查与判定",
+        "6.3 混接流量与水质检测",
+        "6.3.5"
+      ],
+      "text": "6 混接点探查与判定 > 6.3 混接流量与水质检测 > 6.3.5\n6.3.5 流量测定方法可选用容器法、浮标法和速度-面积流量计测定法，\n应符合下列规定：\n1. 容器法适用于混接排放口的自由出流流量测定；所使用的器材\n有容器（至少一面是平面）和秒表。\n其流量应按下式6-1 计算：\nQ=V×3600×24/t （式6-1）",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_843035a07d7713299a015400a0587ab8",
+      "score": 0.266667,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        24
+      ],
+      "element_ids": [
+        "e000218",
+        "e000219",
+        "e000220",
+        "e000221",
+        "e000222",
+        "e000223",
+        "e000224"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量",
+        "5.4.2"
+      ],
+      "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n[公式]\nQ=\\frac{1}{n}\\sum_{i=1}^{n}A\\times L_i/\\Delta t_i\\times k\\times3600\\times24\n式中：Q——流量(m³/d)；\nn——测定次数(次/d)，每日测量6次～8次，对应的时间间隔为3h～4h；\nA——管渠过流面积(m²)；\nLi——第i次测定浮标流动的起止点距离(m)；\nΔti——第i次测定所用的时间(s)；\nk——浮标法测定的表面流速与断面平均流速之间的修正系数，取0.8～0.9。",
+      "matched_evidence_indexes": [
+        0,
+        1
+      ]
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_91cb4a6fd3c773e730b76e0d90094e7b",
+      "score": 0.174242,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        67,
+        68
+      ],
+      "element_ids": [
+        "e000544",
+        "e000546",
+        "e000547",
+        "e000548"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量",
+        "5.4.2"
+      ],
+      "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n5.4.2 排水口的水量在一天中可能是动态变化的，如早晚用水高\n峰水量相对较大，其他时间段水量相对较小。若在一天中只实施\n一次观测，可能会造成较大的误差。为此原则上要求一天内在不\n同时间段实施多次容器法水量收集操作，通过不同时间段的瞬时\n流量平均，估算一天内的总水量。原则上每天实施至少6次以上\n等时间间隔的容器法水量收集操作。\n同上，采用浮标法测定管道流量时，考虑到检查井或排水口的\n水量在一天中可能是动态变化的，若在一天中只实施一次观测，可\n能会造成较大的误差。为此原则上要求一天内在不同时间段实施\n多浮标法操作，通过不同时间段的瞬时流量平均，估算一天内的总\n水量。原则上每天实施至少6次以上的等时间间隔的浮标法测\n量。\n采用浮标法计算时，管渠过流面积A根据管道横断面形状分\n为矩形和圆形，按下列公式计算：",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_0382b42b4699b1190c853fc0745d670a",
+      "score": 0.14359,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        23
+      ],
+      "element_ids": [
+        "e000215",
+        "e000216"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量",
+        "5.4.2"
+      ],
+      "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n2 管道非满管流情况下的流量测定可采用浮标法，测量记录\n应按本规程附录E第E.0.2条规定执行。采用浮标法测定流量\n应选择断面无变化、水面无跌落的连续直线段进行测量，直线长度\n应大于10m。\n3 浮标法所使用器材应包括浮标、皮尺和秒表。浮标流动的\n起止点距离应采用皮尺测量，读数应精确到厘米，浮标流动的时间\n应采用秒表计时。每日流量浮标法应基于一天内多次的测量数\n据，按下式计算：",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

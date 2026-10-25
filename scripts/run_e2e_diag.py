@@ -364,7 +364,9 @@ def main() -> None:
 
     # exact production composition; generator wrapped for prompt capture
     original_builder = server_runtime._build_answer_generator
-    server_runtime._build_answer_generator = lambda: recording
+    # Golden questions carry no conversation history, so no rewriter: the
+    # run sends only the authorized retrieval context, nothing extra.
+    server_runtime._build_answer_generator = lambda: (recording, True, None)
     try:
         services = server_runtime.build_query_services(
             project_root=ROOT,

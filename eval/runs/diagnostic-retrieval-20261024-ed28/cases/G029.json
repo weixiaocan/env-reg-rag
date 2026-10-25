@@ -1,0 +1,311 @@
+{
+  "id": "G029",
+  "question": "T/CECS 1764标准规范的对象是城镇污水管网的哪类问题监测与评估？",
+  "labels": {
+    "repr": [
+      "定义"
+    ],
+    "challenge": [
+      "相似干扰"
+    ]
+  },
+  "expected_facts": [
+    "规范城镇污水管网入流入渗的监测与评估"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 0,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 0.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 0.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": true,
+    "mrr": 0.1111111111111111,
+    "latency_ms": 42.98,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 0.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "page": 1,
+      "element_ids": [
+        "e000002",
+        "e000003",
+        "e000004",
+        "e000005",
+        "e000006",
+        "e000007",
+        "e000008",
+        "e000009",
+        "e000010",
+        "e000011",
+        "e000012",
+        "e000013",
+        "e000014",
+        "e000015",
+        "e000016",
+        "e000017",
+        "e000018",
+        "e000019",
+        "e000020",
+        "e000021"
+      ],
+      "quote": "标准号：T/CECS 1764-2024\n类型：标准\n发布机构：中国工程建设标准化协会\n发布日期：2024-11-18\n实施日期：2025-04-01\nT/CECS 1764-2024\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nStandard for monitoring and estimation of inflow and\ninfiltration in urban sanitary sewer system\n中国建筑工业出版社\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nStandard for monitoring and estimation of inflow and\ninfiltrationin urban sanitary sewer system\nT/CECS 1764- 2024\n主编单位：上海市政工程设计研究总院(集团)有限公司\n批准部门：中国工程建设标准化协会\n施行日期：2 0 2 5 年 4 月 1 日\n中国建筑工业出版社\n2024北京\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nStandard for monitoring and estimation of inflow and\ninfiltration in urban sanitary sewer system\nT/CECS 1764 - 2024",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 9,
+      "match_rank": 9,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_c87f23a34bab0d852d214606c2c96317",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 9,
+      "locator_chunk_id": "chunk_c87f23a34bab0d852d214606c2c96317",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_cc09eb3515d60646b120232dc172fe8e",
+      "score": 0.5,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        28
+      ],
+      "element_ids": [
+        "e000307"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 总",
+        "1.0.1"
+      ],
+      "text": "1 总 > 1.0.1\n1.0.1 入流和入渗是国内外城镇污水管网普遍存在的问题，也\n是污水管网满管运行、雨天冒溢积水和溢流污染的主要原因之\n一，严重威胁污水管网旱天和雨天的安全运行。地下水、河水、\n施工排水和雨水渗入或混入污水管网，会稀释污水浓度，增加污\n水管网和污水处理厂的运行负荷，降低污水系统的输送和运行处\n理效率，也会增加合流制管网的溢流污染风险。另外，污水管道\n和附属构筑物的持续渗漏，也会造成管道周围土体的空洞化，从\n而可能引起路面塌陷等问题，危害道路交通安全。因此，控制城\n镇污水管网的入流入渗量，对于保障排水安全、降低溢流污染、\n提高水环境质量、保障公共健康和道路交通安全都至关重要，也\n是未来提高城镇污水管网运行管理水平的重要定量参考指标之\n一。由于污水管网深埋地下，具有隐蔽性强、连接关系复杂、分\n布范围广等特点，导致开展入流入渗监测与评估分析的技术难度\n较高，需要相应的技术标准来指导这项工作的科学有序开展，因\n此制定了本标准。本标准针对污水管网入流入渗的监测与评估工\n作，提出了系统性的技术方案，明确了评估标准和计算方法，保\n障了污水管网入流入渗定量评估分析结果的科学性、代表性和有",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_09d8fbb6c15b5f7f9f57ef675a68559a",
+      "score": 0.5,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        12
+      ],
+      "element_ids": [
+        "e000094"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 基本规定",
+        "3.0.6"
+      ],
+      "text": "3 基本规定 > 3.0.6\n污水管网监测点位，进行气象、水量及水质监测。监测工作应按\n现行协会标准《城镇排水管网在线监测技术规程》T/CECS 869\n的有关规定执行。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_f28cd6614e497e7b1365592872bfc56a",
+      "score": 0.333333,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000059"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 总则",
+        "1.0.3"
+      ],
+      "text": "1 总则 > 1.0.3\n1.0.3 城镇污水管网入流入渗监测与评估除应符合本标准规定\n外，尚应符合国家现行有关标准和现行中国工程建设标准化协会\n有关标准的规定。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_76062266d7a6e9986a74d859673a7b71",
+      "score": 0.333333,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        30
+      ],
+      "element_ids": [
+        "e000315"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 基本规定",
+        "3.0.3"
+      ],
+      "text": "3 基本规定 > 3.0.3\n3.0.3 城镇污水管网入流入渗监测和评估工作需分区域开展。在\n资金有限的情况下，为节约成本，需优先针对入流入渗问题预判\n较为严重的区域开展工作。进行预判的主要依据是污水处理厂的\n进水水质、水量的现状数据。一般来说，建议优先开展的区域包\n括：旱天污水处理厂进水 BOD5浓度低于100mg/L的服务区；污\n买吊疑乙梁梁进水流量是该区域供水总量的1.3倍以上的服务区；\n污水处理厂雨天进水流量是旱天进水流量1.5倍以上的服务区。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_38c3850a9224928948932accda575dbd",
+      "score": 0.325,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        3,
+        4
+      ],
+      "element_ids": [
+        "e000022",
+        "e000023",
+        "e000024",
+        "e000025",
+        "e000026",
+        "e000027",
+        "e000028",
+        "e000029",
+        "e000030",
+        "e000031",
+        "e000032",
+        "e000033"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "资料卡：T/CECS 1764-2024 城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1)\n标准号：T/CECS 1764-2024\n类型：标准\n发布机构：中国工程建设标准化协会\n发布日期：2024-11-18\n实施日期：2025-04-01\n定价：33.00元\n统一书号：15112·44269\n版权所有翻印必究\n如有质量问题，可与本社读者服务中心联系\n电话：(010）58337283（邮政编码100037）\n本社网址：http://www.cabp.com.cn\n网上书店：http://www.china-building.com.cn\n中国工程建设标准化协会公告\n第2223号\n关于发布《城镇污水管网入流入渗监测\n与评估标准》的公告\n根据中国工程建设标准化协会《关于印发〈2020年第一批\n协会标准制订、修订计划〉的通知》（建标协字〔2020〕14号）\n的要求，由上海市政工程设计研究总院（集团）有限公司等单位\n编制的《城镇污水管网入流入渗监测与评估标准》，经本协会城\n市给水排水专业委员会组织审查，现批准发布，编号为T/CECS\n1764-2024，自2025年4月1日起施行。\n中国工程建设标准化协会\n二〇二四年十一月十八日",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_81c4b85348b25904d9e57befba4d3adf",
+      "score": 0.257576,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        28,
+        29
+      ],
+      "element_ids": [
+        "e000308",
+        "e000309",
+        "e000311"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 总",
+        "1.0.2"
+      ],
+      "text": "1 总 > 1.0.2\n1.0.2 本标准主要适用的污水管网包括分流制污水管网及合流\n制管网。\n在本标准中的监测工作主要包括通过在线设备连续采集、自\n动或人工采样后送实验室人工化验等方式，获取评估所需的多个\n点位的水量、水质监测指标数据，从而掌握污水管网的分区域运\n行状态。在监测与评估后，还需要对入流入渗严重区域的污水管\n道及附属构筑物开展功能缺陷和结构缺陷检测，一般参考现行行\n业标准《城镇排水管道检测与评估技术规程》CJJ181的有关规\n定。评估工作是指根据监测数据对污水管网的入流入渗情况进行\n定量化评估，为后续精细化排查和修复改造等工作提供定量\n依据。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_c4ac5e313f79abccabd17dd0f03509ef",
+      "score": 0.25,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        26
+      ],
+      "element_ids": [
+        "e000299",
+        "e000300"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "引用标准名录"
+      ],
+      "text": "引用标准名录\n本标准制定过程中，编制组进行了污水管道入流入渗量化方\n法以及相关工程实践的调查研究，总结了国内污水管道入流入渗\n监测和评估的实践经验。\n《城镇污水管网入流入渗监测与评估标准》结合近年来在全\n国多个城市入流入渗检测评估的经验，针对旱天、雨天入流入渗\n问题分别提出一套完整的水质水量检测和定量分析的方法，并基\n于国内实际情况提出了人流入渗定量化评估标准。通过分阶段划\n分检测区域，科学合理地进行监测布点，利用有限的监测设备获\n取更为有效的监测数据；同时结合国内外常用的入流入渗分析方\n法，在识别排水系统的规律及问题的基础上，对监测数据进行量\n化评估，为后续的入流入渗整治工作提供科学支撑，有利于提高\n整治工作效率，降低整体工作成本，确保资金使用效率。随着国\n家对地下管线质量的高度重视和排水行业数字化发展，各地污水\n管网在线监测决策平台会逐步完善，这为入流入渗量的在线计算\n和模拟，以及排水管网入流入渗问题在线实时监控的发展创造了\n条件，这也是本标准后续修订需要关注的发展方向之一。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_7de9b94b0cab8cce7af34caccafaca70",
+      "score": 0.25,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000058"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 总则",
+        "1.0.2"
+      ],
+      "text": "1 总则 > 1.0.2\n1.0.2 本标准适用于城镇已建成运行的污水管网入流入渗的监\n测与评估。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_c87f23a34bab0d852d214606c2c96317",
+      "score": 0.25,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        1,
+        2,
+        3
+      ],
+      "element_ids": [
+        "e000002",
+        "e000003",
+        "e000004",
+        "e000005",
+        "e000006",
+        "e000007",
+        "e000008",
+        "e000009",
+        "e000010",
+        "e000011",
+        "e000012",
+        "e000013",
+        "e000014",
+        "e000015",
+        "e000016",
+        "e000017",
+        "e000018",
+        "e000019",
+        "e000020",
+        "e000021"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "资料卡：T/CECS 1764-2024 城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1)\n标准号：T/CECS 1764-2024\n类型：标准\n发布机构：中国工程建设标准化协会\n发布日期：2024-11-18\n实施日期：2025-04-01\nT/CECS 1764-2024\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nStandard for monitoring and estimation of inflow and\ninfiltration in urban sanitary sewer system\n中国建筑工业出版社\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nStandard for monitoring and estimation of inflow and\ninfiltrationin urban sanitary sewer system\nT/CECS 1764- 2024\n主编单位：上海市政工程设计研究总院(集团)有限公司\n批准部门：中国工程建设标准化协会\n施行日期：2 0 2 5 年 4 月 1 日\n中国建筑工业出版社\n2024北京\n中国工程建设标准化协会标准\n城镇污水管网入流入渗监测与\n评估标准\nStandard for monitoring and estimation of inflow and\ninfiltration in urban sanitary sewer system\nT/CECS 1764 - 2024\n*\n中国建筑工业出版社出版、发行（北京海淀三里河路9号）\n各地新华书店、建筑书店经销\n北京红光制版公司制版\n廊坊市海涛印刷有限公司印刷\n*\n开本：850毫米×1168毫米 1/32 印张：1% 字数：42千字\n2025年3月第一版2025年3月第一次印刷\n印数：1—600册",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_2579a00915a4e385c016319a14cac0c6",
+      "score": 0.166667,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        34
+      ],
+      "element_ids": [
+        "e000339"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 监测",
+        "4.1 监测方案",
+        "4.1.7"
+      ],
+      "text": "4 监测 > 4.1 监测方案 > 4.1.7\n4.1.7 本条对流量监测点的布设密度进行了规定。流量在线监\n测是管网入流入渗监测的重点，因此需保证流量监测点达到一定\n的密度。根据本标准第4.1.4条的规定，对于待监测区域需至少\n划分两级监测分区，二级监测分区的面积不大于1km²，所以流\n量监测点至少需达到1个/km²。对于排水情况复杂、入流入渗\n问题突出的区域，流量监测点的密度建议适当提高，一般根据管\n线长度布设，如每1km～3km管线布设一个流量监测点。对于\n污水管网的分支关系、汇集流向比较清晰的监测分区，流量监测\n点需设置在监测分区的总出口处及与其他分区的连接处；同时，\n流量监测点需根据地形、污水管网拓扑关系确定。此外，由于管\n网入流入渗是一个动态过程，随着管网使用时间的增加，管网入\n流入渗问题会发生变化。在有条件的地区，需建立雨量和流量的\n固定监测方式，长期持续运行，跟踪动态计算与评估不同时期的\n人流入渗情况，支持污水管网常态化评估管理。在实际应用中，\n需要综合考虑需求、成本、运维代价、数据价值等多方面因素，\n选择长期固定监测或短期临时监测的方式，开展监测工作，从而\n为排水管理提供有效、充足的监测依据。",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

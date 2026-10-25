@@ -1,0 +1,306 @@
+{
+  "id": "G049",
+  "question": "GB 50268图4.6.3的图名是什么？图中管顶以上500mm范围压实度示意约为多少？",
+  "labels": {
+    "repr": [
+      "定义",
+      "数值"
+    ],
+    "challenge": [
+      "图片",
+      "原文定位"
+    ],
+    "modality": [
+      "图片图注"
+    ]
+  },
+  "expected_facts": [
+    "图4.6.3为柔性管道沟槽回填部位与压实度示意图",
+    "管顶以上相关回填压实度示意见图注≥90%/85±2%等"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 2,
+    "matched_evidence_at_5": 0,
+    "matched_evidence_at_10": 0,
+    "recall_at_5": 0.0,
+    "recall_at_10": 0.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 0.5,
+    "page_hit_at_10": 0.5,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": 0.0,
+    "latency_ms": 36.136,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 2,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": 0.0,
+    "locator_only_recall_at_10": 0.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "page": 36,
+      "element_ids": [
+        "e000447"
+      ],
+      "quote": "[图4.6.3柔性管道沟槽回填部位与压实度示意图]\n度见图4.6.3。",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": null,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "page": 35,
+      "element_ids": [
+        "e000443"
+      ],
+      "quote": "地面\n≥90%\n管顶500~1000mm\n管顶以上500mm，且\n≥90%\n85±2%\n≥90%\n不小于一倍管径\n≥95%\n管道两侧\n≥95%\nD1\n人\n2a+300\n≥95%\n≥95%\n",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 3,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_74479fda1d1e334b423880ba50683203",
+      "score": 0.576923,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        89
+      ],
+      "element_ids": [
+        "e001227"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "6.3 顶管",
+        "6.3.7"
+      ],
+      "text": "6.3 顶管 > 6.3.7\n[图6.3.7超挖示意图]\n量不得大于15mm（见图6.3.7）；",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_ba92f19006db48612c35709e1403a30e",
+      "score": 0.5,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        220,
+        221
+      ],
+      "element_ids": [
+        "e002940",
+        "e002941",
+        "e002942",
+        "e002944"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.6 质量验收标准",
+        "4.6.3"
+      ],
+      "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.3\n第4款回填土压实度应符合设计要求，当设计无要求时，应\n采用表4.6.3-1和表4.6.3-2规定。表4.6.3-2的规定参考了北\n京市工程建设标准《高密度聚乙烯排水管道工程施工与验收技术\n规程》DBJ01-94-2005规定柔性管道处于城市车行道路范围\n管顶覆土不宜小于1.0m，对管顶以上500～1000mm（或由管顶\n至路槽底算起1.0m的深度范围）覆土压实度作出规定。\n给水排水管道沟槽回填和压实的目的，除埋设管道后应恢复\n原地貌外，更重要的是起到保护管道结构的作用。若在沟槽回填\n土上修筑路面，除符合本条规定外，还应满足道路工程回填压实\n要求；遇有矛盾时应由设计单位提出处理方案。\n压实度又称为压实系数，评价压实度的标准有轻型击实和重\n型击实两种标准。在《城镇道路工程施工及验收规范》CJJ1中\n以重型击实标准为准，并给出了相应的轻型标准。本规范对刚性\n管道的沟槽回填土的压实度，也给出这两种标准的规定。需要说\n明的是给排水管道沟槽回填土的压实多采用轻型压实工具，且习\n惯上以轻型击实标准为准；本规范中除注明者外，皆以轻型击实\n试验法求得的最大干密度为100%。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_5452afa4356d07af34403ec839ce0418",
+      "score": 0.333333,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        35
+      ],
+      "element_ids": [
+        "e000443"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.6 质量验收标准",
+        "4.6.3"
+      ],
+      "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.3\n表4.6.3-2\n槽内部位 | 槽内部位 | 压实度(%) | 回填材料 | 检查数量 | 检查数量 | 检查方法\n槽内部位 | 槽内部位 | 压实度(%) | 回填材料 | 范围 | 点数 | 检查方法\n管道基础 | 管底基础 | ≥90 | 中、粗砂 | — | — | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法\n管道基础 | 管道有效支撑角范围 | ≥95 | 中、粗砂 | 每100m | 每层每侧一组（每组3点） | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法\n管道两侧 | 管道两侧 | ≥95 | 中、粗砂、碎石屑，最大粒径小于40mm的砂砾或符合要求的原土 | 两井之间或每1000m² | 每层每侧一组（每组3点） | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法\n管顶以上500mm | 管道两侧 | ≥90 | 中、粗砂、碎石屑，最大粒径小于40mm的砂砾或符合要求的原土 | 两井之间或每1000m² | 每层每侧一组（每组3点） | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_f274201d6648e88f0e1ff629f0873190",
+      "score": 0.333333,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        87
+      ],
+      "element_ids": [
+        "e001199"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6.3 顶管",
+        "6.3.4"
+      ],
+      "text": "6.3 顶管 > 6.3.4\n2 R挤压阻力(kN/m)，取R=300～500kN/m²。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_9955509bb19c8dcdbc12c96c7801e806",
+      "score": 0.25,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        34
+      ],
+      "element_ids": [
+        "e000439"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.6 质量验收标准",
+        "4.6.3"
+      ],
+      "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.3\n表4.6.3-1刚性管道沟槽回填土压实度\n序号 | 项目 | 项目 | 项目 | 最低压实度(%) | 最低压实度(%) | 检查数量 | 检查数量 | 检查方法\n序号 | 项目 | 项目 | 项目 | 重型击实标准 | 轻型击实标准 | 范围 | 点数 | 检查方法\n1 | 石灰土类垫层 | 石灰土类垫层 | 石灰土类垫层 | 93 | 95 | 100m | 每层每侧一组(每组3点) | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法\n2 | 沟槽在路基范围外 | 胸腔部分 | 管侧 | 87 | 90 | 两井之间或1000m² | 每层每侧一组(每组3点) | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法\n2 | 沟槽在路基范围外 | 胸腔部分 | 管顶以上500mm | 87±2(轻型) | 87±2(轻型) | 两井之间或1000m² | 每层每侧一组(每组3点) | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法\n2 | 沟槽在路基范围外 | 其余部分 | 其余部分 | ≥90(轻型)或按设计要求 | ≥90(轻型)或按设计要求 | 两井之间或1000m² | 每层每侧一组(每组3点) | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_2b2b6540332bca5618ee635f84b198b8",
+      "score": 0.25,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        87
+      ],
+      "element_ids": [
+        "e001200"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6.3 顶管",
+        "6.3.4"
+      ],
+      "text": "6.3 顶管 > 6.3.4\n[公式]\nR=300\\sim500kN/m^2",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_b28e5f5f3acbd1c5a22bbf52b75556f8",
+      "score": 0.2,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        34
+      ],
+      "element_ids": [
+        "e000439"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.6 质量验收标准",
+        "4.6.3"
+      ],
+      "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.3\n2 | 沟槽在路基范围外 | 农田或绿地范围表层500mm范围内 | 农田或绿地范围表层500mm范围内 | 不宜压实，预留沉降量，表面整平 | 不宜压实，预留沉降量，表面整平 | 两井之间或1000m² | 每层每侧一组(每组3点) | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_66f85eae85ad5d495b256f0d487bfa49",
+      "score": 0.2,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        35
+      ],
+      "element_ids": [
+        "e000443"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.6 质量验收标准",
+        "4.6.3"
+      ],
+      "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.3\n管顶以上500mm | 管道上部 | 85±2 | 中、粗砂、碎石屑，最大粒径小于40mm的砂砾或符合要求的原土 | 两井之间或每1000m² | 每层每侧一组（每组3点） | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法\n管顶500～1000mm | 管顶500～1000mm | ≥90 | 原土回填 | 两井之间或每1000m² | 每层每侧一组（每组3点） | 用环刀法检查或采用现行国家标准《土工试验方法标准》GB/T 50123中其他方法",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_be51eb2e9c9a3b59f14f526d714a6d53",
+      "score": 0.2,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        179
+      ],
+      "element_ids": [
+        "e002617"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "9.4 无压管道的闭气试验",
+        "9.4.4"
+      ],
+      "text": "9.4 无压管道的闭气试验 > 9.4.4\n2 被检测管道内径大于或等于1600mm时，应记录测试时\n管内气体温度（℃）的起始值T1及终止值T2，并将达到标准闭\n气时间时膜盒表显示的管内压力值P记录，用下列公式加以修\n正，修正后管内气体压降值为△P：",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_2fd0197ffb40c4d2f81bb68206c5e891",
+      "score": 0.166667,
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        30
+      ],
+      "element_ids": [
+        "e000362",
+        "e000363",
+        "e000364",
+        "e000365",
+        "e000366",
+        "e000367",
+        "e000368",
+        "e000369",
+        "e000370",
+        "e000371"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.5 沟槽回填",
+        "4.5.10"
+      ],
+      "text": "4 土石方与地基处理 > 4.5 沟槽回填 > 4.5.10\n4.5.10 刚性管道沟槽回填的压实作业应符合下列规定：\n1 回填压实应逐层进行，且不得损伤管道；\n2 管道两侧和管顶以上500mm范围内胸腔夯实，应采用\n轻型压实机具，管道两侧压实面的高差不应超过300mm；\n3 管道基础为土弧基础时，应填实管道支撑角范围内腋角\n部位；压实时，管道两侧应对称进行，且不得使管道位移或\n损伤；\n4 同一沟槽中有双排或多排管道的基础底面位于同一高程\n时，管道之间的回填压实应与管道与槽壁之间的回填压实对称\n进行；\n5 同一沟槽中有双排或多排管道但基础底面的高程不同时，\n应先回填基础较低的沟槽；回填至较高基础底面高程后，再按上\n一款规定回填；\n6 分段回填压实时，相邻段的接茬应呈台阶形，且不得\n漏夯；\n7 采用轻型压实设备时，应夯夯相连；采用压路机时，碾\n压的重叠宽度不得小于200mm;\n8 采用压路机、振动压路机等压实机械压实时，其行驶速\n度不得超过2km/h;\n9 接口工作坑回填时底部凹坑应先回填压实至管底，然后\n与沟槽同步回填。",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

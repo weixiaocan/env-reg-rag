@@ -1,0 +1,291 @@
+{
+  "id": "G007",
+  "question": "重庆雨污分流效果评价技术导则主要评价哪几类项目？",
+  "labels": {
+    "repr": [
+      "流程要求"
+    ],
+    "challenge": [
+      "同义表达"
+    ]
+  },
+  "expected_facts": [
+    "包括地块项目评价、市政道路项目评价、排水分区项目评价"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 0,
+    "matched_evidence_at_10": 0,
+    "recall_at_5": 0.0,
+    "recall_at_10": 0.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 0.0,
+    "page_hit_at_10": 0.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": 0.0,
+    "latency_ms": 32.798,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": 0.0,
+    "locator_only_recall_at_10": 0.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "page": 4,
+      "element_ids": [
+        "e000009",
+        "e000010",
+        "e000011",
+        "e000012",
+        "e000013",
+        "e000014",
+        "e000015",
+        "e000016",
+        "e000017",
+        "e000018",
+        "e000019",
+        "e000020",
+        "e000021",
+        "e000022",
+        "e000023",
+        "e000024",
+        "e000025",
+        "e000026",
+        "e000027",
+        "e000028"
+      ],
+      "quote": "本导则的主要技术内容是：1.总则：2.术语和符号：3.基本规\n定；4.地块项目评价；5.市政道路项目评价；6.排水分区项目\n评价。\n本导则由重庆市住房和城乡建设委员会负责管理，由重庆市\n城镇排水事务中心、重庆市住房和建设技术发展中心（重庆市建\n筑节能中心)负责具体技术内容解释。执行过程中如有意见或建\n议，请寄送重庆市城镇排水事务中心（地址：重庆市渝中区长江一\n路58号，联系电话及传真00862363670607，邮箱：cqpsswzx@\n163.com)。\n本导则主编单位、参编单位、编写人员和审查专家：\n主编单位：重庆市城镇排水事务中心\n重庆市住房和建设技术发展中心(重庆市建筑节\n能中心）\n参编单位：重庆设计集团有限公司\n编写人员许伏海吴鑫周倩倩关志鹏\n祝\n员",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": null,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_f8ca53f765eed1afd61e4d6069f7e37b",
+      "score": 0.75,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        1,
+        2
+      ],
+      "element_ids": [
+        "e000001",
+        "e000002",
+        "e000003",
+        "e000004",
+        "e000005",
+        "e000006"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "资料卡：附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）\n类型：政策文件\n发布机构：重庆市住房和城乡建设委员会\n发布日期：2025-12-08\n实施日期：2026-01-01\n重庆市城市排水管网雨污分流效果评价\n技术导则(试行)\n重庆市住房和城乡建设委员会发布\n2025年12月\n重庆市城市排水管网雨污分流效果评价\n技术导则(试行)\nTechnical guidelines for evaluation of rainwater and\nsewage diversion effects of urban drainage networks\nin chongqing municipality\n主编单位：重庆市城镇排水事务中心\n重庆市住房和建设技术发展中心\n(重庆市建筑节能中心)\n批准部门：重庆市住房和城乡建设委员会\n2025重庆",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_3a7238862c49bcfbf4109ecf17b09244",
+      "score": 0.7,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000041"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 总则",
+        "1.0.2"
+      ],
+      "text": "1 总则 > 1.0.2\n1.0.2 本导则适用于重庆市城市分流制排水系统雨污分流效果\n的评价。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_590a111ed44a44b6f48a0e8eeb86211f",
+      "score": 0.476191,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000086"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 基本规定",
+        "3.1 一般规定",
+        "3.1.1"
+      ],
+      "text": "3 基本规定 > 3.1 一般规定 > 3.1.1\n3.1.1雨污分流效果评价对象包括地块项目、市政道路项目以\n及排水分区项目。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_4f47b1bb650f7fe1293007a8135db854",
+      "score": 0.416667,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000042"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 总则",
+        "1.0.3"
+      ],
+      "text": "1 总则 > 1.0.3\n1.0.3城市排水管网雨污分流效果评价，除应符合本导则的规\n定外，尚应符合国家及重庆市现行有关标准的规定。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_9b1c352144c2b5c229d0827cf574b757",
+      "score": 0.375,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000087"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 基本规定",
+        "3.1 一般规定",
+        "3.1.2"
+      ],
+      "text": "3 基本规定 > 3.1 一般规定 > 3.1.2\n3.1.2雨污分流效果评价应在项目建设完成并正常运行后，由\n建设单位组织开展。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_eb21a028808c1fce76560e39faadbc00",
+      "score": 0.255556,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        10
+      ],
+      "element_ids": [
+        "e000040"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 总则",
+        "1.0.1"
+      ],
+      "text": "1 总则 > 1.0.1\n1.0.1 为科学构建重庆市城市排水管网雨污分流改造评价体\n系，以评促建、以评促改、以评促管，提升雨污分流改造质效，结合\n我市城市排水管网实际情况，制定本导则。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_2787699e7ea550350afbc2993232fa42",
+      "score": 0.222222,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        36
+      ],
+      "element_ids": [
+        "e000283"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4.1 评分项",
+        "4.1.5"
+      ],
+      "text": "4.1 评分项 > 4.1.5\n4.1.5 正常运行中的雨污分流系统，在晴天时雨水井应无出流\n现象，由于排水管道可能存在破损、变形等缺陷，或受高地下水位\n影响，地下水渗入排水管道，导致雨水井在晴天有出流。根据《重\n庆市入河排污口整治指导技术标准(试行)》的相关规定，经综合\n治理后，雨水直排排水口主要指标基本达到V类水平，其中氨氮\n浓度不大于2mg/L，出水清澈透明无异味。本条款以及5.2.1、\n6.1.8按照此规定确定出流水质合格标准，若项目分流改造效果\n评价直接判定为效果较差，则不再对其它条文开展评价。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_e241762a2388db44e6c419c04f151afd",
+      "score": 0.20202,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        35
+      ],
+      "element_ids": [
+        "e000274",
+        "e000275",
+        "e000276",
+        "e000277",
+        "e000278"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 基本规定",
+        "3.2 评价指标及评价方法",
+        "3.2.7"
+      ],
+      "text": "3 基本规定 > 3.2 评价指标及评价方法 > 3.2.7\n3.2.7雨污分流改造效果评价总得分划分为四个等级。\n1评价结果效果显著的项目，应做好常态化运维管理，确保\n雨污分流效果持续保持。同时，该项目可作为成功案例进行示范\n推广；\n2评价结果效果良好的项目，仍然存在影响分流效果的问\n题，在做好常态化运维管理的同时，持续开展管网排查和问题整\n改，稳步提升雨污分流效果：\n3 评价结果效果一般的项目，仍然存在影响分流效果的问\n题，结合扣分项有针对性开展问题排查整改，提升雨污分流效果；\n4评价结果效果较差的项目，未达到雨污分流预期目标，应\n在项目实施范围内，立即开展问题再排查、再整治，并重新组织开\n展雨污分流效果评价，确保达到实效。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_a73858d6dbe01ff0c758f5fd7baa032a",
+      "score": 0.166667,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000088"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 基本规定",
+        "3.1 一般规定",
+        "3.1.3"
+      ],
+      "text": "3 基本规定 > 3.1 一般规定 > 3.1.3\n3.1.3 雨污分流效果评价前，应通过资料查阅、现场踏勘和水质\n检测等方式，全面掌握评价所需的相关信息。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_8828ef6a15843118292b7833e690093b",
+      "score": 0.142857,
+      "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+      "physical_pages": [
+        11
+      ],
+      "element_ids": [
+        "e000048",
+        "e000049"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 术语和符号",
+        "2.1 术语",
+        "2.1.2"
+      ],
+      "text": "2 术语和符号 > 2.1 术语 > 2.1.2\n2.1.2 市政道路项目(Municipal road project)\n以市政道路为项目建设单元实施雨污分流的项目。",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

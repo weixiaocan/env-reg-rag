@@ -1,0 +1,542 @@
+{
+  "case": "G043",
+  "question": "按GB/T 28592，24小时降雨量50.0～99.9 mm属于哪个降雨量等级？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261024-ed28-G043",
+  "trace_missing": false,
+  "wall_ms": 3656.839,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "按《GB/T 28592-2012降水量等级》表1，24小时降雨量50.0～99.9 mm属于暴雨等级。",
+        "evidence_ids": [
+          "chunk_0326ea635f68d5ac218e2e63719736dc",
+          "chunk_2dd36f05940b58cd00c61b57811c2c0b"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_69fe543473ebaf48c51980e43eac2b10",
+    "chunk_388ccda10b328fd65adb746222b291ab",
+    "chunk_0326ea635f68d5ac218e2e63719736dc",
+    "chunk_2dd36f05940b58cd00c61b57811c2c0b",
+    "chunk_30982fa92ea6b48d138906733ca5fb98",
+    "chunk_466b17b51280650746e8f7dcbf6532e6",
+    "chunk_b701a2393277171ee2ce22828adcbe9c",
+    "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+    "chunk_0f9657d3be7f006c31852feead248158",
+    "chunk_b804867b121da13c2fb7c5b610a4f33b",
+    "chunk_1ad733b3c3edacb4076ad5f38a7246d6"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_69fe543473ebaf48c51980e43eac2b10",
+      "text": "3 等级划分\n表1 短时气象服务降雨量等级划分表\n等级 | 时段 | 时段 | 时段\n等级 | 10分钟 | 30分钟 | 1小时\n短时小雨 | <0.5 | <1.0 | <2.0\n短时中雨 | 0.5~0.9 | 1.0~1.9 | 2.0~3.9\n短时大雨 | 1.0~1.9 | 2.0~3.9 | 4.0~7.9\n短时暴雨 | 2.0~4.9 | 4.0~9.9 | 8.0~19.9\n短时大暴雨 | 5.0~15.0 | 10.0~30.0 | 20.0~50.0\n短时特大暴雨 | >15.0 | >30.0 | >50.0",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_69fe543473ebaf48c51980e43eac2b10__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            50.958886443823125,
+            157.1222711491218,
+            529.9637371719226,
+            289.5088569854266
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_388ccda10b328fd65adb746222b291ab",
+      "text": "3 等级划分\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5,
+        6
+      ],
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_388ccda10b328fd65adb746222b291ab__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            70.8239974975586,
+            508.7989501953125,
+            538.8845825195312,
+            534.9589233398438
+          ]
+        },
+        {
+          "region_id": "chunk_388ccda10b328fd65adb746222b291ab__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            452.5,
+            145.5290069580078,
+            529.0,
+            154.5290069580078
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_0326ea635f68d5ac218e2e63719736dc",
+      "text": "4 降雨量等级划分\n等 级 | 时段降雨量 | 时段降雨量\n等 级 | 12h降雨量 | 24h降雨量\n微量降雨（零星小雨） | <0.1 | <0.1\n小雨 | 0.1~4.9 | 0.1~9.9\n中雨 | 5.0~14.9 | 10.0~24.9\n大雨 | 15.0~29.9 | 25.0~49.9\n暴雨 | 30.0~69.9 | 50.0~99.9\n大暴雨 | 70.0~139.9 | 100.0~249.9\n特大暴雨 | ≥140.0 | ≥250.0",
+      "document_version_id": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
+      "file_name": "GBT 28592-2012降水量等级.pdf",
+      "physical_pages": [
+        4
+      ],
+      "heading_path": [
+        "4 降雨量等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/202209/P020220921551942529160.pdf",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国气象局",
+      "standard_number": "GB/T 28592-2012",
+      "publication_date": "2012-06-29",
+      "effective_from": "2012-08-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0326ea635f68d5ac218e2e63719736dc__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            83.28116302622962,
+            529.90857686448,
+            542.9292862823744,
+            681.1043381110891
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_2dd36f05940b58cd00c61b57811c2c0b",
+      "text": "4 降雨量等级划分\n降雨分为微量降雨（零星小雨)、小雨、中雨、大雨、暴雨、大暴雨、特大暴雨共7个等级。具体划分见\n表1。\n单位为毫米",
+      "document_version_id": "f28bb600c89914f7611ed0b0818efdc485789c7b16463b770dcbd95cca4a8c81",
+      "file_name": "GBT 28592-2012降水量等级.pdf",
+      "physical_pages": [
+        4
+      ],
+      "heading_path": [
+        "4 降雨量等级划分"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "https://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/202209/P020220921551942529160.pdf",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国气象局",
+      "standard_number": "GB/T 28592-2012",
+      "publication_date": "2012-06-29",
+      "effective_from": "2012-08-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_2dd36f05940b58cd00c61b57811c2c0b__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            81.5,
+            464.0,
+            545.0,
+            519.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_30982fa92ea6b48d138906733ca5fb98",
+      "text": "3 单站降雨过程等级 > 3.1 单站日降雨量等级\n表1单站日降雨量等级划分表\n等级 | 日降雨量 mm\n小雨 | 0.1~9.9\n中雨 | 10.0~24.9\n大雨 | 25.0~49.9\n暴雨 | 50.0~99.9\n大暴雨 | 100.0~249.9\n特大暴雨 | ≥250.0",
+      "document_version_id": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "3 单站降雨过程等级",
+        "3.1 单站日降雨量等级"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/202209/P020220921706540516277.pdf",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国气象局",
+      "standard_number": "QX/T 489-2019",
+      "publication_date": "2019-09-18",
+      "effective_from": "2019-12-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_30982fa92ea6b48d138906733ca5fb98__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            65.3686845045753,
+            561.4396159236932,
+            528.433749123687,
+            706.5531682167147
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_466b17b51280650746e8f7dcbf6532e6",
+      "text": "3 降雨过程强度等级划分\n利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨\n强度、覆盖范围、持续时间个指标，计算单站/区域需设定降雨过程强度指数RSI/RPI），根据降雨\n过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_466b17b51280650746e8f7dcbf6532e6__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            66.0,
+            439.1373938600721,
+            529.0,
+            481.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b701a2393277171ee2ce22828adcbe9c",
+      "text": "2 术语和定义 > 2.2 降雨量 rainfall\n一天24小时内的累积降雨量。",
+      "document_version_id": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "2 术语和定义",
+        "2.2 降雨量 rainfall"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/202209/P020220921706540516277.pdf",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国气象局",
+      "standard_number": "QX/T 489-2019",
+      "publication_date": "2019-09-18",
+      "effective_from": "2019-12-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b701a2393277171ee2ce22828adcbe9c__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            87.5,
+            424.5,
+            225.0,
+            437.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+      "text": "参考文献\n[1] GB/T 27961－2011 气象服务分类术语\n[2] GB/T 28592－2012 降水量等级\n[3] QX/T 489－2019 降雨过程等级",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        7
+      ],
+      "heading_path": [
+        "参考文献"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4__p7",
+          "physical_page": 7,
+          "kind": "text",
+          "bbox": [
+            91.8239974975586,
+            155.70892333984375,
+            296.69000244140625,
+            197.46893310546875
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_0f9657d3be7f006c31852feead248158",
+      "text": "4 RSI/ RPI 计算方法 > 4.1 降雨区划分\n表2降雨区的划分标准\n降雨区 | 划分标准\n1区 | AAR <800 mm 且 DP95% <20 mm\n2区 | AAR ≥800 mm 且 DP95% <35 mm\n3区 | AAR<800 mm且DP95%≥20 mm\n4区 | AAR ≥800mm 且 DP95%≥35mm",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "4 RSI/ RPI 计算方法",
+        "4.1 降雨区划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0f9657d3be7f006c31852feead248158__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            65.1637018470498,
+            234.64679185763103,
+            528.2910722767464,
+            325.7133955022941
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b804867b121da13c2fb7c5b610a4f33b",
+      "text": "资料卡：QX/T 489-2019 QXT 489－2019 降雨过程等级\n标准号：QX/T 489-2019\n类型：标准\n发布机构：中国气象局\n发布日期：2019-09-18\n实施日期：2019-12-01\n2019-09-18 发布\nQX/T 489—2019\n降雨过程等级\nGrade of rainfall process\n2019-12-01 实施\n中国气象局发布\n中华人民共和国气象行业标准",
+      "document_version_id": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "source_locator_only",
+      "source_uri": "https://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/202209/P020220921706540516277.pdf",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国气象局",
+      "standard_number": "QX/T 489-2019",
+      "publication_date": "2019-09-18",
+      "effective_from": "2019-12-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b804867b121da13c2fb7c5b610a4f33b__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            68.0,
+            116.0,
+            554.5,
+            773.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_1ad733b3c3edacb4076ad5f38a7246d6",
+      "text": "3 单站降雨过程等级 > 3.1 单站日降雨量等级\n单站日降雨量等级以该站日降雨量为划分依据，见表1。",
+      "document_version_id": "89bb2c0c080e232e6cac515f5809b1b3452971afdf52918701ae1d5e7312a004",
+      "file_name": "QXT 489－2019 降雨过程等级.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "3 单站降雨过程等级",
+        "3.1 单站日降雨量等级"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://www.cma.gov.cn/zfxxgk/gknr/flfgbz/bz/202209/P020220921706540516277.pdf",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国气象局",
+      "standard_number": "QX/T 489-2019",
+      "publication_date": "2019-09-18",
+      "effective_from": "2019-12-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_1ad733b3c3edacb4076ad5f38a7246d6__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            87.0,
+            513.0468568704011,
+            336.5,
+            525.5
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.009,
+    "retrieval": 66.655,
+    "context_expansion": 104.488,
+    "generation": 3476.384,
+    "validation": 0.017,
+    "total": 3647.681
+  },
+  "generate_context_evidence_ids": [
+    "chunk_69fe543473ebaf48c51980e43eac2b10",
+    "chunk_388ccda10b328fd65adb746222b291ab",
+    "chunk_0326ea635f68d5ac218e2e63719736dc",
+    "chunk_2dd36f05940b58cd00c61b57811c2c0b",
+    "chunk_30982fa92ea6b48d138906733ca5fb98",
+    "chunk_1ad733b3c3edacb4076ad5f38a7246d6"
+  ],
+  "trace_evidence_ids": [
+    "chunk_69fe543473ebaf48c51980e43eac2b10",
+    "chunk_388ccda10b328fd65adb746222b291ab",
+    "chunk_0326ea635f68d5ac218e2e63719736dc",
+    "chunk_2dd36f05940b58cd00c61b57811c2c0b",
+    "chunk_30982fa92ea6b48d138906733ca5fb98",
+    "chunk_466b17b51280650746e8f7dcbf6532e6",
+    "chunk_b701a2393277171ee2ce22828adcbe9c",
+    "chunk_2915a3b1aa6a9d0af8bbb7f23d88aaa4",
+    "chunk_0f9657d3be7f006c31852feead248158",
+    "chunk_b804867b121da13c2fb7c5b610a4f33b",
+    "chunk_1ad733b3c3edacb4076ad5f38a7246d6"
+  ],
+  "token_usage": {
+    "input_tokens": 2308,
+    "output_tokens": 179,
+    "total_tokens": 2487,
+    "estimated_cost": 0.023476,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按GB/T 28592，24小时降雨量50.0～99.9 mm属于哪个降雨量等级？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_69fe543473ebaf48c51980e43eac2b10",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          6
+        ],
+        "text": "3 等级划分\n表1 短时气象服务降雨量等级划分表\n等级 | 时段 | 时段 | 时段\n等级 | 10分钟 | 30分钟 | 1小时\n短时小雨 | <0.5 | <1.0 | <2.0\n短时中雨 | 0.5~0.9 | 1.0~1.9 | 2.0~3.9\n短时大雨 | 1.0~1.9 | 2.0~3.9 | 4.0~7.9\n短时暴雨 | 2.0~4.9 | 4.0~9.9 | 8.0~19.9\n短时大暴雨 | 5.0~15.0 | 10.0~30.0 | 20.0~50.0\n短时特大暴雨 | >15.0 | >30.0 | >50.0"
+      },
+      {
+        "evidence_id": "chunk_388ccda10b328fd65adb746222b291ab",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          5,
+          6
+        ],
+        "text": "3 等级划分\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）"
+      },
+      {
+        "evidence_id": "chunk_0326ea635f68d5ac218e2e63719736dc",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GBT 28592-2012降水量等级.pdf",
+        "physical_pages": [
+          4
+        ],
+        "text": "4 降雨量等级划分\n等 级 | 时段降雨量 | 时段降雨量\n等 级 | 12h降雨量 | 24h降雨量\n微量降雨（零星小雨） | <0.1 | <0.1\n小雨 | 0.1~4.9 | 0.1~9.9\n中雨 | 5.0~14.9 | 10.0~24.9\n大雨 | 15.0~29.9 | 25.0~49.9\n暴雨 | 30.0~69.9 | 50.0~99.9\n大暴雨 | 70.0~139.9 | 100.0~249.9\n特大暴雨 | ≥140.0 | ≥250.0"
+      },
+      {
+        "evidence_id": "chunk_2dd36f05940b58cd00c61b57811c2c0b",
+        "usage_policy": "source_locator_only",
+        "file_name": "GBT 28592-2012降水量等级.pdf",
+        "physical_pages": [
+          4
+        ],
+        "text": "4 降雨量等级划分\n降雨分为微量降雨（零星小雨)、小雨、中雨、大雨、暴雨、大暴雨、特大暴雨共7个等级。具体划分见\n表1。\n单位为毫米"
+      },
+      {
+        "evidence_id": "chunk_30982fa92ea6b48d138906733ca5fb98",
+        "usage_policy": "answer_and_citation",
+        "file_name": "QXT 489－2019 降雨过程等级.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "3 单站降雨过程等级 > 3.1 单站日降雨量等级\n表1单站日降雨量等级划分表\n等级 | 日降雨量 mm\n小雨 | 0.1~9.9\n中雨 | 10.0~24.9\n大雨 | 25.0~49.9\n暴雨 | 50.0~99.9\n大暴雨 | 100.0~249.9\n特大暴雨 | ≥250.0"
+      },
+      {
+        "evidence_id": "chunk_1ad733b3c3edacb4076ad5f38a7246d6",
+        "usage_policy": "answer_and_citation",
+        "file_name": "QXT 489－2019 降雨过程等级.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "3 单站降雨过程等级 > 3.1 单站日降雨量等级\n单站日降雨量等级以该站日降雨量为划分依据，见表1。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.385132
+}

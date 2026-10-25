@@ -2,7 +2,7 @@
  "schema_version": "1",
  "basis": "owner visual check of each correction against the source PDF render (2026-10-20)",
  "owner_verified": true,
- "owner_verified_note": "2026-10-20 owner: mark the corrected formulas (and the two corrected 5.3.6 variable lines) as verified; 2026-10-22 owner: remaining formulas and variable lines reviewed; 2026-10-23 owner: auto-admitted lines in formula chunks reviewed",
+ "owner_verified_note": "2026-10-20 owner: mark the corrected formulas (and the two corrected 5.3.6 variable lines) as verified; 2026-10-22 owner: remaining formulas and variable lines reviewed; 2026-10-23 owner: auto-admitted lines in formula chunks reviewed; 2026-10-24 owner: agent checks the 91 inline unit/chemical fragments against page images itself (entries with verified_by=agent)",
  "formulas": [
   {
    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
@@ -1739,6 +1739,1401 @@
    "original_latex_sha256": "5cd67a1f54655749f0e69c1f62a2b2dbca0df5b6b96c5d8034f643898137d37e",
    "corrected_latex": "\\Delta S=l\\times D_{o}/R_{\\min}",
    "issue": "负责人核对无误"
+  },
+  {
+   "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+   "file_name": "城镇内涝防治技术规范.pdf",
+   "physical_page": 14,
+   "bbox": [
+    164.3428965331649,
+    504.98843454587296,
+    221.17263253936113,
+    515.4304170475361
+   ],
+   "original_latex_sha256": "17c60d5d319db67812a135309c73fcc235d7995daa22a04edc8548acecf93e26",
+   "corrected_latex": "\\mathrm{[L/(s\\cdot ha)]}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 25,
+   "bbox": [
+    355.127988288625,
+    389.80856788435864,
+    396.031621195493,
+    402.7942704618576
+   ],
+   "original_latex_sha256": "52c2d90354d9bbac6888e429c04bc6459ade519e3e5f4b7c63a15cfbe5d43b94",
+   "corrected_latex": "NH_{3}-N",
+   "issue": "多识别了框外的标点",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 25,
+   "bbox": [
+    397.17862633331043,
+    471.27837512666036,
+    437.61299591471845,
+    484.70004094750095
+   ],
+   "original_latex_sha256": "52c2d90354d9bbac6888e429c04bc6459ade519e3e5f4b7c63a15cfbe5d43b94",
+   "corrected_latex": "NH_{3}-N",
+   "issue": "多识别了框外的标点",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 25,
+   "bbox": [
+    238.8371724895007,
+    525.3140023365114,
+    280.6585720715123,
+    539.2465474790948
+   ],
+   "original_latex_sha256": "27727bf7ff313c05c09a29aff507a56b84a955aaeca9fb167ebd2f90d1fb3ad7",
+   "corrected_latex": "NH_{3}-N",
+   "issue": "多识别了框外的标点",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 25,
+   "bbox": [
+    432.0224332951613,
+    525.4193681758112,
+    473.474503022408,
+    539.0610368145727
+   ],
+   "original_latex_sha256": "901fbf0ad8eae95184ccfe50bf81ca75ae4f915461bf35d88e85e64762a91b94",
+   "corrected_latex": "NH_{3}-N",
+   "issue": "多识别了框外的标点",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 25,
+   "bbox": [
+    134.25889337290994,
+    590.2313107665327,
+    174.87710407313787,
+    603.7727983737665
+   ],
+   "original_latex_sha256": "52c2d90354d9bbac6888e429c04bc6459ade519e3e5f4b7c63a15cfbe5d43b94",
+   "corrected_latex": "NH_{3}-N",
+   "issue": "多识别了框外的标点",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 27,
+   "bbox": [
+    458.3608452290783,
+    120.69788708946182,
+    504.4525169077247,
+    132.26853259663045
+   ],
+   "original_latex_sha256": "824c64c192510417e33df311886112fcd65c0d40a4d8fb540262d799eb1ee708",
+   "corrected_latex": "NH_3-N/K",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 27,
+   "bbox": [
+    372.9260098068708,
+    143.9706107838682,
+    431.6183497031707,
+    155.41464592158624
+   ],
+   "original_latex_sha256": "7b500f893cf9b282b6341f015da46d0320faf6c71f93ee431fa8bcba2ae57686",
+   "corrected_latex": "\\mathrm{NH_{3}-N/K<1}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "6b28141833a94c8578df528561c51f2610de1c06e8d69b8c8c416c73d4cdb7d1",
+   "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+   "physical_page": 27,
+   "bbox": [
+    172.43040362646198,
+    167.05857077758407,
+    230.92445829381182,
+    179.04933950096026
+   ],
+   "original_latex_sha256": "7619901d4c132b360e423428bebd25a9c58b331a17285ecb1c7de8de38417dff",
+   "corrected_latex": "\\mathrm{NH_{3}-N/K\\geq1}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 18,
+   "bbox": [
+    340.97382754588807,
+    742.7108966105893,
+    390.00256374145,
+    758.2602846413762
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    361.8909335184883,
+    100.52788898053524,
+    415.5717352341766,
+    116.07399268432586
+   ],
+   "original_latex_sha256": "00f548e39e87f08435647ee092ff3c20a39c558b598d6ed1c1c0e2b1aebba4f5",
+   "corrected_latex": "\\left(\\mathrm{kg/m^{3}}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    421.3933247408977,
+    124.27308985072993,
+    475.4483055964905,
+    140.1921129576008
+   ],
+   "original_latex_sha256": "00f548e39e87f08435647ee092ff3c20a39c558b598d6ed1c1c0e2b1aebba4f5",
+   "corrected_latex": "\\left(\\mathrm{kg/m^{3}}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    293.55770371493037,
+    220.88946620687403,
+    341.2440607136176,
+    236.04102228064284
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    324.5989980044602,
+    245.17957976478613,
+    370.34939422129577,
+    260.5198253674537
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    309.4519039513735,
+    269.84529291235737,
+    356.53213643395264,
+    285.13149540859916
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    292.65057081828274,
+    390.1287932280306,
+    340.6504132288273,
+    405.4553742728946
+   ],
+   "original_latex_sha256": "3f07b45b5a31356fabb9876b7a18bf6d83d9ae542c38947f75ac6119a20eebed",
+   "corrected_latex": "(m^{3}/d)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    323.44436737567077,
+    414.4923922294363,
+    370.21487073575065,
+    429.95452041521366
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    323.3427937967746,
+    439.4414582171212,
+    369.8139362716473,
+    454.73890870949714
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    291.06440624541534,
+    555.706985382493,
+    338.45140235889545,
+    570.8337387460363
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    321.92506914669616,
+    579.4720240271196,
+    368.90820923768337,
+    594.6433739378353
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    321.85332621661934,
+    603.8945871332597,
+    368.21351537250314,
+    618.6960273586109
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    295.6167873146267,
+    674.5815204011675,
+    343.04167582075297,
+    689.8373181578592
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    326.14814884885874,
+    699.0015790706684,
+    373.428716763863,
+    714.0813632628547
+   ],
+   "original_latex_sha256": "3f07b45b5a31356fabb9876b7a18bf6d83d9ae542c38947f75ac6119a20eebed",
+   "corrected_latex": "(m^{3}/d)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 19,
+   "bbox": [
+    371.8145667369485,
+    723.3593343865825,
+    418.6324740293939,
+    738.3975537180544
+   ],
+   "original_latex_sha256": "fd645f53f0dcfc427a71d111439d410b8be32522a56ae93101a5da4690dcbbc1",
+   "corrected_latex": "\\left(\\mathrm{m}^{3}/\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 20,
+   "bbox": [
+    427.3846282334649,
+    148.85031290371458,
+    518.5326369999487,
+    166.5964653357392
+   ],
+   "original_latex_sha256": "ece85258006daa2a990139b313c4edde82359b50d19fc298e6daae7f26f0e904",
+   "corrected_latex": "[L/(d\\cdot km\\cdot mm)]",
+   "issue": "跨行的数值只框到一部分，按原文补全",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 20,
+   "bbox": [
+    303.46005129369547,
+    200.3726818833457,
+    351.412973037172,
+    215.94206146976157
+   ],
+   "original_latex_sha256": "3f07b45b5a31356fabb9876b7a18bf6d83d9ae542c38947f75ac6119a20eebed",
+   "corrected_latex": "(m^{3}/d)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 22,
+   "bbox": [
+    446.4894673737732,
+    219.94169072011766,
+    518.9856762497662,
+    238.4621973860023
+   ],
+   "original_latex_sha256": "a400864284f71369c5526e2679a71196f513f49ceab5041b5b07b98047d12bfc",
+   "corrected_latex": "[m^{3}/(km\\cdot mm)]",
+   "issue": "跨行的数值只框到一部分，按原文补全",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 40,
+   "bbox": [
+    306.5824283809506,
+    344.9469987566895,
+    472.7515095035121,
+    360.13605547381957
+   ],
+   "original_latex_sha256": "d1b206bdec265e2a93116b7cc745113d0a6fa0e15bc4c4ab1d70de96f8089b02",
+   "corrected_latex": "(10\\sim93)\\mathrm{L/(d\\cdot km\\cdot mm)}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 40,
+   "bbox": [
+    178.513456116096,
+    368.0645526551019,
+    310.13012286322925,
+    383.95808103636017
+   ],
+   "original_latex_sha256": "47b1c18ecab02b2d2c630e0e2cadd946488e5d16cece9971a9256d05a77a79e1",
+   "corrected_latex": "13.9L/(d\\cdot km\\cdot mm)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 40,
+   "bbox": [
+    407.7313269136841,
+    368.56678007624,
+    499.8742031949193,
+    384.01884657797547
+   ],
+   "original_latex_sha256": "0a04eb9d47a8b45be982b28108c6be81af5d797a152edefcce0dbe17cdc9426c",
+   "corrected_latex": "46.3L/(d\\cdot km\\cdot mm)",
+   "issue": "跨行单位只框到“km·”，识别时自行补了“)”，单位变成 L/(d·km)；按原文补全为 L/(d·km·mm)",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 40,
+   "bbox": [
+    289.14188902547636,
+    392.60893243812455,
+    419.35390125216855,
+    407.4036502282861
+   ],
+   "original_latex_sha256": "2f61c664b8415c3198131d59ab7e3e9f7a9d9b81e725747531bea211b5b7feaf",
+   "corrected_latex": "39.0\\mathrm{L/(d\\cdot km\\cdot mm)}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 42,
+   "bbox": [
+    304.11984022443227,
+    252.88469877284197,
+    383.28886649551316,
+    270.0325984104818
+   ],
+   "original_latex_sha256": "972cc780ecd9edbedc44a59e028b7083ecd11e24ff8fd14b79b9c756ae377b3a",
+   "corrected_latex": "2L/(m^{2}\\cdot d)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+   "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+   "physical_page": 42,
+   "bbox": [
+    319.05040945762715,
+    302.5566625446941,
+    459.293273899015,
+    318.02621616541944
+   ],
+   "original_latex_sha256": "efe2eb169cb282114cc8d102b28b48c71f50467a5b69582d2e49e812882ba047",
+   "corrected_latex": "17.1\\mathrm{L/(d\\cdot km\\cdot mm)}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 14,
+   "bbox": [
+    92.02610251598789,
+    110.89865062900675,
+    168.13362478486883,
+    121.00849124092173
+   ],
+   "original_latex_sha256": "512f1aa65a385f9a7520df3c5923bcdf869b7f10ff7c3292c5206308976fb6d2",
+   "corrected_latex": "\\mathrm{NH_{3}-N/(m^{2}\\cdot d)}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 22,
+   "bbox": [
+    173.78102767726284,
+    346.9661068257464,
+    237.78675030568462,
+    358.35670826545424
+   ],
+   "original_latex_sha256": "8a302efa164a96d4f2001bbd327d83e6e667fd59495f8adbf0f8437bfee5a97f",
+   "corrected_latex": "[L/(hm^{2}\\cdot s)]",
+   "issue": "hm² 识别成 nm",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 56,
+   "bbox": [
+    169.0263026696516,
+    457.4703426093441,
+    319.3508949212077,
+    467.00347727708623
+   ],
+   "original_latex_sha256": "6659064ace2da9bdd5409b577c950f75e8fd36969f21adaf7d87df95a50fccb4",
+   "corrected_latex": "150m^{3}/(m^{2}\\cdot h)\\sim200m^{3}/(m^{2}\\cdot h)",
+   "issue": "多识别了框外的标点",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 59,
+   "bbox": [
+    281.30606572763435,
+    124.6356513352134,
+    333.983286666466,
+    136.19226552900147
+   ],
+   "original_latex_sha256": "95fb09b5d816048b989e051ed3133f38ca42e3447525d23deab43cd7220df772",
+   "corrected_latex": "1r/h\\sim3r/h",
+   "issue": "乱码：1r/h～3r/h 识别成 Ir⓪∠3r/h",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 59,
+   "bbox": [
+    225.55006270732835,
+    455.30530079835796,
+    347.5580355692722,
+    465.2110140434722
+   ],
+   "original_latex_sha256": "ed99f881e792c69a9242ab7cb28ca1e031778ca79b8d94d8db0ce4054ec4a6de",
+   "corrected_latex": "6m^{3}/(m^{2}\\cdot h)\\sim13m^{3}/(m^{2}\\cdot h)",
+   "issue": "多识别了框外的标点",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 61,
+   "bbox": [
+    302.0591845873713,
+    440.1917914029507,
+    349.5984609910954,
+    451.1621655073667
+   ],
+   "original_latex_sha256": "5eb5af33921054c7e348dc6cad17ea3d1c1940a5d75e62030dc8c1b1e938d78a",
+   "corrected_latex": "[kgBOD_{5}/(kgMLSS\\cdot d)]",
+   "issue": "跨行的数值只框到一部分，按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 61,
+   "bbox": [
+    176.12991121067986,
+    489.1475180658122,
+    254.92693889810928,
+    499.3483504505736
+   ],
+   "original_latex_sha256": "2bf3898834d68f9623f0859cb28f56a754d7db8422b4ae5950a5b6d8a5adbf32",
+   "corrected_latex": "\\mathrm{(kgVSS/kgBOD_{5})}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 62,
+   "bbox": [
+    202.13362743979945,
+    487.02386411094454,
+    334.60187230866603,
+    496.76530008002175
+   ],
+   "original_latex_sha256": "c0fb961869d19cf4139c5f5d011bcbaf3f4fde84976ba3b8cd80f0ea977d4d37",
+   "corrected_latex": "0.5m^{3}/(m^{2}\\cdot h)\\sim1.0m^{3}/(m^{2}\\cdot h)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 63,
+   "bbox": [
+    179.49877681159234,
+    488.25284618243643,
+    309.0733364319804,
+    498.94453326842427
+   ],
+   "original_latex_sha256": "1c16ba9cfc40520d4927a16ad641b90ad573dbc355e743955a111540d04e1158",
+   "corrected_latex": "\\left[\\mathrm{kgNO}_{3}-\\mathrm{N}/(\\mathrm{kgMLSS}\\cdot\\mathrm{d})\\right]",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 64,
+   "bbox": [
+    164.49837702128602,
+    248.055787029827,
+    240.6515611950611,
+    271.60066615247297
+   ],
+   "original_latex_sha256": "c7cd258fb412f432b795cf9e2e18f08c126d0ce7ffa6701cd9f89b2c18f2e1c4",
+   "corrected_latex": "\frac{Q(S_{\\mathrm{o}}-S_{\\mathrm{e}})\theta_{\\mathrm{co}}Y_{\\mathrm{t}}}{1000X}",
+   "issue": "式 7.6.17-4 的分式部分识别成带偏导符号的乱码，S_o 识别成 S_e",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 65,
+   "bbox": [
+    160.81800002927025,
+    200.88766865567388,
+    282.1472332494699,
+    212.2495578194015
+   ],
+   "original_latex_sha256": "c2088da34c5b7727a623881e97a6ce83ac0a2725b55c8390edacff29c580bb32",
+   "corrected_latex": "\\mathrm{[kgNO_{3}-N/(kgMLSS\\cdot d)]}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 70,
+   "bbox": [
+    102.62765459834186,
+    167.48204494050103,
+    174.1591071514842,
+    178.22173227363263
+   ],
+   "original_latex_sha256": "89907ceb7670442d773498fd5b8194119e03d36e8e9fbb43810b3641dd070cbc",
+   "corrected_latex": "(kgMLSS\\cdot d)]",
+   "issue": "多识别了框外的标点",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 70,
+   "bbox": [
+    293.7489265740177,
+    457.48053579683824,
+    340.993330861663,
+    468.40543598290753
+   ],
+   "original_latex_sha256": "d64b37864b93d11493b2d382f065d15dbf946ebc82ed0d61d221ba38f17979aa",
+   "corrected_latex": "[kgBOD_{5}/(kgMLSS\\cdot d)]",
+   "issue": "跨行的数值只框到一部分，按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 70,
+   "bbox": [
+    104.29834764100553,
+    472.84391009431096,
+    175.7888884453251,
+    483.62162416785714
+   ],
+   "original_latex_sha256": "b039e9e7e9323f048b732e7d416d3da104e063e55500b2b35b3a540d1efeb86a",
+   "corrected_latex": "(kgMLSS\\cdot d)]",
+   "issue": "漏了右方括号",
+   "verified_by": "agent",
+   "severity": "format"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 74,
+   "bbox": [
+    241.75526682263057,
+    361.69161605408146,
+    340.7548675353705,
+    372.1079333011921
+   ],
+   "original_latex_sha256": "fe2b42a12214fb4d89d3f82d9eb5c39665fb55103c23401236895c53de221dd1",
+   "corrected_latex": "2.0kgBOD_{5}/(m^{3}\\cdot d)\\sim",
+   "issue": "框漏了“2.”，数值变成 0；按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 74,
+   "bbox": [
+    56.89053249299525,
+    378.0754734090226,
+    143.21760094042384,
+    388.39937095831453
+   ],
+   "original_latex_sha256": "31e4305419ce58105f862f39bf3a51486d7300d5a7eba38c9b9bf22d3e223085",
+   "corrected_latex": "5.0kgBOD_{5}/(m^{3}\\cdot d)",
+   "issue": "框漏了“5.”，数值变成 0；按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 74,
+   "bbox": [
+    240.3679576573158,
+    378.11185254369997,
+    340.54195071317514,
+    388.6742794675854
+   ],
+   "original_latex_sha256": "d176a8a85ea22322824300093bb7a6a138791497ad7aea9e1e0d6427e05383fc",
+   "corrected_latex": "0.2kgBOD_{5}/(m^{3}\\cdot d)\\sim",
+   "issue": "框漏了“0.”，数值变成 2；按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 74,
+   "bbox": [
+    57.21659638535765,
+    394.36418702465954,
+    143.64068882986012,
+    404.42679627210816
+   ],
+   "original_latex_sha256": "31e4305419ce58105f862f39bf3a51486d7300d5a7eba38c9b9bf22d3e223085",
+   "corrected_latex": "2.0kgBOD_{5}/(m^{3}\\cdot d)",
+   "issue": "框漏了“2.”，数值变成 0；按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 75,
+   "bbox": [
+    91.57301999942813,
+    250.3491224075497,
+    153.99919217514747,
+    260.5783375471439
+   ],
+   "original_latex_sha256": "5935dc9016daa20fd8da7f4292f96ac4c05672f00c6a751492d061164313c4ec",
+   "corrected_latex": "10L/(m^{2}\\cdot s)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 75,
+   "bbox": [
+    55.86056686048509,
+    266.22815336461287,
+    111.06776485500593,
+    275.71071752026126
+   ],
+   "original_latex_sha256": "d03fc1fb8f2b0de325c21e2a092a12a1ed05c463f4ea1d5d8629af09b8647525",
+   "corrected_latex": "8L/(m^2\\cdot s)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 75,
+   "bbox": [
+    226.85776694500086,
+    502.070985979181,
+    295.9384574728926,
+    510.5821657283296
+   ],
+   "original_latex_sha256": "2a7df67946332bd37d1dd19989f9abf263a34fe7b14dd68b621ed355fc1dcd3a",
+   "corrected_latex": "\\mathrm{kgNH_{3}-N/(m^{3}\\cdot d)}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 77,
+   "bbox": [
+    55.850780989827086,
+    124.6345748994651,
+    278.12017723689297,
+    134.9976744812641
+   ],
+   "original_latex_sha256": "2be076c2af87c3bef339b873a2886e08a36712bce427c2c9fe3e97b2bc84c2fb",
+   "corrected_latex": "0.005\\mathrm{gBOD}_{5}/(\\mathrm{m}^{2}\\cdot\\mathrm{d})\\sim0.020\\mathrm{kgBOD}_{5}/(\\mathrm{m}^{2}\\cdot\\mathrm{d})",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 77,
+   "bbox": [
+    88.4394820726501,
+    140.92231093569796,
+    181.7313172160753,
+    151.21557400231626
+   ],
+   "original_latex_sha256": "be2f901202312c27fd17926a5f13558c7ec18d19076bd36858ee422fd4d4547a",
+   "corrected_latex": "0.030gBOD_{5}/(m^{2}\\cdot d)",
+   "issue": "框漏了“0.”，数值变成 030；按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 77,
+   "bbox": [
+    55.37484280902568,
+    156.80842659743112,
+    221.14657467350284,
+    166.62709133942997
+   ],
+   "original_latex_sha256": "958a9a5cf710432bcfe551839fba106fb3d68e6f9f1dd9476b3eae9f6869dce8",
+   "corrected_latex": "0.04m^{3}/\\left(m^{2}\\cdot d\\right)\\sim0.20m^{3}/\\left(m^{2}\\cdot d\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 77,
+   "bbox": [
+    260.90354682653367,
+    220.02623493090655,
+    349.0622040654525,
+    230.5112463532201
+   ],
+   "original_latex_sha256": "3ab0451093483fec470d5f315a9dbab2844970386550d0aa818f3fb8a581f8f0",
+   "corrected_latex": "5gBOD_{5}/(m^{2}\\cdot d)\\sim",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 77,
+   "bbox": [
+    56.31072789377322,
+    236.0041881364312,
+    139.63155710562648,
+    246.51922991931477
+   ],
+   "original_latex_sha256": "aec1ccb57f2c7d9c75cc927d76101363b7f9d9d6e3dbda41979560b189c3f6b5",
+   "corrected_latex": "15gBOD_{5}/(m^{2}\\cdot d)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 77,
+   "bbox": [
+    250.4238348745328,
+    236.22248491257187,
+    349.0392056219532,
+    246.75903344234501
+   ],
+   "original_latex_sha256": "e188ecf603faacc67a36dd6dd4425558cf58f707a06f5666e68def7a6235c267",
+   "corrected_latex": "0.5gNH_{3}-N/(m^{2}\\cdot d)\\sim",
+   "issue": "框漏了“0.”，数值变成 5；按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 77,
+   "bbox": [
+    55.856931480925276,
+    252.329302854822,
+    149.21932703517243,
+    262.37288774802505
+   ],
+   "original_latex_sha256": "470252fd9870d6e58739e55e74b7ed624652dd6b8820fa431c034cc38d2008bf",
+   "corrected_latex": "2.0gNH_{3}-N/(m^{2}\\cdot d)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 78,
+   "bbox": [
+    257.6699261316624,
+    173.79009023401943,
+    311.814302789887,
+    185.27533014727206
+   ],
+   "original_latex_sha256": "a8aa9781f6aeb4b04e586f7f3602877c630681e33f329711e947ec2a22cf4275",
+   "corrected_latex": "(kgO_{2}/kgN)",
+   "issue": "O₂ 识别成 θ₂",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 82,
+   "bbox": [
+    253.72199179385575,
+    235.78595726452,
+    340.5676070474704,
+    245.74459160591306
+   ],
+   "original_latex_sha256": "f50073de499cb6c93e12be2fd833f62aeed295d63d6daba95e9bd6389e88fd0d",
+   "corrected_latex": "4.0m^{3}/(m^{2}\\cdot h)\\sim",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 82,
+   "bbox": [
+    47.78311591821764,
+    251.323186919382,
+    113.75406872327738,
+    261.5027322380188
+   ],
+   "original_latex_sha256": "20bf4d5f1fc9e7dede258b38a8201adb0fbd00c6ce3f457f6e8e1af33cf6be59",
+   "corrected_latex": "7.0m^{3}/(m^{2}\\cdot h)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 82,
+   "bbox": [
+    47.48115975435616,
+    267.47224947273395,
+    134.18440761357755,
+    277.40289648467115
+   ],
+   "original_latex_sha256": "e2e9d43ce03f8bc2b2fda2d9499e4a9d48d1b098dfcdf8e3f87542c22243d6ce",
+   "corrected_latex": "5.0m^{3}/(m^{2}\\cdot h)\\sim9.0m^{3}/(m^{2}\\cdot h)",
+   "issue": "跨行的数值只框到一部分，按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 82,
+   "bbox": [
+    254.17031866283423,
+    346.96083448738733,
+    340.645256997585,
+    356.7331136358649
+   ],
+   "original_latex_sha256": "6ea6edc5fa11d405748f3130e8c5a766cbe0620d79479fb22054624371871797",
+   "corrected_latex": "5.0m^{3}/(m^{2}\\cdot h)\\sim",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 82,
+   "bbox": [
+    217.67960873957432,
+    504.6763119792998,
+    334.88659611443273,
+    514.7553972841204
+   ],
+   "original_latex_sha256": "44263706a29429b7b7861186815caabb21f5549ad7d18e26e4809ab95a24d363",
+   "corrected_latex": "2L/(m^{2}\\cdot s)\\sim3L/(m^{2}\\cdot s)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    145.89340504174908,
+    61.91224005529942,
+    285.7415582812101,
+    71.90884072489668
+   ],
+   "original_latex_sha256": "06e0371b5b464055da5bf5124ab8d52d121d091550f2a45c5fd2d3dd995c9451",
+   "corrected_latex": "13L/(m^{2}\\cdot s)\\sim17L/(m^{2}\\cdot s)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    217.65232691834592,
+    77.5080201260424,
+    344.7160913271572,
+    87.72500453904746
+   ],
+   "original_latex_sha256": "06e0371b5b464055da5bf5124ab8d52d121d091550f2a45c5fd2d3dd995c9451",
+   "corrected_latex": "13L/(m^{2}\\cdot s)\\sim17L/(m^{2}\\cdot s)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    121.37351675610653,
+    93.41622468869227,
+    241.87627773498738,
+    103.58132599703292
+   ],
+   "original_latex_sha256": "745d79b78c440286dcc0967ff036f6d7eee6ecf765b91f4516134bb11c419ef8",
+   "corrected_latex": "3L/(m^{2}\\cdot s)\\sim4L/(m^{2}\\cdot s)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    119.81248916632747,
+    109.6565536158468,
+    237.0931945702056,
+    119.67327155149528
+   ],
+   "original_latex_sha256": "c1b2bafc930a8cc94358acb07e65fe34f3b95a003615edb497397bd400188adf",
+   "corrected_latex": "4L/(m^{2}\\cdot s)\\sim8L/(m^{2}\\cdot s)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    55.89774438256966,
+    172.86685985119885,
+    115.68125921077505,
+    182.994911998529
+   ],
+   "original_latex_sha256": "08eaa83fc06244b377006659addcc8b071fb1994cac64839a215e5b4a84a3ac1",
+   "corrected_latex": "20L/(m^{2}\\cdot s)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    281.6490434705168,
+    173.00535758946782,
+    348.8400615066098,
+    183.05095256167027
+   ],
+   "original_latex_sha256": "f47645e06e101065b47e3760f303174c5365980355d556ab7d393fcb26893f64",
+   "corrected_latex": "6.5L/(m^{2}\\cdot s)\\sim",
+   "issue": "框漏了“6.”，识别成上标 7；按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    56.345203592982514,
+    189.080596421755,
+    126.37169138100772,
+    198.52216814666184
+   ],
+   "original_latex_sha256": "8970f71f5cee71e091607e1dc81904820b03f591a885be689ecfc023a5333f3e",
+   "corrected_latex": "10.0\\mathrm{L/(m^2\\cdot s)}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    233.8257461742943,
+    220.49066203610832,
+    343.8315189110002,
+    230.7453162082849
+   ],
+   "original_latex_sha256": "b202499f1a4bbcee28d481ef654dfe84065090bc45219d96fbc6ac66ed98a958",
+   "corrected_latex": "15L/(m^{2}\\cdot s)\\sim20L/(m^{2}\\cdot s)",
+   "issue": "跨行的数值只框到一部分，按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 83,
+   "bbox": [
+    211.446920721069,
+    236.45780694799694,
+    332.72067870816693,
+    246.63350785324693
+   ],
+   "original_latex_sha256": "b9fd0d5f11dc3ada9000e1ee184b9df0fad4ec2fc1bac3b4bb0304a13f60852f",
+   "corrected_latex": "8L/(m^{2}\\cdot s)\\sim10L/(m^{2}\\cdot s)",
+   "issue": "8L 识别成 RE",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 87,
+   "bbox": [
+    56.87388772646078,
+    441.26756810895944,
+    255.52948933137478,
+    452.06026441067587
+   ],
+   "original_latex_sha256": "9a04ea22f616febf1537c099217a184b8bc64b9f35bc6f72e6f0c95526c9c614",
+   "corrected_latex": "1.5\\mathrm{gBOD}_{5}/(\\mathrm{m}^{2}\\cdot\\mathrm{d})\\sim10.0\\mathrm{gBOD}_{5}/(\\mathrm{m}^{2}\\cdot\\mathrm{d})",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 92,
+   "bbox": [
+    230.01004739509864,
+    441.3803522136899,
+    312.8776568026444,
+    451.78557558217
+   ],
+   "original_latex_sha256": "8b7a755ae8b8c5f667eab709a72d918d420252ea7928600079ee2a70802fc518",
+   "corrected_latex": "\\left[\\mathrm{kgVSS}/(\\mathrm{m}^3\\cdot\\mathrm{d})\\right]",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 97,
+   "bbox": [
+    263.1252360074363,
+    313.1503830585463,
+    344.4457992094316,
+    323.9593357368698
+   ],
+   "original_latex_sha256": "6429ee623cea1ceac36af9e2f42b46e6138a62943848c3a246396da700699c98",
+   "corrected_latex": "\\left[\\mathrm{m}^{3}/\\left(\\min\\cdot\\mathrm{m}^{3}\\right)\\right]",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 104,
+   "bbox": [
+    91.8734000999457,
+    393.692754734636,
+    158.82159455087836,
+    403.84991458332337
+   ],
+   "original_latex_sha256": "364e8f446bb0124935db6f05ca3159f02adf80d65d56521733aa0f0ef4a90708",
+   "corrected_latex": "10m^{3}/(m^{2}\\cdot h)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 104,
+   "bbox": [
+    102.51153112980415,
+    441.450957611548,
+    164.227261177074,
+    451.6138291601243
+   ],
+   "original_latex_sha256": "0a03183c14495aab03624cbdce02b06e5d580d065afea70059ec12f54394c7d1",
+   "corrected_latex": "3m^{3}/(m^{2}\\cdot h)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+   "file_name": "城市排水工程规划规范.pdf",
+   "physical_page": 20,
+   "bbox": [
+    172.52452673101737,
+    501.09370120659815,
+    244.50660046345385,
+    511.7530399407142
+   ],
+   "original_latex_sha256": "1437fe22276a3d4465fa6ad1ad0e0db57bbe0309255806dd34fcad052753c853",
+   "corrected_latex": "\\mathrm{[L/~(s\\cdot hm^2)]}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 14,
+   "bbox": [
+    303.3907845513636,
+    455.1651933365239,
+    353.65988546924297,
+    468.33686112753855
+   ],
+   "original_latex_sha256": "dbd8c4d6bcac43fe85dba80f916e7ad342c711761060c1964651d582860bb155",
+   "corrected_latex": "\\left[\\left(\\mathrm{EV_r}\\right)_{\\mathrm{i}}\\right]_{\\max}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+   "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+   "physical_page": 64,
+   "bbox": [
+    246.26289663765434,
+    143.16501551299854,
+    331.2101141937746,
+    154.03359474832735
+   ],
+   "original_latex_sha256": "c84a857132384a8a3bf107dbb84f949e0e683574c87a3842af98959f85aab439",
+   "corrected_latex": "Q_{5}\\times C_{5}>Q_{4}\\times C_{4}",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+   "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "physical_page": 139,
+   "bbox": [
+    165.50024836195442,
+    282.88982178719033,
+    259.97131957847654,
+    292.81444247530567
+   ],
+   "original_latex_sha256": "1ca9cc67224594ea414efd07f6048f67d281fedd89c0df0921a766a3a0ecbd62",
+   "corrected_latex": "B\\geqslant D_{0}+2b+1000",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+   "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "physical_page": 173,
+   "bbox": [
+    172.89670996626668,
+    461.58879253720005,
+    235.06878678558695,
+    471.3291534568109
+   ],
+   "original_latex_sha256": "1c77708f47d89946009964790f55266a2250e526511aca6a2e5d3fc0b8005795",
+   "corrected_latex": "(L/min\\cdot km)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+   "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "physical_page": 177,
+   "bbox": [
+    177.71661026643682,
+    504.7183586300602,
+    259.85651299949984,
+    515.7592320666427
+   ],
+   "original_latex_sha256": "d84b7623930d7313b62bc4222c0e116f911e79d987a73399789c8815def9ce06",
+   "corrected_latex": "q\\leqslant2\\left[\\mathrm{L}/\\left(\\mathrm{m}^2\\cdot\\mathrm{d}\\right)\\right]",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+   "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "physical_page": 198,
+   "bbox": [
+    211.73145693946879,
+    92.59399224977408,
+    267.4101667442182,
+    102.72473310438532
+   ],
+   "original_latex_sha256": "f27505610ba85f9375a2fe0ba64c19e2994af45e955c3d66d82ff7b323a78971",
+   "corrected_latex": "\\mathrm{L}/\\left(\\mathrm{m}^2\\cdot\\mathrm{d}\\right)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+   "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "physical_page": 198,
+   "bbox": [
+    93.45175390239497,
+    139.14624228350345,
+    148.81970212389027,
+    149.60850139876445
+   ],
+   "original_latex_sha256": "2d34fef3bd51599de9d2139140059ecdd5f98e78dde647d17e32f52cb4aa01bd",
+   "corrected_latex": "L/(m^{2}\\cdot d)",
+   "issue": "agent 对照原页核对无误",
+   "verified_by": "agent"
+  },
+  {
+   "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+   "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "physical_page": 201,
+   "bbox": [
+    264.4435067803002,
+    220.70914392673544,
+    293.6295171658522,
+    239.99499969687017
+   ],
+   "original_latex_sha256": "d92bbc034b53ab799a67e9dc773a67def8e700560b0c13a8df4efd12f7dd3412",
+   "corrected_latex": "\\mathrm{Sa}2\frac{1}{2}",
+   "issue": "Sa2½ 识别成 sin2½",
+   "verified_by": "agent",
+   "severity": "content"
+  },
+  {
+   "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+   "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "physical_page": 246,
+   "bbox": [
+    288.084286947328,
+    108.54641730619801,
+    347.17838818685505,
+    119.98801346778988
+   ],
+   "original_latex_sha256": "d51f98dcb3ecdbd9c34fc4e00dc8a9db747395042aee05f54f55fbc38ae0d4c6",
+   "corrected_latex": "q\\leqslant2[L/(m^{2}\\cdot d)]",
+   "issue": "跨行只框到“(m²·”，识别时丢了“·d”；按原文补全",
+   "verified_by": "agent",
+   "severity": "content"
   }
  ],
  "texts": [
@@ -5685,7 +7080,7 @@
   {
    "date": "2026-10-22",
    "scope": "84 AI-checked formulas and 92 variable lines in formula chunks",
-   "page": "eval/formula_review_576f.html",
+   "page": "eval/formula_review_576f.html（本地核对页，未保留；结论见 owner_decisions）",
    "owner_decisions": "eval/formula_review_owner_decisions_576f.json",
    "owner_decisions_sha256": "63f172b9d9cd79116f3b917b1f0bba6051af25207e74669831fb47fb922d3bd9",
    "reviewed_at": "2026-10-22T15:46:43.512Z",
@@ -5694,11 +7089,19 @@
   {
    "date": "2026-10-23",
    "scope": "185 auto-admitted text lines in formula chunks (182) and three noticed beside them",
-   "page": "eval/auto_line_review_2571.html",
+   "page": "eval/auto_line_review_2571.html（本地核对页，未保留；结论见 owner_decisions）",
    "owner_decisions": "eval/auto_line_review_owner_decisions_2571.json",
    "owner_decisions_sha256": "fa705b415c181a901857d3171e3ccaa871a36097787d30750a80b92be3d1d39c",
    "reviewed_at": "2026-10-23T02:24:42.120Z",
    "notes": "Owner rule: text reads as the page prints it; pages print no underscores, so underscores were removed here and from 34 earlier lines. Lines 8-1, 30-4, 40-1, 41-4, 46-5 were marked unchanged while judging only the underscore; my reading of the rest applies (owner in chat). 30-1 left unmarked takes the suggestion; 33-1 the owner's note. Owner notes were checked against the page: commentary such as 没有下划线 dropped; 36-1/36-2 subscript is capital P (VP, tP); 27-5 keeps the page's closing 。."
+  },
+  {
+   "date": "2026-10-24",
+   "scope": "91 inline formula fragments (units, NH3-N, value ranges) not shown in earlier owner reviews",
+   "method": "agent compared each recognized LaTeX with a 3x render of its source bbox (orange box) and the wrapped next line where the box covered only part of a quantity",
+   "authorized_by": "owner 2026-10-24（先做2：agent 自己对照原页核对）",
+   "verified_by": "agent",
+   "notes": "30 corrected (garbled symbols, digits outside the box such as 2.0 read as 0, quantities cut at a line wrap, stray punctuation); 61 confirmed unchanged."
   }
  ]
 }

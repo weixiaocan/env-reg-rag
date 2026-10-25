@@ -1,5 +1,7 @@
 # 检索评测 Harness
 
+> **历史文档（2026-09），只作记录，不代表当前状态。** 基于 golden_v1 与语料 069284；现行检索评测为 `scripts/evaluate_golden_retrieval.py` 与 `golden_v5.jsonl`。当前状态见 `README.md` 与 `.claude/EVALUATION_HANDOFF.md`。
+
 本 Harness 使用 `eval/golden_v1.jsonl` 的 50 条 reviewed 案例，调用当前线上同构的
 BGE dense + BM25 sparse + RRF 检索链路。它只评估检索和原文定位，不调用 LLM，
 也不修改正式语料或发布指针。

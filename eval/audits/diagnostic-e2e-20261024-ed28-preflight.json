@@ -1,0 +1,9 @@
+{
+  "classification": "offline preflight; no provider loaded; no model call",
+  "dataset": "eval/golden_v5.jsonl",
+  "dataset_sha256": "92b3e839f9c88d6a28081eb69aade1c6a0d27f77ad1f5990fcb0c689b358f481",
+  "dataset_cases": 50,
+  "corpus_version": "corpus-ed28791afb8a",
+  "entry": "POST /api/v1/queries (in-process ASGI)",
+  "send_scope_required_for_authorization": "http-e2e:50-questions:production-retrieval-top5-chunks+same-clause-expansion-up-to-8"
+}

@@ -1,0 +1,668 @@
+{
+  "case": "G048",
+  "question": "按GB 50268，施工测量允许偏差应符合哪张表？沟槽底部开挖宽度设计无要求时可按哪一公式计算，式中B、Do含义是什么？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261024-ed28-G048",
+  "trace_missing": false,
+  "wall_ms": 9812.139,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "按《GB50268-2008给水排水管道工程施工及验收规范》第3.1.8条，施工测量的允许偏差应符合表3.1.8的规定，并应满足国家现行标准《工程测量规范》GB50026和《城市测量规范》CJJ8的有关规定；对有特定要求的管道还应遵守其特殊规定。",
+        "evidence_ids": [
+          "chunk_08554129fbba32273401b54ad0483389"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "\n\n沟槽底部开挖宽度设计无要求时，可按下列公式计算确定：",
+        "evidence_ids": [
+          "chunk_f213eb739a4f49e41fc8cd6e4e6279ab"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "\n\nB = D_o + 2(b_1 + b_2 + b_3)\n\n式中各变量含义如下：\n- B——管道沟槽底部的开挖宽度（mm）；\n- D_o——管外径（mm）；\n- b_1——管道一侧的工作面宽度（mm），可按表4.3.2选取；\n- b_2——有支撑要求时，管道一侧的支撑厚度，可取150～200mm；\n- b_3——现场浇筑混凝土或钢筋混凝土管渠一侧模板的厚度（mm）。",
+        "evidence_ids": [
+          "chunk_9d85d689e668b77b6faf6a4b27c212a8"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_f213eb739a4f49e41fc8cd6e4e6279ab",
+    "chunk_9d85d689e668b77b6faf6a4b27c212a8",
+    "chunk_db1ac1bb44eef591cefd57ff5c188932",
+    "chunk_8f4667d8f0bf4f8209fa40f4626c3fe2",
+    "chunk_3cdc79297166232a66ad9c1f48868374",
+    "chunk_abd3c9de091a310c9e31357fa6ccd9e9",
+    "chunk_6708040dc69dba85673229e66f23bd34",
+    "chunk_8e96eaa630e418de69a01e15268c9ebe",
+    "chunk_8ff7f0d23cfdaedd1a9900f9db507196",
+    "chunk_293a06032749f940006a9e5723cbf6af",
+    "chunk_6c163338a083e9adc5374c9648909503",
+    "chunk_08554129fbba32273401b54ad0483389",
+    "chunk_a34f6cfaab75fec94075f127fcded1f3"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_f213eb739a4f49e41fc8cd6e4e6279ab",
+      "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n4.3.2 沟槽底部的开挖宽度，应符合设计要求；设计无要求时，\n可按下式计算确定：",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        23
+      ],
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.3 沟槽开挖与支护",
+        "4.3.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_f213eb739a4f49e41fc8cd6e4e6279ab__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            47.5,
+            86.36542311368808,
+            345.0,
+            117.07312910966608
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_9d85d689e668b77b6faf6a4b27c212a8",
+      "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n[公式]\nB=D_{0}+2(b_{1}+b_{2}+b_{3})\n式中 B——管道沟槽底部的开挖宽度（mm）；\nDo——管外径（mm）；\nb1——管道一侧的工作面宽度（mm），可按表4.3.2选取；\nb2——有支撑要求时，管道一侧的支撑厚度，可取150～200mm；\nb3——现场浇筑混凝土或钢筋混凝土管渠一侧模板的厚度（mm）。",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        23
+      ],
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.3 沟槽开挖与支护",
+        "4.3.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_9d85d689e668b77b6faf6a4b27c212a8__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            47.5,
+            121.123458569692,
+            347.0,
+            261.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_db1ac1bb44eef591cefd57ff5c188932",
+      "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.1\n表4.6.1沟槽开挖的允许偏差\n序号 | 检查项目 | 允许偏差（mm） | 允许偏差（mm） | 检查数量 | 检查数量 | 检查方法\n序号 | 检查项目 | 允许偏差（mm） | 允许偏差（mm） | 范围 | 点数 | 检查方法\n1 | 槽底高程 | 土方 | ±20 | 两井之间 | 3 | 用水准仪测量\n1 | 槽底高程 | 石方 | +20、-200 | 两井之间 | 3 | 用水准仪测量\n2 | 槽底中线 每侧宽度 | 不小于规定 | 不小于规定 | 两井之间 | 6 | 挂中线用钢尺测量， 每侧计3点\n3 | 沟槽边坡 | 不陡于规定 | 不陡于规定 | 两井之间 | 6 | 用坡度尺量测， 每侧计3点",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        32
+      ],
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.6 质量验收标准",
+        "4.6.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_db1ac1bb44eef591cefd57ff5c188932__p32",
+          "physical_page": 32,
+          "kind": "text",
+          "bbox": [
+            59.29158216792742,
+            315.1830645261303,
+            354.2675242816577,
+            442.0015685078643
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_8f4667d8f0bf4f8209fa40f4626c3fe2",
+      "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n表4.3.2管道一侧的工作面宽度\n管道的外径D。 (mm) | 管道一侧的工作面宽度b₁(mm） | 管道一侧的工作面宽度b₁(mm） | 管道一侧的工作面宽度b₁(mm）\n管道的外径D。 (mm) | 混凝土类管道 | 混凝土类管道 | 金属类管道、化学建材管道\nDo≤500 | 刚性接口 | 400 | 300\nDo≤500 | 柔性接口 | 300 | 300\n500<Do≤1000 | 刚性接口 | 500 | 400\n500<Do≤1000 | 柔性接口 | 400 | 400\n1000<Do≤1500 | 刚性接口 | 600 | 500\n1000<Do≤1500 | 柔性接口 | 500 | 500\n1500<Do≤3000 | 刚性接口 | 800~1000 | 700\n1500<Do≤3000 | 柔性接口 | 600 | 700\n注：1槽底需设排水沟时，b1应适当增加；",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        23
+      ],
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.3 沟槽开挖与支护",
+        "4.3.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_8f4667d8f0bf4f8209fa40f4626c3fe2__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            47.54973875419532,
+            284.0344238815208,
+            342.02212590735377,
+            440.4768963297208
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_3cdc79297166232a66ad9c1f48868374",
+      "text": "3 基本规定 > 3.1 施工基本规定 > 3.1.8\n表3.1.8施工测量的允许偏差\n项目 | 项目 | 允许偏差\n水准测量高程闭合差 | 平地 | ±20√L(mm)\n水准测量高程闭合差 | 山地 | ±6√n(mm)\n导线测量方位角闭合差 | 导线测量方位角闭合差 | 40√n(\")\n导线测量相对闭合差 | 开槽施工管道 | 1/1000\n导线测量相对闭合差 | 其他方法施工管道 | 1/3000\n直接丈量测距的两次较差 | 直接丈量测距的两次较差 | 1/5000\n注：1L为水准测量闭合线路的长度（km）；",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "heading_path": [
+        "3 基本规定",
+        "3.1 施工基本规定",
+        "3.1.8"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_3cdc79297166232a66ad9c1f48868374__p15",
+          "physical_page": 15,
+          "kind": "text",
+          "bbox": [
+            48.76879294929308,
+            250.07915407801195,
+            343.2204044808496,
+            359.8838124133528
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_abd3c9de091a310c9e31357fa6ccd9e9",
+      "text": "6.7 质量验收标准 > 6.7.8\n表6.7.8土层开挖的允许偏差\n序号 | 检查项目 | 允许偏差 (mm) | 检查数量 | 检查数量 | 检查方法\n序号 | 检查项目 | 允许偏差 (mm) | 范围 | 点数 | 检查方法\n1 | 轴线偏差 | ±30 | 每榀 | 4 | 挂中心线用尺量每侧2点\n2 | 高程 | ±30 | 每榀 | 1 | 用水准仪测量\n注：管道高度大于3m时，轴线偏差每侧测量3点。",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        126
+      ],
+      "heading_path": [
+        "6.7 质量验收标准",
+        "6.7.8"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_abd3c9de091a310c9e31357fa6ccd9e9__p126",
+          "physical_page": 126,
+          "kind": "text",
+          "bbox": [
+            55.424956307613655,
+            128.34902829053027,
+            350.02519175095784,
+            178.03225606028877
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_6708040dc69dba85673229e66f23bd34",
+      "text": "7 沉管和桥管施工主体结构 > 7.2 沉管 > 7.2.4\n[公式]\nB\\geqslant D_{0}+2b+1000\n式中B管道基槽底部的开挖宽度（mm）；\n管外径（mm）；\nb管道外壁保护层及沉管附加物等宽度（mm）。",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        139
+      ],
+      "heading_path": [
+        "7 沉管和桥管施工主体结构",
+        "7.2 沉管",
+        "7.2.4"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_6708040dc69dba85673229e66f23bd34__p139",
+          "physical_page": 139,
+          "kind": "text",
+          "bbox": [
+            63.5,
+            282.88982178719033,
+            333.0,
+            347.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_8e96eaa630e418de69a01e15268c9ebe",
+      "text": "7.4 质量验收标准 > 7.4.1\n表7.4.1\n检查项目 | 检查项目 | 检查项目 | 允许偏差(mm) | 检查数量 | 检查数量 | 检查方法\n检查项目 | 检查项目 | 检查项目 | 允许偏差(mm) | 范围 | 点数 | 检查方法\n1 | 基槽底部高程 | 土 | 0，-300 | 每5～10m取一个断面 | 基槽宽度不大于5m时测1点；基槽宽度大于5m时测不少于2点 | 用回声测深仪、多波束仪、测深图检查；或用水准仪、经纬仪测量、钢尺量测定位标志，潜水员检查\n1 | 基槽底部高程 | 石 | 0，-500 | 每5～10m取一个断面 | 基槽宽度不大于5m时测1点；基槽宽度大于5m时测不少于2点 | 用回声测深仪、多波束仪、测深图检查；或用水准仪、经纬仪测量、钢尺量测定位标志，潜水员检查\n2 | 整平后基础顶面高程 | 压力管道 | 0，-200 | 每5～10m取一个断面 | 基槽宽度不大于5m时测1点；基槽宽度大于5m时测不少于2点 | 用回声测深仪、多波束仪、测深图检查；或用水准仪、经纬仪测量、钢尺量测定位标志，潜水员检查",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        150
+      ],
+      "heading_path": [
+        "7.4 质量验收标准",
+        "7.4.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_8e96eaa630e418de69a01e15268c9ebe__p150",
+          "physical_page": 150,
+          "kind": "text",
+          "bbox": [
+            68.69299280213956,
+            323.7150318334145,
+            363.24661071463424,
+            519.9591075051635
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_8ff7f0d23cfdaedd1a9900f9db507196",
+      "text": "7 沉管和桥管施工主体结构 > 7.2 沉管 > 7.2.4\n表7.2.4沉管基槽底部宽度和边坡尺寸\n岩土类别 | 底部宽度 (mm) | 边坡 | 边坡\n岩土类别 | 底部宽度 (mm) | 浚挖深度 <2.5m | 浚挖深度 ≥2.5m\n淤泥、粉砂、细砂 | Do+2b+2500~4000 | 1:3.5~4.0 | 1:5.0~6.0\n砂质粉土、中砂、粗砂 | Do+2b+2000~4000 | 1:3.0~3.5 | 1:3.5~5.0\n砂土、含卵砾石土 | Do+2b+1800~3000 | 1:2.5~3.0 | 1:3.0~4.0\n黏质粉土 | Do+2b+1500~3000 | 1:2.0~2.5 | 1:2.5~3.5\n黏土 | Do+2b+1200~3000 | 1:1.5~2.0 | 1:2.0~3.0\n岩石 | Do+2b+1200~2000 | 1:0.5 | 1:1.0",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        139
+      ],
+      "heading_path": [
+        "7 沉管和桥管施工主体结构",
+        "7.2 沉管",
+        "7.2.4"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_8ff7f0d23cfdaedd1a9900f9db507196__p139",
+          "physical_page": 139,
+          "kind": "text",
+          "bbox": [
+            65.28534076669054,
+            369.4481921883093,
+            360.3511093130538,
+            478.1743676240482
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_293a06032749f940006a9e5723cbf6af",
+      "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.1\n4 沟槽开挖的允许偏差应符合表4.6.1的规定。",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        32
+      ],
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.6 质量验收标准",
+        "4.6.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_293a06032749f940006a9e5723cbf6af__p32",
+          "physical_page": 32,
+          "kind": "text",
+          "bbox": [
+            77.0,
+            279.5,
+            301.5,
+            296.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_6c163338a083e9adc5374c9648909503",
+      "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n注：1 槽底需设排水沟时，b1应适当增加；\n2 管道有现场施工的外防水层时，b1宜取800mm；\n3 采用机械回填管道侧面时，b1需满足机械作业的宽度要求。",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        23
+      ],
+      "heading_path": [
+        "4 土石方与地基处理",
+        "4.3 沟槽开挖与支护",
+        "4.3.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_6c163338a083e9adc5374c9648909503__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            52.75935714793317,
+            443.34250531693215,
+            287.0,
+            484.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_08554129fbba32273401b54ad0483389",
+      "text": "3 基本规定 > 3.1 施工基本规定 > 3.1.8\n3.1.8 施工测量的允许偏差，应符合表3.1.8的规定，并应满\n足国家现行标准《工程测量规范》GB50026和《城市测量规范》\nCJJ8的有关规定；对有特定要求的管道还应遵守其特殊规定。",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "heading_path": [
+        "3 基本规定",
+        "3.1 施工基本规定",
+        "3.1.8"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_08554129fbba32273401b54ad0483389__p15",
+          "physical_page": 15,
+          "kind": "text",
+          "bbox": [
+            47.0,
+            181.0,
+            346.0,
+            227.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_a34f6cfaab75fec94075f127fcded1f3",
+      "text": "3 基本规定 > 3.1 施工基本规定 > 3.1.8\n注：1 L为水准测量闭合线路的长度（km）；\n2 n为水准或导线测量的测站数。",
+      "document_version_id": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+      "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "heading_path": [
+        "3 基本规定",
+        "3.1 施工基本规定",
+        "3.1.8"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50268-2008",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_a34f6cfaab75fec94075f127fcded1f3__p15",
+          "physical_page": 15,
+          "kind": "text",
+          "bbox": [
+            55.0,
+            363.5,
+            214.5,
+            390.0
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.008,
+    "retrieval": 56.547,
+    "context_expansion": 128.48,
+    "generation": 9615.748,
+    "validation": 0.054,
+    "total": 9800.973
+  },
+  "generate_context_evidence_ids": [
+    "chunk_f213eb739a4f49e41fc8cd6e4e6279ab",
+    "chunk_9d85d689e668b77b6faf6a4b27c212a8",
+    "chunk_db1ac1bb44eef591cefd57ff5c188932",
+    "chunk_8f4667d8f0bf4f8209fa40f4626c3fe2",
+    "chunk_3cdc79297166232a66ad9c1f48868374",
+    "chunk_293a06032749f940006a9e5723cbf6af",
+    "chunk_6c163338a083e9adc5374c9648909503",
+    "chunk_08554129fbba32273401b54ad0483389",
+    "chunk_a34f6cfaab75fec94075f127fcded1f3"
+  ],
+  "trace_evidence_ids": [
+    "chunk_f213eb739a4f49e41fc8cd6e4e6279ab",
+    "chunk_9d85d689e668b77b6faf6a4b27c212a8",
+    "chunk_db1ac1bb44eef591cefd57ff5c188932",
+    "chunk_8f4667d8f0bf4f8209fa40f4626c3fe2",
+    "chunk_3cdc79297166232a66ad9c1f48868374",
+    "chunk_abd3c9de091a310c9e31357fa6ccd9e9",
+    "chunk_6708040dc69dba85673229e66f23bd34",
+    "chunk_8e96eaa630e418de69a01e15268c9ebe",
+    "chunk_8ff7f0d23cfdaedd1a9900f9db507196",
+    "chunk_293a06032749f940006a9e5723cbf6af",
+    "chunk_6c163338a083e9adc5374c9648909503",
+    "chunk_08554129fbba32273401b54ad0483389",
+    "chunk_a34f6cfaab75fec94075f127fcded1f3"
+  ],
+  "token_usage": {
+    "input_tokens": 3300,
+    "output_tokens": 546,
+    "total_tokens": 3846,
+    "estimated_cost": 0.041688,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按GB 50268，施工测量允许偏差应符合哪张表？沟槽底部开挖宽度设计无要求时可按哪一公式计算，式中B、Do含义是什么？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_f213eb739a4f49e41fc8cd6e4e6279ab",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n4.3.2 沟槽底部的开挖宽度，应符合设计要求；设计无要求时，\n可按下式计算确定："
+      },
+      {
+        "evidence_id": "chunk_9d85d689e668b77b6faf6a4b27c212a8",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n[公式]\nB=D_{0}+2(b_{1}+b_{2}+b_{3})\n式中 B——管道沟槽底部的开挖宽度（mm）；\nDo——管外径（mm）；\nb1——管道一侧的工作面宽度（mm），可按表4.3.2选取；\nb2——有支撑要求时，管道一侧的支撑厚度，可取150～200mm；\nb3——现场浇筑混凝土或钢筋混凝土管渠一侧模板的厚度（mm）。"
+      },
+      {
+        "evidence_id": "chunk_db1ac1bb44eef591cefd57ff5c188932",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          32
+        ],
+        "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.1\n表4.6.1沟槽开挖的允许偏差\n序号 | 检查项目 | 允许偏差（mm） | 允许偏差（mm） | 检查数量 | 检查数量 | 检查方法\n序号 | 检查项目 | 允许偏差（mm） | 允许偏差（mm） | 范围 | 点数 | 检查方法\n1 | 槽底高程 | 土方 | ±20 | 两井之间 | 3 | 用水准仪测量\n1 | 槽底高程 | 石方 | +20、-200 | 两井之间 | 3 | 用水准仪测量\n2 | 槽底中线 每侧宽度 | 不小于规定 | 不小于规定 | 两井之间 | 6 | 挂中线用钢尺测量， 每侧计3点\n3 | 沟槽边坡 | 不陡于规定 | 不陡于规定 | 两井之间 | 6 | 用坡度尺量测， 每侧计3点"
+      },
+      {
+        "evidence_id": "chunk_8f4667d8f0bf4f8209fa40f4626c3fe2",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n表4.3.2管道一侧的工作面宽度\n管道的外径D。 (mm) | 管道一侧的工作面宽度b₁(mm） | 管道一侧的工作面宽度b₁(mm） | 管道一侧的工作面宽度b₁(mm）\n管道的外径D。 (mm) | 混凝土类管道 | 混凝土类管道 | 金属类管道、化学建材管道\nDo≤500 | 刚性接口 | 400 | 300\nDo≤500 | 柔性接口 | 300 | 300\n500<Do≤1000 | 刚性接口 | 500 | 400\n500<Do≤1000 | 柔性接口 | 400 | 400\n1000<Do≤1500 | 刚性接口 | 600 | 500\n1000<Do≤1500 | 柔性接口 | 500 | 500\n1500<Do≤3000 | 刚性接口 | 800~1000 | 700\n1500<Do≤3000 | 柔性接口 | 600 | 700\n注：1槽底需设排水沟时，b1应适当增加；"
+      },
+      {
+        "evidence_id": "chunk_3cdc79297166232a66ad9c1f48868374",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "3 基本规定 > 3.1 施工基本规定 > 3.1.8\n表3.1.8施工测量的允许偏差\n项目 | 项目 | 允许偏差\n水准测量高程闭合差 | 平地 | ±20√L(mm)\n水准测量高程闭合差 | 山地 | ±6√n(mm)\n导线测量方位角闭合差 | 导线测量方位角闭合差 | 40√n(\")\n导线测量相对闭合差 | 开槽施工管道 | 1/1000\n导线测量相对闭合差 | 其他方法施工管道 | 1/3000\n直接丈量测距的两次较差 | 直接丈量测距的两次较差 | 1/5000\n注：1L为水准测量闭合线路的长度（km）；"
+      },
+      {
+        "evidence_id": "chunk_293a06032749f940006a9e5723cbf6af",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          32
+        ],
+        "text": "4 土石方与地基处理 > 4.6 质量验收标准 > 4.6.1\n4 沟槽开挖的允许偏差应符合表4.6.1的规定。"
+      },
+      {
+        "evidence_id": "chunk_6c163338a083e9adc5374c9648909503",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "4 土石方与地基处理 > 4.3 沟槽开挖与支护 > 4.3.2\n注：1 槽底需设排水沟时，b1应适当增加；\n2 管道有现场施工的外防水层时，b1宜取800mm；\n3 采用机械回填管道侧面时，b1需满足机械作业的宽度要求。"
+      },
+      {
+        "evidence_id": "chunk_08554129fbba32273401b54ad0483389",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "3 基本规定 > 3.1 施工基本规定 > 3.1.8\n3.1.8 施工测量的允许偏差，应符合表3.1.8的规定，并应满\n足国家现行标准《工程测量规范》GB50026和《城市测量规范》\nCJJ8的有关规定；对有特定要求的管道还应遵守其特殊规定。"
+      },
+      {
+        "evidence_id": "chunk_a34f6cfaab75fec94075f127fcded1f3",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+        "physical_pages": [
+          15
+        ],
+        "text": "3 基本规定 > 3.1 施工基本规定 > 3.1.8\n注：1 L为水准测量闭合线路的长度（km）；\n2 n为水准或导线测量的测站数。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.622008
+}

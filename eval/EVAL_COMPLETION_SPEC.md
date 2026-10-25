@@ -1,5 +1,7 @@
 # RAG 三层评估最小完成标准（面试演示范围）
 
+> **历史文档（2026-10-07），只作记录，不代表当前状态。** 评估完成口径草案；文中语料 0b9a 与 golden_v2 已替换。当前状态见 `README.md` 与 `.claude/EVALUATION_HANDOFF.md`。
+
 - 状态：Draft，待项目负责人确认
 - 修订日期：2026-10-07
 - 依据：`EVAL_SYSTEM_DESIGN_v0.md`、`FRAMEWORK.md`、`golden_v2.jsonl`、当前发布指针及已保存的检索/E1 trace。本文件规定本轮完成口径；历史设计数字以当前制品为准。

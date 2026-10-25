@@ -104,6 +104,19 @@ class ApplySourceCorrectionsTest(unittest.TestCase):
         self.assertEqual(other["quality_status"], "needs_review")
         self.assertEqual(element_usage_policy(other), "source_locator_only")
 
+    def test_agent_checked_entry_passes_and_says_who_checked_it(self):
+        doc = _document()
+        registry = _registry(owner_verified=True, texts=[])
+        registry["formulas"] = [{**registry["formulas"][0], "verified_by": "agent"}]
+
+        apply_source_corrections(doc, registry)
+
+        formula = doc["elements"][0]
+        self.assertEqual(formula["quality_status"], "passed")
+        self.assertIn("agent_verified_correction", formula["policy_reasons"])
+        self.assertNotIn("owner_verified_correction", formula["policy_reasons"])
+        self.assertIn("source_correction:ffffffffffff:agent_reviewed", formula["quality_issues"])
+
     def test_correction_that_no_longer_matches_fails_the_assembly(self):
         doc = _document()
         doc["elements"][0]["content"]["latex"] = "Q=0"

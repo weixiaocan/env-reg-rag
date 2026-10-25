@@ -1,0 +1,50 @@
+{"case": "G001", "verdict": "refused", "reason": "检索到的证据未让模型作答，整题拒答。"}
+{"case": "G002", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G003", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G004", "verdict": "partial", "reason": "F1 正确；F0 说资料中没有“城市污水处理率”，改答表 2 的集中收集率 64.8%，漏了表 1 的 97.5%。"}
+{"case": "G005", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G006", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G007", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G008", "verdict": "correct_refusal", "reason": "应拒答，正确拒答。"}
+{"case": "G009", "verdict": "refused", "reason": "图注题，整题拒答。"}
+{"case": "G010", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G011", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G012", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G013", "verdict": "partial", "reason": "按章节归类为“资料收集、现场踏勘与混错接判定”，未表述为调查评估类步骤（该题证据在目录页，不进检索）。"}
+{"case": "G014", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G015", "verdict": "correct_premise", "reason": "指出资料未给出所问数值，并说明实际内容，未编造。"}
+{"case": "G016", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G017", "verdict": "full", "reason": "回答 5~10 年与原页表 3.3.2 一致；黄金集 F0 已据原页由 3~5 年改正。"}
+{"case": "G018", "verdict": "partial", "reason": "F0 正确；F1 只答“项目规范”，未说明属于全文强制性工程建设规范体系。"}
+{"case": "G019", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G020", "verdict": "partial", "reason": "F0 图名正确；F1 称资料未举例，漏答“以氨氮为节点水质监测指标”。"}
+{"case": "G021", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G022", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G023", "verdict": "partial", "reason": "T/CMSA 与 QX/T 489 两项正确；称资料中没有 GB/T 28592 内容，漏答 12h/24h。"}
+{"case": "G024", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G025", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G026", "verdict": "partial", "reason": "绩效评价两项正确；称资料未包含前言样板区内容，漏答 F0。"}
+{"case": "G027", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G028", "verdict": "correct_premise", "reason": "指出资料未给出所问数值，并说明实际内容，未编造。"}
+{"case": "G029", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G030", "verdict": "partial", "reason": "公式和变量含义正确；未提工作流程图 3.0.5。"}
+{"case": "G031", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G032", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G033", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G034", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G035", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G036", "verdict": "partial", "reason": "t1、t2 含义和 5min~15min 正确；称资料未给出公式表达式，未写 t=t1+t2。"}
+{"case": "G037", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G038", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G039", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G040", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G041", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G042", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G043", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G044", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G045", "verdict": "partial", "reason": "称资料未给出图名，漏答 F0；环节列举与图意大体一致。"}
+{"case": "G046", "verdict": "partial", "reason": "容器体积法公式和每日 6~8 次正确；称资料未提供浮标法公式，漏答 F1。"}
+{"case": "G047", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G048", "verdict": "full", "reason": "覆盖全部期望事实。"}
+{"case": "G049", "verdict": "partial", "reason": "称资料没有图 4.6.3 图名，漏答 F0；改用表 4.6.3-2 给出管顶以上 500mm 压实度 ≥90，部分对应 F1。"}
+{"case": "G050", "verdict": "correct_refusal", "reason": "应拒答，正确拒答。"}

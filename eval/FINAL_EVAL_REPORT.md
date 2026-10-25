@@ -1,88 +1,100 @@
-# 评估总报告（corpus-7411b3a05a07，2026-10-15）
+# 评估总报告（corpus-ed28791afb8a，2026-10-24）
 
-口径：**diagnostic，非 formal**。黄金集 50 题全部为 `reviewed`、未冻结，`--formal` 门禁保持关闭。语义判定由 agent 对照 `expected_facts` 给出，不是独立人工裁定。
+口径：**diagnostic，非 formal**。黄金集 50 题全部为 `reviewed`、未冻结，`--formal` 门禁保持关闭。语义判定由 agent 对照 `expected_facts` 给出，不是独立人工裁定。上一版报告（2026-10-15，corpus-7411，golden_v3）见 Git 历史。
 
 ## 1. 固定身份
 
 | 项 | 值 |
 | --- | --- |
-| 正式语料 | `corpus-7411b3a05a07`，3885 chunks，`corpus_v2_live` → `corpus_v2__staging__corpus-7411b3a05a07__bi-c3d507491436d14e1443a956` |
-| 黄金集 | `eval/golden_v3.jsonl`，SHA-256 `c5b30aca3ce8a32f92f1f07e970ae9bb957040589274ba3532ecc77c207d11d2` |
-| 分母 | 50 题 = 46 道内容题 + 4 道应拒答题 |
-| 生成模型 | 智谱 `glm-5.2`，temperature 0.1；检索取 10 条，送模型 5 条，开启上下文补全 |
+| 正式语料 | `corpus-ed28791afb8a`，3911 chunks，`corpus_v2_live` → `corpus_v2__staging__corpus-ed28791afb8a__bi-dcd9e7217909a5b06517d419` |
+| 内容核对 | 239 张表格逐格核对；210 个公式元素全部核对（119 个计算公式由负责人核对，91 个行内单位/化学式片段由 agent 对照原页核对）；扫描件正文为机器识别 |
+| 黄金集 | `eval/golden_v5.jsonl`（锚定 ed28；G017 F0 本次据原页改正后 SHA-256 `079b5ce1df3e191c56025001244100e4a3c1e4563381c0f11da1ad0d1f738969`） |
+| 分母 | 50 题 = 46 道内容题 + 2 道前提错误题 + 2 道应拒答题 |
+| 生成模型 | 智谱 `glm-5.2`；检索取 10 条，送模型 5 条，同条款上下文补全最多 8 块 |
 
-## 2. 三层结果
+## 2. 结果
 
 ### 2.1 检索（本地，无模型调用）
 
-来源 `eval/runs/diagnostic-gen-20261013-7411-staging/REPORT.md`，测的就是当前正式 collection。
+运行目录 `eval/runs/diagnostic-retrieval-20261024-ed28/`。
 
 | 指标 | 结果 |
 | --- | --- |
-| 正确证据排第 1 / 前 3 / 前 5 | 23/46 / 37/46 / 38/46 |
-| 自然问法（不点名文件）前 5 | 15/16（草稿题集 `eval/golden_natural.jsonl`） |
+| 必中证据进入前 5 / 前 10（micro） | 54/76 / 60/76 |
+| 其中可正式引用的证据 前 5 / 前 10 | 49/64 / 54/64 |
+| 命中正确文件（前 5，macro） | 99.5% |
+| 一题的全部必中证据都进入前 5 / 前 10 | 64% / 72% |
 
-### 2.2 生产检索 → 生成（无 HTTP 层，2026-10-13，同一 collection）
+与 913c 完全相同：本版只改了 91 个行内公式片段的文字与核对状态，没有改变检索排序。3 条证据未对齐（G013 目录页、G049 图内标注、G050 拒答题非必中证据），不计入分母。
 
-来源同上，脚本 `scripts/run_generation_diag.py`。它走生产回答路径 `build_query_services().answer`，包含生产检索、证据筛选和上下文补全，和 2.3 的差别只有 HTTP 适配器这一层，**不是**给定金证据的独立生成评估。结果：回答 / 拒答 / 出错 = 43 / 7 / 0，应拒答题拒答 3/4；该轮只统计了状态，没有逐题做事实正确性复核。
+### 2.2 端到端
 
-给定金证据、只测生成的评估只有 0b9a 语料上的 `diagnostic-goldgen-20261008-r1`（实际调用 8 题）。**7411 上没有做独立的生成单项评估**，生成质量目前以 2.3 端到端的语义复核为准。
+入口 `POST /api/v1/queries`（进程内 ASGI，生产 HTTP 适配器与生产查询组合），运行目录 `eval/runs/diagnostic-e2e-20261024-ed28/`，语义复核 `eval/audits/diagnostic_e2e_20261024_ed28_agent_review.jsonl`。
 
-### 2.3 端到端（本次新跑，2026-10-15）
-
-入口 `POST /api/v1/queries`（进程内 ASGI，生产 HTTP 适配器与生产查询组合），运行目录 `eval/runs/diagnostic-e2e-20261015-7411/`，语义复核 `eval/audits/diagnostic_e2e_20261015_7411_agent_review.jsonl`。
-
-**结果状态**：answered 43、refused 7；50 条 trace 全部落盘（`trace_missing=0`），无 HTTP/运行错误。
+**结果状态**：answered 46、refused 4；50 条 trace 全部落盘，无 HTTP 或运行错误。
 
 **46 道内容题：**
 
 | 类别 | 数量 | 题号 |
 | --- | ---: | --- |
-| 回答且覆盖全部期望事实 | 29 | 见复核文件 |
-| 回答但部分覆盖 | 12 | G004 G013 G018 G020 G023 G026 G030 G035 G036 G041 G045 G046 |
-| 回答与黄金集冲突，疑为黄金集取错列 | 1 | G017（送入模型的两份表格证据和黄金集自身的人工转写中，“中心城区的重要地区”均为 5~10 年，3~5 年是“中心城区”列；未对照 PDF 页面图像，待人工裁定） |
-| 拒答 | 4 | G001（点名文件，文件名压过定义条文）、G012（标准号）、G009/G049（图片内容） |
+| 回答且覆盖全部期望事实 | 33 | 见复核文件 |
+| 回答但部分覆盖 | 11 | G004 G013 G018 G020 G023 G026 G030 G036 G045 G046 G049 |
+| 拒答 | 2 | G001（点名文件的定义题）、G009（图注题） |
 
-**4 道应拒答题：** 3 道状态为 refused。G015 状态为 answered，但内容明确说明 2035 年没有具体百分比，也没有把 2025 年指标套用过去，语义上符合期望，只是状态层面计为未拒答。
+G017 上次记为“疑似黄金集取错列”。本次 agent 对照 GB 55027 第 11 页表 3.3.2 原页确认：“中心城区的重要地区”为 5~10 年，3~5 年是“中心城区”列。黄金集 F0 已改正，该题回答正确。
 
-**引用：** 82 条主张全部带引用，101 次引用全部落在本次送入模型的证据内（全量检查见 `eval/audits/diagnostic_e2e_20261015_7411_citation_check.json`）。43 条主张标记为已核对；39 条带"未核对"标记，其中 32 条只引用了未核对证据（`source_locator_only`，即机器识别的表格、公式或扫描件），7 条引用中混有已核对证据。这是 caveat tier 的设计行为。
+部分覆盖的共同模式：送入模型的 5 条证据里缺了某一个事实所在的块，模型如实说“资料中未给出”，没有编造（G020、G023、G026、G036、G045、G046、G049）。
+
+**前提错误题与拒答题：** G015、G028 都指出资料没有所问的数值，并说明资料的实际内容，没有编造；G008、G050 正确拒答。
+
+**引用：** 119 条主张全部带引用，144 次引用全部落在本次送入模型的证据内。103 条主张只引用已核对证据；16 条带“未核对”标记（引用了扫描件正文等机器识别证据）。上一版为 43/82 条已核对。
 
 **延迟与费用：**
 
 | 阶段 | p50 | p95 |
 | --- | ---: | ---: |
-| 端到端 wall | 10.47 s | 40.12 s |
-| 检索 | 64 ms | 96 ms |
-| 生成 | 10.36 s | 40.01 s |
+| 端到端 | 5.8 s | 26.6 s |
+| 检索 | 62 ms | 95 ms |
+| 生成 | 5.6 s | 26.4 s |
 
-token 输入 137,147、输出 49,621。按配置单价（输入 8 元/百万、输出 28 元/百万）估算费用 2.49 元，即每题约 0.05 元。
+token 输入 125,990、输出 25,003。按配置单价（输入 8 元/百万、输出 28 元/百万）估算 1.71 元，每题约 0.03 元。
 
-## 3. 历史实验（未重跑，仅引用）
+### 2.3 与上一版对比（仅作方向参考）
+
+| 指标 | 2026-10-15（7411，golden_v3） | 2026-10-24（ed28，golden_v5） |
+| --- | --- | --- |
+| 内容题完整答对 / 部分 / 拒答 | 29 / 12 / 4 | 33 / 11 / 2 |
+| 主张只引用已核对证据 | 43/82 | 103/119 |
+| 端到端 p50 / p95 | 10.5 s / 40.1 s | 5.8 s / 26.6 s |
+
+两次的语料、黄金集预期和回答方式（2026-10-19 起整段回答 + 句内来源编号、同条款上下文补全）都不同，不是严格对照。
+
+## 3. 历史实验（未重跑）
 
 | 实验 | 语料 | 结论 |
 | --- | --- | --- |
-| 检索基线 `diagnostic-diag-baseline-20261001` | 0b9a | micro Recall@5 54/77，@10 63/77 |
-| E1 本地重排 `diagnostic-exp-e1-rerank-20261006-r2` | 0b9a | Recall@5 57/77；新增可引用证据降级，重排 p50 3.3 s，**未采纳，未上线** |
-| 端到端 `diagnostic-e2e-20261008-r1` | 0b9a | answered 14 / refused 36；当时只允许已核对证据回答 |
-
-与 10-08 相比，回答数从 14 升到 43，主要来自两点：一是允许未核对证据带标记回答（caveat tier），二是表格、公式检索上下文（corpus-7411）。两次运行的语料和黄金集版本都不同，只能做方向参考，不是严格对照。
+| E1 本地重排 `diagnostic-exp-e1-rerank-20261006-r2` | 0b9a | Recall@5 54/77 → 57/77；新增可引用证据降级，重排 p50 3.3 s，**未采纳，未上线** |
 
 ## 4. 未验证与剩余风险
 
-- 黄金集未冻结；G017 疑似黄金集取错列，待人工裁定；语义判定是 agent 复核，不是人工裁定。
-- 39/82 条主张依赖未核对证据，用户需要点开原文页核对。
-- 生成 p95 约 40 秒，长尾来自模型；限流和并发未在本次评估范围内。
-- 已知失败：问题点名文件时检索偏差（G001）；图片内容题不稳定（G009、G049）；同一类题多轮运行结果可能摇摆，本次只跑一轮。
+- 黄金集未冻结；语义判定是 agent 复核，不是人工裁定；只跑一轮，同类题多次运行结果可能摇摆。
+- 扫描件正文仍为机器识别（已知错字见 `.claude/EVALUATION_HANDOFF.md`），引用它的结论带“未核对”标记。
+- 已知失败：点名文件的定义题（G001）和图注题（G009、G049）；送模型的 5 条证据漏掉某个事实时只能部分回答。
+- G013 的证据在目录页，不进检索，需改锚或换题。
+- 生成 p95 约 27 秒，长尾来自模型；限流和并发不在本次范围内。
 
 ## 5. 复现
 
 ```bash
-# 离线预检（不调用模型）
-.venv/Scripts/python.exe scripts/run_e2e_diag.py --run-id <id> --dataset eval/golden_v3.jsonl --preflight-only
-# 真实运行（需 .env 中的智谱 key，以及 LLM_INPUT_COST_PER_MILLION / LLM_OUTPUT_COST_PER_MILLION）
-.venv/Scripts/python.exe scripts/run_e2e_diag.py --run-id <id> --dataset eval/golden_v3.jsonl \
+# 检索（本地）
+.venv/Scripts/python.exe scripts/evaluate_golden_retrieval.py --dataset eval/golden_v5.jsonl --run-id <id>
+# 端到端离线预检（不调用模型）
+.venv/Scripts/python.exe scripts/run_e2e_diag.py --run-id <id> --dataset eval/golden_v5.jsonl --preflight-only
+# 端到端真实运行（需 .env 中的智谱 key；单价通过环境变量传入）
+LLM_INPUT_COST_PER_MILLION=8 LLM_OUTPUT_COST_PER_MILLION=28 \
+.venv/Scripts/python.exe scripts/run_e2e_diag.py --run-id <id> --dataset eval/golden_v5.jsonl \
   --authorized-provider zhipu --authorized-model glm-5.2 \
   --authorized-base-url https://open.bigmodel.cn/api/paas/v4/ \
-  --authorized-send-scope http-e2e:50-questions:production-retrieval-top5-chunks \
+  --authorized-send-scope http-e2e:50-questions:production-retrieval-top5-chunks+same-clause-expansion-up-to-8 \
   --budget-cny 8 --per-call-reserve-cny 0.5 --authorization-note "<owner approval>"
 ```

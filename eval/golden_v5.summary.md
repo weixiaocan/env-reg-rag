@@ -1,5 +1,15 @@
 # golden_v5 变更说明
 
+## 2026-10-24：重新对齐到 corpus-ed28791afb8a
+
+`corpus-ed28791afb8a` 在 913c 基础上只改了 91 个行内公式片段（单位、NH₃-N、数值区间）：agent 对照原页核对，30 个更正、61 个确认无误，全部标为已核对。用同一脚本重新对齐：
+
+- 76/79 条对齐，未对齐的 3 条与上次相同（G013、G049、G050）；
+- 证据使用策略：`answer_and_citation` 65 条、`source_locator_only` 14 条，与上次相同；
+- 只有 `anchor_corpus`、证据的 `element_ids` 和对齐备注变化。
+
+产物 SHA-256 `92b3e839f9c88d6a28081eb69aade1c6a0d27f77ad1f5990fcb0c689b358f481`，逐条记录见 `eval/golden_v5.reanchor_report.json`。
+
 ## 2026-10-23：重新对齐到 corpus-913c134c18ae
 
 `corpus-913c134c18ae` 发布：239 张表格逐格核对后全部可引用，扫描件识别的投票规则修正（行内单位符号、含行内公式的正文行不再丢失）。用同一脚本把证据锚点重新对齐到 913c：
@@ -8,7 +18,7 @@
 - 证据使用策略：`answer_and_citation` 65 条、`source_locator_only` 14 条（表格可引用后，多数证据变为可正式引用）；
 - 对齐前，G002、G046 的 4 条引文已改为更正后的原文（旧引文保留在 `quote_before_20261023`）。
 
-产物 SHA-256 `75375e4ef1eaf13c8daab37248f3355db56f0fae952a42bf175bee4f0894de89`，逐条记录见 `eval/golden_v5.reanchor_report.json`。以下为 2026-10-20 首次生成 v5 时的说明。
+产物 SHA-256 `75375e4ef1eaf13c8daab37248f3355db56f0fae952a42bf175bee4f0894de89`，以下为 2026-10-20 首次生成 v5 时的说明。
 
 ---
 

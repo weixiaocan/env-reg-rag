@@ -1,0 +1,8 @@
+{
+ "classification": "diagnostic agent semantic review against expected_facts; not independent human adjudication",
+ "source_run": "eval/runs/diagnostic-e2e-20261024-ed28",
+ "dataset": "eval/golden_v5.jsonl",
+ "source_case_files_sha256": "e92c9fe258ae2a70b94d0cb7efcf94d926fca983962e2176d6b7af9779a691e4",
+ "review_artifact": "eval/audits/diagnostic_e2e_20261024_ed28_agent_review.jsonl",
+ "golden_fix": "G017 F0 corrected to 5~10 years after checking GB 55027 p11 table 3.3.2 page image"
+}
