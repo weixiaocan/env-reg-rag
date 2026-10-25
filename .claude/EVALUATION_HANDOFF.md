@@ -4,8 +4,7 @@
 
 ## 当前状态
 
-- 本地正式语料 `corpus-ed28791afb8a`（2026-10-24 发布）：21 份资料、3911 个检索块，查询入口 `corpus_v2_live`。回退版本 `corpus-913c134c18ae`（`data/registry/rollback` 有回退记录）。`corpus-9097cecb12d5` 仍在本地、服务器和 GitHub Release，按“只保留当前版和一个回退版”应删除，待负责人确认。
-- 服务器与 GitHub Release 仍是 913c；ed28 尚未部署、未提交、未发布 Release。
+- 正式语料 `corpus-ed28791afb8a`（2026-10-24 本地发布，2026-10-25 部署到服务器、发布 GitHub Release）：21 份资料、3911 个检索块，查询入口 `corpus_v2_live`。回退版本 `corpus-913c134c18ae`（`data/registry/rollback` 有回退记录）。`corpus-9097cecb12d5` 已于 2026-10-25 在本地、服务器和 GitHub Release 删除（负责人确认）。
 - 表格：239 张全部逐格核对后为 `passed`，可正式引用。核对记录 `data/registry/table-checks.json`（按单元格哈希绑定；方法：PDF 文字层、两路独立 OCR、智谱 GLM-4.5V 读表、agent 对照原页截图），工具 `scripts/check_tables.py`、`scripts/vision_table_check.py`、`scripts/vision_table_full.py`。
 - 公式：210 个公式元素全部为 `passed`，记录在 `data/registry/source-corrections.json` 的 `formulas` 与 `reviews`。
   - 119 个计算公式经负责人核对（2026-10-20 更正 35 个，2026-10-22 确认其余 84 个及 92 行“式中”说明，2026-10-23 又核对公式块内 185 行文字）。
@@ -13,7 +12,7 @@
   - 识别文字变化后要用原页位置重新绑定（2026-10-23 重新绑定过 57 条）。
 - 扫描件正文：三路识别投票（`OCR_VOTE_MODE = three-source-region-vote-v4`），机器识别，引用时带“未核对”标记。agent 对照原页抽查 120 段 1 处错（前言人员名单）。已知仍错（三路都读错）："10m³"读成 m²（T/CECS 1764 第 5.1.4 条）、"平均日流量"读成"平均H流量"（GB 55027 第 4.3.3 条）、GB 50014 第 4.1.4 条第 3 款缺款号、《城镇内涝防治技术规范》第 4.2.2 条"排入下游"读成"排人不游"；约 9 行"式中"变量说明缺变量名。
 - 部署流程：`docker build -t env-reg-rag-app:<短版本> .` → `bash deploy/make_bundle.sh`（`APP_IMAGE` 默认值随版本改）→ 上传 `dist/deploy-<语料>` → 服务器改 `/opt/drainage-rag/.env` 的 `APP_IMAGE_NAME` → 运行 `server_install.sh /opt/drainage-rag`。线上地址 https://weixiaocan.com/rag/ （服务器 `drainage-demo`）。
-- GitHub Release：数据有改动就用 `deploy/make_release_data.sh` 重新打整包发布 `corpus-<版本>`，只保留当前版和一个回退版。现有 `corpus-913c134c18ae`（Latest）、`corpus-9097cecb12d5`。
+- GitHub Release：数据有改动就用 `deploy/make_release_data.sh` 重新打整包发布 `corpus-<版本>`，只保留当前版和一个回退版。现有 `corpus-ed28791afb8a`（Latest）、`corpus-913c134c18ae`。
 
 ## 评估（2026-10-24 完成）
 
@@ -25,8 +24,13 @@
 
 ## 待负责人决定
 
-- 部署 ed28 到服务器、提交推送、发布 Release `corpus-ed28791afb8a`。
-- 删除 9097（本地 canonical/collection/manifest/回退记录、服务器 collection 与 `env-reg-rag-app:9097` 镜像、GitHub Release `corpus-9097cecb12d5`），保留 913c 作回退。
 - G013 改锚到正文条款或换题。
+
+## 进行中（负责人 2026-10-25 同意方向）
+
+部分答对 11 题的原因（按检索评估逐题 R@5 核对）：6 题是缺的那段原文没进前 5（G004 G020 G023 G026 G046 G049），其中只有 G004、G046 在前 10 能补回，所以不扩大送模型条数。改进顺序：
+1. 查 G036、G045：原文已送进去，模型仍说“没有”，看公式和图名在送模型文本里的样子（本地，无外部调用）。
+2. 查 G020、G049 为什么检索不到（G049 图名在图片里，未入索引）。
+3. 多问题拆分检索（问题解析）：拆成子问题各自检索再合并。实现后重跑 50 题需另行授权外部调用。
 
 不做：智谱 GLM-4.5V 第四路正文识别（负责人 2026-10-24 决定）。
