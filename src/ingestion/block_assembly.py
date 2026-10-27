@@ -56,7 +56,10 @@ _BACK_MATTER_TITLES = {
     "参考文献", "本标准用词说明", "本规范用词说明", "本规程用词说明", "本导则用词说明",
     "引用标准名录", "条文说明", "附加说明", "修订说明", "编制说明",
 }
-_STRUCTURED = {"table", "formula", "formula_number", "figure_title", "image", "chart"}
+# figure_title and formula_number are not structured: a title or an equation
+# number is printed text. It stays in the corpus as its own block, which the
+# assembly attaches to its figure or formula when one is found.
+_STRUCTURED = {"table", "formula", "image", "chart"}
 _TOC_LEADER_LINE = re.compile(r"^\s*\S.*?(?:…{4,}|\.{4,}|．{4,})\s*\d+\s*$")
 _STRUCTURAL_START = re.compile(r"^\s*(?:前\s*言|目\s*次|1\s*总\s*则|1\s*范\s*围)\s*$")
 _VARIABLE_DEFINITION = re.compile(
@@ -324,6 +327,10 @@ def build_page_blocks(
                               "_v3_region_text_fallback": True}
                              for value in region_text.splitlines() if value.strip()]
             candidates.append((label, region, lines))
+        # A text line the layout model framed in no region at all is still
+        # printed text: keep it as its own block instead of losing it.
+        orphans = _orphan_lines(page_elements, regions)
+        candidates.extend(("text", None, group) for group in _fallback_groups(orphans))
 
     blocks: list[dict[str, Any]] = []
     for label, region, lines in candidates:
@@ -374,6 +381,9 @@ def build_page_blocks(
         if page.get("_v3_front_matter"):
             blocks.append(_make_block(body_lines, label, region, role="front_matter"))
             continue
+        if mapped in {"caption", "formula_number"}:
+            blocks.append(_make_block(body_lines, label, region, role=mapped))
+            continue
         is_title = mapped == "title"
         # A paragraph_title that begins with a clause number and carries body
         # lines is a clause, not a giant heading.  Only its first line can
@@ -403,10 +413,16 @@ def build_page_blocks(
             blocks.append(_make_block(group, label, region, role=role,
                                       heading=descriptor))
 
+    # Equation numbers sit in a narrow right-hand strip; letting them into
+    # column detection invents a second column and scrambles reading order.
+    # They go after the page's flow; assembly attaches each to its formula.
+    numbers = [block for block in blocks if block.get("_v3_role") == "formula_number"]
+    blocks = [block for block in blocks if block.get("_v3_role") != "formula_number"]
     layout = detect_columns([_bbox(block["bbox"]) for block in blocks],
                             page_width=float(page.get("width") or 0),
                             page_height=float(page.get("height") or 0))
     ordered = [blocks[index] for index in layout.reading_order]
+    ordered += sorted(numbers, key=lambda block: (_bbox(block["bbox"])[1], _bbox(block["bbox"])[0]))
     deduped: list[dict[str, Any]] = []
     seen: set[tuple[str, str, tuple[float, ...]]] = set()
     for block in ordered:
@@ -589,6 +605,26 @@ def _lines_in_region(
     return _deduplicate_overlapping_lines(selected)
 
 
+def _orphan_lines(elements: list[dict[str, Any]], regions: list[dict[str, Any]]) -> list[dict[str, Any]]:
+    """Text lines no layout region claims or holds (no assignment, no region
+    covering half of the line)."""
+    boxes = [_bbox(region.get("bbox")) for region in regions]
+    boxes = [box for box in boxes if box]
+    orphans = []
+    for element in elements:
+        if (str(element.get("type") or "text") != "text"
+                or not str(element.get("text") or "").strip()
+                or element.get("_v3_assigned_region_id")):
+            continue
+        bbox = _bbox(element.get("bbox"))
+        if not bbox or any(_containment(box, bbox) >= 0.5 for box in boxes):
+            continue
+        orphan = deepcopy(element)
+        orphan["_v3_orphan_line"] = True
+        orphans.append(orphan)
+    return orphans
+
+
 def _assign_elements_to_regions(
     elements: list[dict[str, Any]], regions: list[dict[str, Any]], cfg: dict[str, Any],
 ) -> list[dict[str, Any]]:
@@ -629,10 +665,14 @@ def _deduplicate_overlapping_lines(elements: Iterable[dict[str, Any]]) -> list[d
     kept: list[dict[str, Any]] = []
     for element in elements:
         text = normalize_line(str(element.get("text") or ""))
-        bbox = _bbox(element.get("bbox"))
-        duplicate = any(_overlapping_text_echo(previous, element) for previous in kept)
-        if not duplicate:
-            kept.append(element)
+        echoes = [previous for previous in kept if _overlapping_text_echo(previous, element)]
+        if any(len(normalize_line(str(previous.get("text") or ""))) >= len(text)
+               for previous in echoes):
+            continue
+        # A voted line can span several adjacent native fragments.  Keep the
+        # whole reading even if a shorter fragment appeared first in y order.
+        kept = [previous for previous in kept if previous not in echoes]
+        kept.append(element)
     return kept
 
 

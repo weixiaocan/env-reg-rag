@@ -1,0 +1,18 @@
+{
+  "schema_version": "1",
+  "basis": "Formula regions (6) and (8) were visually located on the local source PDF pages after layout detection omitted them. Coordinates are PDF points; no transcription or quality approval is asserted.",
+  "regions": [
+    {
+      "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+      "physical_page": 12,
+      "bbox": [256.0, 744.0, 374.0, 773.0],
+      "reason": "printed_formula_6_omitted_by_layout"
+    },
+    {
+      "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+      "physical_page": 13,
+      "bbox": [273.0, 320.0, 365.0, 339.0],
+      "reason": "printed_formula_8_omitted_by_layout"
+    }
+  ]
+}

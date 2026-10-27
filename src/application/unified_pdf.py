@@ -20,6 +20,7 @@ from src.application.corpus_update import page_extractor_config_hash
 from src.application.pdf_source_audit import file_digest, registered_pdf_path
 from src.ingestion.formula_layout import CachedLayoutEngine
 from src.ingestion.formula_ocr import CachedFormulaEngine
+from src.ingestion.formula_supplements import registry_digest, supplemented_layout_boxes
 from src.ingestion.local_table_process import LocalTableProcess
 from src.ingestion.table_regions import (normalize_tables, parse_table_cells,
                                          recover_tables_from_ocr_elements)
@@ -93,7 +94,8 @@ class UnifiedPageExtractor:
             'models': self.model_config, 'coordinate_profile': 'rotated-native-v1',
             'stage_profiles': STAGE_PROFILES,
             'derived_asset_profile': 'png-original-crop-render-v1',
-            'parameter_reviews_sha256': file_digest(reviews) if reviews.is_file() else None})
+            'parameter_reviews_sha256': file_digest(reviews) if reviews.is_file() else None,
+            'layout_supplements_sha256': registry_digest(self.root)})
         self.requires_structure = True
 
     def _stage(self, directory, name, config, operation, *, timeout_fallback=None):
@@ -459,7 +461,9 @@ class UnifiedPageExtractor:
                         layout_config_hash=layout['config_hash'], processing_profile=PROFILE)
             if layout['execution_status'] != 'completed':
                 page['layout_failure'] = layout['reason']
-            raw_boxes = layout['result'] or []
+            raw_boxes = supplemented_layout_boxes(self.root, asset.sha256, physical_page,
+                original.rect.width, original.rect.height, pix.width, pix.height,
+                layout['result'] or [])
             page['layout_boxes'] = raw_boxes
             table_stage = None
             if any(b.get('label') == 'table' for b in raw_boxes):
@@ -549,6 +553,9 @@ class UnifiedPageExtractor:
                           'kind': kind, 'model_label': raw.get('label'), 'reading_order': index,
                           'execution_status': 'completed', 'quality_status': 'needs_review',
                           'issues': [], 'relations': []}
+                if raw.get('detection_source') == 'source_page_layout_supplement':
+                    region['detection_source'] = raw['detection_source']
+                    region['issues'].append('source_page_formula_geometry_supplement')
                 region['processing_config_id'] = self.config_id
                 page['regions'].append(region)
                 if not isinstance(coords, (list, tuple)) or len(coords) != 4 or any(

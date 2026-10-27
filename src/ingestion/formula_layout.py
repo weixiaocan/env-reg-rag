@@ -12,7 +12,9 @@ def formula_regions(boxes, pixel_width, pixel_height, page_width, page_height):
     for box in boxes:
         score = box.get('score')
         coords = box.get('coordinate')
-        if box.get('label') != 'formula' or type(score) not in (int, float) or not math.isfinite(score) or not .5 <= score <= 1:
+        supplemental = box.get('detection_source') == 'source_page_layout_supplement'
+        if box.get('label') != 'formula' or (not supplemental and (type(score) not in (int, float)
+                or not math.isfinite(score) or not .5 <= score <= 1)) or (supplemental and score is not None):
             continue
         if not isinstance(coords, (list, tuple)) or len(coords) != 4 or any(not isinstance(v, Real) or isinstance(v, bool) or not math.isfinite(v) for v in coords):
             continue
@@ -27,6 +29,8 @@ def formula_regions(boxes, pixel_width, pixel_height, page_width, page_height):
                         # contract field; formula_regions feeds the review path.
                         'publishable': False,
                         'can_use_for_calculation': False})
+        if supplemental:
+            regions[-1]['detection_source'] = box['detection_source']
     return regions
 
 

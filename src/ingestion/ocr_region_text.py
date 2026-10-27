@@ -13,7 +13,7 @@ from src.ingestion.page_furniture import normalize_line, watermark_line_variants
 _NUMBER_PREFIX = re.compile(r"^\s*(\d+(?:\.\d+){0,2})(?:\s+|(?=[一-鿿])|$)(.*)$")
 # Rules turning OCR lines into text (vote and line joining); bumping it gives
 # assembled corpora a new version.
-OCR_VOTE_MODE = "three-source-region-vote-v4"
+OCR_VOTE_MODE = "three-source-region-vote-v8"
 _STRUCTURED_KINDS = {"table", "formula", "image", "figure", "chart"}
 _SOURCE_PRIORITY = ("pp_raw", "primary", "pp_clean")
 _DUPLICATE_SEPARATOR = re.compile(r"^[\s，。；：、,.!?！？;:—-]{0,3}$")
@@ -49,6 +49,7 @@ def assemble_page_region_text(
         "repaired_adjacent_duplicate_count": 0,
         "source_supported_occlusion_repair_count": 0,
         "superset_over_fragment_majority_lines": 0,
+        "superset_over_partial_reading_lines": 0,
         "dropped_fragment_inside_superset_lines": 0,
     }
 
@@ -202,6 +203,18 @@ def merge_source_texts(source_texts: dict[str, str | None]) -> tuple[str, str, l
         selected_source = next(source for source in _SOURCE_PRIORITY
                                if normalized.get(source) == majority)
         return present[selected_source], "majority", []
+
+    # Two readings, one a clean extension of the other ("当管径小" vs "5.3.2
+    # 管道转弯和交接处，…当管径小"): the partial reading did not see the rest
+    # of the line, it did not read it as absent. The trusted longer reading
+    # (never pp_raw, which carries watermark residue) keeps the whole line.
+    if len(present) == 2:
+        (src_a, norm_a), (src_b, norm_b) = normalized.items()
+        longer, shorter = ((src_a, src_b) if len(norm_a) >= len(norm_b) else (src_b, src_a))
+        long_norm, short_norm = normalized[longer], normalized[shorter]
+        if (longer != "pp_raw" and short_norm and len(long_norm) >= len(short_norm) + 2
+                and (long_norm.startswith(short_norm) or long_norm.endswith(short_norm))):
+            return present[longer], "superset_over_partial_reading", []
 
     # Use the longest source as the shared coordinate system so that a partial
     # high-priority OCR line cannot shift a full line. Priority only breaks
@@ -515,7 +528,8 @@ def _ocr_candidates(lines: list[dict[str, Any]], source: str,
                 or (len(compact) == 1 and (score is None or score < single_char_score))):
             result.append({"text": "", "_noise": True})
             continue
-        if _inside_structured(bbox, text, structured):
+        if (_inside_structured(bbox, text, structured)
+                and not _in_caption_region(bbox, text_regions)):
             continue
         region = _smallest_region(bbox, text_regions, tolerance)
         result.append({
@@ -539,7 +553,8 @@ def _primary_candidates(elements: list[dict[str, Any]], text_regions: list[dict[
                 or (len(normalize_line(text)) == 1 and not normalize_line(text).isdigit()
                     and (score is None or score < single_char_score))):
             continue
-        if _inside_structured(bbox, text, structured):
+        if (_inside_structured(bbox, text, structured)
+                and not _in_caption_region(bbox, text_regions)):
             continue
         region = _smallest_region(bbox, text_regions, tolerance)
         if region is None:
@@ -683,7 +698,8 @@ def _drop_fragments_inside_superset_lines(
     group.  Keeping it would repeat the clause number with worse text.
     """
     supersets = [row for row in output
-                 if (row.get("_ocr_text_source") or {}).get("rule") == "superset_over_fragment_majority"]
+                 if (row.get("_ocr_text_source") or {}).get("rule")
+                 in {"superset_over_fragment_majority", "superset_over_partial_reading"}]
     # If the superset's extra text is already emitted by another agreed line
     # (the other engines split the line into two groups), the superset would
     # duplicate it: fall back to the agreed fragment.
@@ -705,20 +721,26 @@ def _drop_fragments_inside_superset_lines(
                 normalized = {k: normalize_line(v) for k, v in texts.items() if v}
                 counts = Counter(normalized.values())
                 agreed = next((v for v, n in counts.items() if n >= 2), None)
-                fragment = next((texts[k] for k in _SOURCE_PRIORITY
-                                 if agreed is not None and normalized.get(k) == agreed), None)
+                partial = big["_ocr_text_source"]["rule"] == "superset_over_partial_reading"
+                if partial:
+                    # Two readings only: fall back to the shorter one.
+                    fragment = min((v for v in texts.values() if v), key=lambda v: len(normalize_line(v)))
+                else:
+                    fragment = next((texts[k] for k in _SOURCE_PRIORITY
+                                     if agreed is not None and normalized.get(k) == agreed), None)
                 if fragment is not None:
                     big["text"] = big["normalized_text"] = fragment
-                    big["_ocr_text_source"]["rule"] = "majority"
-                    stats["superset_over_fragment_majority_lines"] -= 1
-                    stats["majority_lines"] += 1
+                    big["_ocr_text_source"]["rule"] = "merge" if partial else "majority"
+                    stats[f"{'superset_over_partial_reading' if partial else 'superset_over_fragment_majority'}_lines"] -= 1
+                    stats["merge_lines" if partial else "majority_lines"] += 1
                 break
     # A single engine's fragment that sits inside a line two or more engines
     # read (MinerU split the line and only one piece joined the group) is a
     # second reading of that line, not new text.
     supersets = [row for row in output
                  if (row.get("_ocr_text_source") or {}).get("rule")
-                 in {"superset_over_fragment_majority", "majority", "merge"}]
+                 in {"superset_over_fragment_majority", "superset_over_partial_reading",
+                     "majority", "merge"}]
     if not supersets:
         return output
     kept: list[dict[str, Any]] = []
@@ -753,7 +775,8 @@ def _drop_fragments_inside_superset_lines(
                         if covered:
                             break
                     continue
-                if (big.get("_ocr_text_source") or {}).get("rule") == "superset_over_fragment_majority":
+                if (big.get("_ocr_text_source") or {}).get("rule") in {
+                        "superset_over_fragment_majority", "superset_over_partial_reading"}:
                     shared = sum((Counter(text) & Counter(big_text)).values())
                     covered = shared / len(text) >= 0.6
                 else:
@@ -794,6 +817,17 @@ def _center_inside(inner: list[float], outer_raw: Any, tolerance: float) -> bool
         return False
     cx, cy = (inner[0] + inner[2]) / 2, (inner[1] + inner[3]) / 2
     return outer[0] - tolerance <= cx <= outer[2] + tolerance and outer[1] - tolerance <= cy <= outer[3] + tolerance
+
+
+def _in_caption_region(bbox: list[float], text_regions: list[dict[str, Any]]) -> bool:
+    """A figure/table title is printed text even when it sits inside the
+    figure's box (a rotated page prints the title along the drawing)."""
+    for region in text_regions:
+        if str(region.get("model_label") or "").lower() != "figure_title":
+            continue
+        if _center_inside(bbox, region.get("bbox"), 2.0):
+            return True
+    return False
 
 
 def _inside_structured(bbox: list[float], text: str, structured: list[dict[str, Any]]) -> bool:

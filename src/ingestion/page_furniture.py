@@ -9,6 +9,7 @@ from __future__ import annotations
 
 from dataclasses import dataclass
 import re
+import unicodedata
 from typing import Any, Iterable
 
 
@@ -19,7 +20,7 @@ _EXPLICIT = {
     "aside_text": ("unknown", "pp_label:aside_text"),
 }
 _PAGE_NUMBER = re.compile(
-    r"^(?:[·•]\s*\d+\s*[·•]|-\s*\d+\s*-|\d+|第\s*\d+\s*页)$"
+    r"^(?:[·•]\s*\d+\s*[·•.]|-\s*\d+\s*-|\d+|[IVX]+|第\s*\d+\s*页)$"
 )
 
 
@@ -100,7 +101,7 @@ def classify_page_furniture(
         return FurnitureMatch("watermark", "watermark:exact_line")
 
     band = _band(bbox, page_height, band_ratio)
-    if band and _PAGE_NUMBER.fullmatch(stripped):
+    if band and _PAGE_NUMBER.fullmatch(unicodedata.normalize("NFKC", stripped)):
         return FurnitureMatch("page_number", f"fallback:{band}_page_number")
 
     if band and recurring and physical_page is not None:

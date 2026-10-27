@@ -199,7 +199,7 @@ def _assemble_one(
     corrected = apply_source_corrections(doc, corrections)
     if corrected:
         print(f"  [corrections] {page_doc.get('file_name', '')} sha={sha[:12]}: "
-              f"{corrected} owner-reviewed correction(s) "
+              f"{corrected} source correction(s) "
               f"({corrections['registry_sha256'][:12]})")
     ids = compute_ids(doc)
     apply_computed_ids(doc, ids)

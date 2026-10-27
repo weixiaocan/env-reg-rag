@@ -988,7 +988,8 @@ def publish_gate(
     3. verifies the built collection is in the versioned staging family;
     4. requires chunks == vectors == points;
     5. requires the COMPLETE fixed smoke query set: empty, missing,
-       duplicated or zero-hit queries all fail.
+       duplicated or zero-hit queries all fail;
+    6. requires a current completeness report with nothing missing.
     """
     failures: list[str] = []
     checks: dict[str, Any] = {}
@@ -1086,11 +1087,73 @@ def publish_gate(
     checks["smoke"] = list(smoke_results or [])
     failures.extend(_smoke_failures(smoke_results))
 
+    # (6) completeness: nothing printed on the pages is missing from the corpus.
+    completeness = completeness_failures(root, corpus_version)
+    checks["completeness"] = "ok" if not completeness else "failed"
+    failures.extend(completeness)
+
     return {"gate": "failed" if failures else "passed",
             "corpus_version": corpus_version,
             "collection_name": collection_name,
             "build_identity": build_identity,
             "checks": checks, "failures": failures}
+
+
+COMPLETENESS_REPORT = "completeness.json"
+COMPLETENESS_EXCEPTIONS = Path("data") / "registry" / "completeness-exceptions.json"
+
+
+def completeness_binding(root: Path | str, corpus_version: str) -> dict[str, Any]:
+    """What a completeness report was computed against.
+
+    The canonical files on disk and the exceptions registry; a report whose
+    binding no longer matches is stale and cannot open the gate.
+    """
+    root = Path(root)
+    art = _artifact_dir(root, corpus_version)
+    on_disk = {p.name: sha256_file(p) for p in art.glob("*.canonical.json")}
+    aggregate = hashlib.sha256(
+        "\n".join(f"{n} {s}" for n, s in sorted(on_disk.items())).encode("utf-8")).hexdigest()
+    exceptions = root / COMPLETENESS_EXCEPTIONS
+    return {"canonical_aggregate_sha256": aggregate,
+            "exceptions_sha256": sha256_file(exceptions) if exceptions.is_file() else None}
+
+
+def write_completeness_report(root: Path | str, corpus_version: str,
+                              report: dict[str, Any]) -> Path:
+    """Stamp the report with its binding and write it beside the canonicals."""
+    stamped = dict(report, corpus_version=corpus_version,
+                   **completeness_binding(root, corpus_version))
+    path = _artifact_dir(Path(root), corpus_version) / COMPLETENESS_REPORT
+    path.write_text(json.dumps(stamped, ensure_ascii=False, indent=1), encoding="utf-8")
+    return path
+
+
+def completeness_failures(root: Path | str, corpus_version: str) -> list[str]:
+    """Everything printed on the pages must be in the corpus before publish.
+
+    Requires a completeness report (``scripts/audit_completeness.py``) bound
+    to the current canonical files and exceptions registry, with zero missing
+    lines and zero open structure findings.
+    """
+    path = _artifact_dir(Path(root), corpus_version) / COMPLETENESS_REPORT
+    if not path.is_file():
+        return ["completeness report missing: run scripts/audit_completeness.py "
+                f"--corpus-version {corpus_version}"]
+    report = json.loads(path.read_text(encoding="utf-8"))
+    failures: list[str] = []
+    if report.get("corpus_version") != corpus_version:
+        failures.append("completeness report belongs to another corpus version")
+    binding = completeness_binding(root, corpus_version)
+    for key, value in binding.items():
+        if report.get(key) != value:
+            failures.append(f"completeness report is stale ({key} changed); re-run the audit")
+    if report.get("missing_lines") != 0:
+        failures.append(f"completeness: {report.get('missing_lines')} printed lines are "
+                        "not in the corpus")
+    if report.get("open_findings") != 0:
+        failures.append(f"completeness: {report.get('open_findings')} open structure findings")
+    return failures
 
 
 def _recompute_chunk_identity(root: Path, corpus_version: str) -> dict[str, Any] | None:

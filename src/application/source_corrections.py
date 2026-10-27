@@ -1,4 +1,4 @@
-"""Owner-reviewed corrections of recognized formulas and text.
+"""Source-checked corrections of recognized formulas and text.
 
 Recognition output is replaced only where the registry names the exact
 original: the source PDF sha256, the physical page and the SHA-256 of the
@@ -12,9 +12,9 @@ correction against the page (``owner_verified``), the corrected elements
 also pass review with a ``review_assertion`` binding, so formulas may answer
 as verified evidence; otherwise quality and policy stay as assembled.
 
-An entry with ``"verified_by": "agent"`` was checked against the page by the
-agent under the owner's instruction, not by the owner; it passes the same way
-but its marker and policy reason say who checked it.
+An entry with ``"verified_by": "agent"`` was checked against the page by an
+agent, not by the owner.  ``review_scope=partial`` keeps a larger OCR block in
+``needs_review`` even when a checked fragment inside it was corrected.
 """
 
 from __future__ import annotations
@@ -75,9 +75,15 @@ def apply_source_corrections(document: dict[str, Any], registry: dict[str, Any] 
 
     def mark(element: dict[str, Any], fix: dict[str, Any]) -> None:
         by_agent = fix.get("verified_by") == "agent"
-        marker = f"{prefix}:agent_reviewed" if by_agent else f"{prefix}:owner_reviewed"
+        partial = fix.get("review_scope") == "partial"
+        marker = (f"{prefix}:agent_partial_review" if by_agent else f"{prefix}:partial_review") if partial else (
+            f"{prefix}:agent_reviewed" if by_agent else f"{prefix}:owner_reviewed")
         element["quality_issues"] = [*element.get("quality_issues", []), marker]
-        if verified:
+        if partial:
+            # Only the named span was checked. The corrected element may hold
+            # other OCR text and must not inherit a whole-element pass.
+            element["quality_status"] = "needs_review"
+        elif verified:
             element["quality_status"] = "passed"
             element["policy_reasons"] = [*element.get("policy_reasons", []),
                                          AGENT_VERIFIED_REASON if by_agent else OWNER_VERIFIED_REASON,

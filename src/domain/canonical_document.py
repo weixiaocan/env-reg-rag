@@ -18,7 +18,7 @@ ElementType = Literal["text", "table", "formula", "figure"]
 TextRole = Literal[
     "document_title", "heading", "clause", "paragraph", "list_item",
     "header", "footer", "page_number", "watermark", "toc_navigation_only",
-    "front_matter", "unknown",
+    "front_matter", "caption", "unknown",
 ]
 SpanRole = Literal["primary", "continuation", "caption", "context", "note"]
 ProvenanceOperation = Literal["detect", "extract", "recognize", "classify", "merge", "crop"]
@@ -257,7 +257,8 @@ def _validate_ocr_text_sources(records: Any, where: str) -> None:
                     or any(value is not None and not isinstance(value, str)
                            for value in record["source_texts"].values())):
                 raise SchemaError(f"{where}[].source_texts is invalid")
-            if record["rule"] not in {"majority", "merge", "single_source", "superset_over_fragment_majority"}:
+            if record["rule"] not in {"majority", "merge", "single_source", "superset_over_fragment_majority",
+                                      "superset_over_partial_reading"}:
                 raise SchemaError(f"{where}[].rule is invalid")
             if record["single_source"] not in {None, "pp_clean", "pp_raw", "primary"}:
                 raise SchemaError(f"{where}[].single_source is invalid")

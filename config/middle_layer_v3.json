@@ -13,8 +13,8 @@
     "content": "toc",
     "table": "structured",
     "formula": "structured",
-    "formula_number": "structured",
-    "figure_title": "structured",
+    "formula_number": "formula_number",
+    "figure_title": "caption",
     "image": "structured",
     "chart": "structured",
     "reference": "reference"
@@ -23,6 +23,9 @@
     "住房城乡建设部信息公开",
     "信息公开",
     "浏览专用",
-    "金"
+    "金",
+    "中国测绘学会团体标准",
+    "中国测绘中国测绘",
+    "(CSGPC)"
   ]
 }

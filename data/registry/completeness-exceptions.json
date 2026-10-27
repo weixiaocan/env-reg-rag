@@ -1,0 +1,31 @@
+{
+  "schema_version": "1",
+  "lines": [
+    {
+      "line_key": "4d077b009dcd79c4",
+      "reason": "Source page 15 prints fm; independent OCR read it as ∫m; Canonical has fm at the same bbox."
+    },
+    {
+      "line_key": "d862e2c6deae0864",
+      "reason": "Source page 2 prints 俞士静; independent OCR read 俞上静; native text and Canonical preserve 俞士静."
+    },
+    {
+      "line_key": "6637c34bbd1d5388",
+      "reason": "Source page 87 prints Ⅲ 稳定塘; independent OCR read Ⅲ珍定實; Canonical correction restores the printed title."
+    },
+    {
+      "line_key": "bf82237d985ad6a4",
+      "reason": "Original PDF page 13 has equation (9) with dotted leader; Canonical has the formula and the source-checked (9). Independent OCR includes leader dots/watermark in this short reading."
+    },
+    {
+      "line_key": "7782428243c43b55",
+      "reason": "Original PDF page 12 has formula (4) and dotted leader; Canonical carries formula (4) and its number. Independent OCR treats the leader dots as part of the short line."
+    }
+  ],
+  "findings": [
+    {
+      "key": "55041db9f0099228",
+      "reason": "原PDF物理第46页正文印为“见表7.1.2”，同页实际表题印为“表7.1-2 单个混接点混接程度分级标准表”；Canonical已收录该表及表题。源文件内部编号写法不一致，不改写原文。"
+    }
+  ]
+}

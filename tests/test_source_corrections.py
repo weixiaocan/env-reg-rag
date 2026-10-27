@@ -117,6 +117,19 @@ class ApplySourceCorrectionsTest(unittest.TestCase):
         self.assertNotIn("owner_verified_correction", formula["policy_reasons"])
         self.assertIn("source_correction:ffffffffffff:agent_reviewed", formula["quality_issues"])
 
+    def test_partial_agent_check_does_not_pass_whole_text_element(self):
+        doc = _document()
+        doc["elements"][1]["quality_status"] = "passed"
+        registry = _registry(owner_verified=True, formulas=[])
+        registry["texts"] = [{**registry["texts"][0], "verified_by": "agent",
+                              "review_scope": "partial"}]
+        apply_source_corrections(doc, registry)
+        text = doc["elements"][1]
+        self.assertEqual(text["content"]["text"], VARS_RIGHT)
+        self.assertEqual(text["quality_status"], "needs_review")
+        self.assertNotIn("agent_verified_correction", text.get("policy_reasons", []))
+        self.assertIn("source_correction:ffffffffffff:agent_partial_review", text["quality_issues"])
+
     def test_correction_that_no_longer_matches_fails_the_assembly(self):
         doc = _document()
         doc["elements"][0]["content"]["latex"] = "Q=0"

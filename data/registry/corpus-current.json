@@ -1,12 +1,12 @@
 {
   "schema_version": "1",
   "status": "published",
-  "published_at": "2026-10-24T14:50:14.424307+00:00",
-  "corpus_version": "corpus-ed28791afb8a",
-  "manifest": "data/registry/corpus-ed28791afb8a.json",
+  "published_at": "2026-10-26T12:38:46.759166+00:00",
+  "corpus_version": "corpus-b6e4850ef830",
+  "manifest": "data/registry/corpus-b6e4850ef830.json",
   "alias": "corpus_v2_live",
-  "collection_name": "corpus_v2__staging__corpus-ed28791afb8a__bi-dcd9e7217909a5b06517d419",
-  "build_identity": "bi-dcd9e7217909a5b06517d419",
-  "chunk_count": 3911,
+  "collection_name": "corpus_v2__staging__corpus-b6e4850ef830__bi-18cf5dbb6c439922373b3209",
+  "build_identity": "bi-18cf5dbb6c439922373b3209",
+  "chunk_count": 4263,
   "action": "built"
 }

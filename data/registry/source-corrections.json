@@ -1,8 +1,8 @@
 {
  "schema_version": "1",
- "basis": "owner visual check of each correction against the source PDF render (2026-10-20)",
+ "basis": "Original corrections were visually checked by the owner against source PDF renders (2026-10-20 to 2026-10-24). Later entries marked verified_by=agent were checked against local source page images; review_scope=partial does not verify an entire OCR block.",
  "owner_verified": true,
- "owner_verified_note": "2026-10-20 owner: mark the corrected formulas (and the two corrected 5.3.6 variable lines) as verified; 2026-10-22 owner: remaining formulas and variable lines reviewed; 2026-10-23 owner: auto-admitted lines in formula chunks reviewed; 2026-10-24 owner: agent checks the 91 inline unit/chemical fragments against page images itself (entries with verified_by=agent)",
+ "owner_verified_note": "2026-10-20 owner: mark the corrected formulas (and the two corrected 5.3.6 variable lines) as verified; 2026-10-22 owner: remaining formulas and variable lines reviewed; 2026-10-23 owner: auto-admitted lines in formula chunks reviewed; 2026-10-24 owner: agent checks the 91 inline unit/chemical fragments against page images itself (entries with verified_by=agent); 2026-10-26 agent additions and OCR rebindings are identified per entry, with partial blocks held at needs_review; 2026-10-26 负责人在对话中确认多普勒标准公式（6）（8）的当前候选转写均与原文一致",
  "formulas": [
   {
    "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
@@ -3134,6 +3134,56 @@
    "issue": "跨行只框到“(m²·”，识别时丢了“·d”；按原文补全",
    "verified_by": "agent",
    "severity": "content"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 12,
+   "bbox": [
+    272.46757022773414,
+    431.46557526437516,
+    352.31796359292434,
+    445.6278298645161
+   ],
+   "original_latex_sha256": "2e6ec6ebba91b44a4a940ca9f79631a783cfcd3687ff934c1f5f637c4f0a4fc2",
+   "corrected_latex": "EQ=\\pm|EQ_i|_{\\max}",
+   "issue": "2026-10-26 original PDF page 12, equation (3): recognizer hallucinated a square root in place of max",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 12,
+   "bbox": [
+    256.0,
+    744.0,
+    374.0,
+    773.0
+   ],
+   "original_latex_sha256": "d615254b940daf3009ec55075587bda80feae73c910f18ae85380dc859ca7800",
+   "corrected_latex": "\\mathrm{EL}_{ij}=\\frac{L_{ij}-(L_s)_{ij}}{(L_s)_{ij}}\\times100\\%",
+   "issue": "负责人在对话中核对原页公式（6），确认当前候选转写与原文一致（2026-10-26）",
+   "severity": "content",
+   "verified_by": "owner",
+   "reviewed_at": "2026-10-26"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 13,
+   "bbox": [
+    273.0,
+    320.0,
+    365.0,
+    339.0
+   ],
+   "original_latex_sha256": "5ebba83cbea58fd81c1e3c783031f9b6b4e3115b0c7d5b8532741665370e5b4b",
+   "corrected_latex": "\\mathrm{EL}=\\pm\\left|\\mathrm{EL}_{\\mathrm{i}}\\right|_{\\max}",
+   "issue": "负责人在对话中核对原页公式（8），确认当前候选转写与原文一致（2026-10-26）",
+   "severity": "content",
+   "verified_by": "owner",
+   "reviewed_at": "2026-10-26"
   }
  ],
  "texts": [
@@ -4123,49 +4173,6 @@
    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
    "physical_page": 12,
    "bbox": [
-    69.5,
-    390.5,
-    451,
-    447
-   ],
-   "original_text_sha256": "1e9841ce00f19ede70c31fd21aa7097d534107556f39f846fd857ae1c4cd7f27",
-   "corrected_text": "5.4.2.5 流量仪误差应符合4.3的要求，应按公式（3）计算：\nEQ=±|EQi|max（3）",
-   "issue": "负责人核对更正（67-6）；2026-10-23 按原页去掉下划线"
-  },
-  {
-   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
-   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-   "physical_page": 12,
-   "bbox": [
-    10.5,
-    423.5,
-    160,
-    496
-   ],
-   "original_text_sha256": "5a2d200c0d4b90b4287e3a0c6f5f7a0b0c3b8d869ec848c371fcefd83f10ef88",
-   "corrected_text": "式中：\n|EQi|max——各流量检测点流量相对误差中的最大值；",
-   "issue": "负责人核对更正（67-7）；2026-10-23 按原页去掉下划线"
-  },
-  {
-   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
-   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-   "physical_page": 12,
-   "bbox": [
-    411,
-    429.5,
-    555.5,
-    496.5
-   ],
-   "original_text_sha256": "96270d1264f01bc4bd9b27f62570af8610dd497cca320658bf43e8bf33273f55",
-   "corrected_text": "中国测绘(3)会",
-   "exclude": true,
-   "issue": "不参与检索：watermark（67-8）"
-  },
-  {
-   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
-   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-   "physical_page": 12,
-   "bbox": [
     89.5,
     478.5,
     253,
@@ -4362,43 +4369,14 @@
    "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
    "physical_page": 14,
    "bbox": [
-    69,
-    438,
-    407,
-    453.5
-   ],
-   "original_text_sha256": "edaccdd95227e8c7dbda1ae560dad0cffb68ce84454647b23a008d2794a9fdc6",
-   "corrected_text": "5.4.7.2 流量仪的流速重复性应符合4.3的要求，应按公式（15）计算：\nEVr=[(EVr)i]max（15）",
-   "issue": "负责人核对更正（74-3）；2026-10-23 按原页去掉下划线"
-  },
-  {
-   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
-   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-   "physical_page": 14,
-   "bbox": [
-    10,
-    440,
-    228.83910818046184,
+    89,
+    486,
+    229,
     500
    ],
    "original_text_sha256": "0a3dba6a2d53b211ad394c2d18c8ba0a3eb3005bc1bebf5540fce2d9e1e4b189",
    "corrected_text": "式中：\nEVr——流量仪的流速重复性。",
-   "issue": "负责人核对更正（74-4）；2026-10-23 按原页去掉下划线"
-  },
-  {
-   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
-   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
-   "physical_page": 14,
-   "bbox": [
-    411,
-    440,
-    529,
-    496
-   ],
-   "original_text_sha256": "9a3ef225ad5e138d8d45af378ddc71440c320689f6ce0e52404ca2a5eb5e2b36",
-   "corrected_text": "中国测绘(15)",
-   "exclude": true,
-   "issue": "不参与检索：watermark（74-5）"
+   "issue": "负责人核对更正（74-4）；2026-10-23 按原页去掉下划线; 2026-10-26 watermark filter changed bbox, re-anchored to same OCR text"
   },
   {
    "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
@@ -7063,6 +7041,192 @@
    "original_text_sha256": "25b27f4a7f20e74dac118697656fad9e92fd1fbc48fa63434f9c21905f957c36",
    "corrected_text": "4.1.22 截流井前合流管道的设计流量应按下式计算：",
    "issue": "负责人核对更正（54-3）"
+  },
+  {
+   "source_sha256": "fd10712cb0f7164f1d21a1607a3b0e4d036d015da0c9bca2c9f2771270b495ed",
+   "file_name": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+   "physical_page": 6,
+   "original_text_sha256": "070f2d1d66a9d1439b439122610ba8a83fc36960bb0abd4eacb0400db563e71e",
+   "corrected_text": "天津市市政公路管理局\n北京市自来水设计公司\n天津市自来水集团有限公司\n北京市市政工程管理处\n北京市市政四建设工程有限责任公司\n上海市第二市政工程有限公司\n北京建筑工程学院\n广东工业大学\n重庆大学\n西安市市政设计研究院\n武汉市水务局\n武汉市给排水工程设计院有限公司\n新兴铸管股份有限公司\n主要起草人：焦永达 苏耀军 杨 毅王洪臣\n于清军 李强 郑进玉 曹洪林\n李俊奇岳秀平蔡达李俊奇王和平\n袁观洁王金良袁观洁张勤刘彦林\n游青城孙连元李绍海游青城葛金科孙连元\n刘青",
+   "verified_by": "agent",
+   "review_scope": "partial",
+   "issue": "2026-10-26 对照原PDF第6物理页：起草人姓名李强在OCR合并后缺失；只核对此姓名及所在行，其余长段尚未逐字核对"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 12,
+   "bbox": [
+    10.5,
+    416,
+    359.5,
+    496
+   ],
+   "original_text_sha256": "07f3f392f342ba322ada53846e1090f296303b41aa67d9e7b6e73cfa8d302bed",
+   "corrected_text": "5.4.2.5 流量仪误差应符合4.3的要求，应按公式（3）计算：\n式中：\n|EQi|max——各流量检测点流量相对误差中的最大值；",
+   "issue": "2026-10-26 source-page check; OCR block changed after watermark filter; formula remains a separate region",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 14,
+   "bbox": [
+    69,
+    438,
+    407,
+    453.5
+   ],
+   "original_text_sha256": "6e017d4563655cd0a2c0f89650877a4358e8a3e29f9e83a6b44be0039699f294",
+   "corrected_text": "5.4.7.2 流量仪的流速重复性应符合4.3的要求，应按公式（15）计算：",
+   "issue": "2026-10-26 source-page check; OCR block changed after watermark filter; formula remains a separate region",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+   "file_name": "城镇内涝防治技术规范.pdf",
+   "physical_page": 2,
+   "bbox": [
+    67.5,
+    171.0,
+    327.0,
+    185.0
+   ],
+   "original_text_sha256": "9db926c1b1fef60451ad99a269150c861028b813029baf23965ed8ef22002d7b",
+   "corrected_text": "主要审查人：侯立安杨向平王洪臣主要审查人：侯立安杭世珺羊寿生",
+   "issue": "2026-10-26 source page 2 visual check: missing reviewer name; remaining long OCR row not fully verified",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+   "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+   "physical_page": 5,
+   "bbox": [
+    113.5,
+    166.0,
+    297.0,
+    181.5
+   ],
+   "original_text_sha256": "521a6b4c548692fbeb338d24f72f8cdfb0dc39769a3d8b10a21e4c78bfc798bf",
+   "corrected_text": "杨修明许兰森程世彪陈思罗",
+   "issue": "2026-10-26 source page 5 visual check: missing contributor name",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "4336797dedd12e80c15ac93a2a6862a014fc0e06f493e3fcc89a6c9dbbccceed",
+   "file_name": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+   "physical_page": 5,
+   "bbox": [
+    114.0,
+    277.0,
+    315.5,
+    297.0
+   ],
+   "original_text_sha256": "9cd02d38ce4a92edc4a108fc89bee91b34ed5b008b68a224ef56613d81c69e4a",
+   "corrected_text": "杨丽莉钟声周华皮璐磊",
+   "issue": "2026-10-26 source page 5 visual check: missing contributor name",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 65,
+   "bbox": [
+    80.5,
+    199.0,
+    352.0,
+    215.5
+   ],
+   "original_text_sha256": "66d43ccce4c3c2e6850fb449471cd67fe8c0aaafab066afaac080c83dc284087",
+   "corrected_text": "Kde——脱氮速率kgNO3-N/(kgMLSS·d)]，宜根据试验资\n料确定；无试验资料时，20℃的Kd值可采用（0.03～\n0.06)[kgNO3-N/(kgMLSS·d)]，并按本标准公式(7.6.17-2)进行温度修正；",
+   "issue": "2026-10-26 source page 65 visual check: dropped range end and units",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+   "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+   "physical_page": 87,
+   "bbox": [
+    165.5,
+    329.5,
+    242.0,
+    343.0
+   ],
+   "original_text_sha256": "7b59a52a1e71b26f1873d2448e4c795fe2bd92dfd841fbfc966cd552e14bc69c",
+   "corrected_text": "Ⅲ稳定塘",
+   "issue": "2026-10-26 source page 87 visual check: OCR misread title",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+   "file_name": "城市排水工程规划规范.pdf",
+   "physical_page": 4,
+   "bbox": [
+    70.5,
+    60.381561279296875,
+    304.5,
+    72.5
+   ],
+   "original_text_sha256": "22b5bdf7a98ce3d8df17f7a8c2fc7447baf4a7eee23cc3cd4f25280e3a69afad",
+   "corrected_text": "本规范参编单位：北京市城市规划设计研究院\n中国市政工程华北设计研究总院有限\n公司\n大连市城市规划设计研究院\n中国市政工程中南设计研究总院有限\n公司\n昆明市规划设计研究院\n上海市政工程设计研究总院（集团）\n有限公司\n广州市市政工程设计研究总院\n北京建筑大学\n本规范参加单位：西安建筑科技大学环境与市政工程\n学院\n重庆大学城市建设与环境工程学院\n北京科技大学能源与环境工程学院\n本规范主要起草人员：张明生孔彦鸿徐一剑王召森\n张秀华李树苑张晓昕张林韵张晓昕\n张华谢映霞支霞辉车伍李俊奇\n谢映霞刘志盈由阳魏博由\n李婧李刘海燕王\n陈贻龙强翟俊陈贻龙彭党聪何强\n王家卓马洪涛何伟嘉李子富\n李梦阳俞士静陈岩王广华\n金彪周志刚段燕惠郭涛\n刘广奇崔硕朱玲刘晶昊崔玲\n本规范主要审查人员：王静霞杨明松聂洪文李红红\n曹金清高斌徐承华陈治刚\n周鑫根赵白伟兰张辰锂锂\n包琦玮",
+   "issue": "2026-10-26 source page 4 visual check: split reviewer name in long front-matter block",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 5,
+   "bbox": [
+    242.5,
+    54.5,
+    343.5,
+    121.5
+   ],
+   "original_text_sha256": "d64d4d4166242529893332f5113926b3c10a050e82d4eee63433053728652199",
+   "corrected_text": "引言",
+   "issue": "2026-10-26 source page 5 visual check: title obscured by watermark in OCR",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 13,
+   "bbox": [
+    499.5,
+    428.5,
+    556.0,
+    461.0
+   ],
+   "original_text_sha256": "cd05704ce6c91f554f139e4f57472e63a4e75660b4c9dc708ef41b09bacca73c",
+   "corrected_text": "(9)",
+   "issue": "2026-10-26 source page 13 visual check: watermark glyph before equation number",
+   "verified_by": "agent",
+   "review_scope": "partial"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 15,
+   "bbox": [
+    106.5,
+    753.5,
+    451.0,
+    768.0
+   ],
+   "original_text_sha256": "d4998b3c72df7e35437e79bb176e25f558461be5e237ce5ab4b7c59fc8ef6823",
+   "corrected_text": "d) 正式生产后，当结构、工艺、材料有重大改变，影响产品性能指标时；",
+   "issue": "2026-10-26 source page 15 visual check: OCR line was truncated",
+   "verified_by": "agent",
+   "review_scope": "partial"
   }
  ],
  "reviews": [
@@ -7102,6 +7266,85 @@
    "authorized_by": "owner 2026-10-24（先做2：agent 自己对照原页核对）",
    "verified_by": "agent",
    "notes": "30 corrected (garbled symbols, digits outside the box such as 2.0 read as 0, quantities cut at a line wrap, stray punctuation); 61 confirmed unchanged."
+  }
+ ],
+ "retired_texts": [
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 12,
+   "bbox": [
+    69.5,
+    390.5,
+    451,
+    447
+   ],
+   "original_text_sha256": "1e9841ce00f19ede70c31fd21aa7097d534107556f39f846fd857ae1c4cd7f27",
+   "corrected_text": "5.4.2.5 流量仪误差应符合4.3的要求，应按公式（3）计算：\nEQ=±|EQi|max（3）",
+   "issue": "负责人核对更正（67-6）；2026-10-23 按原页去掉下划线",
+   "retired_reason": "2026-10-26 watermark filter changed OCR segmentation; replaced by source-checked entries or no longer generated"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 12,
+   "bbox": [
+    10.5,
+    423.5,
+    160,
+    496
+   ],
+   "original_text_sha256": "5a2d200c0d4b90b4287e3a0c6f5f7a0b0c3b8d869ec848c371fcefd83f10ef88",
+   "corrected_text": "式中：\n|EQi|max——各流量检测点流量相对误差中的最大值；",
+   "issue": "负责人核对更正（67-7）；2026-10-23 按原页去掉下划线",
+   "retired_reason": "2026-10-26 watermark filter changed OCR segmentation; replaced by source-checked entries or no longer generated"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 12,
+   "bbox": [
+    411,
+    429.5,
+    555.5,
+    496.5
+   ],
+   "original_text_sha256": "96270d1264f01bc4bd9b27f62570af8610dd497cca320658bf43e8bf33273f55",
+   "corrected_text": "中国测绘(3)会",
+   "exclude": true,
+   "issue": "不参与检索：watermark（67-8）",
+   "retired_reason": "2026-10-26 watermark filter changed OCR segmentation; replaced by source-checked entries or no longer generated"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 14,
+   "bbox": [
+    69,
+    438,
+    407,
+    453.5
+   ],
+   "original_text_sha256": "edaccdd95227e8c7dbda1ae560dad0cffb68ce84454647b23a008d2794a9fdc6",
+   "corrected_text": "5.4.7.2 流量仪的流速重复性应符合4.3的要求，应按公式（15）计算：\nEVr=[(EVr)i]max（15）",
+   "issue": "负责人核对更正（74-3）；2026-10-23 按原页去掉下划线",
+   "retired_reason": "2026-10-26 watermark filter changed OCR segmentation; replaced by source-checked entries or no longer generated"
+  },
+  {
+   "source_sha256": "f280957b539ee92598d101e92e3a638c5235dd3a59a9dc81524caf016d8d046d",
+   "file_name": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+   "physical_page": 14,
+   "bbox": [
+    411,
+    440,
+    529,
+    496
+   ],
+   "original_text_sha256": "9a3ef225ad5e138d8d45af378ddc71440c320689f6ce0e52404ca2a5eb5e2b36",
+   "corrected_text": "中国测绘(15)",
+   "exclude": true,
+   "issue": "不参与检索：watermark（74-5）",
+   "retired_reason": "2026-10-26 watermark filter changed OCR segmentation; replaced by source-checked entries or no longer generated"
   }
  ]
 }

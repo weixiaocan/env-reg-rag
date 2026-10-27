@@ -13,6 +13,7 @@ from src.application.corpus_update import build_source_catalog
 from src.application.pdf_source_audit import file_digest, registered_pdf_path
 from src.domain.source_evidence import require_sha256
 from src.ingestion.formula_layout import CachedLayoutEngine, formula_regions
+from src.ingestion.formula_supplements import registry_digest, supplemented_layout_boxes
 from src.ingestion.formula_ocr import CachedFormulaEngine
 
 
@@ -31,6 +32,7 @@ def recognize_pages(root, sha256, pages, *, layout=None, recognizer=None, asset=
               'layout_model': layout.name, 'formula_model': recognizer.name, 'pages': [],
               'publishable': False, 'can_use_for_calculation': False}
     report['coordinate_system'] = 'page_points_top_left'
+    report['layout_supplements_sha256'] = registry_digest(root)
     report.update(provenance or model_provenance(layout, recognizer))
     with pymupdf.open(path) as document:
         for physical_page in pages:
@@ -38,7 +40,9 @@ def recognize_pages(root, sha256, pages, *, layout=None, recognizer=None, asset=
             page = document[physical_page - 1]
             pix = page.get_pixmap(dpi=200, alpha=False, colorspace=pymupdf.csRGB)
             image = np.frombuffer(pix.samples, dtype=np.uint8).reshape(pix.height, pix.width, pix.n)
-            regions = formula_regions(layout.predict(image), pix.width, pix.height, page.rect.width, page.rect.height)
+            boxes = supplemented_layout_boxes(root, sha256, physical_page,
+                page.rect.width, page.rect.height, pix.width, pix.height, layout.predict(image))
+            regions = formula_regions(boxes, pix.width, pix.height, page.rect.width, page.rect.height)
             for index, region in enumerate(regions):
                 region.update(candidate_id=f'layout-{sha256[:16]}-{physical_page}-{index}', sha256=sha256,
                               physical_page=physical_page, raw_latex=None)

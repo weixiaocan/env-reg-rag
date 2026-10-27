@@ -39,6 +39,7 @@ SOURCE_REVIEW_RANK = {
     "": 0,
 }
 from src.application.retrieval_context import RETRIEVAL_CONTEXT_VERSION  # noqa: E402
+from src.application.canonical_assembly import ASSEMBLY_RULES_VERSION  # noqa: E402
 from src.application.source_corrections import REGISTRY_PATH as SOURCE_CORRECTIONS_PATH  # noqa: E402
 from src.application.table_checks import REGISTRY_PATH as TABLE_CHECKS_PATH  # noqa: E402
 
@@ -945,6 +946,9 @@ class CorpusUpdateService:
             "retrieval_context": RETRIEVAL_CONTEXT_VERSION,
             "ocr_vote": OCR_VOTE_MODE,
             "evidence_policy": EVIDENCE_POLICY_VERSION,
+            "assembly_rules": ASSEMBLY_RULES_VERSION,
+            "middle_layer_config_sha256": _sha256(self.root / "config" / "middle_layer_v3.json")
+                if (self.root / "config" / "middle_layer_v3.json").is_file() else None,
             "formula_region_gate": formula_gate['provenance'] if formula_gate else None,
             "formula_region_registry_sha256": _sha256(self.root / 'data/registry/formula-gold.json')
                 if (self.root / 'data/registry/formula-gold.json').is_file() else None,

@@ -174,7 +174,17 @@ def _assemble(root: Path, cv: str, extra: list[str] | None = None):
         "--formula-run-id", _FORMULA_RUN_ID,
         "--independent-ocr-run-id", _INDEPENDENT_OCR_RUN_ID,
     ] + (extra or [])
-    return asm.main(argv)
+    rc = asm.main(argv)
+    if rc == 0:
+        # Stands in for scripts/audit_completeness.py, which needs the real
+        # PDFs and OCR runs: the synthetic page holds nothing beyond its text.
+        from src.application.publish_state import write_completeness_report
+        write_completeness_report(root, cv, {"missing_lines": 0, "open_findings": 0})
+    return rc
+
+
+def _remove_completeness_report(root: Path, cv: str) -> None:
+    (root / "data" / "canonical" / "v2" / cv / "completeness.json").unlink()
 
 
 # --------------------------------------------------------------------------- #
@@ -346,6 +356,28 @@ class TestIngestStateMachine(unittest.TestCase):
             self.assertEqual(pointer.read_bytes(), before)
             self.assertFalse(
                 (env.root / "data" / "registry" / "rollback").exists())
+
+    def test_publish_refused_without_completeness_report(self):
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            _remove_completeness_report(env.root, env.cv)
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
+            report = self._ingest(env, publish=True, admin=admin)
+            self.assertEqual(report["publish_gate"]["gate"], "failed")
+            self.assertTrue(any("completeness report missing" in f
+                                for f in report["publish_gate"]["failures"]))
+            self.assertEqual(admin.calls, [])
+
+    def test_publish_refused_when_lines_are_missing(self):
+        from src.application.publish_state import write_completeness_report
+        with _ScriptRoot() as env:
+            self.assertEqual(_assemble(env.root, env.cv), 0)
+            write_completeness_report(env.root, env.cv, {"missing_lines": 3, "open_findings": 0})
+            admin = _FakeAliasAdmin(initial="corpus_v2_old_target")
+            report = self._ingest(env, publish=True, admin=admin)
+            self.assertTrue(any("3 printed lines are not in the corpus" in f
+                                for f in report["publish_gate"]["failures"]))
+            self.assertEqual(admin.calls, [])
 
     def test_offline_failure_never_reaches_qdrant(self):
         with _ScriptRoot() as env:

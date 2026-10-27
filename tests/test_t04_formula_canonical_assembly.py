@@ -62,6 +62,11 @@ def _pi_formula_region(
     }
 
 
+def _host_text_region(bbox: list[float], text: str = "其中 T = Σ p j 为合计值") -> dict:
+    """A text block covering the formula whose text holds its characters."""
+    return {"_host_element": {"element_id": "p1-host", "text": text, "bbox": list(bbox)}}
+
+
 def _cache_region(
     bbox: list[float] | None = None,
     *,
@@ -103,14 +108,15 @@ def _write_cache(cache_dir: str, sha: str, files: dict[int, list[dict]]) -> None
 
 
 def _page(rows: list[dict], pno: int = 1) -> dict:
+    hosts = [r["_host_element"] for r in rows if "_host_element" in r]
     return {
         "physical_page": pno, "width": 595.0, "height": 842.0, "rotation": 0,
         "extraction_route": "full_ocr", "decision_status": "approved",
         "decision_reasons": [], "parser_name": "paddleocr-text",
         "elements": [{"element_id": f"p{pno}-t1",
                       "text": "式中 L 为长度，取值见表 3。",
-                      "bbox": [60.0, 300.0, 500.0, 320.0]}],
-        "regions": rows, "tables": [],
+                      "bbox": [60.0, 300.0, 500.0, 320.0]}] + hosts,
+        "regions": [r for r in rows if "_host_element" not in r], "tables": [],
     }
 
 
@@ -425,7 +431,7 @@ class TestReconciliation(unittest.TestCase):
     def test_gate_threshold_region_unsupported_not_silent(self):
         d1 = _pi_formula_region("up-f1")
         doc = self._assemble_with_cache(
-            [d1], {1: [_cache_region(score=0.4)]})
+            [d1, _host_text_region(_BBOX)], {1: [_cache_region(score=0.4)]})
         outcomes = _formula_outcomes(doc)
         self.assertEqual(len(outcomes), 1)
         self.assertEqual(outcomes[0]["execution_status"], "unsupported")
@@ -441,11 +447,39 @@ class TestReconciliation(unittest.TestCase):
         tiny = [100.0, 200.0, 110.0, 208.0]  # 10*8 = 80 < 500
         d1 = _pi_formula_region("up-f1", bbox=list(tiny))
         doc = self._assemble_with_cache(
-            [d1], {1: [_cache_region(bbox=tiny, score=0.95)]})
+            [d1, _host_text_region([90.0, 195.0, 400.0, 215.0])],
+            {1: [_cache_region(bbox=tiny, score=0.95)]})
         outcome = _formula_outcomes(doc)[0]
         self.assertEqual(outcome["execution_status"], "unsupported")
         self.assertTrue(any(i.startswith("formula_below_gate_threshold:area")
+                            and i.endswith("kept_by=text:content")
                             for i in outcome["issues"]))
+
+    def test_small_standalone_formula_is_kept(self):
+        # "t=t1+t2" on its own line: small, but no text region holds it, and
+        # block assembly never emits lines inside a formula region.
+        tiny = [172.0, 473.0, 214.0, 483.0]  # 42*10 = 420 < 500
+        d1 = _pi_formula_region("up-f1", bbox=list(tiny))
+        doc = self._assemble_with_cache(
+            [d1], {1: [_cache_region(bbox=tiny, score=0.9, latex="t=t_{1}+t_{2}")]})
+        outcome = _formula_outcomes(doc)[0]
+        self.assertEqual(outcome["execution_status"], "completed")
+        self.assertEqual(len(_formula_elements(doc)), 1)
+
+    def test_covering_text_without_the_formula_does_not_host(self):
+        # The text stage dropped the formula line: a block covers the spot
+        # but its text does not hold the formula, so the formula is kept.
+        tiny = [100.0, 200.0, 110.0, 208.0]
+        d1 = _pi_formula_region("up-f1", bbox=list(tiny))
+        doc = self._assemble_with_cache(
+            [d1, _host_text_region([90.0, 195.0, 400.0, 215.0], text="雨水管渠的降雨历时应按下式计算")],
+            {1: [_cache_region(bbox=tiny, score=0.95)]})
+        self.assertEqual(_formula_outcomes(doc)[0]["execution_status"], "completed")
+
+    def test_low_score_standalone_formula_is_kept(self):
+        d1 = _pi_formula_region("up-f1")
+        doc = self._assemble_with_cache([d1], {1: [_cache_region(score=0.4)]})
+        self.assertEqual(_formula_outcomes(doc)[0]["execution_status"], "completed")
 
     def test_gate_boundary_values_complete(self):
         # score exactly 0.6, area exactly 500 -> admitted
@@ -1006,7 +1040,8 @@ class TestOutcomeProvenanceClosure(unittest.TestCase):
         d1["relations"] = [rel]
         if pi:
             d1.update(pi)
-        page = _page([d1])
+        # Hosted by a text block holding it, so a low-score result closes as unsupported.
+        page = _page([d1, _host_text_region(_BBOX)])
         pages = cache_pages if cache_pages is not None else {1: []}
         return _assemble(_page_doc([page]), pages)
 

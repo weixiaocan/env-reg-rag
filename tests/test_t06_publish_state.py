@@ -70,6 +70,7 @@ from src.application.publish_state import (
     switch_pointer,
     verify_collection_payload_identity,
     write_artifact_manifest,
+    write_completeness_report,
     write_candidate,
     write_canonical_candidate,
     write_chunk_manifest,
@@ -411,6 +412,7 @@ def _gate_ready(env: _Root) -> None:
     write_quality_report(env.root, _CV, [
         {"sha256": _SHA, "verdict": "readable", "bad_pages": 0, "pages": 1}])
     write_artifact_manifest(env.root, _CV)
+    write_completeness_report(env.root, _CV, {"missing_lines": 0, "open_findings": 0})
 
 
 def _full_smoke(hits: int = 3) -> list[dict]:

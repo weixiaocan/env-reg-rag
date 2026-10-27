@@ -84,7 +84,7 @@ Copy-Item .env.example .env
 
 ### 公网演示
 
-不想本地部署，可以直接打开 [https://weixiaocan.com/rag/](https://weixiaocan.com/rag/) 试用（每人每天 10 次 AI 回答，用完后只返回原文）。线上运行的就是本仓库当前代码，语料为 `corpus-ed28791afb8a`（2026-10-25 部署，3,911 个检索块），模型为智谱 GLM-5.2。全部 239 张表格已逐格核对，210 个公式（119 个计算公式和 91 个行内单位/化学式片段）已逐个核对，均可正式引用；扫描件正文是机器识别，引用它的结论会标注"未核对"，提示对照原文页。以上是部署与在线烟测，不代表法规效力或语料内容质量已经获得权威核验。
+不想本地部署，可以直接打开 [https://weixiaocan.com/rag/](https://weixiaocan.com/rag/) 试用（每人每天 10 次 AI 回答，用完后只返回原文）。线上使用的是已部署版本，语料为 `corpus-ed28791afb8a`（2026-10-25 部署，3,911 个检索块），模型为智谱 GLM-5.2；本地未发布的候选不在其中。已发布语料的 239 张表格已逐格核对，210 个公式（119 个计算公式和 91 个行内单位/化学式片段）已逐个核对；扫描件正文是机器识别，引用它的结论会标注"未核对"，提示对照原文页。以上是部署与在线烟测，不代表法规效力或语料内容质量已经获得权威核验。
 
 ### 2. 载入现成资料库
 
@@ -201,6 +201,18 @@ $formulaRun = $manifest.formula_region_gate.run_id
 
 装配阶段只重组页面制品，不重新调用 PDF 或 OCR 引擎。缺少公式缓存、ID 不一致、bbox 越界或其他 Canonical 不变量失败时，脚本会直接报错。
 
+发布前还需对照原 PDF 的文字层或独立 OCR 检查逐页覆盖和结构引用，并核对 `data/canonical/v2/<corpus-version>/completeness.json`：
+
+```powershell
+$cleanRun = 'ocrv6-c454d03f07c7e5c4'
+$rawRun = 'ocrv6-ef8e83933c6bd4f3'
+.venv\Scripts\python.exe scripts\audit_completeness.py --corpus-version $candidate --independent-ocr-run-id $cleanRun --second-ocr-run-id $rawRun --fail-on-open
+```
+
+审计只检查本地候选，不切换正式语料。确认为独立 OCR 误读或原 PDF 自身编号不一致的项目登记在 `data/registry/completeness-exceptions.json`，真实漏行和漏检公式不能用例外掩盖。
+
+截至 2026-10-26，本地正式语料 `corpus-b6e4850ef830` 已完成 21 份文档、1078 页的 V2 装配（0 失败）；独立原页完整性审计为缺失行 0、开放结构问题 0。多普勒标准物理页 12 的公式（6）和物理页 13 的公式（8）已补为可回查公式元素，负责人对照原页确认当前转写后，两式的质量状态为 `passed`。本地 Qdrant 索引有 4263 个 point，`corpus_v2_live` 已切换，回退记录已写入；公网演示尚未部署此版本。这不代表其他语料内容或法规效力获得权威核验。
+
 ### 5. 入库并发布
 
 ```powershell
@@ -297,7 +309,7 @@ Invoke-RestMethod http://127.0.0.1:6333/collections/corpus_v2_live
 - **运行烟测**：就绪检查、实际 Qdrant point 数和在线查询证明当前服务可运行。
 - **内容质量**：固定问题集、原页金标准和人工坏例复核衡量 OCR、表格、公式、召回和答案质量。
 
-截至 2026-10-24，`data/registry/corpus-current.json` 指向 `corpus-ed28791afb8a`（2026-10-24 发布：在 913c 基础上，91 个行内单位/化学式公式片段经 agent 对照原页核对，30 个更正，全部 210 个公式元素均为已核对；239 张表格逐格核对，核对记录见 `data/registry/table-checks.json`；公式与文字核对记录见 `data/registry/source-corrections.json`）：正式选择 21 份主文本、1078 页、11977 个结构区域、3911 个检索块，结构处理 0 个执行失败；查询入口为 `corpus_v2_live`。后续始终以 pointer、对应 manifest 和 Qdrant 实际状态为准。
+截至 2026-10-26，本地 `data/registry/corpus-current.json` 指向 `corpus-b6e4850ef830`：正式选择 21 份主文本、1078 页、11979 个结构区域、4263 个检索块，结构处理 0 个执行失败；本地查询入口 `corpus_v2_live` 与指针目标一致，Qdrant 实测 4263 个 point。已发布的公网演示仍使用 `corpus-ed28791afb8a`（3911 个检索块），两处状态不要混同。后续始终以各环境的 pointer、对应 manifest 和 Qdrant 实际状态为准。
 
 ## 项目结构
 
@@ -340,7 +352,9 @@ Invoke-RestMethod http://127.0.0.1:6333/collections/corpus_v2_live
 
 ## 评估结果（diagnostic 口径）
 
-2026-10-24 在当前语料 `corpus-ed28791afb8a` 上运行。黄金集 `eval/golden_v5.jsonl` 共 50 题（46 道内容题 + 2 道前提错误题 + 2 道应拒答题），题目状态为 `reviewed`、尚未冻结，以下数字均为诊断结果，不是正式验收成绩；语义判定由 agent 对照标准事实复核，不是人工裁定。
+以下是 2026-10-24 在当时正式语料 `corpus-ed28791afb8a` 上运行的完整诊断报告。黄金集 `eval/golden_v5.jsonl` 共 50 题（46 道内容题 + 2 道前提错误题 + 2 道应拒答题），题目状态为 `reviewed`、尚未冻结；语义判定由 agent 对照标准事实复核，不是人工裁定。
+
+2026-10-26 本地新版 `corpus-b6e4850ef830` 的检索诊断见 `eval/runs/diagnostic-b6e4850ef830-v6/`：50 题、必中证据前 5 条 50/76、前 10 条 58/76。`golden_v6.jsonl` 是从 v5 生成的新锚点草稿，79 条证据中有 19 条尚未自动对齐，因此这些数字不能作为严格的新旧版本比较或正式验收成绩；新版未做真实 LLM 端到端评估。
 
 检索（本地，`eval/runs/diagnostic-retrieval-20261024-ed28/`）：
 

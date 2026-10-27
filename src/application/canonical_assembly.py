@@ -52,9 +52,18 @@ __all__ = ["assemble_document", "assemble_document_v3", "load_formula_pages", "C
 
 CECS758_SHA = "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941"
 
+# Part of the corpus fingerprint: a change to what assembly keeps or drops
+# mints a new corpus version instead of rebinding an existing one.
+ASSEMBLY_RULES_VERSION = "content-hosted-formula-gate+caption-blocks+formula-numbers+table-caption-match+orphan-lines+number-binding/7"
+
 # Tuning thresholds for formula region filtering.
 _FORMULA_MIN_SCORE = 0.6
 _FORMULA_MIN_AREA = 500.0  # page-points^2; excludes tiny inline symbol fragments
+# The gate may only skip a region whose text is already kept by a host: a text
+# block that holds the formula's characters, a table or a figure. The text
+# stage drops lines lying inside a formula region, so a small standalone
+# formula ("t=t1+t2") skipped by the gate would vanish from the corpus.
+_FORMULA_HOST_MIN_CONTAINMENT = 0.5
 
 # Page-points window below a formula within which "式中" context is gathered.
 _CONTEXT_MAX_GAP = 180.0
@@ -74,8 +83,10 @@ _HEADER_FOOTER_MAX_LEN = 60  # only short texts (<=60 chars post-strip)
 _BARE_NUM_RE = re.compile(r"^(\d+)(?:\s|$)")
 _DOTTED_NUM_RE = re.compile(r"^(\d+(?:\.\d+)+)")
 _PAREN_NUM_RE = re.compile(r"\(([0-9][0-9.\-]*)\)")
+# An equation number on its own: "(1)", "(4.1.11)", "(8.4.18-1)", optionally
+# behind a dot leader ("……(3)"), half- or full-width brackets.
 _ISOLATED_FORMULA_NUMBER_RE = re.compile(
-    r"^\s*\((\d+|\d+(?:\.\d+){1,3}-\d+)\)\s*$"
+    r"^\s*[.…·．]*\s*[(（]\s*(\d+(?:\s*[.．]\s*\d+){0,3}(?:\s*[-－]\s*\d+)?)\s*[)）]\s*$"
 )
 _PAGE_NUM_RE = re.compile(r"^[•·]?\s*\d+\s*[•··]?$")
 _CHINESE_RE = re.compile(r"[一-鿿]")
@@ -431,11 +442,16 @@ def assemble_document(
         # source region may no longer be neighbours and cannot be recovered.
         if route in ("full_ocr", "hybrid", "scanned_with_text_layer") and not page_document.get("_middle_layer_v3"):
             items = _reconstruct_ocr_paragraphs(items)
+        # Equation numbers sit in a narrow right-hand strip and would invent a
+        # second column; they follow the page flow and bind to their formula.
+        numbers = [it for it in items if it.extra.get("v3_role") == "formula_number"]
+        items = [it for it in items if it.extra.get("v3_role") != "formula_number"]
         layout = detect_columns(
             [it.bbox for it in items], page_width=width, page_height=height
         )
         ordered_items = [items[order_idx] for order_idx in layout.reading_order]
         global_slots.extend(ordered_items)
+        global_slots.extend(sorted(numbers, key=lambda it: (it.bbox[1], it.bbox[0])))
 
     # Assign global source_index (= position in logical reading order).
     for i, slot in enumerate(global_slots):
@@ -581,8 +597,12 @@ def assemble_document(
             continue
         s = " ".join((slot.text or "").split())
         if _TABLE_CAPTION_RE.match((slot.text or "").strip()):
+            # Only a table that keeps this very title may consume it: a body
+            # paragraph opening with "表7.1-2 中，…" is not a caption, and a
+            # title the table did not record must stay as text.
             hosts = [sl for sl in global_slots
-                     if sl.kind == "table" and sl.page == slot.page]
+                     if sl.kind == "table" and sl.page == slot.page
+                     and _table_keeps_caption(sl.ref, s)]
             if hosts:
                 consumed_indices.add(slot.source_index)
                 consumed_by.setdefault(hosts[0].source_index, []).append({
@@ -633,6 +653,7 @@ def assemble_document(
                     for fh in targets:
                         figure_binding_issues.setdefault(
                             fh.source_index, set()).add(issue)
+    _pair_layout_captions(global_slots, consumed_indices, consumed_by)
     # Apply the binding issues deterministically (sorted, deduplicated --
     # the same text slot may be reported against several figures): the
     # outcome dict is the same object that later closes, so the element's
@@ -1602,13 +1623,51 @@ def _match_formula_cache(
     return pairs
 
 
-def _formula_gate(bbox: list[float], score: Any) -> tuple[bool, str | None]:
+def _formula_host(
+    bbox: list[float], page_row: dict[str, Any], latex: str = "",
+) -> str | None:
+    """What already keeps this formula's text, if anything.
+
+    A table cell or a figure drawing hosts by position. A text block hosts
+    only when it covers the formula AND its text actually holds the formula's
+    characters: the OCR text stage drops lines lying inside a formula region,
+    so position alone cannot prove the text survived.
+    """
+    for region in page_row.get("regions") or []:
+        if region.get("kind") not in {"table", "image"}:
+            continue
+        host = _coerce_bbox(region.get("bbox"))
+        if host is not None and _bbox_containment_ratio(host, bbox) >= _FORMULA_HOST_MIN_CONTAINMENT:
+            return f"{region.get('kind')}:{region.get('model_label') or region.get('kind')}"
+    from src.application.page_coverage import bigrams, normalize
+    wanted = bigrams(normalize(latex))
+    if not wanted:
+        return None
+    for element in page_row.get("elements") or []:
+        text = str(element.get("text") or "")
+        host = _coerce_bbox(element.get("bbox"))
+        if not text.strip() or host is None:
+            continue
+        if _bbox_containment_ratio(host, bbox) < _FORMULA_HOST_MIN_CONTAINMENT:
+            continue
+        have = bigrams(normalize(text))
+        if sum(1 for g in wanted if g in have) / len(wanted) >= _FORMULA_HOST_MIN_CONTAINMENT:
+            return "text:content"
+    return None
+
+
+def _formula_gate(
+    bbox: list[float], score: Any, *, host: str | None,
+) -> tuple[bool, str | None]:
     """Element-admission gate for a recognised formula region.
 
-    Same thresholds the element path always used (``_FORMULA_MIN_SCORE`` /
-    ``_FORMULA_MIN_AREA``), but the decision is now RECORDED: a rejected region
-    closes as an ``unsupported`` outcome instead of being silently dropped.
+    Low-score or tiny regions are skipped only when ``host`` keeps their text;
+    a standalone region is always admitted, whatever its size, so that nothing
+    printed on the page leaves the corpus. A skipped region closes as an
+    ``unsupported`` outcome naming its host.
     """
+    if host is None:
+        return True, None
     try:
         score_f = float(score) if score is not None else 0.0
     except (TypeError, ValueError):
@@ -1616,10 +1675,10 @@ def _formula_gate(bbox: list[float], score: Any) -> tuple[bool, str | None]:
     area = (float(bbox[2]) - float(bbox[0])) * (float(bbox[3]) - float(bbox[1]))
     if score_f < _FORMULA_MIN_SCORE:
         return False, (f"formula_below_gate_threshold:score={score_f:.4f}"
-                       f"<{_FORMULA_MIN_SCORE}")
+                       f"<{_FORMULA_MIN_SCORE}:kept_by={host}")
     if area < _FORMULA_MIN_AREA:
         return False, (f"formula_below_gate_threshold:area={area:.1f}"
-                       f"<{_FORMULA_MIN_AREA}")
+                       f"<{_FORMULA_MIN_AREA}:kept_by={host}")
     return True, None
 
 
@@ -1858,7 +1917,11 @@ def _reconcile_formula_page(
                 crop_assets=crop_assets, relations=relations,
                 admissible_result_ids=[]))
             continue
-        ok, reason = _formula_gate(bbox, c.get("score"))
+        # Source-page supplements have no model confidence. Their verified
+        # geometry must not be dropped by the model-score threshold; the
+        # recognised transcription remains quality-unreviewed.
+        ok, reason = (True, None) if c.get("detection_source") == "source_page_layout_supplement" else _formula_gate(
+            bbox, c.get("score"), host=_formula_host(bbox, page_row, latex))
         attempt = _formula_recognition_attempt(
             c, identity=fallback, completed=True)
         if not ok:
@@ -2321,7 +2384,7 @@ def _infer_text_role(slot: _PageItem, heading: HeadingNode | None) -> str:
         if v3_role in {
             "document_title", "heading", "clause", "paragraph", "list_item",
             "header", "footer", "page_number", "watermark", "unknown",
-            "front_matter",
+            "front_matter", "caption",
         }:
             return v3_role
     raw = (slot.text or "").strip()
@@ -2507,7 +2570,31 @@ def _associate_adjacent_formula_numbers(global_slots: list[_PageItem]) -> set[in
         )
         if not (right_adjacent or below_adjacent):
             continue
-        formula.extra["adjacent_formula_number"] = match.group(1)
+        formula.extra["adjacent_formula_number"] = re.sub(
+            r"\s+", "", match.group(1)).replace("．", ".").replace("－", "-")
+        formula.extra["adjacent_formula_number_bbox"] = list(nb)
+        consumed.add(number.source_index)
+    # Equation-number blocks come after the page flow (they never take part
+    # in reading order): bind each to the unnumbered formula on its row.
+    for number in global_slots:
+        if (number.kind != "text" or number.source_index in consumed
+                or number.extra.get("v3_role") != "formula_number"):
+            continue
+        match = _ISOLATED_FORMULA_NUMBER_RE.match(number.text or "")
+        if not match:
+            continue
+        nb = number.bbox
+        centre = (nb[1] + nb[3]) / 2
+        candidates = [
+            f for f in global_slots
+            if f.kind == "formula" and f.page == number.page
+            and "adjacent_formula_number" not in f.extra
+            and f.bbox[1] - 6.0 <= centre <= f.bbox[3] + 6.0 and nb[0] >= f.bbox[0]]
+        if not candidates:
+            continue
+        formula = min(candidates, key=lambda f: max(0.0, nb[0] - f.bbox[2]))
+        formula.extra["adjacent_formula_number"] = re.sub(
+            r"\s+", "", match.group(1)).replace("．", ".").replace("－", "-")
         formula.extra["adjacent_formula_number_bbox"] = list(nb)
         consumed.add(number.source_index)
     return consumed
@@ -3468,6 +3555,80 @@ def _build_table_element(
 # --------------------------------------------------------------------------- #
 
 
+_LAYOUT_CAPTION_RE = re.compile(r"^\s*(?:附\s*)?图\s*[A-Z]?\s*\d")
+_LAYOUT_CAPTION_MAX_GAP = 120.0  # page points between figure and title boxes
+LAYOUT_CAPTION_ISSUE = "caption_bound_by_layout_figure_title"
+
+
+def _table_keeps_caption(region: dict[str, Any] | None, text: str) -> bool:
+    """Whether a structured table on this region records ``text`` as its caption."""
+    wanted = re.sub(r"\s+", "", text)
+    if not wanted:
+        return False
+    for table in (region or {}).get("tables") or []:
+        caption = re.sub(r"\s+", "", str(table.get("caption") or ""))
+        if caption and caption == wanted:
+            return True
+    return False
+
+
+def _box_gap(a: list[float], b: list[float]) -> float:
+    dx = max(0.0, max(a[0], b[0]) - min(a[2], b[2]))
+    dy = max(0.0, max(a[1], b[1]) - min(a[3], b[3]))
+    return (dx * dx + dy * dy) ** 0.5
+
+
+def _pair_layout_captions(
+    global_slots: list["_PageItem"], consumed_indices: set[int],
+    consumed_by: dict[int, list[dict[str, Any]]],
+) -> None:
+    """Give a captionless figure the layout figure-title printed next to it.
+
+    The upstream binds a caption only when it is the single "图N" line within
+    60pt below the page's single image, so captions above the figure, rotated
+    captions and pages with several figures were left without one. Here each
+    captionless figure takes the nearest unclaimed figure-title block on its
+    page that names a figure; a tie between two titles binds nothing. The
+    figure records ``caption_bound_by_layout_figure_title`` so the binding is
+    checked like any other machine reading.
+    """
+    pages = sorted({s.page for s in global_slots if s.kind == "figure"})
+    for page in pages:
+        figures = [s for s in global_slots if s.kind == "figure" and s.page == page
+                   and not _figure_pi_caption_text(s.ref)]
+        titles = [s for s in global_slots if s.kind == "text" and s.page == page
+                  and s.source_index not in consumed_indices
+                  and s.extra.get("v3_role") == "caption"
+                  and _LAYOUT_CAPTION_RE.match(s.text or "")]
+        if not figures or not titles:
+            continue
+        options = sorted(
+            (_box_gap(f.bbox, t.bbox), fi, ti)
+            for fi, f in enumerate(figures) for ti, t in enumerate(titles)
+            if _box_gap(f.bbox, t.bbox) <= _LAYOUT_CAPTION_MAX_GAP)
+        taken_f: set[int] = set()
+        taken_t: set[int] = set()
+        for gap, fi, ti in options:
+            if fi in taken_f or ti in taken_t:
+                continue
+            rivals = [g for g, f2, t2 in options
+                      if g == gap and (f2 == fi) != (t2 == ti)
+                      and f2 not in taken_f and t2 not in taken_t]
+            if rivals:
+                continue
+            taken_f.add(fi)
+            taken_t.add(ti)
+            fig, title = figures[fi], titles[ti]
+            fig.extra["layout_caption"] = " ".join((title.text or "").split())
+            consumed_indices.add(title.source_index)
+            consumed_by.setdefault(fig.source_index, []).append({
+                "element_id": (title.ref or {}).get("element_id"),
+                "physical_page": title.page,
+                "bbox": list(title.bbox),
+                "basis": "layout_figure_title_nearest",
+            })
+
+
 def _figure_pi_caption_text(region: dict[str, Any] | None) -> str | None:
     """The page-intermediate's structured caption text, whitespace-normalised.
 
@@ -3562,6 +3723,11 @@ def _build_figure_element(
     for iss in outcome.get("issues") or []:
         if iss not in issues:
             issues.append(iss)
+    if caption is None and slot.extra.get("layout_caption"):
+        caption = slot.extra["layout_caption"]
+        issues.append(LAYOUT_CAPTION_ISSUE)
+        if outcome is not None and LAYOUT_CAPTION_ISSUE not in (outcome.get("issues") or []):
+            outcome["issues"] = sorted(set(outcome.get("issues") or []) | {LAYOUT_CAPTION_ISSUE})
     # Structured relation records + context spans (parsed pages only). The
     # element projection is authoritative: the completed outcome is synced to
     # these records afterwards.
@@ -3748,10 +3914,9 @@ def _build_generation(
     # missing engine_version on an old cache is "unknown", never a guess.
     for eid, name, version in (ocr_engine_order or []):
         engines.append({"engine_id": eid, "name": name, "version": version})
-    if fusion_summary and fusion_summary.get("mode") in {
-            "preprocessed-region-text-v1", "three-source-region-vote-v1",
-            "three-source-region-vote-v2", "three-source-region-vote-v3",
-            "three-source-region-vote-v4"}:
+    mode = str((fusion_summary or {}).get("mode") or "")
+    if fusion_summary and (mode == "preprocessed-region-text-v1"
+                           or mode.startswith("three-source-region-vote-")):
         version = str(fusion_summary.get("run_id") or "unknown")
         if fusion_summary.get("raw_run_id"):
             version += f"+{fusion_summary['raw_run_id']}"

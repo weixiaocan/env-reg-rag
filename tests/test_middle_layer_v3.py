@@ -701,3 +701,131 @@ def test_inline_formula_region_does_not_drop_its_body_line() -> None:
     # A display formula region still owns the lines it covers.
     page["regions"][-1]["bbox"] = [55, 120, 360, 140]
     assert _vote_texts(page, clean, raw) == ["部分之和。"]
+
+
+def test_figure_title_region_is_kept_as_a_caption_block() -> None:
+    # A figure/table title is printed text: it stays in the corpus even when
+    # no figure claims it (rotated or above-figure titles used to vanish).
+    page = {
+        "physical_page": 15, "width": 397, "height": 575,
+        "elements": [_line("图3.0.4 混接调查与治理环节示意图", 300)],
+        "regions": [{"region_id": "r1", "model_label": "figure_title",
+                     "bbox": [45, 295, 350, 315]}],
+    }
+    blocks = build_page_blocks(page)
+    assert [(b["_v3_role"], b["text"]) for b in blocks] == [
+        ("caption", "图3.0.4 混接调查与治理环节示意图")]
+    assert map_model_label("figure_title") == "caption"
+
+
+def _slot(kind: str, index: int, bbox: list[float], text: str = "", **extra) -> _PageItem:
+    return _PageItem(kind=kind, page=1, bbox=bbox, text=text, ref={"element_id": f"x{index}"},
+                     source_index=index, extra=dict(extra))
+
+
+def test_captionless_figures_take_the_nearest_figure_title() -> None:
+    from src.application.canonical_assembly import _pair_layout_captions
+
+    figures = [_slot("figure", 0, [160, 80, 245, 175]), _slot("figure", 1, [160, 220, 240, 310])]
+    titles = [_slot("text", 2, [135, 190, 257, 199], "图1 雨水立管断接示意图（一）", v3_role="caption"),
+              _slot("text", 3, [135, 319, 257, 328], "图2 雨水立管断接示意图（二）", v3_role="caption"),
+              _slot("text", 4, [50, 400, 300, 412], "图中尺寸以毫米计。", v3_role="paragraph")]
+    consumed: set[int] = set()
+    consumed_by: dict[int, list] = {}
+    _pair_layout_captions(figures + titles, consumed, consumed_by)
+    assert figures[0].extra["layout_caption"] == "图1 雨水立管断接示意图（一）"
+    assert figures[1].extra["layout_caption"] == "图2 雨水立管断接示意图（二）"
+    assert consumed == {2, 3}
+    assert consumed_by[0][0]["basis"] == "layout_figure_title_nearest"
+
+
+def test_equidistant_titles_bind_nothing() -> None:
+    from src.application.canonical_assembly import _pair_layout_captions
+
+    figure = _slot("figure", 0, [100, 100, 200, 200])
+    titles = [_slot("text", 1, [100, 210, 200, 220], "图1 甲", v3_role="caption"),
+              _slot("text", 2, [100, 80, 200, 90], "图2 乙", v3_role="caption")]
+    consumed: set[int] = set()
+    _pair_layout_captions([figure] + titles, consumed, {})
+    assert "layout_caption" not in figure.extra
+    assert consumed == set()
+
+
+def test_caption_line_inside_figure_box_is_not_dropped() -> None:
+    from src.ingestion.ocr_region_text import _in_caption_region, _inside_structured
+
+    image = {"kind": "image", "bbox": [56, 62, 342, 509]}
+    title = {"kind": "text", "model_label": "figure_title", "bbox": [332, 212, 342, 362]}
+    line = [331, 213, 342, 362]
+    assert _inside_structured(line, "图3.0.4 混接调查与治理环节示意图", [image])
+    assert _in_caption_region(line, [title])
+    assert not _in_caption_region([100, 100, 200, 110], [title])
+
+
+def test_only_a_table_recording_the_title_consumes_it() -> None:
+    from src.application.canonical_assembly import _table_keeps_caption
+
+    region = {"tables": [{"caption": "表7.1-2 单个混接点混接程度分级标准表"}]}
+    assert _table_keeps_caption(region, "表7.1-2  单个混接点混接程度分级标准表")
+    assert not _table_keeps_caption(region, "表7.1-2 中，污水流入水质的分级依据为：根据表5-1")
+    assert not _table_keeps_caption({"tables": [{"caption": None}]}, "表4.1.5 内涝防治设计重现期")
+
+
+def test_line_outside_every_layout_region_is_kept() -> None:
+    page = {
+        "physical_page": 5, "width": 595, "height": 842, "extraction_route": "native",
+        "elements": [_line("5.1.1 条文正文。", 100), _line("发文字号：建城〔2024〕18号", 400)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 95, 350, 115]}],
+    }
+    texts = [b["text"] for b in build_page_blocks(page)]
+    assert "发文字号：建城〔2024〕18号" in texts
+
+
+def test_equation_numbers_stay_out_of_column_detection() -> None:
+    page = {
+        "physical_page": 24, "width": 397, "height": 575,
+        "elements": [_line("4.1.22 截流井前合流管道的设计流量应按下式计算：", 186),
+                     {"element_id": "n1", "text": "(4.1.22)", "bbox": [298, 204, 342, 216]},
+                     _line("式中：Q——设计流量(L/s)；", 219)],
+        "regions": [{"region_id": "r1", "model_label": "text", "bbox": [45, 180, 345, 200]},
+                    {"region_id": "r2", "model_label": "formula_number", "bbox": [296, 202, 344, 218]},
+                    {"region_id": "r3", "model_label": "text", "bbox": [45, 217, 290, 233]}],
+    }
+    blocks = build_page_blocks(page)
+    assert [b["_v3_role"] for b in blocks][-1] == "formula_number"
+    assert blocks[0]["text"].startswith("4.1.22")
+
+
+def test_equation_number_binds_to_formula_on_its_row() -> None:
+    from src.application.canonical_assembly import _associate_adjacent_formula_numbers
+
+    formula = _slot("formula", 0, [156, 204, 235, 215])
+    other = _slot("text", 1, [46, 219, 178, 232], "式中：Q——设计流量(L/s)；", v3_role="clause")
+    number = _slot("text", 2, [298, 204, 342, 216], "(4. 1.22)", v3_role="formula_number")
+    consumed = _associate_adjacent_formula_numbers([formula, other, number])
+    assert consumed == {2}
+    assert formula.extra["adjacent_formula_number"] == "4.1.22"
+
+
+def test_partial_reading_does_not_cut_the_full_line() -> None:
+    text, rule, _ = merge_source_texts({
+        "pp_clean": "5.3.2 管道转弯和交接处，其水流转角不应小于90°。当管径小",
+        "pp_raw": None, "primary": "当管径小"})
+    assert text.startswith("5.3.2 管道转弯")
+    assert rule == "superset_over_partial_reading"
+    # pp_raw alone never wins on length: it carries watermark residue.
+    text, rule, _ = merge_source_texts({"pp_clean": None, "pp_raw": "当管径小水印残留",
+                                        "primary": "当管径小"})
+    assert rule != "superset_over_partial_reading"
+
+
+def test_overlap_dedup_keeps_whole_voted_name_row() -> None:
+    from src.ingestion.block_assembly import _deduplicate_overlapping_lines
+
+    parts = [
+        {"text": "周质炎", "bbox": [251, 413, 285, 426]},
+        {"text": "俞士静陆继诚周质炎", "bbox": [167, 413, 286, 427]},
+        {"text": "陆继诚", "bbox": [210, 414, 243, 425]},
+    ]
+    kept = _deduplicate_overlapping_lines(parts)
+    assert [item["text"] for item in kept] == ["俞士静陆继诚周质炎"]

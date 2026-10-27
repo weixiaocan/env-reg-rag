@@ -22,6 +22,8 @@ def audit_checkpoints(directory, jobs, config_hash):
         result = record['result']
         provenance = {'profile': 'layout-formula-v1:200dpi:score0.5:padding2point',
                       'model_checksums': result['model_checksums'], 'package_versions': result['package_versions']}
+        if 'layout_supplements_sha256' in result:
+            provenance['layout_supplements_sha256'] = result['layout_supplements_sha256']
         if hashlib.sha256(json.dumps(provenance, sort_keys=True).encode()).hexdigest() != config_hash:
             raise ValueError('checkpoint provenance mismatch')
         if (result.get('sha256') != sha or result.get('coordinate_system') != 'page_points_top_left'
