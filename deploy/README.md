@@ -2,7 +2,7 @@
 
 适用：一台装有 Docker（含 compose v2）和 HTTPS 反向代理的 Linux 服务器。服务器不需要访问 Docker Hub、PyPI 或 Hugging Face，镜像、向量库和资料都在部署包里。
 
-2026-10-15 的腾讯云演示实例使用现有 Caddy，公网入口为 `https://weixiaocan.com/rag/`。Caddy 把 `/rag/*`（去掉 `/rag` 前缀）、`/api/v1/*` 和 `/documents` 转发到 RAG 容器；个人站的其他路径仍走原服务。RAG 容器通过单独的 Compose override 加入现有 Caddy Docker 网络，应用和 Qdrant 的宿主机端口仍只绑定 `127.0.0.1`。调整代理容器后应重新核对其内网 IP 与 `FORWARDED_ALLOW_IPS` 的精确配置。
+腾讯云演示实例使用现有 Caddy，公网入口为 `https://weixiaocan.com/rag/`；2026-10-27 已部署 `corpus-b6e4850ef830`（4263 points）。Caddy 把 `/rag/*`（去掉 `/rag` 前缀）、`/api/v1/*` 和 `/documents` 转发到 RAG 容器；个人站的其他路径仍走原服务。RAG 容器通过单独的 Compose override 加入现有 Caddy Docker 网络，应用和 Qdrant 的宿主机端口仍只绑定 `127.0.0.1`。调整代理容器后应重新核对其内网 IP 与 `FORWARDED_ALLOW_IPS` 的精确配置。
 
 ## 1. 在开发机上打包
 
@@ -60,7 +60,7 @@ sudo bash /tmp/deploy-<语料版本>/server_install.sh /opt/drainage-rag
 2. 加载镜像；
 3. 解压代码和资料；
 4. 启动 Qdrant；
-5. 恢复向量库，并把 `corpus_v2_live` 指过去；
+5. 恢复向量库，核对 point 数与语料指针一致，再以单次 Qdrant action 批次切换 `corpus_v2_live`；
 6. 启动应用并等待就绪检查通过。
 
 升级时重新打包上传，再运行同一个脚本即可。

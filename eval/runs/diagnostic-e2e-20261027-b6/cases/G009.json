@@ -1,0 +1,29 @@
+{
+  "case": "G009",
+  "question": "福建省建筑与小区雨污混接改造技术标准附录示意图中，图1《雨水立管断接示意图（一）》的图注包含哪些主要部件？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G009",
+  "trace_missing": false,
+  "wall_ms": 1042.65,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.005,
+    "total": 1031.466
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

@@ -1,0 +1,29 @@
+{
+  "case": "G016",
+  "question": "对照GB 50014表4.1.4与GB 55027表3.4.2，超大城市与中等城市/小城市的城镇内涝防治设计重现期分别取多少？两表对道路积水深度的共同表述是什么？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G016",
+  "trace_missing": false,
+  "wall_ms": 1031.383,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.004,
+    "total": 1025.998
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

@@ -1,0 +1,57 @@
+{
+  "classification": "diagnostic (end-to-end via HTTP entry, real LLM, NOT formal)",
+  "status_distribution": {
+    "refused": 5,
+    "answered": 45
+  },
+  "denominators": {
+    "all_cases": 50,
+    "content_target_cases": 46,
+    "premise_cases": 2,
+    "refusal_cases": 2
+  },
+  "diagnostic_outcomes": {
+    "answered_needs_semantic_review": 44,
+    "correct_refusal": 3,
+    "generation_refusal": 2,
+    "premise_answer_needs_semantic_review": 1
+  },
+  "trace_missing_count": 0,
+  "failure_classes": {},
+  "latency_ms": {
+    "wall": {
+      "p50": 5897.74,
+      "p95": 15243.6,
+      "mean": 6963.47,
+      "n": 50
+    },
+    "retrieval_stage": {
+      "p50": 42.27,
+      "p95": 59.82,
+      "n": 50
+    },
+    "generation_stage": {
+      "p50": 5759.59,
+      "p95": 15076.46,
+      "n": 50
+    }
+  },
+  "token_usage_totals": {
+    "input_tokens": 126514,
+    "output_tokens": 24169,
+    "total_tokens": 150683,
+    "estimated_cost": 1.688844,
+    "currencies": [
+      "CNY"
+    ],
+    "pricing_statuses": [
+      "calculated"
+    ]
+  },
+  "budget": {
+    "authorized_cny": 8.0,
+    "per_call_reserve_cny": 0.5,
+    "estimated_spent_cny": 1.688844,
+    "completed_case_records": 50
+  }
+}

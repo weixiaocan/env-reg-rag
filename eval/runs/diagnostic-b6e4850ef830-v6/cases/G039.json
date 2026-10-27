@@ -1,0 +1,286 @@
+{
+  "id": "G039",
+  "question": "《城镇分流制排水系统雨污混接调查》征求意见稿中，图5-2的图名是什么？它表示哪类管网的混接筛查技术路线？",
+  "labels": {
+    "repr": [
+      "定义"
+    ],
+    "challenge": [
+      "图片",
+      "原文定位"
+    ],
+    "modality": [
+      "图片图注"
+    ]
+  },
+  "expected_facts": [
+    "图5-2为污水管网中雨水混接筛查技术路线",
+    "表示污水管网中雨水混接的筛查技术路线"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 0.5,
+    "latency_ms": 43.626,
+    "citable_evidence_count": 0,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": null,
+    "citable_recall_at_10": null,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 1,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "page": 28,
+      "element_ids": [
+        "e000207"
+      ],
+      "quote": "[图5-2 污水管网中雨水混接筛查技术路线]",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 2,
+      "match_rank": 2,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_1874313c15d9767dcffce249ac00dde6",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 2,
+      "locator_chunk_id": "chunk_1874313c15d9767dcffce249ac00dde6",
+      "locator_match_method": "quote_and_ids"
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_6f97577b5773619346b0cdc9ca2d0089",
+      "score": 0.833333,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        21,
+        22
+      ],
+      "element_ids": [
+        "e000162"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.1"
+      ],
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.1\n[图5-1 雨水管网中污水混接筛查技术路线]\n雨水管网中污水混接调查的技术路线如下图5-1 所示。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_1874313c15d9767dcffce249ac00dde6",
+      "score": 0.583333,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        27,
+        28
+      ],
+      "element_ids": [
+        "e000207"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.3"
+      ],
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.3\n[图5-2 污水管网中雨水混接筛查技术路线]\n污水管网中雨水混接筛查的技术路线如下图5-2 所示。",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_8452511c0e20c573df1888e29a7220be",
+      "score": 0.5,
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        7
+      ],
+      "element_ids": [
+        "e000058"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 目标、原则和要求",
+        "4.3.1"
+      ],
+      "text": "4 目标、原则和要求 > 4.3.1\n[图1 城镇分流制排水系统雨污混错接调查与治理工作技术路线图]\n4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_ac7b8d779786ffc7abd9ae9c74f22a27",
+      "score": 0.416667,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        23
+      ],
+      "element_ids": [
+        "e000167"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.1"
+      ],
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.1\n[附图2 基于节点水质监测的雨水管网中污水混接筛查示意图]",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_3adf907e5e2869bff9a0f75fddb1e28e",
+      "score": 0.342857,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        12
+      ],
+      "element_ids": [
+        "e000075"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 基本规定",
+        "3.0.3"
+      ],
+      "text": "3 基本规定 > 3.0.3\n[附图1 城镇分流制排水系统雨污混接调查与治理工作技术路线图]",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_fb510df8d5f55bb1036724d7373f1419",
+      "score": 0.2,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        21
+      ],
+      "element_ids": [
+        "e000155",
+        "e000156",
+        "e000157",
+        "e000158",
+        "e000159",
+        "e000160"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.1"
+      ],
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.1\n5.2.1 雨水管网中污水混接筛查，遵循以下方法：\n1. 针对雨水管网关键节点开展水质特征因子监测，原则上每个\n节点旱天连续监测1 天，每3～4 小时采样1 次，每个节点每天采集\n6～8 个水样；\n2. 若节点采集水样的水质平均浓度超出混接预判的参照值，则继\n续向上游区域开展溯源调查，否则可停止向上游区域溯源调查；\n3. 存在污水混接的上游区域内，若相邻节点的上下游水质特征因\n子浓度值升高，可判定为存在污水混接的区域。\n4. 对存在污水混接的区域，可加密节点水质监测，进一步缩小混\n接调查的范围。\n雨水管网中污水混接调查的技术路线如下图5-1 所示。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_20653b1704963e869e5aafadc6e5ef01",
+      "score": 0.166667,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        27
+      ],
+      "element_ids": [
+        "e000201",
+        "e000202",
+        "e000203",
+        "e000204",
+        "e000205"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域筛查",
+        "5.2 混接筛查方法",
+        "5.2.3"
+      ],
+      "text": "5 混接区域筛查 > 5.2 混接筛查方法 > 5.2.3\n5.2.3 污水管网中雨水混接的分区域水质特征因子调查方法为：\n1. 污水管网节点水质调查的基本指标包括氨氮、电导率；\n2. 在旱天和雨天分别针对污水管网节点开展水质调查，若同一监\n测节点雨天氨氮、电导率监测值低于旱天数值，则可初步判定节点上\n游区域污水管道有雨水接入；\n3. 在判定有雨水接入的区域，若雨天下游节点氨氮、电导率数值\n低于上游节点或者上下游节点氨氮、电导率数值接近、但是下游节点\n流量相对于上游节点明显增加，则可初步判定相邻上下游节点之间存\n在雨水接入污水管道。\n污水管网中雨水混接筛查的技术路线如下图5-2 所示。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_13f2fadcca9ef311b8f2cb8427a5737b",
+      "score": 0.153846,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        1
+      ],
+      "element_ids": [
+        "e000001",
+        "e000002",
+        "e000003",
+        "e000004",
+        "e000005",
+        "e000006"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "资料卡：城镇分流制排水系统雨污混接调查 征求意见稿\n类型：政策文件\n状态：征求意见稿\n中 国 工 程 建 设 协 会 标 准\n城镇分流制排水系统雨污混接调查\n及治理技术规程\nInvestigation and treatment regulation of inappropriate pollutant\nentries into storm drainage systems for separate system\n征求意见稿\n2018.11",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_9166ef759f357562d729dff9e1cfd0e8",
+      "score": 0.142857,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        63
+      ],
+      "element_ids": [
+        "e000526"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.2 混接调查",
+        "5.2.4"
+      ],
+      "text": "5 混接区域调查 > 5.2 混接调查 > 5.2.4\n5.2.4 基于水质和流量检测的雨水管道中污水混接区域调查，如\n图2所示，从雨水管道的排水口上溯，沿雨水主干管划分区域，在\n排水口和干管上的6个检查井设置检测点位，分别检测水质浓度\n和流量，用C1 、Q1 ，…，C7 、Q7 表示。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_ec1c924bb3bfc9a134e7fbff11ea93ab",
+      "score": 0.125,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        20
+      ],
+      "element_ids": [
+        "e000169"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.1 一 般规定",
+        "5.1.4"
+      ],
+      "text": "5 混接区域调查 > 5.1 一 般规定 > 5.1.4\n5.1.4 对通过调查识别存在雨污混接的区域，应对区域内居民小\n区、公共建筑、企事业单位、沿街商铺及洗车场所等做重点调查，调\n查记录的填写应符合本规程附录D的规定。",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

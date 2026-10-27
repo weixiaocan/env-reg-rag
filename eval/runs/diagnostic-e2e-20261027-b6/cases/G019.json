@@ -1,0 +1,29 @@
+{
+  "case": "G019",
+  "question": "对照《城镇分流制排水系统雨污混接调查》征求意见稿与T/CECS 758：前者表5-1给出生活污水中氨氮浓度的灰水/黑水均值大约是多少？后者规定单个混接点或混接源的混接程度可依据哪些要素评估？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G019",
+  "trace_missing": false,
+  "wall_ms": 1055.744,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.004,
+    "total": 1050.71
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

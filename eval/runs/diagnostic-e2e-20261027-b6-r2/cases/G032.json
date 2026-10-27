@@ -1,0 +1,492 @@
+{
+  "case": "G032",
+  "question": "按T/CMSA 0013，1小时降雨量8.0～19.9 mm属于哪个短时等级？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-r2-G032",
+  "trace_missing": false,
+  "wall_ms": 3092.593,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "按《短时气象服务降雨量等级》T/CMSA 0013—2019 表1，1小时降雨量8.0～19.9 mm属于短时暴雨等级。",
+        "evidence_ids": [
+          "chunk_d271c7d188c46978863c67c85bbe2e9d",
+          "chunk_9dd9a68e28bc287b49d12d8bdc4e2325"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_d271c7d188c46978863c67c85bbe2e9d",
+    "chunk_9dd9a68e28bc287b49d12d8bdc4e2325",
+    "chunk_da4a93091cd24e25cee0c424f5903eca",
+    "chunk_4887489d0d96bb712f00a7ded76435a9",
+    "chunk_b0336b956d5f915a30d7c991950672bd",
+    "chunk_f437593a48749342f42bc855ab5b76c5",
+    "chunk_dbe9b93c712e32705b74a425b1afec79",
+    "chunk_c5a9a9fce06df98d99c08cc97f70ebfb",
+    "chunk_feed80b022e093ac470538730d5308e5",
+    "chunk_1475b042bacb314a20070a9eafcf622a"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_d271c7d188c46978863c67c85bbe2e9d",
+      "text": "3 等级划分\n表1 短时气象服务降雨量等级划分表\n等级 | 时段 | 时段 | 时段\n等级 | 10分钟 | 30分钟 | 1小时\n短时小雨 | <0.5 | <1.0 | <2.0\n短时中雨 | 0.5~0.9 | 1.0~1.9 | 2.0~3.9\n短时大雨 | 1.0~1.9 | 2.0~3.9 | 4.0~7.9\n短时暴雨 | 2.0~4.9 | 4.0~9.9 | 8.0~19.9\n短时大暴雨 | 5.0~15.0 | 10.0~30.0 | 20.0~50.0\n短时特大暴雨 | >15.0 | >30.0 | >50.0",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d271c7d188c46978863c67c85bbe2e9d__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            50.958886443823125,
+            157.1222711491218,
+            529.9637371719226,
+            289.5088569854266
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_9dd9a68e28bc287b49d12d8bdc4e2325",
+      "text": "3 等级划分\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5,
+        6
+      ],
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_9dd9a68e28bc287b49d12d8bdc4e2325__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            70.8239974975586,
+            508.7989501953125,
+            538.8845825195312,
+            534.9589233398438
+          ]
+        },
+        {
+          "region_id": "chunk_9dd9a68e28bc287b49d12d8bdc4e2325__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            452.5,
+            145.5290069580078,
+            529.0,
+            154.5290069580078
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_da4a93091cd24e25cee0c424f5903eca",
+      "text": "资料卡：T/CMSA 0013-2019 短时气象服务降雨量等级TCMSA-2019\n标准号：T/CMSA 0013-2019\n类型：标准\nICS 29.050\nK10\nT/CMSA 0013—2019\n短时气象服务降雨量等级\nThe grade of rainfall in short time weather service\n2019 - 11 - 06 发布\n2019 - 11 - 06 实施\n中国气象服务协会 发布",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_da4a93091cd24e25cee0c424f5903eca__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            70.8239974975586,
+            47.688968658447266,
+            557.77001953125,
+            764.57958984375
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_4887489d0d96bb712f00a7ded76435a9",
+      "text": "1 范围\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "1 范围"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_4887489d0d96bb712f00a7ded76435a9__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            91.8239974975586,
+            212.34893798828125,
+            454.4200134277344,
+            238.5089111328125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b0336b956d5f915a30d7c991950672bd",
+      "text": "3 降雨过程强度等级划分\nrd——按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米(mm)。",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b0336b956d5f915a30d7c991950672bd__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            120.5,
+            659.9059197350809,
+            437.5,
+            670.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_f437593a48749342f42bc855ab5b76c5",
+      "text": "3 降雨过程强度等级划分\n[公式]\nT_{0}",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_f437593a48749342f42bc855ab5b76c5__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            87.44332515247766,
+            645.0263990737329,
+            98.39055545842714,
+            654.120661605855
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_dbe9b93c712e32705b74a425b1afec79",
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.5\n[公式]\n\\dot{D}_{\\mathrm{o}}.",
+      "document_version_id": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.5"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 51222-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_dbe9b93c712e32705b74a425b1afec79__p15",
+          "physical_page": 15,
+          "kind": "text",
+          "bbox": [
+            79.26736116224599,
+            377.7274319785315,
+            90.28428889895052,
+            386.6062108173556
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c5a9a9fce06df98d99c08cc97f70ebfb",
+      "text": "3 降雨过程强度等级划分\nT0——降雨过程持续时间，单位为天(d)，d取值范围[1，T0]；",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c5a9a9fce06df98d99c08cc97f70ebfb__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            85.5,
+            642.5,
+            374.5,
+            657.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_feed80b022e093ac470538730d5308e5",
+      "text": "参考文献\n[1] GB/T 27961－2011 气象服务分类术语\n[2] GB/T 28592－2012 降水量等级\n[3] QX/T 489－2019 降雨过程等级\n_________________________________",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        7
+      ],
+      "heading_path": [
+        "参考文献"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_feed80b022e093ac470538730d5308e5__p7",
+          "physical_page": 7,
+          "kind": "text",
+          "bbox": [
+            91.8239974975586,
+            155.70892333984375,
+            394.030029296875,
+            227.9009552001953
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_1475b042bacb314a20070a9eafcf622a",
+      "text": "2 术语和定义 > 2.2\n短时气象服务 short time weather service\n针对发生在较短时间内的天气而进行的监测、预警等气象服务。",
+      "document_version_id": "be1ed69415dd30e95f368fab0dfb717d5206da313b06b85fe0327e417649c966",
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "2 术语和定义",
+        "2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "T/CMSA 0013-2019",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_1475b042bacb314a20070a9eafcf622a__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            91.8239974975586,
+            430.7989501953125,
+            391.2699890136719,
+            456.95892333984375
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.005,
+    "retrieval": 37.374,
+    "context_expansion": 84.96,
+    "generation": 2960.423,
+    "validation": 0.012,
+    "total": 3082.852
+  },
+  "generate_context_evidence_ids": [
+    "chunk_d271c7d188c46978863c67c85bbe2e9d",
+    "chunk_9dd9a68e28bc287b49d12d8bdc4e2325",
+    "chunk_da4a93091cd24e25cee0c424f5903eca",
+    "chunk_4887489d0d96bb712f00a7ded76435a9",
+    "chunk_b0336b956d5f915a30d7c991950672bd"
+  ],
+  "trace_evidence_ids": [
+    "chunk_d271c7d188c46978863c67c85bbe2e9d",
+    "chunk_9dd9a68e28bc287b49d12d8bdc4e2325",
+    "chunk_da4a93091cd24e25cee0c424f5903eca",
+    "chunk_4887489d0d96bb712f00a7ded76435a9",
+    "chunk_b0336b956d5f915a30d7c991950672bd",
+    "chunk_f437593a48749342f42bc855ab5b76c5",
+    "chunk_dbe9b93c712e32705b74a425b1afec79",
+    "chunk_c5a9a9fce06df98d99c08cc97f70ebfb",
+    "chunk_feed80b022e093ac470538730d5308e5",
+    "chunk_1475b042bacb314a20070a9eafcf622a"
+  ],
+  "token_usage": {
+    "input_tokens": 1912,
+    "output_tokens": 125,
+    "total_tokens": 2037,
+    "estimated_cost": 0.018796,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按T/CMSA 0013，1小时降雨量8.0～19.9 mm属于哪个短时等级？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_d271c7d188c46978863c67c85bbe2e9d",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          6
+        ],
+        "text": "3 等级划分\n表1 短时气象服务降雨量等级划分表\n等级 | 时段 | 时段 | 时段\n等级 | 10分钟 | 30分钟 | 1小时\n短时小雨 | <0.5 | <1.0 | <2.0\n短时中雨 | 0.5~0.9 | 1.0~1.9 | 2.0~3.9\n短时大雨 | 1.0~1.9 | 2.0~3.9 | 4.0~7.9\n短时暴雨 | 2.0~4.9 | 4.0~9.9 | 8.0~19.9\n短时大暴雨 | 5.0~15.0 | 10.0~30.0 | 20.0~50.0\n短时特大暴雨 | >15.0 | >30.0 | >50.0"
+      },
+      {
+        "evidence_id": "chunk_9dd9a68e28bc287b49d12d8bdc4e2325",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          5,
+          6
+        ],
+        "text": "3 等级划分\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）"
+      },
+      {
+        "evidence_id": "chunk_da4a93091cd24e25cee0c424f5903eca",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "资料卡：T/CMSA 0013-2019 短时气象服务降雨量等级TCMSA-2019\n标准号：T/CMSA 0013-2019\n类型：标准\nICS 29.050\nK10\nT/CMSA 0013—2019\n短时气象服务降雨量等级\nThe grade of rainfall in short time weather service\n2019 - 11 - 06 发布\n2019 - 11 - 06 实施\n中国气象服务协会 发布"
+      },
+      {
+        "evidence_id": "chunk_4887489d0d96bb712f00a7ded76435a9",
+        "usage_policy": "answer_and_citation",
+        "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "1 范围\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。"
+      },
+      {
+        "evidence_id": "chunk_b0336b956d5f915a30d7c991950672bd",
+        "usage_policy": "answer_and_citation",
+        "file_name": "降雨过程强度等级标准.pdf",
+        "physical_pages": [
+          6
+        ],
+        "text": "3 降雨过程强度等级划分\nrd——按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米(mm)。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.03566
+}

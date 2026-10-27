@@ -1,0 +1,263 @@
+{
+  "id": "G024",
+  "question": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》提到要建设什么样的样板区？",
+  "labels": {
+    "repr": [
+      "定义",
+      "流程要求"
+    ],
+    "challenge": [
+      "同义表达"
+    ]
+  },
+  "expected_facts": [
+    "提出建设城市污水管网全覆盖样板区"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 0.5,
+    "latency_ms": 45.453,
+    "citable_evidence_count": 1,
+    "citable_matched_at_5": 1,
+    "citable_matched_at_10": 1,
+    "citable_recall_at_5": 1.0,
+    "citable_recall_at_10": 1.0,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 0,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": null,
+    "locator_only_recall_at_10": null
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "page": 3,
+      "element_ids": [
+        "e000006",
+        "e000007"
+      ],
+      "quote": "水收集和处理设施短板，建设城市污水管网全覆盖样板区”。\n为此，住房城乡建设部、生态环境部、国家发展改革委、财政\n部、市场监管总局5部门联合印发了《住房城乡建设部等5部门\n关于加强城市生活污水管网建设和运行维护的通知》（建城\n〔2024〕18号）。\n为指导各地加强城市生活污水管网建设和运行维护，加快\n推进城市生活污水管网全覆盖，建设管网运行维护长效机制，\n切实提升城市生活污水收集效能，改善城市人居环境，助力城\n市高质量发展，制定本工作指南。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 2,
+      "match_rank": 2,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_a29f3733919ead27564705cc625f3faa",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 2,
+      "citable_chunk_id": "chunk_a29f3733919ead27564705cc625f3faa",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_23efe9b076df490c42a1962e018aa234",
+      "score": 0.833333,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        1
+      ],
+      "element_ids": [
+        "e000001",
+        "e000002",
+        "e000003",
+        "e000004"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [],
+      "text": "资料卡：《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》\n类型：政策文件\n推进城市生活污水管网全覆盖\n及厂网一体长效机制建设工作指南\n(第一版)\n住房城乡建设部城市建设司\n2025年1月",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_a29f3733919ead27564705cc625f3faa",
+      "score": 0.75,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        3
+      ],
+      "element_ids": [
+        "e000006",
+        "e000007"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [],
+      "text": "党的二十大报告提出，要建设人与自然和谐共生的中国式\n现代化，推进美丽中国建设。2023年，习近平总书记在中央经\n济工作会议上强调，城市地下管网是城市的“里子”工程，这\n个工程投资潜力大，带动能力强。《中共中央、国务院关于全\n面推进美丽中国建设的意见》明确提出，要“加快补齐城镇污\n水收集和处理设施短板，建设城市污水管网全覆盖样板区”。\n为此，住房城乡建设部、生态环境部、国家发展改革委、财政\n部、市场监管总局5部门联合印发了《住房城乡建设部等5部门\n关于加强城市生活污水管网建设和运行维护的通知》（建城\n〔2024〕18号）。\n为指导各地加强城市生活污水管网建设和运行维护，加快\n推进城市生活污水管网全覆盖，建设管网运行维护长效机制，\n切实提升城市生活污水收集效能，改善城市人居环境，助力城\n市高质量发展，制定本工作指南。",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_8b28a21e8d01b16db4237f4be298b79b",
+      "score": 0.5,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000017"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1.1 编制目的"
+      ],
+      "text": "1.1 编制目的\n指导各地以实际问题为导向，通过行之有效的工程措施和管\n理举措，系统实施污水管网建设运行问题识别、诊断与整治，加\n快推进城市生活污水管网全覆盖，建立健全管网运行维护长效\n机制，切实提升城市生活污水收集效能，实现排水行业可持续发\n展，改善城市人居环境，建设美丽城市。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_c997bf0f91101f735820e81a68b6a175",
+      "score": 0.276923,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000019"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1.2 工作目标"
+      ],
+      "text": "1.2 工作目标\n各地稳步有序推进城市生活污水管网全覆盖，基本解决生活\n污水直排问题，雨天不发生引起城市水体大面积返黑返臭的溢流；\n结合费价机制改革、管网建设和运行维护体制机制改革，逐步建\n立污水管网专业化运行维护长效机制，全面落实城市污水排入排\n水管网许可。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_54d16ff20bbf11baa6840fd9b99b9412",
+      "score": 0.25,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        91
+      ],
+      "element_ids": [
+        "e000532"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 什么是“按效付费”"
+      ],
+      "text": "1 什么是“按效付费”\n“按效付费”是指构建的以提升生活污水污染物收集效能为导向的\n绩效考核体系，根据污水管网的运行维护情况，对第三方运行维护单位\n实行绩效考核、按效付费。通常将污水管网干管浓度（污水处理厂进水\n浓度）、管网运维质量（包括但不限于运行维护频次、管网和泵站运行\n水位、污水溢流情况等）等作为绩效考核指标，由排水主管部门组织开\n展绩效考核，按考核结果支付服务费。实行“厂网一体”、“按效付\n费”，目的是提升污水管网建设改造质量和运行维护水平。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_ae2626bc91bbc2dff69eb663cc7b917f",
+      "score": 0.24359,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        74
+      ],
+      "element_ids": [
+        "e000428"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "三、 取得的效果",
+        "4.3 科学推进新建城区污水管网建设"
+      ],
+      "text": "三、 取得的效果 > 4.3 科学推进新建城区污水管网建设\n应基于城市降雨规律、地表水系特征、浅层地下水水位\n等自然条件，合理制定城市污水收集处理系统的发展目标和\n建设指标，污水管网建设宜与城市地块开发，尤其是城市市\n政道路工程建设同步推进。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_e1d4847e54e5891f2519de1b47df1eda",
+      "score": 0.22619,
+      "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+      "physical_pages": [
+        4
+      ],
+      "element_ids": [
+        "e000021"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "四、 完善管网运行维护机制",
+        "（九） 持续推进“厂网一体”专业化运行维护。各地要完善城"
+      ],
+      "text": "四、 完善管网运行维护机制 > （九） 持续推进“厂网一体”专业化运行维护。各地要完善城\n（九）持续推进“厂网一体”专业化运行维护。各地要完善城\n市生活污水管网建设管理体制和机制，鼓励组建城市生活污水管网\n专业企业，实行“厂网一体”专业化运行维护。排水主管部门要构\n建以污染物收集效能为导向的管网运行维护绩效考核体系和付费体\n系，对污水处理厂和管网联动按效付费。以提升污水收集处理效能\n为目标，建设城市污水管网全覆盖样板区。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_98659dfed1fc76c6422531a332da23a1",
+      "score": 0.215909,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        17,
+        18
+      ],
+      "element_ids": [
+        "e000060",
+        "e000061",
+        "e000062",
+        "e000063",
+        "e000065"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "2 加强系统谋划",
+        "2.2 科学制定“一厂一策”系统化整治方案"
+      ],
+      "text": "2 加强系统谋划 > 2.2 科学制定“一厂一策”系统化整治方案\n3. 方案措施要抓住主要问题和问题的主要方面，优先采取提升效果\n和投资效益明显、实施条件便利的措施，逐步实现污水管网效能的稳步\n提升。解决污水系统高水位、低流速运行问题时，应重点查找和解决\n“清水”进入问题，而不仅仅是只做污水管网结构性和功能性缺陷修\n复。\n4. 问题成因、方案措施、项目生成、效果目标要实现闭环。方案编\n制的目的是系统谋划污水管网建设改造项目清单，指导开展污水管网建\n设改造工程前期工作，生成的项目内容应包含工程类型、主要工程内\n容、工程范围、工程投资、工程目标及工程实施期限等，工程项目要区\n分轻重缓急。\n5. 应强化污水管网建设运维长效机制建设。坚持“三分建、七分\n管”，建立健全排水管理长效机制，可包括：生活污水接入服务和管理\n制度、污水管网专业化运维机制、周期性排查检测制度、河湖水位与排\n水管网水位协调机制等。\n6. 根据工作推进情况及时动态修订方案。推进污水管网全覆盖是一\n项系统性、长期性的工作，需要在实施效果动态评估的基础上及时修订\n方案，以确保方案的有效性和指导性。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_7b8af4fc43fa873a5d8ace5674df57dd",
+      "score": 0.2,
+      "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+      "physical_pages": [
+        1
+      ],
+      "element_ids": [
+        "e000006"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "一、 工作目标"
+      ],
+      "text": "一、 工作目标\n以效能提升为核心，以管网补短板为重点，坚持问题导向、重\n点突破、建管并举、系统整治、精准施策，推动建立厂网统筹的城\n市生活污水专业化运行维护管理模式。到2027年，基本消除城市建\n成区生活污水直排口和设施空白区，城市生活污水集中收集率达到\n73%以上，城市生活污水收集处理综合效能显著提升。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_75095ab798e8f1e272b78a8ff3b7532f",
+      "score": 0.196429,
+      "file_name": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+      "physical_pages": [
+        58
+      ],
+      "element_ids": [
+        "e000306"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 完善管网体系",
+        "4.1 加快推进管网改造和建设",
+        "4.1.2"
+      ],
+      "text": "4 完善管网体系 > 4.1 加快推进管网改造和建设 > 4.1.2\n同时，该市按照“厂网一体”化模式，将市区污水处理厂和污水管\n网的排查检测、新建、改造和运行打包，采用特许经营模式委托本地排\n水公司统一实施。政府以服务费的形式向排水公司支付相关费用，并通\n过财政预算予以明确，有力地保障了管网建设运维专业化。",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

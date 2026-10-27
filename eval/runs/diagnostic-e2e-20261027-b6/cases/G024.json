@@ -1,0 +1,29 @@
+{
+  "case": "G024",
+  "question": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》提到要建设什么样的样板区？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G024",
+  "trace_missing": false,
+  "wall_ms": 1059.978,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.011,
+    "total": 1052.322
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

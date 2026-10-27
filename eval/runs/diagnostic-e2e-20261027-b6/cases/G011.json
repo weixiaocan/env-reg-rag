@@ -1,0 +1,29 @@
+{
+  "case": "G011",
+  "question": "按福建标准表1《生活污水水质特征因子浓度》，以洗涤废水为主要特点的灰水氨氮浓度均值是多少？黑水氨氮均值是多少？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G011",
+  "trace_missing": false,
+  "wall_ms": 1045.293,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.004,
+    "total": 1039.461
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

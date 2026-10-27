@@ -1,0 +1,29 @@
+{
+  "case": "G033",
+  "question": "GB 50014规定交通枢纽在内涝防治设计重现期下的最大允许退水时间是多少？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G033",
+  "trace_missing": false,
+  "wall_ms": 1052.155,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.006,
+    "total": 1041.807
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

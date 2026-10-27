@@ -1,0 +1,524 @@
+{
+  "case": "G040",
+  "question": "按《武汉市排水管道混错接改造技术规程》表1，区域雨水管道中污水混错接程度怎样分级？若某区域混错接密度为8%、混错接水量比为20%，属于哪一级？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-r2-G040",
+  "trace_missing": false,
+  "wall_ms": 16595.697,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "按《武汉市排水管道混错接改造技术规程》表1，区域雨水管道中污水混错接程度分为三级，以混错接密度（M）和混错接水量比（C污）任一指标高值的原则确定等级。",
+        "evidence_ids": [
+          "chunk_0b33069dd7ff3a4e5248b76090969ada",
+          "chunk_7a5ed5f34e287bdb44b98b0334491a63"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "具体分级如下：",
+        "evidence_ids": [
+          "chunk_0b33069dd7ff3a4e5248b76090969ada"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "\n\n- 重度混错接（3级）：混错接密度 >10%以上，混错接水量比 >30%以上\n- 中度混错接（2级）：混错接密度 5%~10%，混错接水量比 10%~30%\n- 轻度混错接（1级）：混错接密度 <0~5%，混错接水量比 <0~10%\n\n某区域混错接密度为8%、混错接水量比为20%，两项指标均落在中度混错接（2级）范围内，因此该区域属于中度混错接（2级）。",
+        "evidence_ids": [
+          "chunk_0b33069dd7ff3a4e5248b76090969ada",
+          "chunk_7a5ed5f34e287bdb44b98b0334491a63"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-4",
+        "text": "\n\n混错接密度的计算公式为：\nM_污 = n_污 ÷ N × 100%\n式中：M_污为雨水管道中污水混错接密度；n_污为雨水管道中污水混错接点数或用户数（混错接的居民小区、公共建筑等）；N为排水管道服务区域内总排水用户数（居民小区、公共建筑等）。",
+        "evidence_ids": [
+          "chunk_88853b9afc6d73700dae8dbb9381f606"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_4ca27afaf6a7994da9a194c8c73402ee",
+    "chunk_0b33069dd7ff3a4e5248b76090969ada",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_88853b9afc6d73700dae8dbb9381f606",
+    "chunk_60f7e8c7f6119df5b21a48419135c867",
+    "chunk_7a5ed5f34e287bdb44b98b0334491a63",
+    "chunk_4fe202922a420492802efce3c9f78dff",
+    "chunk_5ebac2338efad9ec093d5e282746768a",
+    "chunk_ba0fbf402b64aa9c12d9cee47319e64b",
+    "chunk_ef62230d8a6ba6b73109df74913aa464"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_4ca27afaf6a7994da9a194c8c73402ee",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n表2 区域污水管道中雨水混错接程度分级评估及治理建议表\n区域混错接程度 | 混错接密度和混错接水量比 | 混错接密度和混错接水量比\n区域混错接程度 | 混错接密度（M) _ | 混错接水量比（C雨）\n重度混错接（3级） | >10%以上 | >50%以上\n中度混错接（2级） | 5%~10% | 30%~50%\n轻度混错接（1级） | <0~5% | <0~30%",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        13
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.5.5"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_4ca27afaf6a7994da9a194c8c73402ee__p13",
+          "physical_page": 13,
+          "kind": "text",
+          "bbox": [
+            86.90204945623316,
+            222.8672045197572,
+            521.3082552080053,
+            306.8855864467922
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_0b33069dd7ff3a4e5248b76090969ada",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n表1 区域雨水管道中污水混错接程度分级评估及治理建议表\n区域混错接程度 | 混错接密度和混错接水量比 | 混错接密度和混错接水量比\n区域混错接程度 | 混错接密度（M) | 混错接水量比 （C污）\n重度混错接（3级） | >10%以上 | >30%以上\n中度混错接（2级） | 5%~10% | 10%~30%\n轻度混错接（1级） | <0~5% | <0~10%",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        13
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.5.5"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0b33069dd7ff3a4e5248b76090969ada__p13",
+          "physical_page": 13,
+          "kind": "text",
+          "bbox": [
+            87.38164883312469,
+            107.26188615391246,
+            521.1304004314067,
+            190.9657413840466
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+      "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "1 范围"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            70.91998291015625,
+            174.773681640625,
+            538.8125,
+            232.125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_88853b9afc6d73700dae8dbb9381f606",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n[公式 3]\nM_{污}=n_{污}\\div N\\times100\\%\n式中：\nM 污——雨水管道中污水混错接密度；\nn 污——雨水管道中污水混错接点数或用户数（混错接的居民小区、公共建筑等）；\nN——排水管道服务区域内总排水用户数（居民小区、公共建筑等）。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        12
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.5.5"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_88853b9afc6d73700dae8dbb9381f606__p12",
+          "physical_page": 12,
+          "kind": "text",
+          "bbox": [
+            77.63421630859375,
+            280.0266344732214,
+            456.1286926269531,
+            375.3590087890625
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_60f7e8c7f6119df5b21a48419135c867",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.8.3 定性评估后，宜按雨水管道中污水混错接、污水管道中雨水混错接分类，并分别进行定量计算。\n单元混错接状况可根据混错接密度（M）和混错接水量比（C）来确定，确定方法如下：",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        12
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.5.5"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_60f7e8c7f6119df5b21a48419135c867__p12",
+          "physical_page": 12,
+          "kind": "text",
+          "bbox": [
+            56.645751953125,
+            211.97755432128903,
+            524.4866333007812,
+            255.64312744140625
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_7a5ed5f34e287bdb44b98b0334491a63",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.8.4 根据混错接密度（M）和混错接水量比（C），区域混错接程度分为三级：重度混错接（3 级）、\n中度混错接（2 级）、轻度混错接（1 级），以任一指标高值的原则确定等级，详见表1 和表2。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        12
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.5.5"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_7a5ed5f34e287bdb44b98b0334491a63__p12",
+          "physical_page": 12,
+          "kind": "text",
+          "bbox": [
+            56.657257080078125,
+            665.9375610351562,
+            524.5391845703125,
+            725.2031860351562
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_4fe202922a420492802efce3c9f78dff",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n[公式 6]\nC_{雨}=\\left|Q_{雨}-Q\\right|\\div Q\\times100\\%\n式中：\nC 雨——混错接水量比，指污水管道中混错接的雨水量占区域内总污水产生量的比值；\nQ雨——污水管道雨天输送水量，m³/d。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        12
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.5.5"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_4fe202922a420492802efce3c9f78dff__p12",
+          "physical_page": 12,
+          "kind": "text",
+          "bbox": [
+            56.657257080078125,
+            614.1904392983381,
+            524.5391845703125,
+            725.2031860351562
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_5ebac2338efad9ec093d5e282746768a",
+      "text": "7 雨污混接状况评估 > 7.2 评估指标与方法 > 7.2.3\n7.2.3 区域雨污水管道混接程度应依据混接密度进行评估。区\n域混接密度可按下式计算：",
+      "document_version_id": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        29
+      ],
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.2 评估指标与方法",
+        "7.2.3"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "standard_number": "T/CECS 758-2020",
+      "publication_date": "2020-10-09",
+      "effective_from": "2021-03-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_5ebac2338efad9ec093d5e282746768a__p29",
+          "physical_page": 29,
+          "kind": "text",
+          "bbox": [
+            44.0,
+            143.88619995117188,
+            341.0,
+            171.87498474121094
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_ba0fbf402b64aa9c12d9cee47319e64b",
+      "text": "7 雨污混接状况评估 > 7.2 评估指标与方法 > 7.2.4\n表7.2.4\n区域混接程度分级\n混接密度(个/km) | >10 | 5~10 | <5\n混接程度 | 重度混接(3级) | 中度混接(2级) | 轻度混接(1级)",
+      "document_version_id": "f3b23a4668270f1612eb55f6ea90bc528b57e95ab36496901e6651102d330941",
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        29
+      ],
+      "heading_path": [
+        "7 雨污混接状况评估",
+        "7.2 评估指标与方法",
+        "7.2.4"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "standard_number": "T/CECS 758-2020",
+      "publication_date": "2020-10-09",
+      "effective_from": "2021-03-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_ba0fbf402b64aa9c12d9cee47319e64b__p29",
+          "physical_page": 29,
+          "kind": "text",
+          "bbox": [
+            45.020236883554794,
+            285.24053271986014,
+            340.42843283138706,
+            318.01908149029225
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_ef62230d8a6ba6b73109df74913aa464",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n[公式]\nC_{ 济 }",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        12
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.5.5"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_ef62230d8a6ba6b73109df74913aa464__p12",
+          "physical_page": 12,
+          "kind": "text",
+          "bbox": [
+            76.74414388032658,
+            434.2704475431131,
+            92.4482472386682,
+            444.5821074817
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.006,
+    "retrieval": 39.895,
+    "context_expansion": 103.838,
+    "generation": 16445.791,
+    "validation": 0.031,
+    "total": 16589.657
+  },
+  "generate_context_evidence_ids": [
+    "chunk_4ca27afaf6a7994da9a194c8c73402ee",
+    "chunk_0b33069dd7ff3a4e5248b76090969ada",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_88853b9afc6d73700dae8dbb9381f606",
+    "chunk_60f7e8c7f6119df5b21a48419135c867",
+    "chunk_7a5ed5f34e287bdb44b98b0334491a63"
+  ],
+  "trace_evidence_ids": [
+    "chunk_4ca27afaf6a7994da9a194c8c73402ee",
+    "chunk_0b33069dd7ff3a4e5248b76090969ada",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_88853b9afc6d73700dae8dbb9381f606",
+    "chunk_60f7e8c7f6119df5b21a48419135c867",
+    "chunk_7a5ed5f34e287bdb44b98b0334491a63",
+    "chunk_4fe202922a420492802efce3c9f78dff",
+    "chunk_5ebac2338efad9ec093d5e282746768a",
+    "chunk_ba0fbf402b64aa9c12d9cee47319e64b",
+    "chunk_ef62230d8a6ba6b73109df74913aa464"
+  ],
+  "token_usage": {
+    "input_tokens": 2489,
+    "output_tokens": 1123,
+    "total_tokens": 3612,
+    "estimated_cost": 0.051356,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按《武汉市排水管道混错接改造技术规程》表1，区域雨水管道中污水混错接程度怎样分级？若某区域混错接密度为8%、混错接水量比为20%，属于哪一级？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_4ca27afaf6a7994da9a194c8c73402ee",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n表2 区域污水管道中雨水混错接程度分级评估及治理建议表\n区域混错接程度 | 混错接密度和混错接水量比 | 混错接密度和混错接水量比\n区域混错接程度 | 混错接密度（M) _ | 混错接水量比（C雨）\n重度混错接（3级） | >10%以上 | >50%以上\n中度混错接（2级） | 5%~10% | 30%~50%\n轻度混错接（1级） | <0~5% | <0~30%"
+      },
+      {
+        "evidence_id": "chunk_0b33069dd7ff3a4e5248b76090969ada",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          13
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n表1 区域雨水管道中污水混错接程度分级评估及治理建议表\n区域混错接程度 | 混错接密度和混错接水量比 | 混错接密度和混错接水量比\n区域混错接程度 | 混错接密度（M) | 混错接水量比 （C污）\n重度混错接（3级） | >10%以上 | >30%以上\n中度混错接（2级） | 5%~10% | 10%~30%\n轻度混错接（1级） | <0~5% | <0~10%"
+      },
+      {
+        "evidence_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。"
+      },
+      {
+        "evidence_id": "chunk_88853b9afc6d73700dae8dbb9381f606",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n[公式 3]\nM_{污}=n_{污}\\div N\\times100\\%\n式中：\nM 污——雨水管道中污水混错接密度；\nn 污——雨水管道中污水混错接点数或用户数（混错接的居民小区、公共建筑等）；\nN——排水管道服务区域内总排水用户数（居民小区、公共建筑等）。"
+      },
+      {
+        "evidence_id": "chunk_60f7e8c7f6119df5b21a48419135c867",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.8.3 定性评估后，宜按雨水管道中污水混错接、污水管道中雨水混错接分类，并分别进行定量计算。\n单元混错接状况可根据混错接密度（M）和混错接水量比（C）来确定，确定方法如下："
+      },
+      {
+        "evidence_id": "chunk_7a5ed5f34e287bdb44b98b0334491a63",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n5.8.4 根据混错接密度（M）和混错接水量比（C），区域混错接程度分为三级：重度混错接（3 级）、\n中度混错接（2 级）、轻度混错接（1 级），以任一指标高值的原则确定等级，详见表1 和表2。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.309948
+}

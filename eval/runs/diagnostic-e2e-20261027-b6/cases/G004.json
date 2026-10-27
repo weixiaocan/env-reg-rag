@@ -1,0 +1,29 @@
+{
+  "case": "G004",
+  "question": "对照“十四五”全国城市基础设施建设规划表1与“十四五”城镇污水处理及资源化利用规划，2020年城市污水处理率是多少？到2025年全国城市生活污水集中收集率力争达到多少？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G004",
+  "trace_missing": false,
+  "wall_ms": 1049.787,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.004,
+    "total": 1044.698
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

@@ -1,0 +1,29 @@
+{
+  "case": "G026",
+  "question": "工作指南前言要求建设什么样的样板区？后文关于绩效考核时，提出建立以什么为核心的绩效评价体系并对管网运维单位按效付费？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G026",
+  "trace_missing": false,
+  "wall_ms": 1028.961,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.004,
+    "total": 1020.714
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

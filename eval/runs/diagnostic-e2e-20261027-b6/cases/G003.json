@@ -1,0 +1,29 @@
+{
+  "case": "G003",
+  "question": "“十四五”全国城市基础设施建设规划表中，2020年城市污水处理率是多少？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G003",
+  "trace_missing": false,
+  "wall_ms": 1057.961,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.003,
+    "total": 1048.69
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

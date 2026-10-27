@@ -1,0 +1,284 @@
+{
+  "id": "G034",
+  "question": "GB 50014表中，各种屋面、混凝土或沥青路面的径流系数取值范围是多少？",
+  "labels": {
+    "repr": [
+      "数值",
+      "表格"
+    ],
+    "challenge": [
+      "表格",
+      "相似干扰"
+    ],
+    "modality": [
+      "表格"
+    ]
+  },
+  "expected_facts": [
+    "径流系数约为0.85~0.95"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 1.0,
+    "latency_ms": 45.917,
+    "citable_evidence_count": 1,
+    "citable_matched_at_5": 1,
+    "citable_matched_at_10": 1,
+    "citable_recall_at_5": 1.0,
+    "citable_recall_at_10": 1.0,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 0,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": null,
+    "locator_only_recall_at_10": null
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "page": 22,
+      "element_ids": [
+        "e000233"
+      ],
+      "quote": "表4.1.8-1径流系数\n地面种类 | 径流系数\n各种屋面、混凝土或沥青路面 | 0.85~0.95\n大块石铺砌路面或沥青表面各种的碎石路面 | 0.55~0.65\n级配碎石路面 | 0.40~0.50\n干砌砖石或碎石路面 | 0.35~0.40",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_a3ee468af055e9cb6f51f242df81423f",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 1,
+      "citable_chunk_id": "chunk_a3ee468af055e9cb6f51f242df81423f",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_a3ee468af055e9cb6f51f242df81423f",
+      "score": 1.0,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "element_ids": [
+        "e000233"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.8"
+      ],
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.8\n表4.1.8-1径流系数\n地面种类 | 径流系数\n各种屋面、混凝土或沥青路面 | 0.85~0.95\n大块石铺砌路面或沥青表面各种的碎石路面 | 0.55~0.65\n级配碎石路面 | 0.40~0.50\n干砌砖石或碎石路面 | 0.35~0.40\n非铺砌土路面 | 0.25~0.35\n公园或绿地 | 0.10~0.20",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_caaad75c0b93131c82b4c01f8d97a49e",
+      "score": 0.444444,
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        20
+      ],
+      "element_ids": [
+        "e000165"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量",
+        "5.2.4"
+      ],
+      "text": "5 雨水系统 > 5.2 雨水量 > 5.2.4\n表5. 2. 4\n综合径流系数\n区域情况 | 综合径流系数（Ψ) | 综合径流系数（Ψ)\n区域情况 | 雨水排放系统 | 防涝系统\n城市建筑密集区 | 0.60~0.70 | 0.80~1.00\n城市建筑较密集区 | 0.45~0.60 | 0.60~0.80\n城市建筑稀疏区 | 0.20~0.45 | 0.40~0.60",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_fdc12f87c29e08eaceafa322e48064c5",
+      "score": 0.388889,
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        50,
+        51
+      ],
+      "element_ids": [
+        "e000413",
+        "e000414",
+        "e000415",
+        "e000416",
+        "e000418",
+        "e000419"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量水",
+        "5.2.4"
+      ],
+      "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.4\n5.2.4 本条规定了综合径流系数的取值范围。\n城市建筑稀疏区是指公园、绿地等用地，城市建筑密集区是\n指城市中心区等建筑密度高的区域，城市建筑较密集区是指上述\n两类区域以外的城市规划建设用地。\n综合径流系数应考虑城市规划用地的下垫面情况，如不透水\n下垫面的比例、土壤渗透能力以及地下水埋深等的影响。相同条\n件下，不透水下垫面比例高的场地，其综合径流系数取值应高于\n不透水下垫面比例低的场地；土壤渗透能力弱的场地，其综合径\n流系数取值应高于土壤渗透能力强的场地。\n推行低影响开发建设模式能够在一定程度上降低场地的综合\n径流系数，对雨水进行源头削峰、减量、降污。随着海绵城市建\n设的逐渐推进，低影响开发模式正在城市建设过程中实施，规划\n审批环节也将逐步完善。因此，在确定雨水管道及设施规模时，\n考虑源头减排系统对径流系数取值的影响，综合径流系数的取值\n采用表5.2.4的数值，对于没有采用低影响理念进行建设的城市\n或区域，市政管道设计径流系数可取上限值或按实际情况取值。\n防涝系统的综合径流系数的取值范围高于雨水排放系统，主\n要是考虑到以下两个方面的因素：",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_4f28fc329fef9c8f08f69de91bef6419",
+      "score": 0.25,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        24
+      ],
+      "element_ids": [
+        "e000227"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量",
+        "5.4.2"
+      ],
+      "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\nk——浮标法测定的表面流速与断面平均流速之间的修正系数，取0.8～0.9。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_c4fcd7d5c6b57697bfd2a14599b45726",
+      "score": 0.25,
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        51
+      ],
+      "element_ids": [
+        "e000423"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量水",
+        "5.2.4"
+      ],
+      "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.4\n表2\n《昆士兰州城市排水手册》中的综合径流系数重现期修正参数\n重现期（年） | 综合径流系数重现期修正参数\n1 | 0.80\n2 | 0.85\n3 | 0.95\n10 | 1.00\n20 | 1.05\n50 | 1.15\n100 | 1.20\n注：根据《澳大利亚降雨与径流》（1998）的建议，城区内修正后的综合径流系数",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_97d34434dc6934b847181ee0424f5ac6",
+      "score": 0.233766,
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        20
+      ],
+      "element_ids": [
+        "e000164"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量",
+        "5.2.4"
+      ],
+      "text": "5 雨水系统 > 5.2 雨水量 > 5.2.4\n5.2.4 综合径流系数可按表5.2.4的规定取值。城市开发建设\n应采用低影响开发建设模式，降低综合径流系数。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_6b0aa67270ddf3f0035b336e8bdd22ad",
+      "score": 0.225,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "element_ids": [
+        "e000212"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n式中：k地面截留系数，用混凝土、沥青或砖石铺装的地面取\n6.19，未铺装地面取4.91。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_7a4e9cd1b0c5c44254c6dda757b27fe5",
+      "score": 0.2,
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        51
+      ],
+      "element_ids": [
+        "e000420",
+        "e000421",
+        "e000422"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量水",
+        "5.2.4"
+      ],
+      "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.4\n1 防涝系统的设计重现期高于雨水排放系统，渗透、蒸发、\n植被截留等对其设计径流量的削减程度相对较低。\n2 雨水的渗透、蒸发与植被截留作用随着降雨历时的延长\n而逐渐减弱，设计降雨峰值出现时，上述作用会大大降低，甚至\n已不明显。\n防涝系统的综合径流系数的取值范围，是在雨水排放系统综\n合径流系数取值范围的基础上，参考澳大利亚《昆士兰州城市排\n水手册》（2007年第二版）中所列的综合径流系数重现期修正参\n数确定的，相关参数见表2。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_a2364c0151eac9620fcd033880d869d7",
+      "score": 0.2,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        18
+      ],
+      "element_ids": [
+        "e000282"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 源头减排设施",
+        "4.2 渗透设施",
+        "4.2.4"
+      ],
+      "text": "4 源头减排设施 > 4.2 渗透设施 > 4.2.4\n4.2.4当透水路面接纳周边地面的径流时，周边地面的面积不宜\n大于透水路面面积的1.2倍。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_c35b31dc51d96ef74b8297ed78414301",
+      "score": 0.166667,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        97
+      ],
+      "element_ids": [
+        "e001500"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "8 污泥处理和处置",
+        "8.4 污泥好氧发酵",
+        "8.4.18"
+      ],
+      "text": "8 污泥处理和处置 > 8.4 污泥好氧发酵 > 8.4.18\n[公式]\nP_{3}",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

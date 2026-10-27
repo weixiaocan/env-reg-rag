@@ -1,0 +1,30 @@
+{
+  "classification": "diagnostic",
+  "run_id": "diagnostic-e2e-20261027-b6",
+  "dataset": "eval/golden_v6.jsonl",
+  "dataset_sha256": "8a881bfba00e98c8815a4f20bc67f81f9fe16628938c1de6db7830a8da09be2b",
+  "dataset_cases": 50,
+  "corpus_version": "corpus-b6e4850ef830",
+  "entry": "POST /api/v1/queries (in-process ASGI, production HTTP adapter)",
+  "provider": "zhipu",
+  "model": "glm-5.2",
+  "temperature": 0.1,
+  "rate_limiter": "disabled (ops guard, not under evaluation)",
+  "pricing": {
+    "input_cost_per_million": 8.0,
+    "output_cost_per_million": 28.0,
+    "currency": "CNY",
+    "status": "configured and required by external-run guard"
+  },
+  "external_data_authorized": true,
+  "authorization": {
+    "provider": "zhipu",
+    "model": "glm-5.2",
+    "base_url": "https://open.bigmodel.cn/api/paas/v4/",
+    "send_scope": "http-e2e:50-questions:production-retrieval-top5-chunks+same-clause-expansion-up-to-8",
+    "note": "Owner authorized Zhipu GLM-5.2, 50 questions, top-5 retrieved excerpts plus up to 8 same-clause expansions, CNY 8 cap in chat on 2026-10-26",
+    "budget_cny": 8.0,
+    "per_call_reserve_cny": 0.5
+  },
+  "budget_guard_limit": "per-call reserve is checked before dispatch; actual calculated cost is checked after response, so this is not a provider-side hard spending cap"
+}

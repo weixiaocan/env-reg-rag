@@ -1,0 +1,792 @@
+[
+ {
+  "case": "G001",
+  "doc_file": "城镇内涝防治技术规范.pdf",
+  "must_hit": true,
+  "old_page": 8,
+  "new_page": 8,
+  "coverage": 0.985,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G002",
+  "doc_file": "城镇内涝防治技术规范.pdf",
+  "must_hit": true,
+  "old_page": 14,
+  "new_page": 14,
+  "coverage": 0.798,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G002",
+  "doc_file": "城镇内涝防治技术规范.pdf",
+  "must_hit": true,
+  "old_page": 14,
+  "new_page": 14,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G002",
+  "doc_file": "城镇内涝防治技术规范.pdf",
+  "must_hit": true,
+  "old_page": 14,
+  "new_page": 14,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G003",
+  "doc_file": "“十四五”全国城市基础设施建设规划.pdf",
+  "must_hit": true,
+  "old_page": 2,
+  "new_page": 2,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G004",
+  "doc_file": "“十四五”全国城市基础设施建设规划.pdf",
+  "must_hit": true,
+  "old_page": 2,
+  "new_page": 2,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G004",
+  "doc_file": "“十四五”城镇污水处理及资源化利用.pdf",
+  "must_hit": true,
+  "old_page": 6,
+  "new_page": 6,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G005",
+  "doc_file": "降雨过程强度等级标准.pdf",
+  "must_hit": true,
+  "old_page": 5,
+  "new_page": 5,
+  "coverage": 0.837,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G006",
+  "doc_file": "降雨过程强度等级标准.pdf",
+  "must_hit": true,
+  "old_page": 6,
+  "new_page": 6,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G007",
+  "doc_file": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+  "must_hit": true,
+  "old_page": 4,
+  "new_page": 4,
+  "coverage": 0.995,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G008",
+  "doc_file": "附件：重庆市城市排水管网雨污分流效果评价技术导则（试行）.pdf",
+  "must_hit": false,
+  "old_page": 1,
+  "new_page": 1,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G009",
+  "doc_file": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "must_hit": true,
+  "old_page": 63,
+  "new_page": 63,
+  "coverage": 0.667,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G010",
+  "doc_file": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "must_hit": true,
+  "old_page": 3,
+  "new_page": 3,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G011",
+  "doc_file": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+  "must_hit": true,
+  "old_page": 56,
+  "new_page": 56,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G012",
+  "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+  "must_hit": true,
+  "old_page": 1,
+  "new_page": 1,
+  "coverage": 0.912,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G013",
+  "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+  "must_hit": true,
+  "old_page": 3,
+  "new_page": 3,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G014",
+  "doc_file": "“十四五”城镇污水处理及资源化利用.pdf",
+  "must_hit": true,
+  "old_page": 6,
+  "new_page": 6,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G015",
+  "doc_file": "“十四五”城镇污水处理及资源化利用.pdf",
+  "must_hit": true,
+  "old_page": 6,
+  "new_page": 6,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G016",
+  "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+  "must_hit": true,
+  "old_page": 13,
+  "new_page": 13,
+  "coverage": 0.848,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G016",
+  "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "must_hit": true,
+  "old_page": 20,
+  "new_page": 20,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G017",
+  "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+  "must_hit": true,
+  "old_page": 11,
+  "new_page": 11,
+  "coverage": 0.881,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G018",
+  "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+  "must_hit": true,
+  "old_page": 4,
+  "new_page": 4,
+  "coverage": 0.969,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G018",
+  "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+  "must_hit": true,
+  "old_page": 4,
+  "new_page": 4,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G018",
+  "doc_file": "《城乡排水工程项目规范》 (GB 55027-2022).pdf",
+  "must_hit": true,
+  "old_page": 1,
+  "new_page": 1,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G019",
+  "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "must_hit": true,
+  "old_page": 24,
+  "new_page": 24,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G019",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 28,
+  "new_page": 28,
+  "coverage": 0.612,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G020",
+  "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "must_hit": true,
+  "old_page": 22,
+  "new_page": 22,
+  "coverage": 0.788,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G021",
+  "doc_file": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+  "must_hit": true,
+  "old_page": 1,
+  "new_page": 1,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G022",
+  "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+  "must_hit": true,
+  "old_page": 9,
+  "new_page": 9,
+  "coverage": 0.824,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G022",
+  "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+  "must_hit": true,
+  "old_page": 9,
+  "new_page": 9,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G023",
+  "doc_file": "GBT 28592-2012降水量等级.pdf",
+  "must_hit": true,
+  "old_page": 4,
+  "new_page": 4,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G023",
+  "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+  "must_hit": true,
+  "old_page": 5,
+  "new_page": 5,
+  "coverage": 0.922,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G023",
+  "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+  "must_hit": true,
+  "old_page": 10,
+  "new_page": 10,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G023",
+  "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+  "must_hit": true,
+  "old_page": 5,
+  "new_page": 5,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G024",
+  "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+  "must_hit": true,
+  "old_page": 3,
+  "new_page": 3,
+  "coverage": 0.845,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G025",
+  "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+  "must_hit": true,
+  "old_page": 3,
+  "new_page": 3,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G025",
+  "doc_file": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+  "must_hit": true,
+  "old_page": 1,
+  "new_page": 1,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G026",
+  "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+  "must_hit": true,
+  "old_page": 3,
+  "new_page": 3,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G026",
+  "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+  "must_hit": true,
+  "old_page": 90,
+  "new_page": 90,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G027",
+  "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+  "must_hit": true,
+  "old_page": 7,
+  "new_page": 7,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G028",
+  "doc_file": "《推进城市生活污水管网全覆盖及厂网一体长效机制建设工作指南(第一版)》.pdf",
+  "must_hit": false,
+  "old_page": 16,
+  "new_page": 16,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G029",
+  "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "must_hit": true,
+  "old_page": 1,
+  "new_page": 1,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G030",
+  "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "must_hit": true,
+  "old_page": 18,
+  "new_page": 18,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G030",
+  "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "must_hit": true,
+  "old_page": 12,
+  "new_page": 12,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G030",
+  "doc_file": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+  "must_hit": true,
+  "old_page": 18,
+  "new_page": 18,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G031",
+  "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+  "must_hit": true,
+  "old_page": 5,
+  "new_page": 5,
+  "coverage": 0.913,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G032",
+  "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+  "must_hit": true,
+  "old_page": 5,
+  "new_page": 5,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G032",
+  "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+  "must_hit": true,
+  "old_page": 6,
+  "new_page": 6,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G033",
+  "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "must_hit": true,
+  "old_page": 21,
+  "new_page": 21,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G034",
+  "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "must_hit": true,
+  "old_page": 22,
+  "new_page": 22,
+  "coverage": 0.651,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G035",
+  "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "must_hit": true,
+  "old_page": 21,
+  "new_page": 21,
+  "coverage": 0.634,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G035",
+  "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "must_hit": true,
+  "old_page": 22,
+  "new_page": 22,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G036",
+  "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "must_hit": true,
+  "old_page": 22,
+  "new_page": 22,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G036",
+  "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+  "must_hit": true,
+  "old_page": 23,
+  "new_page": 23,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G037",
+  "doc_file": "城市排水工程规划规范.pdf",
+  "must_hit": true,
+  "old_page": 20,
+  "new_page": 20,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G037",
+  "doc_file": "城市排水工程规划规范.pdf",
+  "must_hit": true,
+  "old_page": 20,
+  "new_page": 20,
+  "coverage": 0.98,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G037",
+  "doc_file": "城市排水工程规划规范.pdf",
+  "must_hit": true,
+  "old_page": 20,
+  "new_page": 20,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G037",
+  "doc_file": "城市排水工程规划规范.pdf",
+  "must_hit": true,
+  "old_page": 20,
+  "new_page": 20,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G038",
+  "doc_file": "城市排水工程规划规范.pdf",
+  "must_hit": true,
+  "old_page": 15,
+  "new_page": 15,
+  "coverage": 0.854,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G039",
+  "doc_file": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+  "must_hit": true,
+  "old_page": 28,
+  "new_page": 28,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G040",
+  "doc_file": "武汉市排水管道混错接改造技术规程.pdf",
+  "must_hit": true,
+  "old_page": 13,
+  "new_page": 13,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G041",
+  "doc_file": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+  "must_hit": true,
+  "old_page": 1,
+  "new_page": 1,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G042",
+  "doc_file": "多普勒断面扫描式排水管道在线监测流量仪发布标准.pdf",
+  "must_hit": true,
+  "old_page": 11,
+  "new_page": 11,
+  "coverage": 0.62,
+  "resolved": true,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G043",
+  "doc_file": "GBT 28592-2012降水量等级.pdf",
+  "must_hit": true,
+  "old_page": 4,
+  "new_page": 4,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G044",
+  "doc_file": "GBT 28592-2012降水量等级.pdf",
+  "must_hit": true,
+  "old_page": 4,
+  "new_page": 4,
+  "coverage": 0.913,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G044",
+  "doc_file": "GBT 28592-2012降水量等级.pdf",
+  "must_hit": true,
+  "old_page": 4,
+  "new_page": 4,
+  "coverage": 1.0,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G045",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 14,
+  "new_page": 14,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G046",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 24,
+  "new_page": 24,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G046",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 24,
+  "new_page": 24,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G046",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 23,
+  "new_page": 23,
+  "coverage": 0.846,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G046",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 23,
+  "new_page": 23,
+  "coverage": 0.774,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G047",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 28,
+  "new_page": 28,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G047",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 29,
+  "new_page": 29,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G047",
+  "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+  "must_hit": true,
+  "old_page": 28,
+  "new_page": 28,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G048",
+  "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "must_hit": true,
+  "old_page": 15,
+  "new_page": 15,
+  "coverage": 0.603,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G048",
+  "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "must_hit": true,
+  "old_page": 23,
+  "new_page": 23,
+  "coverage": 0.611,
+  "resolved": true,
+  "policy": "answer_and_citation"
+ },
+ {
+  "case": "G049",
+  "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "must_hit": true,
+  "old_page": 36,
+  "new_page": 36,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G049",
+  "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "must_hit": true,
+  "old_page": 35,
+  "new_page": 35,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "source_locator_only"
+ },
+ {
+  "case": "G050",
+  "doc_file": "GB50268-2008给水排水管道工程施工及验收规范.pdf",
+  "must_hit": false,
+  "old_page": 1,
+  "new_page": 1,
+  "coverage": 0.0,
+  "resolved": false,
+  "policy": "source_locator_only"
+ }
+]

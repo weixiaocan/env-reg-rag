@@ -1,0 +1,29 @@
+{
+  "case": "G015",
+  "question": "该规划是否给出2035年县城污水处理率与缺水城市再生水利用率的具体百分比目标？",
+  "expected_answerability": "correct_premise",
+  "request_id": "diagnostic-e2e-20261027-b6-G015",
+  "trace_missing": false,
+  "wall_ms": 1028.883,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.004,
+    "total": 1022.703
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

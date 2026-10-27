@@ -1,0 +1,29 @@
+{
+  "case": "G022",
+  "question": "依据QX/T 489—2019《降雨过程等级》，单站日降雨量等级如何划分？暴雨与大暴雨对应的日降雨量区间分别是多少？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G022",
+  "trace_missing": false,
+  "wall_ms": 1032.902,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.006,
+    "total": 1024.6
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}

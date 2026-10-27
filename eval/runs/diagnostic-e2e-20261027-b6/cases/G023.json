@@ -1,0 +1,29 @@
+{
+  "case": "G023",
+  "question": "对照GB/T 28592与T/CMSA 0013：前者降雨量等级按哪两个时段划分？后者把哪些历时划分为六个短时等级？QX/T 489—2019如何规定区域降雨过程等级？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261027-b6-G023",
+  "trace_missing": false,
+  "wall_ms": 1053.493,
+  "http_status": 500,
+  "status": null,
+  "failure_class": "http_server_error",
+  "error_body": "{\"error\":{\"code\":\"internal_error\",\"message\":\"an unexpected error occurred\"}}",
+  "stages_ms": {
+    "scope": 0.004,
+    "total": 1046.473
+  },
+  "generate_context_evidence_ids": [],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": null,
+    "output_tokens": null,
+    "total_tokens": null,
+    "estimated_cost": null,
+    "currency": null,
+    "pricing_status": "not_used"
+  },
+  "prompt_input": null,
+  "diagnostic_outcome": "http_server_error",
+  "cumulative_estimated_cost_cny": 0.0
+}
