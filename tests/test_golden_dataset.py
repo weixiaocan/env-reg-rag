@@ -1,4 +1,4 @@
-"""Structural contract checks for the current golden set (v4)."""
+"""Structural contract checks for the current diagnostic golden set."""
 
 from __future__ import annotations
 
@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-DATASET = ROOT / "eval" / "golden_v5.jsonl"
+DATASET = ROOT / "eval" / "golden_v6.jsonl"
 SCHEMA = ROOT / "eval" / "schemas" / "golden_case_v3.schema.json"
 CURRENT = ROOT / "data" / "registry" / "corpus-current.json"
 
