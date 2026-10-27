@@ -31,10 +31,20 @@ else
   curl -sf -X POST "$QDRANT/collections/$COLLECTION/snapshots/upload?priority=snapshot&wait=true" \
     -F "snapshot=@$BUNDLE/collection.snapshot" >/dev/null
 fi
-curl -sf -X POST "$QDRANT/collections/aliases" -H 'Content-Type: application/json' \
-  -d "{\"actions\":[{\"delete_alias\":{\"alias_name\":\"corpus_v2_live\"}}]}" >/dev/null || true
-curl -sf -X POST "$QDRANT/collections/aliases" -H 'Content-Type: application/json' \
-  -d "{\"actions\":[{\"create_alias\":{\"collection_name\":\"$COLLECTION\",\"alias_name\":\"corpus_v2_live\"}}]}" >/dev/null
+
+# Do not expose an incomplete collection. Switch the alias in one Qdrant action batch.
+EXPECTED_POINTS=$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8"))["chunk_count"])' "$TARGET/data/registry/corpus-current.json")
+ACTUAL_POINTS=$(curl -sf "$QDRANT/collections/$COLLECTION" | python3 -c 'import json,sys; print(json.load(sys.stdin)["result"]["points_count"])')
+[ "$ACTUAL_POINTS" = "$EXPECTED_POINTS" ] || {
+  echo "[install] point mismatch: expected $EXPECTED_POINTS, actual $ACTUAL_POINTS" >&2
+  exit 1
+}
+CURRENT_ALIAS_COLLECTION=$(curl -sf "$QDRANT/aliases" | python3 -c 'import json,sys; print(next((a["collection_name"] for a in json.load(sys.stdin)["result"]["aliases"] if a["alias_name"] == "corpus_v2_live"), ""))')
+if [ "$CURRENT_ALIAS_COLLECTION" != "$COLLECTION" ]; then
+  ALIAS_ACTIONS=$(python3 -c 'import json,sys; old,new=sys.argv[1:]; actions=([{"delete_alias":{"alias_name":"corpus_v2_live"}}] if old else []); actions.append({"create_alias":{"collection_name":new,"alias_name":"corpus_v2_live"}}); print(json.dumps({"actions":actions}))' "$CURRENT_ALIAS_COLLECTION" "$COLLECTION")
+  curl -sf -X POST "$QDRANT/collections/aliases" -H 'Content-Type: application/json' \
+    -d "$ALIAS_ACTIONS" >/dev/null
+fi
 
 docker compose up -d --no-build app
 for i in $(seq 1 60); do
