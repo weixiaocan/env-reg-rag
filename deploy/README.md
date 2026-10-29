@@ -2,7 +2,7 @@
 
 适用：一台装有 Docker（含 compose v2）和 HTTPS 反向代理的 Linux 服务器。服务器不需要访问 Docker Hub、PyPI 或 Hugging Face，镜像、向量库和资料都在部署包里。
 
-腾讯云演示实例使用现有 Caddy，公网入口为 `https://weixiaocan.com/rag/`；2026-10-27 已部署 `corpus-b6e4850ef830`（4263 points）。Caddy 把 `/rag/*`（去掉 `/rag` 前缀）、`/api/v1/*` 和 `/documents` 转发到 RAG 容器；个人站的其他路径仍走原服务。RAG 容器通过单独的 Compose override 加入现有 Caddy Docker 网络，应用和 Qdrant 的宿主机端口仍只绑定 `127.0.0.1`。调整代理容器后应重新核对其内网 IP 与 `FORWARDED_ALLOW_IPS` 的精确配置。
+腾讯云演示实例使用现有 Caddy，公网入口为 `https://weixiaocan.com/rag/`；语料为 `corpus-b6e4850ef830`（4263 points）。2026-10-29 应用镜像更新到提交 `55df929` 的检索代码，Compose 实际运行镜像为 `env-reg-rag-app:b6e4850ef830-v7-55df929`，旧 b6 镜像保留为 `env-reg-rag-app:b6e4850ef830-pre-v7-55df929` 供回退。公网 ready 和 G001/G009 真实回答已验证。Caddy 把 `/rag/*`（去掉 `/rag` 前缀）、`/api/v1/*` 和 `/documents` 转发到 RAG 容器；个人站的其他路径仍走原服务。RAG 容器通过单独的 Compose override 加入现有 Caddy Docker 网络，应用和 Qdrant 的宿主机端口仍只绑定 `127.0.0.1`。调整代理容器后应重新核对其内网 IP 与 `FORWARDED_ALLOW_IPS` 的精确配置。
 
 ## 1. 在开发机上打包
 

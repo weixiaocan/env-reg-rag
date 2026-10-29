@@ -1,0 +1,30 @@
+{
+  "classification": "diagnostic",
+  "run_id": "diagnostic-e2e-20261029-b6-four-partial",
+  "dataset": "tmp/golden_v8_four_partial.jsonl",
+  "dataset_sha256": "6ac2d86f25fa3a7abe013b2d31deaf297036792850f3543db33c0d4b275362cb",
+  "dataset_cases": 4,
+  "corpus_version": "corpus-b6e4850ef830",
+  "entry": "POST /api/v1/queries (in-process ASGI, production HTTP adapter)",
+  "provider": "zhipu",
+  "model": "glm-5.2",
+  "temperature": 0.1,
+  "rate_limiter": "disabled (ops guard, not under evaluation)",
+  "pricing": {
+    "input_cost_per_million": 8.0,
+    "output_cost_per_million": 28.0,
+    "currency": "CNY",
+    "status": "configured and required by external-run guard"
+  },
+  "external_data_authorized": true,
+  "authorization": {
+    "provider": "zhipu",
+    "model": "glm-5.2",
+    "base_url": "https://open.bigmodel.cn/api/paas/v4/",
+    "send_scope": "http-e2e:50-questions:production-retrieval-top5-chunks+same-clause-expansion-up-to-8",
+    "note": "User authorized Zhipu GLM-5.2 for 50 golden questions, top5 evidence plus same-clause expansion up to8, cumulative budget <=8 CNY; this is four-case retest",
+    "budget_cny": 4.0,
+    "per_call_reserve_cny": 0.5
+  },
+  "budget_guard_limit": "per-call reserve is checked before dispatch; actual calculated cost is checked after response, so this is not a provider-side hard spending cap"
+}

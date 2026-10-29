@@ -1,0 +1,312 @@
+{
+  "id": "G036",
+  "question": "按GB 50014，雨水管渠的降雨历时t如何计算？t1、t2分别指什么，t1宜采用什么范围？",
+  "labels": {
+    "repr": [
+      "条件",
+      "数值"
+    ],
+    "challenge": [
+      "公式",
+      "跨页",
+      "多证据"
+    ],
+    "modality": [
+      "公式"
+    ]
+  },
+  "expected_facts": [
+    "t=t1+t2",
+    "t1为地面集水时间，宜采用5min~15min",
+    "t2为管渠内雨水流行时间"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 2,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 2,
+    "recall_at_5": 0.5,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": true,
+    "mrr": 1.0,
+    "latency_ms": 35.894,
+    "citable_evidence_count": 2,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 1,
+    "citable_recall_at_5": 0.0,
+    "citable_recall_at_10": 0.5,
+    "citable_downgraded_at_5": 1,
+    "citable_downgraded_at_10": 1,
+    "locator_only_evidence_count": 0,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": null,
+    "locator_only_recall_at_10": null
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "page": 22,
+      "element_ids": [
+        "e000246",
+        "e000247",
+        "e000248"
+      ],
+      "quote": "t=t_{1}+t_{2}\n式中：t—降雨历时(min)；",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_2d64101ccc7b69239d013b617be5488b",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 1,
+      "locator_chunk_id": "chunk_2d64101ccc7b69239d013b617be5488b",
+      "locator_match_method": "quote_and_ids"
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "page": 23,
+      "element_ids": [
+        "e000250",
+        "e000251"
+      ],
+      "quote": "面种类通过计算确定，宜采用5min~15min；\nt管渠内雨水流行时间(min)。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 2,
+      "match_rank": 10,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_62334af319995470482d6f74feb4814a",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 10,
+      "citable_chunk_id": "chunk_62334af319995470482d6f74feb4814a",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_2d64101ccc7b69239d013b617be5488b",
+      "score": 1.0,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "element_ids": [
+        "e000246",
+        "e000247",
+        "e000248"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n[公式 4.1.11]\nt=t_{1}+t_{2}\n式中：t—降雨历时(min)；\nt1——地面集水时间(min)，应根据汇水距离、地形坡度和地",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_84901acb6f2329b462ca8008f42a165d",
+      "score": 0.666667,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        23
+      ],
+      "element_ids": [
+        "e000252"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n[公式]\nt_{2}1",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_7a36ef22fed0b14f535930614a0c2962",
+      "score": 0.267857,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "element_ids": [
+        "e000245"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n4.1.11 雨水管渠的降雨历时应按下式计算：",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_2d688cf64d99fb03e9dc848635f949d0",
+      "score": 0.25,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        39
+      ],
+      "element_ids": [
+        "e000572"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "附录B 内涝防治设计校核",
+        "B.0.6"
+      ],
+      "text": "附录B 内涝防治设计校核 > B.0.6\n[公式]\n\\mathrm{~:~}(Q_{\\mathrm{T}})",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_b0336b956d5f915a30d7c991950672bd",
+      "score": 0.25,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000055"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\nrd——按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米(mm)。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_04b0ca923e07d29396899f50ce0d13ae",
+      "score": 0.2,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        38,
+        39
+      ],
+      "element_ids": [
+        "e000567",
+        "e000568",
+        "e000569",
+        "e000571"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "附录B 内涝防治设计校核",
+        "B.0.6"
+      ],
+      "text": "附录B 内涝防治设计校核 > B.0.6\nB.0.6用手工方法校核内涝防治设计，应按下列步骤执行：\n1 按本规范的规定选取内涝防治设计重现期，确定允许的道\n路积水深度和水面高程；\n2 根据道路积水深度和水面高程，确定地面泄水通道过水断\n面的形状和参数，从上游至下游逐段计算道路表面的最大过水能\n力(Q1)；\n3 按推理公式法，从上游至下游逐段计算每个汇水区的地\n面集水时间、暴雨强度和设计流量(Qτ)，并计算内涝防治设计标\n准下雨水管渠的过水能力(Q。)。计算暴雨强度和设计流量时，\n降雨历时的选择应与雨水管渠设计时采用的降雨历时保持\n一致；",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_8ea3d740e8d53a9e3b93328f5f6f94e7",
+      "score": 0.2,
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        22
+      ],
+      "element_ids": [
+        "e000278",
+        "e000279",
+        "e000280",
+        "e000281",
+        "e000282"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5 评估",
+        "5.3 降雨入流入渗计算",
+        "5.3.6"
+      ],
+      "text": "5 评估 > 5.3 降雨入流入渗计算 > 5.3.6\nm——参与计算的降雨、流量同步监测数据的降雨场\n次数；\nRDIIj——第j场降雨的降雨入流入渗量（m³）；\nRj——第j场降雨的降雨量监测值（mm）；\nLi——监测点上游第 i根管径不小于 300mm 的污水管道\n的长度(km);\nn——监测点上游管径不小于300mm的污水管段数量。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_42c0768b4435484b9a8012156d8f4ea1",
+      "score": 0.166667,
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        50
+      ],
+      "element_ids": [
+        "e000409",
+        "e000410"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量水",
+        "5.2.2"
+      ],
+      "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.2\n5.2.2 本条是关于设计降雨历时的确定原则。\n在采用数学模型法计算复核管道规模时，宜采用当地设计暴\n雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水面\n积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历时\n降雨，防涝系统宜采用不同历时的降雨进行校核。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_c5a9a9fce06df98d99c08cc97f70ebfb",
+      "score": 0.166667,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000053"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\nT0——降雨过程持续时间，单位为天(d)，d取值范围[1，T0]；",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_62334af319995470482d6f74feb4814a",
+      "score": 0.155556,
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        23
+      ],
+      "element_ids": [
+        "e000250",
+        "e000251"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n面种类通过计算确定，宜采用5min~15min；\nt管渠内雨水流行时间(min)。",
+      "matched_evidence_indexes": [
+        1
+      ]
+    }
+  ]
+}

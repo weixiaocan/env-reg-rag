@@ -85,8 +85,8 @@
 
 ## 10. 评估入口
 
-评估目录的入口是 `eval/README.md`：现行黄金集为 `eval/golden_v5.jsonl`（`status=reviewed`，只能做诊断评估），运行器为 `scripts/run_generation_diag.py`（生成层）和 `scripts/run_e2e_diag.py`（HTTP 端到端）。
+评估目录的入口是 `eval/README.md`：当前 b6 语料的诊断草稿为 `eval/golden_v8.jsonl`（50 题、83 条证据，4 条人工待核标记，只能做诊断评估）；旧版 `eval/golden_v5.jsonl` 锚定 corpus-ed28。运行器为 `scripts/run_generation_diag.py`（生成层）、`scripts/run_e2e_diag.py`（HTTP 端到端）和 `scripts/evaluate_golden_retrieval.py`（原始索引检索）。
 
 - 检索池 retrieve_limit=10，生成上下文 generate_context_limit=5（`src/server/runtime.py`，`tests/test_generate_context_limit.py`）。
 - 评估主报 @5，附报 @10。
-- 最近一次结果见 `eval/FINAL_EVAL_REPORT.md`（2026-10-24，corpus-ed28，golden_v5）。
+- 当前 b6 原页复核与检索诊断见 `eval/golden_v8.summary.md`；相同 50 道问法的真实模型 HTTP 诊断见 `eval/audits/diagnostic-e2e-20261029-b6-v7-review.md`。`eval/FINAL_EVAL_REPORT.md` 是旧版 corpus-ed28、golden_v5 的历史结果。

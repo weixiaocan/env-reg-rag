@@ -1,0 +1,315 @@
+{
+  "id": "G006",
+  "question": "按《降雨过程强度等级标准》，降雨过程评价指标R（用于RSI/RPI）的计算公式如何构成？权重w与日雨量、过程最大日雨量在式中如何参与？",
+  "labels": {
+    "repr": [
+      "条件",
+      "数值"
+    ],
+    "challenge": [
+      "公式",
+      "原文定位",
+      "相似干扰"
+    ],
+    "modality": [
+      "公式"
+    ]
+  },
+  "expected_facts": [
+    "R由最大日雨量项与过程平均日雨量项加权后对测站平均得到",
+    "式中含权重w、过程最大日雨量r_max、过程累计日雨量与历时T0"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 3,
+    "matched_evidence_at_5": 2,
+    "matched_evidence_at_10": 2,
+    "recall_at_5": 0.6666666666666666,
+    "recall_at_10": 0.6666666666666666,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": 0.5,
+    "latency_ms": 41.619,
+    "citable_evidence_count": 3,
+    "citable_matched_at_5": 2,
+    "citable_matched_at_10": 2,
+    "citable_recall_at_5": 0.666667,
+    "citable_recall_at_10": 0.666667,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 0,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": null,
+    "locator_only_recall_at_10": null
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "降雨过程强度等级标准.pdf",
+      "page": 6,
+      "element_ids": [
+        "e000047",
+        "e000048",
+        "e000049",
+        "e000050",
+        "e000051"
+      ],
+      "quote": "R=\\frac{w*\\sum\\limits_{i=1}^{n}\\left(r_{\\max}\\right)_{i}+(1-w)\\times\\sum\\limits_{i=1}^{n}\\left(\\frac{\\sum\\limits_{d=1}^{T_{0}}r_{d}}{T_{0}}\\right)_{i}}{n}",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 2,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_4c3dfe2d68ce026c4195f52ff5112f93",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 2,
+      "citable_chunk_id": "chunk_4c3dfe2d68ce026c4195f52ff5112f93",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "降雨过程强度等级标准.pdf",
+      "page": 6,
+      "element_ids": [
+        "e000053"
+      ],
+      "quote": "T0——降雨过程持续时间，单位为天(d)",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 2,
+      "doc_file": "降雨过程强度等级标准.pdf",
+      "page": 6,
+      "element_ids": [
+        "e000055"
+      ],
+      "quote": "rd——按照4.2区域降雨过程定义选取测站的日雨量值",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 2,
+      "match_method": "page_quote",
+      "matched_chunk_id": "chunk_4c3dfe2d68ce026c4195f52ff5112f93",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 2,
+      "citable_chunk_id": "chunk_4c3dfe2d68ce026c4195f52ff5112f93",
+      "citable_match_method": "page_quote",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_4d6dd5b6ab718ec8b36404c3dc44d76e",
+      "score": 0.666667,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000045",
+        "e000046"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n4.3.1 降雨强度(R)计算和指数划分\n降雨强度(R)：日雨量达到表3标定区间的测站日最大雨量和过程平均日雨量的加权。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_4c3dfe2d68ce026c4195f52ff5112f93",
+      "score": 0.558824,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000047",
+        "e000048",
+        "e000049",
+        "e000050",
+        "e000051"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n[公式 1]\nR=\\frac{w*\\sum\\limits_{i=1}^{n}\\left(r_{\\max}\\right)_{i}+(1-w)\\times\\sum\\limits_{i=1}^{n}\\left(\\frac{\\sum\\limits_{d=1}^{T_{0}}r_{d}}{T_{0}}\\right)_{i}}{n}\n式中：\nw——权重，区域降雨过程中取0.5，单站降雨过程根据当地情况可作调整；\nn——按照4.2区域降雨过程定义选取的测站个数，i取值范围[1，n]；\nrmax——按照4.2区域降雨过程定义选取测站的日最大雨量值，单位为毫米(mm)；",
+      "matched_evidence_indexes": [
+        0,
+        2
+      ]
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_fcb2e45b98fa20f10a9b74ff47db3604",
+      "score": 0.458333,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000052"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n[公式]\nr_{\\mathrm{m a x}}!",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_e200afdb84551c903202568bf269f270",
+      "score": 0.4,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000032"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n利用2400个国家气象观测站日雨量（前日08时至当日08时、前日20时至当日20时），基于降雨\n强度、覆盖范围、持续时间个指标，计算单站/区域需设定降雨过程强度指数RSI/RPI），根据降雨\n过程强度指数划分为特强、强、较强、中等和弱五个等级，见表1。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_b0336b956d5f915a30d7c991950672bd",
+      "score": 0.383333,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000055"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\nrd——按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米(mm)。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_a58a68e0130a8bba4d3061884f5b2cae",
+      "score": 0.35,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000056"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n[公式]\nr_{d}",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_f140b00a17fe413a1118ac32b61ec551",
+      "score": 0.285714,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000083",
+        "e000084",
+        "e000085",
+        "e000086"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n[公式 4]\nR S I=I\\times T\n式中：\nI—降雨强度指数，利用公式(1)计算降雨强度(R)，对照表3查出对应指数；\nT——持续时间指数，根据公式(3)计算降雨持续时间（T0），对照表5查出对应指数。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_81092c13a545997ad7c927cb8a0667b3",
+      "score": 0.25,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000033"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n表1降雨过程强度等级划分表\n降雨区 | 降雨过程强度指数值 | 降雨过程强度等级\n单一测站 | 1≤RSI≤4 | 特强(I级)\n单一测站 | 4<RSI≤8 | 强(Ⅱ级)\n单一测站 | 8<RSI≤12 | 较强(Ⅲ级)\n单一测站 | 12<RSI≤16 | 中等(Ⅳ级)\n单一测站 | RSI>16 | 弱（V级)\n区域 | 1≤RPI≤12 | 特强（I级)\n区域 | 12<RPI≤24 | 强（Ⅱ级)\n区域 | 24<RPI≤36 | 较强（Ⅲ级)\n区域 | 36<RPI≤64 | 中等（Ⅳ级）\n区域 | RPI>64 | 弱（V级)",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_c3bd29034db1d0cc39187b1fb939c28c",
+      "score": 0.25,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000094"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n[公式 2]\n(C\\phi)",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_d34b07f5680d2b884ac6d4bbd5ea4d50",
+      "score": 0.18254,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000087"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n[公式 3]\n(\\;T_{\\mathrm{0}}\\;)",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

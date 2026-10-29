@@ -29,6 +29,10 @@ _COMPARISON = re.compile(
 _FIGURE_QUESTION = re.compile(
     r"\b((?:GB(?:/T)?|QX/T|T/CECS)\s*\d{3,6})\s*中?\s*图\s*(\d+(?:\.\d+)+)"
 )
+_NAMED_TABLE_QUESTION = re.compile(r"对照(.{4,80}?)表\s*(\d+(?:[-.]\d+)*)")
+_NAMED_FIGURE_QUESTION = re.compile(r"《([^》]{4,80})》[^？?]{0,30}?图\s*(\d+(?:[-.]\d+)+)")
+_PREFACE_QUESTION = re.compile(r"前言[^？?]{0,30}?样板区")
+_TWO_METHOD_FORMULAS = re.compile(r"(T/CECS\s*\d+).{0,70}?容器体积法.{0,70}?浮标法")
 
 
 def _standard_key(value: str) -> str:
@@ -53,6 +57,24 @@ def _focused_queries(question: str) -> tuple[str, list[tuple[str, str]]]:
     if figure:
         standard, number = figure.groups()
         return "figure", [(number, f"{standard} 图{number}")]
+    named_table = _NAMED_TABLE_QUESTION.search(question)
+    if named_table:
+        title, number = named_table.groups()
+        first_clause = question.split("？", 1)[0].split("?", 1)[0]
+        return "named_table", [(f"{title}|{number}", f"{title} 表{number} {first_clause}")]
+    named_figure = _NAMED_FIGURE_QUESTION.search(question)
+    if named_figure:
+        title, number = named_figure.groups()
+        return "named_figure", [(f"{title}|{number}", f"{title} 图{number} 图名")]
+    if _PREFACE_QUESTION.search(question) and "工作指南" in question:
+        return "preface", [("样板区", "工作指南 前言 样板区")]
+    methods = _TWO_METHOD_FORMULAS.search(question)
+    if methods:
+        standard = methods.group(1)
+        return "method_formulas", [
+            (f"{standard}|V", f"{standard} 容器体积法 流量公式"),
+            (f"{standard}|A", f"{standard} 浮标法 流量公式 A k"),
+        ]
     return "", []
 
 
@@ -149,6 +171,35 @@ class QdrantEvidenceRetriever:
                      if _standard_key(getattr(hit, "standard_number", ""))
                      == _standard_key(focused_text.split(" 图", 1)[0])
                      and re.search(rf"图\s*{re.escape(standard)}(?![\d.])", hit.text)),
+                    None,
+                )
+                if matching is not None:
+                    promoted.append(matching)
+            elif focus_kind in {"named_table", "named_figure"}:
+                title, number = standard.rsplit("|", 1)
+                label = "表" if focus_kind == "named_table" else "图"
+                matching = next(
+                    (hit for hit in focused_hits
+                     if title in hit.file_name
+                     and re.search(rf"(?<!附){label}\s*{re.escape(number)}(?![\d.])", hit.text)),
+                    None,
+                )
+                if matching is not None:
+                    promoted.append(matching)
+            elif focus_kind == "preface":
+                matching = next(
+                    (hit for hit in focused_hits
+                     if "工作指南" in hit.file_name and standard in hit.text), None,
+                )
+                if matching is not None:
+                    promoted.append(matching)
+            elif focus_kind == "method_formulas":
+                method_standard, variable = standard.split("|", 1)
+                matching = next(
+                    (hit for hit in focused_hits
+                     if _standard_key(getattr(hit, "standard_number", "")) == _standard_key(method_standard)
+                     and "[公式" in hit.text and "\\frac" in hit.text
+                     and ("V_i" if variable == "V" else "A\\times") in hit.text),
                     None,
                 )
                 if matching is not None:

@@ -1,0 +1,300 @@
+{
+  "id": "G009",
+  "question": "福建省建筑与小区雨污混接改造技术标准附录示意图中，图1《雨水立管断接示意图（一）》的图注包含哪些主要部件？",
+  "labels": {
+    "repr": [
+      "定义",
+      "流程要求"
+    ],
+    "challenge": [
+      "图片",
+      "原文定位"
+    ],
+    "modality": [
+      "图片图注"
+    ]
+  },
+  "expected_facts": [
+    "图名为雨水立管断接示意图（一）",
+    "图注含雨水立管、建筑外墙、室外地面、支墩、卵石缓冲、海绵设施"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 2,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 0.5,
+    "recall_at_10": 0.5,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": 1.0,
+    "latency_ms": 43.765,
+    "citable_evidence_count": 1,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": 0.0,
+    "citable_recall_at_10": 0.0,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 1,
+    "locator_only_matched_at_5": 1,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 1.0,
+    "locator_only_recall_at_10": 1.0
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "page": 63,
+      "element_ids": [
+        "e000526"
+      ],
+      "quote": "[图1 雨水立管断接示意图（一）]",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_4403dd96548d5212f9f1af798e4230dd",
+      "hit_usage_policy": "source_locator_only",
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": 1,
+      "locator_chunk_id": "chunk_4403dd96548d5212f9f1af798e4230dd",
+      "locator_match_method": "quote_and_ids"
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "page": 63,
+      "element_ids": [
+        "e000527"
+      ],
+      "quote": "1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_4403dd96548d5212f9f1af798e4230dd",
+      "score": 0.666667,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        63
+      ],
+      "element_ids": [
+        "e000526"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5",
+        "5.2",
+        "5.2.1"
+      ],
+      "text": "5 > 5.2 > 5.2.1\n[图1 雨水立管断接示意图（一）]",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_e549eb208c017d5fa4c44fb2505b5a19",
+      "score": 0.5,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000038"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1",
+        "1.0.2"
+      ],
+      "text": "1 > 1.0.2\n1. 0. 2\n本标准适用于福建省既有建筑与小区排水管网及配套设\n施雨污混接改造工程的调查、设计、施工与验收、运维管理和效\n果评估。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_f586d29bd6da91cf9ad2f8f7f41ee649",
+      "score": 0.416667,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        63
+      ],
+      "element_ids": [
+        "e000530"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5",
+        "5.2",
+        "5.2.1"
+      ],
+      "text": "5 > 5.2 > 5.2.1\n[图3 雨水立管断接示意图（三）]",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_4b796dedd9a9574ed451dc0dfe7e9f65",
+      "score": 0.333333,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000039"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1",
+        "1.0.3"
+      ],
+      "text": "1 > 1.0.3\n1. 0. 3\n建筑与小区雨污混接改造工程，除应符合本标准外，尚\n应符合国家、行业和福建省现行有关技术标准的规定。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_4f9c057dce7d662234d0e569551d5777",
+      "score": 0.325,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        62
+      ],
+      "element_ids": [
+        "e000517",
+        "e000518",
+        "e000519",
+        "e000520"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5",
+        "5.1",
+        "5.1.5"
+      ],
+      "text": "5 > 5.1 > 5.1.5\n5. 1. 5\n对于建筑周边有绿地的建筑与小区，建筑屋面为外排水，\n在进行雨水立管混接改造的同时，宜将分流后的屋面雨水立管进\n行断接，将屋面雨水引至周边海绵设施进行入渗和滞蓄。\n建筑雨水管的断接指排水口将径流连接到绿地等透水区域。\n断接时无论雨水立管外落或室内设置都应把出水管口暴露于大气\n中，保证雨水管的水自由出流。\n雨水资源化利用生态设施有下沉绿地、雨水花园、高位花池\n等。当排向建筑散水面进入下沉绿地时，散水面应采取消能防冲\n刷措施。\n雨水立管断接改造设计示意如图1～图3 所示。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_0308e29881332d2693554f2acfffa5b5",
+      "score": 0.316667,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        63
+      ],
+      "element_ids": [
+        "e000528"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5",
+        "5.2",
+        "5.2.1"
+      ],
+      "text": "5 > 5.2 > 5.2.1\n[图2 雨水立管断接示意图（二）]",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_c27588c007ea3ab1492fac681392de0f",
+      "score": 0.25,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000037"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1",
+        "1.0.1"
+      ],
+      "text": "1 > 1.0.1\n1. 0. 1\n为贯彻落实水污染防治行动，规范福建省建筑与小区雨\n污混接改造工作，制定本标准。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_81e08ebb2e0464dd11541ca31aa92092",
+      "score": 0.2,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        76
+      ],
+      "element_ids": [
+        "e000624",
+        "e000625"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6",
+        "6.1",
+        "6.1.1"
+      ],
+      "text": "6 > 6.1 > 6.1.1\n6. 1. 1\n建筑与小区雨污混接改造工程是一项系统性工程，施工\n图审查合格后，建设单位应组织设计单位向施工单位、监理单位\n进行设计交底。\n本条规定施工单位应熟悉设计文件和施工图，理解设计意图\n及要求，严格按照设计文件和相应的技术标准进行施工，不得无\n图纸擅自施工，造成雨污混接改造达不到应有的效果。施工单位\n如发现现场情况与设计文件不相符的，应及时联系建设单位与设\n计单位进行处理。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_87568bce81d75be7ee7f09db43ee0f1e",
+      "score": 0.171429,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        17
+      ],
+      "element_ids": [
+        "e000142"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5",
+        "5.1",
+        "5.1.5"
+      ],
+      "text": "5 > 5.1 > 5.1.5\n5. 1. 5\n当周边有海绵设施时，混接改造后的雨水立管应进行断\n接，同时可利用水体和下沉绿地等进行雨水调蓄。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_eb66ae1fd695510802c19094422a2892",
+      "score": 0.166667,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        65
+      ],
+      "element_ids": [
+        "e000543"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5",
+        "5.2",
+        "5.2.1"
+      ],
+      "text": "5 > 5.2 > 5.2.1\n[图6 新增排水立管改造示意图（一）]\n接改造示意如图6～图8 所示。",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

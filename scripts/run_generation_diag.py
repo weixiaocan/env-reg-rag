@@ -55,7 +55,7 @@ from src.domain.query import (  # noqa: E402
 from src.application.query_service import CitationValidationError  # noqa: E402
 from src.server import runtime as server_runtime  # noqa: E402
 
-DATASET = ROOT / "eval" / "golden_v7.jsonl"
+DATASET = ROOT / "eval" / "golden_v8.jsonl"
 POINTER = ROOT / "data" / "registry" / "corpus-current.json"
 REFUSE_EXPECTED = {"refuse"}
 ANSWER_EXPECTED = {"answer"}
@@ -446,7 +446,7 @@ def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--run-id", required=True)
     parser.add_argument("--dataset", type=Path, default=DATASET,
-                        help="golden JSONL (default: eval/golden_v7.jsonl)")
+                        help="golden JSONL (default: eval/golden_v8.jsonl)")
     parser.add_argument("--staging-corpus", default=None,
                         help="evaluate a staged (unpublished) corpus version: queries its "
                              "ingest-manifest collection instead of the live alias")

@@ -13,7 +13,7 @@ ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
-DATASET = ROOT / "eval" / "golden_v7.jsonl"
+DATASET = ROOT / "eval" / "golden_v8.jsonl"
 SCHEMA = ROOT / "eval" / "schemas" / "golden_case_v3.schema.json"
 CURRENT = ROOT / "data" / "registry" / "corpus-current.json"
 

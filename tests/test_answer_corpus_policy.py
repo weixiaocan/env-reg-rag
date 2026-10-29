@@ -133,6 +133,63 @@ class FocusedQueryTest(unittest.TestCase):
             ("figure", [("3.0.4", "T/CECS 758 图3.0.4")]),
         )
 
+    def test_named_table_promotes_only_its_exact_source(self):
+        class Index(FakeIndex):
+            def search(self, query, *, mode, filters, limit):
+                if query.text.startswith("“十四五”全国城市基础设施建设规划 表1"):
+                    wrong = hit(evidence_id="wrong", usage_policy="answer_and_citation")
+                    wrong.file_name = "其他规划.pdf"
+                    wrong.text = "表1 城市污水处理率 80%"
+                    right = hit(evidence_id="right", usage_policy="answer_and_citation")
+                    right.file_name = "“十四五”全国城市基础设施建设规划.pdf"
+                    right.text = "表1 城市污水处理率（%） 91.9 97.5"
+                    return [wrong, right]
+                return [hit(evidence_id=f"base{n}", usage_policy="answer_and_citation") for n in range(10)]
+
+        question = "对照“十四五”全国城市基础设施建设规划表1与另一规划，2020年城市污水处理率是多少？"
+        pack = asyncio.run(QdrantEvidenceRetriever(index=Index(), embedder=FakeEmbedder()).retrieve(
+            question=question, resolved_scope={}, corpus_version="test"))
+        self.assertEqual(pack.evidence[0].evidence_id, "right")
+
+    def test_named_figure_and_preface_promote_exact_evidence(self):
+        class Index(FakeIndex):
+            def search(self, query, *, mode, filters, limit):
+                if "图5-1 图名" in query.text:
+                    right = hit(evidence_id="figure", usage_policy="source_locator_only")
+                    right.file_name = "城镇分流制排水系统雨污混接调查 征求意见稿.pdf"
+                    right.text = "[图5-1 雨水管网中污水混接筛查技术路线]"
+                    return [right]
+                if query.text == "工作指南 前言 样板区":
+                    right = hit(evidence_id="preface", usage_policy="answer_and_citation")
+                    right.file_name = "推进城市生活污水管网全覆盖工作指南.pdf"
+                    right.text = "建设城市污水管网全覆盖样板区"
+                    return [right]
+                return [hit(evidence_id="base", usage_policy="answer_and_citation")]
+
+        retriever = QdrantEvidenceRetriever(index=Index(), embedder=FakeEmbedder())
+        figure = asyncio.run(retriever.retrieve(
+            question="《城镇分流制排水系统雨污混接调查》征求意见稿中，图5-1的图名是什么？",
+            resolved_scope={}, corpus_version="test"))
+        preface = asyncio.run(retriever.retrieve(
+            question="工作指南前言要求建设什么样的样板区？", resolved_scope={}, corpus_version="test"))
+        self.assertEqual(figure.evidence[0].evidence_id, "figure")
+        self.assertEqual(preface.evidence[0].evidence_id, "preface")
+
+    def test_two_explicit_methods_promote_both_formulas_from_same_standard(self):
+        class Index(FakeIndex):
+            def search(self, query, *, mode, filters, limit):
+                if "容器体积法 流量公式" in query.text or "浮标法 流量公式" in query.text:
+                    right = hit(evidence_id="volume" if "容器" in query.text else "float", usage_policy="answer_and_citation")
+                    right.standard_number = "T/CECS 758-2020"
+                    right.text = "[公式] Q=\\frac{V_i}{t}" if "容器" in query.text else "[公式] Q=\\frac{1}{n}A\\times L_i"
+                    return [right]
+                return [hit(evidence_id="base", usage_policy="answer_and_citation")]
+
+        question = "按T/CECS 758，采用容器体积法时流量如何计算？浮标法的公式又如何？"
+        pack = asyncio.run(QdrantEvidenceRetriever(index=Index(), embedder=FakeEmbedder()).retrieve(
+            question=question, resolved_scope={}, corpus_version="test"))
+        self.assertEqual([x.evidence_id for x in pack.evidence[:2]], ["volume", "float"])
+
 
 if __name__ == "__main__":
     unittest.main()
