@@ -1,0 +1,278 @@
+{
+  "id": "G045",
+  "question": "T/CECS 758中图3.0.4的图名是什么？该示意图概括了混接工作的哪些环节取向？",
+  "labels": {
+    "repr": [
+      "定义",
+      "流程要求"
+    ],
+    "challenge": [
+      "图片",
+      "原文定位"
+    ],
+    "modality": [
+      "图片图注"
+    ]
+  },
+  "expected_facts": [
+    "图3.0.4为混接调查与治理环节示意图",
+    "环节包括整改方案、改造施工与验收、长效动态管理等"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 1,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 1.0,
+    "recall_at_10": 1.0,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": true,
+    "complete_recall_at_10": true,
+    "mrr": 0.25,
+    "latency_ms": 35.446,
+    "citable_evidence_count": 1,
+    "citable_matched_at_5": 1,
+    "citable_matched_at_10": 1,
+    "citable_recall_at_5": 1.0,
+    "citable_recall_at_10": 1.0,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 0,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": null,
+    "locator_only_recall_at_10": null
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "page": 14,
+      "element_ids": [
+        "e000095"
+      ],
+      "quote": "3 基本规定 > 3.0.4\n3.0. 4 城镇分流制排水系统雨污混接调查与治理的环节宜包括\n混接预判、资料收集与现场踏勘、混接区域调查、混接点或混接源\n位置探查与判定、混接水量与水质测定、编制评估报告与治理方\n案、实施混接治理措施、提出长效管理机制体制等(图3.0.4)；在\n具体工作中，可根据实际情况，精简部分环节，宜边调查、边评估、\n边制订方案、边治理。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 4,
+      "match_rank": 4,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_af595a58fb104a24aa2582cba04f7b60",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 4,
+      "citable_chunk_id": "chunk_af595a58fb104a24aa2582cba04f7b60",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_ba9d912476558818e1a23bb885691baf",
+      "score": 1.0,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        15
+      ],
+      "element_ids": [
+        "e000100"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 基本规定",
+        "3.0.7"
+      ],
+      "text": "3 基本规定 > 3.0.7\n[图 3.0.4 混接调查与治理环节示意图]",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_d702001d5338ba1def54a3981e9ec893",
+      "score": 0.333333,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        45
+      ],
+      "element_ids": [
+        "e000421"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "附录H 混接图层和图例"
+      ],
+      "text": "附录H 混接图层和图例\n图例名称 | 图例 | 图例 线型 | 图例颜色 | CAD层名 | CAD块名 | 说明\n雨水 |  | 实线 | 红色(1） | YS_LINE |  | 按管道中心绘 示，标注管径\n污水/合流 |  | 实线 | 棕色(16) | WS_LINE |  | 按管道中心绘 示，标注管径\n混接检查井 | 2.0 | - | 蓝色(5) | HJ_CODE | HJ-YJ | 方向正北\n混接雨水口 | 2.0 1.0 |  | 蓝色(5) | HJ_CODE | HJ-YB | 方向正北\n混接点 | OI1.0 | - | 蓝色(5) | HJ_CODE | HJD | 方向正北\n混接扯旗 |  | 实线 | 蓝色(5) | HJ_MARK |  | 垂直于管道 方向\n注：括号内的数字为颜色的索引号。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_6f52ce878ce8685872b1c428005f39c3",
+      "score": 0.333333,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        61,
+        62
+      ],
+      "element_ids": [
+        "e000514",
+        "e000516"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.1 一 般规 定",
+        "5.1.2"
+      ],
+      "text": "5 混接区域调查 > 5.1 一 般规 定 > 5.1.2\n图1 混接溯源调查法示意图\n污水管道中的外水入渗和水体水倒灌调查要在旱天开展，污\n水管道中的雨水混接调查要在雨天开展。两方面的调查都是旨在\n解决污水处理厂进水水质浓度低和实际污染物截污效率不高的问\n题，故在针对污水管道开展混接调查时一并考虑。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_af595a58fb104a24aa2582cba04f7b60",
+      "score": 0.25,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000095"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 基本规定",
+        "3.0.4"
+      ],
+      "text": "3 基本规定 > 3.0.4\n3.0. 4 城镇分流制排水系统雨污混接调查与治理的环节宜包括\n混接预判、资料收集与现场踏勘、混接区域调查、混接点或混接源\n位置探查与判定、混接水量与水质测定、编制评估报告与治理方\n案、实施混接治理措施、提出长效管理机制体制等(图3.0.4)；在\n具体工作中，可根据实际情况，精简部分环节，宜边调查、边评估、\n边制订方案、边治理。",
+      "matched_evidence_indexes": [
+        0
+      ]
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_b2224009273a27d470d8b85cabca7b85",
+      "score": 0.25,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        45
+      ],
+      "element_ids": [
+        "e000420"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "附录H 混接图层和图例"
+      ],
+      "text": "附录H 混接图层和图例\n表 H 混接图层和图例",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_b00d34509a309c66d312bbb4cf6f3875",
+      "score": 0.2,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        63,
+        64
+      ],
+      "element_ids": [
+        "e000528",
+        "e000530"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.2 混接调查",
+        "5.2.4"
+      ],
+      "text": "5 混接区域调查 > 5.2 混接调查 > 5.2.4\n图2 基于流量和水质检测的混接调查原理示意图\n以水质检测指标氨氮为例，干管检查井3和检查井4之间的\n管段，下游检查井浓度C₄大于邻近的上游检查井浓度C3，因此可\n以判定该管段之间存在污水混接；对于检查井4 和检查井5 之间\n的管段，由于商业集聚区洗涤废水、居住区阳台洗涤废水比例的增\n加，导致水质浓度虽然沿程降低(C₅<C₄)，但是由于沿程流量明\n显增加，对应管段的污染负荷量增加，即Q5 × C5>Q4×C4 。此\n时，尽管上下游点位水质浓度降低，但是污染负荷量的增加仍然指\n示了生活污染的接入。因此，在雨水管道的分区域污水混接调查\n中，不要将上下游检查井水质浓度升高作为唯一的判定依据，要综\n合考虑上下游点位水质浓度和污染负荷量的变化。在对干管进行\n分区域混接调查的基础上，对于存在雨污混接的管道，进一步沿支\n管上溯调查。混接调查的判定原理同上。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_92b56fbd098be0b56716c9ff6f4e0f7a",
+      "score": 0.2,
+      "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+      "physical_pages": [
+        15
+      ],
+      "element_ids": [
+        "e000111"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "4",
+        "4.3",
+        "4.3.8"
+      ],
+      "text": "4 > 4.3 > 4.3.8\n4. 3. 8\n混接调查应形成混接点的位置、流量、水质和污染源类\n型等内容的记录，应按附录C 进行填写。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_0c27eb48103267882a349add4e7a0a5e",
+      "score": 0.1875,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        68
+      ],
+      "element_ids": [
+        "e000573"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量",
+        "5.4.2"
+      ],
+      "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n[图3 圆形管渠横断面示意图]\n式中：1一－AB 的弧长（m ）（图3);\nd \n水面位置的弦长，即图3 中的AB(m);\nh \n三角形AOC 的高，即图3 中的OC(m ）。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_4c7a5f5e656f1bbe042696ebefdf5204",
+      "score": 0.166667,
+      "file_name": "城镇分流制排水系统雨污混接调查 征求意见稿.pdf",
+      "physical_pages": [
+        41
+      ],
+      "element_ids": [
+        "e000332"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "6 混接点探查与判定",
+        "6.4 混接点分布图记录与编辑",
+        "6.4.2"
+      ],
+      "text": "6 混接点探查与判定 > 6.4 混接点分布图记录与编辑 > 6.4.2\n【条文解释】要结合已经收收集到的区域管线图，编织制作混接点分\n布图，在混接点图上要能够显示出混接点的类型和位置，使用扯旗的\n方式标识出来，方便进行统一的查找。可以借助于测绘工程使用的方\n式，将混接点分布图平均分成若干个区域，并将相应的区域进行编号，\n各个编号范围内的混接点分布图放大打印，方便后续管理单位的准确\n查找。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_b59d814d93ae2c1e02d5a3eef6fcf80e",
+      "score": 0.166667,
+      "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+      "physical_pages": [
+        68,
+        69
+      ],
+      "element_ids": [
+        "e000574",
+        "e000575",
+        "e000577"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "5 混接区域调查",
+        "5.4 管道流量测量",
+        "5.4.2"
+      ],
+      "text": "5 混接区域调查 > 5.4 管道流量测量 > 5.4.2\n图 3 圆形管渠横断面示意图\n速度-面积流量计测定法的原理是根据超声波多普勒效应来\n测量管道中的分层流速，进而根据水深积分计算流量；使用流量计\n前通常需要将测量探头安装固定在管道底部(图4)。在使用流量\n计之前，需要在主机中进行各参数的设定，包括管道形状、管径大\n小、读数频次（如设定每10min 读1 次数据)。之后，在流量计主\n机正常供电的情况下，就可以获取管道中流量的连续检测数据，并\n记录在主机中。",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

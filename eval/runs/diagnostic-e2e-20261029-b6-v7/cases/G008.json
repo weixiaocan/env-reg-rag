@@ -1,0 +1,107 @@
+{
+  "case": "G008",
+  "question": "美国EPA《Illicit Discharge Detection and Elimination》指导手册对住宅小区雨污混接的法定罚款上限是多少美元？",
+  "expected_answerability": "refuse",
+  "request_id": "diagnostic-e2e-20261029-b6-v7-G008",
+  "trace_missing": false,
+  "wall_ms": 4937.354,
+  "http_status": 200,
+  "status": "refused",
+  "answer": null,
+  "evidence_ids": [],
+  "retrieved_evidence": [],
+  "warnings": [
+    "retrieved evidence does not support an answer"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.005,
+    "retrieval": 73.528,
+    "context_expansion": 71.782,
+    "generation": 4784.77,
+    "total": 4930.204
+  },
+  "generate_context_evidence_ids": [
+    "chunk_2e0f10721e7d5b516e4bcfce6eaf5680",
+    "chunk_f58f22f89f07fa572ebff9416459d687",
+    "chunk_ce6035c8ec560577932aceeda144a231",
+    "chunk_a3188aa1c5d64247b63c66b08a519791",
+    "chunk_aa63db2e5bf9f16f06c3fe9bb408ef44",
+    "chunk_7952f04fb6a44bdc4f2ed1e72524d1c9"
+  ],
+  "trace_evidence_ids": [],
+  "token_usage": {
+    "input_tokens": 2672,
+    "output_tokens": 249,
+    "total_tokens": 2921,
+    "estimated_cost": 0.028348,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "美国EPA《Illicit Discharge Detection and Elimination》指导手册对住宅小区雨污混接的法定罚款上限是多少美元？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_2e0f10721e7d5b516e4bcfce6eaf5680",
+        "usage_policy": "source_locator_only",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          1,
+          2
+        ],
+        "text": "资料卡：DBJ/T 13-477-2024 DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准\n标准号：DBJ/T 13-477-2024\n类型：标准\n发布日期：2024-12-31\n实施日期：2025-04-01\n福建省建筑与小区雨污混接改造\n技术标准\nTechnical standard for illicit connection reconstruction of\nbuilding and sub-district in Fujian Province\n2024-12-31\n发布\n2025-04-01\n实施\n福建省住房和城乡建设厅\n发\n布\n福建省工程建设地方标准\n福建省建筑与小区雨污混接改造\n技术标准\nTechnical standard for illicit connection reconstruction of building\nand sub-district in Fujian Province\n工程建设地方标准编号\n：DBJ/T 13-477-2024\n住房和城乡建设部备案号\n：J 1 7 9 6 3 - 2 0 2 5\n主编单位：\n厦门市城市规划设计研究院有限公司\n北京市建筑设计研究院股份有限公司\n福建省建筑科学研究院有限责任公司\n批准部门：\n福建省住房和城乡建设厅\n实施日期：\n2\n0\n2\n5\n年\n4\n月\n1\n日\n2025年福州"
+      },
+      {
+        "evidence_id": "chunk_f58f22f89f07fa572ebff9416459d687",
+        "usage_policy": "answer_and_citation",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "2 术语和符号 > 2.1 术语术语 > 2.1.11\n2.1.11 混接治理illicit discharge elimination\n为消除混接、外水入渗和水体水倒灌所采取的相关措施。"
+      },
+      {
+        "evidence_id": "chunk_ce6035c8ec560577932aceeda144a231",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\nQ——被调查区域的污水总产生量，m³/d，按照区域总用水量的80％～90％计算；\nq——调查得到的雨水管道中污水混错接总水量，m³/d。\n污水管道中雨水混错接可依据下式进行判定："
+      },
+      {
+        "evidence_id": "chunk_a3188aa1c5d64247b63c66b08a519791",
+        "usage_policy": "source_locator_only",
+        "file_name": "T_CECS_758-2020城镇排水管道混接调查及治理技术规程.pdf",
+        "physical_pages": [
+          1,
+          2,
+          3
+        ],
+        "text": "资料卡：T/CECS 758-2020 T_CECS_758-2020城镇排水管道混接调查及治理技术规程\n标准号：T/CECS 758-2020\n类型：标准\n发布机构：中国工程建设标准化协会\n发布日期：2020-10-09\n实施日期：2021-03-01\nT/CECS 758-2020\n中国工程建设标准化协会标准\n城镇排水管道混接调查及治理\n技术规程\nTechnical specification for investigation and elimination\nof illicit discharges of municipal drainage pipes\n中国计划出版社\n中国工程建设标准化协会标准\n城镇排水管道混接调查及治理\n技术规程\nTechnical specification for investigation and elimination\nof illicit discharges of municipal drainage pipes\nT/CECS 758-2020\n主编单位：上海市城市建设设计研究总院(集团)有限公司\n同济大学\n批准单位：中国工程建设标准化协会\n施行日期：2 0 2 13月1日3 月\n1 日\n中国计划出版社\n2020北京\n中国工程建设标准化协会公告\n第708号\n关于发布《城镇排水管道混接调查及治理\n技术规程》的公告"
+      },
+      {
+        "evidence_id": "chunk_aa63db2e5bf9f16f06c3fe9bb408ef44",
+        "usage_policy": "answer_and_citation",
+        "file_name": "DBJ_T+13-477-2024+福建省建筑与小区雨污混接改造技术标准.pdf",
+        "physical_pages": [
+          47,
+          48
+        ],
+        "text": "1 总 > 1.0.2\n1. 0. 2\n本标准所表述的建筑与小区均指既有建筑与小区。根据省\n内已开展雨污混接改造城市的工作经验来看，建筑与小区排水管\n网及配套设施的雨污混接点约占70%，市政排水管网及配套设施\n的混接点约占30%，且建筑与小区内的混接形式更为复杂多样，\n是城镇污水处理提质增效应重点关注的对象。因此，本标准主要\n针对的是既有建筑与小区排水管网及配套设施的雨污混接改造工\n程。"
+      },
+      {
+        "evidence_id": "chunk_7952f04fb6a44bdc4f2ed1e72524d1c9",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          12
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.5\n[公式 5]\nM_{雨}=n_{雨}\\div N\\times100\\%\n式中：\nM 雨——雨水管道中污水混错接密度；\nN 雨——雨水管道中污水混错接点数或用户数（居民小区、公共建筑等）；\nN——排水管道服务区域内总排水用户数（居民小区、公共建筑等）。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "correct_refusal",
+  "cumulative_estimated_cost_cny": 0.309872
+}

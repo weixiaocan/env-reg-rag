@@ -1,0 +1,507 @@
+{
+  "case": "G014",
+  "question": "“十四五”城镇污水处理及资源化利用规划提出，到2025年全国城市生活污水集中收集率力争达到多少？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261029-b6-v7-G014",
+  "trace_missing": false,
+  "wall_ms": 6305.52,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "到2025年，全国城市生活污水集中收集率力争达到70%以上。",
+        "evidence_ids": [
+          "chunk_64eeb16ff97b0d2788e3fbb8b4a782e0"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "该指标出自《“十四五”城镇污水处理及资源化利用》主要目标部分。",
+        "evidence_ids": [
+          "chunk_64eeb16ff97b0d2788e3fbb8b4a782e0"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "此外，在保障措施中进一步要求，各省（区、市）因地制宜确定各城市生活污水集中收集率目标，原则上应达到70%以上或比2020年提高5个百分点以上。",
+        "evidence_ids": [
+          "chunk_d348eb0715a2314db42ac7ed763ec1cf"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_83656816e3ccc5a9298ad5501bb70873",
+    "chunk_64eeb16ff97b0d2788e3fbb8b4a782e0",
+    "chunk_d348eb0715a2314db42ac7ed763ec1cf",
+    "chunk_e93016d110176f7d3706b3cdea88e478",
+    "chunk_0a51584e88fca27bb45e8448ebff939b",
+    "chunk_f47c886f6dc94a9f1a6daa951a0b5cef",
+    "chunk_8803648978bc6bb7009c37c7d21415df",
+    "chunk_3c59fb8310005d0cecc1d8fb3f2014b0",
+    "chunk_7b8af4fc43fa873a5d8ace5674df57dd",
+    "chunk_efcc17ab6ca00b5bb3b5045d4d420ada"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_83656816e3ccc5a9298ad5501bb70873",
+      "text": "为深入贯彻习近平生态文明思想，落实党中央、国务院决策\n部署，打好污染防治攻坚战，建设美丽中国，推动高质量发展，\n根据《中华人民共和国水污染防治法》《中华人民共和国国民经济\n和社会发展第十四个五年规划和2035 年远景目标纲要》，国家发\n展改革委、住房城乡建设部商生态环境部联合编制了《“十四五”城\n镇污水处理及资源化利用发展规划》（以下简称《规划》）。\n《规划》旨在有效缓解我国城镇污水收集处理设施发展不平\n衡不充分的矛盾，系统推动补短板强弱项，全面提升污水收集处\n理效能，加快推进污水资源化利用，提高设施运行维护水平。《规\n划》提出了“十四五”时期城镇污水处理及资源化利用的主要目标、\n重点建设任务、设施运行维护要求以及保障措施，以指导各地有\n序开展城镇污水处理及资源化利用工作。\n规划范围为全国（不含港澳台地区）城市、县城及建制镇。\n规划期限：2021—2025 年，展望到2035 年。",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        3
+      ],
+      "heading_path": [],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_83656816e3ccc5a9298ad5501bb70873__p3",
+          "physical_page": 3,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            227.05999755859375,
+            514.554443359375,
+            627.0800170898438
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_64eeb16ff97b0d2788e3fbb8b4a782e0",
+      "text": "二、 总体要求 > （三） 主要目标\n——到2025 年，基本消除城市建成区生活污水直排口和收集\n处理设施空白区，全国城市生活污水集中收集率力争达到70%以\n上；城市和县城污水处理能力基本满足经济社会发展需要，县城\n污水处理率达到95%以上；水环境敏感地区污水处理基本达到一\n级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%\n以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺\n水城市力争达到30%；城市和县城污泥无害化、资源化利用水平\n进一步提升，城市污泥无害化处置率达到90%以上；长江经济\n带、黄河流域、京津冀地区建制镇污水收集处理能力、污泥无害\n化处置水平明显提升。\n——到2035 年，城市生活污水收集管网基本全覆盖，城镇污\n水处理能力全覆盖，全面实现污泥无害化处置，污水污泥资源化\n利用水平显著提升，城镇污水得到安全高效处理，全民共享绿\n色、生态、安全的城镇水生态环境。",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "二、 总体要求",
+        "（三） 主要目标"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_64eeb16ff97b0d2788e3fbb8b4a782e0__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            284.0,
+            514.57421875,
+            684.9199829101562
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_d348eb0715a2314db42ac7ed763ec1cf",
+      "text": "五、 保障措施 > （一） 强化责任落实\n按照省级部署、市县负责的要求，系统谋划“十四五”城镇污水\n处理及资源化利用设施建设和运营。各省（区、市）因地制宜确\n定各城市生活污水集中收集率目标，原则上应达到70%以上或比\n2020 年提高5 个百分点以上。各省级发展改革部门联合城镇排水\n主管部门制定出台本地“十四五”城镇污水处理及资源化利用发展规\n划，明确本地区建设规模、重点任务和政府保障措施。市县担负\n主体责任，做好项目谋划和储备，制定滚动项目清单和年度计\n划，明确建设时序，有序推进项目建设，避免“一哄而上”。城镇污\n水处理和合流制溢流污染快速净化设施用地应列入土地利用年度\n计划。建立健全城镇污水处理设施建设改造项目的联审联批制\n度，优化审批流程，提高审批效率，确保建设按时保质落地。",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        13,
+        14
+      ],
+      "heading_path": [
+        "五、 保障措施",
+        "（一） 强化责任落实"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d348eb0715a2314db42ac7ed763ec1cf__p13",
+          "physical_page": 13,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            519.199951171875,
+            514.55908203125,
+            744.6800537109375
+          ]
+        },
+        {
+          "region_id": "chunk_d348eb0715a2314db42ac7ed763ec1cf__p14",
+          "physical_page": 14,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            109.45999908447266,
+            514.432861328125,
+            185.12001037597656
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_e93016d110176f7d3706b3cdea88e478",
+      "text": "一、 规划基础与形势展望\n污水收集处理及资源化利用设施是城镇环境基础设施的核心\n组成，是深入打好污染防治攻坚战的重要抓手，对于改善城镇人\n居环境，推进城市治理体系和治理能力现代化，加快生态文明建\n设，推动高质量发展具有重要作用。\n“十三五”以来，各地区各部门深入贯彻习近平生态文明思想，\n认真落实党中央、国务院决策部署，不断加大城镇污水处理设施\n建设和运行管理力度，污水收集处理能力水平显著提升，完成了\n《“十三五”全国城镇污水处理及再生利用设施建设规划》目标。同\n时也要清醒看到，我国城镇污水收集处理存在发展不平衡不充分\n问题，短板弱项依然突出。特别是，污水管网建设改造滞后、污\n水资源化利用水平偏低、污泥无害化处置不规范，设施可持续运\n维能力不强等问题，与实现高质量发展还存在差距。",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        4
+      ],
+      "heading_path": [
+        "一、 规划基础与形势展望"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_e93016d110176f7d3706b3cdea88e478__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            168.260009765625,
+            514.55859375,
+            508.52001953125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_0a51584e88fca27bb45e8448ebff939b",
+      "text": "二、 实施目标\n到2023 年，县级及以上城市设施能力基本满足生活污水处理\n需求。生活污水收集效能明显提升，城市市政雨污管网混错接改造\n更新取得显著成效。城市污泥无害化处置率和资源化利用率进一步\n提高。缺水地区和水环境敏感区域污水资源化利用水平明显提升。",
+      "document_version_id": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+      "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [
+        "二、 实施目标"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0a51584e88fca27bb45e8448ebff939b__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            548.10498046875,
+            515.759033203125,
+            655.52001953125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_f47c886f6dc94a9f1a6daa951a0b5cef",
+      "text": "二、 总体要求 > （三） 规划目标。“十四五”时期，城市基础设施发展坚\n能源系统 | 11 | 城镇管道燃气普及率（%） | 75.7* | 大城市及以上规模城市≥85 中等城市≥75 小城市≥60\n环卫系统 | 12 | 城市生活垃圾回收利用率（%） | -- | ≥35\n环卫系统 | 13 | 城市生活垃圾焚烧处理能力占比（%） | 58.9 | ≥65 （西部地区≥40）\n环卫系统 | 14 | 城市生活垃圾资源化利用率（%） | 51.2* | ≥60\n环卫系统 | 15 | 城市建筑垃圾综合利用率（%） | -- | ≥50\n园林绿化系统 | 16 | 城市绿地率（%） | 38.24 | ≥40\n园林绿化系统 | 17 | 城市万人拥有绿道长度（公里） | -- | ≥1.0\n园林绿化系统 | 18 | 城市公园绿化活动场地服务半径覆盖率（%） | -- | ≥85\n信息通信系统 | 19 | 市政管网管线智能化监测管理率（%） | -- | 直辖市、省会城市和计划单列市≥30 地级以上城市≥15\n信息通信系统 | 20 | 5G用户普及率（%） | 小于1* | ≥56",
+      "document_version_id": "25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7",
+      "file_name": "“十四五”全国城市基础设施建设规划.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "二、 总体要求",
+        "（三） 规划目标。“十四五”时期，城市基础设施发展坚"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_f47c886f6dc94a9f1a6daa951a0b5cef__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            69.81205032999597,
+            114.25525179393225,
+            524.6148011463828,
+            743.5365347283271
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_8803648978bc6bb7009c37c7d21415df",
+      "text": "二、 总体要求 > （三） 规划目标。“十四五”时期，城市基础设施发展坚\n表2 “十四五”城市基础设施主要发展指标\n类别 | 序号 | 发展指标 | 2020年现状 | 2025年目标\n综合类 | 1 | 城市基础设施建设投资占全社会固定资产投资比重（%） | 6.65 | ≥8\n综合类 | 2 | 城市地下管网普查归档率（%） | -- | 100\n综合类 | 3 | 绿色社区建设比例（%） | -- | ≥60\n交通系统 | 4 | 城市建成区路网密度（公里/平方公里） | 7.07 | ≥8（见注③）\n交通系统 | 5 | 轨道站点800米半径覆盖通勤比例（%） | 超大城市26 特大城市17 大城市8 | 超大城市≥30 特大城市≥20 大城市≥10\n水系统 | 6 | 城市公共供水管网漏损率（%） | 10 | ≤9\n水系统 | 7 | 城市生活污水集中收集率（%） | 64.8 | ≥70\n水系统 | 8 | 缺水城市再生水利用率（%） | 20左右 | 地级及以上缺水城市≥25，京津冀地区≥35，黄河流域中下游≥30\n水系统 | 9 | 城市污泥无害化处置率（%） | 地级及以上城市90左右 | ≥90，其中地级及以上城市≥95\n能源系统 | 10 | 城市供热管网热损失率（%） | 平均20 | 较2020年降低2.5个百分点\n能源系统 | 11 | 城镇管道燃气普及率（%） | 75.7* | 大城市及以上规模城市≥85 中等城市≥75 小城市≥60",
+      "document_version_id": "25faa8b1ed7044dc62e602a2b8c7be16e1c39d61032f249bd2945ae003a313e7",
+      "file_name": "“十四五”全国城市基础设施建设规划.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "二、 总体要求",
+        "（三） 规划目标。“十四五”时期，城市基础设施发展坚"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_8803648978bc6bb7009c37c7d21415df__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            69.81205032999597,
+            114.25525179393225,
+            524.6148011463828,
+            743.5365347283271
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_3c59fb8310005d0cecc1d8fb3f2014b0",
+      "text": "资料卡：“十四五”城镇污水处理及资源化利用\n类型：政策文件\n“十四五”城镇污水处理及资源化利用\n发展规划\n2021 年6 月",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_3c59fb8310005d0cecc1d8fb3f2014b0__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            122.87999725341795,
+            306.5273132324219,
+            472.4247131347656,
+            715.280029296875
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_7b8af4fc43fa873a5d8ace5674df57dd",
+      "text": "一、 工作目标\n以效能提升为核心，以管网补短板为重点，坚持问题导向、重\n点突破、建管并举、系统整治、精准施策，推动建立厂网统筹的城\n市生活污水专业化运行维护管理模式。到2027年，基本消除城市建\n成区生活污水直排口和设施空白区，城市生活污水集中收集率达到\n73%以上，城市生活污水收集处理综合效能显著提升。",
+      "document_version_id": "76b7035435a3dd5d51104c77a5996e47a4deabe9fbfe0d8b6b504fbd4844cada",
+      "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [
+        "一、 工作目标"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://sousuo.www.gov.cn/zcwjk/policyDocumentLibrary",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "住房城乡建设部等5部门",
+      "standard_number": "",
+      "publication_date": "2024-03-08",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_7b8af4fc43fa873a5d8ace5674df57dd__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            84.0,
+            535.125,
+            501.5998229980469,
+            664.5250244140625
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_efcc17ab6ca00b5bb3b5045d4d420ada",
+      "text": "2 技术要求 > （二） 强化城镇污水处理设施弱项，提升处理能力\n1.建设任务。现有污水处理能力不能满足需求的城市和县城，\n要加快补齐处理能力缺口。新城区配合城市开发同步推进污水收\n集处理设施建设。大中型城市污水处理设施建设规模可适度超\n前。京津冀、长三角、粤港澳大湾区、南水北调工程沿线、长江\n经济带城市和县城，黄河干流沿线城市实现生活污水集中处理能\n力全覆盖。统筹规划、有序建设，稳步推进建制镇污水处理设施\n建设，适当预留发展空间，宜集中则集中，宜分散则分散。加快\n推进长江经济带重点镇污水收集处理能力建设。长江流域及以南\n地区，分类施策降低合流制管网溢流污染，因地制宜推进合流制\n溢流污水快速净化设施建设。“十四五”期间，新增污水处理能力\n2000 万立方米/日。",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "2 技术要求",
+        "（二） 强化城镇污水处理设施弱项，提升处理能力"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_efcc17ab6ca00b5bb3b5045d4d420ada__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            136.71499633789062,
+            514.5535888671875,
+            450.6799926757813
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.007,
+    "retrieval": 67.195,
+    "context_expansion": 13.058,
+    "generation": 6216.996,
+    "validation": 0.164,
+    "total": 6297.627
+  },
+  "generate_context_evidence_ids": [
+    "chunk_83656816e3ccc5a9298ad5501bb70873",
+    "chunk_64eeb16ff97b0d2788e3fbb8b4a782e0",
+    "chunk_d348eb0715a2314db42ac7ed763ec1cf",
+    "chunk_e93016d110176f7d3706b3cdea88e478",
+    "chunk_0a51584e88fca27bb45e8448ebff939b"
+  ],
+  "trace_evidence_ids": [
+    "chunk_83656816e3ccc5a9298ad5501bb70873",
+    "chunk_64eeb16ff97b0d2788e3fbb8b4a782e0",
+    "chunk_d348eb0715a2314db42ac7ed763ec1cf",
+    "chunk_e93016d110176f7d3706b3cdea88e478",
+    "chunk_0a51584e88fca27bb45e8448ebff939b",
+    "chunk_f47c886f6dc94a9f1a6daa951a0b5cef",
+    "chunk_8803648978bc6bb7009c37c7d21415df",
+    "chunk_3c59fb8310005d0cecc1d8fb3f2014b0",
+    "chunk_7b8af4fc43fa873a5d8ace5674df57dd",
+    "chunk_efcc17ab6ca00b5bb3b5045d4d420ada"
+  ],
+  "token_usage": {
+    "input_tokens": 2326,
+    "output_tokens": 514,
+    "total_tokens": 2840,
+    "estimated_cost": 0.033,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "“十四五”城镇污水处理及资源化利用规划提出，到2025年全国城市生活污水集中收集率力争达到多少？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_83656816e3ccc5a9298ad5501bb70873",
+        "usage_policy": "answer_and_citation",
+        "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+        "physical_pages": [
+          3
+        ],
+        "text": "为深入贯彻习近平生态文明思想，落实党中央、国务院决策\n部署，打好污染防治攻坚战，建设美丽中国，推动高质量发展，\n根据《中华人民共和国水污染防治法》《中华人民共和国国民经济\n和社会发展第十四个五年规划和2035 年远景目标纲要》，国家发\n展改革委、住房城乡建设部商生态环境部联合编制了《“十四五”城\n镇污水处理及资源化利用发展规划》（以下简称《规划》）。\n《规划》旨在有效缓解我国城镇污水收集处理设施发展不平\n衡不充分的矛盾，系统推动补短板强弱项，全面提升污水收集处\n理效能，加快推进污水资源化利用，提高设施运行维护水平。《规\n划》提出了“十四五”时期城镇污水处理及资源化利用的主要目标、\n重点建设任务、设施运行维护要求以及保障措施，以指导各地有\n序开展城镇污水处理及资源化利用工作。\n规划范围为全国（不含港澳台地区）城市、县城及建制镇。\n规划期限：2021—2025 年，展望到2035 年。"
+      },
+      {
+        "evidence_id": "chunk_64eeb16ff97b0d2788e3fbb8b4a782e0",
+        "usage_policy": "answer_and_citation",
+        "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+        "physical_pages": [
+          6
+        ],
+        "text": "二、 总体要求 > （三） 主要目标\n——到2025 年，基本消除城市建成区生活污水直排口和收集\n处理设施空白区，全国城市生活污水集中收集率力争达到70%以\n上；城市和县城污水处理能力基本满足经济社会发展需要，县城\n污水处理率达到95%以上；水环境敏感地区污水处理基本达到一\n级A 排放标准；全国地级及以上缺水城市再生水利用率达到25%\n以上，京津冀地区达到35%以上，黄河流域中下游地级及以上缺\n水城市力争达到30%；城市和县城污泥无害化、资源化利用水平\n进一步提升，城市污泥无害化处置率达到90%以上；长江经济\n带、黄河流域、京津冀地区建制镇污水收集处理能力、污泥无害\n化处置水平明显提升。\n——到2035 年，城市生活污水收集管网基本全覆盖，城镇污\n水处理能力全覆盖，全面实现污泥无害化处置，污水污泥资源化\n利用水平显著提升，城镇污水得到安全高效处理，全民共享绿\n色、生态、安全的城镇水生态环境。"
+      },
+      {
+        "evidence_id": "chunk_d348eb0715a2314db42ac7ed763ec1cf",
+        "usage_policy": "answer_and_citation",
+        "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+        "physical_pages": [
+          13,
+          14
+        ],
+        "text": "五、 保障措施 > （一） 强化责任落实\n按照省级部署、市县负责的要求，系统谋划“十四五”城镇污水\n处理及资源化利用设施建设和运营。各省（区、市）因地制宜确\n定各城市生活污水集中收集率目标，原则上应达到70%以上或比\n2020 年提高5 个百分点以上。各省级发展改革部门联合城镇排水\n主管部门制定出台本地“十四五”城镇污水处理及资源化利用发展规\n划，明确本地区建设规模、重点任务和政府保障措施。市县担负\n主体责任，做好项目谋划和储备，制定滚动项目清单和年度计\n划，明确建设时序，有序推进项目建设，避免“一哄而上”。城镇污\n水处理和合流制溢流污染快速净化设施用地应列入土地利用年度\n计划。建立健全城镇污水处理设施建设改造项目的联审联批制\n度，优化审批流程，提高审批效率，确保建设按时保质落地。"
+      },
+      {
+        "evidence_id": "chunk_e93016d110176f7d3706b3cdea88e478",
+        "usage_policy": "answer_and_citation",
+        "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+        "physical_pages": [
+          4
+        ],
+        "text": "一、 规划基础与形势展望\n污水收集处理及资源化利用设施是城镇环境基础设施的核心\n组成，是深入打好污染防治攻坚战的重要抓手，对于改善城镇人\n居环境，推进城市治理体系和治理能力现代化，加快生态文明建\n设，推动高质量发展具有重要作用。\n“十三五”以来，各地区各部门深入贯彻习近平生态文明思想，\n认真落实党中央、国务院决策部署，不断加大城镇污水处理设施\n建设和运行管理力度，污水收集处理能力水平显著提升，完成了\n《“十三五”全国城镇污水处理及再生利用设施建设规划》目标。同\n时也要清醒看到，我国城镇污水收集处理存在发展不平衡不充分\n问题，短板弱项依然突出。特别是，污水管网建设改造滞后、污\n水资源化利用水平偏低、污泥无害化处置不规范，设施可持续运\n维能力不强等问题，与实现高质量发展还存在差距。"
+      },
+      {
+        "evidence_id": "chunk_0a51584e88fca27bb45e8448ebff939b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "二、 实施目标\n到2023 年，县级及以上城市设施能力基本满足生活污水处理\n需求。生活污水收集效能明显提升，城市市政雨污管网混错接改造\n更新取得显著成效。城市污泥无害化处置率和资源化利用率进一步\n提高。缺水地区和水环境敏感区域污水资源化利用水平明显提升。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 0.569128
+}

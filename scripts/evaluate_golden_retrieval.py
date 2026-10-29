@@ -285,7 +285,7 @@ def main() -> None:
     parser.add_argument(
         "--dataset",
         type=Path,
-        default=ROOT / "eval" / "golden_v6.jsonl",
+        default=ROOT / "eval" / "golden_v7.jsonl",
     )
     parser.add_argument("--output-root", type=Path, default=ROOT / "eval" / "runs")
     parser.add_argument("--run-id")

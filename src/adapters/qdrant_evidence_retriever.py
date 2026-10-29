@@ -20,6 +20,40 @@ _SUPPORTED_FILTERS = {
 _SOURCE_CLAUSE_PATTERN = re.compile(
     r"(?<![\d.])(\d+(?:\.\d+){2,})(?=\s|[\u4e00-\u9fff])"
 )
+_DEFINITION_QUESTION = re.compile(r"(?:如何|怎样|怎么)定义[“\"]([^”\"]{1,24})[”\"]")
+_STANDARD_REF = r"(?:GB/T|T/CMSA|QX/T)\s*\d+(?:[-—－]\d{4})?"
+_COMPARISON = re.compile(
+    rf"对照\s*({_STANDARD_REF})\s*与\s*({_STANDARD_REF})\s*[:：]"
+    r"\s*前者([^？?]+)[？?]\s*后者([^？?]+)[？?]\s*(.*)"
+)
+_FIGURE_QUESTION = re.compile(
+    r"\b((?:GB(?:/T)?|QX/T|T/CECS)\s*\d{3,6})\s*中?\s*图\s*(\d+(?:\.\d+)+)"
+)
+
+
+def _standard_key(value: str) -> str:
+    return re.sub(r"[-—－]\d{4}$", "", re.sub(r"\s+", "", value)).upper()
+
+
+def _focused_queries(question: str) -> tuple[str, list[tuple[str, str]]]:
+    """Use only terms and standard identifiers explicitly present in the question."""
+    comparison = _COMPARISON.search(question)
+    if comparison:
+        first, second, first_part, second_part, remainder = comparison.groups()
+        queries = [(first, f"{first} {first_part}"), (second, f"{second} {second_part}")]
+        third = re.search(_STANDARD_REF, remainder)
+        if third:
+            queries.append((third.group(), remainder.strip()))
+        return "comparison", queries
+    definition = _DEFINITION_QUESTION.search(question)
+    if definition:
+        term = definition.group(1).strip()
+        return "definition", [(term, f"{term} 术语 定义")]
+    figure = _FIGURE_QUESTION.search(question)
+    if figure:
+        standard, number = figure.groups()
+        return "figure", [(number, f"{standard} 图{number}")]
+    return "", []
 
 
 def _evidence_locator_path(*, heading_path: list[str], text: str) -> list[str]:
@@ -95,6 +129,42 @@ class QdrantEvidenceRetriever:
             filters=filters or None,
             limit=self._limit * 2 if requested_jurisdiction else self._limit,
         )
+        focus_kind, focused = _focused_queries(question)
+        promoted = []
+        for standard, focused_text in focused:
+            vector = await asyncio.to_thread(self._embedder.embed_query, focused_text)
+            focused_hits = await asyncio.to_thread(
+                self._index.search,
+                HybridQuery(text=focused_text, dense_vector=vector),
+                mode="rrf",
+                filters=filters or None,
+                limit=self._limit,
+            )
+            if focus_kind == "definition":
+                promoted.extend(hit for hit in focused_hits if standard in hit.text)
+                promoted = promoted[:2]
+            elif focus_kind == "figure":
+                matching = next(
+                    (hit for hit in focused_hits
+                     if _standard_key(getattr(hit, "standard_number", ""))
+                     == _standard_key(focused_text.split(" 图", 1)[0])
+                     and re.search(rf"图\s*{re.escape(standard)}(?![\d.])", hit.text)),
+                    None,
+                )
+                if matching is not None:
+                    promoted.append(matching)
+            else:
+                matching = next(
+                    (hit for hit in focused_hits
+                     if _standard_key(getattr(hit, "standard_number", "")) == _standard_key(standard)),
+                    None,
+                )
+                if matching is not None:
+                    promoted.append(matching)
+        if promoted:
+            seen = set()
+            hits = [hit for hit in [*promoted, *hits]
+                    if not (hit.chunk_id in seen or seen.add(hit.chunk_id))]
         if requested_jurisdiction and requested_jurisdiction != "全国":
             hits = [
                 *[hit for hit in hits if hit.jurisdiction == requested_jurisdiction],
@@ -115,7 +185,7 @@ class QdrantEvidenceRetriever:
         )
 
 
-_STRUCTURED_TYPES = {"table", "formula"}
+_STRUCTURED_TYPES = {"table", "formula", "figure"}
 _ELEMENT_ID = re.compile(r"^e(\d{6})$")
 # What follows a table or formula inside the same clause explains it: the
 # "式中" variable lines, units, "注：…" notes.  Each is short; longer prose is
@@ -135,9 +205,9 @@ def _element_number(element_id: str) -> int | None:
 
 
 class QdrantContextExpander:
-    """Attach the prose framing each table/formula in the generation context.
+    """Attach nearby explanatory text to structured evidence in the generation context.
 
-    Tables and formulas are atomic chunks, so the sentence that introduces
+    Tables, formulas and figures are atomic chunks, so the sentence that introduces
     them ("降雨分为7个等级，具体划分见表1") and short notes such as units
     live in neighbouring chunks.  Canonical element ids are sequential in
     reading order, so the framing prose is the nearest text-only chunk before
@@ -195,6 +265,18 @@ class QdrantContextExpander:
             numbers = [n for n in map(_element_number, hit.element_ids) if n is not None]
             if not numbers:
                 continue
+            if "table" in hit.element_types:
+                # Long tables are split into several chunks with the same
+                # canonical element ID; the next shard may carry the row asked for.
+                for shard in self._index.find_by_elements(hit.document_version_id, hit.element_ids):
+                    if len(extras) >= self._max_extra:
+                        break
+                    if (shard.chunk_id in seen or shard.heading_path != hit.heading_path
+                            or "table" not in shard.element_types
+                            or shard.usage_policy not in self._allowed):
+                        continue
+                    seen.add(shard.chunk_id)
+                    extras.append(evidence_item_from_hit(shard))
             before = [f"e{n:06d}" for n in range(min(numbers) - 1, min(numbers) - 1 - self._lookback, -1) if n > 0]
             after = [f"e{n:06d}" for n in range(max(numbers) + 1, max(numbers) + 1 + _TRAILING_SPAN)]
             neighbours = self._index.find_by_elements(hit.document_version_id, [*before, *after])

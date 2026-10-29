@@ -1,0 +1,625 @@
+{
+  "case": "G012",
+  "question": "武汉市排水管道混错接改造技术规程的地方标准号是什么？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261029-b6-v7-G012",
+  "trace_missing": false,
+  "wall_ms": 3981.837,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "《武汉市排水管道混错接改造技术规程》的地方标准号为 DB4201/T 651-2021。",
+        "evidence_ids": [
+          "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+          "chunk_c4e228f0ee6f5952b7de3ca1e305c588"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_3412051372db28863350951ad9f537a5",
+    "chunk_e9c300fed31291cd2e8def641f78842e",
+    "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+    "chunk_e7aad19edddf727cc523cdcbe644e7f6",
+    "chunk_5a7e47c06a302376068d1e983a70dcff",
+    "chunk_bc72936bd0be45bde60c0858f71ea58e",
+    "chunk_fcdae1545960a5a80b474f51ceb889fe",
+    "chunk_5e5a15f81cc27f90f2ddc4618d5b7710",
+    "chunk_64819047a8bae7be9a28b4210fcbb4c8",
+    "chunk_541e6bdc4c7cb24544e8aa4ac04e1776",
+    "chunk_127f7c82675943a53a6f860e932a9401"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+      "text": "资料卡：DB4201/T 651-2021 武汉市排水管道混错接改造技术规程\n标准号：DB4201/T 651-2021\n类型：标准\n发布机构：武汉市水务局\n发布日期：2021-11-12\n实施日期：2021-12-13\n武汉市地方标准\nDB 4201/T 651—2021\n武汉市排水管道混错接改造技术规程\nCode of technical regulation for reconstruction of mixed connection drainage pipeline\nin Wuhan City\n2021 - 11 - 12 发布\n2021 - 12 - 13 实施\n武汉市市场监督管理局 发布",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "source_locator_only",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d8e7c9c86160d1d9df67e39f573aef56__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            65.16000366210938,
+            116.90396118164062,
+            559.0800170898438,
+            786.8302612304688
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+      "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "1 范围"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            70.91998291015625,
+            174.773681640625,
+            538.8125,
+            232.125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_3412051372db28863350951ad9f537a5",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.1\n5.5.1 针对本文件5.4 所探查出来存在混错接区域的地方具体混错接点进行探查。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        10
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.5.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_3412051372db28863350951ad9f537a5__p10",
+          "physical_page": 10,
+          "kind": "text",
+          "bbox": [
+            56.68414306640625,
+            586.2344970703125,
+            524.5924072265625,
+            659.1829833984375
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_e9c300fed31291cd2e8def641f78842e",
+      "text": "9 运行维护\n序号 | 图号 | 混错接点号码 | 雨水错接污水管径 | 污水错接雨水管径 | 混错接水量、水质 | 混错接等级 | 备注\n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  |",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        23
+      ],
+      "heading_path": [
+        "9 运行维护"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_e9c300fed31291cd2e8def641f78842e__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            70.51956720691244,
+            188.70369323729264,
+            538.2094677409389,
+            734.4408511136423
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+      "text": "4 目标、原则和要求\n承担城市排水管道混错接改造工作的主管部门应委托有专业能力和相应资质的单位，进行分区、分\n块混错接调查，在调查的基础上，科学合理制定混错接改造方案，有序开展混错接改造工作，并严格执\n行国家、行业相关安全和质量规定，确保安全和质量达标。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        7
+      ],
+      "heading_path": [
+        "4 目标、原则和要求"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3__p7",
+          "physical_page": 7,
+          "kind": "text",
+          "bbox": [
+            70.91325378417969,
+            180.64215087890625,
+            538.7972412109375,
+            224.1493225097656
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_e7aad19edddf727cc523cdcbe644e7f6",
+      "text": "6 混错接改造设计 > 6.4.1\n6.4.1 建筑排水立管混错接改造应查明错接原因，并采取针对性的改造措施，实施雨污分流。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        16
+      ],
+      "heading_path": [
+        "6 混错接改造设计",
+        "6.4.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_e7aad19edddf727cc523cdcbe644e7f6__p16",
+          "physical_page": 16,
+          "kind": "text",
+          "bbox": [
+            56.68223571777344,
+            632.9583129882812,
+            524.5904541015625,
+            752.8565673828125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_5a7e47c06a302376068d1e983a70dcff",
+      "text": "6 混错接改造设计 > 6.1.5\n6.1.5 排水管道混错接改造设计应按GB 50014 的要求执行。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        13
+      ],
+      "heading_path": [
+        "6 混错接改造设计",
+        "6.1.5"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_5a7e47c06a302376068d1e983a70dcff__p13",
+          "physical_page": 13,
+          "kind": "text",
+          "bbox": [
+            70.98335266113281,
+            583.6943969726562,
+            543.7017822265625,
+            765.82275390625
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_bc72936bd0be45bde60c0858f71ea58e",
+      "text": "7 混错接改造施工 > 7.2.2\n7.2.2 管道基础、管道安装、沟槽回填施工技术要求应满足GB 50268、CJJ 68 和CECS 164 的要求。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        17
+      ],
+      "heading_path": [
+        "7 混错接改造施工",
+        "7.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_bc72936bd0be45bde60c0858f71ea58e__p17",
+          "physical_page": 17,
+          "kind": "text",
+          "bbox": [
+            70.97286987304688,
+            360.01806640625,
+            543.5540771484375,
+            528.4921875
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_fcdae1545960a5a80b474f51ceb889fe",
+      "text": "8 成果验收与工程后期评估 > 8.1.1\n8.1.1 工程验收和工程后期评估是混错接改造项目评定考核的不同阶段。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        17
+      ],
+      "heading_path": [
+        "8 成果验收与工程后期评估",
+        "8.1.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_fcdae1545960a5a80b474f51ceb889fe__p17",
+          "physical_page": 17,
+          "kind": "text",
+          "bbox": [
+            71.0045166015625,
+            601.7891235351562,
+            538.9763793945312,
+            674.7376098632812
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_5e5a15f81cc27f90f2ddc4618d5b7710",
+      "text": "6 混错接改造设计 > 6.2.3\n6.2.3 对于具备雨污分流改造条件的合流制市政排水管道改造，设计应对合流管道实施雨污分流改造。\n截流改造前宜对雨污水系统的运行水位进行监测，确保具有截流条件。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        14
+      ],
+      "heading_path": [
+        "6 混错接改造设计",
+        "6.2.3"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_5e5a15f81cc27f90f2ddc4618d5b7710__p14",
+          "physical_page": 14,
+          "kind": "text",
+          "bbox": [
+            56.70719909667969,
+            383.40478515625,
+            529.8786010742188,
+            534.3388061523438
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_64819047a8bae7be9a28b4210fcbb4c8",
+      "text": "9 运行维护\n排水户排水情况调查表内容见表C.1。\n表C.1 排水户排水情况调查表",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        23
+      ],
+      "heading_path": [
+        "9 运行维护"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_64819047a8bae7be9a28b4210fcbb4c8__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            91.9248046875,
+            145.0185089111328,
+            383.5392150878906,
+            179.9721221923828
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_541e6bdc4c7cb24544e8aa4ac04e1776",
+      "text": "9 运行维护\nD\n\nD",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        24
+      ],
+      "heading_path": [
+        "9 运行维护"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_541e6bdc4c7cb24544e8aa4ac04e1776__p24",
+          "physical_page": 24,
+          "kind": "text",
+          "bbox": [
+            290.3999938964844,
+            83.96156311035156,
+            311.8800048828125,
+            85.99192810058594
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_127f7c82675943a53a6f860e932a9401",
+      "text": "9 运行维护\n流量测定记录表内容见表D.1。\n表D.1 流量测定记录表",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        24
+      ],
+      "heading_path": [
+        "9 运行维护"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_127f7c82675943a53a6f860e932a9401__p24",
+          "physical_page": 24,
+          "kind": "text",
+          "bbox": [
+            77.64480590820312,
+            145.0185089111328,
+            353.4297790527344,
+            179.9721221923828
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.033,
+    "retrieval": 68.421,
+    "context_expansion": 59.365,
+    "generation": 3824.238,
+    "validation": 0.071,
+    "total": 3952.427
+  },
+  "generate_context_evidence_ids": [
+    "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_3412051372db28863350951ad9f537a5",
+    "chunk_e9c300fed31291cd2e8def641f78842e",
+    "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+    "chunk_64819047a8bae7be9a28b4210fcbb4c8",
+    "chunk_541e6bdc4c7cb24544e8aa4ac04e1776",
+    "chunk_127f7c82675943a53a6f860e932a9401"
+  ],
+  "trace_evidence_ids": [
+    "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_3412051372db28863350951ad9f537a5",
+    "chunk_e9c300fed31291cd2e8def641f78842e",
+    "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+    "chunk_e7aad19edddf727cc523cdcbe644e7f6",
+    "chunk_5a7e47c06a302376068d1e983a70dcff",
+    "chunk_bc72936bd0be45bde60c0858f71ea58e",
+    "chunk_fcdae1545960a5a80b474f51ceb889fe",
+    "chunk_5e5a15f81cc27f90f2ddc4618d5b7710",
+    "chunk_64819047a8bae7be9a28b4210fcbb4c8",
+    "chunk_541e6bdc4c7cb24544e8aa4ac04e1776",
+    "chunk_127f7c82675943a53a6f860e932a9401"
+  ],
+  "token_usage": {
+    "input_tokens": 2742,
+    "output_tokens": 106,
+    "total_tokens": 2848,
+    "estimated_cost": 0.024904,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "武汉市排水管道混错接改造技术规程的地方标准号是什么？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "资料卡：DB4201/T 651-2021 武汉市排水管道混错接改造技术规程\n标准号：DB4201/T 651-2021\n类型：标准\n发布机构：武汉市水务局\n发布日期：2021-11-12\n实施日期：2021-12-13\n武汉市地方标准\nDB 4201/T 651—2021\n武汉市排水管道混错接改造技术规程\nCode of technical regulation for reconstruction of mixed connection drainage pipeline\nin Wuhan City\n2021 - 11 - 12 发布\n2021 - 12 - 13 实施\n武汉市市场监督管理局 发布"
+      },
+      {
+        "evidence_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。"
+      },
+      {
+        "evidence_id": "chunk_3412051372db28863350951ad9f537a5",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          10
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.5.1\n5.5.1 针对本文件5.4 所探查出来存在混错接区域的地方具体混错接点进行探查。"
+      },
+      {
+        "evidence_id": "chunk_e9c300fed31291cd2e8def641f78842e",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "9 运行维护\n序号 | 图号 | 混错接点号码 | 雨水错接污水管径 | 污水错接雨水管径 | 混错接水量、水质 | 混错接等级 | 备注\n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  | \n |  |  |  |  |  |  |"
+      },
+      {
+        "evidence_id": "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求\n承担城市排水管道混错接改造工作的主管部门应委托有专业能力和相应资质的单位，进行分区、分\n块混错接调查，在调查的基础上，科学合理制定混错接改造方案，有序开展混错接改造工作，并严格执\n行国家、行业相关安全和质量规定，确保安全和质量达标。"
+      },
+      {
+        "evidence_id": "chunk_64819047a8bae7be9a28b4210fcbb4c8",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "9 运行维护\n排水户排水情况调查表内容见表C.1。\n表C.1 排水户排水情况调查表"
+      },
+      {
+        "evidence_id": "chunk_541e6bdc4c7cb24544e8aa4ac04e1776",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          24
+        ],
+        "text": "9 运行维护\nD\n\nD"
+      },
+      {
+        "evidence_id": "chunk_127f7c82675943a53a6f860e932a9401",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          24
+        ],
+        "text": "9 运行维护\n流量测定记录表内容见表D.1。\n表D.1 流量测定记录表"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 0.5107
+}

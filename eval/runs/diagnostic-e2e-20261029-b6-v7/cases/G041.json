@@ -1,0 +1,502 @@
+{
+  "case": "G041",
+  "question": "《城镇生活污水处理设施补短板强弱项实施方案》提出的实施目标年份是到哪一年？核心方向是什么？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261029-b6-v7-G041",
+  "trace_missing": false,
+  "wall_ms": 6362.825,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "《城镇生活污水处理设施补短板强弱项实施方案》提出的实施目标年份是到2023年。",
+        "evidence_ids": [
+          "chunk_0a51584e88fca27bb45e8448ebff939b"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "核心方向是解决城镇生活污水收集处理发展不均衡、不充分的矛盾，加快补齐城镇生活污水处理设施建设短板。",
+        "evidence_ids": [
+          "chunk_c80b6671f3fe6dedd6fe794f0660bb5b"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "具体目标包括：县级及以上城市设施能力基本满足生活污水处理需求，生活污水收集效能明显提升，城市市政雨污管网混错接改造更新取得显著成效，城市污泥无害化处置率和资源化利用率进一步提高，缺水地区和水环境敏感区域污水资源化利用水平明显提升。",
+        "evidence_ids": [
+          "chunk_0a51584e88fca27bb45e8448ebff939b"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_0a51584e88fca27bb45e8448ebff939b",
+    "chunk_83656816e3ccc5a9298ad5501bb70873",
+    "chunk_c80b6671f3fe6dedd6fe794f0660bb5b",
+    "chunk_a616642cba4b6c5f3eee80919565c04a",
+    "chunk_7b8af4fc43fa873a5d8ace5674df57dd",
+    "chunk_bab2d009b1e34062993f39f50141e81f",
+    "chunk_170125259a83edbb1eb4d0009f24f292",
+    "chunk_553412adea266fe57b501c44827fd943",
+    "chunk_c12b8e8b37b60b54485e6acd29b63240",
+    "chunk_e93016d110176f7d3706b3cdea88e478"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_0a51584e88fca27bb45e8448ebff939b",
+      "text": "二、 实施目标\n到2023 年，县级及以上城市设施能力基本满足生活污水处理\n需求。生活污水收集效能明显提升，城市市政雨污管网混错接改造\n更新取得显著成效。城市污泥无害化处置率和资源化利用率进一步\n提高。缺水地区和水环境敏感区域污水资源化利用水平明显提升。",
+      "document_version_id": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+      "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [
+        "二、 实施目标"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_0a51584e88fca27bb45e8448ebff939b__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            548.10498046875,
+            515.759033203125,
+            655.52001953125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_83656816e3ccc5a9298ad5501bb70873",
+      "text": "为深入贯彻习近平生态文明思想，落实党中央、国务院决策\n部署，打好污染防治攻坚战，建设美丽中国，推动高质量发展，\n根据《中华人民共和国水污染防治法》《中华人民共和国国民经济\n和社会发展第十四个五年规划和2035 年远景目标纲要》，国家发\n展改革委、住房城乡建设部商生态环境部联合编制了《“十四五”城\n镇污水处理及资源化利用发展规划》（以下简称《规划》）。\n《规划》旨在有效缓解我国城镇污水收集处理设施发展不平\n衡不充分的矛盾，系统推动补短板强弱项，全面提升污水收集处\n理效能，加快推进污水资源化利用，提高设施运行维护水平。《规\n划》提出了“十四五”时期城镇污水处理及资源化利用的主要目标、\n重点建设任务、设施运行维护要求以及保障措施，以指导各地有\n序开展城镇污水处理及资源化利用工作。\n规划范围为全国（不含港澳台地区）城市、县城及建制镇。\n规划期限：2021—2025 年，展望到2035 年。",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        3
+      ],
+      "heading_path": [],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_83656816e3ccc5a9298ad5501bb70873__p3",
+          "physical_page": 3,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            227.05999755859375,
+            514.554443359375,
+            627.0800170898438
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c80b6671f3fe6dedd6fe794f0660bb5b",
+      "text": "为深入贯彻习近平生态文明思想，落实党中央、国务院关于加\n强生态环境保护、建设美丽中国的决策部署和《政府工作报告》要\n求，解决城镇生活污水收集处理发展不均衡、不充分的矛盾，加快\n补齐城镇生活污水处理设施建设短板，制定本方案。",
+      "document_version_id": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+      "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c80b6671f3fe6dedd6fe794f0660bb5b__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            197.66000366210935,
+            514.5589599609375,
+            302.7200012207031
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_a616642cba4b6c5f3eee80919565c04a",
+      "text": "资料卡：城镇生活污水处理设施补短板强弱项实施方案\n类型：政策文件",
+      "document_version_id": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+      "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_a616642cba4b6c5f3eee80919565c04a__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            97.68000030517578,
+            133.80470275878906,
+            497.7654418945313,
+            157.7644500732422
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_7b8af4fc43fa873a5d8ace5674df57dd",
+      "text": "一、 工作目标\n以效能提升为核心，以管网补短板为重点，坚持问题导向、重\n点突破、建管并举、系统整治、精准施策，推动建立厂网统筹的城\n市生活污水专业化运行维护管理模式。到2027年，基本消除城市建\n成区生活污水直排口和设施空白区，城市生活污水集中收集率达到\n73%以上，城市生活污水收集处理综合效能显著提升。",
+      "document_version_id": "76b7035435a3dd5d51104c77a5996e47a4deabe9fbfe0d8b6b504fbd4844cada",
+      "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [
+        "一、 工作目标"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://sousuo.www.gov.cn/zcwjk/policyDocumentLibrary",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "住房城乡建设部等5部门",
+      "standard_number": "",
+      "publication_date": "2024-03-08",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_7b8af4fc43fa873a5d8ace5674df57dd__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            84.0,
+            535.125,
+            501.5998229980469,
+            664.5250244140625
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_bab2d009b1e34062993f39f50141e81f",
+      "text": "四、 保障措施 > （一） 加强组织协调。按照中央部署、省级统筹、市县负责的\n（一）加强组织协调。按照中央部署、省级统筹、市县负责的\n要求，推进方案落地实施。国家发展改革委、住房城乡建设部做好\n督促指导，完善政策措施，对设施补短板项目给予积极支持。各省\n（区、市）统筹推进辖区内设施规划和建设工作，制定工作方案，\n明确目标任务。市县是第一责任人，要切实担负主体责任，加快项\n目谋划和储备，制定滚动项目清单和年度计划，明确建设时序，扎\n实推进项目建设实施。",
+      "document_version_id": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+      "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "physical_pages": [
+        4
+      ],
+      "heading_path": [
+        "四、 保障措施",
+        "（一） 加强组织协调。按照中央部署、省级统筹、市县负责的"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_bab2d009b1e34062993f39f50141e81f__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            256.4599914550781,
+            515.759033203125,
+            449.7200012207031
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_170125259a83edbb1eb4d0009f24f292",
+      "text": "一、 总体要求\n以习近平新时代中国特色社会主义思想为指导，全面贯彻党的\n十九大和十九届二中、三中、四中全会精神，提升城镇生活污水收\n集处理能力，加大生活污水收集管网配套建设和改造力度，促进污\n水资源化利用，推进污泥无害化资源化处理处置，加快补齐设施短\n板，完善生活污水收集处理设施体系，满足人民日益增长的优美生\n态环境需要。",
+      "document_version_id": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+      "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [
+        "一、 总体要求"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_170125259a83edbb1eb4d0009f24f292__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            344.6600036621094,
+            514.5589599609375,
+            508.52001953125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_553412adea266fe57b501c44827fd943",
+      "text": "三、 主要任务 > （一） 强化城镇污水处理厂弱项。按照因地制宜、查漏补缺、\n（一）强化城镇污水处理厂弱项。按照因地制宜、查漏补缺、\n有序建设、适度超前的原则，统筹考虑城镇（含易地扶贫搬迁后）\n人口容量和分布，坚持集中与分散相结合，科学确定城镇污水处理\n厂的布局、规模。目前没有污水处理厂的县城要尽快建成生活污水\n处理设施，现有污水处理能力不能满足需求的城市和县城要加快补\n齐处理能力缺口，大中型城市污水处理厂建设规模可适度超前。京\n津冀地区、粤港澳大湾区和长江干流沿线城市和县城，黄河干流沿\n线城市实现生活污水集中处理设施全覆盖。长三角地区和粤港澳大\n湾区城市、京津冀地区和长江干流沿线地级及以上城市、黄河流域\n省会城市、计划单列市生活污水处理设施全部达到一级A 排放标\n准。缺水地区、水环境敏感区域，要结合水资源禀赋、水环境保护\n目标和技术经济条件，开展污水处理厂提升改造，积极推动污水资\n源化利用，推广再生水用于市政杂用、工业用水和生态补水等。长\n江流域及以南地区，在完成片区管网排查修复改造的前提下，因地\n制宜推进合流制溢流污水快速净化设施建设。积极推进建制镇污水\n处理设施建设。",
+      "document_version_id": "f211a5eba097d50ce21af84b7077e535122be9c5faa317ed653cf44a956b40a4",
+      "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+      "physical_pages": [
+        1,
+        2
+      ],
+      "heading_path": [
+        "三、 主要任务",
+        "（一） 强化城镇污水处理厂弱项。按照因地制宜、查漏补缺、"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_553412adea266fe57b501c44827fd943__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            697.4600219726562,
+            515.759033203125,
+            743.7200317382812
+          ]
+        },
+        {
+          "region_id": "chunk_553412adea266fe57b501c44827fd943__p2",
+          "physical_page": 2,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            109.45999908447266,
+            514.5589599609375,
+            508.52001953125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c12b8e8b37b60b54485e6acd29b63240",
+      "text": "二、 总体要求 > （一） 指导思想\n以习近平新时代中国特色社会主义思想为指导，深入贯彻习\n近平生态文明思想，全面贯彻党的十九大和十九届二中、三中、\n四中、五中全会精神，立足新发展阶段，贯彻新发展理念，构建\n新发展格局，坚持系统观念，以改善水生态环境质量为目标，以\n提升城镇污水收集处理效能为导向，以设施补短板强弱项为抓\n手，统筹谋划、聚焦重点、问题导向、分类施策，加快形成布局\n合理、系统协调、安全高效、节能低碳的城镇污水收集处理及资\n源化利用新格局，实现污水处理高质量发展、可持续发展，满足\n人民群众日益增长的优美生态环境需要。",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "二、 总体要求",
+        "（一） 指导思想"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c12b8e8b37b60b54485e6acd29b63240__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            168.260009765625,
+            514.435791015625,
+            420.3200073242187
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_e93016d110176f7d3706b3cdea88e478",
+      "text": "一、 规划基础与形势展望\n污水收集处理及资源化利用设施是城镇环境基础设施的核心\n组成，是深入打好污染防治攻坚战的重要抓手，对于改善城镇人\n居环境，推进城市治理体系和治理能力现代化，加快生态文明建\n设，推动高质量发展具有重要作用。\n“十三五”以来，各地区各部门深入贯彻习近平生态文明思想，\n认真落实党中央、国务院决策部署，不断加大城镇污水处理设施\n建设和运行管理力度，污水收集处理能力水平显著提升，完成了\n《“十三五”全国城镇污水处理及再生利用设施建设规划》目标。同\n时也要清醒看到，我国城镇污水收集处理存在发展不平衡不充分\n问题，短板弱项依然突出。特别是，污水管网建设改造滞后、污\n水资源化利用水平偏低、污泥无害化处置不规范，设施可持续运\n维能力不强等问题，与实现高质量发展还存在差距。",
+      "document_version_id": "57ad29e2ffb994385464e9a124019e87ba5ed5cab3b51856dec2ad94183770a2",
+      "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+      "physical_pages": [
+        4
+      ],
+      "heading_path": [
+        "一、 规划基础与形势展望"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "policy",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_e93016d110176f7d3706b3cdea88e478__p4",
+          "physical_page": 4,
+          "kind": "text",
+          "bbox": [
+            80.75900268554688,
+            168.260009765625,
+            514.55859375,
+            508.52001953125
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.008,
+    "retrieval": 56.794,
+    "context_expansion": 24.959,
+    "generation": 6273.987,
+    "validation": 0.022,
+    "total": 6355.879
+  },
+  "generate_context_evidence_ids": [
+    "chunk_0a51584e88fca27bb45e8448ebff939b",
+    "chunk_83656816e3ccc5a9298ad5501bb70873",
+    "chunk_c80b6671f3fe6dedd6fe794f0660bb5b",
+    "chunk_a616642cba4b6c5f3eee80919565c04a",
+    "chunk_7b8af4fc43fa873a5d8ace5674df57dd"
+  ],
+  "trace_evidence_ids": [
+    "chunk_0a51584e88fca27bb45e8448ebff939b",
+    "chunk_83656816e3ccc5a9298ad5501bb70873",
+    "chunk_c80b6671f3fe6dedd6fe794f0660bb5b",
+    "chunk_a616642cba4b6c5f3eee80919565c04a",
+    "chunk_7b8af4fc43fa873a5d8ace5674df57dd",
+    "chunk_bab2d009b1e34062993f39f50141e81f",
+    "chunk_170125259a83edbb1eb4d0009f24f292",
+    "chunk_553412adea266fe57b501c44827fd943",
+    "chunk_c12b8e8b37b60b54485e6acd29b63240",
+    "chunk_e93016d110176f7d3706b3cdea88e478"
+  ],
+  "token_usage": {
+    "input_tokens": 1867,
+    "output_tokens": 497,
+    "total_tokens": 2364,
+    "estimated_cost": 0.028852,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "《城镇生活污水处理设施补短板强弱项实施方案》提出的实施目标年份是到哪一年？核心方向是什么？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_0a51584e88fca27bb45e8448ebff939b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "二、 实施目标\n到2023 年，县级及以上城市设施能力基本满足生活污水处理\n需求。生活污水收集效能明显提升，城市市政雨污管网混错接改造\n更新取得显著成效。城市污泥无害化处置率和资源化利用率进一步\n提高。缺水地区和水环境敏感区域污水资源化利用水平明显提升。"
+      },
+      {
+        "evidence_id": "chunk_83656816e3ccc5a9298ad5501bb70873",
+        "usage_policy": "answer_and_citation",
+        "file_name": "“十四五”城镇污水处理及资源化利用.pdf",
+        "physical_pages": [
+          3
+        ],
+        "text": "为深入贯彻习近平生态文明思想，落实党中央、国务院决策\n部署，打好污染防治攻坚战，建设美丽中国，推动高质量发展，\n根据《中华人民共和国水污染防治法》《中华人民共和国国民经济\n和社会发展第十四个五年规划和2035 年远景目标纲要》，国家发\n展改革委、住房城乡建设部商生态环境部联合编制了《“十四五”城\n镇污水处理及资源化利用发展规划》（以下简称《规划》）。\n《规划》旨在有效缓解我国城镇污水收集处理设施发展不平\n衡不充分的矛盾，系统推动补短板强弱项，全面提升污水收集处\n理效能，加快推进污水资源化利用，提高设施运行维护水平。《规\n划》提出了“十四五”时期城镇污水处理及资源化利用的主要目标、\n重点建设任务、设施运行维护要求以及保障措施，以指导各地有\n序开展城镇污水处理及资源化利用工作。\n规划范围为全国（不含港澳台地区）城市、县城及建制镇。\n规划期限：2021—2025 年，展望到2035 年。"
+      },
+      {
+        "evidence_id": "chunk_c80b6671f3fe6dedd6fe794f0660bb5b",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "为深入贯彻习近平生态文明思想，落实党中央、国务院关于加\n强生态环境保护、建设美丽中国的决策部署和《政府工作报告》要\n求，解决城镇生活污水收集处理发展不均衡、不充分的矛盾，加快\n补齐城镇生活污水处理设施建设短板，制定本方案。"
+      },
+      {
+        "evidence_id": "chunk_a616642cba4b6c5f3eee80919565c04a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇生活污水处理设施补短板强弱项实施方案.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "资料卡：城镇生活污水处理设施补短板强弱项实施方案\n类型：政策文件"
+      },
+      {
+        "evidence_id": "chunk_7b8af4fc43fa873a5d8ace5674df57dd",
+        "usage_policy": "answer_and_citation",
+        "file_name": "住房城乡建设部等5部门关于加强城市生活污水管网建设和运行维护的通知_国务院部门文件_中国政府网.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "一、 工作目标\n以效能提升为核心，以管网补短板为重点，坚持问题导向、重\n点突破、建管并举、系统整治、精准施策，推动建立厂网统筹的城\n市生活污水专业化运行维护管理模式。到2027年，基本消除城市建\n成区生活污水直排口和设施空白区，城市生活污水集中收集率达到\n73%以上，城市生活污水收集处理综合效能显著提升。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.54222
+}

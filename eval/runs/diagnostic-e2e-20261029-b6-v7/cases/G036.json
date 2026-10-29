@@ -1,0 +1,528 @@
+{
+  "case": "G036",
+  "question": "按GB 50014，雨水管渠的降雨历时t如何计算？t1、t2分别指什么，t1宜采用什么范围？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261029-b6-v7-G036",
+  "trace_missing": false,
+  "wall_ms": 16259.056,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "按《GB 50014-2021 室外排水设计标准》第4.1.11条，雨水管渠的降雨历时按下式计算：\n\nt = t1 + t2\n\n式中各变量含义如下：\n- t—降雨历时(min)；\n- t1—地面集水时间(min)，应根据汇水距离、地形坡度和地面种类通过计算确定，宜采用5min~15min；\n- t2—管渠内雨水流行时间(min)。\n\n其中，t1宜采用5min~15min。",
+        "evidence_ids": [
+          "chunk_2d64101ccc7b69239d013b617be5488b",
+          "chunk_7a36ef22fed0b14f535930614a0c2962",
+          "chunk_62334af319995470482d6f74feb4814a"
+        ],
+        "verified": false
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_2d64101ccc7b69239d013b617be5488b",
+    "chunk_84901acb6f2329b462ca8008f42a165d",
+    "chunk_7a36ef22fed0b14f535930614a0c2962",
+    "chunk_2d688cf64d99fb03e9dc848635f949d0",
+    "chunk_b0336b956d5f915a30d7c991950672bd",
+    "chunk_04b0ca923e07d29396899f50ce0d13ae",
+    "chunk_8ea3d740e8d53a9e3b93328f5f6f94e7",
+    "chunk_42c0768b4435484b9a8012156d8f4ea1",
+    "chunk_c5a9a9fce06df98d99c08cc97f70ebfb",
+    "chunk_62334af319995470482d6f74feb4814a"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_2d64101ccc7b69239d013b617be5488b",
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n[公式 4.1.11]\nt=t_{1}+t_{2}\n式中：t—降雨历时(min)；\nt1——地面集水时间(min)，应根据汇水距离、地形坡度和地",
+      "document_version_id": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50014-2021",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_2d64101ccc7b69239d013b617be5488b__p22",
+          "physical_page": 22,
+          "kind": "text",
+          "bbox": [
+            46.0,
+            473.8598896960976,
+            343.0,
+            518.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_84901acb6f2329b462ca8008f42a165d",
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n[公式]\nt_{2}1",
+      "document_version_id": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        23
+      ],
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50014-2021",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_84901acb6f2329b462ca8008f42a165d__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            77.72636996649287,
+            80.74195714307491,
+            85.16775029900971,
+            88.34287316655464
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_7a36ef22fed0b14f535930614a0c2962",
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n4.1.11 雨水管渠的降雨历时应按下式计算：",
+      "document_version_id": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        22
+      ],
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50014-2021",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_7a36ef22fed0b14f535930614a0c2962__p22",
+          "physical_page": 22,
+          "kind": "text",
+          "bbox": [
+            46.0,
+            456.5,
+            253.5,
+            469.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_2d688cf64d99fb03e9dc848635f949d0",
+      "text": "附录B 内涝防治设计校核 > B.0.6\n[公式]\n\\mathrm{~:~}(Q_{\\mathrm{T}})",
+      "document_version_id": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        39
+      ],
+      "heading_path": [
+        "附录B 内涝防治设计校核",
+        "B.0.6"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 51222-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_2d688cf64d99fb03e9dc848635f949d0__p39",
+          "physical_page": 39,
+          "kind": "text",
+          "bbox": [
+            211.5766752124295,
+            78.22504014200537,
+            232.40002866122612,
+            88.1112255637682
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b0336b956d5f915a30d7c991950672bd",
+      "text": "3 降雨过程强度等级划分\nrd——按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米(mm)。",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b0336b956d5f915a30d7c991950672bd__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            120.5,
+            659.9059197350809,
+            437.5,
+            670.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_04b0ca923e07d29396899f50ce0d13ae",
+      "text": "附录B 内涝防治设计校核 > B.0.6\nB.0.6用手工方法校核内涝防治设计，应按下列步骤执行：\n1 按本规范的规定选取内涝防治设计重现期，确定允许的道\n路积水深度和水面高程；\n2 根据道路积水深度和水面高程，确定地面泄水通道过水断\n面的形状和参数，从上游至下游逐段计算道路表面的最大过水能\n力(Q1)；\n3 按推理公式法，从上游至下游逐段计算每个汇水区的地\n面集水时间、暴雨强度和设计流量(Qτ)，并计算内涝防治设计标\n准下雨水管渠的过水能力(Q。)。计算暴雨强度和设计流量时，\n降雨历时的选择应与雨水管渠设计时采用的降雨历时保持\n一致；",
+      "document_version_id": "1e4f99290e1e3b796134163de313968897a83650277d0b55f56a4c262739db82",
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        38,
+        39
+      ],
+      "heading_path": [
+        "附录B 内涝防治设计校核",
+        "B.0.6"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 51222-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_04b0ca923e07d29396899f50ce0d13ae__p38",
+          "physical_page": 38,
+          "kind": "text",
+          "bbox": [
+            46.5,
+            425.0,
+            342.0,
+            517.0
+          ]
+        },
+        {
+          "region_id": "chunk_04b0ca923e07d29396899f50ce0d13ae__p39",
+          "physical_page": 39,
+          "kind": "text",
+          "bbox": [
+            53.0,
+            61.0,
+            348.5,
+            138.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_8ea3d740e8d53a9e3b93328f5f6f94e7",
+      "text": "5 评估 > 5.3 降雨入流入渗计算 > 5.3.6\nm——参与计算的降雨、流量同步监测数据的降雨场\n次数；\nRDIIj——第j场降雨的降雨入流入渗量（m³）；\nRj——第j场降雨的降雨量监测值（mm）；\nLi——监测点上游第 i根管径不小于 300mm 的污水管道\n的长度(km);\nn——监测点上游管径不小于300mm的污水管段数量。",
+      "document_version_id": "adf038d73f824faf79ffad3759b7887addfd0e5059a5222984a1eb00fb9dcd0f",
+      "file_name": "城镇污水管网入流入渗监测与评估标准TCECS1764-2024(1).pdf",
+      "physical_pages": [
+        22
+      ],
+      "heading_path": [
+        "5 评估",
+        "5.3 降雨入流入渗计算",
+        "5.3.6"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "中国工程建设标准化协会",
+      "standard_number": "T/CECS 1764-2024",
+      "publication_date": "2024-11-18",
+      "effective_from": "2025-04-01",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_8ea3d740e8d53a9e3b93328f5f6f94e7__p22",
+          "physical_page": 22,
+          "kind": "text",
+          "bbox": [
+            102.5,
+            266.5,
+            527.0,
+            431.5
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_42c0768b4435484b9a8012156d8f4ea1",
+      "text": "5 雨水系统 > 5.2 雨水量水 > 5.2.2\n5.2.2 本条是关于设计降雨历时的确定原则。\n在采用数学模型法计算复核管道规模时，宜采用当地设计暴\n雨雨型。设计降雨历时应根据本地降雨特征、雨水系统的汇水面\n积、汇流时间等因素综合确定，其中雨水排放系统宜采用短历时\n降雨，防涝系统宜采用不同历时的降雨进行校核。",
+      "document_version_id": "c72e845491638b1f4b791ec922891d2443f4d5f7750e2e357f442412f27c57a0",
+      "file_name": "城市排水工程规划规范.pdf",
+      "physical_pages": [
+        50
+      ],
+      "heading_path": [
+        "5 雨水系统",
+        "5.2 雨水量水",
+        "5.2.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50318-2017",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_42c0768b4435484b9a8012156d8f4ea1__p50",
+          "physical_page": 50,
+          "kind": "text",
+          "bbox": [
+            48.0,
+            217.042236328125,
+            345.0,
+            293.01352945963544
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c5a9a9fce06df98d99c08cc97f70ebfb",
+      "text": "3 降雨过程强度等级划分\nT0——降雨过程持续时间，单位为天(d)，d取值范围[1，T0]；",
+      "document_version_id": "31b2a47ad506d724426da826b2db031dc04f39fa481f61c74ad3c21bb283660b",
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "unknown",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c5a9a9fce06df98d99c08cc97f70ebfb__p6",
+          "physical_page": 6,
+          "kind": "text",
+          "bbox": [
+            85.5,
+            642.5,
+            374.5,
+            657.0
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_62334af319995470482d6f74feb4814a",
+      "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n面种类通过计算确定，宜采用5min~15min；\nt管渠内雨水流行时间(min)。",
+      "document_version_id": "c3c3df5ae9ca5bb77c34ee4506e194e4e588c8d5d0e14a3d43704ae710fdf9b1",
+      "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+      "physical_pages": [
+        23
+      ],
+      "heading_path": [
+        "4 设计流量和设计水质",
+        "4.1 设计流量",
+        "4.1.11"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "",
+      "jurisdiction": "全国",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "",
+      "standard_number": "GB 50014-2021",
+      "publication_date": "",
+      "effective_from": "",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_62334af319995470482d6f74feb4814a__p23",
+          "physical_page": 23,
+          "kind": "text",
+          "bbox": [
+            76.0,
+            61.0,
+            307.0,
+            89.76000304615826
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.009,
+    "retrieval": 89.586,
+    "context_expansion": 69.727,
+    "generation": 16079.754,
+    "validation": 0.018,
+    "total": 16239.208
+  },
+  "generate_context_evidence_ids": [
+    "chunk_2d64101ccc7b69239d013b617be5488b",
+    "chunk_84901acb6f2329b462ca8008f42a165d",
+    "chunk_7a36ef22fed0b14f535930614a0c2962",
+    "chunk_2d688cf64d99fb03e9dc848635f949d0",
+    "chunk_b0336b956d5f915a30d7c991950672bd",
+    "chunk_62334af319995470482d6f74feb4814a",
+    "chunk_04b0ca923e07d29396899f50ce0d13ae"
+  ],
+  "trace_evidence_ids": [
+    "chunk_2d64101ccc7b69239d013b617be5488b",
+    "chunk_84901acb6f2329b462ca8008f42a165d",
+    "chunk_7a36ef22fed0b14f535930614a0c2962",
+    "chunk_2d688cf64d99fb03e9dc848635f949d0",
+    "chunk_b0336b956d5f915a30d7c991950672bd",
+    "chunk_04b0ca923e07d29396899f50ce0d13ae",
+    "chunk_8ea3d740e8d53a9e3b93328f5f6f94e7",
+    "chunk_42c0768b4435484b9a8012156d8f4ea1",
+    "chunk_c5a9a9fce06df98d99c08cc97f70ebfb",
+    "chunk_62334af319995470482d6f74feb4814a"
+  ],
+  "token_usage": {
+    "input_tokens": 2186,
+    "output_tokens": 969,
+    "total_tokens": 3155,
+    "estimated_cost": 0.04462,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "按GB 50014，雨水管渠的降雨历时t如何计算？t1、t2分别指什么，t1宜采用什么范围？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_2d64101ccc7b69239d013b617be5488b",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          22
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n[公式 4.1.11]\nt=t_{1}+t_{2}\n式中：t—降雨历时(min)；\nt1——地面集水时间(min)，应根据汇水距离、地形坡度和地"
+      },
+      {
+        "evidence_id": "chunk_84901acb6f2329b462ca8008f42a165d",
+        "usage_policy": "source_locator_only",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n[公式]\nt_{2}1"
+      },
+      {
+        "evidence_id": "chunk_7a36ef22fed0b14f535930614a0c2962",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          22
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n4.1.11 雨水管渠的降雨历时应按下式计算："
+      },
+      {
+        "evidence_id": "chunk_2d688cf64d99fb03e9dc848635f949d0",
+        "usage_policy": "source_locator_only",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          39
+        ],
+        "text": "附录B 内涝防治设计校核 > B.0.6\n[公式]\n\\mathrm{~:~}(Q_{\\mathrm{T}})"
+      },
+      {
+        "evidence_id": "chunk_b0336b956d5f915a30d7c991950672bd",
+        "usage_policy": "answer_and_citation",
+        "file_name": "降雨过程强度等级标准.pdf",
+        "physical_pages": [
+          6
+        ],
+        "text": "3 降雨过程强度等级划分\nrd——按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米(mm)。"
+      },
+      {
+        "evidence_id": "chunk_62334af319995470482d6f74feb4814a",
+        "usage_policy": "answer_and_citation",
+        "file_name": "GB50014-2021+室外排水设计标准+预览.pdf",
+        "physical_pages": [
+          23
+        ],
+        "text": "4 设计流量和设计水质 > 4.1 设计流量 > 4.1.11\n面种类通过计算确定，宜采用5min~15min；\nt管渠内雨水流行时间(min)。"
+      },
+      {
+        "evidence_id": "chunk_04b0ca923e07d29396899f50ce0d13ae",
+        "usage_policy": "answer_and_citation",
+        "file_name": "城镇内涝防治技术规范.pdf",
+        "physical_pages": [
+          38,
+          39
+        ],
+        "text": "附录B 内涝防治设计校核 > B.0.6\nB.0.6用手工方法校核内涝防治设计，应按下列步骤执行：\n1 按本规范的规定选取内涝防治设计重现期，确定允许的道\n路积水深度和水面高程；\n2 根据道路积水深度和水面高程，确定地面泄水通道过水断\n面的形状和参数，从上游至下游逐段计算道路表面的最大过水能\n力(Q1)；\n3 按推理公式法，从上游至下游逐段计算每个汇水区的地\n面集水时间、暴雨强度和设计流量(Qτ)，并计算内涝防治设计标\n准下雨水管渠的过水能力(Q。)。计算暴雨强度和设计流量时，\n降雨历时的选择应与雨水管渠设计时采用的降雨历时保持\n一致；"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.337152
+}

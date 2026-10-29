@@ -1,0 +1,337 @@
+{
+  "id": "G023",
+  "question": "对照GB/T 28592与T/CMSA 0013：前者降雨量等级按哪两个时段划分？后者把哪些历时划分为六个短时等级？QX/T 489—2019如何规定区域降雨过程等级？",
+  "labels": {
+    "repr": [
+      "条件",
+      "表格",
+      "定义"
+    ],
+    "challenge": [
+      "多文档",
+      "相似干扰",
+      "多证据",
+      "表格"
+    ],
+    "modality": [
+      "表格",
+      "正文"
+    ]
+  },
+  "expected_facts": [
+    "GB/T 28592按12h与24h划分",
+    "T/CMSA按10分钟、30分钟、1小时划分六个短时等级，并引用QX/T 489－2019定义",
+    "QX/T 489—2019规定区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 4,
+    "matched_evidence_at_5": 1,
+    "matched_evidence_at_10": 1,
+    "recall_at_5": 0.25,
+    "recall_at_10": 0.25,
+    "document_hit_at_5": 0.5,
+    "document_hit_at_10": 0.5,
+    "page_hit_at_5": 0.5,
+    "page_hit_at_10": 0.5,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": 1.0,
+    "latency_ms": 40.785,
+    "citable_evidence_count": 2,
+    "citable_matched_at_5": 0,
+    "citable_matched_at_10": 0,
+    "citable_recall_at_5": 0.0,
+    "citable_recall_at_10": 0.0,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 2,
+    "locator_only_matched_at_5": 1,
+    "locator_only_matched_at_10": 1,
+    "locator_only_recall_at_5": 0.5,
+    "locator_only_recall_at_10": 0.5
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "GBT 28592-2012降水量等级.pdf",
+      "page": 4,
+      "element_ids": [
+        "e000027"
+      ],
+      "quote": "3 降水量等级划分的原则\n降水量按24 h,12 h两个时间段进行划分",
+      "usage_policy": "answer_and_citation",
+      "document_rank": null,
+      "page_rank": null,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "page": 6,
+      "element_ids": [
+        "e000032"
+      ],
+      "quote": "等级 | 10分钟 | 30分钟 | 1小时",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 1,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_d271c7d188c46978863c67c85bbe2e9d",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 1,
+      "citable_chunk_id": "chunk_d271c7d188c46978863c67c85bbe2e9d",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 2,
+      "doc_file": "QXT 489－2019 降雨过程等级.pdf",
+      "page": 10,
+      "element_ids": [
+        "e000051"
+      ],
+      "quote": "区域降雨过程等级为降雨过程中该区域日降雨等级中的最强等级。",
+      "usage_policy": "answer_and_citation",
+      "document_rank": null,
+      "page_rank": null,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 3,
+      "doc_file": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "page": 5,
+      "element_ids": [
+        "e000023",
+        "e000024"
+      ],
+      "quote": "[QX/T 489－2019,定义2.2]",
+      "usage_policy": "source_locator_only",
+      "document_rank": 1,
+      "page_rank": 5,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_d271c7d188c46978863c67c85bbe2e9d",
+      "score": 0.75,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000032"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "text": "3 等级划分\n表1 短时气象服务降雨量等级划分表\n等级 | 时段 | 时段 | 时段\n等级 | 10分钟 | 30分钟 | 1小时\n短时小雨 | <0.5 | <1.0 | <2.0\n短时中雨 | 0.5~0.9 | 1.0~1.9 | 2.0~3.9\n短时大雨 | 1.0~1.9 | 2.0~3.9 | 4.0~7.9\n短时暴雨 | 2.0~4.9 | 4.0~9.9 | 8.0~19.9\n短时大暴雨 | 5.0~15.0 | 10.0~30.0 | 20.0~50.0\n短时特大暴雨 | >15.0 | >30.0 | >50.0",
+      "matched_evidence_indexes": [
+        1
+      ]
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_327b7158e68b457fecd99f3170e31081",
+      "score": 0.5,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        7,
+        8
+      ],
+      "element_ids": [
+        "e000075",
+        "e000077",
+        "e000078",
+        "e000079"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n(8)……………\nT。降雨过程结束时间(公历日期)；\nT。降雨过程开始时间(公历日期)。\n对降雨持续时间指数(T)划分见表5。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_868e1a9e8dd128ec4c720c6781272718",
+      "score": 0.433333,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000095",
+        "e000096"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\nT——持续时间指数，根据公式(3)计算降雨持续时间(T0)，对照表5查出对应指数。\n情况2：当降雨区跨所分四类降雨区中的两个或多个降雨区时：",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_feed80b022e093ac470538730d5308e5",
+      "score": 0.333333,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        7
+      ],
+      "element_ids": [
+        "e000036",
+        "e000037"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "参考文献"
+      ],
+      "text": "参考文献\n[1] GB/T 27961－2011 气象服务分类术语\n[2] GB/T 28592－2012 降水量等级\n[3] QX/T 489－2019 降雨过程等级\n_________________________________",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_9dd9a68e28bc287b49d12d8bdc4e2325",
+      "score": 0.326923,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5,
+        6
+      ],
+      "element_ids": [
+        "e000028",
+        "e000031"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 等级划分"
+      ],
+      "text": "3 等级划分\n将10分钟、30分钟、1小时的降雨量，划分为短时小雨、短时中雨、短时大雨、短时暴雨、短时大\n暴雨、短时特大暴雨共6个等级。具体划分见表1。\n单位：毫米（mm）",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_f447aea33729f59eb9caab875f0c1ee1",
+      "score": 0.276923,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        8
+      ],
+      "element_ids": [
+        "e000097"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n[公式 6]\nR P I=\\bar{I}\\times C\\times\\bar{T}",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_9bc8c383963ef90e4a904fb8e0b062b2",
+      "score": 0.266667,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000113"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n[公式]\nT_{j}",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_5a04c53796484317a44e4fbae45b2bb4",
+      "score": 0.172619,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        9
+      ],
+      "element_ids": [
+        "e000112"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\n设定区域内第j类降雨区降雨持续时间指数，根据公式(3)计算降雨持续时间(T。)，对照\n表5 查出对应降雨区持续时间指数。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_b0336b956d5f915a30d7c991950672bd",
+      "score": 0.166667,
+      "file_name": "降雨过程强度等级标准.pdf",
+      "physical_pages": [
+        6
+      ],
+      "element_ids": [
+        "e000055"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 降雨过程强度等级划分"
+      ],
+      "text": "3 降雨过程强度等级划分\nrd——按照4.2区域降雨过程定义选取测站的日雨量值，单位为毫米(mm)。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_4887489d0d96bb712f00a7ded76435a9",
+      "score": 0.166667,
+      "file_name": "短时气象服务降雨量等级TCMSA-2019.pdf",
+      "physical_pages": [
+        5
+      ],
+      "element_ids": [
+        "e000019"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "1 范围"
+      ],
+      "text": "1 范围\n本标准规定了短时气象服务相关的降雨量的等级划分。\n本标准适用于短时气象服务相关的降雨监测、预警、科研以及其他相关领域。",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

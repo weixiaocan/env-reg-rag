@@ -1,0 +1,330 @@
+{
+  "id": "G002",
+  "question": "《城镇内涝防治技术规范》中，当地面汇水距离不大于90m时，地面集水时间ta如何计算？式中n0、L、q、S分别表示什么？",
+  "labels": {
+    "repr": [
+      "条件",
+      "数值"
+    ],
+    "challenge": [
+      "公式",
+      "原文定位"
+    ],
+    "modality": [
+      "公式"
+    ]
+  },
+  "expected_facts": [
+    "适用条件：地面汇水距离不大于90m",
+    "ta=10.41(n0·L)^0.6/(q^0.4 S^0.3)",
+    "n0为粗糙系数，L为地面集水距离，q为设计暴雨强度"
+  ],
+  "metrics": {
+    "retrieval_applicable": true,
+    "required_evidence_count": 3,
+    "matched_evidence_at_5": 2,
+    "matched_evidence_at_10": 2,
+    "recall_at_5": 0.6666666666666666,
+    "recall_at_10": 0.6666666666666666,
+    "document_hit_at_5": 1.0,
+    "document_hit_at_10": 1.0,
+    "page_hit_at_5": 1.0,
+    "page_hit_at_10": 1.0,
+    "complete_recall_at_5": false,
+    "complete_recall_at_10": false,
+    "mrr": 0.5,
+    "latency_ms": 63.517,
+    "citable_evidence_count": 3,
+    "citable_matched_at_5": 2,
+    "citable_matched_at_10": 2,
+    "citable_recall_at_5": 0.666667,
+    "citable_recall_at_10": 0.666667,
+    "citable_downgraded_at_5": 0,
+    "citable_downgraded_at_10": 0,
+    "locator_only_evidence_count": 0,
+    "locator_only_matched_at_5": 0,
+    "locator_only_matched_at_10": 0,
+    "locator_only_recall_at_5": null,
+    "locator_only_recall_at_10": null
+  },
+  "evidence_results": [
+    {
+      "evidence_index": 0,
+      "doc_file": "城镇内涝防治技术规范.pdf",
+      "page": 14,
+      "element_ids": [
+        "e000198",
+        "e000199"
+      ],
+      "quote": "3.3.2 地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n雨强度等因素通过计算确定，并应符合下列规定：\n1 当地面汇水距离不大于90m时，可按下式计算：",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 2,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_915f6a5898616f52ac02548dcef641db",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 2,
+      "citable_chunk_id": "chunk_915f6a5898616f52ac02548dcef641db",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 1,
+      "doc_file": "城镇内涝防治技术规范.pdf",
+      "page": 14,
+      "element_ids": [
+        "e000185",
+        "e000186",
+        "e000187",
+        "e000188"
+      ],
+      "quote": "式中：ta——地面集水时间(min)；\nn0——粗糙系数；\nL——地面集水距离(m)；",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": null,
+      "match_method": null,
+      "matched_chunk_id": null,
+      "hit_usage_policy": null,
+      "citable_match_rank": null,
+      "citable_chunk_id": null,
+      "citable_match_method": null,
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    },
+    {
+      "evidence_index": 2,
+      "doc_file": "城镇内涝防治技术规范.pdf",
+      "page": 14,
+      "element_ids": [
+        "e000198",
+        "e000199"
+      ],
+      "quote": "3.3.2 地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n雨强度等因素通过计算确定，并应符合下列规定：\n1 当地面汇水距离不大于90m时，可按下式计算：",
+      "usage_policy": "answer_and_citation",
+      "document_rank": 1,
+      "page_rank": 1,
+      "match_rank": 2,
+      "match_method": "quote_and_ids",
+      "matched_chunk_id": "chunk_915f6a5898616f52ac02548dcef641db",
+      "hit_usage_policy": "answer_and_citation",
+      "citable_match_rank": 2,
+      "citable_chunk_id": "chunk_915f6a5898616f52ac02548dcef641db",
+      "citable_match_method": "quote_and_ids",
+      "locator_match_rank": null,
+      "locator_chunk_id": null,
+      "locator_match_method": null
+    }
+  ],
+  "hits": [
+    {
+      "rank": 1,
+      "chunk_id": "chunk_9084d307bad8d88dc0d5581276748096",
+      "score": 0.833333,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000200",
+        "e000201"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n[公式 3.3.2-1]\nt_{a}=\\frac{10.41\\left(n_{0}\\cdot L\\right)^{0.6}}{q^{0.4}S^{0.3}}\n式中：ta——地面集水时间(min)；",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 2,
+      "chunk_id": "chunk_915f6a5898616f52ac02548dcef641db",
+      "score": 0.833333,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000198",
+        "e000199"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n3.3.2 地面集水时间应根据汇水距离、地形坡度、地面种类和暴\n雨强度等因素通过计算确定，并应符合下列规定：\n1 当地面汇水距离不大于90m时，可按下式计算：",
+      "matched_evidence_indexes": [
+        0,
+        2
+      ]
+    },
+    {
+      "rank": 3,
+      "chunk_id": "chunk_c184f15b4dc1605b7966da048a9c1903",
+      "score": 0.416667,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "element_ids": [
+        "e000209",
+        "e000210"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\nS——地形坡度。\n2 当地面汇水距离大于90m时，可按下式计算：",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 4,
+      "chunk_id": "chunk_700fde5d6298db625baaf2cf3f65e53b",
+      "score": 0.366667,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        15
+      ],
+      "element_ids": [
+        "e000211"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n[公式 3.3.2-2]\nt_{\\mathrm{a}}=\\frac{L}{60kS^{0.5}}",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 5,
+      "chunk_id": "chunk_3e3687975cec0eded0a4952d4fc03a47",
+      "score": 0.342857,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000202"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n[公式]\n:t_{\\mathrm{a}}\\cdot",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 6,
+      "chunk_id": "chunk_dbfc20d06b8ff74efca9a33138c350f6",
+      "score": 0.321429,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000204"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n[公式]\nn_{0}\\cdot",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 7,
+      "chunk_id": "chunk_f65f87f2436c9a427209dc14e5204666",
+      "score": 0.236111,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000207"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\n[公式]\n\\mathrm{[L/(s\\cdot ha)]}",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 8,
+      "chunk_id": "chunk_08ca5661e74bdca7a5251c5ac6b66183",
+      "score": 0.201923,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000205"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.2"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.2\nL——地面集水距离(m)；",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 9,
+      "chunk_id": "chunk_abce1ea84a37ca9bc9e9521379681b42",
+      "score": 0.201681,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        14
+      ],
+      "element_ids": [
+        "e000197"
+      ],
+      "usage_policy": "answer_and_citation",
+      "heading_path": [
+        "3 城镇内涝防治系统",
+        "3.3 雨水量",
+        "3.3.1"
+      ],
+      "text": "3 城镇内涝防治系统 > 3.3 雨水量 > 3.3.1\n3.3.1 当汇水面积大于2km²时，应考虑区域降雨和地面渗透性\n能的时空分布的不均匀性和管网汇流过程等因素，采用数学模型\n法确定雨水设计流量，并校核内涝防治设计重现期下地面的积水\n深度等要素。",
+      "matched_evidence_indexes": []
+    },
+    {
+      "rank": 10,
+      "chunk_id": "chunk_2d688cf64d99fb03e9dc848635f949d0",
+      "score": 0.167832,
+      "file_name": "城镇内涝防治技术规范.pdf",
+      "physical_pages": [
+        39
+      ],
+      "element_ids": [
+        "e000572"
+      ],
+      "usage_policy": "source_locator_only",
+      "heading_path": [
+        "附录B 内涝防治设计校核",
+        "B.0.6"
+      ],
+      "text": "附录B 内涝防治设计校核 > B.0.6\n[公式]\n\\mathrm{~:~}(Q_{\\mathrm{T}})",
+      "matched_evidence_indexes": []
+    }
+  ]
+}

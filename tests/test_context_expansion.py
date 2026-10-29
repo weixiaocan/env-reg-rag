@@ -73,6 +73,44 @@ class QdrantContextExpanderTest(unittest.IsolatedAsyncioTestCase):
 
         self.assertEqual([e.evidence_id for e in extras], ["chunk_lead", "chunk_note"])
 
+    async def test_figure_brings_adjacent_labels_but_stops_at_next_figure(self):
+        section = [{"label": "4.1", "title": "雨水立管断接"}]
+        chunks = [
+            _chunk("figure_one", ["e000526"], ["figure"], "图1 雨水立管断接示意图", section,
+                   "source_locator_only"),
+            _chunk("figure_labels", ["e000527"], ["text"],
+                   "1-雨水立管；2-建筑外墙；3-室外地面；4-支墩；5-卵石缓冲；6-海绵设施", section),
+            _chunk("figure_two", ["e000528"], ["figure"], "图2 另一示意图", section),
+            _chunk("other_labels", ["e000529"], ["text"], "1-其他设施；2-其他标注", section),
+        ]
+        index = QdrantRetrievalIndex(
+            client=QdrantClient(":memory:"), collection_name="test_figure_labels", vector_size=2,
+        )
+        index.build(chunks, [[1.0, 0.0]] * len(chunks))
+        figure = index.find_by_chunk_ids(["chunk_figure_one"])[0]
+        expander = QdrantContextExpander(index=index, allowed_policies=POLICIES)
+
+        extras = await expander.expand([evidence_item_from_hit(figure)])
+
+        self.assertEqual([e.evidence_id for e in extras], ["chunk_figure_labels"])
+
+    async def test_split_table_brings_other_shard_of_same_element(self):
+        section = [{"label": "4.6.3", "title": ""}]
+        chunks = [
+            _chunk("table_first", ["e000448"], ["table"], "管道两侧 | ≥95", section),
+            _chunk("table_second", ["e000448"], ["table"], "管顶以上500mm | 85±2", section),
+        ]
+        index = QdrantRetrievalIndex(
+            client=QdrantClient(":memory:"), collection_name="test_split_table", vector_size=2,
+        )
+        index.build(chunks, [[1.0, 0.0]] * len(chunks))
+        first = index.find_by_chunk_ids(["chunk_table_first"])[0]
+        expander = QdrantContextExpander(index=index, allowed_policies=POLICIES)
+
+        extras = await expander.expand([evidence_item_from_hit(first)])
+
+        self.assertEqual([e.evidence_id for e in extras], ["chunk_table_second"])
+
     async def test_formula_brings_its_variable_lines_but_not_unit_fragments(self):
         clause = [{"label": "5.2.4", "title": ""}]
         chunks = [

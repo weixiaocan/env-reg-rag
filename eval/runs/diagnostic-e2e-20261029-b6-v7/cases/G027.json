@@ -1,0 +1,542 @@
+{
+  "case": "G027",
+  "question": "《武汉市排水管道混错接改造技术规程》中，图1的图名是什么？它说明的是哪项工作的技术路线？",
+  "expected_answerability": "answer",
+  "request_id": "diagnostic-e2e-20261029-b6-v7-G027",
+  "trace_missing": false,
+  "wall_ms": 9189.827,
+  "http_status": 200,
+  "status": "answered",
+  "answer": {
+    "claims": [
+      {
+        "claim_id": "claim-1",
+        "text": "图1的图名是\"城镇分流制排水系统雨污混错接调查与治理工作技术路线图\"。",
+        "evidence_ids": [
+          "chunk_8452511c0e20c573df1888e29a7220be"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-2",
+        "text": "它说明的是城镇分流制排水系统雨污混错接调查与治理工作的技术路线，该工作主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错接改造效果评估、提出长效管理机制体制等环节。",
+        "evidence_ids": [
+          "chunk_3db1b8680f51b051ddde4258aa543065",
+          "chunk_8452511c0e20c573df1888e29a7220be"
+        ],
+        "verified": false
+      },
+      {
+        "claim_id": "claim-3",
+        "text": "根据混错接程度的轻、重，可精简部分环节，但需征得主管部门或委托单位同意。",
+        "evidence_ids": [
+          "chunk_3db1b8680f51b051ddde4258aa543065"
+        ],
+        "verified": true
+      },
+      {
+        "claim_id": "claim-4",
+        "text": "上述内容出自《武汉市排水管道混错接改造技术规程》第4.3.1条。",
+        "evidence_ids": [
+          "chunk_3db1b8680f51b051ddde4258aa543065"
+        ],
+        "verified": true
+      }
+    ],
+    "conflicts": []
+  },
+  "evidence_ids": [
+    "chunk_8452511c0e20c573df1888e29a7220be",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+    "chunk_8bd66ce6941a787f52e369857ee54cce",
+    "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+    "chunk_e90544da213470583e7827531fce3558",
+    "chunk_3db1b8680f51b051ddde4258aa543065",
+    "chunk_1c59a616960c218e230122fd545e855d",
+    "chunk_b4ffbbd48363cad1098df3e065f0e0c2",
+    "chunk_2b27135e4b35d25d54b7188e87e25681"
+  ],
+  "retrieved_evidence": [
+    {
+      "evidence_id": "chunk_8452511c0e20c573df1888e29a7220be",
+      "text": "4 目标、原则和要求 > 4.3.1\n[图1 城镇分流制排水系统雨污混错接调查与治理工作技术路线图]\n4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        7
+      ],
+      "heading_path": [
+        "4 目标、原则和要求",
+        "4.3.1"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_8452511c0e20c573df1888e29a7220be__p7",
+          "physical_page": 7,
+          "kind": "text",
+          "bbox": [
+            70.91325378417969,
+            258.63824462890625,
+            538.8004150390625,
+            745.1672973632812
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+      "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        5
+      ],
+      "heading_path": [
+        "1 范围"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588__p5",
+          "physical_page": 5,
+          "kind": "text",
+          "bbox": [
+            70.91998291015625,
+            174.773681640625,
+            538.8125,
+            232.125
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+      "text": "资料卡：DB4201/T 651-2021 武汉市排水管道混错接改造技术规程\n标准号：DB4201/T 651-2021\n类型：标准\n发布机构：武汉市水务局\n发布日期：2021-11-12\n实施日期：2021-12-13\n武汉市地方标准\nDB 4201/T 651—2021\n武汉市排水管道混错接改造技术规程\nCode of technical regulation for reconstruction of mixed connection drainage pipeline\nin Wuhan City\n2021 - 11 - 12 发布\n2021 - 12 - 13 实施\n武汉市市场监督管理局 发布",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        1
+      ],
+      "heading_path": [],
+      "usage_policy": "source_locator_only",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d8e7c9c86160d1d9df67e39f573aef56__p1",
+          "physical_page": 1,
+          "kind": "text",
+          "bbox": [
+            65.16000366210938,
+            116.90396118164062,
+            559.0800170898438,
+            786.8302612304688
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_8bd66ce6941a787f52e369857ee54cce",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.4.2\n[图2 污水管道中雨水混错接筛查技术路线图]\n氨氮、电导率数值接近、但是下游节点流量相对于上游节点明显增加，则初步判定相邻上下\n游节点之间存在雨水接入污水管道。污水管道中雨水混错接区域判定的技术路线见图2。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        9,
+        10
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.4.2"
+      ],
+      "usage_policy": "source_locator_only",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_8bd66ce6941a787f52e369857ee54cce__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            113.59684753417967,
+            586.1669921875,
+            538.7844848632812,
+            612.3241577148438
+          ]
+        },
+        {
+          "region_id": "chunk_8bd66ce6941a787f52e369857ee54cce__p10",
+          "physical_page": 10,
+          "kind": "text",
+          "bbox": [
+            172.71854989341557,
+            89.65253238282483,
+            404.0172918774818,
+            433.1673583984375
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+      "text": "4 目标、原则和要求\n承担城市排水管道混错接改造工作的主管部门应委托有专业能力和相应资质的单位，进行分区、分\n块混错接调查，在调查的基础上，科学合理制定混错接改造方案，有序开展混错接改造工作，并严格执\n行国家、行业相关安全和质量规定，确保安全和质量达标。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        7
+      ],
+      "heading_path": [
+        "4 目标、原则和要求"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3__p7",
+          "physical_page": 7,
+          "kind": "text",
+          "bbox": [
+            70.91325378417969,
+            180.64215087890625,
+            538.7972412109375,
+            224.1493225097656
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_e90544da213470583e7827531fce3558",
+      "text": "7 混错接改造施工 > 7.1.1\n7.1.1 排水管道施工单位施工前应熟悉和审查施工图纸，掌握设计意图与要求，在开挖前对地下管线\n应重新进行复测，以充分了解、复核各管线特性，确保施工过程中各类管线的安全。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        17
+      ],
+      "heading_path": [
+        "7 混错接改造施工",
+        "7.1.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_e90544da213470583e7827531fce3558__p17",
+          "physical_page": 17,
+          "kind": "text",
+          "bbox": [
+            70.91999816894531,
+            141.64794921875,
+            538.9415283203125,
+            323.776123046875
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_3db1b8680f51b051ddde4258aa543065",
+      "text": "4 目标、原则和要求 > 4.3.1\n4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        7
+      ],
+      "heading_path": [
+        "4 目标、原则和要求",
+        "4.3.1"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_3db1b8680f51b051ddde4258aa543065__p7",
+          "physical_page": 7,
+          "kind": "text",
+          "bbox": [
+            70.91325378417969,
+            258.63824462890625,
+            538.8004150390625,
+            300.3924560546875
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_1c59a616960c218e230122fd545e855d",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.8.7\n5.8.7 调查结束后应收集整理好调查过程中原始记录材料，编制排水管道混错接评估报告，评估报告\n应包括下列内容：\na)\n项目概况：项目背景、调查范围、调查内容、设备和人员投入、完成情况；\nb)\n技术路线及调查方法：技术路线、技术设备及手段；\nc)\n混错接状况：排水规划、排水现状，分区域的混错接分布、混错接类型统计、调查汇总；\nd)\n判定结论：区域混错接状况分级、单个混错接点混错接状况等；\ne)\n质量保证措施：各工序质量控制情况；\nf)\n附图：混错接点分布总图、混错接点位置分布图、结构性缺陷管段分布图、功能性缺陷管段\n分布图；\ng)\n整改建议及计划。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        13
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.8.7"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_1c59a616960c218e230122fd545e855d__p13",
+          "physical_page": 13,
+          "kind": "text",
+          "bbox": [
+            70.91999816894531,
+            310.72894287109375,
+            538.8388671875,
+            508.4544067382813
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_b4ffbbd48363cad1098df3e065f0e0c2",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.4.2\n5.4.2 污水管道中雨水混错接区域判定，遵循以下方法：\na) 雨天时候污水管道流量明显增多，流量监测内容包括管径、水位、流速等，具体详见附录D。\nb) 在旱天和雨天分别针对污水管道节点开展水质调查，污水管道节点水质调查的基本指标包括\n氨氮、电导率、CODcr 等，水质监测方法详见附录E；若同一监测节点雨天基本指标监测值低\n于旱天数值，或管道中任意监测点旱天基本指标监测值明显低于武汉市一般污水水质特征，\n则初步判定节点上游区域污水管道有雨水接入。\nc) 在判定有雨水接入的区域，若雨天下游节点氨氮、电导率数值低于上游节点或者上下游节点\n氨氮、电导率数值接近、但是下游节点流量相对于上游节点明显增加，则初步判定相邻上下\n游节点之间存在雨水接入污水管道。污水管道中雨水混错接区域判定的技术路线见图2。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.4.2"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_b4ffbbd48363cad1098df3e065f0e0c2__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            70.98725891113281,
+            414.5988159179687,
+            543.9274291992188,
+            612.3241577148438
+          ]
+        }
+      ]
+    },
+    {
+      "evidence_id": "chunk_2b27135e4b35d25d54b7188e87e25681",
+      "text": "5 资料收集、现场踏勘与混错接判定 > 5.3.4\n5.3.4 如收集资料中排水管道信息不全的，应对区域内排水管道（建筑物测量至排水立管）开展普查，\n开展管道新测、修测、补测等工作，完善排水管道图。",
+      "document_version_id": "48429f3750209858c17ad3150e2af90722a69c549feb391c122a232d6e593c16",
+      "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+      "physical_pages": [
+        9
+      ],
+      "heading_path": [
+        "5 资料收集、现场踏勘与混错接判定",
+        "5.3.4"
+      ],
+      "usage_policy": "answer_and_citation",
+      "source_uri": "https://swj.wuhan.gov.cn/tzgg/202207/P020220705359667571556.pdf",
+      "jurisdiction": "unknown",
+      "document_kind": "standard",
+      "effective_status": "unknown",
+      "source_authority": "武汉市水务局",
+      "standard_number": "DB4201/T 651-2021",
+      "publication_date": "2021-11-12",
+      "effective_from": "2021-12-13",
+      "effective_to": "",
+      "source_regions": [
+        {
+          "region_id": "chunk_2b27135e4b35d25d54b7188e87e25681__p9",
+          "physical_page": 9,
+          "kind": "text",
+          "bbox": [
+            70.94499206542969,
+            149.4373779296875,
+            538.853271484375,
+            378.35687255859375
+          ]
+        }
+      ]
+    }
+  ],
+  "warnings": [
+    "部分内容来自未经人工核对的识别结果（表格、公式或扫描件），请以原文页为准"
+  ],
+  "missing_conditions": [],
+  "stages_ms": {
+    "scope": 0.029,
+    "retrieval": 71.3,
+    "context_expansion": 49.701,
+    "generation": 9061.228,
+    "validation": 0.024,
+    "total": 9182.458
+  },
+  "generate_context_evidence_ids": [
+    "chunk_8452511c0e20c573df1888e29a7220be",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+    "chunk_8bd66ce6941a787f52e369857ee54cce",
+    "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+    "chunk_3db1b8680f51b051ddde4258aa543065",
+    "chunk_b4ffbbd48363cad1098df3e065f0e0c2"
+  ],
+  "trace_evidence_ids": [
+    "chunk_8452511c0e20c573df1888e29a7220be",
+    "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+    "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+    "chunk_8bd66ce6941a787f52e369857ee54cce",
+    "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+    "chunk_e90544da213470583e7827531fce3558",
+    "chunk_3db1b8680f51b051ddde4258aa543065",
+    "chunk_1c59a616960c218e230122fd545e855d",
+    "chunk_b4ffbbd48363cad1098df3e065f0e0c2",
+    "chunk_2b27135e4b35d25d54b7188e87e25681"
+  ],
+  "token_usage": {
+    "input_tokens": 2691,
+    "output_tokens": 694,
+    "total_tokens": 3385,
+    "estimated_cost": 0.04096,
+    "currency": "CNY",
+    "pricing_status": "calculated"
+  },
+  "prompt_input": {
+    "question_sent": "《武汉市排水管道混错接改造技术规程》中，图1的图名是什么？它说明的是哪项工作的技术路线？",
+    "conversation_context": {},
+    "prompt_evidence": [
+      {
+        "evidence_id": "chunk_8452511c0e20c573df1888e29a7220be",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求 > 4.3.1\n[图1 城镇分流制排水系统雨污混错接调查与治理工作技术路线图]\n4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1。"
+      },
+      {
+        "evidence_id": "chunk_c4e228f0ee6f5952b7de3ca1e305c588",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          5
+        ],
+        "text": "1 范围\n本文件规定了武汉市排水管道混错接改造工作中的目标、原则和要求，资料收集、现场踏勘与混错\n接判定，混错接改造设计，混错接改造施工，成果验收与工程后期评估。\n本文件适用于武汉市市政雨污水管道系统，居住小区、公共建筑等地块的排水系统，建筑排水系统\n改造工作。"
+      },
+      {
+        "evidence_id": "chunk_d8e7c9c86160d1d9df67e39f573aef56",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          1
+        ],
+        "text": "资料卡：DB4201/T 651-2021 武汉市排水管道混错接改造技术规程\n标准号：DB4201/T 651-2021\n类型：标准\n发布机构：武汉市水务局\n发布日期：2021-11-12\n实施日期：2021-12-13\n武汉市地方标准\nDB 4201/T 651—2021\n武汉市排水管道混错接改造技术规程\nCode of technical regulation for reconstruction of mixed connection drainage pipeline\nin Wuhan City\n2021 - 11 - 12 发布\n2021 - 12 - 13 实施\n武汉市市场监督管理局 发布"
+      },
+      {
+        "evidence_id": "chunk_8bd66ce6941a787f52e369857ee54cce",
+        "usage_policy": "source_locator_only",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          9,
+          10
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.4.2\n[图2 污水管道中雨水混错接筛查技术路线图]\n氨氮、电导率数值接近、但是下游节点流量相对于上游节点明显增加，则初步判定相邻上下\n游节点之间存在雨水接入污水管道。污水管道中雨水混错接区域判定的技术路线见图2。"
+      },
+      {
+        "evidence_id": "chunk_d6fca2fbfbcb9528d6804c6d4833fbf3",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求\n承担城市排水管道混错接改造工作的主管部门应委托有专业能力和相应资质的单位，进行分区、分\n块混错接调查，在调查的基础上，科学合理制定混错接改造方案，有序开展混错接改造工作，并严格执\n行国家、行业相关安全和质量规定，确保安全和质量达标。"
+      },
+      {
+        "evidence_id": "chunk_3db1b8680f51b051ddde4258aa543065",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          7
+        ],
+        "text": "4 目标、原则和要求 > 4.3.1\n4.3.1 主要包括资料收集、现场踏勘、混错接点位置探查与判定、提出改造方案、混错接改造、混错\n接改造效果评估、提出长效管理机制体制等。根据混错接程度的轻、重，可精简部分环节，但需征得主\n管部门或委托单位同意。工作技术路线见图1。"
+      },
+      {
+        "evidence_id": "chunk_b4ffbbd48363cad1098df3e065f0e0c2",
+        "usage_policy": "answer_and_citation",
+        "file_name": "武汉市排水管道混错接改造技术规程.pdf",
+        "physical_pages": [
+          9
+        ],
+        "text": "5 资料收集、现场踏勘与混错接判定 > 5.4.2\n5.4.2 污水管道中雨水混错接区域判定，遵循以下方法：\na) 雨天时候污水管道流量明显增多，流量监测内容包括管径、水位、流速等，具体详见附录D。\nb) 在旱天和雨天分别针对污水管道节点开展水质调查，污水管道节点水质调查的基本指标包括\n氨氮、电导率、CODcr 等，水质监测方法详见附录E；若同一监测节点雨天基本指标监测值低\n于旱天数值，或管道中任意监测点旱天基本指标监测值明显低于武汉市一般污水水质特征，\n则初步判定节点上游区域污水管道有雨水接入。\nc) 在判定有雨水接入的区域，若雨天下游节点氨氮、电导率数值低于上游节点或者上下游节点\n氨氮、电导率数值接近、但是下游节点流量相对于上游节点明显增加，则初步判定相邻上下\n游节点之间存在雨水接入污水管道。污水管道中雨水混错接区域判定的技术路线见图2。"
+      }
+    ]
+  },
+  "diagnostic_outcome": "answered_needs_semantic_review",
+  "cumulative_estimated_cost_cny": 1.0327
+}

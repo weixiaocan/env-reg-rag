@@ -356,6 +356,8 @@ Invoke-RestMethod http://127.0.0.1:6333/collections/corpus_v2_live
 
 2026-10-27 新版 `corpus-b6e4850ef830` 的检索诊断见 `eval/runs/diagnostic-b6e4850ef830-v6/`：50 题、必中证据前 5 条 50/76、前 10 条 58/76。真实智谱 GLM-5.2 HTTP 诊断见 `eval/runs/diagnostic-e2e-20261027-b6-r2/`：45 回答、5 拒答，估算费用 1.69 元；G001、G009、G023、G049 等仍有内容坏例，详见 `eval/audits/diagnostic-e2e-20261027-b6-review.md`。`golden_v6.jsonl` 的 79 条证据有 19 条待人工重锚，故不能把这些数字用于严格新旧比较或正式验收。
 
+2026-10-29 的修订使用同一 b6 语料，见 `eval/golden_v7.summary.md`。`golden_v7.jsonl` 有 50 题、80 条证据，18 条仍待重锚。原始索引检索诊断 @5 为 53/77、@10 为 61/77；它直接查询 Qdrant，不经过应用层针对定义、多标准对照和图号的补充检索。真实智谱 HTTP 诊断见 `eval/runs/diagnostic-e2e-20261029-b6-v7/`：48 回答、2 拒答、trace 无缺失，本次估算 1.902488 元；G001、G009、G023 已回答。G049 的图名与表格数值可分别定位，但图内数字仍未完整转成 Canonical 文本。这些是诊断结果，48 个回答并不等于 48 题内容质量通过；新代码尚未部署到公网演示。
+
 检索（本地，`eval/runs/diagnostic-retrieval-20261024-ed28/`）：
 
 | 指标 | 结果 |
